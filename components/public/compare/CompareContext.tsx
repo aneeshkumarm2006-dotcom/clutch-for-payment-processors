@@ -61,26 +61,50 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
     }
   }, [items, hydrated]);
 
-  const value = React.useMemo<CompareContextValue>(() => {
-    const has = (slug: string) => items.some((i) => i.slug === slug);
-    return {
+  // Stable action identities (functional updates → no `items` dependency). Keeping
+  // these referentially stable is what stops consumer effects — e.g. the Compare
+  // page mirroring its `?ids=` via `setAll` — from re-firing every render and
+  // spiralling into an infinite update loop (React error #185).
+  const toggle = React.useCallback((item: CompareItem) => {
+    setItems((prev) => {
+      if (prev.some((i) => i.slug === item.slug)) {
+        return prev.filter((i) => i.slug !== item.slug);
+      }
+      if (prev.length >= COMPARE_MAX) return prev; // ignore over-cap adds
+      return [...prev, item];
+    });
+  }, []);
+
+  const remove = React.useCallback((slug: string) => {
+    setItems((prev) => prev.filter((i) => i.slug !== slug));
+  }, []);
+
+  const setAll = React.useCallback((next: CompareItem[]) => {
+    // No-op when the selection is unchanged so we never schedule a redundant
+    // state update (which would churn the value and re-run consumers needlessly).
+    setItems((prev) => {
+      const capped = next.slice(0, COMPARE_MAX);
+      const same =
+        prev.length === capped.length && prev.every((p, i) => p.slug === capped[i]?.slug);
+      return same ? prev : capped;
+    });
+  }, []);
+
+  const clear = React.useCallback(() => setItems([]), []);
+
+  const value = React.useMemo<CompareContextValue>(
+    () => ({
       items,
-      has,
+      has: (slug: string) => items.some((i) => i.slug === slug),
       isFull: items.length >= COMPARE_MAX,
       max: COMPARE_MAX,
-      toggle: (item) =>
-        setItems((prev) => {
-          if (prev.some((i) => i.slug === item.slug)) {
-            return prev.filter((i) => i.slug !== item.slug);
-          }
-          if (prev.length >= COMPARE_MAX) return prev; // ignore over-cap adds
-          return [...prev, item];
-        }),
-      remove: (slug) => setItems((prev) => prev.filter((i) => i.slug !== slug)),
-      setAll: (next) => setItems(next.slice(0, COMPARE_MAX)),
-      clear: () => setItems([]),
-    };
-  }, [items]);
+      toggle,
+      remove,
+      setAll,
+      clear,
+    }),
+    [items, toggle, remove, setAll, clear],
+  );
 
   return <CompareContext.Provider value={value}>{children}</CompareContext.Provider>;
 }

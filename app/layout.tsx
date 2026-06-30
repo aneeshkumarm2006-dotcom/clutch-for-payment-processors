@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/sonner";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const inter = Inter({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        <SmoothScroll />
         {children}
         <Toaster />
         {/* Vercel Analytics — receives the custom CTA/affiliate events fired via lib/analytics.ts#trackEvent (window.va). */}

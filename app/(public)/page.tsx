@@ -148,9 +148,9 @@ export default async function HomePage() {
             title="Popular categories"
             action={{ label: "All categories", href: "/processors" }}
           />
-          <RevealGroup className="mt-8 grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4">
+          <RevealGroup className="mt-8 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4">
             {featuredCategories.map((c) => (
-              <RevealItem key={c.slug}>
+              <RevealItem key={c.slug} className="h-full">
                 <CategoryCard category={c} />
               </RevealItem>
             ))}

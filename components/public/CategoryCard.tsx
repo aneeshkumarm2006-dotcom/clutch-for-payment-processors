@@ -22,7 +22,7 @@ export function CategoryCard({ category, className }: { category: CategoryData; 
     <Link
       href={`/category/${category.slug}`}
       className={cn(
-        "group flex flex-col gap-3 rounded-lg border bg-card p-5 transition-all",
+        "group flex h-full flex-col gap-3 rounded-lg border bg-card p-5 transition-all",
         "hover:-translate-y-0.5 hover:border-border-strong hover:shadow-sm",
         "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
         className,

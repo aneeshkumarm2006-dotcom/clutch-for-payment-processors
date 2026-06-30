@@ -68,6 +68,40 @@
     border-color: var(--border);
   }
 
+  /* Smooth scrolling site-wide. scroll-padding-top offsets the sticky h-16 (64px)
+   * navbar so anchor targets aren't hidden underneath it. Honour users who
+   * prefer reduced motion by disabling the animated jump. */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* 64px navbar + a little breathing room */
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Lenis smooth-scroll runtime styles (see components/SmoothScroll.tsx).
+   * When Lenis is active it sets scroll-behavior:auto so its inertia drives
+   * scrolling; mark scrollable inner regions with [data-lenis-prevent]. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+
   body {
     background: var(--background);
     color: var(--foreground);

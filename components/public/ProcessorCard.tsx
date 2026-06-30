@@ -59,7 +59,7 @@ export function ProcessorCard({
   return (
     <article
       className={cn(
-        "group relative flex flex-col rounded-lg border bg-card p-5 transition-all",
+        "group relative flex h-full flex-col rounded-lg border bg-card p-5 transition-all",
         "hover:-translate-y-0.5 hover:border-border-strong hover:shadow-sm",
         "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
         className,
@@ -147,7 +147,7 @@ export function ProcessorCard({
       )}
 
       {/* Footer actions */}
-      <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-border pt-4">
+      <div className="mt-auto flex flex-wrap items-center gap-3 border-t border-border pt-4">
         <div className="relative z-10">
           <AddToCompare item={{ slug, name, logo }} />
         </div>
