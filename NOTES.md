@@ -528,49 +528,6 @@
   running MongoDB — run `npm run seed:admin -- --role=editor` + `npm run dev`
   against your Mongo.
 
-## Stage 7.2 — Leaders Matrix 2×2 quadrant (Phase 2 / M7 — PRD §5, §16)
-
-### Decisions taken (resolves PRD §19 open question "Leaders Matrix default axes")
-- **Default axes:** X = **adoption** (review volume, log-scaled), Y =
-  **satisfaction** (average rating); **editor score** is the third toggle option.
-  This makes the **top-right quadrant the "Leaders"** corner (well-reviewed *and*
-  well-liked). Both axes are user-toggleable among the three metrics; picking the
-  metric already on the other axis **swaps** them (X and Y must differ or every
-  dot collapses onto the diagonal).
-- **No new data fields.** The matrix is a pure projection of existing
-  `Processor` fields (`ratingAverage` / `ratingCount` / `editorScore` /
-  `listingTier`) — nothing added to PRD §8.
-
-### Implementation details (not new data fields)
-- **`lib/leaders.ts`** projects every published processor to three metrics
-  **normalized 0..1**, reusing the *exact* per-term normalization of the
-  "Recommended" `_rankScore` blend (`processors-query.ts#ADD_FIELDS`): `rating =
-  ratingAverage/5`, `reviews = min(1, log10(ratingCount+1)/log10(1001))`, `editor
-  = editorScore/5`. To guarantee one scale with no drift, `REVIEW_LOG_CAP =
-  log10(1001)` is now **exported** from `processors-query.ts` and imported here.
-  Returning all three normalized metrics (plus raw values for the tooltip) lets
-  the client re-axis without refetching. `LEADER_AXES` + `DEFAULT_X/Y_AXIS` live
-  in this file (single source for the labels/hints). Resilient → `[]`.
-- **`components/public/LeadersMatrix.tsx`** is a client component: inline **SVG**
-  scatter (no chart dependency), quadrant dividers at the 50% mark with
-  corner labels ("Leaders" top-right, "Emerging" bottom-left, "Strong {axis}" on
-  the off-diagonals), axis titles, and a tier-colored dot per processor
-  (premier=accent, verified=success, free=ink-400) with a matching legend. Each
-  dot is a **focusable SVG `<a>`** linking to the profile (keyboard tab-through;
-  `[&:focus-visible_circle]:stroke-ring`); the tooltip is an HTML overlay
-  positioned by the active dot's fractional coords. Hover grows the dot radius via
-  a `transition-[r]` that's dropped under `motion-reduce:`. An `sr-only` mirror
-  list of links covers AT/crawlers.
-- **`app/(public)/leaders/page.tsx`** — ISR (`revalidate=1800`), breadcrumb +
-  intro copy, `generateMetadata` (reuses `settings.defaultSeo`), and
-  Breadcrumb + ItemList JSON-LD. Wired into the **Navbar** (link after Compare)
-  and **`app/sitemap.ts`** (static `/leaders` entry, priority 0.7).
-
-### Verification
-- `tsc --noEmit`, `next lint`, and `next build` all pass; `/leaders` prerenders
-  as static content. Plotting needs a running MongoDB — `npm run seed:admin` (+
-  `npm run seed`) and `npm run dev` against your Mongo to see real dots.
-
 ## Stage 7.3 — Pretty compare URLs (Phase 2 / M7 — PRD §9.4, §13)
 
 ### Decisions taken (resolves PRD §19 "which compare pairs are popular")

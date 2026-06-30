@@ -22,7 +22,6 @@ import type { CategoryData } from "@/lib/serialize";
 const NAV_LINKS = [
   { label: "Processors", href: "/processors" },
   { label: "Compare", href: "/compare" },
-  { label: "Leaders", href: "/leaders" },
   { label: "Methodology", href: "/methodology" },
   { label: "Blog", href: "/blog" },
 ];

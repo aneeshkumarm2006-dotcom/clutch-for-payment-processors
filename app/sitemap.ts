@@ -14,7 +14,6 @@ export const revalidate = 3600;
 const STATIC_PATHS: { path: string; priority: number }[] = [
   { path: "/", priority: 1 },
   { path: "/processors", priority: 0.9 },
-  { path: "/leaders", priority: 0.7 },
   { path: "/blog", priority: 0.7 },
   { path: "/for-processors", priority: 0.6 },
   { path: "/methodology", priority: 0.5 },
