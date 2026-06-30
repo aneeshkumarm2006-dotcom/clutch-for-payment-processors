@@ -2,7 +2,7 @@
 
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { hasActiveFilters } from "@/lib/processors-query";
+import { hasActiveFilters } from "@/lib/directory-shared";
 import { FACET_GROUPS, facetOptionLabel } from "@/lib/directory-facets";
 import { useFilters } from "@/components/public/directory/use-filters";
 

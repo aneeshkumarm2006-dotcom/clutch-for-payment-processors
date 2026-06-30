@@ -1,6 +1,6 @@
 "use client";
 
-import { SORT_OPTIONS } from "@/lib/processors-query";
+import { SORT_OPTIONS } from "@/lib/directory-shared";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useFilters } from "@/components/public/directory/use-filters";
 

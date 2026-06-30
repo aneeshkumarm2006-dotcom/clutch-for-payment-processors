@@ -8,7 +8,7 @@ import {
   DEFAULT_Y_AXIS,
   type LeaderAxis,
   type LeaderPoint,
-} from "@/lib/leaders";
+} from "@/lib/leaders-shared";
 
 /**
  * LeadersMatrix (Phase 2 / Stage 7.2 — PRD §5, §16) — accessible 2×2 quadrant

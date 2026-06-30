@@ -2,13 +2,12 @@
 
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { MIN_RATING_OPTIONS } from "@/lib/processors-query";
+import { MIN_RATING_OPTIONS, hasActiveFilters } from "@/lib/directory-shared";
 import { FACET_GROUPS, type FacetGroup } from "@/lib/directory-facets";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { useFilters } from "@/components/public/directory/use-filters";
-import { hasActiveFilters } from "@/lib/processors-query";
 
 /**
  * FilterRail (DESIGN §6.3 / PRD §9.2). Every facet drives a URL query param via

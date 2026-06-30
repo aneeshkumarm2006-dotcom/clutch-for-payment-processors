@@ -7,7 +7,7 @@ import {
   REGIONS,
 } from "@/lib/enums";
 import { humanizeEnum } from "@/lib/labels";
-import { FEE_BUCKETS, RATE_BUCKETS } from "@/lib/processors-query";
+import { FEE_BUCKETS, RATE_BUCKETS } from "@/lib/directory-shared";
 
 /**
  * FilterRail facet config (PRD §9.2 / DESIGN §6.3). Shared by the rail and the

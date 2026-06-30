@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { parseDirectoryParams, type DirectoryParams } from "@/lib/processors-query";
+import { parseDirectoryParams, type DirectoryParams } from "@/lib/directory-shared";
 
 /**
  * Client hook backing the directory filter controls (TODO §3.4 — query-param

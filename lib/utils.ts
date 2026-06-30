@@ -1,5 +1,34 @@
 import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { extendTailwindMerge } from "tailwind-merge";
+
+/**
+ * tailwind-merge configured for our custom type scale (DESIGN §3.1). Without this,
+ * named font-size utilities like `text-small`/`text-h3` are unknown to tailwind-merge
+ * and get misgrouped with text-color utilities (e.g. `text-primary-foreground`),
+ * so the color is wrongly dropped as a "conflict" — producing black-on-black buttons.
+ */
+const twMerge = extendTailwindMerge({
+  extend: {
+    classGroups: {
+      "font-size": [
+        {
+          text: [
+            "display",
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "body-lg",
+            "body",
+            "small",
+            "label",
+            "micro",
+          ],
+        },
+      ],
+    },
+  },
+});
 
 /** Merge Tailwind class lists, resolving conflicts. Used by all shadcn/ui components. */
 export function cn(...inputs: ClassValue[]) {
