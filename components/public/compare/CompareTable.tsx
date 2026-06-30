@@ -184,7 +184,7 @@ export function CompareTable({
           <SectionRow title="Get started" span={processors.length} />
           <tr>
             <th scope="row" className="sticky left-0 z-10 bg-card p-3 text-left align-top">
-              <span className="text-secondary">Visit / profile</span>
+              <span className="text-muted-foreground">Visit / profile</span>
             </th>
             {processors.map((p) => (
               <td key={p.id} className="border-l border-ink-150 p-3 align-top dark:border-ink-800">
@@ -244,7 +244,7 @@ function ValueSection({
         <tr key={row.label} className="border-t border-ink-150 dark:border-ink-800">
           <th
             scope="row"
-            className="sticky left-0 z-10 bg-card p-3 text-left font-normal text-secondary"
+            className="sticky left-0 z-10 bg-card p-3 text-left font-normal text-muted-foreground"
           >
             {row.label}
           </th>
@@ -281,7 +281,7 @@ function MatrixSection({
         <tr key={key} className="border-t border-ink-150 dark:border-ink-800">
           <th
             scope="row"
-            className="sticky left-0 z-10 bg-card p-3 text-left font-normal text-secondary"
+            className="sticky left-0 z-10 bg-card p-3 text-left font-normal text-muted-foreground"
           >
             {humanizeEnum(key)}
           </th>
