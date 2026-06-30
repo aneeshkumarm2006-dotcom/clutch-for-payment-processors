@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -10,11 +11,15 @@ import { useCompare } from "@/components/public/compare/CompareContext";
 /**
  * Global compare bar (DESIGN §5.4 slide-in). Appears when ≥1 processor is
  * selected; the "Compare" CTA links to `/compare?ids=…` (the full matrix page is
- * built in M5). Rendered once in the public layout so it's available site-wide.
+ * built in M5). Rendered once in the public layout but only shown on the
+ * `/compare` route so it doesn't overlay content pages (blog, articles, etc.).
  */
 export function CompareBar() {
   const { items, remove, clear } = useCompare();
-  if (items.length === 0) return null;
+  const pathname = usePathname();
+
+  const onComparePage = pathname === "/compare" || pathname.startsWith("/compare/");
+  if (!onComparePage || items.length === 0) return null;
 
   const ids = items.map((i) => i.slug).join(",");
   const canCompare = items.length >= 2;
