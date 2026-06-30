@@ -3,9 +3,10 @@
 import * as React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Loader2, Plus, Search, SlidersHorizontal } from "lucide-react";
+import { Check, Loader2, Plus, Search, SlidersHorizontal } from "lucide-react";
 import { COMPARE_MAX, useCompare } from "@/components/public/compare/CompareContext";
 import { CompareTable } from "@/components/public/compare/CompareTable";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -55,7 +56,7 @@ export function CompareView({ processors }: { processors: ProcessorDetailData[] 
             ? "Add processors to start comparing."
             : `Comparing ${processors.length} of ${COMPARE_MAX}.`}
         </p>
-        <ComparePicker onAdd={add} excludeSlugs={slugs} disabled={isFull} />
+        <ComparePicker onAdd={add} onRemove={remove} selectedSlugs={slugs} isFull={isFull} />
       </div>
 
       {enough ? (
@@ -76,22 +77,29 @@ export function CompareView({ processors }: { processors: ProcessorDetailData[] 
   );
 }
 
-/** Searchable add-a-column picker. Queries the public `GET /api/processors?q=`. */
+/**
+ * Searchable add-a-column picker. Queries the public `GET /api/processors?q=`.
+ * Each result is a toggle: a check marks processors already in the comparison
+ * (active); clicking adds an inactive one or removes an active one. The popover
+ * stays open so several can be toggled in one pass.
+ */
 function ComparePicker({
   onAdd,
-  excludeSlugs,
-  disabled,
+  onRemove,
+  selectedSlugs,
+  isFull,
 }: {
   onAdd: (slug: string) => void;
-  excludeSlugs: string[];
-  disabled?: boolean;
+  onRemove: (slug: string) => void;
+  selectedSlugs: string[];
+  isFull?: boolean;
 }) {
   const [open, setOpen] = React.useState(false);
   const [query, setQuery] = React.useState("");
   const [results, setResults] = React.useState<ProcessorCardData[]>([]);
   const [loading, setLoading] = React.useState(false);
 
-  const exclude = React.useMemo(() => new Set(excludeSlugs), [excludeSlugs]);
+  const selected = React.useMemo(() => new Set(selectedSlugs), [selectedSlugs]);
 
   React.useEffect(() => {
     if (!open) return;
@@ -116,12 +124,10 @@ function ComparePicker({
     };
   }, [query, open]);
 
-  const visible = results.filter((r) => !exclude.has(r.slug));
-
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant="secondary" size="sm" disabled={disabled}>
+        <Button variant="secondary" size="sm">
           <Plus className="size-4" />
           Add processor
         </Button>
@@ -147,39 +153,52 @@ function ComparePicker({
             <p className="flex items-center justify-center gap-2 py-6 text-small text-muted-foreground">
               <Loader2 className="size-4 animate-spin" /> Searching…
             </p>
-          ) : visible.length === 0 ? (
+          ) : results.length === 0 ? (
             <p className="py-6 text-center text-small text-muted-foreground">No processors found.</p>
           ) : (
-            visible.map((p) => (
-              <button
-                key={p.slug}
-                type="button"
-                onClick={() => {
-                  onAdd(p.slug);
-                  setOpen(false);
-                  setQuery("");
-                }}
-                className="flex w-full items-center gap-2.5 rounded px-2 py-2 text-left hover:bg-ink-100 dark:hover:bg-ink-800"
-              >
-                <span className="flex size-7 shrink-0 items-center justify-center overflow-hidden rounded border bg-ink-0">
-                  {p.logo ? (
-                    <Image
-                      src={p.logo}
-                      alt=""
-                      width={28}
-                      height={28}
-                      className="size-7 object-contain p-1"
-                      unoptimized
-                    />
-                  ) : (
-                    <span className="text-small font-semibold text-ink-400">
-                      {p.name.charAt(0).toUpperCase()}
-                    </span>
+            results.map((p) => {
+              const active = selected.has(p.slug);
+              const blockAdd = !active && isFull;
+              return (
+                <button
+                  key={p.slug}
+                  type="button"
+                  disabled={blockAdd}
+                  aria-pressed={active}
+                  title={blockAdd ? `Remove a processor first (max ${COMPARE_MAX})` : undefined}
+                  onClick={() => (active ? onRemove(p.slug) : onAdd(p.slug))}
+                  className={cn(
+                    "flex w-full items-center gap-2.5 rounded px-2 py-2 text-left",
+                    blockAdd
+                      ? "cursor-not-allowed opacity-40"
+                      : "hover:bg-ink-100 dark:hover:bg-ink-800",
+                    active && !blockAdd && "bg-ink-50 dark:bg-ink-900",
                   )}
-                </span>
-                <span className="min-w-0 flex-1 truncate text-small text-foreground">{p.name}</span>
-              </button>
-            ))
+                >
+                  <span className="flex size-7 shrink-0 items-center justify-center overflow-hidden rounded border bg-ink-0">
+                    {p.logo ? (
+                      <Image
+                        src={p.logo}
+                        alt=""
+                        width={28}
+                        height={28}
+                        className="size-7 object-contain p-1"
+                        unoptimized
+                      />
+                    ) : (
+                      <span className="text-small font-semibold text-ink-400">
+                        {p.name.charAt(0).toUpperCase()}
+                      </span>
+                    )}
+                  </span>
+                  <span className="min-w-0 flex-1 truncate text-small text-foreground">{p.name}</span>
+                  {active && (
+                    <Check className="size-4 shrink-0 text-accent" aria-hidden />
+                  )}
+                  <span className="sr-only">{active ? "In comparison" : "Not in comparison"}</span>
+                </button>
+              );
+            })
           )}
         </div>
       </PopoverContent>
