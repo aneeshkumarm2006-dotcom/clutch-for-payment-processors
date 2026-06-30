@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, Clock } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import { getAllPublishedBlogSlugs, getBlogPostBySlug } from "@/lib/public-data";
 import { absoluteUrl, buildMetadata, breadcrumbJsonLd, articleJsonLd } from "@/lib/seo";
+import { injectKeywordLinks } from "@/lib/keyword-links";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { RichText } from "@/components/public/RichText";
+import { ViewPing } from "@/components/public/ViewPing";
 import { Badge } from "@/components/ui/badge";
 import { BlogCard } from "@/components/public/BlogCard";
 import { ProcessorCard } from "@/components/public/ProcessorCard";
@@ -47,9 +49,15 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const { post, relatedProcessors, morePosts } = data;
 
   const canonical = absoluteUrl(`/blog/${post.slug}`);
+  // Turn keyword occurrences in the body into backlinks at render time (kept out
+  // of the stored body, so editing keywords reflects without re-saving content).
+  const content = injectKeywordLinks(post.content, post.keywords, {
+    firstOnly: post.linkFirstOccurrenceOnly,
+  });
 
   return (
     <article className="mx-auto max-w-content px-4 py-10 lg:px-6">
+      <ViewPing id={post.id} />
       <JsonLd
         data={[
           breadcrumbJsonLd([
@@ -95,6 +103,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
               </span>
             )}
+            {post.readingTimeMinutes ? (
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="size-4" aria-hidden />
+                {post.readingTimeMinutes} min read
+              </span>
+            ) : null}
           </div>
           <ShareButtons url={canonical} title={post.title} />
         </div>
@@ -115,7 +129,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         </div>
       )}
 
-      <RichText html={post.content} className="mx-auto mt-10 max-w-prose" />
+      <RichText html={content} className="mx-auto mt-10 max-w-prose" />
 
       {/* Related processors */}
       {relatedProcessors.length > 0 && (

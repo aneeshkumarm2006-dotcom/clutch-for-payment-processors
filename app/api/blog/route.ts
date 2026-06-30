@@ -27,7 +27,7 @@ export async function GET() {
 
     const items = await BlogPost.find({ status: "published" })
       .sort({ publishedAt: -1, createdAt: -1 })
-      .select("title slug excerpt coverImage author tags publishedAt createdAt")
+      .select("title slug excerpt coverImage author tags publishedAt createdAt readingTimeMinutes")
       .lean();
     return json({ items: items.map(toBlogCardData) });
   } catch (err) {

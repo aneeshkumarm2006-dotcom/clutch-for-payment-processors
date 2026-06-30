@@ -169,6 +169,21 @@ export type SubmissionStatus = (typeof SUBMISSION_STATUSES)[number];
 export const BLOG_STATUSES = ["draft", "published"] as const;
 export type BlogStatus = (typeof BLOG_STATUSES)[number];
 
+/** SEO post templates offered in the /seoteam editor (payment-tailored skeletons). */
+export const BLOG_TEMPLATES = [
+  "how-to",
+  "listicle",
+  "comparison",
+  "review",
+  "news",
+  "generic",
+] as const;
+export type BlogTemplate = (typeof BLOG_TEMPLATES)[number];
+
+/** `rel` options for a keyword backlink (controls the injected anchor's rel attribute). */
+export const KEYWORD_RELS = ["dofollow", "nofollow", "sponsored"] as const;
+export type KeywordRel = (typeof KEYWORD_RELS)[number];
+
 // ---------------------------------------------------------------------------
 // User (PRD §8.7)
 // ---------------------------------------------------------------------------

@@ -73,6 +73,12 @@ export function BlogCard({ post, className }: { post: BlogCardData; className?: 
               <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
             </>
           )}
+          {post.readingTimeMinutes ? (
+            <>
+              <span aria-hidden>·</span>
+              <span>{post.readingTimeMinutes} min read</span>
+            </>
+          ) : null}
         </div>
       </div>
     </article>

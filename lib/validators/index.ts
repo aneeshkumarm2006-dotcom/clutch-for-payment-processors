@@ -7,5 +7,6 @@ export * from "./review";
 export * from "./lead";
 export * from "./submission";
 export * from "./blogPost";
+export * from "./seoPost";
 export * from "./user";
 export * from "./siteSettings";

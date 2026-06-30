@@ -358,7 +358,7 @@ export async function getPublishedBlogPosts(
         .sort({ publishedAt: -1, createdAt: -1 })
         .skip((pageNum - 1) * limit)
         .limit(limit)
-        .select("title slug excerpt coverImage author tags publishedAt createdAt")
+        .select("title slug excerpt coverImage author tags publishedAt createdAt readingTimeMinutes")
         .lean(),
       BlogPost.countDocuments(filter),
     ]);
@@ -406,7 +406,7 @@ export async function getBlogPostBySlug(slug: string): Promise<{
     const moreDocs = await BlogPost.find({ status: "published", _id: { $ne: doc._id } })
       .sort({ publishedAt: -1, createdAt: -1 })
       .limit(3)
-      .select("title slug excerpt coverImage author tags publishedAt createdAt")
+      .select("title slug excerpt coverImage author tags publishedAt createdAt readingTimeMinutes")
       .lean();
 
     return {
@@ -428,7 +428,7 @@ export async function getRecentBlogPosts(limit = 3): Promise<BlogCardData[]> {
     const docs = await BlogPost.find({ status: "published" })
       .sort({ publishedAt: -1, createdAt: -1 })
       .limit(limit)
-      .select("title slug excerpt coverImage author tags publishedAt createdAt")
+      .select("title slug excerpt coverImage author tags publishedAt createdAt readingTimeMinutes")
       .lean();
     return docs.map(toBlogCardData);
   } catch (err) {

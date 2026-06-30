@@ -1,9 +1,11 @@
 import type {
   BlogStatus,
+  BlogTemplate,
   CompanySize,
   ContractType,
   Feature,
   Integration,
+  KeywordRel,
   LeadStatus,
   ListingTier,
   MonthlyVolume,
@@ -450,11 +452,25 @@ export interface BlogCardData {
   author: string;
   tags: string[];
   publishedAt?: string;
+  /** Estimated minutes to read — shown on cards when present (optional). */
+  readingTimeMinutes?: number;
+}
+
+/** A keyword backlink as it crosses to the client (plain, serializable). */
+export interface KeywordLinkData {
+  keyword: string;
+  url: string;
+  rel: KeywordRel;
 }
 
 export interface BlogPostData extends BlogCardData {
   content: string;
   seo: { metaTitle?: string; metaDescription?: string; ogImage?: string };
+  /** Keyword backlinks injected into the body on the public page. */
+  keywords: KeywordLinkData[];
+  /** Link only the first occurrence of each keyword vs every occurrence. */
+  linkFirstOccurrenceOnly: boolean;
+  views: number;
 }
 
 export interface AdminBlogData {
@@ -468,6 +484,33 @@ export interface AdminBlogData {
   updatedAt: string;
 }
 
+/** Dashboard table row for /seoteam (display + monitoring fields; no body). */
+export interface SeoPostRow {
+  id: string;
+  title: string;
+  slug: string;
+  status: BlogStatus;
+  template: BlogTemplate;
+  tags: string[];
+  views: number;
+  readingTimeMinutes?: number;
+  publishedAt?: string;
+  updatedAt: string;
+}
+
+/** Coalesce a stored keyword array (lean docs skip schema defaults) to plain rows. */
+function toKeywordLinks(v: unknown): KeywordLinkData[] {
+  if (!Array.isArray(v)) return [];
+  return v
+    .map((k) => k as Record<string, unknown>)
+    .filter((k) => k && typeof k === "object" && k.keyword && k.url)
+    .map((k) => ({
+      keyword: String(k.keyword),
+      url: String(k.url),
+      rel: (k.rel as KeywordRel) ?? "dofollow",
+    }));
+}
+
 /** Index/grid + related-post projection (omits the body). */
 export function toBlogCardData(doc: Lean): BlogCardData {
   return {
@@ -479,10 +522,11 @@ export function toBlogCardData(doc: Lean): BlogCardData {
     author: String(doc.author ?? ""),
     tags: strArr(doc.tags),
     publishedAt: isoOrUndef(doc.publishedAt) ?? isoOrUndef(doc.createdAt),
+    readingTimeMinutes: num(doc.readingTimeMinutes),
   };
 }
 
-/** Full post (adds rendered HTML content + SEO block) for the post page. */
+/** Full post (adds rendered HTML content + SEO block + keyword backlinks) for the post page. */
 export function toBlogPostData(doc: Lean): BlogPostData {
   const rawSeo = (doc.seo ?? {}) as Record<string, unknown>;
   return {
@@ -493,6 +537,10 @@ export function toBlogPostData(doc: Lean): BlogPostData {
       metaDescription: str(rawSeo.metaDescription),
       ogImage: str(rawSeo.ogImage),
     },
+    keywords: toKeywordLinks(doc.keywords),
+    // Lean reads skip schema defaults on pre-existing rows — default missing → true.
+    linkFirstOccurrenceOnly: doc.linkFirstOccurrenceOnly !== false,
+    views: Number(doc.views ?? 0),
   };
 }
 
@@ -505,6 +553,22 @@ export function toAdminBlogData(doc: Lean): AdminBlogData {
     author: String(doc.author ?? ""),
     status: (doc.status as BlogStatus) ?? "draft",
     tags: strArr(doc.tags),
+    publishedAt: isoOrUndef(doc.publishedAt),
+    updatedAt: iso(doc.updatedAt),
+  };
+}
+
+/** /seoteam dashboard row (display + monitoring; no body). */
+export function toSeoPostRow(doc: Lean): SeoPostRow {
+  return {
+    id: String(doc._id),
+    title: String(doc.title ?? ""),
+    slug: String(doc.slug ?? ""),
+    status: (doc.status as BlogStatus) ?? "draft",
+    template: (doc.template as BlogTemplate) ?? "generic",
+    tags: strArr(doc.tags),
+    views: Number(doc.views ?? 0),
+    readingTimeMinutes: num(doc.readingTimeMinutes),
     publishedAt: isoOrUndef(doc.publishedAt),
     updatedAt: iso(doc.updatedAt),
   };

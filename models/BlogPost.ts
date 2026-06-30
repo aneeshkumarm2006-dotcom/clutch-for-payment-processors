@@ -1,7 +1,30 @@
 import { Schema, model, models, type Model, type Types } from "mongoose";
-import { BLOG_STATUSES, type BlogStatus } from "@/lib/enums";
+import {
+  BLOG_STATUSES,
+  BLOG_TEMPLATES,
+  KEYWORD_RELS,
+  type BlogStatus,
+  type BlogTemplate,
+  type KeywordRel,
+} from "@/lib/enums";
 import { SeoSchema, type ISeo } from "./shared";
 import { autoSlugFrom } from "./slug";
+
+/** One keyword backlink: an occurrence of `keyword` in the body links to `url` (PRD §SEO). */
+export interface IKeywordLink {
+  keyword: string;
+  url: string;
+  rel: KeywordRel;
+}
+
+const KeywordLinkSchema = new Schema<IKeywordLink>(
+  {
+    keyword: { type: String, required: true, trim: true },
+    url: { type: String, required: true, trim: true },
+    rel: { type: String, enum: KEYWORD_RELS, default: "dofollow" },
+  },
+  { _id: false },
+);
 
 /** BlogPost (PRD §8.6). Content stored as rich HTML/MDX from the admin Tiptap editor. */
 export interface IBlogPost {
@@ -16,6 +39,16 @@ export interface IBlogPost {
   status: BlogStatus;
   publishedAt?: Date;
   seo: ISeo;
+  /** SEO template the post was created from (drives the editor's heading skeleton). */
+  template: BlogTemplate;
+  /** Keyword backlinks turned into anchors in the body on the public page (the SEO team's backlinks). */
+  keywords: IKeywordLink[];
+  /** Link only the first occurrence of each keyword (true, default) vs every occurrence. */
+  linkFirstOccurrenceOnly: boolean;
+  /** Read counter, incremented best-effort on each public read (monitoring). */
+  views: number;
+  /** Estimated reading time in minutes, derived from the body word count on save. */
+  readingTimeMinutes?: number;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -33,6 +66,11 @@ const BlogPostSchema = new Schema<IBlogPost>(
     status: { type: String, enum: BLOG_STATUSES, default: "draft" },
     publishedAt: { type: Date },
     seo: { type: SeoSchema, default: () => ({}) },
+    template: { type: String, enum: BLOG_TEMPLATES, default: "generic" },
+    keywords: { type: [KeywordLinkSchema], default: [] },
+    linkFirstOccurrenceOnly: { type: Boolean, default: true },
+    views: { type: Number, default: 0 },
+    readingTimeMinutes: { type: Number },
   },
   { timestamps: true },
 );
