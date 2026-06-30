@@ -187,7 +187,10 @@ export function CompareTable({
               <span className="text-muted-foreground">Visit / profile</span>
             </th>
             {processors.map((p) => (
-              <td key={p.id} className="border-l border-ink-150 p-3 align-top dark:border-ink-800">
+              <td
+              key={p.id}
+              className="border-l border-ink-150 bg-card p-3 align-top dark:border-ink-800"
+            >
                 <div className="flex flex-col gap-2">
                   <VisitWebsiteButton
                     website={p.website}
@@ -251,7 +254,7 @@ function ValueSection({
           {processors.map((p) => (
             <td
               key={p.id}
-              className="border-l border-ink-150 p-3 tabular-nums text-foreground dark:border-ink-800"
+              className="border-l border-ink-150 bg-card p-3 tabular-nums text-foreground dark:border-ink-800"
             >
               {row.value(p)}
             </td>
@@ -288,7 +291,7 @@ function MatrixSection({
           {processors.map((p) => (
             <td
               key={p.id}
-              className="border-l border-ink-150 p-3 dark:border-ink-800"
+              className="border-l border-ink-150 bg-card p-3 dark:border-ink-800"
             >
               {has(p, key) ? (
                 <>
