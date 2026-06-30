@@ -55,6 +55,12 @@ export interface IProcessorSubRatings {
   reliability: number;
 }
 
+/** Auto-derived neutral keyword chip (PRD §8.1 — recomputed from approved reviews). */
+export interface IProcessorTopMention {
+  keyword: string;
+  count: number;
+}
+
 export interface IProcessor {
   name: string;
   slug: string;
@@ -100,6 +106,7 @@ export interface IProcessor {
   ratingAverage: number;
   ratingCount: number;
   subRatings: IProcessorSubRatings;
+  topMentions: IProcessorTopMention[];
   editorScore?: number;
 
   // Merchandising / ranking
@@ -146,6 +153,16 @@ const SubRatingsSchema = new Schema<IProcessorSubRatings>(
   { _id: false },
 );
 
+// Denormalized "Top mentions" chips (PRD §8.1) — recomputed by lib/ratings.ts
+// from approved review text; never hand-edited.
+const TopMentionSchema = new Schema<IProcessorTopMention>(
+  {
+    keyword: { type: String, required: true, trim: true },
+    count: { type: Number, required: true, min: 0 },
+  },
+  { _id: false },
+);
+
 const ProcessorSchema = new Schema<IProcessor>(
   {
     name: { type: String, required: true, trim: true },
@@ -187,6 +204,7 @@ const ProcessorSchema = new Schema<IProcessor>(
     ratingAverage: { type: Number, default: 0, min: 0, max: 5 },
     ratingCount: { type: Number, default: 0, min: 0 },
     subRatings: { type: SubRatingsSchema, default: () => ({}) },
+    topMentions: { type: [TopMentionSchema], default: [] },
     editorScore: { type: Number, min: 0, max: 5 },
 
     listingTier: { type: String, enum: LISTING_TIERS, default: "free" },

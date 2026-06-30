@@ -3,6 +3,7 @@ import { connectToDatabase } from "@/lib/db";
 import { Processor } from "@/models/Processor";
 import { Review } from "@/models/Review";
 import { SUB_RATING_KEYS } from "@/lib/enums";
+import { computeTopMentionsForProcessor, type TopMention } from "@/lib/top-mentions";
 import type { IProcessorSubRatings } from "@/models/Processor";
 
 /**
@@ -12,9 +13,12 @@ import type { IProcessorSubRatings } from "@/models/Processor";
  *   ratingAverage · ratingCount · subRatings
  *
  * are computed ONLY here, from the processor's **approved** reviews, and
- * persisted back onto the Processor document. They are NEVER edited by hand
- * (the admin form shows them read-only). Call `recomputeProcessorRatings`
- * after any event that changes the approved-review set:
+ * persisted back onto the Processor document. The same pass also recomputes the
+ * denormalized `topMentions` chips (PRD §8.1 / §9.3, via `lib/top-mentions.ts`)
+ * so they fire on the exact same triggers and can never drift. They are NEVER
+ * edited by hand (the admin form shows them read-only). Call
+ * `recomputeProcessorRatings` after any event that changes the approved-review
+ * set:
  *
  *   - a review is approved        (Stage 4 moderation)
  *   - an approved review is rejected / deleted
@@ -41,6 +45,7 @@ export interface RecomputedRatings {
   ratingAverage: number;
   ratingCount: number;
   subRatings: IProcessorSubRatings;
+  topMentions: TopMention[];
 }
 
 /**
@@ -84,6 +89,12 @@ export async function recomputeProcessorRatings(
     },
   ]);
 
+  // Neutral keyword chips from the same approved-review set (PRD §8.1 / §9.3).
+  // Skipped (→ []) when there are no approved reviews, so the chips clear in
+  // lockstep with the aggregate.
+  const topMentions =
+    agg && agg.ratingCount > 0 ? await computeTopMentionsForProcessor(_id) : [];
+
   const result: RecomputedRatings =
     agg && agg.ratingCount > 0
       ? {
@@ -93,8 +104,9 @@ export async function recomputeProcessorRatings(
             acc[key] = round1(agg[key] ?? 0);
             return acc;
           }, {} as IProcessorSubRatings),
+          topMentions,
         }
-      : { ratingAverage: 0, ratingCount: 0, subRatings: { ...ZERO_SUB_RATINGS } };
+      : { ratingAverage: 0, ratingCount: 0, subRatings: { ...ZERO_SUB_RATINGS }, topMentions };
 
   await Processor.updateOne({ _id }, { $set: result });
 

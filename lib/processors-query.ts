@@ -232,7 +232,9 @@ function buildBucketMatch(p: DirectoryParams): Record<string, unknown> | null {
 
 // Normalizer for the log-scaled review-count term: log10(1000+1) ≈ 3.0004, so a
 // processor with ~1000 reviews maxes the term at ~1.0 (capped at 1 regardless).
-const REVIEW_LOG_CAP = Math.log10(1001);
+// Exported so the Leaders Matrix (`lib/leaders.ts`) plots the review axis on the
+// exact same log scale the "Recommended" sort uses — one scale, no drift.
+export const REVIEW_LOG_CAP = Math.log10(1001);
 
 /**
  * Computed ranking fields. The "Recommended" default sort (PRD §9.2 — "must be

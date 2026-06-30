@@ -3,7 +3,8 @@ import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { CompareView } from "@/components/public/compare/CompareView";
 import { getProcessorsBySlugs } from "@/lib/public-data";
 import { COMPARE_MAX } from "@/components/public/compare/CompareContext";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, absoluteUrl } from "@/lib/seo";
+import { prettyComparePath } from "@/lib/compare-pairs";
 
 /**
  * Compare `/compare?ids=stripe,paypal,square` (PRD §9.4).
@@ -42,10 +43,17 @@ export async function generateMetadata({
       ? `Side-by-side comparison of ${names.join(", ")} — pricing, payment methods, integrations, features, and company facts.`
       : "Compare payment processors side by side — pricing, payment methods, integrations, and features.";
 
+  const base = buildMetadata({ title, description, path: "/compare" });
+  // When the selected slugs match a curated popular pair, point the canonical at
+  // the pretty, indexable route (`/compare/stripe-vs-paypal`) so link equity lands
+  // there; otherwise the canonical stays the bare `/compare` (Stage 7.3, PRD §9.4).
+  const pretty = prettyComparePath(slugs);
+
   return {
-    ...buildMetadata({ title, description, path: "/compare" }),
-    // Query-driven combinatorial URLs shouldn't be indexed (PRD §9.4 — pretty
-    // routes are Phase 2). Keep crawlers on the canonical pages.
+    ...base,
+    ...(pretty ? { alternates: { canonical: absoluteUrl(pretty) } } : {}),
+    // Query-driven combinatorial URLs shouldn't be indexed. The page stays a
+    // working fallback/builder; crawlers follow the canonical to the real page.
     robots: { index: false, follow: true },
   };
 }

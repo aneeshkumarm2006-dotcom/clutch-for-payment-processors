@@ -3,10 +3,9 @@
 import * as React from "react";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
-import type { ReviewCardData } from "@/lib/serialize";
+import type { ReviewCardData, SubRatingsData, TopMentionData } from "@/lib/serialize";
 import type { ReviewsResult, ReviewSort } from "@/lib/public-data";
-import type { SubRatingsData } from "@/lib/serialize";
-import { cn } from "@/lib/utils";
+import { cn, formatCount } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
@@ -50,6 +49,7 @@ export function ReviewsSection({
   average,
   count,
   subRatings,
+  topMentions,
   industries,
   initial,
 }: {
@@ -59,6 +59,7 @@ export function ReviewsSection({
   average: number;
   count: number;
   subRatings: SubRatingsData;
+  topMentions: TopMentionData[];
   industries: string[];
   initial: ReviewsResult;
 }) {
@@ -71,6 +72,9 @@ export function ReviewsSection({
   const [industry, setIndustry] = React.useState(ALL_INDUSTRIES);
   const [verifiedOnly, setVerifiedOnly] = React.useState(false);
   const [minRating, setMinRating] = React.useState("0");
+  // Active "Top mentions" chip filter (empty = none). Clicking a chip narrows the
+  // list to approved reviews that mention that topic (server-side, same dictionary).
+  const [mention, setMention] = React.useState("");
 
   const [loading, setLoading] = React.useState(false);
   const firstRender = React.useRef(true);
@@ -87,6 +91,7 @@ export function ReviewsSection({
         if (industry !== ALL_INDUSTRIES) sp.set("industry", industry);
         if (verifiedOnly) sp.set("verifiedOnly", "true");
         if (minRating !== "0") sp.set("minRating", minRating);
+        if (mention) sp.set("mention", mention);
 
         const res = await fetch(`/api/reviews?${sp.toString()}`);
         if (!res.ok) throw new Error("failed");
@@ -101,7 +106,7 @@ export function ReviewsSection({
         setLoading(false);
       }
     },
-    [processorId, sort, industry, verifiedOnly, minRating],
+    [processorId, sort, industry, verifiedOnly, minRating, mention],
   );
 
   // Refetch from page 1 whenever a filter/sort changes (skip the mount — page 1
@@ -113,7 +118,7 @@ export function ReviewsSection({
     }
     void load(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sort, industry, verifiedOnly, minRating]);
+  }, [sort, industry, verifiedOnly, minRating, mention]);
 
   const hasReviews = count > 0;
 
@@ -123,6 +128,47 @@ export function ReviewsSection({
       {hasReviews ? (
         <div className="rounded-lg border border-border bg-card p-6">
           <RatingBreakdown average={average} count={count} subRatings={subRatings} />
+
+          {/* Top mentions (DESIGN §6.4) — neutral, auto-derived topic chips with
+              counts. Clicking one filters the list to reviews mentioning it. */}
+          {topMentions.length > 0 && (
+            <div className="mt-6 border-t border-border pt-5">
+              <p className="text-label uppercase text-ink-500">Top mentions</p>
+              <div className="mt-2.5 flex flex-wrap gap-2">
+                {topMentions.map((m) => {
+                  const active = mention === m.keyword;
+                  return (
+                    <button
+                      key={m.keyword}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => setMention(active ? "" : m.keyword)}
+                      className={cn(
+                        "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-small font-medium transition-colors",
+                        active
+                          ? "border-accent bg-accent-subtle text-accent-subtle-foreground"
+                          : "border-border bg-card text-ink-700 hover:border-border-strong hover:text-foreground dark:text-ink-300",
+                      )}
+                    >
+                      {m.keyword}
+                      <span className="text-micro tabular-nums text-muted-foreground">
+                        {formatCount(m.count)}
+                      </span>
+                    </button>
+                  );
+                })}
+                {mention && (
+                  <button
+                    type="button"
+                    onClick={() => setMention("")}
+                    className="inline-flex items-center px-2 py-1 text-small font-medium text-accent hover:underline"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         <p className="text-body text-muted-foreground">

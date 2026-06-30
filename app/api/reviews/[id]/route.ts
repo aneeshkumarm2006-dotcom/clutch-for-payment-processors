@@ -2,6 +2,7 @@ import { connectToDatabase } from "@/lib/db";
 import { Review } from "@/models";
 import { reviewModeration } from "@/lib/validators";
 import { ApiError, handleApiError, json, requireAdmin } from "@/lib/api";
+import { logAudit } from "@/lib/audit";
 import { recomputeProcessorRatings } from "@/lib/ratings";
 import { toAdminReviewData } from "@/lib/serialize";
 
@@ -34,7 +35,7 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
 
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Review not found.");
 
@@ -67,6 +68,15 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
       await recomputeProcessorRatings(String(processor?._id ?? updated.processor));
     }
 
+    void logAudit({
+      actor: session.user.id,
+      action: "moderate",
+      entity: "review",
+      entityId: params.id,
+      entityLabel: updated.title,
+      after: { status: updated.status, isVerified: updated.isVerified },
+    });
+
     return json(toAdminReviewData(updated));
   } catch (err) {
     return handleApiError(err);
@@ -75,7 +85,7 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
 
 export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Review not found.");
 
@@ -86,6 +96,14 @@ export async function DELETE(_req: Request, { params }: { params: { id: string }
     if (deleted.status === "approved") {
       await recomputeProcessorRatings(String(deleted.processor));
     }
+
+    void logAudit({
+      actor: session.user.id,
+      action: "delete",
+      entity: "review",
+      entityId: params.id,
+      entityLabel: deleted.title,
+    });
 
     return json({ ok: true });
   } catch (err) {

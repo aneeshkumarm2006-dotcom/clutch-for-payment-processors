@@ -3,6 +3,7 @@ import { BlogPost } from "@/models";
 import { ensureUniqueSlug } from "@/models/slug";
 import { blogPostInput } from "@/lib/validators";
 import { getAdminSession, handleApiError, json, requireAdmin } from "@/lib/api";
+import { logAudit } from "@/lib/audit";
 import { toAdminBlogData, toBlogCardData } from "@/lib/serialize";
 
 /**
@@ -36,7 +37,7 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
 
     const data = blogPostInput.parse(await req.json());
@@ -47,6 +48,15 @@ export async function POST(req: Request) {
       data.status === "published" && !data.publishedAt ? new Date() : data.publishedAt;
 
     const created = await BlogPost.create({ ...data, slug, publishedAt });
+
+    void logAudit({
+      actor: session.user.id,
+      action: "create",
+      entity: "blog",
+      entityId: String(created._id),
+      entityLabel: created.title,
+    });
+
     return json(created.toObject(), 201);
   } catch (err) {
     return handleApiError(err);

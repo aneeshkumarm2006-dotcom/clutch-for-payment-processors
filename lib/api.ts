@@ -53,6 +53,21 @@ export async function requireAdmin() {
   return session;
 }
 
+/**
+ * Require an **admin** session — stricter than `requireAdmin()` (PRD §11 Phase 2).
+ * Throws `ApiError(403)` when an authenticated `editor` reaches an admin-only
+ * route (Users / Settings). Editors keep `requireAdmin()` access to
+ * processors / categories / reviews / blog. `handleApiError` already passes the
+ * 403 status through verbatim.
+ */
+export async function requireAdminRole() {
+  const session = await requireAdmin();
+  if (session.user.role !== "admin") {
+    throw new ApiError(403, "You don't have permission to do that.");
+  }
+  return session;
+}
+
 /** Returns the session if signed in, otherwise null (no throw). For routes that serve both public + admin. */
 export async function getAdminSession() {
   return getServerSession(authOptions);

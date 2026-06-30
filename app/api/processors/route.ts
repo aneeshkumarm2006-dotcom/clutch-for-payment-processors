@@ -3,6 +3,7 @@ import { Processor } from "@/models";
 import { ensureUniqueSlug } from "@/models/slug";
 import { processorInput } from "@/lib/validators";
 import { handleApiError, json, requireAdmin } from "@/lib/api";
+import { logAudit } from "@/lib/audit";
 import { PAGE_SIZE, parseDirectoryParams, queryDirectory } from "@/lib/processors-query";
 
 /**
@@ -41,13 +42,22 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
 
     const data = processorInput.parse(await req.json());
     const slug = await ensureUniqueSlug(Processor, data.name, { explicitSlug: data.slug });
 
     const created = await Processor.create({ ...data, slug });
+
+    void logAudit({
+      actor: session.user.id,
+      action: "create",
+      entity: "processor",
+      entityId: String(created._id),
+      entityLabel: created.name,
+    });
+
     return json(created.toObject(), 201);
   } catch (err) {
     return handleApiError(err);

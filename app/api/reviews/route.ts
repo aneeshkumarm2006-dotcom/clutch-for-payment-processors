@@ -1,7 +1,8 @@
 import { connectToDatabase } from "@/lib/db";
 import { Processor, Review } from "@/models";
 import { reviewInput, reviewAdminInput } from "@/lib/validators";
-import { ApiError, getAdminSession, handleApiError, json, requireAdmin } from "@/lib/api";
+import { ApiError, getAdminSession, handleApiError, json } from "@/lib/api";
+import { logAudit } from "@/lib/audit";
 import { getApprovedReviews, type ReviewSort } from "@/lib/public-data";
 import { clientIp, isBot, rateLimit } from "@/lib/rate-limit";
 import { recomputeProcessorRatings } from "@/lib/ratings";
@@ -42,6 +43,7 @@ export async function GET(req: Request) {
       industry: searchParams.get("industry") || undefined,
       verifiedOnly: searchParams.get("verifiedOnly") === "true",
       minRating: Number(searchParams.get("minRating")) || undefined,
+      mention: searchParams.get("mention") || undefined,
     });
 
     return json(result);
@@ -79,6 +81,15 @@ export async function POST(req: Request) {
       await ensureProcessorExists(data.processor);
       const created = await Review.create({ ...data, status: "approved" });
       await recomputeProcessorRatings(data.processor);
+
+      void logAudit({
+        actor: session!.user.id,
+        action: "create",
+        entity: "review",
+        entityId: String(created._id),
+        entityLabel: created.title,
+      });
+
       return json(created.toObject(), 201);
     }
 

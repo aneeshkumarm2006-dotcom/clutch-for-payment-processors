@@ -11,4 +11,10 @@ export { Submission, type ISubmission } from "./Submission";
 export { BlogPost, type IBlogPost } from "./BlogPost";
 export { User, type IUser } from "./User";
 export { SiteSettings, type ISiteSettings } from "./SiteSettings";
+export {
+  AuditLog,
+  type IAuditLog,
+  type AuditAction,
+  type AuditEntity,
+} from "./AuditLog";
 export { type ISeo } from "./shared";

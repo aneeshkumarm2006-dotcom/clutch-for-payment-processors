@@ -1,13 +1,29 @@
+import { NextResponse } from "next/server";
 import { withAuth } from "next-auth/middleware";
 
 /**
  * Protect the admin panel (PRD §11). Every `/admin/*` route requires a valid
  * NextAuth session EXCEPT `/admin/login`. Unauthenticated requests are
  * redirected to the login page (configured via `pages.signIn`).
+ *
+ * Phase 2 (PRD §11 / §10.10): role-gated sections. An `editor` can reach
+ * processors / categories / reviews / blog, but `/admin/users` and
+ * `/admin/settings` are admin-only — an editor hitting them is bounced back to
+ * the dashboard (the nav also hides those items, and the APIs return 403).
  */
+const ADMIN_ONLY = ["/admin/users", "/admin/settings", "/admin/audit"];
+
 export default withAuth(
-  // No extra logic needed — the `authorized` callback below gates access.
-  function middleware() {},
+  function middleware(req) {
+    const { pathname } = req.nextUrl;
+    const role = req.nextauth.token?.role;
+    const isAdminOnly = ADMIN_ONLY.some(
+      (p) => pathname === p || pathname.startsWith(`${p}/`),
+    );
+    if (isAdminOnly && role !== "admin") {
+      return NextResponse.redirect(new URL("/admin", req.url));
+    }
+  },
   {
     pages: {
       signIn: "/admin/login",

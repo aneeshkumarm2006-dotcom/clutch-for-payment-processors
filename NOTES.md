@@ -445,3 +445,229 @@
   build log are the **intended** resilient fallbacks (no MongoDB in this env).
   Run `npm run seed` against a real Mongo, then `npm run dev`, to populate a
   demoable site and click through end-to-end.
+
+---
+
+## Stage 7.1 — Multi-role admin: Editor role + Users admin + Audit log (Phase 2 / M7)
+
+### New data-model fields & collections (reflected in PRD §8)
+- **`User.isActive: boolean` (default true)** — PRD §8.7. The Users admin
+  "Deactivate" action flips this instead of deleting the account; `lib/auth.ts`
+  refuses sign-in when `isActive === false`. `toAdminUserData` treats a missing
+  value (pre-Phase-2 accounts) as active.
+- **`AuditLog` collection** — new PRD §8.9 (Phase 2). `{ actor(ref User),
+  actorName?, action, entity, entityId, entityLabel?, before?, after?,
+  createdAt }`; indexes `{ createdAt: -1 }` and `{ entity: 1, entityId: 1 }`.
+  Append-only; `updatedAt` is disabled. `before`/`after` are loose `Mixed`
+  snapshots and are **secret-free** — the caller sanitizes (see `redactUser`,
+  which drops `passwordHash`).
+
+### Role enforcement (PRD §11 Phase 2 / §10.10)
+- **`lib/api.ts#requireAdminRole()`** — stricter sibling of `requireAdmin()`:
+  throws `ApiError(403)` for an authenticated `editor`. `handleApiError` already
+  passes the 403 through, so no new branch was needed. `requireAdmin()` stays the
+  editor-allowed guard on processors/categories/reviews/blog mutations.
+- **Boundary enforcement is layered (defense-in-depth):**
+  1. `middleware.ts` redirects an `editor` who reaches `/admin/users`,
+     `/admin/settings`, or `/admin/audit` back to `/admin` (a logged-in editor
+     gets the dashboard, not the login page). Driven by `req.nextauth.token.role`.
+  2. The `users`/`audit`/`settings` server pages re-check `session.user.role`
+     and `redirect("/admin")`.
+  3. The APIs (`/api/users*`, settings `PUT`) call `requireAdminRole()` → 403.
+  4. `AdminShell` hides the Users / Audit log / Settings nav items for editors
+     (new `adminOnly` flag on `NAV`; the panel layout now passes `role`).
+
+### Users admin (PRD §10.10) — `/admin/users` (admin-only)
+- **`POST /api/users`** hashes a temp password (bcrypt, cost 12) → `passwordHash`
+  and creates the account active. **`PATCH /api/users/[id]`** sets role,
+  (de)activates, renames, or resets the password (`userUpdate` partial validator).
+  **`DELETE`** removes it.
+- **Last-admin guard (PRD §10.10):** an "effective admin" = `role:'admin'` **and**
+  `isActive !== false`. PATCH (demote/deactivate) and DELETE refuse the operation
+  with `ApiError(400)` when it would leave **zero** other effective admins — this
+  also covers self-demotion / self-deletion of the only admin. Counted live with
+  `countDocuments({ _id: { $ne }, role:'admin', isActive: { $ne:false } })`.
+- **`toAdminUserData` / `redactUser`** (serialize) deliberately omit
+  `passwordHash`. The table (`UsersTable`) does Create / Edit-role / Activate-
+  Deactivate / Delete via plain controlled dialogs (not RHF — the forms are tiny),
+  flags the current user as "(you)", and reuses `DataTable`.
+- **`scripts/seed-admin.ts`** now takes a role via `--role=editor` CLI flag or
+  `ADMIN_SEED_ROLE` env var (default `admin`), and stamps `isActive:true`, so an
+  editor can be seeded alongside the admin.
+
+### Audit log (PRD §11) — `/admin/audit` (read-only, admin-only)
+- **`lib/audit.ts#logAudit()`** is **best-effort & fire-and-forget**
+  (`void logAudit(...)` after a successful write): it connects defensively, never
+  throws (catches + `console.error`), so an auditing hiccup can't break a
+  mutation. Called from **every** admin mutation handler so the §7.1 Exit bar
+  ("every admin mutation appears in the audit log") holds — processors
+  (POST/PUT/PATCH/DELETE), categories (POST/PUT/PATCH/DELETE), reviews
+  (admin-entry POST, moderate PATCH, DELETE), users (POST/PATCH/DELETE), settings
+  (PUT), blog (POST/PUT/PATCH/DELETE), leads (PATCH/DELETE), submissions
+  (PATCH/DELETE, and the convert POST → logged as a processor `create`). Captures
+  `entityLabel` always and `before`/`after` only where already in hand (users;
+  settings; review/lead/submission status) — "where cheap" per the task.
+  - **Scope note:** §7.1c's task line names processors/categories/reviews/users/
+    settings, but the Exit criteria says *every* admin mutation, so blog/leads/
+    submissions are instrumented too (their `blog`/`lead`/`submission` values were
+    already in the `AuditEntity` enum). Deliberately un-audited: the **public**
+    writes (lead capture `POST /api/leads`, public review submit, "helpful" vote,
+    processor submission `POST /api/submissions`) — not admin mutations — and the
+    transient `POST /api/upload` blob helper, since the processor/blog save that
+    references the returned URL is itself audited.
+- **`/admin/audit`** server-renders the newest 500 entries (the `createdAt: -1`
+  index), populating `actor` (name/email) with the denormalized `actorName` as a
+  fallback for deleted actors; `AuditTable` is a read-only `DataTable`
+  (search/sort/paginate, no row actions).
+
+### Verification
+- `tsc --noEmit`, `next lint`, and `next build` all pass. New routes:
+  `/admin/users`, `/admin/audit`, `/api/users`, `/api/users/[id]`. DB-backed
+  click-through (seed an editor, sign in, confirm content edits work but
+  Users/Settings 403 + nav hidden, watch entries accrue in the audit log) needs a
+  running MongoDB — run `npm run seed:admin -- --role=editor` + `npm run dev`
+  against your Mongo.
+
+## Stage 7.2 — Leaders Matrix 2×2 quadrant (Phase 2 / M7 — PRD §5, §16)
+
+### Decisions taken (resolves PRD §19 open question "Leaders Matrix default axes")
+- **Default axes:** X = **adoption** (review volume, log-scaled), Y =
+  **satisfaction** (average rating); **editor score** is the third toggle option.
+  This makes the **top-right quadrant the "Leaders"** corner (well-reviewed *and*
+  well-liked). Both axes are user-toggleable among the three metrics; picking the
+  metric already on the other axis **swaps** them (X and Y must differ or every
+  dot collapses onto the diagonal).
+- **No new data fields.** The matrix is a pure projection of existing
+  `Processor` fields (`ratingAverage` / `ratingCount` / `editorScore` /
+  `listingTier`) — nothing added to PRD §8.
+
+### Implementation details (not new data fields)
+- **`lib/leaders.ts`** projects every published processor to three metrics
+  **normalized 0..1**, reusing the *exact* per-term normalization of the
+  "Recommended" `_rankScore` blend (`processors-query.ts#ADD_FIELDS`): `rating =
+  ratingAverage/5`, `reviews = min(1, log10(ratingCount+1)/log10(1001))`, `editor
+  = editorScore/5`. To guarantee one scale with no drift, `REVIEW_LOG_CAP =
+  log10(1001)` is now **exported** from `processors-query.ts` and imported here.
+  Returning all three normalized metrics (plus raw values for the tooltip) lets
+  the client re-axis without refetching. `LEADER_AXES` + `DEFAULT_X/Y_AXIS` live
+  in this file (single source for the labels/hints). Resilient → `[]`.
+- **`components/public/LeadersMatrix.tsx`** is a client component: inline **SVG**
+  scatter (no chart dependency), quadrant dividers at the 50% mark with
+  corner labels ("Leaders" top-right, "Emerging" bottom-left, "Strong {axis}" on
+  the off-diagonals), axis titles, and a tier-colored dot per processor
+  (premier=accent, verified=success, free=ink-400) with a matching legend. Each
+  dot is a **focusable SVG `<a>`** linking to the profile (keyboard tab-through;
+  `[&:focus-visible_circle]:stroke-ring`); the tooltip is an HTML overlay
+  positioned by the active dot's fractional coords. Hover grows the dot radius via
+  a `transition-[r]` that's dropped under `motion-reduce:`. An `sr-only` mirror
+  list of links covers AT/crawlers.
+- **`app/(public)/leaders/page.tsx`** — ISR (`revalidate=1800`), breadcrumb +
+  intro copy, `generateMetadata` (reuses `settings.defaultSeo`), and
+  Breadcrumb + ItemList JSON-LD. Wired into the **Navbar** (link after Compare)
+  and **`app/sitemap.ts`** (static `/leaders` entry, priority 0.7).
+
+### Verification
+- `tsc --noEmit`, `next lint`, and `next build` all pass; `/leaders` prerenders
+  as static content. Plotting needs a running MongoDB — `npm run seed:admin` (+
+  `npm run seed`) and `npm run dev` against your Mongo to see real dots.
+
+## Stage 7.3 — Pretty compare URLs (Phase 2 / M7 — PRD §9.4, §13)
+
+### Decisions taken (resolves PRD §19 "which compare pairs are popular")
+- **Curated pair list, not arbitrary combos.** `lib/compare-pairs.ts` holds a
+  fixed 8-pair seed list (`POPULAR_COMPARE_PAIRS`) of high-intent head-to-heads —
+  the household-name gateways merchants actually cross-shop (Stripe/PayPal/Square/
+  Adyen/Braintree/Authorize.net, plus same-segment Square-vs-Stax and
+  Razorpay-vs-PayU). The **selection rule is documented in a code comment** (per
+  the §9.2 formula-comment convention) so the list isn't arbitrary. Left/right
+  order is **fixed** in the list so each head-to-head has exactly ONE canonical
+  URL (no `stripe-vs-paypal` *and* `paypal-vs-stripe`).
+- **No new data fields.** Pretty compare is a pure routing/SEO layer over the
+  existing compare data path — nothing added to PRD §8.
+
+### Implementation details (not new data fields)
+- **`app/(public)/compare/[pair]/page.tsx`** — splits the `[pair]` param on the
+  literal `-vs-` delimiter (safe for hyphenated slugs like `authorize-net`, since
+  `-vs-` never occurs inside a slug), resolves via the existing order-preserving
+  `getProcessorsBySlugs`, caps at `COMPARE_MAX`, and reuses `CompareView`. ISR
+  (`revalidate=1800`). **`dynamicParams = false`** + `generateStaticParams` over
+  the curated list means only curated pairs exist — every other `[pair]` 404s,
+  and a curated pair whose processor went unpublished/missing (`<2` resolved)
+  calls `notFound()` (no half-matrix). These pages are **indexable** —
+  `buildMetadata` emits `index:true` by default (the `?ids=` page is the one that
+  opts out), with a per-pair title/description built from the resolved names, a
+  BreadcrumbList, and `comparePairJsonLd` (named `ItemList` of the compared
+  profiles, new in `lib/seo.ts`).
+- **Canonicalization (`prettyComparePath`).** The query-param `/compare?ids=`
+  page stays `noindex` + a working fallback/builder, but when its selected slugs
+  match a curated pair (matched **order-independently** via a sorted-slug key) it
+  overrides its canonical to the pretty `/compare/<a>-vs-<b>` URL so link equity
+  lands on the indexable page. Editing columns on a pretty page (`CompareView`
+  add/remove) still drops back to the `?ids=` builder by design.
+- **Sitemap.** `getSitemapEntries` (`lib/public-data.ts`) now emits the curated
+  pretty-compare URLs, reusing the already-fetched published-processor set: a
+  pair is emitted only when **both** its processors are published (mirrors the
+  page's `dynamicParams=false`), dated to the newer of the two `updatedAt`s — so
+  the sitemap can never list a pretty URL that would 404. `app/sitemap.ts` is
+  unchanged (the new `/compare/...` entries fall through its generic
+  weekly / priority-0.6 branch).
+
+### Verification
+- `tsc --noEmit`, `next lint`, and `next build` all pass. `/compare/[pair]`
+  builds as `●` (SSG) and prerenders the curated pairs; `/compare` stays `ƒ`
+  (dynamic). DB-backed click-through (open `/compare/stripe-vs-paypal`, confirm
+  the matrix + `index` robots, confirm `?ids=stripe,paypal` canonicalizes to it,
+  and the pair appears in `/sitemap.xml`) needs a running MongoDB — `npm run seed`
+  + `npm run dev` against your Mongo. (In this env the curated pages prerender to
+  a 404 because no DB is reachable at build; ISR regenerates them once a DB is up.)
+
+## Stage 7.4 — Top mentions: review keyword extraction (Phase 2 / M7 — PRD §9.3, DESIGN §6.4)
+
+### New data-model field (reflected in PRD §8.1)
+- **`Processor.topMentions: { keyword: string; count: number }[]` (default `[]`)** —
+  PRD §8.1. Denormalized neutral keyword chips, **recomputed only by
+  `lib/ratings.ts`** from approved review text — never hand-edited (same
+  treatment as `ratingAverage`/`subRatings`). `processorInput`/`processorUpdate`
+  already strip unknown keys, so the admin form's PUT/PATCH never touch it (no
+  validator change). The admin form shows no input for it.
+
+### Extraction approach (resolves PRD §19 "top-mentions approach": curated dictionary, not external NLP)
+- **`lib/top-mentions.ts` — a curated payment-domain dictionary (allowlist), no
+  NLP dependency.** `KEYWORDS` maps ~22 neutral topic labels (Ease of use,
+  Customer support, Pricing, Transaction fees, Payouts, Integrations, API &
+  developer tools, Chargebacks, Account holds, …) to lowercase aliases. Because
+  it's an allowlist of *neutral topics*, the chips can never surface an opinion
+  or random noise the way a raw term-frequency extractor would — the chips stay
+  "neutral" per DESIGN §6.4.
+  - **Matching:** each review's `title`+`body`+`pros`+`cons` is normalised
+    (lowercase, punctuation → spaces, collapsed, space-padded). Multi-word
+    aliases match against that string; single-word aliases match against its
+    **stop-word-filtered** (`STOP_WORDS`) token set, so common function words
+    can't create spurious single-token hits. Phrase aliases keep their stop words
+    on purpose (e.g. "easy **to** use"). A keyword is counted **once per review**,
+    so `count` = "how many approved reviews mention this topic".
+  - **Output:** sorted by count desc (then label asc for stable order), filtered
+    to `count ≥ MIN_MENTIONS` (1), capped at `TOP_MENTIONS_LIMIT` (8).
+  - `computeTopMentions(reviews[])` is pure/synchronous (testable);
+    `computeTopMentionsForProcessor(id)` loads the approved set and is called by
+    `recomputeProcessorRatings` — so chips fire on the **same** approve / reject /
+    delete / admin-add / seed triggers as the rating aggregate and clear to `[]`
+    when the last approved review leaves (guaranteed in lockstep, single source).
+
+### UI + optional chip filter (DESIGN §6.4)
+- **`ReviewsSection`** renders a "Top mentions" row of neutral pill chips (label +
+  count) inside the rating-summary card, below `RatingBreakdown`. Chips are
+  **interactive** (the §7.4 optional): clicking one sets a `mention` filter that
+  re-queries `GET /api/reviews?mention=<label>` from page 1 (with a "Clear"
+  affordance + `aria-pressed`).
+- **`buildMentionFilter(label)`** (same `lib/top-mentions.ts` dictionary) turns a
+  chip label into a Mongo `$or` regex over `title/body/pros/cons`; threaded
+  through `getApprovedReviews` (`mention?` param) and the public GET route. Using
+  the one dictionary for both extraction and filtering keeps the chip's count and
+  the filtered list in sync. Unknown labels are ignored (filter = null).
+
+### Verification
+- `tsc --noEmit`, `next lint`, and `next build` all pass. Chips populate +
+  recompute only against a running MongoDB — `npm run seed` (re-seeds reviews and
+  recomputes, now including `topMentions`) + `npm run dev`, then approve/reject a
+  review in `/admin/reviews` and watch the profile chips change.

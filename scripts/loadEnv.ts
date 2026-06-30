@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { setServers } from "node:dns";
 
 /**
  * Minimal `.env` loader for standalone CLI scripts (seed-admin, seed).
@@ -9,6 +10,21 @@ import { resolve } from "node:path";
  * values win (so real env / CI overrides take precedence over the file).
  */
 export function loadEnv(file = ".env.local"): void {
+  // Atlas uses a `mongodb+srv://` URI, which requires a DNS SRV lookup. Some
+  // networks/Windows resolvers refuse SRV queries (querySrv ECONNREFUSED), which
+  // breaks the seed before it starts. Point Node's resolver at public DNS so the
+  // SRV/TXT lookup succeeds regardless of the local resolver. Honour an override
+  // via DNS_SERVERS (comma-separated) for locked-down environments.
+  try {
+    const servers = (process.env.DNS_SERVERS ?? "8.8.8.8,1.1.1.1")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+    if (servers.length) setServers(servers);
+  } catch {
+    // Non-fatal: fall back to the system resolver.
+  }
+
   let content: string;
   try {
     content = readFileSync(resolve(process.cwd(), file), "utf8");

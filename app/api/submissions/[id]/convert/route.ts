@@ -2,6 +2,7 @@ import { connectToDatabase } from "@/lib/db";
 import { Processor, Submission } from "@/models";
 import { ensureUniqueSlug } from "@/models/slug";
 import { ApiError, handleApiError, json, requireAdmin } from "@/lib/api";
+import { logAudit } from "@/lib/audit";
 
 /**
  * POST /api/submissions/[id]/convert (PRD §10.7) — "Convert to processor".
@@ -19,7 +20,7 @@ const OBJECT_ID = /^[0-9a-fA-F]{24}$/;
 
 export async function POST(_req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Submission not found.");
 
@@ -37,6 +38,16 @@ export async function POST(_req: Request, { params }: { params: { id: string } }
     });
 
     await Submission.findByIdAndUpdate(params.id, { $set: { status: "approved" } });
+
+    // Audit the meaningful outcome: a new processor draft created via conversion
+    // (the submission's flip to `approved` is a side effect of this same action).
+    void logAudit({
+      actor: session.user.id,
+      action: "create",
+      entity: "processor",
+      entityId: String(created._id),
+      entityLabel: created.name,
+    });
 
     return json({ ok: true, processorId: String(created._id) }, 201);
   } catch (err) {

@@ -357,6 +357,7 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
             average={p.ratingAverage}
             count={p.ratingCount}
             subRatings={p.subRatings}
+            topMentions={p.topMentions}
             industries={reviewIndustries}
             initial={initialReviews}
           />

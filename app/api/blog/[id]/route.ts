@@ -11,6 +11,7 @@ import {
   json,
   requireAdmin,
 } from "@/lib/api";
+import { logAudit } from "@/lib/audit";
 import { toBlogPostData } from "@/lib/serialize";
 
 /**
@@ -63,7 +64,7 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
 
 export async function PUT(req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Post not found.");
 
@@ -86,6 +87,15 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
       runValidators: true,
     }).lean();
     if (!updated) throw new ApiError(404, "Post not found.");
+
+    void logAudit({
+      actor: session.user.id,
+      action: "update",
+      entity: "blog",
+      entityId: params.id,
+      entityLabel: updated.title,
+    });
+
     return json(updated);
   } catch (err) {
     return handleApiError(err);
@@ -94,7 +104,7 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
 
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Post not found.");
 
@@ -115,6 +125,15 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
       { new: true, runValidators: true },
     ).lean();
     if (!updated) throw new ApiError(404, "Post not found.");
+
+    void logAudit({
+      actor: session.user.id,
+      action: "update",
+      entity: "blog",
+      entityId: params.id,
+      entityLabel: updated.title,
+    });
+
     return json(updated);
   } catch (err) {
     return handleApiError(err);
@@ -123,12 +142,21 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
 
 export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Post not found.");
 
     const deleted = await BlogPost.findByIdAndDelete(params.id).lean();
     if (!deleted) throw new ApiError(404, "Post not found.");
+
+    void logAudit({
+      actor: session.user.id,
+      action: "delete",
+      entity: "blog",
+      entityId: params.id,
+      entityLabel: deleted.title,
+    });
+
     return json({ ok: true });
   } catch (err) {
     return handleApiError(err);

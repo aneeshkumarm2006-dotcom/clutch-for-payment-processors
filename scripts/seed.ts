@@ -6,7 +6,7 @@ loadEnv();
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import { connectToDatabase } from "@/lib/db";
-import { BlogPost, Category, Processor, Review, SiteSettings, User } from "@/models";
+import { BlogPost, Category, Lead, Processor, Review, SiteSettings, Submission, User } from "@/models";
 import { ensureUniqueSlug } from "@/models/slug";
 import { recomputeProcessorRatings } from "@/lib/ratings";
 import type {
@@ -27,9 +27,12 @@ import type {
  * admin-created content. Seeded reviews are tagged `source: "import"` and
  * replaced wholesale each run, then ratings are recomputed via lib/ratings.ts.
  *
- * ⚠️  ALL FACTUAL FIGURES BELOW ARE ILLUSTRATIVE SAMPLE DATA. Rates, fees,
- *     founding years, and capabilities are approximate/representative and must be
- *     verified against each provider's official documentation before going live.
+ * ⚠️  Rates/fees below were researched against each provider's official pricing
+ *     and reputable third-party sources as of June 2026 (US standard pricing;
+ *     Razorpay/PayU use India/INR pricing). Pricing changes frequently and some
+ *     fields (enterprise/negotiated rates, card-present rates for online-first
+ *     gateways) are not officially published — re-verify before going live.
+ *     Reviews, leads, and submissions are fictional demo data.
  */
 
 // ---------------------------------------------------------------------------
@@ -274,12 +277,14 @@ const PROCESSORS: SeedProcessor[] = [
     pricingModel: ["flat-rate"],
     pricingSummary: "3.49% + 49¢ for PayPal checkout; 2.99% for standard cards. No monthly fee.",
     fees: {
-      onlineCardRate: "2.99%",
-      keyedInRate: "3.49% + $0.49",
+      onlineCardRate: "2.99% + $0.49",
+      inPersonCardRate: "2.29% + $0.09",
+      keyedInRate: "3.49% + $0.09",
       internationalRate: "+1.5%",
+      achRate: "0.8% (cap $5)",
       monthlyFee: "$0",
       chargebackFee: "$20",
-      refundPolicy: "Fixed fee not returned on refunds",
+      refundPolicy: "Fees not returned on refunds",
     },
     contractType: "no-contract",
     freeTrial: false,
@@ -321,14 +326,15 @@ const PROCESSORS: SeedProcessor[] = [
     companySize: "1000+",
     supportedRegions: ["US", "CA", "UK", "EU"],
     pricingModel: ["flat-rate"],
-    pricingSummary: "2.6% + 10¢ in person, 2.9% + 30¢ online. No monthly fee for the core plan.",
+    pricingSummary: "2.6% + 15¢ in person, 2.9% + 30¢ online. No monthly fee on the free plan.",
     fees: {
       onlineCardRate: "2.9% + $0.30",
-      inPersonCardRate: "2.6% + $0.10",
+      inPersonCardRate: "2.6% + $0.15",
       keyedInRate: "3.5% + $0.15",
+      achRate: "1% ($1 min)",
       monthlyFee: "$0",
       chargebackFee: "$0",
-      refundPolicy: "Fees returned on refunds",
+      refundPolicy: "Processing fee not returned on refunds",
     },
     contractType: "no-contract",
     freeTrial: true,
@@ -366,14 +372,16 @@ const PROCESSORS: SeedProcessor[] = [
     companySize: "1000+",
     supportedRegions: ["EU", "UK", "US", "Global"],
     pricingModel: ["interchange-plus"],
-    pricingSummary: "Interchange + processing fee per transaction. No monthly fee; volume minimums apply.",
+    pricingSummary: "Interchange++ : $0.13 + interchange + 0.60% per card transaction. No monthly or setup fee; a minimum monthly invoice applies.",
     fees: {
-      onlineCardRate: "Interchange + $0.13",
-      inPersonCardRate: "Interchange + $0.13",
+      onlineCardRate: "Interchange + 0.60% + $0.13",
+      inPersonCardRate: "Interchange + 0.60% + $0.13",
       internationalRate: "Varies by method",
+      achRate: "$0.27 + $0.13",
       monthlyFee: "$0",
       monthlyMinimum: "$120 invoice minimum",
-      refundPolicy: "Scheme fees may apply",
+      chargebackFee: "$15",
+      refundPolicy: "Processing fee not returned on refunds",
     },
     contractType: "annual",
     freeTrial: false,
@@ -411,14 +419,14 @@ const PROCESSORS: SeedProcessor[] = [
     companySize: "251-1000",
     supportedRegions: ["US", "CA", "EU", "UK", "Global"],
     pricingModel: ["flat-rate"],
-    pricingSummary: "2.59% + 49¢ per transaction. No monthly fee.",
+    pricingSummary: "2.89% + 29¢ per transaction (standard). No monthly fee.",
     fees: {
-      onlineCardRate: "2.59% + $0.49",
-      internationalRate: "+1%",
+      onlineCardRate: "2.89% + $0.29",
+      internationalRate: "+1% (currency) +1% (non-US card)",
       achRate: "0.75% (cap $5)",
       monthlyFee: "$0",
       chargebackFee: "$15",
-      refundPolicy: "Fixed fee not returned on refunds",
+      refundPolicy: "Processing fee not returned on refunds",
     },
     contractType: "no-contract",
     freeTrial: false,
@@ -452,7 +460,7 @@ const PROCESSORS: SeedProcessor[] = [
     longDescription:
       "<p>Authorize.net is one of the longest-running gateways, well suited to businesses that want a virtual terminal, recurring billing, and the option to bring their own merchant account.</p>",
     foundedYear: 1996,
-    headquarters: "American Fork, UT, USA",
+    headquarters: "Foster City, CA, USA",
     companySize: "251-1000",
     supportedRegions: ["US", "CA", "UK", "EU"],
     pricingModel: ["flat-rate", "subscription"],
@@ -460,6 +468,7 @@ const PROCESSORS: SeedProcessor[] = [
     fees: {
       onlineCardRate: "2.9% + $0.30",
       keyedInRate: "2.9% + $0.30",
+      achRate: "0.75% (eCheck)",
       monthlyFee: "$25",
       setupFee: "$0",
       chargebackFee: "$25",
@@ -501,18 +510,18 @@ const PROCESSORS: SeedProcessor[] = [
     companySize: "51-250",
     supportedRegions: ["US", "CA"],
     pricingModel: ["interchange-plus"],
-    pricingSummary: "Interchange + 0.4% + 8¢ online (drops with volume). No monthly fee.",
+    pricingSummary: "Interchange + 0.40% + 8¢ in person, + 0.50% + 25¢ online (drops with volume). No monthly fee.",
     fees: {
-      onlineCardRate: "Interchange + 0.4% + $0.08",
-      inPersonCardRate: "Interchange + 0.3% + $0.08",
+      onlineCardRate: "Interchange + 0.50% + $0.25",
+      inPersonCardRate: "Interchange + 0.40% + $0.08",
       achRate: "0.5% + $0.25 (cap $6)",
       monthlyFee: "$0",
       chargebackFee: "$15",
-      refundPolicy: "Fees returned on refunds",
+      refundPolicy: "Chargeback fee refunded if dispute won",
     },
     contractType: "no-contract",
     freeTrial: false,
-    payoutTime: "2-day",
+    payoutTime: "next-day",
     paymentMethods: ["visa", "mastercard", "amex", "discover", "apple-pay", "google-pay", "ach"],
     integrations: ["api", "hosted-checkout", "pos-hardware", "virtual-terminal", "invoicing", "payment-links"],
     currencies: "USD, CAD",
@@ -550,6 +559,7 @@ const PROCESSORS: SeedProcessor[] = [
     fees: {
       onlineCardRate: "Interchange + $0.15",
       inPersonCardRate: "Interchange + $0.08",
+      achRate: "1% (cap $10)",
       monthlyFee: "$99",
       monthlyMinimum: "None",
       chargebackFee: "$25",
@@ -871,6 +881,236 @@ const BLOG_POSTS: SeedBlogPost[] = [
 ];
 
 // ---------------------------------------------------------------------------
+// Leads (admin dashboard demo data — "Get a quote / Get matched" + contact)
+// SAMPLE DATA. `processorSlug` null = generic "get matched" lead.
+// ---------------------------------------------------------------------------
+interface SeedLead {
+  processorSlug: string | null;
+  name: string;
+  email: string;
+  businessName?: string;
+  phone?: string;
+  monthlyVolume?: "<$10k" | "$10k-$50k" | "$50k-$250k" | "$250k-$1M" | "$1M+";
+  businessType?: string;
+  message?: string;
+  status: "new" | "contacted" | "closed";
+  source: string;
+  createdDaysAgo: number;
+}
+
+const LEADS: SeedLead[] = [
+  {
+    processorSlug: "stripe",
+    name: "Alicia Tan",
+    email: "alicia@brightcartshop.com",
+    businessName: "BrightCart",
+    phone: "+1 415-555-0142",
+    monthlyVolume: "$50k-$250k",
+    businessType: "E-commerce",
+    message: "Moving off a tiered plan and want to compare Stripe's effective rate at our volume.",
+    status: "new",
+    source: "profile-quote",
+    createdDaysAgo: 1,
+  },
+  {
+    processorSlug: null,
+    name: "Daniel Brooks",
+    email: "dan@brooksboards.co",
+    businessName: "Brooks Boards",
+    monthlyVolume: "$10k-$50k",
+    businessType: "Retail",
+    message: "Opening a second location — need a POS + payments setup that won't lock me into a long contract.",
+    status: "new",
+    source: "get-matched",
+    createdDaysAgo: 2,
+  },
+  {
+    processorSlug: "helcim",
+    name: "Meera Krishnan",
+    email: "meera@northlinewholesale.com",
+    businessName: "Northline Wholesale",
+    phone: "+1 403-555-0188",
+    monthlyVolume: "$250k-$1M",
+    businessType: "B2B Wholesale",
+    message: "Interested in interchange-plus with volume discounts. Can you share a quote?",
+    status: "contacted",
+    source: "profile-quote",
+    createdDaysAgo: 4,
+  },
+  {
+    processorSlug: "square",
+    name: "Tom Whitfield",
+    email: "tom@harborcafe.com",
+    businessName: "Harbor Cafe",
+    monthlyVolume: "$10k-$50k",
+    businessType: "Restaurant",
+    message: "Need tap-to-pay and tipping for a small cafe. How fast are payouts?",
+    status: "contacted",
+    source: "profile-quote",
+    createdDaysAgo: 6,
+  },
+  {
+    processorSlug: null,
+    name: "Priscilla Adeyemi",
+    email: "priscilla@lagosthreads.com",
+    businessName: "Lagos Threads",
+    monthlyVolume: "$50k-$250k",
+    businessType: "Cross-border e-commerce",
+    message: "Selling into multiple countries — which processor handles local methods and multi-currency best?",
+    status: "new",
+    source: "get-matched",
+    createdDaysAgo: 8,
+  },
+  {
+    processorSlug: "adyen",
+    name: "Werner Klein",
+    email: "w.klein@altmark-retail.de",
+    businessName: "Altmark Retail GmbH",
+    phone: "+49 30 5550173",
+    monthlyVolume: "$1M+",
+    businessType: "Omnichannel retail",
+    message: "Enterprise unified commerce across EU + US. Want to discuss interchange++ and settlement.",
+    status: "closed",
+    source: "profile-quote",
+    createdDaysAgo: 12,
+  },
+  {
+    processorSlug: null,
+    name: "Sarah Mitchell",
+    email: "sarah.mitchell@givewell-foundation.org",
+    businessName: "GiveWell Foundation",
+    monthlyVolume: "<$10k",
+    businessType: "Nonprofit",
+    message: "Looking for discounted rates and recurring donation tooling.",
+    status: "contacted",
+    source: "get-matched",
+    createdDaysAgo: 15,
+  },
+  {
+    // Contact-form lead (no processor, no volume) — exercises the `contact` source.
+    processorSlug: null,
+    name: "James Porter",
+    email: "james@porterlegal.com",
+    message: "Do you offer guidance on switching processors without downtime? Happy to jump on a call.",
+    status: "closed",
+    source: "contact",
+    createdDaysAgo: 19,
+  },
+  {
+    processorSlug: "razorpay",
+    name: "Rohan Gupta",
+    email: "rohan@quickkart.in",
+    businessName: "QuickKart",
+    phone: "+91 98201 55512",
+    monthlyVolume: "$50k-$250k",
+    businessType: "E-commerce",
+    message: "Need UPI + cards with fast settlement for an Indian D2C brand.",
+    status: "new",
+    source: "profile-quote",
+    createdDaysAgo: 23,
+  },
+  {
+    processorSlug: "stax",
+    name: "Carla Jimenez",
+    email: "carla@summitdental.com",
+    businessName: "Summit Dental Group",
+    phone: "+1 407-555-0119",
+    monthlyVolume: "$250k-$1M",
+    businessType: "Healthcare",
+    message: "Higher ticket sizes — does the subscription pricing actually save us vs flat-rate?",
+    status: "contacted",
+    source: "profile-quote",
+    createdDaysAgo: 28,
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Submissions (admin "For Processors / get-listed" queue — SAMPLE DATA)
+// ---------------------------------------------------------------------------
+interface SeedSubmission {
+  processorName: string;
+  website: string;
+  contactName: string;
+  contactEmail: string;
+  description?: string;
+  requestedTier?: "free" | "verified" | "premier";
+  status: "new" | "reviewing" | "approved" | "rejected";
+  notes?: string;
+  createdDaysAgo: number;
+}
+
+const SUBMISSIONS: SeedSubmission[] = [
+  {
+    processorName: "Paddle",
+    website: "https://www.paddle.com",
+    contactName: "Eleanor Voss",
+    contactEmail: "partnerships@paddle.com",
+    description:
+      "Merchant of record for SaaS — we handle payments, sales tax, and subscription billing globally. We'd like a listing in Subscriptions & SaaS.",
+    requestedTier: "premier",
+    status: "new",
+    createdDaysAgo: 1,
+  },
+  {
+    processorName: "GoCardless",
+    website: "https://gocardless.com",
+    contactName: "Owen Pryce",
+    contactEmail: "owen.pryce@gocardless.com",
+    description:
+      "Bank debit / ACH-first recurring payments across the UK, EU, and US. Great fit for subscriptions and B2B.",
+    requestedTier: "verified",
+    status: "reviewing",
+    notes: "Verifying processing volume and supported regions before approving the Verified badge.",
+    createdDaysAgo: 5,
+  },
+  {
+    processorName: "Mollie",
+    website: "https://www.mollie.com",
+    contactName: "Lieke de Vries",
+    contactEmail: "lieke@mollie.com",
+    description:
+      "European PSP with local methods (iDEAL, Bancontact, SEPA) and simple pricing. Requesting an International & Cross-Border listing.",
+    requestedTier: "verified",
+    status: "approved",
+    notes: "Approved — converted to a Verified processor draft. Awaiting final fee table.",
+    createdDaysAgo: 11,
+  },
+  {
+    processorName: "Payline Data",
+    website: "https://paylinedata.com",
+    contactName: "Greg Holloway",
+    contactEmail: "greg@paylinedata.com",
+    description: "Interchange-plus processing for US SMBs and some high-risk verticals.",
+    requestedTier: "free",
+    status: "new",
+    createdDaysAgo: 14,
+  },
+  {
+    processorName: "QuickPay Solutions",
+    website: "http://quickpay-solutions-pay.biz",
+    contactName: "Marcus Lane",
+    contactEmail: "marcus@quickpay-solutions-pay.biz",
+    description: "We guarantee the lowest rates anywhere, instant approval for any business!!!",
+    requestedTier: "premier",
+    status: "rejected",
+    notes: "Rejected — unverifiable claims, no public pricing, domain registered recently. Possible spam.",
+    createdDaysAgo: 17,
+  },
+  {
+    processorName: "Checkout.com",
+    website: "https://www.checkout.com",
+    contactName: "Sophia Almeida",
+    contactEmail: "sophia.almeida@checkout.com",
+    description:
+      "Enterprise-grade global payments with direct acquiring and granular data. Requesting a premier listing for the e-commerce and marketplaces categories.",
+    requestedTier: "premier",
+    status: "reviewing",
+    notes: "Strong candidate. Collecting logo + final copy.",
+    createdDaysAgo: 22,
+  },
+];
+
+// ---------------------------------------------------------------------------
 // Seed runner
 // ---------------------------------------------------------------------------
 async function seedAdmin(): Promise<void> {
@@ -947,7 +1187,9 @@ async function main(): Promise<void> {
       .map((s) => categoryIdBySlug.get(s))
       .filter((id): id is string => Boolean(id));
 
-    const { categorySlugs: _omit, ...rest } = p;
+    // Omit `slug` from $set: it lives in the upsert filter + $setOnInsert, and
+    // Mongo rejects updating the same path in both $set and $setOnInsert.
+    const { categorySlugs: _omit, slug: _slug, ...rest } = p;
     const doc = await Processor.findOneAndUpdate(
       { slug: p.slug },
       { $set: { ...rest, categories, isPublished: true }, $setOnInsert: { slug: p.slug } },
@@ -1029,6 +1271,61 @@ async function main(): Promise<void> {
   }
   // eslint-disable-next-line no-console
   console.log(`✓ ${BLOG_POSTS.length} blog posts ready`);
+
+  // --- Leads: replace the seeded demo set wholesale each run ---
+  // Seeded leads are identified by their @example/demo emails so re-running
+  // refreshes them without wiping real captured leads. We match on the exact
+  // emails in our LEADS list.
+  const leadEmails = LEADS.map((l) => l.email.toLowerCase());
+  await Lead.deleteMany({ email: { $in: leadEmails } });
+  const leadDocs = LEADS.map((l) => {
+    const processor = l.processorSlug ? processorIdBySlug.get(l.processorSlug) : undefined;
+    const createdAt = new Date(nowMs - l.createdDaysAgo * 24 * 60 * 60 * 1000);
+    return {
+      ...(processor ? { processor } : {}),
+      name: l.name,
+      email: l.email,
+      businessName: l.businessName,
+      phone: l.phone,
+      monthlyVolume: l.monthlyVolume,
+      businessType: l.businessType,
+      message: l.message,
+      status: l.status,
+      source: l.source,
+      createdAt,
+      updatedAt: createdAt,
+    };
+  });
+  // timestamps:true would overwrite our backdated createdAt on insert, so disable
+  // it for the seed. `timestamps` is a valid runtime insertMany option in Mongoose
+  // 8 but is missing from the TS InsertManyOptions type, hence the cast.
+  await Lead.insertMany(leadDocs, { timestamps: false } as unknown as mongoose.InsertManyOptions);
+  // eslint-disable-next-line no-console
+  console.log(`✓ ${leadDocs.length} leads ready`);
+
+  // --- Submissions: replace the seeded demo set wholesale each run ---
+  const submissionEmails = SUBMISSIONS.map((s) => s.contactEmail.toLowerCase());
+  await Submission.deleteMany({ contactEmail: { $in: submissionEmails } });
+  const submissionDocs = SUBMISSIONS.map((s) => {
+    const createdAt = new Date(nowMs - s.createdDaysAgo * 24 * 60 * 60 * 1000);
+    return {
+      processorName: s.processorName,
+      website: s.website,
+      contactName: s.contactName,
+      contactEmail: s.contactEmail,
+      description: s.description,
+      requestedTier: s.requestedTier,
+      status: s.status,
+      notes: s.notes,
+      createdAt,
+      updatedAt: createdAt,
+    };
+  });
+  await Submission.insertMany(submissionDocs, {
+    timestamps: false,
+  } as unknown as mongoose.InsertManyOptions);
+  // eslint-disable-next-line no-console
+  console.log(`✓ ${submissionDocs.length} submissions ready`);
 
   // eslint-disable-next-line no-console
   console.log("\n✓ Seed complete — sample data loaded. Verify figures before going live.");

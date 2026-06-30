@@ -1,6 +1,8 @@
 import type { SortOrder } from "mongoose";
 import { connectToDatabase } from "@/lib/db";
 import { BlogPost, Category, Processor, Review, type ISiteSettings } from "@/models";
+import { POPULAR_COMPARE_PAIRS, comparePairToParam } from "@/lib/compare-pairs";
+import { buildMentionFilter } from "@/lib/top-mentions";
 import {
   toBlogCardData,
   toBlogPostData,
@@ -243,6 +245,8 @@ export interface ApprovedReviewsParams {
   industry?: string;
   verifiedOnly?: boolean;
   minRating?: number;
+  /** A "Top mentions" chip label — narrows to reviews mentioning that topic. */
+  mention?: string;
 }
 
 export interface ReviewsResult {
@@ -274,6 +278,12 @@ export async function getApprovedReviews(params: ApprovedReviewsParams): Promise
     if (params.verifiedOnly) filter.isVerified = true;
     if (params.minRating && params.minRating > 0) {
       filter.overallRating = { $gte: params.minRating };
+    }
+    // "Top mentions" chip → text filter over title/body/pros/cons (same curated
+    // dictionary as extraction). Unknown labels are ignored (returns null).
+    if (params.mention) {
+      const mentionFilter = buildMentionFilter(params.mention);
+      if (mentionFilter) Object.assign(filter, mentionFilter);
     }
 
     const sort = REVIEW_SORTS[params.sort ?? "newest"];
@@ -461,15 +471,28 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
       BlogPost.find({ status: "published" }).select("slug updatedAt").lean(),
     ]);
 
+    const toDate = (v: unknown): Date => (v instanceof Date ? v : new Date(String(v)));
     const toEntry = (prefix: string) => (d: { slug?: unknown; updatedAt?: unknown }) => ({
       path: `${prefix}/${String(d.slug)}`,
-      lastModified: d.updatedAt instanceof Date ? d.updatedAt : new Date(String(d.updatedAt)),
+      lastModified: toDate(d.updatedAt),
+    });
+
+    // Curated pretty-compare URLs (Stage 7.3 / PRD §9.4): emit a pair only when
+    // BOTH its processors are published (mirrors the page's `dynamicParams=false`),
+    // dating it to the newer of the two so the sitemap can't list a 404.
+    const pubBySlug = new Map(processors.map((p) => [String(p.slug), toDate(p.updatedAt)]));
+    const compareEntries: SitemapEntry[] = POPULAR_COMPARE_PAIRS.flatMap((pair) => {
+      const dates = pair.map((s) => pubBySlug.get(s));
+      if (dates.some((d) => d === undefined)) return [];
+      const lastModified = (dates as Date[]).reduce((a, b) => (a > b ? a : b));
+      return [{ path: `/compare/${comparePairToParam(pair)}`, lastModified }];
     });
 
     return [
       ...processors.map(toEntry("/processor")),
       ...categories.map(toEntry("/category")),
       ...posts.map(toEntry("/blog")),
+      ...compareEntries,
     ];
   } catch (err) {
     // eslint-disable-next-line no-console

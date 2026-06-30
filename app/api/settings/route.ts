@@ -2,7 +2,8 @@ import { connectToDatabase } from "@/lib/db";
 import { SiteSettings } from "@/models";
 import { siteSettingsInput } from "@/lib/validators";
 import { getOrCreateSiteSettings } from "@/lib/settings";
-import { diffSetUnset, handleApiError, json, requireAdmin } from "@/lib/api";
+import { diffSetUnset, handleApiError, json, requireAdmin, requireAdminRole } from "@/lib/api";
+import { logAudit } from "@/lib/audit";
 
 /**
  * /api/settings (PRD §10.9 / TODO §2.4) — the SiteSettings singleton editor.
@@ -25,7 +26,8 @@ export async function GET() {
 
 export async function PUT(req: Request) {
   try {
-    await requireAdmin();
+    // Admin-only (PRD §11 Phase 2): editors can't edit site settings.
+    const session = await requireAdminRole();
     await connectToDatabase();
 
     const data = siteSettingsInput.parse(await req.json());
@@ -40,6 +42,14 @@ export async function PUT(req: Request) {
       },
       { upsert: true, new: true, setDefaultsOnInsert: true, runValidators: true },
     ).lean();
+
+    void logAudit({
+      actor: session.user.id,
+      action: "update",
+      entity: "settings",
+      entityId: "singleton",
+      after: updated,
+    });
 
     return json(updated);
   } catch (err) {

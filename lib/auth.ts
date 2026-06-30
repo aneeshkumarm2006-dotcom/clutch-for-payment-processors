@@ -29,6 +29,9 @@ export const authOptions: NextAuthOptions = {
         const user = await User.findOne({ email: parsed.data.email.toLowerCase() });
         if (!user) return null;
 
+        // Deactivated accounts (Phase 2 — PRD §10.10) can't sign in.
+        if (user.isActive === false) return null;
+
         const valid = await bcrypt.compare(parsed.data.password, user.passwordHash);
         if (!valid) return null;
 

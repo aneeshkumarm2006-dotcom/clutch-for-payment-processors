@@ -10,6 +10,7 @@ import {
   json,
   requireAdmin,
 } from "@/lib/api";
+import { logAudit } from "@/lib/audit";
 
 /**
  * /api/categories/[id] (PRD §12 / TODO §2.3).
@@ -48,7 +49,7 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
 
 export async function PUT(req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Category not found.");
 
@@ -61,6 +62,15 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
       runValidators: true,
     }).lean();
     if (!updated) throw new ApiError(404, "Category not found.");
+
+    void logAudit({
+      actor: session.user.id,
+      action: "update",
+      entity: "category",
+      entityId: params.id,
+      entityLabel: updated.name,
+    });
+
     return json(updated);
   } catch (err) {
     return handleApiError(err);
@@ -69,7 +79,7 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
 
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Category not found.");
 
@@ -85,6 +95,15 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
       { new: true, runValidators: true },
     ).lean();
     if (!updated) throw new ApiError(404, "Category not found.");
+
+    void logAudit({
+      actor: session.user.id,
+      action: "update",
+      entity: "category",
+      entityId: params.id,
+      entityLabel: updated.name,
+    });
+
     return json(updated);
   } catch (err) {
     return handleApiError(err);
@@ -93,7 +112,7 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
 
 export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Category not found.");
 
@@ -102,6 +121,14 @@ export async function DELETE(_req: Request, { params }: { params: { id: string }
 
     // Keep processors consistent: drop the deleted category from their arrays.
     await Processor.updateMany({ categories: params.id }, { $pull: { categories: params.id } });
+
+    void logAudit({
+      actor: session.user.id,
+      action: "delete",
+      entity: "category",
+      entityId: params.id,
+      entityLabel: deleted.name,
+    });
 
     return json({ ok: true });
   } catch (err) {

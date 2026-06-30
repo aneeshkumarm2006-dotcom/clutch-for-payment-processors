@@ -3,6 +3,7 @@ import { Category } from "@/models";
 import { ensureUniqueSlug } from "@/models/slug";
 import { categoryInput } from "@/lib/validators";
 import { getAdminSession, handleApiError, json, requireAdmin } from "@/lib/api";
+import { logAudit } from "@/lib/audit";
 
 /**
  * /api/categories (PRD §12 / TODO §2.3).
@@ -26,13 +27,22 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
 
     const data = categoryInput.parse(await req.json());
     const slug = await ensureUniqueSlug(Category, data.name, { explicitSlug: data.slug });
 
     const created = await Category.create({ ...data, slug });
+
+    void logAudit({
+      actor: session.user.id,
+      action: "create",
+      entity: "category",
+      entityId: String(created._id),
+      entityLabel: created.name,
+    });
+
     return json(created.toObject(), 201);
   } catch (err) {
     return handleApiError(err);

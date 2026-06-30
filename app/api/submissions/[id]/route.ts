@@ -2,6 +2,7 @@ import { connectToDatabase } from "@/lib/db";
 import { Submission } from "@/models";
 import { submissionUpdate } from "@/lib/validators";
 import { ApiError, handleApiError, json, requireAdmin } from "@/lib/api";
+import { logAudit } from "@/lib/audit";
 import { toAdminSubmissionData } from "@/lib/serialize";
 
 /**
@@ -17,7 +18,7 @@ const OBJECT_ID = /^[0-9a-fA-F]{24}$/;
 
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Submission not found.");
 
@@ -28,6 +29,15 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
     }).lean();
     if (!updated) throw new ApiError(404, "Submission not found.");
 
+    void logAudit({
+      actor: session.user.id,
+      action: "update",
+      entity: "submission",
+      entityId: params.id,
+      entityLabel: updated.processorName,
+      after: { status: updated.status },
+    });
+
     return json(toAdminSubmissionData(updated));
   } catch (err) {
     return handleApiError(err);
@@ -36,12 +46,21 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
 
 export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
   try {
-    await requireAdmin();
+    const session = await requireAdmin();
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Submission not found.");
 
     const deleted = await Submission.findByIdAndDelete(params.id).lean();
     if (!deleted) throw new ApiError(404, "Submission not found.");
+
+    void logAudit({
+      actor: session.user.id,
+      action: "delete",
+      entity: "submission",
+      entityId: params.id,
+      entityLabel: deleted.processorName,
+    });
+
     return json({ ok: true });
   } catch (err) {
     return handleApiError(err);

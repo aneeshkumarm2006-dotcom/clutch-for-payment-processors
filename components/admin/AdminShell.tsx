@@ -11,10 +11,13 @@ import {
   LayoutDashboard,
   LogOut,
   Newspaper,
+  ScrollText,
   Settings,
   Star,
+  Users,
   type LucideIcon,
 } from "lucide-react";
+import type { UserRole } from "@/lib/enums";
 import { cn } from "@/lib/utils";
 import {
   DropdownMenu,
@@ -30,7 +33,14 @@ import {
  * Wraps every authenticated `/admin` page. Active item = violet text on a
  * `violet-950` chip; content area sits on `ink-50`.
  */
-type NavItem = { label: string; href: string; icon: LucideIcon; exact?: boolean };
+type NavItem = {
+  label: string;
+  href: string;
+  icon: LucideIcon;
+  exact?: boolean;
+  /** When true, the item is hidden from editors (admin-only sections, PRD §10.10). */
+  adminOnly?: boolean;
+};
 
 const NAV: NavItem[] = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard, exact: true },
@@ -40,18 +50,22 @@ const NAV: NavItem[] = [
   { label: "Leads", href: "/admin/leads", icon: Inbox },
   { label: "Submissions", href: "/admin/submissions", icon: FileText },
   { label: "Blog", href: "/admin/blog", icon: Newspaper },
-  { label: "Settings", href: "/admin/settings", icon: Settings },
+  { label: "Users", href: "/admin/users", icon: Users, adminOnly: true },
+  { label: "Audit log", href: "/admin/audit", icon: ScrollText, adminOnly: true },
+  { label: "Settings", href: "/admin/settings", icon: Settings, adminOnly: true },
 ];
 
 export function AdminShell({
   user,
   children,
 }: {
-  user: { name?: string | null; email?: string | null };
+  user: { name?: string | null; email?: string | null; role?: UserRole };
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
   const initial = (user.name || user.email || "A").charAt(0).toUpperCase();
+  // Editors don't see Users / Audit / Settings (also enforced in middleware + API).
+  const nav = NAV.filter((item) => !item.adminOnly || user.role === "admin");
 
   const isActive = (item: NavItem) =>
     item.exact ? pathname === item.href : pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -67,7 +81,7 @@ export function AdminShell({
         </div>
 
         <nav className="flex-1 space-y-0.5 px-3 py-2">
-          {NAV.map((item) => {
+          {nav.map((item) => {
             const Icon = item.icon;
             const active = isActive(item);
             return (

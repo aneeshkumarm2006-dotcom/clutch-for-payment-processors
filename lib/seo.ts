@@ -138,6 +138,28 @@ export function itemListJsonLd(items: { name: string; path: string }[]): Jsonld 
   };
 }
 
+/**
+ * ItemList for a pretty compare page (`/compare/a-vs-b`, PRD §13/§9.4). Lists the
+ * compared processors in column order, each pointing at its profile, with the
+ * comparison's name so the list reads as a head-to-head (e.g. "Stripe vs PayPal").
+ */
+export function comparePairJsonLd(opts: {
+  name: string;
+  processors: { name: string; slug: string }[];
+}): Jsonld {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: opts.name,
+    itemListElement: opts.processors.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.name,
+      url: absoluteUrl(`/processor/${p.slug}`),
+    })),
+  };
+}
+
 export interface ProcessorJsonLdReview {
   author: string;
   rating: number;

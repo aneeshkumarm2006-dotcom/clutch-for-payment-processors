@@ -15,7 +15,9 @@ import type {
   ReviewCompanySize,
   ReviewSource,
   ReviewStatus,
+  UserRole,
 } from "@/lib/enums";
+import type { AuditAction, AuditEntity } from "@/models/AuditLog";
 
 /**
  * Server → client serialization for public components (Stage 3 / M3).
@@ -105,6 +107,12 @@ export interface SubRatingsData {
   reliability: number;
 }
 
+/** Auto-derived neutral keyword chip with its mention count (PRD §8.1 / §9.3). */
+export interface TopMentionData {
+  keyword: string;
+  count: number;
+}
+
 export interface CategoryRefData {
   id: string;
   name: string;
@@ -134,6 +142,7 @@ export interface ProcessorDetailData extends ProcessorCardData {
   screenshots: string[];
   demoVideoUrl?: string;
   subRatings: SubRatingsData;
+  topMentions: TopMentionData[];
   editorScore?: number;
   seo: { metaTitle?: string; metaDescription?: string; ogImage?: string };
 }
@@ -177,6 +186,13 @@ export function toProcessorDetailData(doc: Lean): ProcessorDetailData {
     reliability: Number(rawSub.reliability ?? 0),
   };
 
+  const topMentions: TopMentionData[] = Array.isArray(doc.topMentions)
+    ? doc.topMentions
+        .map((m) => m as Record<string, unknown>)
+        .filter((m) => m && typeof m === "object" && m.keyword)
+        .map((m) => ({ keyword: String(m.keyword), count: Number(m.count ?? 0) }))
+    : [];
+
   const categories: CategoryRefData[] = Array.isArray(doc.categories)
     ? doc.categories
         .map((c) => c as Record<string, unknown>)
@@ -210,6 +226,7 @@ export function toProcessorDetailData(doc: Lean): ProcessorDetailData {
     screenshots: strArr(doc.screenshots),
     demoVideoUrl: str(doc.demoVideoUrl),
     subRatings,
+    topMentions,
     editorScore: num(doc.editorScore),
     seo: {
       metaTitle: str(rawSeo.metaTitle),
@@ -490,5 +507,77 @@ export function toAdminBlogData(doc: Lean): AdminBlogData {
     tags: strArr(doc.tags),
     publishedAt: isoOrUndef(doc.publishedAt),
     updatedAt: iso(doc.updatedAt),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// User shapes (PRD §8.7 / §10.10 — Phase 2 Users admin).
+//
+// `toAdminUserData` is the management-table row. It DELIBERATELY omits
+// `passwordHash` (a secret that must never cross to the client). `redactUser`
+// produces the same secret-free snapshot for audit `before`/`after` capture.
+// ---------------------------------------------------------------------------
+
+export interface AdminUserData {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  isActive: boolean;
+  lastLoginAt?: string;
+  createdAt: string;
+}
+
+export function toAdminUserData(doc: Lean): AdminUserData {
+  return {
+    id: String(doc._id),
+    name: String(doc.name ?? ""),
+    email: String(doc.email ?? ""),
+    role: (doc.role as UserRole) ?? "admin",
+    // Older seeded users may predate the field; treat missing as active.
+    isActive: doc.isActive !== false,
+    lastLoginAt: isoOrUndef(doc.lastLoginAt),
+    createdAt: iso(doc.createdAt),
+  };
+}
+
+/** Secret-free user snapshot for audit logs (drops `passwordHash`). */
+export function redactUser(doc: Lean): Record<string, unknown> {
+  return {
+    id: String(doc._id),
+    name: doc.name,
+    email: doc.email,
+    role: doc.role,
+    isActive: doc.isActive !== false,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Audit log shape (Phase 2 — PRD §11 / §10.10; read-only /admin/audit table).
+// ---------------------------------------------------------------------------
+
+export interface AuditLogData {
+  id: string;
+  actorName: string;
+  action: AuditAction;
+  entity: AuditEntity;
+  entityId: string;
+  entityLabel?: string;
+  createdAt: string;
+}
+
+export function toAuditLogData(doc: Lean): AuditLogData {
+  const actor = doc.actor as Record<string, unknown> | string | null | undefined;
+  const populatedName =
+    actor && typeof actor === "object" ? str(actor.name) ?? str(actor.email) : undefined;
+
+  return {
+    id: String(doc._id),
+    actorName: populatedName ?? str(doc.actorName) ?? "Unknown",
+    action: (doc.action as AuditAction) ?? "update",
+    entity: (doc.entity as AuditEntity) ?? "processor",
+    entityId: String(doc.entityId ?? ""),
+    entityLabel: str(doc.entityLabel),
+    createdAt: iso(doc.createdAt),
   };
 }
