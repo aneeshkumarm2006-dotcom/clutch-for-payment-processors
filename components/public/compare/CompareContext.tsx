@@ -1,6 +1,13 @@
 "use client";
 
 import * as React from "react";
+import { COMPARE_MAX } from "@/components/public/compare/constants";
+
+// Re-export so existing client imports (`import { COMPARE_MAX } from ".../CompareContext"`)
+// keep working. Server Components must import it from `./constants` directly — a
+// re-export through this "use client" module would still cross the RSC boundary
+// and become a client-reference proxy.
+export { COMPARE_MAX };
 
 /**
  * Compare selection state (PRD §9.4 / TODO §3.1 "Add to Compare").
@@ -16,7 +23,6 @@ export interface CompareItem {
   logo?: string;
 }
 
-export const COMPARE_MAX = 4;
 const STORAGE_KEY = "paycompare:compare";
 
 interface CompareContextValue {

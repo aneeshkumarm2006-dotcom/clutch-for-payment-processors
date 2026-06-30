@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { CompareView } from "@/components/public/compare/CompareView";
 import { getProcessorsBySlugs } from "@/lib/public-data";
-import { COMPARE_MAX } from "@/components/public/compare/CompareContext";
+import { COMPARE_MAX } from "@/components/public/compare/constants";
 import { buildMetadata, absoluteUrl } from "@/lib/seo";
 import { prettyComparePath } from "@/lib/compare-pairs";
 

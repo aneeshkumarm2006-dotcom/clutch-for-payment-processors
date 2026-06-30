@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { JsonLd } from "@/components/public/JsonLd";
 import { CompareView } from "@/components/public/compare/CompareView";
 import { getProcessorsBySlugs } from "@/lib/public-data";
-import { COMPARE_MAX } from "@/components/public/compare/CompareContext";
+import { COMPARE_MAX } from "@/components/public/compare/constants";
 import { buildMetadata, breadcrumbJsonLd, comparePairJsonLd } from "@/lib/seo";
 import { comparePairParams, parseComparePairParam } from "@/lib/compare-pairs";
 
