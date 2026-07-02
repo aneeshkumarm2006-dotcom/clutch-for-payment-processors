@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { BarChart3, Check, ShieldCheck, Star, TrendingUp, Users } from "lucide-react";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { SubmissionForm } from "@/components/public/SubmissionForm";
+import { JsonLd } from "@/components/public/JsonLd";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, serviceJsonLd, faqJsonLd } from "@/lib/seo";
 
 /**
  * For Processors `/for-processors` (PRD §9.8). Marketing value props + the
@@ -87,9 +88,49 @@ const TIERS: Tier[] = [
   },
 ];
 
+const FAQS = [
+  {
+    question: "How much does it cost to list my payment processor?",
+    answer:
+      "Listing is free to start. The Free tier includes a full profile, directory and search visibility, and merchant review collection. The Verified and Premier tiers add trust badges and better placement — contact us for pricing.",
+  },
+  {
+    question: "How are processors ranked in the directory?",
+    answer:
+      "Ranking blends sponsored placement, listing tier, and a rank score computed from verified review ratings, review volume, and an editorial score. The full formula is published on our methodology page.",
+  },
+  {
+    question: "Can I pay for a guaranteed top position?",
+    answer:
+      "No. Rankings and reviews stay independent of any commercial relationship, and sponsored placements are always labelled. Verified and Premier improve visibility, but they don't override review-based ranking.",
+  },
+  {
+    question: "How do merchants find my listing?",
+    answer:
+      "Through the directory, category pages, side-by-side comparisons, and search — plus the capability landing pages merchants use to filter by integration, payment method, and pricing model.",
+  },
+];
+
 export default function ForProcessorsPage() {
   return (
     <div className="mx-auto max-w-content px-4 py-8 lg:px-6 lg:py-10">
+      <JsonLd
+        data={[
+          serviceJsonLd({
+            name: "Payment processor directory listing",
+            description:
+              "List your payment processor on PayCompare to reach merchants comparing providers — free to start, with Verified and Premier tiers for more visibility.",
+            path: "/for-processors",
+            offers: TIERS.map((t) => ({
+              name: t.name,
+              price: t.name === "Free" ? "0" : undefined,
+              description: t.blurb,
+            })),
+          }),
+          faqJsonLd(FAQS),
+        ]}
+      />
+
       <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "For processors" }]} />
 
       {/* Hero */}
@@ -153,6 +194,19 @@ export default function ForProcessorsPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* FAQ */}
+      <section aria-label="Frequently asked questions" className="mt-16 max-w-3xl">
+        <h2 className="text-h2 tracking-tighter2 text-foreground">Questions from processors</h2>
+        <dl className="mt-6 divide-y divide-ink-150 dark:divide-ink-800">
+          {FAQS.map((f) => (
+            <div key={f.question} className="py-5">
+              <dt className="text-h4 text-foreground">{f.question}</dt>
+              <dd className="mt-2 text-body text-muted-foreground">{f.answer}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
       {/* Submission form */}

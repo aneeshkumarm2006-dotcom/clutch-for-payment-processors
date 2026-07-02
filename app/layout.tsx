@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/sonner";
@@ -21,6 +21,14 @@ export const metadata: Metadata = {
   },
   description:
     "Compare payment processors and gateways on fees, payment methods, integrations, and verified merchant reviews.",
+};
+
+/** Browser theme color (violet accent, brighter in dark mode) — PWA/address-bar tint. */
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#6D28D9" },
+    { media: "(prefers-color-scheme: dark)", color: "#8B5CF6" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

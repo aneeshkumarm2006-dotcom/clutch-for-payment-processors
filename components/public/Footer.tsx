@@ -16,6 +16,15 @@ const COMPANY_LINKS = [
   { label: "For processors", href: "/for-processors" },
 ];
 
+/** High-value capability landing pages + glossary — site-wide internal links. */
+const POPULAR_LINKS = [
+  { label: "Best for Shopify", href: "/payment-processors/for-shopify" },
+  { label: "ACH processors", href: "/payment-processors/ach" },
+  { label: "Interchange-plus", href: "/payment-processors/interchange-plus" },
+  { label: "Flat-rate processors", href: "/payment-processors/flat-rate" },
+  { label: "Payments glossary", href: "/glossary" },
+];
+
 const LEGAL_LINKS = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
@@ -44,7 +53,7 @@ export function Footer({
   return (
     <footer className="mt-auto bg-ink-950 text-ink-300">
       <div className="mx-auto max-w-content px-4 py-16 lg:px-6">
-        <div className="grid gap-10 md:grid-cols-[1.5fr_repeat(3,1fr)]">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div>
             <Link href="/" className="text-h4 tracking-tighter2 text-ink-50">
               {siteName}
@@ -79,6 +88,12 @@ export function Footer({
             ) : (
               <FooterLink href="/processors" label="All processors" />
             )}
+          </FooterColumn>
+
+          <FooterColumn heading="Popular">
+            {POPULAR_LINKS.map((l) => (
+              <FooterLink key={l.href} href={l.href} label={l.label} />
+            ))}
           </FooterColumn>
 
           <FooterColumn heading="Company">

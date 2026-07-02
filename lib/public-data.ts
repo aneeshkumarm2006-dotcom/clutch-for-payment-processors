@@ -490,6 +490,8 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
 
     return [
       ...processors.map(toEntry("/processor")),
+      // Each processor also has a "/alternatives/<slug>" landing page.
+      ...processors.map(toEntry("/alternatives")),
       ...categories.map(toEntry("/category")),
       ...posts.map(toEntry("/blog")),
       ...compareEntries,

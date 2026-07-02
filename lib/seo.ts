@@ -66,7 +66,9 @@ export function buildMetadata({
       ...(ogImage ? { images: [{ url: absoluteUrl(ogImage) }] } : {}),
     },
     twitter: {
-      card: ogImage ? "summary_large_image" : "summary",
+      // A site-wide default OG image (`app/opengraph-image.tsx`) always exists,
+      // so every card can use the large variant even when the page sets no image.
+      card: "summary_large_image",
       title: metaTitle,
       description: metaDescription,
       ...(ogImage ? { images: [absoluteUrl(ogImage)] } : {}),
@@ -80,8 +82,17 @@ export function buildMetadata({
 
 type Jsonld = Record<string, unknown>;
 
-/** Organization + WebSite(SearchAction) for the homepage (PRD §13). */
-export function organizationJsonLd(opts: { name?: string; logo?: string; sameAs?: string[] }): Jsonld {
+/**
+ * Organization + WebSite(SearchAction) for the homepage (PRD §13). `sameAs`
+ * carries the social profiles and `email` a support `contactPoint`, so the node
+ * is richer than a bare name+logo when SiteSettings provides them.
+ */
+export function organizationJsonLd(opts: {
+  name?: string;
+  logo?: string;
+  sameAs?: string[];
+  email?: string;
+}): Jsonld {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -89,6 +100,15 @@ export function organizationJsonLd(opts: { name?: string; logo?: string; sameAs?
     url: SITE_URL,
     ...(opts.logo ? { logo: absoluteUrl(opts.logo) } : {}),
     ...(opts.sameAs && opts.sameAs.length ? { sameAs: opts.sameAs } : {}),
+    ...(opts.email
+      ? {
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "customer support",
+            email: opts.email,
+          },
+        }
+      : {}),
   };
 }
 
@@ -243,5 +263,97 @@ export function articleJsonLd(opts: {
     ...(opts.dateModified ? { dateModified: opts.dateModified } : {}),
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     url,
+  };
+}
+
+/**
+ * FAQPage from Q&A pairs (PRD §13). Wired into the facet, alternatives, glossary,
+ * and "for-processors" pages so their answer blocks are eligible for the FAQ rich
+ * result. Skip rendering when the list is empty (Google rejects an empty FAQPage).
+ */
+export function faqJsonLd(items: { question: string; answer: string }[]): Jsonld {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((it) => ({
+      "@type": "Question",
+      name: it.question,
+      acceptedAnswer: { "@type": "Answer", text: it.answer },
+    })),
+  };
+}
+
+/**
+ * Service (+ listing-tier Offers) for the "List your processor" page (PRD §13).
+ * Describes the directory-listing service the site sells to processors, with each
+ * pricing tier as an Offer in a hasOfferCatalog.
+ */
+export function serviceJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  offers?: { name: string; price?: string; description?: string }[];
+}): Jsonld {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    ...(opts.offers && opts.offers.length
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: `${opts.name} plans`,
+            itemListElement: opts.offers.map((o) => ({
+              "@type": "Offer",
+              name: o.name,
+              ...(o.price !== undefined ? { price: o.price, priceCurrency: "USD" } : {}),
+              ...(o.description ? { description: o.description } : {}),
+            })),
+          },
+        }
+      : {}),
+  };
+}
+
+/**
+ * DefinedTerm for a single glossary entry (`/glossary/<slug>`, PRD §13). Links
+ * back to the site-wide DefinedTermSet so the term reads as part of the glossary.
+ */
+export function definedTermJsonLd(opts: {
+  term: string;
+  slug: string;
+  definition: string;
+  aka?: string[];
+}): Jsonld {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name: opts.term,
+    description: opts.definition,
+    ...(opts.aka && opts.aka.length ? { alternateName: opts.aka } : {}),
+    url: absoluteUrl(`/glossary/${opts.slug}`),
+    inDefinedTermSet: {
+      "@type": "DefinedTermSet",
+      name: `${SITE_NAME} payments glossary`,
+      url: absoluteUrl("/glossary"),
+    },
+  };
+}
+
+/** DefinedTermSet listing every glossary term (the `/glossary` hub, PRD §13). */
+export function definedTermSetJsonLd(terms: { term: string; slug: string }[]): Jsonld {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    name: `${SITE_NAME} payments glossary`,
+    url: absoluteUrl("/glossary"),
+    hasDefinedTerm: terms.map((t) => ({
+      "@type": "DefinedTerm",
+      name: t.term,
+      url: absoluteUrl(`/glossary/${t.slug}`),
+    })),
   };
 }

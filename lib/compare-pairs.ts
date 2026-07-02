@@ -24,6 +24,7 @@
  * stale entry degrades to a 404 rather than a broken page.
  */
 export const POPULAR_COMPARE_PAIRS: readonly (readonly [string, string])[] = [
+  // Household-name gateways cross-shopped against each other (original set).
   ["stripe", "paypal"],
   ["stripe", "square"],
   ["stripe", "braintree"],
@@ -32,6 +33,21 @@ export const POPULAR_COMPARE_PAIRS: readonly (readonly [string, string])[] = [
   ["paypal", "square"],
   ["square", "stax"],
   ["razorpay", "payu"],
+  // Expanded high-intent head-to-heads (all among published slugs). Left slug is
+  // the more-searched of the pair so each has exactly one canonical URL. Curated
+  // to real "X vs Y" demand — NOT the full C(n,2) combinatorial matrix.
+  ["stripe", "helcim"], // flat-rate vs interchange-plus — a common value comparison
+  ["stripe", "stax"], // flat-rate vs subscription pricing
+  ["paypal", "braintree"], // PayPal-owned Braintree — frequently compared
+  ["paypal", "adyen"],
+  ["paypal", "authorize-net"],
+  ["square", "helcim"], // SMB/retail interchange-plus alternative to Square
+  ["square", "braintree"],
+  ["square", "adyen"],
+  ["adyen", "braintree"], // enterprise gateways
+  ["braintree", "authorize-net"],
+  ["authorize-net", "stax"],
+  ["helcim", "stax"], // interchange-plus / membership value plays
 ];
 
 /** The `-vs-` delimiter joining the two slugs in a pretty compare URL. */

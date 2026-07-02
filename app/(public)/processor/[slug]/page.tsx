@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CalendarDays, Check, CheckCircle2, MapPin, X } from "lucide-react";
+import { ArrowRight, CalendarDays, Check, CheckCircle2, MapPin, X } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn, orDash } from "@/lib/utils";
@@ -379,6 +379,15 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
               {alternatives.map((alt) => (
                 <ProcessorCard key={alt.id} processor={alt} />
               ))}
+            </div>
+            <div className="mt-6">
+              <Link
+                href={`/alternatives/${p.slug}`}
+                className="inline-flex items-center gap-1 text-small font-medium text-accent hover:underline"
+              >
+                See all {p.name} alternatives
+                <ArrowRight className="size-4" aria-hidden />
+              </Link>
             </div>
           </section>
         )}

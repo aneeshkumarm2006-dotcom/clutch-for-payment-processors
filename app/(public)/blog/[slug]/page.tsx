@@ -72,6 +72,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             image: post.coverImage,
             author: post.author,
             datePublished: post.publishedAt,
+            dateModified: post.updatedAt,
           }),
         ]}
       />

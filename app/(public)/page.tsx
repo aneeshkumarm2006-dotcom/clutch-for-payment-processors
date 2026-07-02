@@ -93,7 +93,14 @@ export default async function HomePage() {
     <>
       <JsonLd
         data={[
-          organizationJsonLd({ name: settings?.siteName, logo: settings?.logo }),
+          organizationJsonLd({
+            name: settings?.siteName,
+            logo: settings?.logo,
+            sameAs: Object.values(settings?.socialLinks ?? {}).filter(
+              (v): v is string => typeof v === "string" && v.length > 0,
+            ),
+            email: settings?.contactEmail,
+          }),
           webSiteJsonLd({ name: settings?.siteName }),
         ]}
       />

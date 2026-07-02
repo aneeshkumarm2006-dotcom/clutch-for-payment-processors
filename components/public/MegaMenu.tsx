@@ -19,6 +19,16 @@ const TYPE_GROUPS: { type: string; label: string }[] = [
   { type: "business-size", label: "By business size" },
 ];
 
+/** Static "best-for" facet links — the capability landing pages (`lib/facet-pages`). */
+const FACET_QUICK_LINKS: { label: string; href: string }[] = [
+  { label: "Shopify", href: "/payment-processors/for-shopify" },
+  { label: "WooCommerce", href: "/payment-processors/for-woocommerce" },
+  { label: "ACH / bank transfer", href: "/payment-processors/ach" },
+  { label: "Interchange-plus", href: "/payment-processors/interchange-plus" },
+  { label: "Flat-rate", href: "/payment-processors/flat-rate" },
+  { label: "Multi-currency", href: "/payment-processors/multi-currency" },
+];
+
 export function MegaMenu({ categories }: { categories: CategoryData[] }) {
   const [open, setOpen] = React.useState(false);
 
@@ -39,37 +49,56 @@ export function MegaMenu({ categories }: { categories: CategoryData[] }) {
         </button>
       </PopoverTrigger>
       <PopoverContent align="start" sideOffset={12} className="w-[min(92vw,640px)] p-6">
-        {groups.length > 0 ? (
-          <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3">
-            {groups.map((g) => (
-              <div key={g.type}>
-                <p className="text-label uppercase text-ink-500">{g.label}</p>
-                <ul className="mt-2.5 space-y-1.5">
-                  {g.items.slice(0, 6).map((c) => (
-                    <li key={c.slug}>
-                      <Link
-                        href={`/category/${c.slug}`}
-                        onClick={() => setOpen(false)}
-                        className="block text-small text-ink-700 transition-colors hover:text-accent dark:text-ink-300"
-                      >
-                        {c.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+        <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3">
+          {groups.map((g) => (
+            <div key={g.type}>
+              <p className="text-label uppercase text-ink-500">{g.label}</p>
+              <ul className="mt-2.5 space-y-1.5">
+                {g.items.slice(0, 6).map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      href={`/category/${c.slug}`}
+                      onClick={() => setOpen(false)}
+                      className="block text-small text-ink-700 transition-colors hover:text-accent dark:text-ink-300"
+                    >
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div>
+            <p className="text-label uppercase text-ink-500">Best for</p>
+            <ul className="mt-2.5 space-y-1.5">
+              {FACET_QUICK_LINKS.map((f) => (
+                <li key={f.href}>
+                  <Link
+                    href={f.href}
+                    onClick={() => setOpen(false)}
+                    className="block text-small text-ink-700 transition-colors hover:text-accent dark:text-ink-300"
+                  >
+                    {f.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-        ) : (
-          <p className="text-small text-muted-foreground">No categories published yet.</p>
-        )}
-        <div className="mt-5 border-t pt-4">
+        </div>
+        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 border-t pt-4">
           <Link
             href="/processors"
             onClick={() => setOpen(false)}
             className="text-small font-medium text-accent hover:underline"
           >
             Browse all processors →
+          </Link>
+          <Link
+            href="/glossary"
+            onClick={() => setOpen(false)}
+            className="text-small text-ink-700 transition-colors hover:text-accent dark:text-ink-300"
+          >
+            Payments glossary
           </Link>
         </div>
       </PopoverContent>

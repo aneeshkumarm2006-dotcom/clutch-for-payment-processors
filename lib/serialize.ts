@@ -471,6 +471,8 @@ export interface BlogPostData extends BlogCardData {
   /** Link only the first occurrence of each keyword vs every occurrence. */
   linkFirstOccurrenceOnly: boolean;
   views: number;
+  /** Last-modified timestamp — feeds `dateModified` in the Article JSON-LD. */
+  updatedAt: string;
 }
 
 export interface AdminBlogData {
@@ -541,6 +543,7 @@ export function toBlogPostData(doc: Lean): BlogPostData {
     // Lean reads skip schema defaults on pre-existing rows — default missing → true.
     linkFirstOccurrenceOnly: doc.linkFirstOccurrenceOnly !== false,
     views: Number(doc.views ?? 0),
+    updatedAt: iso(doc.updatedAt),
   };
 }
 
