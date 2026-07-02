@@ -205,7 +205,7 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
                 affiliateUrl={p.affiliateUrl}
                 slug={p.slug}
                 variant="primary"
-                className="flex-1 lg:w-full"
+                className="flex-1 lg:flex-none lg:w-full"
               />
               <LeadDialog
                 processorId={p.id}
@@ -213,11 +213,11 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
                 website={p.website}
                 affiliateUrl={p.affiliateUrl}
                 source="profile-quote"
-                triggerClassName="flex-1 lg:w-full"
+                triggerClassName="flex-1 lg:flex-none lg:w-full"
               />
               <Link
                 href={`/write-review/${p.slug}`}
-                className={cn(buttonVariants({ variant: "secondary" }), "flex-1 lg:w-full")}
+                className={cn(buttonVariants({ variant: "secondary" }), "flex-1 lg:flex-none lg:w-full")}
               >
                 Write a review
               </Link>

@@ -50,7 +50,7 @@ export function ProfileTabs({ sections }: { sections: ProfileTabItem[] }) {
     <div className="sticky top-16 z-30 border-y bg-card/90 backdrop-blur">
       <nav
         aria-label="Profile sections"
-        className="mx-auto flex max-w-content gap-1 overflow-x-auto px-4 lg:px-6"
+        className="no-scrollbar mx-auto flex max-w-content gap-1 overflow-x-auto px-4 lg:px-6"
       >
         {sections.map((s) => (
           <a

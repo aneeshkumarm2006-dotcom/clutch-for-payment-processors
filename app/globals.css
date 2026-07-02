@@ -115,4 +115,62 @@
     font-feature-settings: "tnum";
     font-variant-numeric: tabular-nums;
   }
+
+  /* ---------------------------------------------------------------------------
+   * Custom scrollbars — Mono Minimal theme.
+   * Slim, rounded thumb using the strong-border ink; it warms to the violet
+   * accent when grabbed. Track stays transparent so it melts into the page.
+   * Driven by the same CSS vars as the rest of the UI, so it flips with
+   * light/dark automatically. Applies to the page and any nested scroll
+   * container; the .no-scrollbar utility (below) still fully opts out because
+   * its selectors are declared later / more specific.
+   * ------------------------------------------------------------------------ */
+
+  /* Firefox — scrollbar-color inherits, so setting it high in the tree themes
+   * nested scrollers too. */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+
+  /* WebKit / Chromium / Edge */
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--border-strong);
+    border-radius: 9999px;
+    /* transparent border carved out of the thumb via padding-box gives the
+     * pill a little inset breathing room against the track. */
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background-color 0.15s ease;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--muted-foreground);
+  }
+  *::-webkit-scrollbar-thumb:active {
+    background-color: var(--accent);
+  }
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbars while keeping the element scrollable. Used by horizontally
+   * scrollable strips (e.g. the sticky profile tabs) where a native scrollbar
+   * would show up as visual clutter. Note: setting overflow-x also promotes
+   * overflow-y to `auto`, so this suppresses the stray vertical scrollbar too. */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE & legacy Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
 }
