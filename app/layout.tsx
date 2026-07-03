@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   },
   description:
     "Compare payment processors and gateways on fees, payment methods, integrations, and verified merchant reviews.",
+  verification: {
+    google: "IXGaDh1jqTmUq_C_V_uqXqT5V8Rzw6QqsIXLIKA0JS4",
+  },
 };
 
 /** Browser theme color (violet accent, brighter in dark mode) — PWA/address-bar tint. */
