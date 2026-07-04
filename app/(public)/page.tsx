@@ -28,9 +28,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getOrCreateSiteSettings().catch(() => null);
   return buildMetadata({
     title:
-      "PaymentProcessingGuide | Expert Payment Processing Guides, Gateways & Merchant Services",
+      "Payment Processing Guide | Expert Payment Processing Guides, Gateways & Merchant Services",
     description:
-      "PaymentProcessingGuide is your trusted resource for payment processing guides, payment gateways, merchant accounts, transaction fees, payment security, fraud prevention, and digital payment solutions.",
+      "Payment Processing Guide is your trusted resource for payment processing guides, payment gateways, merchant accounts, transaction fees, payment security, fraud prevention, and digital payment solutions.",
     path: "/",
     absoluteTitle: true,
     // An admin-set Default SEO (Settings) still wins over the copy above.
