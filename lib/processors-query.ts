@@ -1,4 +1,4 @@
-import type { PipelineStage } from "mongoose";
+import { Types, type PipelineStage } from "mongoose";
 import { connectToDatabase } from "@/lib/db";
 import { Processor, Category } from "@/models";
 import { toProcessorCardData } from "@/lib/serialize";
@@ -57,7 +57,12 @@ export {
 function buildBaseMatch(p: DirectoryParams, categoryId?: string): Record<string, unknown> {
   const match: Record<string, unknown> = { isPublished: true };
 
-  if (categoryId) match.categories = categoryId;
+  // `categories` is stored as ObjectIds. Unlike `.find()`, an aggregation
+  // `$match` is passed to MongoDB verbatim with NO schema casting, so a string
+  // categoryId would never match — cast it to an ObjectId here.
+  if (categoryId && Types.ObjectId.isValid(categoryId)) {
+    match.categories = new Types.ObjectId(categoryId);
+  }
   if (p.pricingModel.length) match.pricingModel = { $in: p.pricingModel };
   if (p.methods.length) match.paymentMethods = { $all: p.methods };
   if (p.integrations.length) match.integrations = { $all: p.integrations };
