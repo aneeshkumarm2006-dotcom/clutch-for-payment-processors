@@ -66,7 +66,7 @@ export default async function HomePage() {
     getRecentBlogPosts(3),
   ]);
 
-  const heroTitle = settings?.homepageHeroTitle || "Find the right payment processor";
+  const heroTitle = settings?.homepageHeroTitle || "Payment Processing Guide: Your Trusted Payment Processing Resource";
   const heroSubtitle =
     settings?.homepageHeroSubtitle ||
     "Compare fees, features, and verified merchant reviews — all in one independent directory.";
