@@ -60,7 +60,7 @@ export const FACET_PAGES: FacetPageDef[] = [
     description:
       "Compare payment processors that integrate with Shopify on fees, payment methods, payout times, and verified merchant reviews.",
     intro:
-      "The best payment processor for a Shopify store keeps checkout conversion high while keeping fees predictable. These processors integrate with Shopify — as the native gateway or through a supported app — so you can take cards and wallets without rebuilding checkout.",
+      "The best payment processor for a Shopify store keeps checkout conversion high while keeping fees predictable. These processors integrate with Shopify (as the native gateway or through a supported app) so you can take cards and wallets without rebuilding checkout.",
     filter: { integrations: ["shopify"] },
     faqs: [
       {
@@ -160,13 +160,13 @@ export const FACET_PAGES: FacetPageDef[] = [
     description:
       "Compare processors that offer a virtual terminal for phone, mail, and keyed-in payments — on fees, features, and verified reviews.",
     intro:
-      "A virtual terminal lets you key in card payments from any browser — ideal for phone and mail orders, invoicing, and businesses without a physical card reader. These processors include a virtual terminal in their dashboard.",
+      "A virtual terminal lets you key in card payments from any browser. It's ideal for phone and mail orders, invoicing, and businesses without a physical card reader. These processors include a virtual terminal in their dashboard.",
     filter: { integrations: ["virtual-terminal"] },
     faqs: [
       {
         question: "What is a virtual terminal?",
         answer:
-          "A virtual terminal is a secure web page in your payment dashboard where you manually enter a customer's card details to take a payment — useful for phone (MOTO) and mail orders. Keyed-in transactions usually cost more than card-present ones.",
+          "A virtual terminal is a secure web page in your payment dashboard where you manually enter a customer's card details to take a payment, useful for phone (MOTO) and mail orders. Keyed-in transactions usually cost more than card-present ones.",
       },
     ],
     related: ["with-invoicing", "with-payment-links", "interchange-plus"],
@@ -202,7 +202,7 @@ export const FACET_PAGES: FacetPageDef[] = [
       {
         question: "Can I send invoices and take card payments in one place?",
         answer:
-          "Yes — the processors listed here include invoicing, so you can issue an invoice and collect payment through the same account instead of bolting on a separate billing product.",
+          "Yes. The processors listed here include invoicing, so you can issue an invoice and collect payment through the same account instead of bolting on a separate billing product.",
       },
     ],
     related: ["with-payment-links", "with-virtual-terminal", "multi-currency"],
@@ -215,7 +215,7 @@ export const FACET_PAGES: FacetPageDef[] = [
     description:
       "Compare processors that support ACH bank transfers on fees, payout times, features, and verified merchant reviews.",
     intro:
-      "ACH payments move money directly between US bank accounts, so they're far cheaper than cards for large or recurring charges — often a flat fee rather than a percentage. These processors support ACH alongside card payments.",
+      "ACH payments move money directly between US bank accounts, so they're far cheaper than cards for large or recurring charges, often a flat fee rather than a percentage. These processors support ACH alongside card payments.",
     filter: { methods: ["ach"] },
     faqs: [
       {
@@ -334,7 +334,7 @@ export const FACET_PAGES: FacetPageDef[] = [
     description:
       "Compare flat-rate payment processors on pricing, ease of setup, features, and verified merchant reviews.",
     intro:
-      "Flat-rate pricing charges one predictable percentage (plus a fixed fee) on every sale, with no monthly minimums — which makes it the simplest model for new and low-volume businesses. These processors use flat-rate pricing.",
+      "Flat-rate pricing charges one predictable percentage (plus a fixed fee) on every sale, with no monthly minimums, which makes it the simplest model for new and low-volume businesses. These processors use flat-rate pricing.",
     filter: { pricingModel: ["flat-rate"] },
     faqs: [
       {
@@ -359,7 +359,7 @@ export const FACET_PAGES: FacetPageDef[] = [
       {
         question: "What is multi-currency processing?",
         answer:
-          "It's the ability to present prices and accept payment in several currencies, then settle to your account — sometimes in the original currency, sometimes converted. Watch the FX margin, which varies by processor.",
+          "It's the ability to present prices and accept payment in several currencies, then settle to your account, sometimes in the original currency, sometimes converted. Watch the FX margin, which varies by processor.",
       },
     ],
     related: ["crypto", "ach", "interchange-plus"],
@@ -371,7 +371,7 @@ export const FACET_PAGES: FacetPageDef[] = [
     description:
       "Compare processors that don't hold a rolling reserve on cash flow, terms, fees, and verified merchant reviews.",
     intro:
-      "A rolling reserve is when a processor withholds a percentage of your sales for months to cover potential chargebacks — a real cash-flow drag. These processors advertise no rolling reserve, so more of your revenue lands on schedule.",
+      "A rolling reserve is when a processor withholds a percentage of your sales for months to cover potential chargebacks. That's a real drag on cash flow. These processors advertise no rolling reserve, so more of your revenue lands on schedule.",
     filter: { features: ["no-rolling-reserve"] },
     faqs: [
       {
@@ -395,7 +395,7 @@ export const FACET_PAGES: FacetPageDef[] = [
       {
         question: "Do I need a card reader for Tap to Pay?",
         answer:
-          "No — Tap to Pay uses the NFC chip already in a compatible phone, so customers tap their card or wallet directly on your device. Compare the processors here on their in-person rate and device support.",
+          "No. Tap to Pay uses the NFC chip already in a compatible phone, so customers tap their card or wallet directly on your device. Compare the processors here on their in-person rate and device support.",
       },
     ],
     related: ["apple-pay", "google-pay", "flat-rate"],

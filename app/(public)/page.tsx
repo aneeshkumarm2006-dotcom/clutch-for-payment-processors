@@ -69,7 +69,7 @@ export default async function HomePage() {
   const heroTitle = settings?.homepageHeroTitle || "Payment Processing Guide: Your Trusted Payment Processing Resource";
   const heroSubtitle =
     settings?.homepageHeroSubtitle ||
-    "Compare fees, features, and verified merchant reviews — all in one independent directory.";
+    "Compare fees, features, and verified merchant reviews, all in one independent directory.";
 
   const featuredCategories = pickFeaturedCategories(
     allCategories,

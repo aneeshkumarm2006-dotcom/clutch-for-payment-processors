@@ -52,7 +52,7 @@ export default function PrivacyPage() {
         <ul>
           <li>
             <strong>Information you provide.</strong> When you write a review, request a quote, submit
-            your processor, or contact us, we collect the details you enter — such as your name,
+            your processor, or contact us, we collect the details you enter, such as your name,
             email, business information, and message.
           </li>
           <li>

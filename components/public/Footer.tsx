@@ -112,7 +112,7 @@ export function Footer({
         <div className="mt-12 border-t border-ink-800 pt-6 text-small text-ink-500">
           {settings.footerText?.trim()
             ? settings.footerText
-            : `© ${year} ${siteName}. Sample directory — verify fees with each provider before deciding.`}
+            : `© ${year} ${siteName}. Sample directory. Verify fees with each provider before deciding.`}
         </div>
       </div>
     </footer>

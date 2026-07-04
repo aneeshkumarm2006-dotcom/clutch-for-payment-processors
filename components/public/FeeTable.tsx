@@ -31,7 +31,7 @@ export function FeeTable({ fees, className }: { fees: FeesData; className?: stri
   if (rows.length === 0) {
     return (
       <p className={cn("text-body text-muted-foreground", className)}>
-        Detailed fee breakdown isn’t published for this processor yet — check the provider’s website
+        Detailed fee breakdown isn’t published for this processor yet. Check the provider’s website
         for current pricing.
       </p>
     );

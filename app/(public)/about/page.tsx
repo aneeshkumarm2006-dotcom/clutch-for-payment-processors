@@ -34,7 +34,7 @@ const VALUES = [
   {
     Icon: Users,
     title: "Built on real experience",
-    body: "Star ratings come from verified merchants who’ve used these processors — not from us. Every review is moderated before it’s published.",
+    body: "Star ratings come from verified merchants who’ve used these processors, not from us. Every review is moderated before it’s published.",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function AboutPage() {
       <header className="mt-4 max-w-prose">
         <h1 className="text-h1 tracking-tighter2 text-foreground">About PayCompare</h1>
         <p className="mt-3 text-body-lg text-muted-foreground">
-          Choosing how to accept payments is one of the highest-stakes decisions a business makes —
+          Choosing how to accept payments is one of the highest-stakes decisions a business makes,
           and one of the hardest to research. We built PayCompare to fix that.
         </p>
       </header>
@@ -67,10 +67,10 @@ export default function AboutPage() {
             is to get you from “I need to accept payments” to a confident decision in minutes.
           </p>
           <p>
-            We cover providers across markets and use cases — from Stripe, PayPal, and Square to
-            region-specific specialists — and break each one down on the things that actually matter:
-            real pricing, payment methods, integrations, settlement times, and what merchants say
-            after living with them.
+            We cover providers across markets and use cases, from Stripe, PayPal, and Square to
+            region-specific specialists. For each one we break down what actually matters: real
+            pricing, payment methods, integrations, settlement times, and what merchants say after
+            living with them.
           </p>
         </Prose>
       </section>
@@ -95,7 +95,7 @@ export default function AboutPage() {
           <p>
             PayCompare is free for merchants. We’re funded by sponsored placements and affiliate
             links, both of which are clearly disclosed. This never changes a processor’s rating or
-            review content — read exactly how on our <Link href="/methodology">methodology</Link>{" "}
+            review content. Read exactly how on our <Link href="/methodology">methodology</Link>{" "}
             page.
           </p>
         </Prose>

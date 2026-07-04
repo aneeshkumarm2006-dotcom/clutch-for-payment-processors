@@ -69,7 +69,7 @@ export default async function SearchPage({ searchParams }: { searchParams: { q?:
       {results && results.total === 0 && (
         <EmptyState
           title={`No results for “${q}”`}
-          body="Try a shorter or different term — a processor name, payment method, or industry."
+          body="Try a shorter or different term: a processor name, payment method, or industry."
           action
         />
       )}

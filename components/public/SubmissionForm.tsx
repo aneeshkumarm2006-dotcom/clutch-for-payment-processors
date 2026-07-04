@@ -108,7 +108,7 @@ export function SubmissionForm() {
     return (
       <div className="rounded-lg border border-border bg-card p-8 text-center">
         <CheckCircle2 className="mx-auto size-10 text-accent" aria-hidden />
-        <h2 className="mt-4 text-h3 tracking-tighter2">Thanks — we’ll be in touch</h2>
+        <h2 className="mt-4 text-h3 tracking-tighter2">Thanks, we’ll be in touch</h2>
         <p className="mx-auto mt-2 max-w-prose text-body text-muted-foreground">
           We’ll review your processor and follow up about getting it listed. Most reviews take a few
           business days.

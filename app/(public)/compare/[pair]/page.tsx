@@ -74,7 +74,7 @@ export default async function PrettyComparePage({ params }: { params: { pair: st
       />
       <h1 className="mt-4 text-h1 tracking-tighter2 text-foreground">{joined}</h1>
       <p className="mt-2 max-w-prose text-body text-muted-foreground">
-        A side-by-side look at {names.join(" and ")} — pricing, payment methods, integrations,
+        A side-by-side look at {names.join(" and ")}: pricing, payment methods, integrations,
         features, and company facts. Add up to {COMPARE_MAX} processors to widen the comparison.
       </p>
 

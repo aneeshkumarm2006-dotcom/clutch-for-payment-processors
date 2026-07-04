@@ -111,7 +111,7 @@ export default async function AlternativesPage({ params }: { params: { slug: str
       <header className="mt-4 max-w-prose">
         <h1 className="text-h1 tracking-tighter2 text-foreground">Best {p.name} alternatives</h1>
         <p className="mt-3 text-body-lg text-muted-foreground">
-          {p.tagline ? `${p.name} — ${p.tagline}. ` : ""}
+          {p.tagline ? `${p.name}: ${p.tagline}. ` : ""}
           If you&rsquo;re weighing up {p.name}, here {alternatives.length === 1 ? "is" : "are"}{" "}
           {alternatives.length} payment processor{alternatives.length === 1 ? "" : "s"} worth
           comparing on fees, features, and verified merchant reviews
@@ -165,7 +165,7 @@ export default async function AlternativesPage({ params }: { params: { slug: str
       </section>
 
       <section className="mt-14 max-w-prose">
-        <h2 className="text-h2 tracking-tighter2 text-foreground">{p.name} alternatives — FAQ</h2>
+        <h2 className="text-h2 tracking-tighter2 text-foreground">{p.name} alternatives: common questions</h2>
         <dl className="mt-6 divide-y divide-ink-150 dark:divide-ink-800">
           {faqs.map((f) => (
             <div key={f.question} className="py-5">

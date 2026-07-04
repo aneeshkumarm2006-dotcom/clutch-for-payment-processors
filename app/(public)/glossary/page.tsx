@@ -43,7 +43,7 @@ export default function GlossaryHubPage() {
         <h1 className="text-h1 tracking-tighter2 text-foreground">Payments glossary</h1>
         <p className="mt-3 text-body-lg text-muted-foreground">
           Plain-English definitions of the payment processing terms you&rsquo;ll meet when comparing
-          providers — from interchange and chargebacks to ACH, PCI, and rolling reserves.
+          providers: interchange, chargebacks, ACH, PCI, and rolling reserves.
         </p>
       </header>
 

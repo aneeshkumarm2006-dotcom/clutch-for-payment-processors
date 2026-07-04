@@ -185,7 +185,7 @@ export function LeadDialog({
           <div className="py-4 text-center">
             <CheckCircle2 className="mx-auto size-10 text-accent" aria-hidden />
             <DialogTitle className="mt-4 text-h3 tracking-tighter2">
-              Thanks — we’ve got your request
+              Thanks, we’ve got your request
             </DialogTitle>
             <DialogDescription className="mx-auto mt-2 max-w-prose">
               {isQuote

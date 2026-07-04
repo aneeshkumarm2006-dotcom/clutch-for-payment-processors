@@ -97,7 +97,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Flat-rate pricing",
     short: "One blended percentage (plus a fixed fee) on every sale, regardless of card type.",
     definition:
-      "Flat-rate pricing charges a single, predictable rate — such as 2.9% + $0.30 — on every transaction, no matter the underlying interchange. It's simple and has no monthly minimums, which makes it ideal for new or low-volume businesses, but it can cost more than interchange-plus as volume grows.",
+      "Flat-rate pricing charges a single, predictable rate (such as 2.9% + $0.30) on every transaction, no matter the underlying interchange. It's simple and has no monthly minimums, which makes it ideal for new or low-volume businesses, but it can cost more than interchange-plus as volume grows.",
     related: ["interchange-plus", "tiered-pricing", "effective-rate"],
     relatedFacets: ["flat-rate"],
   },
@@ -106,7 +106,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Tiered pricing",
     short: "Transactions are bucketed into 'qualified', 'mid-qualified', and 'non-qualified' rates.",
     definition:
-      "Tiered pricing sorts each transaction into a pricing tier — typically qualified, mid-qualified, and non-qualified — each with a different rate. It looks simple but is the least transparent model, because the processor decides which tier a card falls into and can route more sales to expensive tiers.",
+      "Tiered pricing sorts each transaction into a pricing tier (typically qualified, mid-qualified, and non-qualified), each with a different rate. It looks simple but is the least transparent model, because the processor decides which tier a card falls into and can route more sales to expensive tiers.",
     related: ["flat-rate-pricing", "interchange-plus", "effective-rate"],
   },
   {
@@ -451,7 +451,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     aka: ["Subscription billing"],
     short: "Automatically charging a saved payment method on a repeating schedule.",
     definition:
-      "Recurring billing charges a customer's stored (tokenized) card or bank account on a set schedule — weekly, monthly, or annually — without re-entering details. It's the backbone of subscriptions and needs dunning logic to recover failed payments.",
+      "Recurring billing charges a customer's stored (tokenized) card or bank account on a set schedule (weekly, monthly, or annually) without re-entering details. It's the backbone of subscriptions and needs dunning logic to recover failed payments.",
     related: ["tokenization", "dunning", "ach"],
     relatedFacets: ["with-invoicing"],
   },

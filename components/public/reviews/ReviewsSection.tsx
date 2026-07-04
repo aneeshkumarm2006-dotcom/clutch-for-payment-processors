@@ -172,7 +172,7 @@ export function ReviewsSection({
         </div>
       ) : (
         <p className="text-body text-muted-foreground">
-          No reviews yet — be the first to share your experience with {processorName}.
+          No reviews yet. Be the first to share your experience with {processorName}.
         </p>
       )}
 

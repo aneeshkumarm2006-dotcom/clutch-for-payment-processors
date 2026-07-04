@@ -92,7 +92,7 @@ const FAQS = [
   {
     question: "How much does it cost to list my payment processor?",
     answer:
-      "Listing is free to start. The Free tier includes a full profile, directory and search visibility, and merchant review collection. The Verified and Premier tiers add trust badges and better placement — contact us for pricing.",
+      "Listing is free to start. The Free tier includes a full profile, directory and search visibility, and merchant review collection. The Verified and Premier tiers add trust badges and better placement. Contact us for pricing.",
   },
   {
     question: "How are processors ranked in the directory?",
@@ -107,7 +107,7 @@ const FAQS = [
   {
     question: "How do merchants find my listing?",
     answer:
-      "Through the directory, category pages, side-by-side comparisons, and search — plus the capability landing pages merchants use to filter by integration, payment method, and pricing model.",
+      "Through the directory, category pages, side-by-side comparisons, and search, plus the capability landing pages merchants use to filter by integration, payment method, and pricing model.",
   },
 ];
 
@@ -160,7 +160,7 @@ export default function ForProcessorsPage() {
       <section aria-label="Listing tiers" className="mt-16">
         <h2 className="text-h2 tracking-tighter2 text-foreground">Choose how you show up</h2>
         <p className="mt-2 max-w-prose text-body text-muted-foreground">
-          Every listing starts free. Verified and Premier add trust signals and placement — tell us
+          Every listing starts free. Verified and Premier add trust signals and placement. Tell us
           which you’re interested in below.
         </p>
         <div className="mt-8 grid gap-4 lg:grid-cols-3">

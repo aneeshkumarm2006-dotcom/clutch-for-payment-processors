@@ -148,7 +148,7 @@ export function WriteReviewForm({
     return (
       <div className="rounded-lg border border-border bg-card p-8 text-center">
         <CheckCircle2 className="mx-auto size-10 text-accent" aria-hidden />
-        <h2 className="mt-4 text-h3 tracking-tighter2">Thanks — your review is pending moderation</h2>
+        <h2 className="mt-4 text-h3 tracking-tighter2">Thanks, your review is pending moderation</h2>
         <p className="mx-auto mt-2 max-w-prose text-body text-muted-foreground">
           We review every submission before it goes live to keep ratings trustworthy. Once approved,
           your review will appear on the {processorName} profile.
@@ -245,7 +245,7 @@ export function WriteReviewForm({
       </Fieldset>
 
       {/* About you */}
-      <Fieldset legend="About you" description="Your email stays private — it's only used to verify the review.">
+      <Fieldset legend="About you" description="Your email stays private and is only used to verify the review.">
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label="Your name" error={errors.reviewerName?.message} required>
             <Input placeholder="Alex Morgan" autoComplete="name" {...register("reviewerName")} />

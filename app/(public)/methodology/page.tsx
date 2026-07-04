@@ -21,11 +21,11 @@ export async function generateMetadata(): Promise<Metadata> {
 const RANK_STEPS = [
   {
     title: "1 · Sponsored placements",
-    body: "Processors with a paid sponsored placement appear first, ordered by their sponsor rank. Every sponsored listing carries a clear “Sponsored” label on the card — it is never hidden.",
+    body: "Processors with a paid sponsored placement appear first, ordered by their sponsor rank. Every sponsored listing carries a clear “Sponsored” label on the card. It is never hidden.",
   },
   {
     title: "2 · Listing tier",
-    body: "Next, remaining processors are grouped by listing tier: Premier, then Verified, then Free. A higher tier reflects a more complete, maintained profile — not a higher rating.",
+    body: "Next, remaining processors are grouped by listing tier: Premier, then Verified, then Free. A higher tier reflects a more complete, maintained profile, not a higher rating.",
   },
   {
     title: "3 · Rank score",
@@ -49,7 +49,7 @@ export default function MethodologyPage() {
         <h1 className="text-h1 tracking-tighter2 text-foreground">How we rank and verify</h1>
         <p className="mt-3 text-body-lg text-muted-foreground">
           PayCompare is an independent directory. Here’s exactly how listings are ordered, what our
-          badges mean, and how we handle reviews and sponsorship — so you can judge what you read.
+          badges mean, and how we handle reviews and sponsorship, so you can judge what you read.
         </p>
       </header>
 
@@ -72,7 +72,7 @@ export default function MethodologyPage() {
           ))}
         </ol>
         <p className="mt-6 text-body text-muted-foreground">
-          You can override this any time with the sort control — Highest rated, Most reviewed, Lowest
+          You can override this any time with the sort control: Highest rated, Most reviewed, Lowest
           fees, or Newest. Those orders are applied as you’d expect and do not pin sponsored listings.
         </p>
       </section>
@@ -86,12 +86,12 @@ export default function MethodologyPage() {
         <Prose className="mt-3">
           <p>
             A <strong>Verified</strong> badge means we’ve confirmed the processor is a genuine,
-            operating business and that the core facts on its profile — pricing model, supported
-            regions, and payment methods — match its official documentation at the time of review.
+            operating business and that the core facts on its profile (pricing model, supported
+            regions, and payment methods) match its official documentation at the time of review.
           </p>
           <p>
             Verification is about authenticity, not endorsement. It doesn’t mean a processor is the
-            cheapest or the best fit for you — only that what you’re reading is accurate. Fees change
+            cheapest or the best fit for you, only that what you’re reading is accurate. Fees change
             often, so always confirm current pricing directly with the provider before signing up.
           </p>
         </Prose>
@@ -116,7 +116,7 @@ export default function MethodologyPage() {
             Reviewers provide a private email so we can confirm they’re a genuine customer. Reviews
             from confirmed merchants are marked <strong>Verified</strong>. A processor’s star rating
             and sub-ratings are computed only from approved reviews and update automatically as new
-            ones are published or removed — they’re never edited by hand.
+            ones are published or removed. They’re never edited by hand.
           </p>
         </Prose>
       </section>
@@ -130,11 +130,11 @@ export default function MethodologyPage() {
         <Prose className="mt-3">
           <p>
             PayCompare is free for merchants. We’re funded by sponsored placements and affiliate
-            links — when you click “Visit website” we may earn a commission, at no cost to you. These
+            links. When you click “Visit website” we may earn a commission, at no cost to you. These
             links are marked with <code className="rounded bg-ink-100 px-1 text-small dark:bg-ink-800">rel=&quot;sponsored&quot;</code> and we tag affiliate clicks for our own analytics.
           </p>
           <p>
-            Sponsorship affects <strong>placement only</strong> — it never influences a processor’s
+            Sponsorship affects <strong>placement only</strong>. It never influences a processor’s
             star rating, sub-ratings, review content, or editorial score, and sponsored listings are
             always labelled. Our reviews and rankings stay independent of any commercial relationship.
           </p>

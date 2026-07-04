@@ -72,7 +72,7 @@ export function DirectoryView({
               No processors match these filters yet
             </h2>
             <p className="mt-1 max-w-sm text-body text-muted-foreground">
-              Try widening your search — remove a filter or two, or browse the full directory.
+              Try widening your search: remove a filter or two, or browse the full directory.
             </p>
             <Button asChild variant="secondary" className="mt-5">
               <Link href={basePath}>Clear filters</Link>
