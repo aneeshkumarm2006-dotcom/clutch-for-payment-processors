@@ -26,14 +26,14 @@ export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getOrCreateSiteSettings().catch(() => null);
-  const name = settings?.siteName || "PayCompare";
   return buildMetadata({
-    title: `${name} — Compare payment processors`,
+    title:
+      "PaymentProcessingGuide | Expert Payment Processing Guides, Gateways & Merchant Services",
     description:
-      settings?.homepageHeroSubtitle ||
-      "Compare payment processors and gateways on fees, payment methods, integrations, and verified merchant reviews.",
+      "PaymentProcessingGuide is your trusted resource for payment processing guides, payment gateways, merchant accounts, transaction fees, payment security, fraud prevention, and digital payment solutions.",
     path: "/",
     absoluteTitle: true,
+    // An admin-set Default SEO (Settings) still wins over the copy above.
     seo: settings?.defaultSeo,
   });
 }
