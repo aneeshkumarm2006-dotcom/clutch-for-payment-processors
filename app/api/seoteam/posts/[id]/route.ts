@@ -5,6 +5,7 @@ import { seoBlogPostInput, seoBlogPostUpdate } from "@/lib/validators";
 import { ApiError, buildUpdateDoc, diffSetUnset, handleApiError, json } from "@/lib/api";
 import { requireSeoTeam } from "@/lib/seoteam-guard";
 import { computeReadingTime, revalidateBlogPaths } from "@/lib/seoteam-posts";
+import { sanitizeBlogHtml } from "@/lib/sanitize-html";
 
 /**
  * /api/seoteam/posts/[id] — read one (edit form), full replace (PUT), quick
@@ -50,12 +51,21 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     if (!existing) throw new ApiError(404, "Post not found.");
 
     const { slug, ...rest } = seoBlogPostInput.parse(await req.json());
+    rest.content = sanitizeBlogHtml(rest.content);
     const parts = diffSetUnset(rest);
     parts.$set.slug = await resolveSlug(params.id, rest.title, slug);
     parts.$set.readingTimeMinutes = computeReadingTime(rest.content);
 
     if (rest.status === "published") {
-      parts.$set.publishedAt = rest.publishedAt ?? existing.publishedAt ?? new Date();
+      // Explicit date wins (scheduling / backdating). Otherwise keep the existing
+      // date only if it's already live; a future existing date means the author
+      // switched Scheduled → Visible, so publish now.
+      const existingPub = existing.publishedAt;
+      parts.$set.publishedAt = rest.publishedAt
+        ? rest.publishedAt
+        : existingPub && new Date(existingPub).getTime() <= Date.now()
+          ? existingPub
+          : new Date();
       delete parts.$unset.publishedAt;
     }
 

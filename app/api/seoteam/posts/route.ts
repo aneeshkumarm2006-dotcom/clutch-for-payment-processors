@@ -5,6 +5,7 @@ import { seoBlogPostInput } from "@/lib/validators";
 import { handleApiError, json } from "@/lib/api";
 import { requireSeoTeam } from "@/lib/seoteam-guard";
 import { computeReadingTime, revalidateBlogPaths } from "@/lib/seoteam-posts";
+import { sanitizeBlogHtml } from "@/lib/sanitize-html";
 import { toSeoPostRow } from "@/lib/serialize";
 
 /**
@@ -33,15 +34,17 @@ export async function POST(req: Request) {
     await connectToDatabase();
 
     const data = seoBlogPostInput.parse(await req.json());
+    const content = sanitizeBlogHtml(data.content);
     const slug = await ensureUniqueSlug(BlogPost, data.title, { explicitSlug: data.slug });
     const publishedAt =
       data.status === "published" && !data.publishedAt ? new Date() : data.publishedAt;
 
     const created = await BlogPost.create({
       ...data,
+      content,
       slug,
       publishedAt,
-      readingTimeMinutes: computeReadingTime(data.content),
+      readingTimeMinutes: computeReadingTime(content),
     });
 
     if (created.status === "published") revalidateBlogPaths(created.slug);

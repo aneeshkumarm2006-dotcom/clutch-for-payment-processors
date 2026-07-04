@@ -46,16 +46,23 @@ export default async function SeoDashboardPage() {
   await connectToDatabase();
   const posts = await BlogPost.find().sort({ updatedAt: -1 }).lean();
 
-  const rows: SeoTableRow[] = posts.map((p) => ({
-    ...toSeoPostRow(p),
-    seoReady: computeSeoReady(p as LeanDoc),
-  }));
+  const now = Date.now();
+  const rows: SeoTableRow[] = posts.map((p) => {
+    const row = toSeoPostRow(p);
+    // A published post with a future publish date is scheduled (hidden until then).
+    const scheduled =
+      row.status === "published" &&
+      !!row.publishedAt &&
+      new Date(row.publishedAt).getTime() > now;
+    return { ...row, seoReady: computeSeoReady(p as LeanDoc), scheduled };
+  });
 
-  const published = rows.filter((r) => r.status === "published").length;
+  const publishedLive = rows.filter((r) => r.status === "published" && !r.scheduled).length;
+  const scheduled = rows.filter((r) => r.scheduled).length;
   const stats = [
-    { label: "Total posts", value: rows.length },
-    { label: "Published", value: published },
-    { label: "Drafts", value: rows.length - published },
+    { label: "Published", value: publishedLive },
+    { label: "Scheduled", value: scheduled },
+    { label: "Drafts", value: rows.filter((r) => r.status === "draft").length },
     { label: "Total views", value: rows.reduce((sum, r) => sum + r.views, 0) },
   ];
 

@@ -19,6 +19,11 @@ export function RichText({ html, className }: { html: string; className?: string
         "[&_a]:text-accent [&_a]:underline [&_a]:underline-offset-2",
         "[&_blockquote]:border-l-2 [&_blockquote]:border-border-strong [&_blockquote]:pl-4 [&_blockquote]:text-muted-foreground",
         "[&_strong]:font-semibold [&_strong]:text-foreground",
+        "[&_u]:underline [&_u]:underline-offset-2",
+        // Inline images + embeds inserted from the editor / HTML view.
+        "[&_img]:my-6 [&_img]:h-auto [&_img]:max-w-full [&_img]:rounded-lg [&_img]:border [&_img]:border-border",
+        "[&_figure]:my-6 [&_figcaption]:mt-2 [&_figcaption]:text-small [&_figcaption]:text-muted-foreground",
+        "[&_iframe]:my-6 [&_iframe]:aspect-video [&_iframe]:w-full [&_iframe]:rounded-lg [&_iframe]:border [&_iframe]:border-border",
         className,
       )}
       dangerouslySetInnerHTML={{ __html: html }}

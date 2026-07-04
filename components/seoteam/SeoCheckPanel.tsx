@@ -105,15 +105,22 @@ export function SeoCheckPanel() {
     [content, title, excerpt, metaTitle, metaDescription, coverImage, keywords],
   );
 
-  const checks = signals ? evaluateSeo(signals) : [];
-  const ready = signals ? isSeoReady(checks) : false;
-  const warns = signals ? seoWarnCount(checks) : 0;
+  // `buildSignals` relies on DOMParser (client-only), so the server renders the
+  // empty placeholder. Defer signals to after mount so the first client render
+  // matches the server and hydration doesn't mismatch.
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const shown = mounted ? signals : null;
+
+  const checks = shown ? evaluateSeo(shown) : [];
+  const ready = shown ? isSeoReady(checks) : false;
+  const warns = shown ? seoWarnCount(checks) : 0;
 
   return (
     <div className="rounded-lg border border-border bg-card">
       <div className="flex items-center justify-between border-b border-border px-4 py-3">
         <h2 className="text-h4 text-foreground">SEO checks</h2>
-        {signals ? (
+        {shown ? (
           <span
             className={cn(
               "inline-flex items-center gap-1.5 rounded-sm px-2 py-0.5 text-micro font-medium",
@@ -136,7 +143,7 @@ export function SeoCheckPanel() {
       </div>
 
       <ul className="divide-y divide-ink-150 dark:divide-ink-800">
-        {!signals ? (
+        {!shown ? (
           <li className="px-4 py-3 text-small text-muted-foreground">
             Checks update as you type.
           </li>

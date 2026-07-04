@@ -46,9 +46,11 @@ import {
 
 export interface SeoTableRow extends SeoPostRow {
   seoReady: boolean;
+  /** Published but with a future publish date — hidden until then. */
+  scheduled: boolean;
 }
 
-type StatusFilter = "all" | BlogStatus;
+type StatusFilter = "all" | "published" | "scheduled" | "draft";
 
 export function SeoPostTable({ rows }: { rows: SeoTableRow[] }) {
   const router = useRouter();
@@ -56,10 +58,13 @@ export function SeoPostTable({ rows }: { rows: SeoTableRow[] }) {
   const [deleteTarget, setDeleteTarget] = React.useState<SeoTableRow | null>(null);
   const [busyId, setBusyId] = React.useState<string | null>(null);
 
-  const filtered = React.useMemo(
-    () => (statusFilter === "all" ? rows : rows.filter((r) => r.status === statusFilter)),
-    [rows, statusFilter],
-  );
+  const filtered = React.useMemo(() => {
+    if (statusFilter === "all") return rows;
+    if (statusFilter === "scheduled") return rows.filter((r) => r.scheduled);
+    if (statusFilter === "published")
+      return rows.filter((r) => r.status === "published" && !r.scheduled);
+    return rows.filter((r) => r.status === "draft");
+  }, [rows, statusFilter]);
 
   const togglePublished = async (row: SeoTableRow) => {
     const next: BlogStatus = row.status === "published" ? "draft" : "published";
@@ -107,12 +112,15 @@ export function SeoPostTable({ rows }: { rows: SeoTableRow[] }) {
     {
       key: "status",
       header: "Status",
-      sortAccessor: (r) => r.status,
-      cell: (r) => (
-        <Badge variant={r.status === "published" ? "success" : "warning"}>
-          {r.status === "published" ? "Published" : "Draft"}
-        </Badge>
-      ),
+      sortAccessor: (r) => (r.scheduled ? "scheduled" : r.status),
+      cell: (r) =>
+        r.scheduled ? (
+          <Badge variant="warning">Scheduled</Badge>
+        ) : r.status === "published" ? (
+          <Badge variant="success">Published</Badge>
+        ) : (
+          <Badge variant="neutral">Draft</Badge>
+        ),
     },
     {
       key: "seo",
@@ -141,9 +149,11 @@ export function SeoPostTable({ rows }: { rows: SeoTableRow[] }) {
       sortAccessor: (r) => r.publishedAt ?? r.updatedAt,
       cell: (r) => (
         <span className="text-small text-muted-foreground">
-          {r.status === "published" && r.publishedAt
-            ? formatDate(r.publishedAt)
-            : `Updated ${formatDate(r.updatedAt)}`}
+          {r.scheduled && r.publishedAt
+            ? `Scheduled ${formatDate(r.publishedAt)}`
+            : r.status === "published" && r.publishedAt
+              ? formatDate(r.publishedAt)
+              : `Updated ${formatDate(r.updatedAt)}`}
         </span>
       ),
     },
@@ -167,6 +177,7 @@ export function SeoPostTable({ rows }: { rows: SeoTableRow[] }) {
             <SelectContent>
               <SelectItem value="all">All statuses</SelectItem>
               <SelectItem value="published">Published</SelectItem>
+              <SelectItem value="scheduled">Scheduled</SelectItem>
               <SelectItem value="draft">Draft</SelectItem>
             </SelectContent>
           </Select>
@@ -191,7 +202,13 @@ export function SeoPostTable({ rows }: { rows: SeoTableRow[] }) {
                   Edit
                 </Link>
               </DropdownMenuItem>
-              {r.status === "published" && (
+              <DropdownMenuItem asChild>
+                <Link href={`/seoteam/preview/${r.id}`} target="_blank" rel="noopener">
+                  <Eye className="size-4" />
+                  Preview
+                </Link>
+              </DropdownMenuItem>
+              {r.status === "published" && !r.scheduled && (
                 <DropdownMenuItem asChild>
                   <Link href={`/blog/${r.slug}`} target="_blank" rel="noopener">
                     <ExternalLink className="size-4" />

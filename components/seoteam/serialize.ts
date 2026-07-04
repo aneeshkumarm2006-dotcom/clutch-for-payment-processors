@@ -4,8 +4,18 @@ import type { BlogStatus, BlogTemplate, KeywordRel } from "@/lib/enums";
  * Form ↔ model serialization for the /seoteam editor. Mirrors the admin BlogForm
  * serialize but adds the SEO-team fields: template, keyword backlinks, and the
  * first-occurrence toggle. Everything is a controlled value so inputs never go
- * uncontrolled. `status` is supplied by the Save-draft / Publish action.
+ * uncontrolled.
+ *
+ * Publishing is modeled Shopify-style via `visibility`:
+ *   - `draft`     → status "draft" (hidden, work-in-progress)
+ *   - `visible`   → status "published", publishes now (or keeps its past date)
+ *   - `scheduled` → status "published" with a FUTURE `publishedAt`; the public
+ *                    read-gate keeps it hidden until that moment (see publishedFilter).
+ * `publishedAt` is carried as an ISO string (timezone-safe); the VisibilityCard
+ * converts to/from the browser-local `datetime-local` input.
  */
+export type Visibility = "draft" | "visible" | "scheduled";
+
 export interface KeywordRow {
   keyword: string;
   url: string;
@@ -23,6 +33,8 @@ export interface SeoFormValues {
   template: BlogTemplate;
   keywords: KeywordRow[];
   linkFirstOccurrenceOnly: boolean;
+  visibility: Visibility;
+  /** ISO 8601 string, or "" when unset. */
   publishedAt: string;
   seo: { metaTitle: string; metaDescription: string; ogImage: string };
 }
@@ -39,6 +51,7 @@ export function blankSeoValues(): SeoFormValues {
     template: "generic",
     keywords: [],
     linkFirstOccurrenceOnly: true,
+    visibility: "draft",
     publishedAt: "",
     seo: { metaTitle: "", metaDescription: "", ogImage: "" },
   };
@@ -50,11 +63,11 @@ type LeanBlog = Record<string, unknown> & {
 
 const str = (v: unknown) => (v == null ? "" : String(v));
 
-function toDateInput(v: unknown): string {
+/** Normalize a stored date to an ISO string (timezone-safe), or "". */
+function toIso(v: unknown): string {
   if (v == null || v === "") return "";
   const d = v instanceof Date ? v : new Date(String(v));
-  if (Number.isNaN(d.getTime())) return "";
-  return d.toISOString().slice(0, 10);
+  return Number.isNaN(d.getTime()) ? "" : d.toISOString();
 }
 
 function toKeywordRows(v: unknown): KeywordRow[] {
@@ -70,6 +83,15 @@ function toKeywordRows(v: unknown): KeywordRow[] {
 }
 
 export function toSeoFormValues(doc: LeanBlog): SeoFormValues {
+  const publishedAt = toIso(doc.publishedAt);
+  const status = (doc.status as BlogStatus) ?? "draft";
+  const visibility: Visibility =
+    status !== "published"
+      ? "draft"
+      : publishedAt && new Date(publishedAt).getTime() > Date.now()
+        ? "scheduled"
+        : "visible";
+
   return {
     title: str(doc.title),
     slug: str(doc.slug),
@@ -81,7 +103,8 @@ export function toSeoFormValues(doc: LeanBlog): SeoFormValues {
     template: (doc.template as BlogTemplate) ?? "generic",
     keywords: toKeywordRows(doc.keywords),
     linkFirstOccurrenceOnly: doc.linkFirstOccurrenceOnly !== false,
-    publishedAt: toDateInput(doc.publishedAt),
+    visibility,
+    publishedAt,
     seo: {
       metaTitle: str(doc.seo?.metaTitle),
       metaDescription: str(doc.seo?.metaDescription),
@@ -92,8 +115,13 @@ export function toSeoFormValues(doc: LeanBlog): SeoFormValues {
 
 const blankToUndef = (v: string) => (v.trim() === "" ? undefined : v);
 
-/** Convert form values → the API/Zod payload. `status` is supplied by the action. */
-export function toSeoPayload(values: SeoFormValues, status: BlogStatus): Record<string, unknown> {
+/**
+ * Convert form values → the API/Zod payload. `status` + `publishedAt` derive from
+ * `visibility`; the VisibilityCard guarantees a Scheduled post carries a future
+ * date and a Visible post never carries a future one, so the mapping is uniform.
+ */
+export function toSeoPayload(values: SeoFormValues): Record<string, unknown> {
+  const status: BlogStatus = values.visibility === "draft" ? "draft" : "published";
   return {
     title: values.title,
     slug: blankToUndef(values.slug),

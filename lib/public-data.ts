@@ -336,6 +336,23 @@ export async function getReviewIndustries(processorId: string): Promise<string[]
 
 export const BLOG_PAGE_SIZE = 9;
 
+/**
+ * A published post is only publicly visible once its publish time has arrived.
+ * A future `publishedAt` marks a SCHEDULED post — kept out of every public read
+ * until the clock passes it (no cron; the read-gate flips it live on time — see
+ * the /seoteam scheduling flow). Legacy published posts with no date stay visible.
+ */
+function publishedFilter() {
+  return {
+    status: "published" as const,
+    $or: [
+      { publishedAt: { $lte: new Date() } },
+      { publishedAt: { $exists: false } },
+      { publishedAt: null },
+    ],
+  };
+}
+
 export interface BlogIndexResult {
   items: BlogCardData[];
   total: number;
@@ -352,7 +369,7 @@ export async function getPublishedBlogPosts(
   const pageNum = Math.max(1, page);
   try {
     await connectToDatabase();
-    const filter = { status: "published" as const };
+    const filter = publishedFilter();
     const [docs, total] = await Promise.all([
       BlogPost.find(filter)
         .sort({ publishedAt: -1, createdAt: -1 })
@@ -388,7 +405,7 @@ export async function getBlogPostBySlug(slug: string): Promise<{
 } | null> {
   try {
     await connectToDatabase();
-    const doc = await BlogPost.findOne({ slug, status: "published" })
+    const doc = await BlogPost.findOne({ slug, ...publishedFilter() })
       .populate({
         path: "relatedProcessors",
         match: { isPublished: true },
@@ -403,7 +420,7 @@ export async function getBlogPostBySlug(slug: string): Promise<{
       .filter((p) => p && typeof p === "object" && "name" in p)
       .map(toProcessorCardData);
 
-    const moreDocs = await BlogPost.find({ status: "published", _id: { $ne: doc._id } })
+    const moreDocs = await BlogPost.find({ ...publishedFilter(), _id: { $ne: doc._id } })
       .sort({ publishedAt: -1, createdAt: -1 })
       .limit(3)
       .select("title slug excerpt coverImage author tags publishedAt createdAt readingTimeMinutes")
@@ -421,11 +438,53 @@ export async function getBlogPostBySlug(slug: string): Promise<{
   }
 }
 
+/**
+ * Preview a post by id REGARDLESS of status (draft / scheduled / published) for
+ * the /seoteam full-page preview. Not gated by `publishedFilter` — the route is
+ * behind the SEO-team auth. `morePosts` still shows only truly-live siblings.
+ */
+export async function getBlogPostForPreview(id: string): Promise<{
+  post: BlogPostData;
+  relatedProcessors: ProcessorCardData[];
+  morePosts: BlogCardData[];
+} | null> {
+  if (!/^[0-9a-fA-F]{24}$/.test(id)) return null;
+  try {
+    await connectToDatabase();
+    const doc = await BlogPost.findById(id)
+      .populate({ path: "relatedProcessors", match: { isPublished: true }, select: CARD_FIELDS })
+      .lean();
+    if (!doc) return null;
+
+    const relatedRaw = Array.isArray(doc.relatedProcessors) ? doc.relatedProcessors : [];
+    const relatedProcessors = relatedRaw
+      .map((p) => p as unknown as Record<string, unknown>)
+      .filter((p) => p && typeof p === "object" && "name" in p)
+      .map(toProcessorCardData);
+
+    const moreDocs = await BlogPost.find({ ...publishedFilter(), _id: { $ne: doc._id } })
+      .sort({ publishedAt: -1, createdAt: -1 })
+      .limit(3)
+      .select("title slug excerpt coverImage author tags publishedAt createdAt readingTimeMinutes")
+      .lean();
+
+    return {
+      post: toBlogPostData(doc),
+      relatedProcessors,
+      morePosts: moreDocs.map(toBlogCardData),
+    };
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error("[public-data] getBlogPostForPreview failed:", err);
+    return null;
+  }
+}
+
 /** Recent published posts for the homepage/footer teaser (resilient → []). */
 export async function getRecentBlogPosts(limit = 3): Promise<BlogCardData[]> {
   try {
     await connectToDatabase();
-    const docs = await BlogPost.find({ status: "published" })
+    const docs = await BlogPost.find(publishedFilter())
       .sort({ publishedAt: -1, createdAt: -1 })
       .limit(limit)
       .select("title slug excerpt coverImage author tags publishedAt createdAt readingTimeMinutes")
@@ -442,7 +501,7 @@ export async function getRecentBlogPosts(limit = 3): Promise<BlogCardData[]> {
 export async function getAllPublishedBlogSlugs(): Promise<string[]> {
   try {
     await connectToDatabase();
-    const docs = await BlogPost.find({ status: "published" }).select("slug").lean();
+    const docs = await BlogPost.find(publishedFilter()).select("slug").lean();
     return docs.map((d) => String(d.slug));
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -468,7 +527,7 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     const [processors, categories, posts] = await Promise.all([
       Processor.find({ isPublished: true }).select("slug updatedAt").lean(),
       Category.find({ isPublished: true }).select("slug updatedAt").lean(),
-      BlogPost.find({ status: "published" }).select("slug updatedAt").lean(),
+      BlogPost.find(publishedFilter()).select("slug updatedAt").lean(),
     ]);
 
     const toDate = (v: unknown): Date => (v instanceof Date ? v : new Date(String(v)));
