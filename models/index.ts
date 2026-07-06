@@ -17,4 +17,5 @@ export {
   type AuditAction,
   type AuditEntity,
 } from "./AuditLog";
+export { AnalyticsHubConfig, type IAnalyticsHubConfig } from "./AnalyticsHubConfig";
 export { type ISeo } from "./shared";

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
+    "test": "tsx tests/analyticshub/index.test.ts",
     "seed:admin": "tsx scripts/seed-admin.ts",
     "seed": "tsx scripts/seed.ts"
   },
