@@ -162,6 +162,7 @@ export function RichTextEditor({
   imageFolder = "blog",
   imageUploadEndpoint,
   onPickImageFromLibrary,
+  onImageChange,
 }: {
   value: string;
   onChange: (html: string) => void;
@@ -171,6 +172,9 @@ export function RichTextEditor({
   imageUploadEndpoint?: string;
   /** Enables a "Library" button in the insert-image dialog. */
   onPickImageFromLibrary?: (apply: (img: { url: string; alt: string }) => void) => void;
+  /** Fired when an inline image is inserted or its src/alt edited — lets the host
+   * auto-save the post on image change. */
+  onImageChange?: () => void;
 }) {
   const [mode, setMode] = React.useState<"visual" | "html">("visual");
   const [imageOpen, setImageOpen] = React.useState(false);
@@ -286,6 +290,7 @@ export function RichTextEditor({
     } else {
       editor.chain().focus().setImage({ src, alt }).run();
     }
+    onImageChange?.();
   };
 
   if (!editor) {

@@ -29,6 +29,7 @@ export function ImageUploadField({
   altPlaceholder = "Describe the image for SEO & accessibility",
   uploadEndpoint,
   onPickFromLibrary,
+  onImageCommitted,
 }: {
   value?: string;
   onChange: (url: string | undefined) => void;
@@ -44,6 +45,9 @@ export function ImageUploadField({
   /** When provided, shows a "Library" button that opens a media picker; the given
    * `apply` callback receives the chosen image and fills the field. */
   onPickFromLibrary?: (apply: (img: { url: string; alt: string }) => void) => void;
+  /** Fired when a NEW image is committed (uploaded or picked from the library) —
+   * NOT on raw URL typing. Lets the editor auto-save the post on image change. */
+  onImageCommitted?: () => void;
 }) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = React.useState(false);
@@ -53,6 +57,7 @@ export function ImageUploadField({
     try {
       const url = await uploadImageFile(file, folder, uploadEndpoint);
       onChange(url);
+      onImageCommitted?.();
       toast.success("Image uploaded.");
     } catch (err) {
       toast.error(err instanceof ApiClientError ? err.message : "Upload failed.");
@@ -123,6 +128,7 @@ export function ImageUploadField({
                 onPickFromLibrary((img) => {
                   onChange(img.url);
                   if (onAltChange && img.alt) onAltChange(img.alt);
+                  onImageCommitted?.();
                 })
               }
             >

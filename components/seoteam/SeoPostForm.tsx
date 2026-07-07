@@ -56,6 +56,8 @@ export function SeoPostForm({
     defaultValues: defaultValues ?? blankSeoValues(),
   });
   const [saving, setSaving] = React.useState(false);
+  const [autoSaving, setAutoSaving] = React.useState(false);
+  const autoSaveTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const template = form.watch("template") as BlogTemplate;
   const visibility = form.watch("visibility") as Visibility;
 
@@ -98,6 +100,47 @@ export function SeoPostForm({
     form.setValue("content", starter, { shouldDirty: true });
     toast.success("Outline inserted into the editor.");
   };
+
+  // Auto-save on image add/change (cover, social, and inline body images) so an
+  // author who swaps an image on an already-saved post doesn't have to scroll up
+  // and Publish for it to appear on the live blog. Only runs for an EXISTING post
+  // (a brand-new post has no id yet — it's saved on the first Publish). Debounced
+  // so a library pick that sets url + alt in quick succession saves once.
+  const runAutoSave = React.useCallback(async () => {
+    if (!postId) return;
+    const parsed = seoBlogPostInput.safeParse(toSeoPayload(form.getValues()));
+    if (!parsed.success) {
+      // Something else on the form is invalid (e.g. a cleared title) — don't
+      // silently drop the change; nudge the author to Publish, which validates.
+      toast.error("Image not saved — fix the highlighted fields and Publish.");
+      applyZodIssues(parsed.error);
+      return;
+    }
+    setAutoSaving(true);
+    try {
+      await apiClient.put(`/api/seoteam/posts/${postId}`, parsed.data as Record<string, unknown>);
+      toast.success("Image saved.");
+    } catch (err) {
+      toast.error(
+        err instanceof ApiClientError ? err.message : "Couldn't auto-save the image.",
+      );
+    } finally {
+      setAutoSaving(false);
+    }
+  }, [postId, form]);
+
+  const scheduleAutoSave = React.useCallback(() => {
+    if (!postId) return;
+    if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
+    autoSaveTimer.current = setTimeout(() => void runAutoSave(), 600);
+  }, [postId, runAutoSave]);
+
+  React.useEffect(
+    () => () => {
+      if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
+    },
+    [],
+  );
 
   const onSubmit = async () => {
     form.clearErrors();
@@ -145,6 +188,12 @@ export function SeoPostForm({
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-h1 tracking-tighter2">{postId ? "Edit post" : "New post"}</h1>
           <div className="flex flex-wrap items-center gap-2">
+            {autoSaving && (
+              <span className="inline-flex items-center gap-1.5 text-small text-muted-foreground">
+                <Loader2 className="size-4 animate-spin" />
+                Saving…
+              </span>
+            )}
             <Button
               type="button"
               variant="ghost"
@@ -252,6 +301,7 @@ export function SeoPostForm({
                             altPlaceholder="Alt text — describe the cover image for SEO & accessibility"
                             uploadEndpoint={SEOTEAM_UPLOAD}
                             onPickFromLibrary={openPicker}
+                            onImageCommitted={scheduleAutoSave}
                           />
                         </FormControl>
                         <FormMessage />
@@ -275,6 +325,7 @@ export function SeoPostForm({
                             imageFolder="blog"
                             imageUploadEndpoint={SEOTEAM_UPLOAD}
                             onPickImageFromLibrary={openPicker}
+                            onImageChange={scheduleAutoSave}
                           />
                         </FormControl>
                         <FormDescription>
@@ -338,6 +389,7 @@ export function SeoPostForm({
                             aspect="wide"
                             uploadEndpoint={SEOTEAM_UPLOAD}
                             onPickFromLibrary={openPicker}
+                            onImageCommitted={scheduleAutoSave}
                           />
                         </FormControl>
                         <FormMessage />
