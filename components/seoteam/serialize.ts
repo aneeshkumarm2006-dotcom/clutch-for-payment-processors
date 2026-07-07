@@ -28,6 +28,7 @@ export interface SeoFormValues {
   excerpt: string;
   content: string;
   coverImage: string;
+  coverImageAlt: string;
   author: string;
   tags: string[];
   template: BlogTemplate;
@@ -46,6 +47,7 @@ export function blankSeoValues(): SeoFormValues {
     excerpt: "",
     content: "",
     coverImage: "",
+    coverImageAlt: "",
     author: "",
     tags: [],
     template: "generic",
@@ -98,6 +100,7 @@ export function toSeoFormValues(doc: LeanBlog): SeoFormValues {
     excerpt: str(doc.excerpt),
     content: str(doc.content),
     coverImage: str(doc.coverImage),
+    coverImageAlt: str(doc.coverImageAlt),
     author: str(doc.author),
     tags: Array.isArray(doc.tags) ? doc.tags.map((t) => String(t)) : [],
     template: (doc.template as BlogTemplate) ?? "generic",
@@ -128,6 +131,7 @@ export function toSeoPayload(values: SeoFormValues): Record<string, unknown> {
     excerpt: blankToUndef(values.excerpt),
     content: values.content,
     coverImage: blankToUndef(values.coverImage),
+    coverImageAlt: blankToUndef(values.coverImageAlt),
     author: values.author,
     tags: values.tags.map((t) => t.trim()).filter(Boolean),
     template: values.template,
