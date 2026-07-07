@@ -9,6 +9,12 @@ export { Review, type IReview } from "./Review";
 export { Lead, type ILead } from "./Lead";
 export { Submission, type ISubmission } from "./Submission";
 export { BlogPost, type IBlogPost } from "./BlogPost";
+export {
+  Media,
+  type IMedia,
+  type MediaProvider,
+  type MediaSource,
+} from "./Media";
 export { User, type IUser } from "./User";
 export { SiteSettings, type ISiteSettings } from "./SiteSettings";
 export {

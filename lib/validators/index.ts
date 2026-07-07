@@ -8,5 +8,6 @@ export * from "./lead";
 export * from "./submission";
 export * from "./blogPost";
 export * from "./seoPost";
+export * from "./media";
 export * from "./user";
 export * from "./siteSettings";

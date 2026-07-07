@@ -14,6 +14,7 @@ export interface BlogFormValues {
   excerpt: string;
   content: string;
   coverImage: string;
+  coverImageAlt: string;
   author: string;
   tags: string[];
   relatedProcessors: string[];
@@ -28,6 +29,7 @@ export function blankBlogValues(): BlogFormValues {
     excerpt: "",
     content: "",
     coverImage: "",
+    coverImageAlt: "",
     author: "",
     tags: [],
     relatedProcessors: [],
@@ -57,6 +59,7 @@ export function toBlogFormValues(doc: LeanBlog): BlogFormValues {
     excerpt: str(doc.excerpt),
     content: str(doc.content),
     coverImage: str(doc.coverImage),
+    coverImageAlt: str(doc.coverImageAlt),
     author: str(doc.author),
     tags: Array.isArray(doc.tags) ? doc.tags.map((t) => String(t)) : [],
     relatedProcessors: Array.isArray(doc.relatedProcessors)
@@ -81,6 +84,7 @@ export function toBlogPayload(values: BlogFormValues, status: BlogStatus): Recor
     excerpt: blankToUndef(values.excerpt),
     content: values.content,
     coverImage: blankToUndef(values.coverImage),
+    coverImageAlt: blankToUndef(values.coverImageAlt),
     author: values.author,
     tags: values.tags.map((t) => t.trim()).filter(Boolean),
     relatedProcessors: values.relatedProcessors,

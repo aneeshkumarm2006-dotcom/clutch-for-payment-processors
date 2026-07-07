@@ -33,6 +33,8 @@ export interface IBlogPost {
   excerpt?: string;
   content: string;
   coverImage?: string;
+  /** Author-supplied alt text for the cover image (accessibility + image-alt SEO check). */
+  coverImageAlt?: string;
   author: string;
   tags: string[];
   relatedProcessors: Types.ObjectId[];
@@ -60,6 +62,7 @@ const BlogPostSchema = new Schema<IBlogPost>(
     excerpt: { type: String, trim: true },
     content: { type: String, required: true },
     coverImage: { type: String, trim: true },
+    coverImageAlt: { type: String, trim: true },
     author: { type: String, required: true, trim: true },
     tags: { type: [String], default: [] },
     relatedProcessors: { type: [Schema.Types.ObjectId], ref: "Processor", default: [] },

@@ -9,6 +9,7 @@ export const blogPostInput = z.object({
   excerpt: z.string().trim().max(280).optional(),
   content: z.string().min(1, "Content is required"),
   coverImage: optionalUrl,
+  coverImageAlt: z.string().trim().max(250).optional(),
   author: z.string().trim().min(1, "Author is required"),
   tags: z.array(z.string().trim()).default([]),
   relatedProcessors: z.array(objectIdString).default([]),

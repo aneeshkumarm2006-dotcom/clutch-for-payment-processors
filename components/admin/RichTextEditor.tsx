@@ -160,14 +160,23 @@ export function RichTextEditor({
   onChange,
   placeholder,
   imageFolder = "blog",
+  imageUploadEndpoint,
+  onPickImageFromLibrary,
 }: {
   value: string;
   onChange: (html: string) => void;
   placeholder?: string;
   imageFolder?: string;
+  /** Route inline-image uploads through a custom endpoint (e.g. seoteam media). */
+  imageUploadEndpoint?: string;
+  /** Enables a "Library" button in the insert-image dialog. */
+  onPickImageFromLibrary?: (apply: (img: { url: string; alt: string }) => void) => void;
 }) {
   const [mode, setMode] = React.useState<"visual" | "html">("visual");
   const [imageOpen, setImageOpen] = React.useState(false);
+  // Non-null while editing an already-inserted image (click-to-edit); null for a
+  // fresh insert from the toolbar button.
+  const [imageInitial, setImageInitial] = React.useState<{ src: string; alt: string } | null>(null);
   const [linkOpen, setLinkOpen] = React.useState(false);
   const [linkUrl, setLinkUrl] = React.useState("");
 
@@ -187,6 +196,17 @@ export function RichTextEditor({
     ],
     content: value || "",
     editorProps: {
+      // Click an inserted image to reopen the dialog and edit its src/alt.
+      handleClickOn: (_view, _pos, node) => {
+        if (node.type.name === "image") {
+          setImageInitial({
+            src: String(node.attrs.src ?? ""),
+            alt: String(node.attrs.alt ?? ""),
+          });
+          setImageOpen(true);
+        }
+        return false;
+      },
       attributes: {
         class: cn(
           "min-h-44 max-w-none px-3 py-2.5 text-[0.875rem] leading-relaxed text-foreground focus:outline-none",
@@ -195,7 +215,8 @@ export function RichTextEditor({
           "[&_p]:my-2 [&_ul]:my-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:my-2 [&_ol]:list-decimal [&_ol]:pl-5",
           "[&_blockquote]:my-2 [&_blockquote]:border-l-2 [&_blockquote]:border-border-strong [&_blockquote]:pl-3 [&_blockquote]:text-ink-600",
           "[&_a]:text-accent [&_a]:underline",
-          "[&_img]:my-3 [&_img]:max-w-full [&_img]:rounded-md [&_img]:border [&_img]:border-border",
+          "[&_img]:my-3 [&_img]:max-w-full [&_img]:cursor-pointer [&_img]:rounded-md [&_img]:border [&_img]:border-border",
+          "[&_img.ProseMirror-selectednode]:outline [&_img.ProseMirror-selectednode]:outline-2 [&_img.ProseMirror-selectednode]:outline-accent",
         ),
       },
     },
@@ -252,8 +273,19 @@ export function RichTextEditor({
     setLinkOpen(false);
   };
 
-  const insertImage = ({ src, alt }: { src: string; alt: string }) => {
-    editor?.chain().focus().setImage({ src, alt }).run();
+  const openInsertImage = () => {
+    setImageInitial(null);
+    setImageOpen(true);
+  };
+
+  const applyImage = ({ src, alt }: { src: string; alt: string }) => {
+    if (!editor) return;
+    // Editing an existing (selected) image updates it in place; otherwise insert.
+    if (imageInitial) {
+      editor.chain().focus().updateAttributes("image", { src, alt }).run();
+    } else {
+      editor.chain().focus().setImage({ src, alt }).run();
+    }
   };
 
   if (!editor) {
@@ -290,7 +322,7 @@ export function RichTextEditor({
         >
           <Link2 className="size-4" />
         </ToolButton>
-        <ToolButton onClick={() => setImageOpen(true)} disabled={htmlMode} label="Insert image">
+        <ToolButton onClick={openInsertImage} disabled={htmlMode} label="Insert image">
           <ImagePlus className="size-4" />
         </ToolButton>
 
@@ -339,8 +371,11 @@ export function RichTextEditor({
       <EditorImageDialog
         open={imageOpen}
         onOpenChange={setImageOpen}
-        onInsert={insertImage}
+        onInsert={applyImage}
         folder={imageFolder}
+        initial={imageInitial}
+        uploadEndpoint={imageUploadEndpoint}
+        onPickFromLibrary={onPickImageFromLibrary}
       />
 
       <Dialog open={linkOpen} onOpenChange={setLinkOpen}>

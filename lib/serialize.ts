@@ -465,6 +465,8 @@ export interface KeywordLinkData {
 
 export interface BlogPostData extends BlogCardData {
   content: string;
+  /** Author-supplied alt text for the cover image (falls back to a title-based default). */
+  coverImageAlt?: string;
   seo: { metaTitle?: string; metaDescription?: string; ogImage?: string };
   /** Keyword backlinks injected into the body on the public page. */
   keywords: KeywordLinkData[];
@@ -534,6 +536,7 @@ export function toBlogPostData(doc: Lean): BlogPostData {
   return {
     ...toBlogCardData(doc),
     content: String(doc.content ?? ""),
+    coverImageAlt: str(doc.coverImageAlt),
     seo: {
       metaTitle: str(rawSeo.metaTitle),
       metaDescription: str(rawSeo.metaDescription),

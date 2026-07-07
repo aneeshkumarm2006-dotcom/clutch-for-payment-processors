@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { toast } from "sonner";
-import { ImageIcon, Loader2, Upload, X } from "lucide-react";
+import { ImageIcon, Images, Loader2, Upload, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,9 @@ import { uploadImageFile, ApiClientError } from "@/components/admin/api-client";
  * Single image field: paste a URL OR upload a file (PRD §10.3). Upload goes
  * through `POST /api/upload` → public URL (Vercel Blob / dev disk). Pasting a
  * URL means content entry never hard-depends on an upload provider.
+ *
+ * Pass `onAltChange` to reveal an alt-text input beneath the field (accessibility
+ * + image-alt SEO check). Left off, the field behaves exactly as before.
  */
 export function ImageUploadField({
   value,
@@ -20,12 +23,27 @@ export function ImageUploadField({
   folder = "uploads",
   aspect = "square",
   id,
+  altValue,
+  onAltChange,
+  altId,
+  altPlaceholder = "Describe the image for SEO & accessibility",
+  uploadEndpoint,
+  onPickFromLibrary,
 }: {
   value?: string;
   onChange: (url: string | undefined) => void;
   folder?: string;
   aspect?: "square" | "wide";
   id?: string;
+  altValue?: string;
+  onAltChange?: (value: string) => void;
+  altId?: string;
+  altPlaceholder?: string;
+  /** Override the upload route (e.g. "/api/seoteam/media"). Defaults to /api/upload. */
+  uploadEndpoint?: string;
+  /** When provided, shows a "Library" button that opens a media picker; the given
+   * `apply` callback receives the chosen image and fills the field. */
+  onPickFromLibrary?: (apply: (img: { url: string; alt: string }) => void) => void;
 }) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = React.useState(false);
@@ -33,7 +51,7 @@ export function ImageUploadField({
   const handleFile = async (file: File) => {
     setUploading(true);
     try {
-      const url = await uploadImageFile(file, folder);
+      const url = await uploadImageFile(file, folder, uploadEndpoint);
       onChange(url);
       toast.success("Image uploaded.");
     } catch (err) {
@@ -53,7 +71,14 @@ export function ImageUploadField({
         )}
       >
         {value ? (
-          <Image src={value} alt="" fill sizes="144px" className="object-contain" unoptimized />
+          <Image
+            src={value}
+            alt={altValue ?? ""}
+            fill
+            sizes="144px"
+            className="object-contain"
+            unoptimized
+          />
         ) : (
           <ImageIcon className="size-6 text-ink-300" aria-hidden />
         )}
@@ -89,6 +114,22 @@ export function ImageUploadField({
             {uploading ? <Loader2 className="size-4 animate-spin" /> : <Upload className="size-4" />}
             {uploading ? "Uploading…" : "Upload"}
           </Button>
+          {onPickFromLibrary && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={() =>
+                onPickFromLibrary((img) => {
+                  onChange(img.url);
+                  if (onAltChange && img.alt) onAltChange(img.alt);
+                })
+              }
+            >
+              <Images className="size-4" />
+              Library
+            </Button>
+          )}
           {value && (
             <Button type="button" variant="ghost" size="sm" onClick={() => onChange(undefined)}>
               <X className="size-4" />
@@ -96,6 +137,14 @@ export function ImageUploadField({
             </Button>
           )}
         </div>
+        {onAltChange && (
+          <Input
+            id={altId}
+            value={altValue ?? ""}
+            onChange={(e) => onAltChange(e.target.value)}
+            placeholder={altPlaceholder}
+          />
+        )}
       </div>
     </div>
   );

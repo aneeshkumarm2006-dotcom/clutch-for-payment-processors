@@ -51,15 +51,21 @@ export const apiClient = {
 };
 
 /**
- * Upload an image via `POST /api/upload` (multipart). Returns the public URL.
- * Used by the admin image fields (logo, screenshots, OG, blog cover).
+ * Upload an image (multipart) and return the public URL. Defaults to the admin
+ * `POST /api/upload` route; the SEO team passes `endpoint="/api/seoteam/media"`
+ * (cookie-guarded, and also registers a Media library record). Both routes return
+ * `{ url }`.
  */
-export async function uploadImageFile(file: File, folder = "uploads"): Promise<string> {
+export async function uploadImageFile(
+  file: File,
+  folder = "uploads",
+  endpoint = "/api/upload",
+): Promise<string> {
   const fd = new FormData();
   fd.append("file", file);
   fd.append("folder", folder);
 
-  const res = await fetch("/api/upload", { method: "POST", body: fd });
+  const res = await fetch(endpoint, { method: "POST", body: fd });
   const text = await res.text();
   const data = text ? (JSON.parse(text) as Record<string, unknown>) : {};
 

@@ -71,7 +71,7 @@ export function BlogArticle({
         <div className="mx-auto mt-8 max-w-content overflow-hidden rounded-lg border">
           <Image
             src={post.coverImage}
-            alt={`Cover image for ${post.title}`}
+            alt={post.coverImageAlt?.trim() || `Cover image for ${post.title}`}
             width={1200}
             height={630}
             className="h-auto w-full object-cover"

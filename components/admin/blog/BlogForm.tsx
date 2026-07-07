@@ -146,6 +146,10 @@ export function BlogForm({
                     onChange={(url) => field.onChange(url ?? "")}
                     folder="blog"
                     aspect="wide"
+                    altId="coverImageAlt"
+                    altValue={form.watch("coverImageAlt")}
+                    onAltChange={(v) => form.setValue("coverImageAlt", v)}
+                    altPlaceholder="Alt text — describe the cover image for SEO & accessibility"
                   />
                 </FormControl>
                 <FormMessage />

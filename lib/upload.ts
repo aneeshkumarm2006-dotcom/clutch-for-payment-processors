@@ -39,6 +39,14 @@ const EXT_BY_TYPE: Record<string, string> = {
 export interface UploadResult {
   url: string;
   pathname: string;
+  /** Which provider stored the asset — lets callers (the Media registry) know
+   * whether `pathname` is a Cloudinary public_id that can be destroyed. */
+  provider?: "cloudinary" | "local";
+  /** Cloudinary reports these on upload; undefined on the local-disk fallback. */
+  width?: number;
+  height?: number;
+  bytes?: number;
+  format?: string;
 }
 
 /** Validate an incoming image (type + size). Throws `ApiError(400)` on failure. */
@@ -142,7 +150,15 @@ export async function uploadImage(
       { method: "POST", body: form },
     );
     const result = (await res.json().catch(() => null)) as
-      | { secure_url?: string; public_id?: string; error?: { message?: string } }
+      | {
+          secure_url?: string;
+          public_id?: string;
+          width?: number;
+          height?: number;
+          bytes?: number;
+          format?: string;
+          error?: { message?: string };
+        }
       | null;
 
     if (!res.ok || !result?.secure_url) {
@@ -151,7 +167,15 @@ export async function uploadImage(
         result?.error?.message || `Cloudinary upload failed (HTTP ${res.status}).`,
       );
     }
-    return { url: result.secure_url, pathname: result.public_id ?? publicId };
+    return {
+      url: result.secure_url,
+      pathname: result.public_id ?? publicId,
+      provider: "cloudinary",
+      width: result.width,
+      height: result.height,
+      bytes: result.bytes,
+      format: result.format,
+    };
   }
 
   // 2. Local-disk dev fallback → served from /public/uploads/*.
@@ -162,7 +186,13 @@ export async function uploadImage(
     await mkdir(publicDir, { recursive: true });
     const fileName = `${base}-${unique}.${ext}`;
     await writeFile(path.join(publicDir, fileName), bytes);
-    return { url: `/${folder}/${fileName}`, pathname: `${folder}/${fileName}` };
+    return {
+      url: `/${folder}/${fileName}`,
+      pathname: `${folder}/${fileName}`,
+      provider: "local",
+      bytes: bytes.length,
+      format: ext,
+    };
   }
 
   // 3. Nothing configured in production.
@@ -170,4 +200,112 @@ export async function uploadImage(
     503,
     "Image uploads are not configured. Set CLOUDINARY_URL (Cloudinary) or paste an image URL instead.",
   );
+}
+
+/**
+ * Delete a Cloudinary asset by `public_id` (signed `image/destroy`). Used by the
+ * media library's safe-delete. Returns true when Cloudinary reports `ok`/`not
+ * found` (idempotent); throws only on an outright request failure. No-op returning
+ * false when Cloudinary isn't configured (nothing to delete there).
+ */
+export async function deleteCloudinaryAsset(publicId: string): Promise<boolean> {
+  const cfg = cloudinaryConfig();
+  if (!cfg || !publicId) return false;
+
+  const timestamp = Math.round(Date.now() / 1000).toString();
+  const signature = await signCloudinary({ public_id: publicId, timestamp }, cfg.apiSecret);
+
+  const form = new FormData();
+  form.append("public_id", publicId);
+  form.append("api_key", cfg.apiKey);
+  form.append("timestamp", timestamp);
+  form.append("signature", signature);
+
+  const res = await fetch(
+    `https://api.cloudinary.com/v1_1/${cfg.cloudName}/image/destroy`,
+    { method: "POST", body: form },
+  );
+  const result = (await res.json().catch(() => null)) as { result?: string } | null;
+  // "ok" (deleted) and "not found" (already gone) are both success for our purpose.
+  return res.ok && (result?.result === "ok" || result?.result === "not found");
+}
+
+/** One asset as returned by the Cloudinary Admin API list. */
+export interface CloudinaryAsset {
+  url: string;
+  pathname: string;
+  bytes?: number;
+  width?: number;
+  height?: number;
+  format?: string;
+  createdAt?: string;
+}
+
+/**
+ * List images stored under a Cloudinary `folder` via the Admin API (Basic auth
+ * with the same key/secret). Best-effort: returns `[]` when Cloudinary isn't
+ * configured or the call fails, so callers (media Sync) degrade gracefully.
+ * Pulls up to `max` (default 500) newest-first.
+ */
+export async function listCloudinaryAssets(
+  folder = "blog",
+  max = 500,
+): Promise<CloudinaryAsset[]> {
+  const cfg = cloudinaryConfig();
+  if (!cfg) return [];
+
+  const auth = Buffer.from(`${cfg.apiKey}:${cfg.apiSecret}`).toString("base64");
+  const assets: CloudinaryAsset[] = [];
+  let nextCursor: string | undefined;
+
+  try {
+    do {
+      const params = new URLSearchParams({
+        type: "upload",
+        prefix: folder,
+        max_results: String(Math.min(500, max - assets.length)),
+      });
+      if (nextCursor) params.set("next_cursor", nextCursor);
+
+      const res = await fetch(
+        `https://api.cloudinary.com/v1_1/${cfg.cloudName}/resources/image?${params}`,
+        { headers: { Authorization: `Basic ${auth}` } },
+      );
+      if (!res.ok) break;
+      const data = (await res.json().catch(() => null)) as {
+        resources?: Array<{
+          secure_url?: string;
+          url?: string;
+          public_id: string;
+          bytes?: number;
+          width?: number;
+          height?: number;
+          format?: string;
+          created_at?: string;
+        }>;
+        next_cursor?: string;
+      } | null;
+      if (!data?.resources?.length) break;
+
+      for (const r of data.resources) {
+        const url = r.secure_url || r.url;
+        if (url) {
+          assets.push({
+            url,
+            pathname: r.public_id,
+            bytes: r.bytes,
+            width: r.width,
+            height: r.height,
+            format: r.format,
+            createdAt: r.created_at,
+          });
+        }
+      }
+      nextCursor = data.next_cursor;
+    } while (nextCursor && assets.length < max);
+  } catch {
+    // Admin API disabled / network error — return whatever we have.
+  }
+
+  return assets;
 }

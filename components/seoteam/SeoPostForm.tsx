@@ -32,6 +32,7 @@ import { TemplatePicker } from "@/components/seoteam/TemplatePicker";
 import { VisibilityCard } from "@/components/seoteam/VisibilityCard";
 import { PostPreview } from "@/components/seoteam/PostPreview";
 import { GoogleSnippetPreview } from "@/components/seoteam/GoogleSnippetPreview";
+import { MediaPickerDialog } from "@/components/seoteam/MediaPickerDialog";
 import {
   blankSeoValues,
   toSeoPayload,
@@ -57,6 +58,19 @@ export function SeoPostForm({
   const [saving, setSaving] = React.useState(false);
   const template = form.watch("template") as BlogTemplate;
   const visibility = form.watch("visibility") as Visibility;
+
+  // Shared "Choose from library" picker. Each field/editor passes the apply
+  // callback that should receive the selected image.
+  const [pickerOpen, setPickerOpen] = React.useState(false);
+  const applyRef = React.useRef<((img: { url: string; alt: string }) => void) | null>(null);
+  const openPicker = React.useCallback(
+    (apply: (img: { url: string; alt: string }) => void) => {
+      applyRef.current = apply;
+      setPickerOpen(true);
+    },
+    [],
+  );
+  const SEOTEAM_UPLOAD = "/api/seoteam/media";
 
   const saveLabel =
     visibility === "draft" ? "Save draft" : visibility === "scheduled" ? "Schedule" : "Publish";
@@ -232,6 +246,8 @@ export function SeoPostForm({
                             onChange={(url) => field.onChange(url ?? "")}
                             folder="blog"
                             aspect="wide"
+                            uploadEndpoint={SEOTEAM_UPLOAD}
+                            onPickFromLibrary={openPicker}
                           />
                         </FormControl>
                         <FormMessage />
@@ -253,6 +269,8 @@ export function SeoPostForm({
                             onChange={field.onChange}
                             placeholder="Write or paste your post…"
                             imageFolder="blog"
+                            imageUploadEndpoint={SEOTEAM_UPLOAD}
+                            onPickImageFromLibrary={openPicker}
                           />
                         </FormControl>
                         <FormDescription>
@@ -314,6 +332,8 @@ export function SeoPostForm({
                             onChange={(url) => field.onChange(url ?? "")}
                             folder="og"
                             aspect="wide"
+                            uploadEndpoint={SEOTEAM_UPLOAD}
+                            onPickFromLibrary={openPicker}
                           />
                         </FormControl>
                         <FormMessage />
@@ -336,6 +356,15 @@ export function SeoPostForm({
           </div>
         </div>
       </form>
+
+      <MediaPickerDialog
+        open={pickerOpen}
+        onOpenChange={setPickerOpen}
+        onSelect={(img) => {
+          applyRef.current?.(img);
+          applyRef.current = null;
+        }}
+      />
     </Form>
   );
 }

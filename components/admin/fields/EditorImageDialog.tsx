@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { toast } from "sonner";
-import { Loader2, Upload } from "lucide-react";
+import { Images, Loader2, Upload } from "lucide-react";
 import { uploadImageFile, ApiClientError } from "@/components/admin/api-client";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,38 +17,54 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 /**
- * Insert-image dialog for the rich text editor (Shopify-style "Insert image").
+ * Insert/edit-image dialog for the rich text editor (Shopify-style "Insert image").
  * Upload a file (→ `/api/upload` → Cloudinary / dev disk) OR paste a URL, plus a
  * required-ish alt text field so inline images satisfy the image-alt SEO check.
+ *
+ * Pass `initial` to reopen the dialog on an already-inserted image (click-to-edit):
+ * the fields prefill with its current src/alt so authors can add or fix alt text
+ * after upload. Omit it (or pass null) for the insert-a-new-image flow.
  */
 export function EditorImageDialog({
   open,
   onOpenChange,
   onInsert,
   folder = "blog",
+  initial = null,
+  uploadEndpoint,
+  onPickFromLibrary,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onInsert: (img: { src: string; alt: string }) => void;
   folder?: string;
+  initial?: { src: string; alt: string } | null;
+  /** Override the upload route (e.g. "/api/seoteam/media"). Defaults to /api/upload. */
+  uploadEndpoint?: string;
+  /** When provided, shows a "Library" button; `apply` fills the src/alt fields. */
+  onPickFromLibrary?: (apply: (img: { url: string; alt: string }) => void) => void;
 }) {
   const [src, setSrc] = React.useState("");
   const [alt, setAlt] = React.useState("");
   const [uploading, setUploading] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const editing = initial != null;
 
-  // Reset each time the dialog is opened.
+  // Seed the fields each time the dialog opens — from `initial` when editing an
+  // existing image, otherwise blank for a fresh insert.
   React.useEffect(() => {
     if (open) {
-      setSrc("");
-      setAlt("");
+      setSrc(initial?.src ?? "");
+      setAlt(initial?.alt ?? "");
     }
+    // Only re-seed on open (not on every keystroke as `initial` identity changes).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   const handleFile = async (file: File) => {
     setUploading(true);
     try {
-      const url = await uploadImageFile(file, folder);
+      const url = await uploadImageFile(file, folder, uploadEndpoint);
       setSrc(url);
       toast.success("Image uploaded.");
     } catch (err) {
@@ -73,9 +89,11 @@ export function EditorImageDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Insert image</DialogTitle>
+          <DialogTitle>{editing ? "Edit image" : "Insert image"}</DialogTitle>
           <DialogDescription>
-            Upload a file or paste an image URL, then add alt text.
+            {editing
+              ? "Update the image or its alt text for SEO & accessibility."
+              : "Upload a file or paste an image URL, then add alt text."}
           </DialogDescription>
         </DialogHeader>
 
@@ -121,6 +139,22 @@ export function EditorImageDialog({
                 )}
                 {uploading ? "Uploading…" : "Upload"}
               </Button>
+              {onPickFromLibrary && (
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={() =>
+                    onPickFromLibrary((img) => {
+                      setSrc(img.url);
+                      if (img.alt) setAlt(img.alt);
+                    })
+                  }
+                  disabled={uploading}
+                >
+                  <Images className="size-4" />
+                  Library
+                </Button>
+              )}
             </div>
           </div>
 
@@ -140,7 +174,7 @@ export function EditorImageDialog({
             Cancel
           </Button>
           <Button type="button" variant="accent" onClick={insert} disabled={uploading || !src.trim()}>
-            Insert image
+            {editing ? "Save image" : "Insert image"}
           </Button>
         </DialogFooter>
       </DialogContent>

@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, LogOut, PlusCircle, type LucideIcon } from "lucide-react";
+import { Images, LayoutDashboard, LogOut, PlusCircle, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
@@ -17,6 +17,7 @@ type NavItem = { label: string; href: string; icon: LucideIcon; exact?: boolean 
 const NAV: NavItem[] = [
   { label: "Dashboard", href: "/seoteam", icon: LayoutDashboard, exact: true },
   { label: "New post", href: "/seoteam/new", icon: PlusCircle },
+  { label: "Gallery", href: "/seoteam/gallery", icon: Images },
 ];
 
 export function SeoTeamShell({ children }: { children: React.ReactNode }) {
