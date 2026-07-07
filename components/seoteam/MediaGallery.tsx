@@ -4,12 +4,18 @@ import * as React from "react";
 import Image from "next/image";
 import { toast } from "sonner";
 import {
+  AlertTriangle,
+  Copy,
   ImageOff,
   Images,
+  LayoutGrid,
   Link as LinkIcon,
+  List,
   Loader2,
   RefreshCw,
   Search,
+  Tag,
+  Tags,
   Trash2,
   Upload,
   X,
@@ -19,11 +25,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn, formatBytes } from "@/lib/utils";
 import type { MediaRow } from "@/lib/media";
 import { MediaDetailDialog } from "./MediaDetailDialog";
 import { MediaUploadDialog } from "./MediaUploadDialog";
 import { MediaImportDialog } from "./MediaImportDialog";
+import { MediaLightbox } from "./MediaLightbox";
+import { MediaTable, isMissingAlt } from "./MediaTable";
+import { copyText } from "./media-clipboard";
 
 type Stats = { total: number; unused: number; totalBytes: number };
 type ListResponse = {
@@ -35,13 +46,9 @@ type ListResponse = {
 
 type UsageFilter = "all" | "used" | "unused";
 type SortKey = "newest" | "oldest" | "most-used" | "largest";
+type ViewMode = "grid" | "table";
 
-function formatBytes(bytes: number): string {
-  if (!bytes) return "0 B";
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
-  if (bytes < 1024 * 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-  return `${(bytes / (1024 * 1024 * 1024)).toFixed(2)} GB`;
-}
+const VIEW_STORAGE_KEY = "seoteam:gallery:view";
 
 export function MediaGallery() {
   const [items, setItems] = React.useState<MediaRow[]>([]);
@@ -52,14 +59,42 @@ export function MediaGallery() {
 
   const [query, setQuery] = React.useState("");
   const [usageFilter, setUsageFilter] = React.useState<UsageFilter>("all");
+  const [missingAltOnly, setMissingAltOnly] = React.useState(false);
   const [tagFilter, setTagFilter] = React.useState<string>("");
   const [sortKey, setSortKey] = React.useState<SortKey>("newest");
+  const [viewMode, setViewMode] = React.useState<ViewMode>("grid");
 
   const [selected, setSelected] = React.useState<Set<string>>(new Set());
   const [detail, setDetail] = React.useState<MediaRow | null>(null);
+  const [preview, setPreview] = React.useState<MediaRow | null>(null);
   const [uploadOpen, setUploadOpen] = React.useState(false);
   const [importOpen, setImportOpen] = React.useState(false);
-  const [bulkDeleting, setBulkDeleting] = React.useState(false);
+  const [bulkBusy, setBulkBusy] = React.useState(false);
+
+  // Latest items, readable inside async callbacks without re-creating them.
+  const itemsRef = React.useRef(items);
+  React.useEffect(() => {
+    itemsRef.current = items;
+  }, [items]);
+
+  // Restore the persisted view preference on mount (avoids a hydration mismatch).
+  React.useEffect(() => {
+    try {
+      const saved = localStorage.getItem(VIEW_STORAGE_KEY);
+      if (saved === "grid" || saved === "table") setViewMode(saved);
+    } catch {
+      /* ignore corrupt storage */
+    }
+  }, []);
+
+  const changeView = (v: ViewMode) => {
+    setViewMode(v);
+    try {
+      localStorage.setItem(VIEW_STORAGE_KEY, v);
+    } catch {
+      /* ignore */
+    }
+  };
 
   const load = React.useCallback(async () => {
     setLoading(true);
@@ -98,20 +133,28 @@ export function MediaGallery() {
     }
   };
 
-  // --- Derived view (client-side filter + sort over the loaded set) ---
-  const view = React.useMemo(() => {
+  // --- Filters (search + usage + tag + missing-alt) shared by BOTH views ---
+  const filtered = React.useMemo(() => {
     const q = query.trim().toLowerCase();
-    let rows = items.filter((r) => {
+    return items.filter((r) => {
       if (usageFilter === "used" && r.usageCount === 0) return false;
       if (usageFilter === "unused" && r.usageCount > 0) return false;
+      if (missingAltOnly && !isMissingAlt(r)) return false;
       if (tagFilter && !r.tags.includes(tagFilter)) return false;
       if (q) {
-        const hay = [r.filename, r.title, r.alt, r.url, ...r.tags].filter(Boolean).join(" ").toLowerCase();
+        const hay = [r.filename, r.title, r.alt, r.url, ...r.tags]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
     });
-    rows = [...rows].sort((a, b) => {
+  }, [items, query, usageFilter, missingAltOnly, tagFilter]);
+
+  // Grid keeps the dropdown sort; the table sorts by clickable column headers.
+  const gridView = React.useMemo(() => {
+    return [...filtered].sort((a, b) => {
       switch (sortKey) {
         case "oldest":
           return a.createdAt.localeCompare(b.createdAt);
@@ -124,9 +167,11 @@ export function MediaGallery() {
           return b.createdAt.localeCompare(a.createdAt);
       }
     });
-    return rows;
-  }, [items, query, usageFilter, tagFilter, sortKey]);
+  }, [filtered, sortKey]);
 
+  const missingAltCount = React.useMemo(() => items.filter(isMissingAlt).length, [items]);
+
+  // --- Selection ---
   const toggleSelect = (id: string) => {
     setSelected((prev) => {
       const next = new Set(prev);
@@ -135,28 +180,153 @@ export function MediaGallery() {
       return next;
     });
   };
+  const toggleVisible = (ids: string[], checked: boolean) => {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      for (const id of ids) {
+        if (checked) next.add(id);
+        else next.delete(id);
+      }
+      return next;
+    });
+  };
   const clearSelection = () => setSelected(new Set());
+
+  const selectedRows = React.useMemo(
+    () => items.filter((r) => selected.has(r.id)),
+    [items, selected],
+  );
+  const tagsInSelection = React.useMemo(
+    () => Array.from(new Set(selectedRows.flatMap((r) => r.tags))).sort(),
+    [selectedRows],
+  );
+
+  // Keep the tag filter + suggestions fresh when new tags are introduced inline,
+  // so a just-added tag is immediately filterable without reloading the gallery.
+  const mergeTags = React.useCallback((incoming: string[]) => {
+    setAllTags((prev) => {
+      const set = new Set(prev);
+      let changed = false;
+      for (const t of incoming) {
+        if (!set.has(t)) {
+          set.add(t);
+          changed = true;
+        }
+      }
+      return changed ? Array.from(set).sort() : prev;
+    });
+  }, []);
+
+  // --- Metadata edit (optimistic, with rollback) — used by table inline edits ---
+  const patchMedia = React.useCallback(
+    async (id: string, patch: { alt?: string; tags?: string[] }) => {
+      const prev = itemsRef.current.find((r) => r.id === id);
+      setItems((rows) => rows.map((r) => (r.id === id ? { ...r, ...patch } : r)));
+      try {
+        const updated = await apiClient.patch<MediaRow>(`/api/seoteam/media/${id}`, patch);
+        setItems((rows) => rows.map((r) => (r.id === id ? updated : r)));
+        mergeTags(updated.tags);
+      } catch (err) {
+        if (prev) setItems((rows) => rows.map((r) => (r.id === id ? prev : r)));
+        toast.error(err instanceof ApiClientError ? err.message : "Couldn't save that change.");
+      }
+    },
+    [mergeTags],
+  );
+
+  // --- Delete a single asset (from the table's row actions) ---
+  const deleteOne = async (m: MediaRow) => {
+    const confirmMsg =
+      m.usageCount > 0
+        ? `“${m.filename || "This image"}” is still used in ${m.usageCount} post${m.usageCount === 1 ? "" : "s"}, so deletion will be blocked until it's removed there. Continue anyway?`
+        : `Delete “${m.filename || "this image"}”? This cannot be undone.`;
+    if (!window.confirm(confirmMsg)) return;
+    try {
+      await apiClient.delete(`/api/seoteam/media/${m.id}`);
+      setItems((prev) => prev.filter((r) => r.id !== m.id));
+      setStats((s) => ({
+        ...s,
+        total: Math.max(0, s.total - 1),
+        unused: Math.max(0, s.unused - (m.usageCount === 0 ? 1 : 0)),
+      }));
+      setSelected((prev) => {
+        const next = new Set(prev);
+        next.delete(m.id);
+        return next;
+      });
+      toast.success("Image deleted.");
+    } catch (err) {
+      // 409 = still in use — surface the descriptive server message.
+      toast.error(err instanceof ApiClientError ? err.message : "Delete failed.");
+    }
+  };
+
+  // --- Bulk actions over the current selection ---
+  const runBulkPatch = async (
+    mutate: (row: MediaRow) => { tags?: string[]; alt?: string } | null,
+    done: (n: number) => string,
+  ) => {
+    const targets = itemsRef.current.filter((r) => selected.has(r.id));
+    if (targets.length === 0) return;
+    setBulkBusy(true);
+    const updates = new Map<string, MediaRow>();
+    for (const row of targets) {
+      const patch = mutate(row);
+      if (!patch) continue;
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        const updated = await apiClient.patch<MediaRow>(`/api/seoteam/media/${row.id}`, patch);
+        updates.set(row.id, updated);
+      } catch {
+        /* skip failures; report the count that succeeded */
+      }
+    }
+    if (updates.size > 0) {
+      setItems((prev) => prev.map((r) => updates.get(r.id) ?? r));
+      mergeTags(Array.from(updates.values()).flatMap((u) => u.tags));
+    }
+    setBulkBusy(false);
+    toast.success(done(updates.size));
+  };
+
+  const bulkAddTag = (tag: string) =>
+    runBulkPatch(
+      (row) => (row.tags.includes(tag) ? null : { tags: [...row.tags, tag] }),
+      (n) => `Added “${tag}” to ${n} image${n === 1 ? "" : "s"}.`,
+    );
+  const bulkRemoveTag = (tag: string) =>
+    runBulkPatch(
+      (row) => (row.tags.includes(tag) ? { tags: row.tags.filter((t) => t !== tag) } : null),
+      (n) => `Removed “${tag}” from ${n} image${n === 1 ? "" : "s"}.`,
+    );
+  const bulkCopyUrls = () => {
+    const urls = selectedRows.map((r) => r.url).join("\n");
+    void copyText(urls, `Copied ${selectedRows.length} URL${selectedRows.length === 1 ? "" : "s"}.`);
+  };
 
   const bulkDelete = async () => {
     const ids = Array.from(selected);
     if (ids.length === 0) return;
     if (!window.confirm(`Delete ${ids.length} selected image(s)? In-use images will be skipped.`))
       return;
-    setBulkDeleting(true);
+    setBulkBusy(true);
     let deleted = 0;
     let skipped = 0;
+    const deletedIds = new Set<string>();
     for (const id of ids) {
       try {
         // eslint-disable-next-line no-await-in-loop
         await apiClient.delete(`/api/seoteam/media/${id}`);
         deleted += 1;
+        deletedIds.add(id);
       } catch {
         skipped += 1;
       }
     }
-    setBulkDeleting(false);
+    setItems((prev) => prev.filter((r) => !deletedIds.has(r.id)));
+    setStats((s) => ({ ...s, total: Math.max(0, s.total - deleted) }));
+    setBulkBusy(false);
     clearSelection();
-    await load();
     toast.success(
       `Deleted ${deleted} image${deleted === 1 ? "" : "s"}` +
         (skipped ? ` · ${skipped} skipped (in use)` : ""),
@@ -170,11 +340,17 @@ export function MediaGallery() {
   const onDetailDeleted = (id: string) => {
     setItems((prev) => prev.filter((r) => r.id !== id));
     setStats((s) => ({ ...s, total: Math.max(0, s.total - 1) }));
+    setSelected((prev) => {
+      const next = new Set(prev);
+      next.delete(id);
+      return next;
+    });
   };
 
   const statCards = [
     { label: "Total images", value: String(stats.total), icon: Images },
     { label: "Unused", value: String(stats.unused), icon: ImageOff },
+    { label: "Missing alt", value: String(missingAltCount), icon: AlertTriangle },
     { label: "Storage", value: formatBytes(stats.totalBytes), icon: Upload },
   ];
 
@@ -190,11 +366,7 @@ export function MediaGallery() {
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <Button type="button" variant="secondary" onClick={() => void sync()} disabled={syncing}>
-            {syncing ? (
-              <Loader2 className="size-4 animate-spin" />
-            ) : (
-              <RefreshCw className="size-4" />
-            )}
+            {syncing ? <Loader2 className="size-4 animate-spin" /> : <RefreshCw className="size-4" />}
             Sync
           </Button>
           <Button type="button" variant="secondary" onClick={() => setImportOpen(true)}>
@@ -209,7 +381,7 @@ export function MediaGallery() {
       </div>
 
       {/* Stats */}
-      <section aria-label="Overview" className="grid gap-4 sm:grid-cols-3">
+      <section aria-label="Overview" className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         {statCards.map((s) => {
           const Icon = s.icon;
           return (
@@ -237,6 +409,7 @@ export function MediaGallery() {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search filename, alt, tags, URL…"
             className="pl-9"
+            aria-label="Search images"
           />
         </div>
 
@@ -250,6 +423,18 @@ export function MediaGallery() {
           <option value="used">Used only</option>
           <option value="unused">Unused only</option>
         </select>
+
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={() => setMissingAltOnly((v) => !v)}
+          aria-pressed={missingAltOnly}
+          className={cn("h-10", missingAltOnly && "border-accent text-accent")}
+        >
+          <AlertTriangle className="size-4" />
+          Missing alt
+          {missingAltCount > 0 && <span className="tabular-nums">({missingAltCount})</span>}
+        </Button>
 
         <select
           value={tagFilter}
@@ -265,40 +450,80 @@ export function MediaGallery() {
           ))}
         </select>
 
-        <select
-          value={sortKey}
-          onChange={(e) => setSortKey(e.target.value as SortKey)}
-          className="h-10 rounded-md border border-border bg-background px-3 text-small text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label="Sort"
+        {viewMode === "grid" && (
+          <select
+            value={sortKey}
+            onChange={(e) => setSortKey(e.target.value as SortKey)}
+            className="h-10 rounded-md border border-border bg-background px-3 text-small text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="Sort"
+          >
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="most-used">Most used</option>
+            <option value="largest">Largest</option>
+          </select>
+        )}
+
+        {/* View toggle (persisted to localStorage) */}
+        <div
+          role="group"
+          aria-label="View mode"
+          className="ml-auto flex items-center gap-0.5 rounded-md border border-border-strong p-0.5"
         >
-          <option value="newest">Newest</option>
-          <option value="oldest">Oldest</option>
-          <option value="most-used">Most used</option>
-          <option value="largest">Largest</option>
-        </select>
+          <button
+            type="button"
+            onClick={() => changeView("grid")}
+            aria-label="Grid view"
+            aria-pressed={viewMode === "grid"}
+            className={cn(
+              "inline-flex size-8 items-center justify-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              viewMode === "grid"
+                ? "bg-accent text-accent-foreground"
+                : "text-muted-foreground hover:text-foreground",
+            )}
+          >
+            <LayoutGrid className="size-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => changeView("table")}
+            aria-label="Table view"
+            aria-pressed={viewMode === "table"}
+            className={cn(
+              "inline-flex size-8 items-center justify-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              viewMode === "table"
+                ? "bg-accent text-accent-foreground"
+                : "text-muted-foreground hover:text-foreground",
+            )}
+          >
+            <List className="size-4" />
+          </button>
+        </div>
       </div>
 
       {/* Selection bar */}
       {selected.size > 0 && (
         <div className="flex flex-wrap items-center gap-2 rounded-lg border border-border bg-muted/50 px-3 py-2">
           <span className="text-small font-medium text-foreground">{selected.size} selected</span>
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ml-auto flex flex-wrap items-center gap-2">
+            <Button type="button" variant="ghost" size="sm" onClick={bulkCopyUrls} disabled={bulkBusy}>
+              <Copy className="size-4" />
+              Copy URLs
+            </Button>
+            <BulkAddTagButton suggestions={allTags} disabled={bulkBusy} onAdd={(t) => void bulkAddTag(t)} />
+            <BulkRemoveTagButton tags={tagsInSelection} disabled={bulkBusy} onRemove={(t) => void bulkRemoveTag(t)} />
             <Button
               type="button"
               variant="ghost"
               size="sm"
               onClick={() => void bulkDelete()}
-              disabled={bulkDeleting}
+              disabled={bulkBusy}
               className="text-destructive hover:bg-destructive/10 hover:text-destructive"
             >
-              {bulkDeleting ? (
-                <Loader2 className="size-4 animate-spin" />
-              ) : (
-                <Trash2 className="size-4" />
-              )}
+              {bulkBusy ? <Loader2 className="size-4 animate-spin" /> : <Trash2 className="size-4" />}
               Delete
             </Button>
-            <Button type="button" variant="ghost" size="sm" onClick={clearSelection}>
+            <Button type="button" variant="ghost" size="sm" onClick={clearSelection} disabled={bulkBusy}>
               <X className="size-4" />
               Clear
             </Button>
@@ -306,12 +531,10 @@ export function MediaGallery() {
         </div>
       )}
 
-      {/* Grid */}
+      {/* Body: loading skeletons → empty state → grid | table */}
       {loading ? (
-        <div className="flex items-center justify-center py-20 text-muted-foreground">
-          <Loader2 className="size-6 animate-spin" />
-        </div>
-      ) : view.length === 0 ? (
+        <GallerySkeleton mode={viewMode} />
+      ) : filtered.length === 0 ? (
         <div className="flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-border py-20 text-center">
           <Images className="size-8 text-muted-foreground" />
           <p className="text-body text-foreground">
@@ -330,9 +553,21 @@ export function MediaGallery() {
             </div>
           )}
         </div>
+      ) : viewMode === "table" ? (
+        <MediaTable
+          rows={filtered}
+          selected={selected}
+          onToggleSelect={toggleSelect}
+          onToggleVisible={toggleVisible}
+          onPreview={setPreview}
+          onEdit={setDetail}
+          onDelete={(m) => void deleteOne(m)}
+          onPatch={patchMedia}
+          allTags={allTags}
+        />
       ) : (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {view.map((m) => {
+          {gridView.map((m) => {
             const isSelected = selected.has(m.id);
             return (
               <div
@@ -344,8 +579,8 @@ export function MediaGallery() {
               >
                 <button
                   type="button"
-                  onClick={() => setDetail(m)}
-                  className="block aspect-video w-full focus-visible:outline-none"
+                  onClick={() => setPreview(m)}
+                  className="relative block aspect-video w-full focus-visible:outline-none"
                   aria-label={`Open ${m.filename || "image"}`}
                 >
                   <Image
@@ -374,6 +609,13 @@ export function MediaGallery() {
                   />
                 </label>
 
+                {/* Missing-alt flag (SEO gap) */}
+                {isMissingAlt(m) && (
+                  <div className="pointer-events-none absolute right-1.5 top-1.5">
+                    <Badge variant="warning">No alt</Badge>
+                  </div>
+                )}
+
                 {/* Usage badge */}
                 <div className="pointer-events-none absolute bottom-1.5 left-1.5">
                   {m.usageCount > 0 ? (
@@ -389,6 +631,7 @@ export function MediaGallery() {
       )}
 
       {/* Dialogs */}
+      <MediaLightbox media={preview} open={preview != null} onOpenChange={(o) => !o && setPreview(null)} />
       <MediaDetailDialog
         media={detail}
         open={detail != null}
@@ -396,17 +639,145 @@ export function MediaGallery() {
         onChanged={onDetailChanged}
         onDeleted={onDetailDeleted}
       />
-      <MediaUploadDialog
-        open={uploadOpen}
-        onOpenChange={setUploadOpen}
-        onUploaded={() => void load()}
-      />
-      <MediaImportDialog
-        open={importOpen}
-        onOpenChange={setImportOpen}
-        onImported={() => void load()}
-      />
+      <MediaUploadDialog open={uploadOpen} onOpenChange={setUploadOpen} onUploaded={() => void load()} />
+      <MediaImportDialog open={importOpen} onOpenChange={setImportOpen} onImported={() => void load()} />
     </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Loading skeleton                                                            */
+/* -------------------------------------------------------------------------- */
+
+function GallerySkeleton({ mode }: { mode: ViewMode }) {
+  if (mode === "table") {
+    return (
+      <div className="space-y-3 rounded-lg border border-border p-3">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div key={i} className="flex items-center gap-3">
+            <Skeleton className="size-4 rounded" />
+            <Skeleton className="size-12 rounded" />
+            <Skeleton className="h-4 flex-1" />
+            <Skeleton className="h-4 w-32" />
+            <Skeleton className="h-4 w-16" />
+            <Skeleton className="h-4 w-20" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return (
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      {Array.from({ length: 10 }).map((_, i) => (
+        <Skeleton key={i} className="aspect-video w-full rounded-lg" />
+      ))}
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Bulk tag popovers                                                           */
+/* -------------------------------------------------------------------------- */
+
+function BulkAddTagButton({
+  suggestions,
+  disabled,
+  onAdd,
+}: {
+  suggestions: string[];
+  disabled?: boolean;
+  onAdd: (tag: string) => void;
+}) {
+  const [open, setOpen] = React.useState(false);
+  const [draft, setDraft] = React.useState("");
+  const commit = (raw: string) => {
+    const tag = raw.trim();
+    if (!tag) return;
+    onAdd(tag);
+    setDraft("");
+    setOpen(false);
+  };
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button type="button" variant="ghost" size="sm" disabled={disabled}>
+          <Tag className="size-4" />
+          Add tag
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="end" className="w-64">
+        <p className="mb-2 text-label uppercase text-muted-foreground">Add tag to selection</p>
+        <Input
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              commit(draft);
+            }
+          }}
+          placeholder="Tag name, press Enter…"
+          autoFocus
+          aria-label="New tag"
+        />
+        {suggestions.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1">
+            {suggestions.slice(0, 12).map((t) => (
+              <button
+                key={t}
+                type="button"
+                onClick={() => commit(t)}
+                className="rounded-sm border border-border px-1.5 py-0.5 text-micro text-muted-foreground hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+        )}
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+function BulkRemoveTagButton({
+  tags,
+  disabled,
+  onRemove,
+}: {
+  tags: string[];
+  disabled?: boolean;
+  onRemove: (tag: string) => void;
+}) {
+  const [open, setOpen] = React.useState(false);
+  if (tags.length === 0) return null;
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button type="button" variant="ghost" size="sm" disabled={disabled}>
+          <Tags className="size-4" />
+          Remove tag
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="end" className="w-64">
+        <p className="mb-2 text-label uppercase text-muted-foreground">Remove tag from selection</p>
+        <div className="flex flex-wrap gap-1">
+          {tags.map((t) => (
+            <button
+              key={t}
+              type="button"
+              onClick={() => {
+                onRemove(t);
+                setOpen(false);
+              }}
+              className="inline-flex items-center gap-1 rounded-sm bg-ink-100 px-1.5 py-0.5 text-micro text-ink-700 hover:bg-destructive/10 hover:text-destructive dark:bg-ink-800 dark:text-ink-200"
+            >
+              {t}
+              <X className="size-2.5" />
+            </button>
+          ))}
+        </div>
+      </PopoverContent>
+    </Popover>
   );
 }
 
