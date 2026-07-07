@@ -628,3 +628,33 @@
   recompute only against a running MongoDB — `npm run seed` (re-seeds reviews and
   recomputes, now including `topMentions`) + `npm run dev`, then approve/reject a
   review in `/admin/reviews` and watch the profile chips change.
+
+## Post-launch — Image host swap: Vercel Blob → Cloudinary
+
+### Decision (supersedes the Stage 0 / Stage 2 "Image host: Vercel Blob" note)
+- **Cloudinary is now the configured image host**, per operator request. The swap
+  is fully contained to `lib/upload.ts` (the whole point of the §6/§10.3 provider
+  abstraction) — the `/api/upload` route, `api-client.ts#uploadImageFile`, and the
+  admin image fields are unchanged; they still POST multipart and read `{ url }`.
+- **No SDK dependency.** Uploads use Cloudinary's **signed REST endpoint**
+  (`POST /v1_1/<cloud>/image/upload`) built from `FormData` + `fetch`, with the
+  SHA-1 signature computed via Web Crypto (`crypto.subtle`) — no `cloudinary` npm
+  package, so nothing new to bundle on Vercel. `@vercel/blob` was removed from
+  `package.json` (and the lockfile) since no code imports it anymore.
+- **Config:** `CLOUDINARY_URL` (`cloudinary://<key>:<secret>@<cloud>`), or the
+  three discrete `CLOUDINARY_CLOUD_NAME`/`_API_KEY`/`_API_SECRET` vars. `public_id`
+  is `<slug>-<uuid8>` (no extension — Cloudinary infers the format); `folder`
+  ("logos"/"screenshots"/"blog"/…) is a separate signed param. Returns
+  `{ url: secure_url, pathname: public_id }`.
+- **Unchanged behaviour:** the DEV-only local-disk fallback (`public/uploads/`) and
+  the production 503 (now naming `CLOUDINARY_URL`) still stand, and every image
+  field still accepts a pasted URL — so content entry never hard-depends on uploads.
+- **Operator action:** set `CLOUDINARY_URL` in Vercel → Project → Environment
+  Variables (Production + Preview), then **redeploy** (env vars only bake into
+  deployments created afterwards). The old `BLOB_*` vars can be deleted. A Cloudinary
+  account setting may need "Allow delivery of SVG" enabled if SVG logos are used.
+
+### Verification
+- `tsc --noEmit` passes. End-to-end upload needs live Cloudinary creds — set
+  `CLOUDINARY_URL` in `.env.local` + `npm run dev`, then upload a blog cover / inline
+  editor image and confirm it returns a `res.cloudinary.com` URL.

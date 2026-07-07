@@ -18,7 +18,7 @@ import { Label } from "@/components/ui/label";
 
 /**
  * Insert-image dialog for the rich text editor (Shopify-style "Insert image").
- * Upload a file (→ `/api/upload` → Vercel Blob / dev disk) OR paste a URL, plus a
+ * Upload a file (→ `/api/upload` → Cloudinary / dev disk) OR paste a URL, plus a
  * required-ish alt text field so inline images satisfy the image-alt SEO check.
  */
 export function EditorImageDialog({

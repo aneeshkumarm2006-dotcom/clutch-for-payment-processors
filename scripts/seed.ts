@@ -1140,7 +1140,7 @@ async function seedSettings(): Promise<void> {
         featuredCategorySlugs: ["ecommerce", "retail-pos", "subscriptions", "high-risk", "international", "small-business"],
         contactEmail: "hello@paycompare.test",
         socialLinks: { twitter: "https://twitter.com/paycompare", linkedin: "https://www.linkedin.com/company/paycompare" },
-        footerText: "© PayCompare. Sample directory — verify fees with each provider before deciding.",
+        footerText: "© PayCompare. Independent payment processor reviews — always confirm current fees and terms with each provider.",
       },
       $setOnInsert: { key: "singleton" },
     },

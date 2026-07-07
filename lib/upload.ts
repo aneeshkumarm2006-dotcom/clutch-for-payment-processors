@@ -6,11 +6,11 @@ import { ApiError } from "@/lib/api";
  * touch `uploadImage()`; swapping hosts is a change here and nowhere else.
  *
  * Provider resolution order:
- *   1. Vercel Blob   — when `BLOB_READ_WRITE_TOKEN` is set (the chosen default,
- *                      see NOTES.md). Returns a public CDN URL.
- *   2. Cloudinary    — stub left intentionally simple; wire `CLOUDINARY_URL`
- *                      here if the operator prefers it (drop-in alternative).
- *   3. Local disk    — DEV ONLY fallback (`public/uploads/`) so an operator can
+ *   1. Cloudinary    — when `CLOUDINARY_URL` (or the discrete
+ *                      `CLOUDINARY_CLOUD_NAME`/`_API_KEY`/`_API_SECRET`) is set.
+ *                      The chosen default (see NOTES.md). Signed REST upload — no
+ *                      SDK dependency — returning a public CDN URL.
+ *   2. Local disk    — DEV ONLY fallback (`public/uploads/`) so an operator can
  *                      add content with no cloud creds. Not used in production
  *                      (Vercel's filesystem is read-only at runtime).
  *
@@ -51,8 +51,8 @@ export function assertValidImage(file: { type: string; size: number }) {
   }
 }
 
-/** Build a collision-resistant, URL-safe object key from the original filename. */
-function buildKey(originalName: string, contentType: string, folder: string): string {
+/** Split an original filename into a URL-safe slug base + normalized extension. */
+function slugifyName(originalName: string, contentType: string): { base: string; ext: string } {
   const dot = originalName.lastIndexOf(".");
   const rawExt = dot > -1 ? originalName.slice(dot + 1).toLowerCase() : "";
   const ext = (rawExt || EXT_BY_TYPE[contentType] || "bin").replace(/[^a-z0-9]/g, "");
@@ -61,8 +61,47 @@ function buildKey(originalName: string, contentType: string, folder: string): st
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 40) || "image";
-  const unique = crypto.randomUUID().slice(0, 8);
-  return `${folder}/${base}-${unique}.${ext}`;
+  return { base, ext };
+}
+
+/** Cloudinary credentials, from `CLOUDINARY_URL` or the three discrete env vars. */
+function cloudinaryConfig(): { cloudName: string; apiKey: string; apiSecret: string } | null {
+  const url = process.env.CLOUDINARY_URL;
+  if (url) {
+    // Format: cloudinary://<api_key>:<api_secret>@<cloud_name>
+    const m = url.match(/^cloudinary:\/\/([^:]+):([^@]+)@(.+)$/);
+    if (m) return { apiKey: m[1]!, apiSecret: m[2]!, cloudName: m[3]! };
+  }
+  const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+  const apiKey = process.env.CLOUDINARY_API_KEY;
+  const apiSecret = process.env.CLOUDINARY_API_SECRET;
+  if (cloudName && apiKey && apiSecret) return { cloudName, apiKey, apiSecret };
+  return null;
+}
+
+/** Hex SHA-1 via Web Crypto (runtime-agnostic — no `node:crypto` import). */
+async function sha1Hex(input: string): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-1", new TextEncoder().encode(input));
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+/**
+ * Cloudinary signature: SHA-1 of the signed params (sorted, `k=v` joined by `&`,
+ * empty values dropped) with the API secret appended. `file`, `api_key`,
+ * `resource_type`, and `signature` are never signed.
+ */
+async function signCloudinary(
+  params: Record<string, string>,
+  apiSecret: string,
+): Promise<string> {
+  const toSign = Object.keys(params)
+    .filter((k) => params[k] !== "" && params[k] != null)
+    .sort()
+    .map((k) => `${k}=${params[k]}`)
+    .join("&");
+  return sha1Hex(toSign + apiSecret);
 }
 
 /**
@@ -74,19 +113,45 @@ export async function uploadImage(
   opts: { filename: string; contentType: string; folder?: string },
 ): Promise<UploadResult> {
   const folder = opts.folder?.replace(/[^a-z0-9/-]/gi, "") || "uploads";
-  const key = buildKey(opts.filename, opts.contentType, folder);
+  const { base, ext } = slugifyName(opts.filename, opts.contentType);
+  const unique = crypto.randomUUID().slice(0, 8);
   const bytes = data instanceof Buffer ? data : Buffer.from(data);
 
-  // 1. Vercel Blob (preferred when configured).
-  if (process.env.BLOB_READ_WRITE_TOKEN) {
-    const { put } = await import("@vercel/blob");
-    const blob = await put(key, bytes, {
-      access: "public",
-      contentType: opts.contentType,
-      token: process.env.BLOB_READ_WRITE_TOKEN,
-      addRandomSuffix: false,
-    });
-    return { url: blob.url, pathname: blob.pathname };
+  // 1. Cloudinary (preferred when configured) — signed REST upload.
+  const cfg = cloudinaryConfig();
+  if (cfg) {
+    // Cloudinary derives the format from the bytes, so public_id carries no
+    // extension; the folder is a separate (signed) param.
+    const publicId = `${base}-${unique}`;
+    const timestamp = Math.round(Date.now() / 1000).toString();
+    const signature = await signCloudinary(
+      { folder, public_id: publicId, timestamp },
+      cfg.apiSecret,
+    );
+
+    const form = new FormData();
+    form.append("file", new Blob([bytes], { type: opts.contentType }));
+    form.append("api_key", cfg.apiKey);
+    form.append("timestamp", timestamp);
+    form.append("folder", folder);
+    form.append("public_id", publicId);
+    form.append("signature", signature);
+
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/${cfg.cloudName}/image/upload`,
+      { method: "POST", body: form },
+    );
+    const result = (await res.json().catch(() => null)) as
+      | { secure_url?: string; public_id?: string; error?: { message?: string } }
+      | null;
+
+    if (!res.ok || !result?.secure_url) {
+      throw new ApiError(
+        502,
+        result?.error?.message || `Cloudinary upload failed (HTTP ${res.status}).`,
+      );
+    }
+    return { url: result.secure_url, pathname: result.public_id ?? publicId };
   }
 
   // 2. Local-disk dev fallback → served from /public/uploads/*.
@@ -95,14 +160,14 @@ export async function uploadImage(
     const path = await import("node:path");
     const publicDir = path.join(process.cwd(), "public", folder);
     await mkdir(publicDir, { recursive: true });
-    const fileName = key.slice(folder.length + 1); // strip "folder/" prefix
+    const fileName = `${base}-${unique}.${ext}`;
     await writeFile(path.join(publicDir, fileName), bytes);
-    return { url: `/${folder}/${fileName}`, pathname: key };
+    return { url: `/${folder}/${fileName}`, pathname: `${folder}/${fileName}` };
   }
 
   // 3. Nothing configured in production.
   throw new ApiError(
     503,
-    "Image uploads are not configured. Set BLOB_READ_WRITE_TOKEN (Vercel Blob) or paste an image URL instead.",
+    "Image uploads are not configured. Set CLOUDINARY_URL (Cloudinary) or paste an image URL instead.",
   );
 }
