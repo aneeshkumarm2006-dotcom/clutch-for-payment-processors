@@ -26,6 +26,10 @@ import { TagInput } from "@/components/admin/fields/TagInput";
 import { CategoryMultiSelect } from "@/components/admin/fields/CategoryMultiSelect";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import {
+  UnsavedChangesGuard,
+  type UnsavedChangesGuardHandle,
+} from "@/components/UnsavedChangesGuard";
+import {
   blankBlogValues,
   toBlogPayload,
   type BlogFormValues,
@@ -51,6 +55,13 @@ export function BlogForm({
     defaultValues: defaultValues ?? blankBlogValues(),
   });
   const [saving, setSaving] = React.useState<BlogStatus | null>(null);
+  const guardRef = React.useRef<UnsavedChangesGuardHandle>(null);
+
+  // Warn before leaving with edits that haven't been saved/published. `isDirty`
+  // is read during render so react-hook-form re-renders us as it flips; we drop
+  // the guard while a save is in flight so its own redirect isn't blocked.
+  const { isDirty } = form.formState;
+  const hasUnsavedEdits = isDirty && saving === null;
 
   const applyZodIssues = (error: ZodError) => {
     for (const issue of error.issues) {
@@ -267,7 +278,7 @@ export function BlogForm({
           <Button
             type="button"
             variant="ghost"
-            onClick={() => router.push("/admin/blog")}
+            onClick={() => guardRef.current?.confirmNavigation(() => router.push("/admin/blog"))}
             disabled={saving !== null}
           >
             Cancel
@@ -292,6 +303,8 @@ export function BlogForm({
           </Button>
         </div>
       </form>
+
+      <UnsavedChangesGuard ref={guardRef} enabled={hasUnsavedEdits} />
     </Form>
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Images, LayoutDashboard, LogOut, PlusCircle, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { hasUnsavedChanges } from "@/components/UnsavedChangesGuard";
 
 /**
  * SeoTeamShell — the dashboard frame for the password-protected /seoteam area.
@@ -29,6 +30,13 @@ export function SeoTeamShell({ children }: { children: React.ReactNode }) {
     item.exact ? pathname === item.href : pathname === item.href || pathname.startsWith(`${item.href}/`);
 
   const onLogout = async () => {
+    // The anchor interceptor can't see this <button>, so check for unsaved edits here.
+    if (
+      hasUnsavedChanges() &&
+      !window.confirm("You have unsaved changes that haven't been saved. Log out and lose them?")
+    ) {
+      return;
+    }
     setLoggingOut(true);
     try {
       await fetch("/api/seoteam/logout", { method: "POST" });

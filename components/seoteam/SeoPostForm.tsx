@@ -34,6 +34,10 @@ import { PostPreview } from "@/components/seoteam/PostPreview";
 import { GoogleSnippetPreview } from "@/components/seoteam/GoogleSnippetPreview";
 import { MediaPickerDialog } from "@/components/seoteam/MediaPickerDialog";
 import {
+  UnsavedChangesGuard,
+  type UnsavedChangesGuardHandle,
+} from "@/components/UnsavedChangesGuard";
+import {
   blankSeoValues,
   toSeoPayload,
   type SeoFormValues,
@@ -58,8 +62,15 @@ export function SeoPostForm({
   const [saving, setSaving] = React.useState(false);
   const [autoSaving, setAutoSaving] = React.useState(false);
   const autoSaveTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const guardRef = React.useRef<UnsavedChangesGuardHandle>(null);
   const template = form.watch("template") as BlogTemplate;
   const visibility = form.watch("visibility") as Visibility;
+
+  // Warn before leaving with edits that haven't been saved/published. `isDirty`
+  // is read during render so react-hook-form re-renders us as it flips; we drop
+  // the guard while a save is in flight so its own redirect isn't blocked.
+  const { isDirty } = form.formState;
+  const hasUnsavedEdits = isDirty && !saving;
 
   // Shared "Choose from library" picker. Each field/editor passes the apply
   // callback that should receive the selected image.
@@ -197,7 +208,7 @@ export function SeoPostForm({
             <Button
               type="button"
               variant="ghost"
-              onClick={() => router.push("/seoteam")}
+              onClick={() => guardRef.current?.confirmNavigation(() => router.push("/seoteam"))}
               disabled={saving}
             >
               Cancel
@@ -421,6 +432,8 @@ export function SeoPostForm({
           applyRef.current = null;
         }}
       />
+
+      <UnsavedChangesGuard ref={guardRef} enabled={hasUnsavedEdits} />
     </Form>
   );
 }

@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import type { UserRole } from "@/lib/enums";
 import { cn } from "@/lib/utils";
+import { hasUnsavedChanges } from "@/components/UnsavedChangesGuard";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -142,6 +143,15 @@ export function AdminShell({
                 <DropdownMenuItem
                   onSelect={(e) => {
                     e.preventDefault();
+                    // The anchor interceptor can't see this menu item, so check here.
+                    if (
+                      hasUnsavedChanges() &&
+                      !window.confirm(
+                        "You have unsaved changes that haven't been saved. Log out and lose them?",
+                      )
+                    ) {
+                      return;
+                    }
                     void signOut({ callbackUrl: "/admin/login" });
                   }}
                   className="text-destructive focus:text-destructive"
