@@ -1,4 +1,4 @@
-import type { BlogStatus } from "@/lib/enums";
+import type { BlogContentWidth, BlogCoverLayout, BlogStatus } from "@/lib/enums";
 
 /**
  * Form ↔ model serialization for the BlogForm (TODO §6.1 / PRD §10.8).
@@ -19,6 +19,8 @@ export interface BlogFormValues {
   tags: string[];
   relatedProcessors: string[];
   publishedAt: string;
+  contentWidth: BlogContentWidth;
+  coverLayout: BlogCoverLayout;
   seo: { metaTitle: string; metaDescription: string; ogImage: string };
 }
 
@@ -34,6 +36,8 @@ export function blankBlogValues(): BlogFormValues {
     tags: [],
     relatedProcessors: [],
     publishedAt: "",
+    contentWidth: "standard",
+    coverLayout: "standard",
     seo: { metaTitle: "", metaDescription: "", ogImage: "" },
   };
 }
@@ -66,6 +70,8 @@ export function toBlogFormValues(doc: LeanBlog): BlogFormValues {
       ? doc.relatedProcessors.map((p) => String(p))
       : [],
     publishedAt: toDateInput(doc.publishedAt),
+    contentWidth: doc.contentWidth === "wide" ? "wide" : "standard",
+    coverLayout: doc.coverLayout === "wide" ? "wide" : "standard",
     seo: {
       metaTitle: str(doc.seo?.metaTitle),
       metaDescription: str(doc.seo?.metaDescription),
@@ -90,6 +96,8 @@ export function toBlogPayload(values: BlogFormValues, status: BlogStatus): Recor
     relatedProcessors: values.relatedProcessors,
     status,
     publishedAt: blankToUndef(values.publishedAt),
+    contentWidth: values.contentWidth,
+    coverLayout: values.coverLayout,
     seo: {
       metaTitle: blankToUndef(values.seo.metaTitle),
       metaDescription: blankToUndef(values.seo.metaDescription),

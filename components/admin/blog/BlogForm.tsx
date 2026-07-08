@@ -19,7 +19,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { TextField, TextareaField } from "@/components/admin/fields/form-fields";
+import { EnumSelectField, TextField, TextareaField } from "@/components/admin/fields/form-fields";
+import { BLOG_CONTENT_WIDTHS, BLOG_COVER_LAYOUTS } from "@/lib/enums";
 import { ImageUploadField } from "@/components/admin/fields/ImageUploadField";
 import { TagInput } from "@/components/admin/fields/TagInput";
 import { CategoryMultiSelect } from "@/components/admin/fields/CategoryMultiSelect";
@@ -29,6 +30,11 @@ import {
   toBlogPayload,
   type BlogFormValues,
 } from "@/components/admin/blog/serialize";
+
+/** Friendly labels for the layout enums (raw values are terse). */
+const coverLayoutLabel = (v: string) =>
+  v === "wide" ? "Full width (hero)" : "Contained (recommended)";
+const contentWidthLabel = (v: string) => (v === "wide" ? "Wide (~830px)" : "Standard (720px)");
 
 /** Blog create/edit form (PRD §10.8). Save draft vs Publish set the status. */
 export function BlogForm({
@@ -198,6 +204,33 @@ export function BlogForm({
               </FormItem>
             )}
           />
+        </div>
+
+        <div className="space-y-5 rounded-lg border border-border bg-card p-5">
+          <div>
+            <h2 className="text-h4">Layout &amp; appearance</h2>
+            <p className="mt-1 text-small text-muted-foreground">
+              Controls how the post reads on the public page. Defaults suit most articles.
+            </p>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2">
+            <EnumSelectField
+              name="coverLayout"
+              label="Cover image width"
+              options={BLOG_COVER_LAYOUTS}
+              allowNone={false}
+              getLabel={coverLayoutLabel}
+              description="Contained aligns the cover to the article; full width shows a large hero."
+            />
+            <EnumSelectField
+              name="contentWidth"
+              label="Body width"
+              options={BLOG_CONTENT_WIDTHS}
+              allowNone={false}
+              getLabel={contentWidthLabel}
+              description="Reading column width for the article body."
+            />
+          </div>
         </div>
 
         <div className="space-y-5 rounded-lg border border-border bg-card p-5">

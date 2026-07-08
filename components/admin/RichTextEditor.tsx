@@ -8,6 +8,7 @@ import Image from "@tiptap/extension-image";
 import Underline from "@tiptap/extension-underline";
 import {
   Bold,
+  Braces,
   Code,
   Heading2,
   Heading3,
@@ -16,8 +17,10 @@ import {
   Link2,
   List,
   ListOrdered,
+  Minus,
   Quote,
   Redo2,
+  SquareCode,
   Strikethrough,
   Underline as UnderlineIcon,
   Undo2,
@@ -56,22 +59,26 @@ type ToolKey =
   | "italic"
   | "underline"
   | "strike"
+  | "code"
   | "h2"
   | "h3"
   | "bullet"
   | "ordered"
-  | "quote";
+  | "quote"
+  | "codeBlock";
 
 const TOOLS: { key: ToolKey; icon: LucideIcon; label: string }[] = [
   { key: "bold", icon: Bold, label: "Bold" },
   { key: "italic", icon: Italic, label: "Italic" },
   { key: "underline", icon: UnderlineIcon, label: "Underline" },
   { key: "strike", icon: Strikethrough, label: "Strikethrough" },
+  { key: "code", icon: Braces, label: "Inline code" },
   { key: "h2", icon: Heading2, label: "Heading 2" },
   { key: "h3", icon: Heading3, label: "Heading 3" },
   { key: "bullet", icon: List, label: "Bullet list" },
   { key: "ordered", icon: ListOrdered, label: "Numbered list" },
   { key: "quote", icon: Quote, label: "Quote" },
+  { key: "codeBlock", icon: SquareCode, label: "Code block" },
 ];
 
 function isActive(editor: Editor, key: ToolKey): boolean {
@@ -84,6 +91,10 @@ function isActive(editor: Editor, key: ToolKey): boolean {
       return editor.isActive("underline");
     case "strike":
       return editor.isActive("strike");
+    case "code":
+      return editor.isActive("code");
+    case "codeBlock":
+      return editor.isActive("codeBlock");
     case "h2":
       return editor.isActive("heading", { level: 2 });
     case "h3":
@@ -108,6 +119,10 @@ function run(editor: Editor, key: ToolKey) {
       return chain.toggleUnderline().run();
     case "strike":
       return chain.toggleStrike().run();
+    case "code":
+      return chain.toggleCode().run();
+    case "codeBlock":
+      return chain.toggleCodeBlock().run();
     case "h2":
       return chain.toggleHeading({ level: 2 }).run();
     case "h3":
@@ -219,6 +234,9 @@ export function RichTextEditor({
           "[&_p]:my-2 [&_ul]:my-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:my-2 [&_ol]:list-decimal [&_ol]:pl-5",
           "[&_blockquote]:my-2 [&_blockquote]:border-l-2 [&_blockquote]:border-border-strong [&_blockquote]:pl-3 [&_blockquote]:text-ink-600",
           "[&_a]:text-accent [&_a]:underline",
+          "[&_hr]:my-4 [&_hr]:border-0 [&_hr]:border-t [&_hr]:border-border",
+          "[&_code]:rounded [&_code]:bg-muted [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.85em]",
+          "[&_pre]:my-3 [&_pre]:overflow-x-auto [&_pre]:rounded-md [&_pre]:border [&_pre]:border-border [&_pre]:bg-muted [&_pre]:p-3 [&_pre]:font-mono [&_pre]:text-[0.8125rem] [&_pre_code]:bg-transparent [&_pre_code]:p-0",
           "[&_img]:my-3 [&_img]:max-w-full [&_img]:cursor-pointer [&_img]:rounded-md [&_img]:border [&_img]:border-border",
           "[&_img.ProseMirror-selectednode]:outline [&_img.ProseMirror-selectednode]:outline-2 [&_img.ProseMirror-selectednode]:outline-accent",
         ),
@@ -329,6 +347,13 @@ export function RichTextEditor({
         </ToolButton>
         <ToolButton onClick={openInsertImage} disabled={htmlMode} label="Insert image">
           <ImagePlus className="size-4" />
+        </ToolButton>
+        <ToolButton
+          onClick={() => editor.chain().focus().setHorizontalRule().run()}
+          disabled={htmlMode}
+          label="Insert divider"
+        >
+          <Minus className="size-4" />
         </ToolButton>
 
         <div className="mx-1 h-5 w-px bg-border" aria-hidden />

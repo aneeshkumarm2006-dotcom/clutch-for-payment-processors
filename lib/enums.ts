@@ -180,6 +180,17 @@ export const BLOG_TEMPLATES = [
 ] as const;
 export type BlogTemplate = (typeof BLOG_TEMPLATES)[number];
 
+/** Reading-column width for the post body (author layout control, §10.8).
+ *  `standard` = comfortable 720px measure; `wide` = roomier ~830px. */
+export const BLOG_CONTENT_WIDTHS = ["standard", "wide"] as const;
+export type BlogContentWidth = (typeof BLOG_CONTENT_WIDTHS)[number];
+
+/** Cover-image presentation (author layout control, §10.8).
+ *  `standard` = contained feature width aligned to the reading column;
+ *  `wide` = full-content hero. */
+export const BLOG_COVER_LAYOUTS = ["standard", "wide"] as const;
+export type BlogCoverLayout = (typeof BLOG_COVER_LAYOUTS)[number];
+
 /** `rel` options for a keyword backlink (controls the injected anchor's rel attribute). */
 export const KEYWORD_RELS = ["dofollow", "nofollow", "sponsored"] as const;
 export type KeywordRel = (typeof KEYWORD_RELS)[number];

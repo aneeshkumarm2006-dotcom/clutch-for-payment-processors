@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { BLOG_STATUSES } from "@/lib/enums";
+import { BLOG_CONTENT_WIDTHS, BLOG_COVER_LAYOUTS, BLOG_STATUSES } from "@/lib/enums";
 import { objectIdString, optionalUrl, seoSchema, slugField } from "./common";
 
 /** Writable BlogPost fields (PRD §8.6 / §10.8). */
@@ -15,6 +15,8 @@ export const blogPostInput = z.object({
   relatedProcessors: z.array(objectIdString).default([]),
   status: z.enum(BLOG_STATUSES).default("draft"),
   publishedAt: z.coerce.date().optional(),
+  contentWidth: z.enum(BLOG_CONTENT_WIDTHS).default("standard"),
+  coverLayout: z.enum(BLOG_COVER_LAYOUTS).default("standard"),
   seo: seoSchema,
 });
 

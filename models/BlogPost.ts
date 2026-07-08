@@ -1,8 +1,12 @@
 import { Schema, model, models, type Model, type Types } from "mongoose";
 import {
+  BLOG_CONTENT_WIDTHS,
+  BLOG_COVER_LAYOUTS,
   BLOG_STATUSES,
   BLOG_TEMPLATES,
   KEYWORD_RELS,
+  type BlogContentWidth,
+  type BlogCoverLayout,
   type BlogStatus,
   type BlogTemplate,
   type KeywordRel,
@@ -43,6 +47,10 @@ export interface IBlogPost {
   seo: ISeo;
   /** SEO template the post was created from (drives the editor's heading skeleton). */
   template: BlogTemplate;
+  /** Reading-column width for the body on the public page (author layout control). */
+  contentWidth: BlogContentWidth;
+  /** Cover-image presentation on the public page (author layout control). */
+  coverLayout: BlogCoverLayout;
   /** Keyword backlinks turned into anchors in the body on the public page (the SEO team's backlinks). */
   keywords: IKeywordLink[];
   /** Link only the first occurrence of each keyword (true, default) vs every occurrence. */
@@ -70,6 +78,8 @@ const BlogPostSchema = new Schema<IBlogPost>(
     publishedAt: { type: Date },
     seo: { type: SeoSchema, default: () => ({}) },
     template: { type: String, enum: BLOG_TEMPLATES, default: "generic" },
+    contentWidth: { type: String, enum: BLOG_CONTENT_WIDTHS, default: "standard" },
+    coverLayout: { type: String, enum: BLOG_COVER_LAYOUTS, default: "standard" },
     keywords: { type: [KeywordLinkSchema], default: [] },
     linkFirstOccurrenceOnly: { type: Boolean, default: true },
     views: { type: Number, default: 0 },

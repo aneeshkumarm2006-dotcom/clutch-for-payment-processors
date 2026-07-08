@@ -29,13 +29,18 @@ export function BlogArticle({
   contentHtml: string;
   shareUrl: string;
 }) {
+  // Author layout controls (§10.8). The reading column drives the header, body and
+  // related sections so they align; the cover can break out to a wider "hero".
+  const readColumn = post.contentWidth === "wide" ? "max-w-[52rem]" : "max-w-prose";
+  const coverColumn = post.coverLayout === "wide" ? "max-w-content" : "max-w-[52rem]";
+
   return (
     <article className="mx-auto max-w-content px-4 py-10 lg:px-6">
       <Breadcrumb
         items={[{ name: "Home", href: "/" }, { name: "Blog", href: "/blog" }, { name: post.title }]}
       />
 
-      <header className="mx-auto mt-6 max-w-prose">
+      <header className={`mx-auto mt-6 ${readColumn}`}>
         {post.tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {post.tags.map((tag) => (
@@ -68,24 +73,24 @@ export function BlogArticle({
       </header>
 
       {post.coverImage && (
-        <div className="mx-auto mt-8 max-w-content overflow-hidden rounded-lg border">
+        <div className={`mx-auto mt-8 ${coverColumn} overflow-hidden rounded-lg border`}>
           <Image
             src={post.coverImage}
             alt={post.coverImageAlt?.trim() || `Cover image for ${post.title}`}
             width={1200}
             height={630}
-            className="h-auto w-full object-cover"
-            sizes="(max-width: 1200px) 100vw, 1200px"
+            className="aspect-[1200/630] h-auto w-full object-cover"
+            sizes="(max-width: 832px) 100vw, (max-width: 1200px) 100vw, 1200px"
             priority
             unoptimized
           />
         </div>
       )}
 
-      <RichText html={contentHtml} className="mx-auto mt-10 max-w-prose" />
+      <RichText html={contentHtml} className={`mx-auto mt-10 ${readColumn}`} />
 
       {relatedProcessors.length > 0 && (
-        <section className="mx-auto mt-14 max-w-prose border-t pt-8">
+        <section className={`mx-auto mt-14 ${readColumn} border-t pt-8`}>
           <h2 className="text-h3 tracking-tighter2 text-foreground">Processors mentioned</h2>
           <div className="mt-5 grid gap-4">
             {relatedProcessors.map((proc) => (
