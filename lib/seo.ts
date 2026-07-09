@@ -36,6 +36,8 @@ interface BuildMetadataArgs {
   absoluteTitle?: boolean;
   /** OpenGraph type (default "website"; "article" for blog posts). */
   ogType?: "website" | "article" | "profile";
+  /** Optional `<meta name="keywords">` terms. */
+  keywords?: string[];
 }
 
 /** Build per-page `Metadata` from page defaults + an optional entity `seo` override. */
@@ -47,6 +49,7 @@ export function buildMetadata({
   seo,
   absoluteTitle,
   ogType = "website",
+  keywords,
 }: BuildMetadataArgs): Metadata {
   const metaTitle = seo?.metaTitle?.trim() || title;
   const metaDescription = seo?.metaDescription?.trim() || description;
@@ -56,6 +59,7 @@ export function buildMetadata({
   return {
     title: absoluteTitle ? { absolute: metaTitle } : metaTitle,
     description: metaDescription,
+    ...(keywords && keywords.length > 0 ? { keywords } : {}),
     alternates: { canonical },
     openGraph: {
       title: metaTitle,

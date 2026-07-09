@@ -31,6 +31,18 @@ export async function generateMetadata(): Promise<Metadata> {
       "Payment Processing Guide | Expert Payment Processing Guides, Gateways & Merchant Services",
     description:
       "Payment Processing Guide is your trusted resource for payment processing guides, payment gateways, merchant accounts, transaction fees, payment security, fraud prevention, and digital payment solutions.",
+    keywords: [
+      "Payment Processing Guide",
+      "Payment Processing Platform",
+      "Payment Processing Software",
+      "Merchant Services Provider",
+      "Merchant Service Providers",
+      "Online Payment Processing",
+      "Credit Card Processing Services",
+      "Online Payment Gateway",
+      "Payment Processing Fees",
+      "Business Payment Solutions",
+    ],
     path: "/",
     absoluteTitle: true,
     // An admin-set Default SEO (Settings) still wins over the copy above.
