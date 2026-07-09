@@ -46,7 +46,11 @@ const SiteSettingsSchema = new Schema<ISiteSettings>(
     siteName: { type: String, required: true, default: "PayCompare", trim: true },
     logo: { type: String, trim: true },
     primaryColor: { type: String, trim: true },
-    homepageHeroTitle: { type: String, required: true, default: "Find the right payment processor" },
+    homepageHeroTitle: {
+      type: String,
+      required: true,
+      default: "Payment Processing Guide: Your Trusted Payment Processing Resource",
+    },
     homepageHeroSubtitle: {
       type: String,
       required: true,

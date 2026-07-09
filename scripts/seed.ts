@@ -1134,7 +1134,7 @@ async function seedSettings(): Promise<void> {
     {
       $set: {
         siteName: "PayCompare",
-        homepageHeroTitle: "Find the right payment processor",
+        homepageHeroTitle: "Payment Processing Guide: Your Trusted Payment Processing Resource",
         homepageHeroSubtitle:
           "Compare fees, features, and verified merchant reviews — all in one independent directory.",
         featuredCategorySlugs: ["ecommerce", "retail-pos", "subscriptions", "high-risk", "international", "small-business"],
