@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import type { ZodError } from "zod";
-import { ExternalLink, Loader2 } from "lucide-react";
+import { CircleAlert, CircleCheck, ExternalLink, Loader2 } from "lucide-react";
 import type { BlogTemplate } from "@/lib/enums";
 import { seoBlogPostInput } from "@/lib/validators";
 import { getSeoTemplate } from "@/lib/seo-templates";
@@ -47,6 +47,18 @@ import {
 const isBlankContent = (html: string | undefined) =>
   !html || html.trim() === "" || html === "<p></p>";
 
+/** Debounce before an auto-save fires after the last edit. */
+const AUTOSAVE_DELAY = 900;
+/** Wait this long before retrying after a failed auto-save. */
+const RETRY_DELAY = 5000;
+
+/**
+ * Serialize the form to the exact payload we persist, so we can cheaply tell
+ * whether anything meaningful changed since the last save (whitespace-only or
+ * incomplete-keyword-row edits that don't affect the payload are ignored).
+ */
+const serializeForCompare = (values: SeoFormValues) => JSON.stringify(toSeoPayload(values));
+
 /** /seoteam post editor: pick a template → write → preview → set visibility → save. */
 export function SeoPostForm({
   postId,
@@ -59,17 +71,38 @@ export function SeoPostForm({
   const form = useForm<SeoFormValues>({
     defaultValues: defaultValues ?? blankSeoValues(),
   });
+  // Post id lives in state so a brand-new post promotes to "existing" the moment
+  // auto-save creates it (via POST). `idRef` mirrors it for use inside async
+  // callbacks without a stale closure.
+  const [id, setId] = React.useState<string | undefined>(postId);
+  const idRef = React.useRef(id);
+  idRef.current = id;
+
+  // `saving` = an explicit Save/Publish click is in flight. Auto-save state is
+  // tracked separately so the two indicators never fight.
   const [saving, setSaving] = React.useState(false);
-  const [autoSaving, setAutoSaving] = React.useState(false);
+  const [autoSaveState, setAutoSaveState] = React.useState<
+    "idle" | "saving" | "saved" | "error"
+  >("idle");
+  // Our own dirty flag: current form ≠ what's persisted. We don't rely on
+  // react-hook-form's `isDirty` because auto-save clears it continuously.
+  const [isDirty, setIsDirty] = React.useState(false);
+
   const autoSaveTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const savingRef = React.useRef(false); // an auto-save request is in flight
+  const dirtyAgainRef = React.useRef(false); // edited again mid-save
+  const lastSavedRef = React.useRef<string>(
+    serializeForCompare(defaultValues ?? blankSeoValues()),
+  );
+  const runAutoSaveRef = React.useRef<() => Promise<void>>();
   const guardRef = React.useRef<UnsavedChangesGuardHandle>(null);
   const template = form.watch("template") as BlogTemplate;
   const visibility = form.watch("visibility") as Visibility;
 
-  // Warn before leaving with edits that haven't been saved/published. `isDirty`
-  // is read during render so react-hook-form re-renders us as it flips; we drop
-  // the guard while a save is in flight so its own redirect isn't blocked.
-  const { isDirty } = form.formState;
+  // Warn before leaving with edits that aren't persisted yet — a debounce still
+  // pending, a save in flight, a failed save, or required fields still missing
+  // so auto-save can't run. We drop the guard while an explicit Save/Publish is
+  // navigating away.
   const hasUnsavedEdits = isDirty && !saving;
 
   // Shared "Choose from library" picker. Each field/editor passes the apply
@@ -112,40 +145,93 @@ export function SeoPostForm({
     toast.success("Outline inserted into the editor.");
   };
 
-  // Auto-save on image add/change (cover, social, and inline body images) so an
-  // author who swaps an image on an already-saved post doesn't have to scroll up
-  // and Publish for it to appear on the live blog. Only runs for an EXISTING post
-  // (a brand-new post has no id yet — it's saved on the first Publish). Debounced
-  // so a library pick that sets url + alt in quick succession saves once.
+  // Debounce an auto-save. Reads the run function through a ref so this callback
+  // stays stable (the timer always invokes the latest closure).
+  const scheduleAutoSave = React.useCallback((delay = AUTOSAVE_DELAY) => {
+    if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
+    autoSaveTimer.current = setTimeout(() => {
+      autoSaveTimer.current = null;
+      void runAutoSaveRef.current?.();
+    }, delay);
+  }, []);
+
+  // Persist the whole post. Creates the draft on first save (POST → captures the
+  // new id), then updates in place (PUT). Published posts save live — the PUT
+  // revalidates the public page, matching the site's existing behavior.
   const runAutoSave = React.useCallback(async () => {
-    if (!postId) return;
-    const parsed = seoBlogPostInput.safeParse(toSeoPayload(form.getValues()));
-    if (!parsed.success) {
-      // Something else on the form is invalid (e.g. a cleared title) — don't
-      // silently drop the change; nudge the author to Publish, which validates.
-      toast.error("Image not saved — fix the highlighted fields and Publish.");
-      applyZodIssues(parsed.error);
+    // Coalesce: if a save is already in flight, note that another is needed and
+    // let the current one re-schedule when it settles.
+    if (savingRef.current) {
+      dirtyAgainRef.current = true;
       return;
     }
-    setAutoSaving(true);
+    const values = form.getValues();
+    const parsed = seoBlogPostInput.safeParse(toSeoPayload(values));
+    // Can't persist until the required fields (title, content, author) exist.
+    // Stay silently "Unsaved" rather than nagging on every keystroke.
+    if (!parsed.success) return;
+
+    const snapshot = serializeForCompare(values);
+    savingRef.current = true;
+    setAutoSaveState("saving");
     try {
-      await apiClient.put(`/api/seoteam/posts/${postId}`, parsed.data as Record<string, unknown>);
-      toast.success("Image saved.");
-    } catch (err) {
-      toast.error(
-        err instanceof ApiClientError ? err.message : "Couldn't auto-save the image.",
-      );
+      if (idRef.current) {
+        await apiClient.put(
+          `/api/seoteam/posts/${idRef.current}`,
+          parsed.data as Record<string, unknown>,
+        );
+      } else {
+        const created = await apiClient.post<{ _id: string }>(
+          "/api/seoteam/posts",
+          parsed.data as Record<string, unknown>,
+        );
+        idRef.current = created._id;
+        setId(created._id);
+        // Reflect the new id in the URL so a refresh reopens this draft and the
+        // full-preview link works — without a router navigation (no remount).
+        window.history.replaceState(window.history.state, "", `/seoteam/${created._id}`);
+      }
+      lastSavedRef.current = snapshot;
+      // The author may have typed during the request — recompute against the
+      // latest values so we stay dirty (and re-save below) if so.
+      setIsDirty(serializeForCompare(form.getValues()) !== lastSavedRef.current);
+      setAutoSaveState("saved");
+    } catch {
+      setAutoSaveState("error");
+      scheduleAutoSave(RETRY_DELAY);
     } finally {
-      setAutoSaving(false);
+      savingRef.current = false;
+      if (dirtyAgainRef.current) {
+        dirtyAgainRef.current = false;
+        scheduleAutoSave(0);
+      }
     }
-  }, [postId, form]);
+  }, [form, scheduleAutoSave]);
 
-  const scheduleAutoSave = React.useCallback(() => {
-    if (!postId) return;
-    if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
-    autoSaveTimer.current = setTimeout(() => void runAutoSave(), 600);
-  }, [postId, runAutoSave]);
+  // Keep the ref pointed at the latest run function for the debounce timer.
+  React.useEffect(() => {
+    runAutoSaveRef.current = runAutoSave;
+  }, [runAutoSave]);
 
+  // Watch every field; whenever the serialized post changes, mark dirty and
+  // (re)schedule a save. `watch(cb)` doesn't fire on mount, so loading a post
+  // never triggers a spurious save.
+  React.useEffect(() => {
+    const sub = form.watch(() => {
+      const dirty = serializeForCompare(form.getValues()) !== lastSavedRef.current;
+      setIsDirty(dirty);
+      if (dirty) {
+        scheduleAutoSave();
+      } else if (autoSaveTimer.current) {
+        // Edited back to the saved state — cancel the pending save.
+        clearTimeout(autoSaveTimer.current);
+        autoSaveTimer.current = null;
+      }
+    });
+    return () => sub.unsubscribe();
+  }, [form, scheduleAutoSave]);
+
+  // Cancel any pending debounce on unmount.
   React.useEffect(
     () => () => {
       if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
@@ -154,9 +240,14 @@ export function SeoPostForm({
   );
 
   const onSubmit = async () => {
+    // Cancel any pending auto-save so it doesn't race this explicit save.
+    if (autoSaveTimer.current) {
+      clearTimeout(autoSaveTimer.current);
+      autoSaveTimer.current = null;
+    }
     form.clearErrors();
-    const payload = toSeoPayload(form.getValues());
-    const parsed = seoBlogPostInput.safeParse(payload);
+    const values = form.getValues();
+    const parsed = seoBlogPostInput.safeParse(toSeoPayload(values));
     if (!parsed.success) {
       applyZodIssues(parsed.error);
       toast.error("Please fix the highlighted fields.");
@@ -165,11 +256,22 @@ export function SeoPostForm({
 
     setSaving(true);
     try {
-      if (postId) {
-        await apiClient.put(`/api/seoteam/posts/${postId}`, parsed.data as Record<string, unknown>);
+      if (idRef.current) {
+        await apiClient.put(
+          `/api/seoteam/posts/${idRef.current}`,
+          parsed.data as Record<string, unknown>,
+        );
       } else {
-        await apiClient.post("/api/seoteam/posts", parsed.data as Record<string, unknown>);
+        const created = await apiClient.post<{ _id: string }>(
+          "/api/seoteam/posts",
+          parsed.data as Record<string, unknown>,
+        );
+        idRef.current = created._id;
+        setId(created._id);
       }
+      lastSavedRef.current = serializeForCompare(values);
+      setIsDirty(false);
+      setAutoSaveState("saved");
       const vis = form.getValues("visibility");
       toast.success(
         vis === "draft" ? "Draft saved." : vis === "scheduled" ? "Post scheduled." : "Post published.",
@@ -199,12 +301,27 @@ export function SeoPostForm({
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-h1 tracking-tighter2">{postId ? "Edit post" : "New post"}</h1>
           <div className="flex flex-wrap items-center gap-2">
-            {autoSaving && (
+            {autoSaveState === "saving" ? (
               <span className="inline-flex items-center gap-1.5 text-small text-muted-foreground">
                 <Loader2 className="size-4 animate-spin" />
                 Saving…
               </span>
-            )}
+            ) : autoSaveState === "error" ? (
+              <span className="inline-flex items-center gap-1.5 text-small text-warning">
+                <CircleAlert className="size-4" />
+                Couldn&rsquo;t save — will retry
+              </span>
+            ) : isDirty ? (
+              <span className="inline-flex items-center gap-1.5 text-small text-muted-foreground">
+                <span className="size-1.5 rounded-full bg-warning" aria-hidden />
+                Unsaved changes
+              </span>
+            ) : autoSaveState === "saved" ? (
+              <span className="inline-flex items-center gap-1.5 text-small text-muted-foreground">
+                <CircleCheck className="size-4 text-success" />
+                Saved
+              </span>
+            ) : null}
             <Button
               type="button"
               variant="ghost"
@@ -213,9 +330,9 @@ export function SeoPostForm({
             >
               Cancel
             </Button>
-            {postId ? (
+            {id ? (
               <Button asChild variant="secondary">
-                <a href={`/seoteam/preview/${postId}`} target="_blank" rel="noopener">
+                <a href={`/seoteam/preview/${id}`} target="_blank" rel="noopener">
                   <ExternalLink className="size-4" />
                   Open full preview
                 </a>
