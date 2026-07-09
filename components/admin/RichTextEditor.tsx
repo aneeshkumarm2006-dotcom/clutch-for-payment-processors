@@ -178,6 +178,7 @@ export function RichTextEditor({
   imageUploadEndpoint,
   onPickImageFromLibrary,
   onImageChange,
+  maxHeight = "calc(100vh - 12rem)",
 }: {
   value: string;
   onChange: (html: string) => void;
@@ -190,6 +191,13 @@ export function RichTextEditor({
   /** Fired when an inline image is inserted or its src/alt edited — lets the host
    * auto-save the post on image change. */
   onImageChange?: () => void;
+  /**
+   * Caps the editor's height so long posts scroll *inside* the card (with a
+   * pinned toolbar) instead of stretching the page. Any CSS length; the default
+   * leaves room for the app header. Pass a value tuned to the host's header
+   * offset if needed.
+   */
+  maxHeight?: string;
 }) {
   const [mode, setMode] = React.useState<"visual" | "html">("visual");
   const [imageOpen, setImageOpen] = React.useState(false);
@@ -318,8 +326,15 @@ export function RichTextEditor({
   const htmlMode = mode === "html";
 
   return (
-    <div className="overflow-hidden rounded-lg border border-input bg-card focus-within:border-accent focus-within:ring-2 focus-within:ring-accent-subtle">
-      <div className="flex flex-wrap items-center gap-0.5 border-b border-border bg-muted/50 p-1">
+    // The card is the scroll container (overflow-y-auto + capped height) so the
+    // toolbar below can be `position: sticky` and stay pinned while the body
+    // scrolls under it. Sticky needs its scroll container to be an ancestor, so
+    // the overflow must live here on the wrapper — not on a content-only sibling.
+    <div
+      style={{ maxHeight }}
+      className="overflow-y-auto rounded-lg border border-input bg-card focus-within:border-accent focus-within:ring-2 focus-within:ring-accent-subtle"
+    >
+      <div className="sticky top-0 z-10 flex flex-wrap items-center gap-0.5 border-b border-border bg-muted p-1 shadow-sm">
         {TOOLS.map((tool) => {
           const Icon = tool.icon;
           return (
