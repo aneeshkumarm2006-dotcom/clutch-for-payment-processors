@@ -34,6 +34,8 @@ export interface SeoFormValues {
   template: BlogTemplate;
   keywords: KeywordRow[];
   linkFirstOccurrenceOnly: boolean;
+  /** Ids of SEO checks the author manually marked as reviewed (override warnings). */
+  seoOverrides: string[];
   visibility: Visibility;
   /** ISO 8601 string, or "" when unset. */
   publishedAt: string;
@@ -53,6 +55,7 @@ export function blankSeoValues(): SeoFormValues {
     template: "generic",
     keywords: [],
     linkFirstOccurrenceOnly: true,
+    seoOverrides: [],
     visibility: "draft",
     publishedAt: "",
     seo: { metaTitle: "", metaDescription: "", ogImage: "" },
@@ -106,6 +109,7 @@ export function toSeoFormValues(doc: LeanBlog): SeoFormValues {
     template: (doc.template as BlogTemplate) ?? "generic",
     keywords: toKeywordRows(doc.keywords),
     linkFirstOccurrenceOnly: doc.linkFirstOccurrenceOnly !== false,
+    seoOverrides: Array.isArray(doc.seoOverrides) ? doc.seoOverrides.map(String) : [],
     visibility,
     publishedAt,
     seo: {
@@ -140,6 +144,7 @@ export function toSeoPayload(values: SeoFormValues): Record<string, unknown> {
       .map((k) => ({ keyword: k.keyword.trim(), url: k.url.trim(), rel: k.rel }))
       .filter((k) => k.keyword && k.url),
     linkFirstOccurrenceOnly: values.linkFirstOccurrenceOnly,
+    seoOverrides: values.seoOverrides,
     status,
     publishedAt: blankToUndef(values.publishedAt),
     seo: {

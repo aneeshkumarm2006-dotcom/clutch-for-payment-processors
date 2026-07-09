@@ -15,6 +15,7 @@ export const dynamic = "force-dynamic";
 type LeanDoc = Record<string, unknown> & {
   seo?: { metaTitle?: string; metaDescription?: string };
   keywords?: Array<{ keyword?: unknown }>;
+  seoOverrides?: unknown;
 };
 
 function computeSeoReady(doc: LeanDoc): boolean {
@@ -39,7 +40,8 @@ function computeSeoReady(doc: LeanDoc): boolean {
         present: keywordInText(stats.plainText, String(k.keyword)),
       })),
   };
-  return isSeoReady(evaluateSeo(signals));
+  const overrides = Array.isArray(doc.seoOverrides) ? doc.seoOverrides.map(String) : [];
+  return isSeoReady(evaluateSeo(signals, overrides));
 }
 
 export default async function SeoDashboardPage() {

@@ -55,6 +55,8 @@ export interface IBlogPost {
   keywords: IKeywordLink[];
   /** Link only the first occurrence of each keyword (true, default) vs every occurrence. */
   linkFirstOccurrenceOnly: boolean;
+  /** Ids of SEO checks the author manually marked as reviewed (override warnings). */
+  seoOverrides: string[];
   /** Read counter, incremented best-effort on each public read (monitoring). */
   views: number;
   /** Estimated reading time in minutes, derived from the body word count on save. */
@@ -82,6 +84,7 @@ const BlogPostSchema = new Schema<IBlogPost>(
     coverLayout: { type: String, enum: BLOG_COVER_LAYOUTS, default: "standard" },
     keywords: { type: [KeywordLinkSchema], default: [] },
     linkFirstOccurrenceOnly: { type: Boolean, default: true },
+    seoOverrides: { type: [String], default: [] },
     views: { type: Number, default: 0 },
     readingTimeMinutes: { type: Number },
   },

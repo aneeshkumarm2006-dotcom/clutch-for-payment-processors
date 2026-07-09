@@ -22,6 +22,13 @@ export interface SeoCheck {
   label: string;
   status: "pass" | "warn";
   detail: string;
+  /**
+   * True when this check would warn on its own but an author has manually marked
+   * it as reviewed (its id is in `overrides`). Its `status` is forced to "pass"
+   * so it stops counting toward "to review", but the flag lets the UI show it as
+   * a manual override rather than a genuine pass.
+   */
+  acknowledged?: boolean;
 }
 
 /** Ideal ranges (warnings are advisory; the Zod validators cap at 70/180). */
@@ -44,8 +51,16 @@ export function keywordInText(plainText: string, keyword: string): boolean {
   return k.length > 0 && plainText.toLowerCase().includes(k);
 }
 
-/** Build the pass/warn check list from already-extracted signals. */
-export function evaluateSeo(s: SeoSignals): SeoCheck[] {
+/**
+ * Build the pass/warn check list from already-extracted signals.
+ *
+ * `overrides` holds the ids of checks the author has manually marked as reviewed:
+ * a warning whose id is listed is flipped to "pass" and tagged `acknowledged`, so
+ * an author can green-light a check the heuristics can't (e.g. a deliberately long
+ * meta title) and still reach "SEO-ready".
+ */
+export function evaluateSeo(s: SeoSignals, overrides: readonly string[] = []): SeoCheck[] {
+  const overridden = new Set(overrides);
   const checks: SeoCheck[] = [];
 
   checks.push({
@@ -111,6 +126,15 @@ export function evaluateSeo(s: SeoSignals): SeoCheck[] {
     status: s.hasCoverImage ? "pass" : "warn",
     detail: s.hasCoverImage ? "Set." : "No cover image set.",
   });
+
+  // Apply manual overrides: a warning the author has reviewed passes but stays
+  // tagged so the UI can distinguish it from a genuine pass.
+  for (const c of checks) {
+    if (c.status === "warn" && overridden.has(c.id)) {
+      c.status = "pass";
+      c.acknowledged = true;
+    }
+  }
 
   return checks;
 }

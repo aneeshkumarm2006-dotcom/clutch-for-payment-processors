@@ -30,6 +30,8 @@ export const seoBlogPostInput = blogPostInput.omit({ relatedProcessors: true }).
   template: z.enum(BLOG_TEMPLATES).default("generic"),
   keywords: z.array(keywordLinkSchema).default([]),
   linkFirstOccurrenceOnly: z.boolean().default(true),
+  // Ids of SEO checks the author manually marked as reviewed (see lib/seo-checks).
+  seoOverrides: z.array(z.string()).default([]),
 });
 
 export const seoBlogPostUpdate = seoBlogPostInput.partial();

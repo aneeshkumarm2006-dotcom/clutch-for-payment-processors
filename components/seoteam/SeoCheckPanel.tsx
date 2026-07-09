@@ -12,7 +12,8 @@ import {
   type SeoSignals,
 } from "@/lib/seo-checks";
 import { cn } from "@/lib/utils";
-import type { KeywordRow } from "@/components/seoteam/serialize";
+import { Checkbox } from "@/components/ui/checkbox";
+import type { KeywordRow, SeoFormValues } from "@/components/seoteam/serialize";
 
 /**
  * Live on-page SEO checks for the editor. Extracts signals from the current form
@@ -82,7 +83,7 @@ function buildSignals(args: {
 }
 
 export function SeoCheckPanel() {
-  const { control } = useFormContext();
+  const { control, setValue } = useFormContext<SeoFormValues>();
   const content = (useWatch({ control, name: "content" }) as string) ?? "";
   const title = (useWatch({ control, name: "title" }) as string) ?? "";
   const excerpt = (useWatch({ control, name: "excerpt" }) as string) ?? "";
@@ -90,6 +91,17 @@ export function SeoCheckPanel() {
   const metaDescription = (useWatch({ control, name: "seo.metaDescription" }) as string) ?? "";
   const coverImage = (useWatch({ control, name: "coverImage" }) as string) ?? "";
   const keywords = useWatch({ control, name: "keywords" }) as KeywordRow[] | undefined;
+  const overrides = (useWatch({ control, name: "seoOverrides" }) as string[] | undefined) ?? [];
+
+  // Toggle a check's manual-override: an author can green-light a warning the
+  // heuristics can't judge, so it stops counting toward "to review". Persisted
+  // with the post (seoOverrides) so it sticks and the dashboard badge honors it.
+  const toggleOverride = (id: string) => {
+    const next = overrides.includes(id)
+      ? overrides.filter((x) => x !== id)
+      : [...overrides, id];
+    setValue("seoOverrides", next, { shouldDirty: true });
+  };
 
   const signals = React.useMemo(
     () =>
@@ -112,7 +124,7 @@ export function SeoCheckPanel() {
   React.useEffect(() => setMounted(true), []);
   const shown = mounted ? signals : null;
 
-  const checks = shown ? evaluateSeo(shown) : [];
+  const checks = shown ? evaluateSeo(shown, overrides) : [];
   const ready = shown ? isSeoReady(checks) : false;
   const warns = shown ? seoWarnCount(checks) : 0;
 
@@ -148,19 +160,41 @@ export function SeoCheckPanel() {
             Checks update as you type.
           </li>
         ) : (
-          checks.map((c) => (
-            <li key={c.id} className="flex items-start gap-2.5 px-4 py-2.5">
-              {c.status === "pass" ? (
-                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-success" aria-hidden />
-              ) : (
-                <AlertTriangle className="mt-0.5 size-4 shrink-0 text-warning" aria-hidden />
-              )}
-              <div className="min-w-0">
-                <p className="text-small font-medium text-foreground">{c.label}</p>
-                <p className="text-micro text-muted-foreground">{c.detail}</p>
-              </div>
-            </li>
-          ))
+          checks.map((c) => {
+            // A warning (or one already reviewed) can be manually checked off; the
+            // informational "links" row and genuine passes have nothing to override.
+            const overridable = c.id !== "links" && (c.status === "warn" || c.acknowledged);
+            return (
+              <li key={c.id} className="flex items-start gap-2.5 px-4 py-2.5">
+                {c.status === "pass" ? (
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-success" aria-hidden />
+                ) : (
+                  <AlertTriangle className="mt-0.5 size-4 shrink-0 text-warning" aria-hidden />
+                )}
+                <div className="min-w-0 flex-1">
+                  <p className="text-small font-medium text-foreground">{c.label}</p>
+                  <p className="text-micro text-muted-foreground">
+                    {c.detail}
+                    {c.acknowledged ? " · Marked as reviewed" : null}
+                  </p>
+                </div>
+                {overridable ? (
+                  <label className="mt-0.5 flex shrink-0 cursor-pointer items-center gap-1.5 text-micro text-muted-foreground">
+                    <Checkbox
+                      checked={Boolean(c.acknowledged)}
+                      onCheckedChange={() => toggleOverride(c.id)}
+                      aria-label={
+                        c.acknowledged
+                          ? `Undo reviewed for ${c.label}`
+                          : `Mark ${c.label} as reviewed`
+                      }
+                    />
+                    <span>{c.acknowledged ? "Reviewed" : "Mark ok"}</span>
+                  </label>
+                ) : null}
+              </li>
+            );
+          })
         )}
       </ul>
     </div>
