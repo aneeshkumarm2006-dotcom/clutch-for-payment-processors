@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx tests/analyticshub/index.test.ts",
     "seed:admin": "tsx scripts/seed-admin.ts",
-    "seed": "tsx scripts/seed.ts"
+    "seed": "tsx scripts/seed.ts",
+    "seed:seo": "tsx scripts/seed-seo.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "3.9.0",

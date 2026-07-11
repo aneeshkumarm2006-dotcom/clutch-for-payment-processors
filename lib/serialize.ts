@@ -148,7 +148,8 @@ export interface ProcessorDetailData extends ProcessorCardData {
   subRatings: SubRatingsData;
   topMentions: TopMentionData[];
   editorScore?: number;
-  seo: { metaTitle?: string; metaDescription?: string; ogImage?: string };
+  seo: { metaTitle?: string; metaDescription?: string; ogImage?: string; keywords?: string[] };
+  faqs?: { question: string; answer: string }[];
 }
 
 const FEE_KEYS: (keyof FeesData)[] = [
@@ -236,7 +237,13 @@ export function toProcessorDetailData(doc: Lean): ProcessorDetailData {
       metaTitle: str(rawSeo.metaTitle),
       metaDescription: str(rawSeo.metaDescription),
       ogImage: str(rawSeo.ogImage),
+      keywords: strArr(rawSeo.keywords),
     },
+    faqs: Array.isArray(doc.faqs)
+      ? (doc.faqs as Record<string, unknown>[])
+          .map((f) => ({ question: str(f.question) ?? "", answer: str(f.answer) ?? "" }))
+          .filter((f) => f.question !== "" && f.answer !== "")
+      : undefined,
   };
 }
 

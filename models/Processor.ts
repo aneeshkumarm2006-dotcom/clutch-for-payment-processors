@@ -19,7 +19,7 @@ import {
   type PciLevel,
   type PricingModel,
 } from "@/lib/enums";
-import { SeoSchema, type ISeo } from "./shared";
+import { SeoSchema, FaqSchema, type ISeo, type IFaqItem } from "./shared";
 import { autoSlugFrom } from "./slug";
 
 /**
@@ -119,6 +119,7 @@ export interface IProcessor {
 
   // SEO
   seo: ISeo;
+  faqs?: IFaqItem[];
 
   createdAt: Date;
   updatedAt: Date;
@@ -215,6 +216,7 @@ const ProcessorSchema = new Schema<IProcessor>(
     isPublished: { type: Boolean, default: false },
 
     seo: { type: SeoSchema, default: () => ({}) },
+    faqs: { type: [FaqSchema], default: undefined },
   },
   { timestamps: true },
 );

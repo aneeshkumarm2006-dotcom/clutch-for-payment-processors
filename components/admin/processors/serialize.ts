@@ -43,6 +43,12 @@ export interface SeoFormValues {
   metaTitle: string;
   metaDescription: string;
   ogImage: string;
+  keywords: string;
+}
+
+export interface FaqFormValue {
+  question: string;
+  answer: string;
 }
 
 /** All form values as controlled (no `undefined`). */
@@ -92,6 +98,7 @@ export interface ProcessorFormValues {
   isPublished: boolean;
 
   seo: SeoFormValues;
+  faqs: FaqFormValue[];
 }
 
 function blankFees(): FeesFormValues {
@@ -140,7 +147,8 @@ export function blankProcessorValues(): ProcessorFormValues {
     isSponsored: false,
     sponsorRank: "",
     isFeatured: false,
-    seo: { metaTitle: "", metaDescription: "", ogImage: "" },
+    seo: { metaTitle: "", metaDescription: "", ogImage: "", keywords: "" },
+    faqs: [],
     isPublished: false,
   };
 }
@@ -149,7 +157,8 @@ export function blankProcessorValues(): ProcessorFormValues {
 type LeanProcessor = Record<string, unknown> & {
   fees?: Partial<Record<FeeKey, string>>;
   categories?: unknown[];
-  seo?: { metaTitle?: string; metaDescription?: string; ogImage?: string };
+  seo?: { metaTitle?: string; metaDescription?: string; ogImage?: string; keywords?: string[] };
+  faqs?: { question?: string; answer?: string }[];
 };
 
 const str = (v: unknown) => (v == null ? "" : String(v));
@@ -204,7 +213,9 @@ export function toProcessorFormValues(doc: LeanProcessor): ProcessorFormValues {
       metaTitle: str(doc.seo?.metaTitle),
       metaDescription: str(doc.seo?.metaDescription),
       ogImage: str(doc.seo?.ogImage),
+      keywords: (doc.seo?.keywords ?? []).join(", "),
     },
+    faqs: (doc.faqs ?? []).map((f) => ({ question: str(f.question), answer: str(f.answer) })),
   };
 }
 
@@ -264,7 +275,13 @@ export function toProcessorPayload(
       metaTitle: blankToUndef(values.seo.metaTitle),
       metaDescription: blankToUndef(values.seo.metaDescription),
       ogImage: blankToUndef(values.seo.ogImage),
+      keywords: values.seo.keywords
+        .split(",")
+        .map((k) => k.trim())
+        .filter(Boolean),
     },
+    // Empty rows are dropped by the validator (faqsSchema).
+    faqs: values.faqs,
   } satisfies Record<keyof ProcessorInput, unknown>;
 }
 

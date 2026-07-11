@@ -15,7 +15,7 @@ import { SEO_COOKIE, verifySession } from "@/lib/seoteam-auth";
  * The default middleware branches by pathname so `/seoteam` traffic never reaches
  * NextAuth (which would wrongly demand a NextAuth token) and vice versa.
  */
-const ADMIN_ONLY = ["/admin/users", "/admin/settings", "/admin/audit"];
+const ADMIN_ONLY = ["/admin/users", "/admin/settings", "/admin/audit", "/admin/page-seo"];
 
 const adminMiddleware = withAuth(
   function middleware(req) {

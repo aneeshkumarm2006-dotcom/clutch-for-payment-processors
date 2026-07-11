@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { setServers } from "node:dns";
+import { setServers as setServersPromise } from "node:dns/promises";
 
 /**
  * Minimal `.env` loader for standalone CLI scripts (seed-admin, seed).
@@ -15,12 +16,20 @@ export function loadEnv(file = ".env.local"): void {
   // breaks the seed before it starts. Point Node's resolver at public DNS so the
   // SRV/TXT lookup succeeds regardless of the local resolver. Honour an override
   // via DNS_SERVERS (comma-separated) for locked-down environments.
+  //
+  // Node keeps SEPARATE resolvers for the callback (`node:dns`) and promise
+  // (`node:dns/promises`) APIs; the MongoDB driver resolves SRV via the PROMISE
+  // one, so we MUST set both — setting only the callback resolver looks fixed via
+  // `dns.getServers()` yet leaves the driver's lookup on the broken resolver.
   try {
     const servers = (process.env.DNS_SERVERS ?? "8.8.8.8,1.1.1.1")
       .split(",")
       .map((s) => s.trim())
       .filter(Boolean);
-    if (servers.length) setServers(servers);
+    if (servers.length) {
+      setServers(servers);
+      setServersPromise(servers);
+    }
   } catch {
     // Non-fatal: fall back to the system resolver.
   }

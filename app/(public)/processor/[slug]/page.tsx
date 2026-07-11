@@ -14,7 +14,7 @@ import {
   getProcessorBySlug,
   getReviewIndustries,
 } from "@/lib/public-data";
-import { buildMetadata, breadcrumbJsonLd, processorJsonLd } from "@/lib/seo";
+import { buildMetadata, breadcrumbJsonLd, processorJsonLd, faqJsonLd } from "@/lib/seo";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { RichText } from "@/components/public/RichText";
 import { RatingStars } from "@/components/public/RatingStars";
@@ -27,6 +27,7 @@ import { VisitWebsiteButton } from "@/components/public/VisitWebsiteButton";
 import { LeadDialog } from "@/components/public/LeadDialog";
 import { ProfileTabs, type ProfileTabItem } from "@/components/public/profile/ProfileTabs";
 import { JsonLd } from "@/components/public/JsonLd";
+import { FaqSection } from "@/components/public/FaqSection";
 
 /** Processor profile (PRD §9.3). SSG/ISR + generateStaticParams. */
 export const revalidate = 1800;
@@ -53,6 +54,7 @@ export async function generateMetadata({
     path: `/processor/${p.slug}`,
     image: p.logo,
     seo: p.seo,
+    keywords: p.seo?.keywords,
     ogType: "profile",
   });
 }
@@ -77,6 +79,7 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
     ...(hasFeatures ? [{ id: "features", label: "Features" }] : []),
     { id: "reviews", label: "Reviews" },
     ...(alternatives.length > 0 ? [{ id: "alternatives", label: "Alternatives" }] : []),
+    ...(p.faqs && p.faqs.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
   ];
 
   const regionLabel =
@@ -123,6 +126,7 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
               datePublished: r.createdAt,
             })),
           }),
+          ...(p.faqs && p.faqs.length > 0 ? [faqJsonLd(p.faqs)] : []),
         ]}
       />
 
@@ -389,6 +393,12 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
                 <ArrowRight className="size-4" aria-hidden />
               </Link>
             </div>
+          </section>
+        )}
+
+        {p.faqs && p.faqs.length > 0 && (
+          <section id="faq" className="scroll-mt-32 border-t border-border py-10">
+            <FaqSection faqs={p.faqs} className="max-w-3xl" />
           </section>
         )}
       </div>

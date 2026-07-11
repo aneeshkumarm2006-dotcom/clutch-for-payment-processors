@@ -26,6 +26,7 @@ import {
   TextareaField,
 } from "@/components/admin/fields/form-fields";
 import { ImageUploadField } from "@/components/admin/fields/ImageUploadField";
+import { FaqField } from "@/components/admin/fields/FaqField";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import {
   blankCategoryValues,
@@ -173,6 +174,12 @@ export function CategoryForm({
             rows={2}
             placeholder="Falls back to the short description."
           />
+          <TextField
+            name="seo.keywords"
+            label="Meta keywords"
+            placeholder="e.g. payment gateway, credit card processing, POS"
+            description="Comma-separated. Renders as <meta name=&quot;keywords&quot;>. Note: ignored by Google, used by some smaller engines/tools."
+          />
           <FormField
             control={form.control}
             name="seo.ogImage"
@@ -191,6 +198,11 @@ export function CategoryForm({
               </FormItem>
             )}
           />
+        </div>
+
+        <div className="space-y-5 rounded-lg border border-border bg-card p-5">
+          <h2 className="text-h4">FAQs</h2>
+          <FaqField />
         </div>
 
         <div className="flex items-center justify-end gap-3">

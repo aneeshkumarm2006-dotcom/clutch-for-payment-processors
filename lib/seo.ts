@@ -51,13 +51,19 @@ export function buildMetadata({
   ogType = "website",
   keywords,
 }: BuildMetadataArgs): Metadata {
-  const metaTitle = seo?.metaTitle?.trim() || title;
+  const customTitle = seo?.metaTitle?.trim();
+  const metaTitle = customTitle || title;
   const metaDescription = seo?.metaDescription?.trim() || description;
   const ogImage = seo?.ogImage?.trim() || image;
   const canonical = absoluteUrl(path);
 
+  // A hand-written SEO meta title is authoritative: render it verbatim (no
+  // ` · PayCompare` template suffix). Only auto/fallback page titles get the
+  // brand template. `absoluteTitle` (homepage) forces verbatim regardless.
+  const useAbsolute = absoluteTitle || Boolean(customTitle);
+
   return {
-    title: absoluteTitle ? { absolute: metaTitle } : metaTitle,
+    title: useAbsolute ? { absolute: metaTitle } : metaTitle,
     description: metaDescription,
     ...(keywords && keywords.length > 0 ? { keywords } : {}),
     alternates: { canonical },

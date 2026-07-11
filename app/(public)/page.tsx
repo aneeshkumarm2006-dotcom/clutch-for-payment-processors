@@ -18,15 +18,18 @@ import {
   getTopRatedProcessors,
   pickFeaturedCategories,
 } from "@/lib/public-data";
-import { buildMetadata, organizationJsonLd, webSiteJsonLd } from "@/lib/seo";
+import { organizationJsonLd, webSiteJsonLd, faqJsonLd } from "@/lib/seo";
+import { getPageSeo, pageSeoMetadata } from "@/lib/page-seo";
+import { FaqSection } from "@/components/public/FaqSection";
 import { formatCount } from "@/lib/utils";
 
 /** Homepage (PRD §9.1). SSG + ISR. */
 export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const settings = await getOrCreateSiteSettings().catch(() => null);
-  return buildMetadata({
+  // Editable via admin → Page SEO ("home"); falls back to the copy below.
+  return pageSeoMetadata({
+    pageKey: "home",
     title:
       "Payment Processing Guide | Expert Payment Processing Guides, Gateways & Merchant Services",
     description:
@@ -45,8 +48,6 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     path: "/",
     absoluteTitle: true,
-    // An admin-set Default SEO (Settings) still wins over the copy above.
-    seo: settings?.defaultSeo,
   });
 }
 
@@ -69,14 +70,16 @@ const STEPS = [
 ];
 
 export default async function HomePage() {
-  const [settings, allCategories, featured, topRated, stats, recentPosts] = await Promise.all([
-    getOrCreateSiteSettings().catch(() => null),
-    getPublishedCategories(),
-    getFeaturedProcessors(6),
-    getTopRatedProcessors(4),
-    getDirectoryStats(),
-    getRecentBlogPosts(3),
-  ]);
+  const [settings, allCategories, featured, topRated, stats, recentPosts, pageSeo] =
+    await Promise.all([
+      getOrCreateSiteSettings().catch(() => null),
+      getPublishedCategories(),
+      getFeaturedProcessors(6),
+      getTopRatedProcessors(4),
+      getDirectoryStats(),
+      getRecentBlogPosts(3),
+      getPageSeo("home"),
+    ]);
 
   const heroTitle = settings?.homepageHeroTitle || "Payment Processing Guide: Your Trusted Payment Processing Resource";
   const heroSubtitle =
@@ -114,6 +117,7 @@ export default async function HomePage() {
             email: settings?.contactEmail,
           }),
           webSiteJsonLd({ name: settings?.siteName }),
+          ...(pageSeo?.faqs && pageSeo.faqs.length > 0 ? [faqJsonLd(pageSeo.faqs)] : []),
         ]}
       />
 
@@ -284,6 +288,12 @@ export default async function HomePage() {
           />
         </div>
       </section>
+
+      {pageSeo?.faqs && pageSeo.faqs.length > 0 && (
+        <section className="mx-auto max-w-content px-4 pb-16 lg:px-6">
+          <FaqSection faqs={pageSeo.faqs} className="max-w-3xl" />
+        </section>
+      )}
     </>
   );
 }

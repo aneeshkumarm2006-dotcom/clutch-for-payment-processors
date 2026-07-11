@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { DirectoryView } from "@/components/public/directory/DirectoryView";
 import { JsonLd } from "@/components/public/JsonLd";
+import { FaqSection } from "@/components/public/FaqSection";
 import { parseDirectoryParams, queryDirectory } from "@/lib/processors-query";
-import { getOrCreateSiteSettings } from "@/lib/settings";
-import { buildMetadata, breadcrumbJsonLd, itemListJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, itemListJsonLd, faqJsonLd } from "@/lib/seo";
+import { getPageSeo, pageSeoMetadata } from "@/lib/page-seo";
 
 /** All-processors directory (PRD §9.2). SSR per request (filters live in the URL). */
 export const revalidate = 1800;
@@ -12,19 +13,19 @@ export const revalidate = 1800;
 type RawParams = Record<string, string | string[] | undefined>;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const settings = await getOrCreateSiteSettings().catch(() => null);
-  return buildMetadata({
+  // Editable via admin → Page SEO ("processors").
+  return pageSeoMetadata({
+    pageKey: "processors",
     title: "All payment processors",
     description:
       "Browse and filter every payment processor in the directory by fees, payment methods, integrations, region, and use case.",
     path: "/processors",
-    seo: settings?.defaultSeo,
   });
 }
 
 export default async function ProcessorsPage({ searchParams }: { searchParams: RawParams }) {
   const params = parseDirectoryParams(searchParams);
-  const result = await queryDirectory(params);
+  const [result, pageSeo] = await Promise.all([queryDirectory(params), getPageSeo("processors")]);
 
   return (
     <div className="mx-auto max-w-content px-4 py-10 lg:px-6">
@@ -35,6 +36,7 @@ export default async function ProcessorsPage({ searchParams }: { searchParams: R
             { name: "Processors", path: "/processors" },
           ]),
           itemListJsonLd(result.items.map((p) => ({ name: p.name, path: `/processor/${p.slug}` }))),
+          ...(pageSeo?.faqs && pageSeo.faqs.length > 0 ? [faqJsonLd(pageSeo.faqs)] : []),
         ]}
       />
 
@@ -51,6 +53,8 @@ export default async function ProcessorsPage({ searchParams }: { searchParams: R
       <div className="mt-8">
         <DirectoryView result={result} basePath="/processors" searchParams={searchParams} />
       </div>
+
+      <FaqSection faqs={pageSeo?.faqs} />
     </div>
   );
 }

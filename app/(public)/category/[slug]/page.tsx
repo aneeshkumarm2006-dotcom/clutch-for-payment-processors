@@ -4,9 +4,10 @@ import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { RichText } from "@/components/public/RichText";
 import { DirectoryView } from "@/components/public/directory/DirectoryView";
 import { JsonLd } from "@/components/public/JsonLd";
+import { FaqSection } from "@/components/public/FaqSection";
 import { parseDirectoryParams, queryDirectory } from "@/lib/processors-query";
 import { getAllPublishedCategorySlugs, getCategoryBySlug } from "@/lib/public-data";
-import { buildMetadata, breadcrumbJsonLd, itemListJsonLd } from "@/lib/seo";
+import { buildMetadata, breadcrumbJsonLd, itemListJsonLd, faqJsonLd } from "@/lib/seo";
 
 /** Category directory (PRD §9.2). SSG/ISR + generateStaticParams; SSR when filtered. */
 export const revalidate = 1800;
@@ -34,6 +35,7 @@ export async function generateMetadata({
       `Compare the best payment processors for ${category.name.toLowerCase()} on fees, features, and reviews.`,
     path: `/category/${category.slug}`,
     seo: category.seo,
+    keywords: category.seo?.keywords,
   });
 }
 
@@ -61,6 +63,7 @@ export default async function CategoryPage({
             { name: category.name, path: basePath },
           ]),
           itemListJsonLd(result.items.map((p) => ({ name: p.name, path: `/processor/${p.slug}` }))),
+          ...(category.faqs && category.faqs.length > 0 ? [faqJsonLd(category.faqs)] : []),
         ]}
       />
 
@@ -83,6 +86,8 @@ export default async function CategoryPage({
       <div className="mt-8">
         <DirectoryView result={result} basePath={basePath} searchParams={searchParams} />
       </div>
+
+      <FaqSection faqs={category.faqs} />
     </div>
   );
 }

@@ -10,7 +10,14 @@ import {
   PCI_LEVELS,
   PRICING_MODELS,
 } from "@/lib/enums";
-import { emptyToUndefined, objectIdString, optionalUrl, seoSchema, slugField } from "./common";
+import {
+  emptyToUndefined,
+  objectIdString,
+  optionalUrl,
+  seoSchema,
+  slugField,
+  faqsSchema,
+} from "./common";
 
 /** Structured fee table (PRD §8.1) — every field optional ("Varies"/"—" when blank). */
 export const feesSchema = z
@@ -91,6 +98,7 @@ export const processorInput = z.object({
 
   // SEO
   seo: seoSchema,
+  faqs: faqsSchema,
 });
 
 /** Partial variant for PATCH updates. */

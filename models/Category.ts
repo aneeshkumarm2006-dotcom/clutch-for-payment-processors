@@ -1,6 +1,6 @@
 import { Schema, model, models, type Model, type Types } from "mongoose";
 import { CATEGORY_TYPES, type CategoryType } from "@/lib/enums";
-import { SeoSchema, type ISeo } from "./shared";
+import { SeoSchema, FaqSchema, type ISeo, type IFaqItem } from "./shared";
 import { autoSlugFrom } from "./slug";
 
 /** Category — directory grouping (PRD §8.2). `parent` nesting is wired now but Phase 2 in the UI. */
@@ -15,6 +15,7 @@ export interface ICategory {
   displayOrder: number;
   isPublished: boolean;
   seo: ISeo;
+  faqs?: IFaqItem[];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -31,6 +32,7 @@ const CategorySchema = new Schema<ICategory>(
     displayOrder: { type: Number, default: 0 },
     isPublished: { type: Boolean, default: false },
     seo: { type: SeoSchema, default: () => ({}) },
+    faqs: { type: [FaqSchema], default: undefined },
   },
   { timestamps: true },
 );

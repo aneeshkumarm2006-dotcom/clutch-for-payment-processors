@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { CompareView } from "@/components/public/compare/CompareView";
+import { FaqSection } from "@/components/public/FaqSection";
+import { JsonLd } from "@/components/public/JsonLd";
 import { getProcessorsBySlugs } from "@/lib/public-data";
 import { COMPARE_MAX } from "@/components/public/compare/constants";
-import { buildMetadata, absoluteUrl } from "@/lib/seo";
+import { buildMetadata, absoluteUrl, faqJsonLd } from "@/lib/seo";
+import { getPageSeo, pageSeoMetadata } from "@/lib/page-seo";
 import { prettyComparePath } from "@/lib/compare-pairs";
 
 /**
@@ -34,9 +37,25 @@ export async function generateMetadata({
   searchParams: { ids?: string | string[] };
 }): Promise<Metadata> {
   const slugs = parseIds(searchParams.ids);
+
+  // Bare `/compare` (no ids) is the real landing page we want indexed and
+  // ranking (e.g. "payment processor comparison"). Its SEO is editable via
+  // admin → Page SEO ("compare").
+  if (slugs.length < 2) {
+    return pageSeoMetadata({
+      pageKey: "compare",
+      title: "Compare payment processors",
+      description:
+        "Compare payment processors side by side — pricing, payment methods, integrations, and features.",
+      path: "/compare",
+    });
+  }
+
+  // A specific selection is a query-driven, combinatorial URL — keep it out of
+  // the index. If the pair is curated, point the canonical at the pretty,
+  // indexable route (`/compare/stripe-vs-paypal`) so link equity lands there.
   const processors = await getProcessorsBySlugs(slugs);
   const names = processors.map((p) => p.name);
-
   const title = names.length >= 2 ? `Compare ${names.join(" vs ")}` : "Compare payment processors";
   const description =
     names.length >= 2
@@ -44,16 +63,11 @@ export async function generateMetadata({
       : "Compare payment processors side by side — pricing, payment methods, integrations, and features.";
 
   const base = buildMetadata({ title, description, path: "/compare" });
-  // When the selected slugs match a curated popular pair, point the canonical at
-  // the pretty, indexable route (`/compare/stripe-vs-paypal`) so link equity lands
-  // there; otherwise the canonical stays the bare `/compare` (Stage 7.3, PRD §9.4).
   const pretty = prettyComparePath(slugs);
 
   return {
     ...base,
     ...(pretty ? { alternates: { canonical: absoluteUrl(pretty) } } : {}),
-    // Query-driven combinatorial URLs shouldn't be indexed. The page stays a
-    // working fallback/builder; crawlers follow the canonical to the real page.
     robots: { index: false, follow: true },
   };
 }
@@ -65,9 +79,14 @@ export default async function ComparePage({
 }) {
   const slugs = parseIds(searchParams.ids);
   const processors = await getProcessorsBySlugs(slugs);
+  // FAQs only on the bare landing (no selection) — that's the indexable page.
+  const pageSeo = slugs.length < 2 ? await getPageSeo("compare") : null;
 
   return (
     <div className="mx-auto max-w-content px-4 py-8 lg:px-6 lg:py-10">
+      {pageSeo?.faqs && pageSeo.faqs.length > 0 && (
+        <JsonLd data={faqJsonLd(pageSeo.faqs)} />
+      )}
       <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "Compare" }]} />
       <h1 className="mt-4 text-h1 tracking-tighter2 text-foreground">Compare processors</h1>
       <p className="mt-2 max-w-prose text-body text-muted-foreground">
@@ -78,6 +97,8 @@ export default async function ComparePage({
       <div className="mt-8">
         <CompareView processors={processors} />
       </div>
+
+      <FaqSection faqs={pageSeo?.faqs} />
     </div>
   );
 }

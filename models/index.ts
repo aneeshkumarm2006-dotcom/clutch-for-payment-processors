@@ -24,4 +24,10 @@ export {
   type AuditEntity,
 } from "./AuditLog";
 export { AnalyticsHubConfig, type IAnalyticsHubConfig } from "./AnalyticsHubConfig";
-export { type ISeo } from "./shared";
+export {
+  PageSeo,
+  PAGE_SEO_KEYS,
+  type IPageSeo,
+  type PageSeoKey,
+} from "./PageSeo";
+export { type ISeo, type IFaqItem } from "./shared";

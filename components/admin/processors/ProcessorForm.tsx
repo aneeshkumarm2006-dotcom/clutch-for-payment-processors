@@ -47,6 +47,7 @@ import { TagInput } from "@/components/admin/fields/TagInput";
 import { RepeatableList } from "@/components/admin/fields/RepeatableList";
 import { ImageUploadField } from "@/components/admin/fields/ImageUploadField";
 import { MultiImageField } from "@/components/admin/fields/MultiImageField";
+import { FaqField } from "@/components/admin/fields/FaqField";
 import {
   CategoryMultiSelect,
   type CategoryOption,
@@ -524,6 +525,12 @@ export function ProcessorForm({
               rows={2}
               placeholder="Falls back to the short description."
             />
+            <TextField
+              name="seo.keywords"
+              label="Meta keywords"
+              placeholder="e.g. stripe merchant services, stripe fees, stripe pricing"
+              description="Comma-separated. Renders as <meta name=&quot;keywords&quot;>. Note: ignored by Google, used by some smaller engines/tools."
+            />
             <FormField
               control={form.control}
               name="seo.ogImage"
@@ -542,6 +549,9 @@ export function ProcessorForm({
                 </FormItem>
               )}
             />
+            <div className="border-t border-border pt-5">
+              <FaqField />
+            </div>
           </TabsContent>
         </Tabs>
 

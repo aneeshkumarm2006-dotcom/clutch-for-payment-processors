@@ -30,7 +30,49 @@ export const seoSchema = z
     metaTitle: z.string().trim().max(70, "Keep under 70 characters").optional(),
     metaDescription: z.string().trim().max(180, "Keep under 180 characters").optional(),
     ogImage: optionalUrl,
+    // Accept a comma-separated string or an array; normalize to a trimmed, non-empty
+    // string[] (or undefined when blank). Forms send a comma-separated string.
+    keywords: z.preprocess(
+      (v) => {
+        const list = Array.isArray(v)
+          ? v
+          : typeof v === "string"
+            ? v.split(",")
+            : v;
+        if (!Array.isArray(list)) return list;
+        const cleaned = list.map((s) => String(s).trim()).filter(Boolean);
+        return cleaned.length ? cleaned : undefined;
+      },
+      z.array(z.string()).max(20, "Keep it under 20 keywords").optional(),
+    ),
   })
   .default({});
 
 export type SeoInput = z.infer<typeof seoSchema>;
+
+/** A single FAQ Q&A pair (PRD §13 FAQPage). Both fields required when present. */
+export const faqItemSchema = z.object({
+  question: z.string().trim().min(1, "Question is required").max(300, "Keep under 300 characters"),
+  answer: z.string().trim().min(1, "Answer is required").max(1200, "Keep under 1200 characters"),
+});
+
+/**
+ * A list of FAQ items. Rows where BOTH fields are blank are dropped (the admin
+ * editor starts an empty row); a partially-filled row still errors so nothing is
+ * silently lost. Normalizes an all-empty list to `undefined` so it `$unset`s.
+ */
+export const faqsSchema = z.preprocess(
+  (v) => {
+    if (!Array.isArray(v)) return v;
+    const rows = v.filter((it) => {
+      const o = it as { question?: unknown; answer?: unknown };
+      const q = typeof o?.question === "string" ? o.question.trim() : "";
+      const a = typeof o?.answer === "string" ? o.answer.trim() : "";
+      return q !== "" || a !== "";
+    });
+    return rows.length ? rows : undefined;
+  },
+  z.array(faqItemSchema).max(20, "Keep it under 20 FAQs").optional(),
+);
+
+export type FaqsInput = z.infer<typeof faqsSchema>;
