@@ -10,6 +10,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 export interface CategoryOption {
   id: string;
   name: string;
+  /** Optional — only the ProcessorForm needs it, to preview the breadcrumb schema. */
+  slug?: string;
 }
 
 /**

@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { CATEGORY_TYPES } from "@/lib/enums";
 import { objectIdString, seoSchema, slugField, faqsSchema } from "./common";
+import { blocksSchema, structuredDataSchema } from "./blocks";
 
 /** Writable Category fields (PRD §8.2 / §10.4). */
 export const categoryInput = z.object({
@@ -15,6 +16,8 @@ export const categoryInput = z.object({
   isPublished: z.boolean().default(false),
   seo: seoSchema,
   faqs: faqsSchema,
+  blocks: blocksSchema,
+  structuredData: structuredDataSchema,
 });
 
 export const categoryUpdate = categoryInput.partial();

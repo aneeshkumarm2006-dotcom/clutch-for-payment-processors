@@ -52,3 +52,27 @@ export function sanitizeBlogHtml(html: string): string {
 
   return root.toString();
 }
+
+/**
+ * Sanitize the HTML-bearing content blocks (`richtext`, `htmlEmbed`) on save.
+ *
+ * Blocks are rendered with `dangerouslySetInnerHTML` by
+ * `components/public/Blocks.tsx`, exactly as the blog body is — so they get the
+ * same treatment, at the same point in the lifecycle: scrubbed on the way IN, not
+ * on the way out. Sanitizing at render would mean the database still holds the
+ * hostile markup, one careless `dangerouslySetInnerHTML` away from executing.
+ *
+ * Returns a NEW array; never mutates the caller's blocks.
+ */
+export function sanitizeBlocks<T extends { type: string; data?: Record<string, unknown> }>(
+  blocks: T[] | undefined,
+): T[] | undefined {
+  if (!blocks?.length) return blocks;
+
+  return blocks.map((block) => {
+    if (block.type !== "richtext" && block.type !== "htmlEmbed") return block;
+    const html = block.data?.html;
+    if (typeof html !== "string") return block;
+    return { ...block, data: { ...block.data, html: sanitizeBlogHtml(html) } };
+  });
+}

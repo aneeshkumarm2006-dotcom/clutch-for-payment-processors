@@ -8,10 +8,12 @@ import {
   diffSetUnset,
   getAdminSession,
   handleApiError,
+  PRESERVE_ON_OMIT,
   json,
   requireAdmin,
 } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
+import { sanitizeBlocks } from "@/lib/sanitize-html";
 import { toBlogPostData } from "@/lib/serialize";
 
 /**
@@ -72,7 +74,11 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     if (!existing) throw new ApiError(404, "Post not found.");
 
     const { slug, ...rest } = blogPostInput.parse(await req.json());
-    const parts = diffSetUnset(rest);
+    rest.blocks = sanitizeBlocks(rest.blocks);
+    // PRESERVE_ON_OMIT is not optional here: this post is ALSO writable from
+    // /api/seoteam/posts/[id]. Without it, a save from either panel would $unset
+    // the fields the other panel owns.
+    const parts = diffSetUnset(rest, { preserve: PRESERVE_ON_OMIT });
     parts.$set.slug = await resolveSlug(params.id, rest.title, slug);
 
     // Keep a sensible publishedAt: stamp now when a post goes live without one,

@@ -29,8 +29,13 @@ import {
   UnsavedChangesGuard,
   type UnsavedChangesGuardHandle,
 } from "@/components/UnsavedChangesGuard";
+import { BlockEditor } from "@/components/content/BlockEditor";
+import { SeoPanel } from "@/components/content/SeoPanel";
+import { StructuredDataPanel } from "@/components/content/StructuredDataPanel";
+import type { EngineContext } from "@/lib/engine";
 import {
   blankBlogValues,
+  toBlogEnginePreview,
   toBlogPayload,
   type BlogFormValues,
 } from "@/components/admin/blog/serialize";
@@ -45,10 +50,15 @@ export function BlogForm({
   postId,
   defaultValues,
   processorOptions,
+  engineCtx,
+  savedSlug,
 }: {
   postId?: string;
   defaultValues?: BlogFormValues;
   processorOptions: { id: string; name: string }[];
+  /** Site identity for the schema preview — read from SiteSettings by the page. */
+  engineCtx: EngineContext;
+  savedSlug?: string;
 }) {
   const router = useRouter();
   const form = useForm<BlogFormValues>({
@@ -56,6 +66,7 @@ export function BlogForm({
   });
   const [saving, setSaving] = React.useState<BlogStatus | null>(null);
   const guardRef = React.useRef<UnsavedChangesGuardHandle>(null);
+  const watchedSlug = form.watch("slug") || savedSlug || "";
 
   // Warn before leaving with edits that haven't been saved/published. `isDirty`
   // is read during render so react-hook-form re-renders us as it flips; we drop
@@ -245,32 +256,32 @@ export function BlogForm({
         </div>
 
         <div className="space-y-5 rounded-lg border border-border bg-card p-5">
-          <h2 className="text-h4">SEO</h2>
-          <TextField name="seo.metaTitle" label="Meta title" placeholder="Falls back to the title." />
-          <TextareaField
-            name="seo.metaDescription"
-            label="Meta description"
-            rows={2}
-            placeholder="Falls back to the excerpt."
+          <div>
+            <h2 className="text-h4">Content blocks</h2>
+            <p className="mt-0.5 text-small text-muted-foreground">
+              Optional sections rendered after the post body. An FAQ block also generates FAQ
+              rich-result schema. The body above stays the post&rsquo;s main content.
+            </p>
+          </div>
+          <BlockEditor />
+        </div>
+
+        <div className="space-y-5 rounded-lg border border-border bg-card p-5">
+          <SeoPanel
+            titleField="title"
+            descriptionField="excerpt"
+            imageField="coverImage"
+            path={`/blog/${watchedSlug || "…"}`}
           />
-          <FormField
-            control={form.control}
-            name="seo.ogImage"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>OG image</FormLabel>
-                <FormDescription>Defaults to the cover image when blank.</FormDescription>
-                <FormControl>
-                  <ImageUploadField
-                    value={field.value || undefined}
-                    onChange={(url) => field.onChange(url ?? "")}
-                    folder="og"
-                    aspect="wide"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+        </div>
+
+        <div className="space-y-5 rounded-lg border border-border bg-card p-5">
+          <StructuredDataPanel
+            contentType="blogPost"
+            ctx={engineCtx}
+            toEntity={(values) =>
+              toBlogEnginePreview(values as unknown as BlogFormValues, savedSlug)
+            }
           />
         </div>
 

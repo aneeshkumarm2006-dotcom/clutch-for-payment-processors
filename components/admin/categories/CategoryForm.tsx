@@ -28,8 +28,13 @@ import {
 import { ImageUploadField } from "@/components/admin/fields/ImageUploadField";
 import { FaqField } from "@/components/admin/fields/FaqField";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
+import { BlockEditor } from "@/components/content/BlockEditor";
+import { SeoPanel } from "@/components/content/SeoPanel";
+import { StructuredDataPanel } from "@/components/content/StructuredDataPanel";
+import type { EngineContext } from "@/lib/engine";
 import {
   blankCategoryValues,
+  toCategoryEnginePreview,
   toCategoryPayload,
   type CategoryFormValues,
 } from "@/components/admin/categories/serialize";
@@ -37,15 +42,21 @@ import {
 export function CategoryForm({
   categoryId,
   defaultValues,
+  engineCtx,
+  savedSlug,
 }: {
   categoryId?: string;
   defaultValues?: CategoryFormValues;
+  /** Site identity for the schema preview — read from SiteSettings by the page. */
+  engineCtx: EngineContext;
+  savedSlug?: string;
 }) {
   const router = useRouter();
   const form = useForm<CategoryFormValues>({
     defaultValues: defaultValues ?? blankCategoryValues(),
   });
   const [saving, setSaving] = React.useState(false);
+  const watchedSlug = form.watch("slug") || savedSlug || "";
 
   const applyZodIssues = (error: ZodError) => {
     for (const issue of error.issues) {
@@ -162,47 +173,37 @@ export function CategoryForm({
         </div>
 
         <div className="space-y-5 rounded-lg border border-border bg-card p-5">
-          <h2 className="text-h4">SEO</h2>
-          <TextField
-            name="seo.metaTitle"
-            label="Meta title"
-            placeholder="Falls back to the category name."
-          />
-          <TextareaField
-            name="seo.metaDescription"
-            label="Meta description"
-            rows={2}
-            placeholder="Falls back to the short description."
-          />
-          <TextField
-            name="seo.keywords"
-            label="Meta keywords"
-            placeholder="e.g. payment gateway, credit card processing, POS"
-            description="Comma-separated. Renders as <meta name=&quot;keywords&quot;>. Note: ignored by Google, used by some smaller engines/tools."
-          />
-          <FormField
-            control={form.control}
-            name="seo.ogImage"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>OG image</FormLabel>
-                <FormControl>
-                  <ImageUploadField
-                    value={field.value || undefined}
-                    onChange={(url) => field.onChange(url ?? "")}
-                    folder="og"
-                    aspect="wide"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+          <div>
+            <h2 className="text-h4">Page content</h2>
+            <p className="mt-0.5 text-small text-muted-foreground">
+              Compose this page from reusable blocks. While it&rsquo;s empty the category keeps
+              showing its existing intro content — adding a block replaces it.
+            </p>
+          </div>
+          <BlockEditor />
+        </div>
+
+        <div className="space-y-5 rounded-lg border border-border bg-card p-5">
+          <SeoPanel
+            titleField="name"
+            descriptionField="shortDescription"
+            path={`/category/${watchedSlug || "…"}`}
           />
         </div>
 
         <div className="space-y-5 rounded-lg border border-border bg-card p-5">
           <h2 className="text-h4">FAQs</h2>
           <FaqField />
+        </div>
+
+        <div className="space-y-5 rounded-lg border border-border bg-card p-5">
+          <StructuredDataPanel
+            contentType="category"
+            ctx={engineCtx}
+            toEntity={(values) =>
+              toCategoryEnginePreview(values as unknown as CategoryFormValues, savedSlug)
+            }
+          />
         </div>
 
         <div className="flex items-center justify-end gap-3">

@@ -4,6 +4,7 @@ import { formatDate } from "@/lib/utils";
 import type { BlogCardData, BlogPostData, ProcessorCardData } from "@/lib/serialize";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { RichText } from "@/components/public/RichText";
+import { Blocks } from "@/components/public/Blocks";
 import { Badge } from "@/components/ui/badge";
 import { BlogCard } from "@/components/public/BlogCard";
 import { ProcessorCard } from "@/components/public/ProcessorCard";
@@ -88,6 +89,14 @@ export function BlogArticle({
       )}
 
       <RichText html={contentHtml} className={`mx-auto mt-10 ${readColumn}`} />
+
+      {/*
+        Blocks render AFTER the body rather than replacing it. `content` stays the
+        authoritative HTML for a post because the whole blog toolchain reads it:
+        keyword backlink injection, reading-time, and the word-count SEO check. A
+        block-only post would look empty to all three.
+      */}
+      <Blocks blocks={post.blocks} className={`mx-auto mt-10 ${readColumn}`} />
 
       {relatedProcessors.length > 0 && (
         <section className={`mx-auto mt-14 ${readColumn} border-t pt-8`}>

@@ -1,6 +1,15 @@
 import { Schema, model, models, type Model, type Types } from "mongoose";
 import { CATEGORY_TYPES, type CategoryType } from "@/lib/enums";
-import { SeoSchema, FaqSchema, type ISeo, type IFaqItem } from "./shared";
+import {
+  SeoSchema,
+  FaqSchema,
+  BlockSchema,
+  StructuredDataSchema,
+  type ISeo,
+  type IFaqItem,
+  type IBlock,
+  type IStructuredData,
+} from "./shared";
 import { autoSlugFrom } from "./slug";
 
 /** Category — directory grouping (PRD §8.2). `parent` nesting is wired now but Phase 2 in the UI. */
@@ -16,6 +25,9 @@ export interface ICategory {
   isPublished: boolean;
   seo: ISeo;
   faqs?: IFaqItem[];
+  /** Ordered content blocks. When non-empty these render INSTEAD of `introContent`. */
+  blocks?: IBlock[];
+  structuredData?: IStructuredData;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -33,6 +45,8 @@ const CategorySchema = new Schema<ICategory>(
     isPublished: { type: Boolean, default: false },
     seo: { type: SeoSchema, default: () => ({}) },
     faqs: { type: [FaqSchema], default: undefined },
+    blocks: { type: [BlockSchema], default: undefined },
+    structuredData: { type: StructuredDataSchema, default: undefined },
   },
   { timestamps: true },
 );

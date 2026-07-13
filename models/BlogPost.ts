@@ -11,7 +11,14 @@ import {
   type BlogTemplate,
   type KeywordRel,
 } from "@/lib/enums";
-import { SeoSchema, type ISeo } from "./shared";
+import {
+  SeoSchema,
+  BlockSchema,
+  StructuredDataSchema,
+  type ISeo,
+  type IBlock,
+  type IStructuredData,
+} from "./shared";
 import { autoSlugFrom } from "./slug";
 
 /** One keyword backlink: an occurrence of `keyword` in the body links to `url` (PRD §SEO). */
@@ -45,6 +52,15 @@ export interface IBlogPost {
   status: BlogStatus;
   publishedAt?: Date;
   seo: ISeo;
+  /**
+   * Ordered content blocks. Unlike every other model, these render *around*
+   * `content` rather than instead of it — `content` stays the authoritative HTML
+   * body because the blog toolchain is built on it: `injectKeywordLinks` (the SEO
+   * team's backlink workflow), `computeReadingTime`, and the word-count check in
+   * `lib/seo-checks.ts` all read `content` and would see a block-only post as empty.
+   */
+  blocks?: IBlock[];
+  structuredData?: IStructuredData;
   /** SEO template the post was created from (drives the editor's heading skeleton). */
   template: BlogTemplate;
   /** Reading-column width for the body on the public page (author layout control). */
@@ -79,6 +95,8 @@ const BlogPostSchema = new Schema<IBlogPost>(
     status: { type: String, enum: BLOG_STATUSES, default: "draft" },
     publishedAt: { type: Date },
     seo: { type: SeoSchema, default: () => ({}) },
+    blocks: { type: [BlockSchema], default: undefined },
+    structuredData: { type: StructuredDataSchema, default: undefined },
     template: { type: String, enum: BLOG_TEMPLATES, default: "generic" },
     contentWidth: { type: String, enum: BLOG_CONTENT_WIDTHS, default: "standard" },
     coverLayout: { type: String, enum: BLOG_COVER_LAYOUTS, default: "standard" },

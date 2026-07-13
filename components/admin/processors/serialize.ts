@@ -1,4 +1,19 @@
 import type { ProcessorInput } from "@/lib/validators";
+import type { EngineEntity } from "@/lib/engine";
+import type { ProcessorEngineData } from "@/config/content-engine";
+import {
+  blankSeoValues,
+  blankStructuredDataValues,
+  toBlockFormValues,
+  toBlocksPayload,
+  toSeoFormValues,
+  toSeoPayload,
+  toStructuredDataFormValues,
+  toStructuredDataPayload,
+  type BlockFormValue,
+  type SeoFormValues,
+  type StructuredDataFormValues,
+} from "@/components/content/serialize";
 import type {
   CompanySize,
   ContractType,
@@ -39,12 +54,12 @@ export const FEE_FIELDS = [
 export type FeeKey = (typeof FEE_FIELDS)[number]["key"];
 export type FeesFormValues = Record<FeeKey, string>;
 
-export interface SeoFormValues {
-  metaTitle: string;
-  metaDescription: string;
-  ogImage: string;
-  keywords: string;
-}
+/**
+ * The SEO / blocks / structured-data shapes are shared across every content form
+ * — see `components/content/serialize.ts`. Re-exported here so existing imports of
+ * `SeoFormValues` from this module keep working.
+ */
+export type { SeoFormValues };
 
 export interface FaqFormValue {
   question: string;
@@ -99,6 +114,8 @@ export interface ProcessorFormValues {
 
   seo: SeoFormValues;
   faqs: FaqFormValue[];
+  blocks: BlockFormValue[];
+  structuredData: StructuredDataFormValues;
 }
 
 function blankFees(): FeesFormValues {
@@ -147,8 +164,10 @@ export function blankProcessorValues(): ProcessorFormValues {
     isSponsored: false,
     sponsorRank: "",
     isFeatured: false,
-    seo: { metaTitle: "", metaDescription: "", ogImage: "", keywords: "" },
+    seo: blankSeoValues(),
     faqs: [],
+    blocks: [],
+    structuredData: blankStructuredDataValues(),
     isPublished: false,
   };
 }
@@ -209,13 +228,10 @@ export function toProcessorFormValues(doc: LeanProcessor): ProcessorFormValues {
     sponsorRank: str(doc.sponsorRank),
     isFeatured: Boolean(doc.isFeatured),
     isPublished: Boolean(doc.isPublished),
-    seo: {
-      metaTitle: str(doc.seo?.metaTitle),
-      metaDescription: str(doc.seo?.metaDescription),
-      ogImage: str(doc.seo?.ogImage),
-      keywords: (doc.seo?.keywords ?? []).join(", "),
-    },
+    seo: toSeoFormValues(doc.seo),
     faqs: (doc.faqs ?? []).map((f) => ({ question: str(f.question), answer: str(f.answer) })),
+    blocks: toBlockFormValues(doc.blocks as never),
+    structuredData: toStructuredDataFormValues(doc.structuredData as never),
   };
 }
 
@@ -271,18 +287,61 @@ export function toProcessorPayload(
     sponsorRank: values.sponsorRank, // emptyToUndefined preprocess handles ""
     isFeatured: values.isFeatured,
     isPublished,
-    seo: {
-      metaTitle: blankToUndef(values.seo.metaTitle),
-      metaDescription: blankToUndef(values.seo.metaDescription),
-      ogImage: blankToUndef(values.seo.ogImage),
-      keywords: values.seo.keywords
-        .split(",")
-        .map((k) => k.trim())
-        .filter(Boolean),
-    },
+    seo: toSeoPayload(values.seo),
     // Empty rows are dropped by the validator (faqsSchema).
     faqs: values.faqs,
+    // This form mounts <BlockEditor>, so it always states blocks explicitly —
+    // including `[]` to mean "the editor deleted them all".
+    blocks: toBlocksPayload(values.blocks),
+    structuredData: toStructuredDataPayload(values.structuredData),
   } satisfies Record<keyof ProcessorInput, unknown>;
+}
+
+/**
+ * Facts the live schema preview needs but a draft form cannot know: ratings are
+ * computed from approved reviews, and the slug is server-assigned on first save.
+ * Supplied by the edit page from the saved document.
+ */
+export interface ProcessorPreviewBase {
+  slug?: string;
+  ratingAverage?: number;
+  ratingCount?: number;
+  primaryCategory?: { name: string; slug: string };
+}
+
+/**
+ * Build the EngineEntity the <StructuredDataPanel> previews from — the live form
+ * values MERGED OVER the saved document.
+ *
+ * The merge is the whole trick. Without it the preview would show a Product with
+ * no `aggregateRating` (because `ratingAverage` lives on the server, not in the
+ * form) and an editor would reasonably conclude they had broken the schema.
+ */
+export function toProcessorEnginePreview(
+  values: ProcessorFormValues,
+  base: ProcessorPreviewBase = {},
+): EngineEntity<ProcessorEngineData> {
+  const slug = values.slug.trim() || base.slug || "";
+  return {
+    contentType: "processor",
+    path: `/processor/${slug}`,
+    seo: toSeoPayload(values.seo) as never,
+    faqs: values.faqs.filter((f) => f.question.trim() && f.answer.trim()),
+    blocks: values.blocks as never,
+    structuredData: toStructuredDataPayload(values.structuredData) as never,
+    data: {
+      name: values.name,
+      slug,
+      description: values.shortDescription || values.tagline,
+      logo: values.logo,
+      website: values.affiliateUrl || values.website,
+      pricingSummary: values.pricingSummary || values.fees.onlineCardRate,
+      // From the saved doc — the form has no say in these.
+      ratingAverage: base.ratingAverage,
+      ratingCount: base.ratingCount,
+      primaryCategory: base.primaryCategory,
+    },
+  };
 }
 
 /** Which tab owns a field — so publish-validation can jump to the first error. */
@@ -325,4 +384,6 @@ export const FIELD_TAB: Record<string, string> = {
   sponsorRank: "merchandising",
   isFeatured: "merchandising",
   seo: "seo",
+  blocks: "content",
+  structuredData: "schema",
 };

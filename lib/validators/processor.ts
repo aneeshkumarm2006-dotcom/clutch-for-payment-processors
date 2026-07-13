@@ -18,6 +18,7 @@ import {
   slugField,
   faqsSchema,
 } from "./common";
+import { blocksSchema, structuredDataSchema } from "./blocks";
 
 /** Structured fee table (PRD §8.1) — every field optional ("Varies"/"—" when blank). */
 export const feesSchema = z
@@ -99,6 +100,13 @@ export const processorInput = z.object({
   // SEO
   seo: seoSchema,
   faqs: faqsSchema,
+
+  // Modular content + structured-data overrides. Both are OPTIONAL with no
+  // default: a form that doesn't render these panels omits the key, and the write
+  // route's `preserve` list turns that omission into "leave it alone" rather than
+  // "delete it". A default of `[]` here would defeat that and wipe saved blocks.
+  blocks: blocksSchema,
+  structuredData: structuredDataSchema,
 });
 
 /** Partial variant for PATCH updates. */

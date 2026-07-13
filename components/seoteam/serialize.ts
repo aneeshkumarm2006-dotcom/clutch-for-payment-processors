@@ -1,4 +1,22 @@
 import type { BlogStatus, BlogTemplate, KeywordRel } from "@/lib/enums";
+import type { EngineEntity } from "@/lib/engine";
+import type { BlogPostEngineData } from "@/config/content-engine";
+// Aliased: this module already exports its OWN `SeoFormValues` (the whole post
+// form) and `toSeoPayload` (the whole post payload). The shared ones below cover
+// just the `seo` block / blocks / schema overrides.
+import {
+  blankSeoValues as blankSeoBlock,
+  blankStructuredDataValues,
+  toBlockFormValues,
+  toBlocksPayload,
+  toSeoFormValues as toSeoBlockValues,
+  toSeoPayload as toSeoBlockPayload,
+  toStructuredDataFormValues,
+  toStructuredDataPayload,
+  type BlockFormValue,
+  type SeoFormValues as SeoBlockValues,
+  type StructuredDataFormValues,
+} from "@/components/content/serialize";
 
 /**
  * Form ↔ model serialization for the /seoteam editor. Mirrors the admin BlogForm
@@ -39,7 +57,9 @@ export interface SeoFormValues {
   visibility: Visibility;
   /** ISO 8601 string, or "" when unset. */
   publishedAt: string;
-  seo: { metaTitle: string; metaDescription: string; ogImage: string };
+  seo: SeoBlockValues;
+  blocks: BlockFormValue[];
+  structuredData: StructuredDataFormValues;
 }
 
 export function blankSeoValues(): SeoFormValues {
@@ -58,13 +78,13 @@ export function blankSeoValues(): SeoFormValues {
     seoOverrides: [],
     visibility: "draft",
     publishedAt: "",
-    seo: { metaTitle: "", metaDescription: "", ogImage: "" },
+    seo: blankSeoBlock(),
+    blocks: [],
+    structuredData: blankStructuredDataValues(),
   };
 }
 
-type LeanBlog = Record<string, unknown> & {
-  seo?: { metaTitle?: string; metaDescription?: string; ogImage?: string };
-};
+type LeanBlog = Record<string, unknown>;
 
 const str = (v: unknown) => (v == null ? "" : String(v));
 
@@ -112,11 +132,9 @@ export function toSeoFormValues(doc: LeanBlog): SeoFormValues {
     seoOverrides: Array.isArray(doc.seoOverrides) ? doc.seoOverrides.map(String) : [],
     visibility,
     publishedAt,
-    seo: {
-      metaTitle: str(doc.seo?.metaTitle),
-      metaDescription: str(doc.seo?.metaDescription),
-      ogImage: str(doc.seo?.ogImage),
-    },
+    seo: toSeoBlockValues(doc.seo as never),
+    blocks: toBlockFormValues(doc.blocks as never),
+    structuredData: toStructuredDataFormValues(doc.structuredData as never),
   };
 }
 
@@ -147,10 +165,35 @@ export function toSeoPayload(values: SeoFormValues): Record<string, unknown> {
     seoOverrides: values.seoOverrides,
     status,
     publishedAt: blankToUndef(values.publishedAt),
-    seo: {
-      metaTitle: blankToUndef(values.seo.metaTitle),
-      metaDescription: blankToUndef(values.seo.metaDescription),
-      ogImage: blankToUndef(values.seo.ogImage),
+    seo: toSeoBlockPayload(values.seo),
+    // This form mounts <BlockEditor>, so it states blocks explicitly — including
+    // `[]` for "the editor deleted them all". The /admin blog form writes the same
+    // document, and `PRESERVE_ON_OMIT` keeps whichever form omits a field from
+    // clobbering the other's work.
+    blocks: toBlocksPayload(values.blocks),
+    structuredData: toStructuredDataPayload(values.structuredData),
+  };
+}
+
+/** The EngineEntity the /seoteam schema preview renders from. */
+export function toBlogEnginePreview(
+  values: SeoFormValues,
+  savedSlug?: string,
+): EngineEntity<BlogPostEngineData> {
+  const slug = values.slug.trim() || savedSlug || "";
+  return {
+    contentType: "blogPost",
+    path: `/blog/${slug}`,
+    seo: toSeoBlockPayload(values.seo) as never,
+    blocks: values.blocks as never,
+    structuredData: toStructuredDataPayload(values.structuredData) as never,
+    data: {
+      title: values.title,
+      slug,
+      description: values.excerpt,
+      image: values.coverImage,
+      author: values.author,
+      datePublished: values.publishedAt || undefined,
     },
   };
 }

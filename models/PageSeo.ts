@@ -1,5 +1,14 @@
 import { Schema, model, models, type Model } from "mongoose";
-import { SeoSchema, FaqSchema, type ISeo, type IFaqItem } from "./shared";
+import {
+  SeoSchema,
+  FaqSchema,
+  BlockSchema,
+  StructuredDataSchema,
+  type ISeo,
+  type IFaqItem,
+  type IBlock,
+  type IStructuredData,
+} from "./shared";
 
 /**
  * PageSeo — editable SEO for the site's static, non-entity routes (homepage,
@@ -22,6 +31,9 @@ export interface IPageSeo {
   path: string;
   seo: ISeo;
   faqs?: IFaqItem[];
+  /** Ordered content blocks, rendered in the page's editorial slot. */
+  blocks?: IBlock[];
+  structuredData?: IStructuredData;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -33,6 +45,8 @@ const PageSeoSchema = new Schema<IPageSeo>(
     path: { type: String, required: true, trim: true },
     seo: { type: SeoSchema, default: () => ({}) },
     faqs: { type: [FaqSchema], default: undefined },
+    blocks: { type: [BlockSchema], default: undefined },
+    structuredData: { type: StructuredDataSchema, default: undefined },
   },
   { timestamps: true },
 );

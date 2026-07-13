@@ -18,7 +18,7 @@ import {
   getTopRatedProcessors,
   pickFeaturedCategories,
 } from "@/lib/public-data";
-import { organizationJsonLd, webSiteJsonLd, faqJsonLd } from "@/lib/seo";
+import { faqJsonLd } from "@/lib/seo";
 import { getPageSeo, pageSeoMetadata } from "@/lib/page-seo";
 import { FaqSection } from "@/components/public/FaqSection";
 import { formatCount } from "@/lib/utils";
@@ -106,19 +106,13 @@ export default async function HomePage() {
 
   return (
     <>
+      {/*
+        Organization + WebSite are NOT emitted here any more — `app/(public)/layout.tsx`
+        emits them as an @graph on every public page. Re-adding them here would
+        declare the same two entities twice on the homepage.
+      */}
       <JsonLd
-        data={[
-          organizationJsonLd({
-            name: settings?.siteName,
-            logo: settings?.logo,
-            sameAs: Object.values(settings?.socialLinks ?? {}).filter(
-              (v): v is string => typeof v === "string" && v.length > 0,
-            ),
-            email: settings?.contactEmail,
-          }),
-          webSiteJsonLd({ name: settings?.siteName }),
-          ...(pageSeo?.faqs && pageSeo.faqs.length > 0 ? [faqJsonLd(pageSeo.faqs)] : []),
-        ]}
+        data={pageSeo?.faqs && pageSeo.faqs.length > 0 ? [faqJsonLd(pageSeo.faqs)] : []}
       />
 
       {/* Hero */}

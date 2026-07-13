@@ -1,4 +1,19 @@
 import type { CategoryType } from "@/lib/enums";
+import type { EngineEntity } from "@/lib/engine";
+import type { CategoryEngineData } from "@/config/content-engine";
+import {
+  blankSeoValues,
+  blankStructuredDataValues,
+  toBlockFormValues,
+  toBlocksPayload,
+  toSeoFormValues,
+  toSeoPayload,
+  toStructuredDataFormValues,
+  toStructuredDataPayload,
+  type BlockFormValue,
+  type SeoFormValues,
+  type StructuredDataFormValues,
+} from "@/components/content/serialize";
 
 export interface FaqFormValue {
   question: string;
@@ -15,8 +30,10 @@ export interface CategoryFormValues {
   icon: string;
   displayOrder: string;
   isPublished: boolean;
-  seo: { metaTitle: string; metaDescription: string; ogImage: string; keywords: string };
+  seo: SeoFormValues;
   faqs: FaqFormValue[];
+  blocks: BlockFormValue[];
+  structuredData: StructuredDataFormValues;
 }
 
 export function blankCategoryValues(): CategoryFormValues {
@@ -29,13 +46,14 @@ export function blankCategoryValues(): CategoryFormValues {
     icon: "",
     displayOrder: "0",
     isPublished: false,
-    seo: { metaTitle: "", metaDescription: "", ogImage: "", keywords: "" },
+    seo: blankSeoValues(),
     faqs: [],
+    blocks: [],
+    structuredData: blankStructuredDataValues(),
   };
 }
 
 type LeanCategory = Record<string, unknown> & {
-  seo?: { metaTitle?: string; metaDescription?: string; ogImage?: string; keywords?: string[] };
   faqs?: { question?: string; answer?: string }[];
 };
 
@@ -51,13 +69,10 @@ export function toCategoryFormValues(doc: LeanCategory): CategoryFormValues {
     icon: str(doc.icon),
     displayOrder: str(doc.displayOrder ?? 0),
     isPublished: Boolean(doc.isPublished),
-    seo: {
-      metaTitle: str(doc.seo?.metaTitle),
-      metaDescription: str(doc.seo?.metaDescription),
-      ogImage: str(doc.seo?.ogImage),
-      keywords: (doc.seo?.keywords ?? []).join(", "),
-    },
+    seo: toSeoFormValues(doc.seo as never),
     faqs: (doc.faqs ?? []).map((f) => ({ question: str(f.question), answer: str(f.answer) })),
+    blocks: toBlockFormValues(doc.blocks as never),
+    structuredData: toStructuredDataFormValues(doc.structuredData as never),
   };
 }
 
@@ -73,18 +88,38 @@ export function toCategoryPayload(values: CategoryFormValues): Record<string, un
     icon: blankToUndef(values.icon),
     displayOrder: values.displayOrder, // coerced to int by the validator
     isPublished: values.isPublished,
-    seo: {
-      metaTitle: blankToUndef(values.seo.metaTitle),
-      metaDescription: blankToUndef(values.seo.metaDescription),
-      ogImage: blankToUndef(values.seo.ogImage),
-      // Comma-separated string → string[] (or undefined); the validator also splits.
-      keywords: values.seo.keywords
-        .split(",")
-        .map((k) => k.trim())
-        .filter(Boolean),
-    },
+    seo: toSeoPayload(values.seo),
     // Empty rows are dropped by the validator (faqsSchema).
     faqs: values.faqs,
+    blocks: toBlocksPayload(values.blocks),
+    structuredData: toStructuredDataPayload(values.structuredData),
+  };
+}
+
+/**
+ * The EngineEntity the schema preview renders from. `items` is empty because a
+ * category's ItemList is built from the processors that match it at request time —
+ * the form has no way to know them, and inventing a fake list would make the
+ * preview lie. The panel shows the ItemList as "nothing to emit yet" instead.
+ */
+export function toCategoryEnginePreview(
+  values: CategoryFormValues,
+  savedSlug?: string,
+): EngineEntity<CategoryEngineData> {
+  const slug = values.slug.trim() || savedSlug || "";
+  return {
+    contentType: "category",
+    path: `/category/${slug}`,
+    seo: toSeoPayload(values.seo) as never,
+    faqs: values.faqs.filter((f) => f.question.trim() && f.answer.trim()),
+    blocks: values.blocks as never,
+    structuredData: toStructuredDataPayload(values.structuredData) as never,
+    data: {
+      name: values.name,
+      slug,
+      description: values.shortDescription,
+      items: [],
+    },
   };
 }
 

@@ -37,8 +37,13 @@ import {
   UnsavedChangesGuard,
   type UnsavedChangesGuardHandle,
 } from "@/components/UnsavedChangesGuard";
+import { BlockEditor } from "@/components/content/BlockEditor";
+import { SeoPanel } from "@/components/content/SeoPanel";
+import { StructuredDataPanel } from "@/components/content/StructuredDataPanel";
+import type { EngineContext } from "@/lib/engine";
 import {
   blankSeoValues,
+  toBlogEnginePreview,
   toSeoPayload,
   type SeoFormValues,
   type Visibility,
@@ -63,9 +68,14 @@ const serializeForCompare = (values: SeoFormValues) => JSON.stringify(toSeoPaylo
 export function SeoPostForm({
   postId,
   defaultValues,
+  engineCtx,
+  savedSlug,
 }: {
   postId?: string;
   defaultValues?: SeoFormValues;
+  /** Site identity for the schema preview — read from SiteSettings by the page. */
+  engineCtx: EngineContext;
+  savedSlug?: string;
 }) {
   const router = useRouter();
   const form = useForm<SeoFormValues>({
@@ -468,6 +478,30 @@ export function SeoPostForm({
 
                 <section className="space-y-4 rounded-lg border border-border bg-card p-5">
                   <div>
+                    <h2 className="text-h4">Content blocks</h2>
+                    <p className="mt-0.5 text-small text-muted-foreground">
+                      Optional sections rendered after the post body — an FAQ block also generates
+                      FAQ rich-result schema for you.
+                    </p>
+                  </div>
+                  <BlockEditor
+                    uploadEndpoint={SEOTEAM_UPLOAD}
+                    onPickFromLibrary={openPicker}
+                  />
+                </section>
+
+                <section className="space-y-4 rounded-lg border border-border bg-card p-5">
+                  <StructuredDataPanel
+                    contentType="blogPost"
+                    ctx={engineCtx}
+                    toEntity={(values) =>
+                      toBlogEnginePreview(values as unknown as SeoFormValues, savedSlug)
+                    }
+                  />
+                </section>
+
+                <section className="space-y-4 rounded-lg border border-border bg-card p-5">
+                  <div>
                     <h2 className="text-h4">Keyword backlinks</h2>
                     <p className="mt-0.5 text-small text-muted-foreground">
                       Each keyword is turned into a link to its URL where it appears in the post.
@@ -482,47 +516,13 @@ export function SeoPostForm({
                 </section>
 
                 <section className="space-y-5 rounded-lg border border-border bg-card p-5">
-                  <h2 className="text-h4">Search engine listing</h2>
-                  <GoogleSnippetPreview />
-                  <MetaCharField
-                    name="seo.metaTitle"
-                    label="Page title"
-                    min={50}
-                    max={60}
-                    placeholder="Falls back to the post title."
-                    description="Shown as the search-result title. Over ~70 chars may be truncated by Google."
-                  />
-                  <MetaCharField
-                    name="seo.metaDescription"
-                    label="Meta description"
-                    min={150}
-                    max={160}
-                    multiline
-                    rows={3}
-                    placeholder="Falls back to the excerpt."
-                    description="Shown as the search-result snippet. Over ~320 chars may be truncated."
-                  />
-                  <FormField
-                    control={form.control}
-                    name="seo.ogImage"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Social share image</FormLabel>
-                        <FormDescription>Defaults to the cover image when blank.</FormDescription>
-                        <FormControl>
-                          <ImageUploadField
-                            value={field.value || undefined}
-                            onChange={(url) => field.onChange(url ?? "")}
-                            folder="og"
-                            aspect="wide"
-                            uploadEndpoint={SEOTEAM_UPLOAD}
-                            onPickFromLibrary={openPicker}
-                            onImageCommitted={scheduleAutoSave}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                  <SeoPanel
+                    titleField="title"
+                    descriptionField="excerpt"
+                    imageField="coverImage"
+                    path={`/blog/${form.watch("slug") || savedSlug || "…"}`}
+                    uploadEndpoint={SEOTEAM_UPLOAD}
+                    onPickFromLibrary={openPicker}
                   />
                 </section>
               </TabsContent>

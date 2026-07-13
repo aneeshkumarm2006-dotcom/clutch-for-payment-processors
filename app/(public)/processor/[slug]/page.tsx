@@ -14,7 +14,12 @@ import {
   getProcessorBySlug,
   getReviewIndustries,
 } from "@/lib/public-data";
-import { buildMetadata, breadcrumbJsonLd, processorJsonLd, faqJsonLd } from "@/lib/seo";
+import { buildMetadata } from "@/lib/seo";
+import { buildStructuredData } from "@/lib/engine";
+import { toEngineContext } from "@/lib/engine/context";
+import { toProcessorEngineEntity } from "@/lib/serialize";
+import { getOrCreateSiteSettings } from "@/lib/settings";
+import { Blocks } from "@/components/public/Blocks";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { RichText } from "@/components/public/RichText";
 import { RatingStars } from "@/components/public/RatingStars";
@@ -63,12 +68,28 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
   const p = await getProcessorBySlug(params.slug);
   if (!p) notFound();
 
-  const [alternatives, initialReviews, reviewIndustries] = await Promise.all([
+  const [alternatives, initialReviews, reviewIndustries, settings] = await Promise.all([
     getAlternatives(p, 4),
     getApprovedReviews({ processorId: p.id, sort: "newest", page: 1 }),
     getReviewIndustries(p.id),
+    getOrCreateSiteSettings().catch(() => null),
   ]);
   const primaryCategory = p.categories[0];
+  const hasBlocks = Boolean(p.blocks?.length);
+  // An FAQ block renders its own FAQ section inside <Blocks>. Showing the legacy
+  // `faqs` section as well would give the reader the same questions twice — and the
+  // engine already resolved that conflict in the JSON-LD by letting the block win.
+  const hasFaqBlock = Boolean(p.blocks?.some((b) => b.type === "faq"));
+  const showLegacyFaqs = !hasFaqBlock && Boolean(p.faqs?.length);
+
+  // All of this page's JSON-LD — Product + AggregateRating + Review, BreadcrumbList,
+  // FAQPage — now comes from the engine, which reads `config/content-engine.ts`,
+  // applies any admin overrides, and drops nodes that would be invalid.
+  const { nodes } = buildStructuredData(
+    "processor",
+    toProcessorEngineEntity(p, initialReviews.items.slice(0, 5)),
+    toEngineContext(settings),
+  );
 
   // Which sections actually have content (drives the tabs + scrollspy).
   const hasFeatures =
@@ -79,7 +100,7 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
     ...(hasFeatures ? [{ id: "features", label: "Features" }] : []),
     { id: "reviews", label: "Reviews" },
     ...(alternatives.length > 0 ? [{ id: "alternatives", label: "Alternatives" }] : []),
-    ...(p.faqs && p.faqs.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
+    ...(showLegacyFaqs ? [{ id: "faq", label: "FAQ" }] : []),
   ];
 
   const regionLabel =
@@ -101,34 +122,7 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
 
   return (
     <div className="pb-24 lg:pb-0">
-      <JsonLd
-        data={[
-          breadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "Processors", path: "/processors" },
-            ...(primaryCategory
-              ? [{ name: primaryCategory.name, path: `/category/${primaryCategory.slug}` }]
-              : []),
-            { name: p.name, path: `/processor/${p.slug}` },
-          ]),
-          processorJsonLd({
-            name: p.name,
-            slug: p.slug,
-            description: p.shortDescription || p.tagline,
-            logo: p.logo,
-            ratingAverage: p.ratingAverage,
-            ratingCount: p.ratingCount,
-            reviews: initialReviews.items.slice(0, 5).map((r) => ({
-              author: r.reviewerName,
-              rating: r.overallRating,
-              title: r.title,
-              body: r.body,
-              datePublished: r.createdAt,
-            })),
-          }),
-          ...(p.faqs && p.faqs.length > 0 ? [faqJsonLd(p.faqs)] : []),
-        ]}
-      />
+      <JsonLd data={nodes} />
 
       {/* Header */}
       <section className="border-b">
@@ -240,7 +234,14 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
         {/* Overview */}
         <section id="overview" className="scroll-mt-32 border-b border-border py-10">
           <SectionTitle>Overview</SectionTitle>
-          {p.longDescription ? (
+          {/*
+            Blocks are opt-in and additive: a processor that has them renders them
+            here, and one that doesn't keeps rendering its legacy `longDescription`
+            exactly as before. Nothing about an untouched profile changes.
+          */}
+          {hasBlocks ? (
+            <Blocks blocks={p.blocks} className="mt-4 max-w-prose" />
+          ) : p.longDescription ? (
             <RichText html={p.longDescription} className="mt-4 max-w-prose" />
           ) : p.shortDescription ? (
             <p className="mt-4 max-w-prose text-body-lg text-muted-foreground">{p.shortDescription}</p>
@@ -396,7 +397,7 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
           </section>
         )}
 
-        {p.faqs && p.faqs.length > 0 && (
+        {showLegacyFaqs && (
           <section id="faq" className="scroll-mt-32 border-t border-border py-10">
             <FaqSection faqs={p.faqs} className="max-w-3xl" />
           </section>

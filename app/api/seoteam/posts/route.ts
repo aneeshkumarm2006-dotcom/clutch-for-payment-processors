@@ -5,7 +5,7 @@ import { seoBlogPostInput } from "@/lib/validators";
 import { handleApiError, json } from "@/lib/api";
 import { requireSeoTeam } from "@/lib/seoteam-guard";
 import { computeReadingTime, revalidateBlogPaths } from "@/lib/seoteam-posts";
-import { sanitizeBlogHtml } from "@/lib/sanitize-html";
+import { sanitizeBlogHtml, sanitizeBlocks } from "@/lib/sanitize-html";
 import { toSeoPostRow } from "@/lib/serialize";
 
 /**
@@ -44,6 +44,7 @@ export async function POST(req: Request) {
       content,
       slug,
       publishedAt,
+      blocks: sanitizeBlocks(data.blocks),
       readingTimeMinutes: computeReadingTime(content),
     });
 

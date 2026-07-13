@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { seoSchema, faqsSchema } from "./common";
+import { blocksSchema, structuredDataSchema } from "./blocks";
 
 /**
  * Writable PageSeo fields. `pageKey`/`path` identify the static route and are set
@@ -12,6 +13,8 @@ export const pageSeoInput = z.object({
   path: z.string().trim().min(1),
   seo: seoSchema,
   faqs: faqsSchema,
+  blocks: blocksSchema,
+  structuredData: structuredDataSchema,
 });
 
 export const pageSeoUpdate = pageSeoInput.partial();

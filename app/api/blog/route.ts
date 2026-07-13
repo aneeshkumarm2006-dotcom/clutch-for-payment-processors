@@ -4,6 +4,7 @@ import { ensureUniqueSlug } from "@/models/slug";
 import { blogPostInput } from "@/lib/validators";
 import { getAdminSession, handleApiError, json, requireAdmin } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
+import { sanitizeBlocks } from "@/lib/sanitize-html";
 import { toAdminBlogData, toBlogCardData } from "@/lib/serialize";
 
 /**
@@ -47,7 +48,12 @@ export async function POST(req: Request) {
     const publishedAt =
       data.status === "published" && !data.publishedAt ? new Date() : data.publishedAt;
 
-    const created = await BlogPost.create({ ...data, slug, publishedAt });
+    const created = await BlogPost.create({
+      ...data,
+      slug,
+      publishedAt,
+      blocks: sanitizeBlocks(data.blocks),
+    });
 
     void logAudit({
       actor: session.user.id,

@@ -6,6 +6,8 @@ import { SUB_RATING_KEYS } from "@/lib/enums";
 import { ProcessorForm, type ProcessorRatings } from "@/components/admin/processors/ProcessorForm";
 import { toProcessorFormValues } from "@/components/admin/processors/serialize";
 import type { CategoryOption } from "@/components/admin/fields/CategoryMultiSelect";
+import { getOrCreateSiteSettings } from "@/lib/settings";
+import { toEngineContext } from "@/lib/engine/context";
 
 /** Edit an existing processor (PRD §10.3). */
 export const dynamic = "force-dynamic";
@@ -14,9 +16,10 @@ export default async function EditProcessorPage({ params }: { params: { id: stri
   if (!isValidObjectId(params.id)) notFound();
 
   await connectToDatabase();
-  const [doc, categories] = await Promise.all([
+  const [doc, categories, settings] = await Promise.all([
     Processor.findById(params.id).lean(),
-    Category.find().sort({ name: 1 }).select("name").lean(),
+    Category.find().sort({ name: 1 }).select("name slug").lean(),
+    getOrCreateSiteSettings().catch(() => null),
   ]);
 
   if (!doc) notFound();
@@ -24,6 +27,7 @@ export default async function EditProcessorPage({ params }: { params: { id: stri
   const categoryOptions: CategoryOption[] = categories.map((c) => ({
     id: String(c._id),
     name: c.name,
+    slug: c.slug,
   }));
 
   const defaultValues = toProcessorFormValues(doc);
@@ -46,6 +50,8 @@ export default async function EditProcessorPage({ params }: { params: { id: stri
         defaultValues={defaultValues}
         categories={categoryOptions}
         ratings={ratings}
+        savedSlug={doc.slug}
+        engineCtx={toEngineContext(settings)}
       />
     </div>
   );

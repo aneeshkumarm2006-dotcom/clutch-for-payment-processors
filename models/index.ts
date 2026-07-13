@@ -30,4 +30,9 @@ export {
   type IPageSeo,
   type PageSeoKey,
 } from "./PageSeo";
-export { type ISeo, type IFaqItem } from "./shared";
+export {
+  type ISeo,
+  type IFaqItem,
+  type IBlock,
+  type IStructuredData,
+} from "./shared";

@@ -19,7 +19,16 @@ import {
   type PciLevel,
   type PricingModel,
 } from "@/lib/enums";
-import { SeoSchema, FaqSchema, type ISeo, type IFaqItem } from "./shared";
+import {
+  SeoSchema,
+  FaqSchema,
+  BlockSchema,
+  StructuredDataSchema,
+  type ISeo,
+  type IFaqItem,
+  type IBlock,
+  type IStructuredData,
+} from "./shared";
 import { autoSlugFrom } from "./slug";
 
 /**
@@ -120,6 +129,9 @@ export interface IProcessor {
   // SEO
   seo: ISeo;
   faqs?: IFaqItem[];
+  /** Ordered content blocks. When non-empty these render INSTEAD of `longDescription`. */
+  blocks?: IBlock[];
+  structuredData?: IStructuredData;
 
   createdAt: Date;
   updatedAt: Date;
@@ -217,6 +229,8 @@ const ProcessorSchema = new Schema<IProcessor>(
 
     seo: { type: SeoSchema, default: () => ({}) },
     faqs: { type: [FaqSchema], default: undefined },
+    blocks: { type: [BlockSchema], default: undefined },
+    structuredData: { type: StructuredDataSchema, default: undefined },
   },
   { timestamps: true },
 );

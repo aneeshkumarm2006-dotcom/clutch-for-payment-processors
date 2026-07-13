@@ -1,4 +1,19 @@
 import type { BlogContentWidth, BlogCoverLayout, BlogStatus } from "@/lib/enums";
+import type { EngineEntity } from "@/lib/engine";
+import type { BlogPostEngineData } from "@/config/content-engine";
+import {
+  blankSeoValues,
+  blankStructuredDataValues,
+  toBlockFormValues,
+  toBlocksPayload,
+  toSeoFormValues,
+  toSeoPayload,
+  toStructuredDataFormValues,
+  toStructuredDataPayload,
+  type BlockFormValue,
+  type SeoFormValues,
+  type StructuredDataFormValues,
+} from "@/components/content/serialize";
 
 /**
  * Form ↔ model serialization for the BlogForm (TODO §6.1 / PRD §10.8).
@@ -21,7 +36,9 @@ export interface BlogFormValues {
   publishedAt: string;
   contentWidth: BlogContentWidth;
   coverLayout: BlogCoverLayout;
-  seo: { metaTitle: string; metaDescription: string; ogImage: string };
+  seo: SeoFormValues;
+  blocks: BlockFormValue[];
+  structuredData: StructuredDataFormValues;
 }
 
 export function blankBlogValues(): BlogFormValues {
@@ -38,13 +55,13 @@ export function blankBlogValues(): BlogFormValues {
     publishedAt: "",
     contentWidth: "standard",
     coverLayout: "standard",
-    seo: { metaTitle: "", metaDescription: "", ogImage: "" },
+    seo: blankSeoValues(),
+    blocks: [],
+    structuredData: blankStructuredDataValues(),
   };
 }
 
-type LeanBlog = Record<string, unknown> & {
-  seo?: { metaTitle?: string; metaDescription?: string; ogImage?: string };
-};
+type LeanBlog = Record<string, unknown>;
 
 const str = (v: unknown) => (v == null ? "" : String(v));
 
@@ -72,11 +89,9 @@ export function toBlogFormValues(doc: LeanBlog): BlogFormValues {
     publishedAt: toDateInput(doc.publishedAt),
     contentWidth: doc.contentWidth === "wide" ? "wide" : "standard",
     coverLayout: doc.coverLayout === "wide" ? "wide" : "standard",
-    seo: {
-      metaTitle: str(doc.seo?.metaTitle),
-      metaDescription: str(doc.seo?.metaDescription),
-      ogImage: str(doc.seo?.ogImage),
-    },
+    seo: toSeoFormValues(doc.seo as never),
+    blocks: toBlockFormValues(doc.blocks as never),
+    structuredData: toStructuredDataFormValues(doc.structuredData as never),
   };
 }
 
@@ -98,10 +113,34 @@ export function toBlogPayload(values: BlogFormValues, status: BlogStatus): Recor
     publishedAt: blankToUndef(values.publishedAt),
     contentWidth: values.contentWidth,
     coverLayout: values.coverLayout,
-    seo: {
-      metaTitle: blankToUndef(values.seo.metaTitle),
-      metaDescription: blankToUndef(values.seo.metaDescription),
-      ogImage: blankToUndef(values.seo.ogImage),
+    seo: toSeoPayload(values.seo),
+    // This form mounts <BlockEditor>, so it states blocks explicitly. The /seoteam
+    // editor writes the same document — `PRESERVE_ON_OMIT` stops either one from
+    // deleting fields the other owns.
+    blocks: toBlocksPayload(values.blocks),
+    structuredData: toStructuredDataPayload(values.structuredData),
+  };
+}
+
+/** The EngineEntity the /admin blog schema preview renders from. */
+export function toBlogEnginePreview(
+  values: BlogFormValues,
+  savedSlug?: string,
+): EngineEntity<BlogPostEngineData> {
+  const slug = values.slug.trim() || savedSlug || "";
+  return {
+    contentType: "blogPost",
+    path: `/blog/${slug}`,
+    seo: toSeoPayload(values.seo) as never,
+    blocks: values.blocks as never,
+    structuredData: toStructuredDataPayload(values.structuredData) as never,
+    data: {
+      title: values.title,
+      slug,
+      description: values.excerpt,
+      image: values.coverImage,
+      author: values.author,
+      datePublished: values.publishedAt || undefined,
     },
   };
 }

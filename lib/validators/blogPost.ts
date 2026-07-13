@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { BLOG_CONTENT_WIDTHS, BLOG_COVER_LAYOUTS, BLOG_STATUSES } from "@/lib/enums";
 import { objectIdString, optionalUrl, seoSchema, slugField } from "./common";
+import { blocksSchema, structuredDataSchema } from "./blocks";
 
 /** Writable BlogPost fields (PRD §8.6 / §10.8). */
 export const blogPostInput = z.object({
@@ -18,6 +19,8 @@ export const blogPostInput = z.object({
   contentWidth: z.enum(BLOG_CONTENT_WIDTHS).default("standard"),
   coverLayout: z.enum(BLOG_COVER_LAYOUTS).default("standard"),
   seo: seoSchema,
+  blocks: blocksSchema,
+  structuredData: structuredDataSchema,
 });
 
 export const blogPostUpdate = blogPostInput.partial();

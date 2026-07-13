@@ -22,6 +22,38 @@ export function absoluteUrl(path = "/"): string {
   return new URL(path.startsWith("/") ? path : `/${path}`, SITE_URL).toString();
 }
 
+/**
+ * Routes the site force-noindexes, by prefix. An admin must not be able to make
+ * these indexable from a PageSeo record: `/search` and `/compare` accept arbitrary
+ * query strings, so indexing them invites unbounded near-duplicate URLs, and
+ * `/write-review` is a form. Applied AFTER the entity `seo` block, so it wins.
+ */
+export const NOINDEX_ROUTES: readonly string[] = ["/search", "/write-review", "/compare"];
+
+const isNoindexRoute = (path: string) =>
+  NOINDEX_ROUTES.some((p) => path === p || path.startsWith(`${p}/`) || path.startsWith(`${p}?`));
+
+/**
+ * Honour an admin-set canonical only when it points at this site.
+ *
+ * A canonical URL pointing at another origin tells Google "the real version of
+ * this page lives over there" — it de-indexes the page that sets it. That is a
+ * catastrophic, hard-to-notice outcome to expose behind an editor text field, so
+ * a cross-origin value is ignored rather than trusted.
+ */
+function safeCanonical(candidate: string | undefined, fallbackPath: string): string {
+  const fallback = absoluteUrl(fallbackPath);
+  const raw = candidate?.trim();
+  if (!raw) return fallback;
+  try {
+    const url = new URL(raw, SITE_URL);
+    if (url.origin !== new URL(SITE_URL).origin) return fallback;
+    return url.toString();
+  } catch {
+    return fallback;
+  }
+}
+
 interface BuildMetadataArgs {
   /** Page title — the brand suffix is appended via the layout template unless `absoluteTitle`. */
   title: string;
@@ -38,9 +70,18 @@ interface BuildMetadataArgs {
   ogType?: "website" | "article" | "profile";
   /** Optional `<meta name="keywords">` terms. */
   keywords?: string[];
+  /** Page-level robots, e.g. a form page forcing noindex. Beats the entity `seo` block. */
+  robots?: { index?: boolean; follow?: boolean };
+  /** Page-level canonical override, e.g. `/compare` pointing at its pretty path. */
+  canonicalPath?: string;
 }
 
-/** Build per-page `Metadata` from page defaults + an optional entity `seo` override. */
+/**
+ * Build per-page `Metadata` from page defaults + an optional entity `seo` override.
+ *
+ * Precedence, strongest first:
+ *   system noindex (NOINDEX_ROUTES) → page-level args → entity `seo` → page copy
+ */
 export function buildMetadata({
   title,
   description,
@@ -50,26 +91,56 @@ export function buildMetadata({
   absoluteTitle,
   ogType = "website",
   keywords,
+  robots,
+  canonicalPath,
 }: BuildMetadataArgs): Metadata {
   const customTitle = seo?.metaTitle?.trim();
   const metaTitle = customTitle || title;
   const metaDescription = seo?.metaDescription?.trim() || description;
   const ogImage = seo?.ogImage?.trim() || image;
-  const canonical = absoluteUrl(path);
+  const canonical = safeCanonical(seo?.canonicalUrl, canonicalPath ?? path);
 
   // A hand-written SEO meta title is authoritative: render it verbatim (no
   // ` · PayCompare` template suffix). Only auto/fallback page titles get the
   // brand template. `absoluteTitle` (homepage) forces verbatim regardless.
   const useAbsolute = absoluteTitle || Boolean(customTitle);
 
+  // Social headlines are scoped strictly to OG/Twitter and never feed `metaTitle`.
+  // If `ogTitle` leaked into it, `useAbsolute` above would flip to true and the
+  // page would silently lose its brand suffix in search results.
+  const socialTitle = seo?.ogTitle?.trim() || metaTitle;
+  const socialDescription = seo?.ogDescription?.trim() || metaDescription;
+
+  // Robots is a TRI-STATE, and getting this wrong de-indexes the site.
+  // `robotsIndex` is `undefined` on every document that predates this field —
+  // i.e. all of them — so `undefined` MUST mean "emit no robots directive at all",
+  // never `Boolean(undefined) === false`. We only speak when we have something to say.
+  const forced = isNoindexRoute(canonicalPath ?? path)
+    ? { index: false, follow: true }
+    : undefined;
+  const resolvedRobots = forced ?? {
+    index: robots?.index ?? seo?.robotsIndex,
+    follow: robots?.follow ?? seo?.robotsFollow,
+  };
+  const hasRobots =
+    resolvedRobots.index !== undefined || resolvedRobots.follow !== undefined;
+
   return {
     title: useAbsolute ? { absolute: metaTitle } : metaTitle,
     description: metaDescription,
     ...(keywords && keywords.length > 0 ? { keywords } : {}),
     alternates: { canonical },
+    ...(hasRobots
+      ? {
+          robots: {
+            ...(resolvedRobots.index !== undefined ? { index: resolvedRobots.index } : {}),
+            ...(resolvedRobots.follow !== undefined ? { follow: resolvedRobots.follow } : {}),
+          },
+        }
+      : {}),
     openGraph: {
-      title: metaTitle,
-      description: metaDescription,
+      title: socialTitle,
+      description: socialDescription,
       url: canonical,
       siteName: SITE_NAME,
       type: ogType,
@@ -78,9 +149,9 @@ export function buildMetadata({
     twitter: {
       // A site-wide default OG image (`app/opengraph-image.tsx`) always exists,
       // so every card can use the large variant even when the page sets no image.
-      card: "summary_large_image",
-      title: metaTitle,
-      description: metaDescription,
+      card: seo?.twitterCard || "summary_large_image",
+      title: socialTitle,
+      description: socialDescription,
       ...(ogImage ? { images: [absoluteUrl(ogImage)] } : {}),
     },
   };
@@ -91,6 +162,25 @@ export function buildMetadata({
 // ---------------------------------------------------------------------------
 
 type Jsonld = Record<string, unknown>;
+
+/**
+ * Stable, absolute `@id`s for the site-wide nodes emitted once by
+ * `app/(public)/layout.tsx`. Page-level nodes REFERENCE these rather than
+ * restating them — `articleJsonLd`, `serviceJsonLd`, and `definedTermJsonLd` each
+ * used to inline a complete duplicate Organization / DefinedTermSet, so a single
+ * page could assert the same entity two or three times with no way for a crawler
+ * to know they were the same thing.
+ *
+ * These MUST be absolute. A bare `"#organization"` resolves against whichever page
+ * it appears on, minting a different identifier per URL — which is precisely the
+ * problem an @id is supposed to solve.
+ */
+export const ORG_ID = `${SITE_URL}/#organization`;
+export const WEBSITE_ID = `${SITE_URL}/#website`;
+export const GLOSSARY_ID = `${SITE_URL}/glossary/#termset`;
+
+/** A reference to a node declared elsewhere in the page's graph. */
+const ref = (id: string) => ({ "@id": id });
 
 /**
  * Organization + WebSite(SearchAction) for the homepage (PRD §13). `sameAs`
@@ -264,11 +354,9 @@ export function articleJsonLd(opts: {
     ...(opts.description ? { description: opts.description } : {}),
     ...(opts.image ? { image: absoluteUrl(opts.image) } : {}),
     author: { "@type": "Person", name: opts.author },
-    publisher: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
+    // Reference the Organization the public layout already declares, rather than
+    // inlining a second copy of it on every post.
+    publisher: ref(ORG_ID),
     ...(opts.datePublished ? { datePublished: opts.datePublished } : {}),
     ...(opts.dateModified ? { dateModified: opts.dateModified } : {}),
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
@@ -310,7 +398,7 @@ export function serviceJsonLd(opts: {
     name: opts.name,
     description: opts.description,
     url: absoluteUrl(opts.path),
-    provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    provider: ref(ORG_ID),
     ...(opts.offers && opts.offers.length
       ? {
           hasOfferCatalog: {
@@ -345,11 +433,9 @@ export function definedTermJsonLd(opts: {
     description: opts.definition,
     ...(opts.aka && opts.aka.length ? { alternateName: opts.aka } : {}),
     url: absoluteUrl(`/glossary/${opts.slug}`),
-    inDefinedTermSet: {
-      "@type": "DefinedTermSet",
-      name: `${SITE_NAME} payments glossary`,
-      url: absoluteUrl("/glossary"),
-    },
+    // The glossary hub declares the full DefinedTermSet under this id; a term page
+    // points at it instead of inlining a second, competing copy.
+    inDefinedTermSet: ref(GLOSSARY_ID),
   };
 }
 
@@ -358,6 +444,7 @@ export function definedTermSetJsonLd(terms: { term: string; slug: string }[]): J
   return {
     "@context": "https://schema.org",
     "@type": "DefinedTermSet",
+    "@id": GLOSSARY_ID,
     name: `${SITE_NAME} payments glossary`,
     url: absoluteUrl("/glossary"),
     hasDefinedTerm: terms.map((t) => ({

@@ -22,6 +22,14 @@ import type {
   UserRole,
 } from "@/lib/enums";
 import type { AuditAction, AuditEntity } from "@/models/AuditLog";
+import type { IBlock, IFaqItem, ISeo, IStructuredData } from "@/models/shared";
+import type { EngineEntity } from "@/lib/engine/types";
+import type {
+  BlogPostEngineData,
+  CategoryEngineData,
+  PageEngineData,
+  ProcessorEngineData,
+} from "@/config/content-engine";
 
 /**
  * Server → client serialization for public components (Stage 3 / M3).
@@ -57,6 +65,77 @@ type Lean = Record<string, unknown>;
 
 const str = (v: unknown): string | undefined => (v == null || v === "" ? undefined : String(v));
 const strArr = (v: unknown): string[] => (Array.isArray(v) ? v.map((x) => String(x)) : []);
+/** Preserve a tri-state boolean — `undefined` must stay `undefined` (see `ISeo.robotsIndex`). */
+const bool = (v: unknown): boolean | undefined => (typeof v === "boolean" ? v : undefined);
+
+/**
+ * ⚠️ THE WHITELIST WALL ⚠️
+ *
+ * Public pages never see a Mongo document — everything is hand-mapped through
+ * this file first. That means a field added to a model but NOT added here is
+ * silently dropped before it ever reaches a page: the code compiles, the data
+ * saves, and the feature just quietly does nothing.
+ *
+ * These three mappers exist so the SEO block, blocks, and structured-data
+ * overrides are mapped in exactly ONE place. Extend `ISeo`? Add the field to
+ * `toSeoData` and every consumer picks it up. Do not hand-roll a `seo: {…}`
+ * literal at a call site — that is how `toBlogPostData` ended up dropping
+ * `keywords` for a year.
+ */
+export function toSeoData(raw: unknown): ISeo {
+  const s = (raw ?? {}) as Record<string, unknown>;
+  const keywords = strArr(s.keywords);
+  return {
+    metaTitle: str(s.metaTitle),
+    metaDescription: str(s.metaDescription),
+    ogImage: str(s.ogImage),
+    keywords: keywords.length ? keywords : undefined,
+    ogTitle: str(s.ogTitle),
+    ogDescription: str(s.ogDescription),
+    twitterCard: s.twitterCard === "summary" ? "summary" : s.twitterCard === "summary_large_image" ? "summary_large_image" : undefined,
+    canonicalUrl: str(s.canonicalUrl),
+    robotsIndex: bool(s.robotsIndex),
+    robotsFollow: bool(s.robotsFollow),
+    focusKeyword: str(s.focusKeyword),
+  };
+}
+
+export function toBlocks(raw: unknown): IBlock[] | undefined {
+  if (!Array.isArray(raw) || raw.length === 0) return undefined;
+  return (raw as Record<string, unknown>[])
+    .filter((b) => typeof b?.type === "string" && typeof b?.id === "string")
+    .map((b) => ({
+      type: String(b.type),
+      id: String(b.id),
+      // `data` is Mixed; it crosses the RSC boundary as-is. It was validated by
+      // the zod discriminated union on the way in — that is the only gate it got.
+      data: (b.data ?? {}) as Record<string, unknown>,
+    }));
+}
+
+export function toStructuredData(raw: unknown): IStructuredData | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const s = raw as Record<string, unknown>;
+  const disabled = strArr(s.disabledTypes);
+  const out: IStructuredData = {
+    disabledTypes: disabled.length ? disabled : undefined,
+    fieldOverrides: (s.fieldOverrides ?? undefined) as IStructuredData["fieldOverrides"],
+    customJsonLd: str(s.customJsonLd),
+    customMode: s.customMode === "replace" ? "replace" : "append",
+  };
+  const meaningful =
+    out.disabledTypes || out.fieldOverrides || out.customJsonLd;
+  return meaningful ? out : undefined;
+}
+
+/** Faq rows, with half-filled rows discarded. */
+export function toFaqs(raw: unknown): IFaqItem[] | undefined {
+  if (!Array.isArray(raw)) return undefined;
+  const items = (raw as Record<string, unknown>[])
+    .map((f) => ({ question: str(f.question) ?? "", answer: str(f.answer) ?? "" }))
+    .filter((f) => f.question !== "" && f.answer !== "");
+  return items.length ? items : undefined;
+}
 
 /** Flatten a lean Processor document into serializable card props. */
 export function toProcessorCardData(doc: Lean): ProcessorCardData {
@@ -148,8 +227,10 @@ export interface ProcessorDetailData extends ProcessorCardData {
   subRatings: SubRatingsData;
   topMentions: TopMentionData[];
   editorScore?: number;
-  seo: { metaTitle?: string; metaDescription?: string; ogImage?: string; keywords?: string[] };
-  faqs?: { question: string; answer: string }[];
+  seo: ISeo;
+  faqs?: IFaqItem[];
+  blocks?: IBlock[];
+  structuredData?: IStructuredData;
 }
 
 const FEE_KEYS: (keyof FeesData)[] = [
@@ -233,17 +314,10 @@ export function toProcessorDetailData(doc: Lean): ProcessorDetailData {
     subRatings,
     topMentions,
     editorScore: num(doc.editorScore),
-    seo: {
-      metaTitle: str(rawSeo.metaTitle),
-      metaDescription: str(rawSeo.metaDescription),
-      ogImage: str(rawSeo.ogImage),
-      keywords: strArr(rawSeo.keywords),
-    },
-    faqs: Array.isArray(doc.faqs)
-      ? (doc.faqs as Record<string, unknown>[])
-          .map((f) => ({ question: str(f.question) ?? "", answer: str(f.answer) ?? "" }))
-          .filter((f) => f.question !== "" && f.answer !== "")
-      : undefined,
+    seo: toSeoData(rawSeo),
+    faqs: toFaqs(doc.faqs),
+    blocks: toBlocks(doc.blocks),
+    structuredData: toStructuredData(doc.structuredData),
   };
 }
 
@@ -480,8 +554,14 @@ export interface BlogPostData extends BlogCardData {
   contentWidth: BlogContentWidth;
   /** Cover-image presentation (author layout control). */
   coverLayout: BlogCoverLayout;
-  seo: { metaTitle?: string; metaDescription?: string; ogImage?: string };
-  /** Keyword backlinks injected into the body on the public page. */
+  seo: ISeo;
+  blocks?: IBlock[];
+  structuredData?: IStructuredData;
+  /**
+   * Keyword BACKLINKS injected into the body — NOT the same thing as
+   * `seo.keywords` (meta keyword terms) or `seo.focusKeyword`. Three different
+   * fields, three different jobs; keep them straight when editing this file.
+   */
   keywords: KeywordLinkData[];
   /** Link only the first occurrence of each keyword vs every occurrence. */
   linkFirstOccurrenceOnly: boolean;
@@ -545,7 +625,6 @@ export function toBlogCardData(doc: Lean): BlogCardData {
 
 /** Full post (adds rendered HTML content + SEO block + keyword backlinks) for the post page. */
 export function toBlogPostData(doc: Lean): BlogPostData {
-  const rawSeo = (doc.seo ?? {}) as Record<string, unknown>;
   return {
     ...toBlogCardData(doc),
     content: String(doc.content ?? ""),
@@ -553,11 +632,9 @@ export function toBlogPostData(doc: Lean): BlogPostData {
     // Lean reads skip schema defaults on pre-existing rows — default missing → "standard".
     contentWidth: doc.contentWidth === "wide" ? "wide" : "standard",
     coverLayout: doc.coverLayout === "wide" ? "wide" : "standard",
-    seo: {
-      metaTitle: str(rawSeo.metaTitle),
-      metaDescription: str(rawSeo.metaDescription),
-      ogImage: str(rawSeo.ogImage),
-    },
+    seo: toSeoData(doc.seo),
+    blocks: toBlocks(doc.blocks),
+    structuredData: toStructuredData(doc.structuredData),
     keywords: toKeywordLinks(doc.keywords),
     // Lean reads skip schema defaults on pre-existing rows — default missing → true.
     linkFirstOccurrenceOnly: doc.linkFirstOccurrenceOnly !== false,
@@ -665,5 +742,118 @@ export function toAuditLogData(doc: Lean): AuditLogData {
     entityId: String(doc.entityId ?? ""),
     entityLabel: str(doc.entityLabel),
     createdAt: iso(doc.createdAt),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Structured-data engine adapters.
+//
+// The engine takes one normalized shape, `EngineEntity`. The public routes do
+// not: `/processor/[slug]` holds a ProcessorDetailData DTO, `/category/[slug]`
+// holds a RAW lean doc, `/blog/[slug]` holds a BlogPostData DTO. Rather than make
+// the engine understand three shapes (it can't — they don't share a type), each
+// gets an adapter here. This is the seam that keeps `lib/engine` generic.
+// ---------------------------------------------------------------------------
+
+/** Reviews as the Product node wants them. Sub-set of ReviewCardData. */
+export interface EngineReviewInput {
+  reviewerName: string;
+  overallRating: number;
+  title?: string;
+  body?: string;
+  createdAt?: string;
+}
+
+export function toProcessorEngineEntity(
+  p: ProcessorDetailData,
+  reviews: EngineReviewInput[] = [],
+): EngineEntity<ProcessorEngineData> {
+  const primary = p.categories[0];
+  return {
+    contentType: "processor",
+    path: `/processor/${p.slug}`,
+    seo: p.seo,
+    faqs: p.faqs,
+    blocks: p.blocks,
+    structuredData: p.structuredData,
+    data: {
+      name: p.name,
+      slug: p.slug,
+      description: p.shortDescription ?? p.tagline,
+      logo: p.logo,
+      website: p.affiliateUrl ?? p.website,
+      ratingAverage: p.ratingAverage,
+      ratingCount: p.ratingCount,
+      pricingSummary: p.pricingSummary ?? p.fees.onlineCardRate,
+      primaryCategory: primary ? { name: primary.name, slug: primary.slug } : undefined,
+      reviews: reviews.map((r) => ({
+        author: r.reviewerName,
+        rating: r.overallRating,
+        title: r.title,
+        body: r.body,
+        datePublished: r.createdAt,
+      })),
+    },
+  };
+}
+
+/** `/category/[slug]` hands us a raw lean doc, hence `Lean` rather than a DTO. */
+export function toCategoryEngineEntity(
+  doc: Lean,
+  items: { name: string; path: string }[],
+): EngineEntity<CategoryEngineData> {
+  return {
+    contentType: "category",
+    path: `/category/${String(doc.slug ?? "")}`,
+    seo: toSeoData(doc.seo),
+    faqs: toFaqs(doc.faqs),
+    blocks: toBlocks(doc.blocks),
+    structuredData: toStructuredData(doc.structuredData),
+    data: {
+      name: String(doc.name ?? ""),
+      slug: String(doc.slug ?? ""),
+      description: str(doc.shortDescription),
+      items,
+    },
+  };
+}
+
+export function toBlogEngineEntity(p: BlogPostData): EngineEntity<BlogPostEngineData> {
+  return {
+    contentType: "blogPost",
+    path: `/blog/${p.slug}`,
+    seo: p.seo,
+    // BlogPost has no `faqs` field by design — a post gets FAQ schema from an FAQ
+    // block, which the engine derives from `blocks`.
+    blocks: p.blocks,
+    structuredData: p.structuredData,
+    data: {
+      title: p.title,
+      slug: p.slug,
+      description: p.excerpt,
+      image: p.coverImage,
+      author: p.author,
+      datePublished: p.publishedAt,
+      dateModified: p.updatedAt,
+    },
+  };
+}
+
+/** PageSeo-backed static routes (`/`, `/processors`, `/about`, …). */
+export function toPageEngineEntity(opts: {
+  title: string;
+  path: string;
+  description?: string;
+  page: Lean | null;
+}): EngineEntity<PageEngineData> {
+  const doc = opts.page ?? {};
+  return {
+    contentType: "page",
+    path: opts.path,
+    seo: toSeoData(doc.seo),
+    faqs: toFaqs(doc.faqs),
+    blocks: toBlocks(doc.blocks),
+    structuredData: toStructuredData(doc.structuredData),
+    data: { title: opts.title, path: opts.path, description: opts.description },
   };
 }

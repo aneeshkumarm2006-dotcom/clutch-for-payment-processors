@@ -8,10 +8,12 @@ import {
   diffSetUnset,
   getAdminSession,
   handleApiError,
+  PRESERVE_ON_OMIT,
   json,
   requireAdmin,
 } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
+import { sanitizeBlocks } from "@/lib/sanitize-html";
 
 /**
  * /api/processors/[id] (PRD §12 / TODO §2.2).
@@ -65,8 +67,11 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Processor not found.");
 
     // Full replace: parse the complete record, then $set defined / $unset cleared.
+    // `blocks`/`structuredData` are preserved on omission rather than $unset — see
+    // PRESERVE_ON_OMIT. Block HTML is scrubbed on the way in, like the blog body.
     const { slug, ...rest } = processorInput.parse(await req.json());
-    const parts = diffSetUnset(rest);
+    rest.blocks = sanitizeBlocks(rest.blocks);
+    const parts = diffSetUnset(rest, { preserve: PRESERVE_ON_OMIT });
     parts.$set.slug = await resolveSlug(params.id, rest.name, slug);
 
     const updated = await Processor.findByIdAndUpdate(params.id, buildUpdateDoc(parts), {

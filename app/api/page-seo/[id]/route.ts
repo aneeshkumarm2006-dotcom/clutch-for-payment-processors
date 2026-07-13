@@ -8,8 +8,10 @@ import {
   handleApiError,
   json,
   requireAdmin,
+  PRESERVE_ON_OMIT,
 } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
+import { sanitizeBlocks } from "@/lib/sanitize-html";
 
 /**
  * /api/page-seo/[id] (PRD §13).
@@ -45,7 +47,8 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     const { pageKey: _pk, path: _path, ...editable } = pageSeoUpdate.parse(await req.json());
     void _pk;
     void _path;
-    const parts = diffSetUnset(editable);
+    editable.blocks = sanitizeBlocks(editable.blocks);
+    const parts = diffSetUnset(editable, { preserve: PRESERVE_ON_OMIT });
 
     const updated = await PageSeo.findByIdAndUpdate(params.id, buildUpdateDoc(parts), {
       new: true,

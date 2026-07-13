@@ -83,19 +83,46 @@ export function json<T>(data: T, status = 200) {
  * `$unset` (keys that came back `undefined`). Used by PUT full-replace handlers
  * so that clearing an optional field in the admin form actually removes it —
  * a sparse PATCH can't, because JSON drops `undefined` keys before they arrive.
+ *
+ * `preserve` opts a key out of the `undefined → $unset` rule, giving it three
+ * states instead of two:
+ *
+ *   absent / undefined → leave the stored value alone
+ *   explicit `[]`/`{}` → clear it
+ *   a value            → set it
+ *
+ * This matters because some documents have more than one full-replace writer.
+ * A BlogPost, for example, is PUT by both `/api/blog/[id]` (admin) and
+ * `/api/seoteam/posts/[id]` (SEO team). A field that only one of those two forms
+ * renders — `blocks`, `structuredData` — is simply absent from the other's
+ * payload, and without `preserve` that absence would `$unset` it: saving the post
+ * from one panel would silently delete work done in the other.
  */
-export function diffSetUnset(data: Record<string, unknown>): {
+export function diffSetUnset(
+  data: Record<string, unknown>,
+  opts: { preserve?: readonly string[] } = {},
+): {
   $set: Record<string, unknown>;
   $unset: Record<string, "">;
 } {
+  const preserve = new Set(opts.preserve ?? []);
   const $set: Record<string, unknown> = {};
   const $unset: Record<string, ""> = {};
   for (const [key, value] of Object.entries(data)) {
-    if (value === undefined) $unset[key] = "";
-    else $set[key] = value;
+    if (value === undefined) {
+      if (!preserve.has(key)) $unset[key] = "";
+    } else {
+      $set[key] = value;
+    }
   }
   return { $set, $unset };
 }
+
+/**
+ * Fields that must never be `$unset` just because a payload omitted them — they
+ * are edited on panels that not every form renders. Pass to `diffSetUnset`.
+ */
+export const PRESERVE_ON_OMIT = ["blocks", "structuredData"] as const;
 
 /** Build a Mongo update doc from a $set/$unset pair, omitting an empty $unset. */
 export function buildUpdateDoc(parts: {

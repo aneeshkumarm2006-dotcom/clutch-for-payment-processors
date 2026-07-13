@@ -4,6 +4,7 @@ import { ensureUniqueSlug } from "@/models/slug";
 import { processorInput } from "@/lib/validators";
 import { handleApiError, json, requireAdmin } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
+import { sanitizeBlocks } from "@/lib/sanitize-html";
 import { PAGE_SIZE, parseDirectoryParams, queryDirectory } from "@/lib/processors-query";
 
 /**
@@ -48,7 +49,11 @@ export async function POST(req: Request) {
     const data = processorInput.parse(await req.json());
     const slug = await ensureUniqueSlug(Processor, data.name, { explicitSlug: data.slug });
 
-    const created = await Processor.create({ ...data, slug });
+    const created = await Processor.create({
+      ...data,
+      slug,
+      blocks: sanitizeBlocks(data.blocks),
+    });
 
     void logAudit({
       actor: session.user.id,

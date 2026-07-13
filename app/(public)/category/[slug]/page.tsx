@@ -7,7 +7,12 @@ import { JsonLd } from "@/components/public/JsonLd";
 import { FaqSection } from "@/components/public/FaqSection";
 import { parseDirectoryParams, queryDirectory } from "@/lib/processors-query";
 import { getAllPublishedCategorySlugs, getCategoryBySlug } from "@/lib/public-data";
-import { buildMetadata, breadcrumbJsonLd, itemListJsonLd, faqJsonLd } from "@/lib/seo";
+import { buildMetadata } from "@/lib/seo";
+import { buildStructuredData } from "@/lib/engine";
+import { toEngineContext } from "@/lib/engine/context";
+import { toCategoryEngineEntity, toBlocks } from "@/lib/serialize";
+import { getOrCreateSiteSettings } from "@/lib/settings";
+import { Blocks } from "@/components/public/Blocks";
 
 /** Category directory (PRD §9.2). SSG/ISR + generateStaticParams; SSR when filtered. */
 export const revalidate = 1800;
@@ -50,22 +55,29 @@ export default async function CategoryPage({
   if (!category) notFound();
 
   const directoryParams = parseDirectoryParams(searchParams);
-  const result = await queryDirectory(directoryParams, { categoryId: String(category._id) });
+  const [result, settings] = await Promise.all([
+    queryDirectory(directoryParams, { categoryId: String(category._id) }),
+    getOrCreateSiteSettings().catch(() => null),
+  ]);
   const basePath = `/category/${category.slug}`;
+  const blocks = toBlocks(category.blocks);
+  const hasBlocks = Boolean(blocks?.length);
+  const hasFaqBlock = Boolean(blocks?.some((b) => b.type === "faq"));
+
+  // ItemList + BreadcrumbList + FAQPage, from the engine. Note the ItemList is
+  // built from the CURRENT page of results, matching the previous behaviour.
+  const { nodes } = buildStructuredData(
+    "category",
+    toCategoryEngineEntity(
+      category,
+      result.items.map((p) => ({ name: p.name, path: `/processor/${p.slug}` })),
+    ),
+    toEngineContext(settings),
+  );
 
   return (
     <div className="mx-auto max-w-content px-4 py-10 lg:px-6">
-      <JsonLd
-        data={[
-          breadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "Processors", path: "/processors" },
-            { name: category.name, path: basePath },
-          ]),
-          itemListJsonLd(result.items.map((p) => ({ name: p.name, path: `/processor/${p.slug}` }))),
-          ...(category.faqs && category.faqs.length > 0 ? [faqJsonLd(category.faqs)] : []),
-        ]}
-      />
+      <JsonLd data={nodes} />
 
       <Breadcrumb
         items={[
@@ -80,14 +92,25 @@ export default async function CategoryPage({
         {category.shortDescription && (
           <p className="mt-2 text-body-lg text-muted-foreground">{category.shortDescription}</p>
         )}
-        {category.introContent && <RichText html={category.introContent} className="mt-6" />}
+        {/* Opt-in: blocks supersede `introContent`, otherwise nothing changes. */}
+        {hasBlocks ? (
+          <Blocks blocks={blocks} className="mt-6" />
+        ) : (
+          category.introContent && <RichText html={category.introContent} className="mt-6" />
+        )}
       </header>
 
       <div className="mt-8">
         <DirectoryView result={result} basePath={basePath} searchParams={searchParams} />
       </div>
 
-      <FaqSection faqs={category.faqs} />
+      {/*
+        An FAQ block already renders its own FAQ section inside <Blocks> above.
+        Rendering the legacy `faqs` here as well would show the reader two FAQ
+        sections — and the engine has already resolved the same conflict in the
+        JSON-LD by letting the block win. Keep the page and the schema agreeing.
+      */}
+      {!hasFaqBlock && <FaqSection faqs={category.faqs} />}
     </div>
   );
 }

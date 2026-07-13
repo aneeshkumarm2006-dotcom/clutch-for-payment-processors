@@ -53,10 +53,15 @@ import {
   type CategoryOption,
 } from "@/components/admin/fields/CategoryMultiSelect";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
+import { BlockEditor } from "@/components/content/BlockEditor";
+import { SeoPanel } from "@/components/content/SeoPanel";
+import { StructuredDataPanel } from "@/components/content/StructuredDataPanel";
+import type { EngineContext } from "@/lib/engine";
 import {
   FEE_FIELDS,
   FIELD_TAB,
   blankProcessorValues,
+  toProcessorEnginePreview,
   toProcessorPayload,
   type ProcessorFormValues,
 } from "@/components/admin/processors/serialize";
@@ -68,7 +73,9 @@ const TABS = [
   { value: "capabilities", label: "Capabilities" },
   { value: "editorial", label: "Editorial" },
   { value: "merchandising", label: "Merchandising" },
+  { value: "content", label: "Content" },
   { value: "seo", label: "SEO" },
+  { value: "schema", label: "Schema" },
 ] as const;
 
 type FieldName = Path<ProcessorFormValues>;
@@ -87,11 +94,16 @@ export function ProcessorForm({
   defaultValues,
   categories,
   ratings,
+  engineCtx,
+  savedSlug,
 }: {
   processorId?: string;
   defaultValues?: ProcessorFormValues;
   categories: CategoryOption[];
   ratings?: ProcessorRatings;
+  /** Site identity for the schema preview — read from SiteSettings by the page. */
+  engineCtx: EngineContext;
+  savedSlug?: string;
 }) {
   const router = useRouter();
   const form = useForm<ProcessorFormValues>({
@@ -99,6 +111,27 @@ export function ProcessorForm({
   });
   const [activeTab, setActiveTab] = React.useState<string>("basics");
   const [saving, setSaving] = React.useState<false | "draft" | "publish">(false);
+
+  const watchedSlug = form.watch("slug") || savedSlug || "";
+  const watchedCategoryIds = form.watch("categories");
+
+  // The saved-side facts the schema preview can't get from the form: ratings are
+  // recomputed server-side from approved reviews, and the category name comes from
+  // a joined document, not the id the form holds.
+  const primaryCategoryId = watchedCategoryIds?.[0];
+  const primaryCategory = categories.find((c) => c.id === primaryCategoryId);
+  const saved = React.useMemo(
+    () => ({
+      slug: savedSlug,
+      ratingAverage: ratings?.ratingAverage,
+      ratingCount: ratings?.ratingCount,
+      primaryCategory:
+        primaryCategory?.slug
+          ? { name: primaryCategory.name, slug: primaryCategory.slug }
+          : undefined,
+    }),
+    [savedSlug, ratings, primaryCategory],
+  );
 
   const persistedPublished = (defaultValues ?? blankProcessorValues()).isPublished;
 
@@ -512,46 +545,40 @@ export function ProcessorForm({
             </div>
           </TabsContent>
 
-          {/* 7. SEO */}
+          {/* 7. Content — modular blocks */}
+          <TabsContent value="content" className="space-y-5">
+            <div>
+              <h2 className="text-h4">Page content</h2>
+              <p className="mt-0.5 text-small text-muted-foreground">
+                Compose the profile from reusable blocks. While this is empty the profile keeps
+                showing its existing long description — adding a block replaces it.
+              </p>
+            </div>
+            <BlockEditor />
+          </TabsContent>
+
+          {/* 8. SEO */}
           <TabsContent value="seo" className="space-y-5">
-            <TextField
-              name="seo.metaTitle"
-              label="Meta title"
-              placeholder="Falls back to the processor name + tagline."
+            <SeoPanel
+              titleField="name"
+              descriptionField="shortDescription"
+              path={`/processor/${watchedSlug || "…"}`}
+              imageField="logo"
             />
-            <TextareaField
-              name="seo.metaDescription"
-              label="Meta description"
-              rows={2}
-              placeholder="Falls back to the short description."
-            />
-            <TextField
-              name="seo.keywords"
-              label="Meta keywords"
-              placeholder="e.g. stripe merchant services, stripe fees, stripe pricing"
-              description="Comma-separated. Renders as <meta name=&quot;keywords&quot;>. Note: ignored by Google, used by some smaller engines/tools."
-            />
-            <FormField
-              control={form.control}
-              name="seo.ogImage"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>OG image</FormLabel>
-                  <FormControl>
-                    <ImageUploadField
-                      value={field.value || undefined}
-                      onChange={(url) => field.onChange(url ?? "")}
-                      folder="og"
-                      aspect="wide"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <div className="border-t border-border pt-5">
+            <div className="border-t border-border pt-6">
               <FaqField />
             </div>
+          </TabsContent>
+
+          {/* 9. Schema */}
+          <TabsContent value="schema" className="space-y-5">
+            <StructuredDataPanel
+              contentType="processor"
+              ctx={engineCtx}
+              toEntity={(values) =>
+                toProcessorEnginePreview(values as unknown as ProcessorFormValues, saved)
+              }
+            />
           </TabsContent>
         </Tabs>
 

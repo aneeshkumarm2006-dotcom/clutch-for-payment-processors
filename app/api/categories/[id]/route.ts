@@ -7,10 +7,12 @@ import {
   buildUpdateDoc,
   diffSetUnset,
   handleApiError,
+  PRESERVE_ON_OMIT,
   json,
   requireAdmin,
 } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
+import { sanitizeBlocks } from "@/lib/sanitize-html";
 
 /**
  * /api/categories/[id] (PRD §12 / TODO §2.3).
@@ -54,7 +56,8 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Category not found.");
 
     const { slug, ...rest } = categoryInput.parse(await req.json());
-    const parts = diffSetUnset(rest);
+    rest.blocks = sanitizeBlocks(rest.blocks);
+    const parts = diffSetUnset(rest, { preserve: PRESERVE_ON_OMIT });
     parts.$set.slug = await resolveSlug(params.id, rest.name, slug);
 
     const updated = await Category.findByIdAndUpdate(params.id, buildUpdateDoc(parts), {

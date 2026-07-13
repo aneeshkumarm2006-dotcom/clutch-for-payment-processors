@@ -17,29 +17,34 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { TextField, TextareaField } from "@/components/admin/fields/form-fields";
-import { ImageUploadField } from "@/components/admin/fields/ImageUploadField";
 import { FaqField } from "@/components/admin/fields/FaqField";
+import { BlockEditor } from "@/components/content/BlockEditor";
+import { SeoPanel } from "@/components/content/SeoPanel";
+import { StructuredDataPanel } from "@/components/content/StructuredDataPanel";
+import type { EngineContext } from "@/lib/engine";
 import {
+  toPageEnginePreview,
   toPageSeoPayload,
   type PageSeoFormValues,
 } from "@/components/admin/page-seo/serialize";
 
 /**
  * Editor for a single static-page SEO record. `pageKey`/`path` are identity
- * fields (read-only here); only the SEO block + FAQs are editable and PUT to
- * `/api/page-seo/[id]`.
+ * fields (read-only here); the SEO block, FAQs, blocks and schema overrides are
+ * editable and PUT to `/api/page-seo/[id]`.
  */
 export function PageSeoForm({
   pageId,
   title,
   path,
   defaultValues,
+  engineCtx,
 }: {
   pageId: string;
   title: string;
   path: string;
   defaultValues: PageSeoFormValues;
+  engineCtx: EngineContext;
 }) {
   const router = useRouter();
   const form = useForm<PageSeoFormValues>({ defaultValues });
@@ -98,47 +103,33 @@ export function PageSeoForm({
         </div>
 
         <div className="space-y-5 rounded-lg border border-border bg-card p-5">
-          <h2 className="text-h4">SEO</h2>
-          <TextField
-            name="seo.metaTitle"
-            label="Meta title"
-            placeholder="Falls back to the page's built-in title."
-          />
-          <TextareaField
-            name="seo.metaDescription"
-            label="Meta description"
-            rows={2}
-            placeholder="Falls back to the page's built-in description."
-          />
-          <TextField
-            name="seo.keywords"
-            label="Meta keywords"
-            placeholder="e.g. payment processor comparison, compare processors"
-            description="Comma-separated. Renders as <meta name=&quot;keywords&quot;>. Note: ignored by Google, used by some smaller engines/tools."
-          />
-          <FormField
-            control={form.control}
-            name="seo.ogImage"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>OG image</FormLabel>
-                <FormControl>
-                  <ImageUploadField
-                    value={field.value || undefined}
-                    onChange={(url) => field.onChange(url ?? "")}
-                    folder="og"
-                    aspect="wide"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <SeoPanel path={path} fallbackTitle={title} />
         </div>
 
         <div className="space-y-5 rounded-lg border border-border bg-card p-5">
           <h2 className="text-h4">FAQs</h2>
           <FaqField />
+        </div>
+
+        <div className="space-y-5 rounded-lg border border-border bg-card p-5">
+          <div>
+            <h2 className="text-h4">Page content</h2>
+            <p className="mt-0.5 text-small text-muted-foreground">
+              Optional blocks rendered in this page&rsquo;s editorial slot, below its built-in
+              sections.
+            </p>
+          </div>
+          <BlockEditor />
+        </div>
+
+        <div className="space-y-5 rounded-lg border border-border bg-card p-5">
+          <StructuredDataPanel
+            contentType="page"
+            ctx={engineCtx}
+            toEntity={(values) =>
+              toPageEnginePreview(values as unknown as PageSeoFormValues, { title, path })
+            }
+          />
         </div>
 
         <div className="flex items-center justify-end gap-3">

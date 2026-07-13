@@ -44,10 +44,16 @@ export async function pageSeoMetadata(opts: {
     getOrCreateSiteSettings().catch(() => null),
   ]);
 
+  // Only `ogImage` falls back to the global default. `metaTitle`/`metaDescription`
+  // deliberately do NOT: they are a single site-wide string, so falling back to
+  // them would give every PageSeo route the *same* <title> — and because
+  // `buildMetadata` treats any custom title as absolute, they'd also lose the
+  // "· PayCompare" suffix. The page's own hardcoded copy is the right fallback.
   const defaultSeo = settings?.defaultSeo;
   const mergedSeo: Partial<ISeo> = {
-    metaTitle: page?.seo?.metaTitle || defaultSeo?.metaTitle,
-    metaDescription: page?.seo?.metaDescription || defaultSeo?.metaDescription,
+    ...page?.seo,
+    metaTitle: page?.seo?.metaTitle,
+    metaDescription: page?.seo?.metaDescription,
     ogImage: page?.seo?.ogImage || defaultSeo?.ogImage,
   };
 

@@ -4,6 +4,7 @@ import { ensureUniqueSlug } from "@/models/slug";
 import { categoryInput } from "@/lib/validators";
 import { getAdminSession, handleApiError, json, requireAdmin } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
+import { sanitizeBlocks } from "@/lib/sanitize-html";
 
 /**
  * /api/categories (PRD §12 / TODO §2.3).
@@ -33,7 +34,11 @@ export async function POST(req: Request) {
     const data = categoryInput.parse(await req.json());
     const slug = await ensureUniqueSlug(Category, data.name, { explicitSlug: data.slug });
 
-    const created = await Category.create({ ...data, slug });
+    const created = await Category.create({
+      ...data,
+      slug,
+      blocks: sanitizeBlocks(data.blocks),
+    });
 
     void logAudit({
       actor: session.user.id,

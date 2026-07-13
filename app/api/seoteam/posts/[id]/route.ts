@@ -2,10 +2,17 @@ import { connectToDatabase } from "@/lib/db";
 import { BlogPost } from "@/models";
 import { ensureUniqueSlug } from "@/models/slug";
 import { seoBlogPostInput, seoBlogPostUpdate } from "@/lib/validators";
-import { ApiError, buildUpdateDoc, diffSetUnset, handleApiError, json } from "@/lib/api";
+import {
+  ApiError,
+  buildUpdateDoc,
+  diffSetUnset,
+  handleApiError,
+  json,
+  PRESERVE_ON_OMIT,
+} from "@/lib/api";
 import { requireSeoTeam } from "@/lib/seoteam-guard";
 import { computeReadingTime, revalidateBlogPaths } from "@/lib/seoteam-posts";
-import { sanitizeBlogHtml } from "@/lib/sanitize-html";
+import { sanitizeBlogHtml, sanitizeBlocks } from "@/lib/sanitize-html";
 
 /**
  * /api/seoteam/posts/[id] — read one (edit form), full replace (PUT), quick
@@ -52,7 +59,9 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
 
     const { slug, ...rest } = seoBlogPostInput.parse(await req.json());
     rest.content = sanitizeBlogHtml(rest.content);
-    const parts = diffSetUnset(rest);
+    rest.blocks = sanitizeBlocks(rest.blocks);
+    // The other writer for this same document is /api/blog/[id]. See PRESERVE_ON_OMIT.
+    const parts = diffSetUnset(rest, { preserve: PRESERVE_ON_OMIT });
     parts.$set.slug = await resolveSlug(params.id, rest.title, slug);
     parts.$set.readingTimeMinutes = computeReadingTime(rest.content);
 

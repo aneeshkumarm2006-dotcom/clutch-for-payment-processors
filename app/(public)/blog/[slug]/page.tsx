@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPublishedBlogSlugs, getBlogPostBySlug } from "@/lib/public-data";
-import { absoluteUrl, buildMetadata, breadcrumbJsonLd, articleJsonLd } from "@/lib/seo";
+import { absoluteUrl, buildMetadata } from "@/lib/seo";
+import { buildStructuredData } from "@/lib/engine";
+import { toEngineContext } from "@/lib/engine/context";
+import { toBlogEngineEntity } from "@/lib/serialize";
+import { getOrCreateSiteSettings } from "@/lib/settings";
 import { injectKeywordLinks } from "@/lib/keyword-links";
 import { BlogArticle } from "@/components/public/BlogArticle";
 import { ViewPing } from "@/components/public/ViewPing";
@@ -31,6 +35,9 @@ export async function generateMetadata({
     path: `/blog/${post.slug}`,
     image: post.coverImage,
     seo: post.seo,
+    // Previously omitted: posts stored `seo.keywords` in the admin but never
+    // rendered them, unlike the processor and category routes.
+    keywords: post.seo?.keywords,
     ogType: "article",
   });
 }
@@ -39,6 +46,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const data = await getBlogPostBySlug(params.slug);
   if (!data) notFound();
   const { post, relatedProcessors, morePosts } = data;
+  const settings = await getOrCreateSiteSettings().catch(() => null);
 
   const canonical = absoluteUrl(`/blog/${post.slug}`);
   // Turn keyword occurrences in the body into backlinks at render time (kept out
@@ -47,27 +55,18 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     firstOnly: post.linkFirstOccurrenceOnly,
   });
 
+  // BlogPosting + BreadcrumbList, plus an FAQPage if the post uses an FAQ block —
+  // a post has no `faqs` field of its own, so blocks are how it earns FAQ schema.
+  const { nodes } = buildStructuredData(
+    "blogPost",
+    toBlogEngineEntity(post),
+    toEngineContext(settings),
+  );
+
   return (
     <>
       <ViewPing id={post.id} />
-      <JsonLd
-        data={[
-          breadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "Blog", path: "/blog" },
-            { name: post.title, path: `/blog/${post.slug}` },
-          ]),
-          articleJsonLd({
-            title: post.title,
-            slug: post.slug,
-            description: post.excerpt,
-            image: post.coverImage,
-            author: post.author,
-            datePublished: post.publishedAt,
-            dateModified: post.updatedAt,
-          }),
-        ]}
-      />
+      <JsonLd data={nodes} />
       <BlogArticle
         post={post}
         relatedProcessors={relatedProcessors}
