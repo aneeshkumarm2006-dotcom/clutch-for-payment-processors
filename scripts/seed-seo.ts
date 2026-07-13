@@ -33,6 +33,8 @@ interface SeoBlock {
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
+  /** Editorial focus term. Not rendered — it records which keyword the page is built to win. */
+  focusKeyword?: string;
   faqs: Faq[];
 }
 
@@ -45,8 +47,21 @@ const PAGES: { pageKey: string; title: string; path: string; seo: SeoBlock }[] =
     seo: {
       metaTitle: "Payment Processing Guide | Compare Payment Processors & Fees",
       metaDescription:
-        "Payment Processing Guide compares fees, features, and verified reviews across top payment processors, helping you find the right merchant services partner fast.",
-      keywords: ["payment processing guide"],
+        "Compare payment processing platforms, merchant services providers, and credit card processing services on fees, features, and verified merchant reviews.",
+      // The homepage owns the broad "what is this site" head terms. The narrower
+      // terms deliberately live elsewhere so they don't cannibalise each other:
+      // "online payment processing" → /processors, "online payment gateway" →
+      // /glossary/payment-gateway, "payment processing fees" → the fees blog posts.
+      focusKeyword: "payment processing guide",
+      keywords: [
+        "payment processing guide",
+        "payment processing platform",
+        "payment processing software",
+        "merchant services provider",
+        "merchant service providers",
+        "credit card processing services",
+        "business payment solutions",
+      ],
       faqs: [
         {
           question: "What is a payment processing guide and why do I need one?",
@@ -54,9 +69,14 @@ const PAGES: { pageKey: string; title: string; path: string; seo: SeoBlock }[] =
             "It's an independent resource that breaks down fees, features, and processor options so you can compare merchant services without reading ten different pricing pages.",
         },
         {
-          question: "How do I compare payment processors before choosing one?",
+          question: "How do I compare credit card processing services before choosing one?",
           answer:
             "Look at the online rate, monthly fee, payout speed, and support for your sales channel, then check verified merchant reviews for real-world experience.",
+        },
+        {
+          question: "What should I look for in a merchant services provider?",
+          answer:
+            "Transparent pricing, no long lock-in, payment methods your customers actually use, and a payment processing platform that integrates with the tools you already run.",
         },
         {
           question: "Is PayCompare free to use?",
@@ -249,6 +269,7 @@ async function main() {
           "seo.metaTitle": page.seo.metaTitle,
           "seo.metaDescription": page.seo.metaDescription,
           "seo.keywords": page.seo.keywords,
+          ...(page.seo.focusKeyword ? { "seo.focusKeyword": page.seo.focusKeyword } : {}),
           faqs: page.seo.faqs,
         },
       },

@@ -33,18 +33,19 @@ export async function generateMetadata(): Promise<Metadata> {
     title:
       "Payment Processing Guide | Expert Payment Processing Guides, Gateways & Merchant Services",
     description:
-      "Payment Processing Guide is your trusted resource for payment processing guides, payment gateways, merchant accounts, transaction fees, payment security, fraud prevention, and digital payment solutions.",
+      "Compare payment processing platforms, merchant services providers, and credit card processing services on fees, features, and verified merchant reviews.",
+    // Kept in sync with the "home" PageSeo record (scripts/seed-seo.ts), which
+    // overrides this whenever it exists. Terms owned by other pages — "online
+    // payment processing" (/processors), "online payment gateway" (/glossary/
+    // payment-gateway), "payment processing fees" (fees blog) — stay off the homepage.
     keywords: [
-      "Payment Processing Guide",
-      "Payment Processing Platform",
-      "Payment Processing Software",
-      "Merchant Services Provider",
-      "Merchant Service Providers",
-      "Online Payment Processing",
-      "Credit Card Processing Services",
-      "Online Payment Gateway",
-      "Payment Processing Fees",
-      "Business Payment Solutions",
+      "payment processing guide",
+      "payment processing platform",
+      "payment processing software",
+      "merchant services provider",
+      "merchant service providers",
+      "credit card processing services",
+      "business payment solutions",
     ],
     path: "/",
     absoluteTitle: true,
