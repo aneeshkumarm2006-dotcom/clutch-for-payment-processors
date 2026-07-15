@@ -4,6 +4,7 @@ import * as React from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import {
   AlignLeft,
+  BookOpen,
   Code2,
   Columns3,
   Grid2x2,
@@ -18,10 +19,18 @@ import type { BlockType } from "@/lib/validators/blocks";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import { TagInput } from "@/components/admin/fields/TagInput";
 import { ImageUploadField } from "@/components/admin/fields/ImageUploadField";
+import { EnumSelectField, SwitchField } from "@/components/admin/fields/form-fields";
 
 /**
  * Block registry — the extensibility seam for modular content.
@@ -384,6 +393,125 @@ const htmlEmbed: BlockDef = {
   ),
 };
 
+const buyersGuide: BlockDef = {
+  type: "buyersGuide",
+  label: "Buyers guide",
+  description: "A long-form guide with a table of contents.",
+  icon: BookOpen,
+  schema: "Article",
+  blank: () => ({
+    title: "",
+    intro: "",
+    layout: "stacked",
+    showToc: true,
+    keyTakeaways: [],
+    sections: [{ heading: "", body: "" }],
+  }),
+  Edit: ({ name, uploadEndpoint, onPickFromLibrary }) => {
+    const { control } = useFormContext();
+    const richTextProps = {
+      ...(uploadEndpoint ? { imageUploadEndpoint: uploadEndpoint } : {}),
+      ...(onPickFromLibrary ? { onPickImageFromLibrary: onPickFromLibrary } : {}),
+    };
+    return (
+      <div className="space-y-3">
+        <Field
+          name={`${name}.data.title`}
+          label="Guide heading (optional)"
+          placeholder="Payment Processor Buyers Guide"
+        />
+
+        <FormField
+          control={control}
+          name={`${name}.data.intro`}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Intro (optional)</FormLabel>
+              <FormControl>
+                <RichTextEditor
+                  value={field.value ?? ""}
+                  onChange={field.onChange}
+                  placeholder="A short intro shown above the table of contents…"
+                  {...richTextProps}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          <EnumSelectField
+            name={`${name}.data.layout`}
+            label="Layout"
+            options={["stacked", "tabs"]}
+            allowNone={false}
+            getLabel={(v) => (v === "tabs" ? "Tabs (Capterra style)" : "Stacked (below directory)")}
+            description="Tabs add an “All products / Buyers guide” switch; stacked shows the guide below the directory."
+          />
+          <SwitchField
+            name={`${name}.data.showToc`}
+            label="Show table of contents"
+            description="A jump-link list built from your section headings."
+          />
+        </div>
+
+        <FormField
+          control={control}
+          name={`${name}.data.keyTakeaways`}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Key takeaways (optional)</FormLabel>
+              <FormControl>
+                <TagInput value={field.value ?? []} onChange={field.onChange} />
+              </FormControl>
+              <FormDescription>A short TL;DR bullet list shown at the top of the guide.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormLabel>Sections</FormLabel>
+        <Rows
+          name={`${name}.data.sections`}
+          addLabel="Add section"
+          blank={() => ({ heading: "", body: "" })}
+        >
+          {(row) => (
+            <>
+              <Field
+                name={`${row}.heading`}
+                placeholder='Section heading (e.g. "What is a payment processor?")'
+              />
+              <FormField
+                control={control}
+                name={`${row}.body`}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <RichTextEditor
+                        value={field.value ?? ""}
+                        onChange={field.onChange}
+                        placeholder="Section body…"
+                        {...richTextProps}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </>
+          )}
+        </Rows>
+        <p className="text-micro text-muted-foreground">
+          Tip: for “typical features” and “what to consider”, the Feature grid and Pros &amp; cons
+          blocks pair well with a guide.
+        </p>
+      </div>
+    );
+  },
+};
+
 export const BLOCK_REGISTRY: Record<BlockType, BlockDef> = {
   richtext,
   faq,
@@ -393,6 +521,7 @@ export const BLOCK_REGISTRY: Record<BlockType, BlockDef> = {
   cta,
   media,
   htmlEmbed,
+  buyersGuide,
 };
 
 export const BLOCK_LIST: BlockDef[] = Object.values(BLOCK_REGISTRY);

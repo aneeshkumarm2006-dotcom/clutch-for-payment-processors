@@ -125,6 +125,29 @@ const htmlEmbedData = z.object({
   html: z.string().max(20_000, "Embed is too large").min(1, "Paste an embed code"),
 });
 
+/**
+ * Schema-aware: feeds Article (on categories). A long-form editorial guide — an
+ * optional intro, TL;DR key-takeaway bullets, and slugged prose sections that the
+ * renderer turns into a Table of Contents. `intro` and each `sections[].body` are
+ * HTML and MUST be sanitized on save — see `sanitizeBlocks` in `lib/sanitize-html.ts`
+ * (the `.max()` here only bounds size, exactly like `htmlEmbedData`).
+ */
+const buyersGuideData = z.object({
+  title: z.string().trim().max(200).optional(),
+  intro: z.string().trim().max(20_000, "Intro is too large").optional(),
+  /** How the guide sits relative to the directory. `tabs` = Capterra-style toggle. */
+  layout: z.enum(["tabs", "stacked"]).default("stacked"),
+  showToc: z.boolean().optional().default(true),
+  keyTakeaways: stringList,
+  sections: rows(
+    z.object({
+      heading: z.string().trim().min(1, "Heading is required").max(200),
+      body: z.string().trim().min(1, "Add some content").max(20_000, "Section is too large"),
+    }),
+    { min: 1, max: 20, minMsg: "Add at least one section", maxMsg: "Keep it under 20 sections" },
+  ),
+});
+
 // --- The union --------------------------------------------------------------
 
 const block = <K extends string, D extends z.ZodTypeAny>(type: K, data: D) =>
@@ -144,6 +167,7 @@ export const blockSchema = z.discriminatedUnion("type", [
   block("cta", ctaData),
   block("media", mediaData),
   block("htmlEmbed", htmlEmbedData),
+  block("buyersGuide", buyersGuideData),
 ]);
 
 export type BlockInput = z.infer<typeof blockSchema>;
@@ -158,6 +182,7 @@ export const BLOCK_TYPES = [
   "cta",
   "media",
   "htmlEmbed",
+  "buyersGuide",
 ] as const satisfies readonly BlockType[];
 
 /**

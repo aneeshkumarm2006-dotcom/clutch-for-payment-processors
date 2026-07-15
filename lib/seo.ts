@@ -365,6 +365,33 @@ export function articleJsonLd(opts: {
 }
 
 /**
+ * Generic `Article` for an editorial guide that lives ON another page (e.g. a
+ * category's buyers guide) rather than at its own URL. Distinct from
+ * `articleJsonLd`, which emits `BlogPosting` and hardcodes the `/blog/…` URL —
+ * reusing that would put the wrong @type and a fabricated URL on a category page.
+ * `path` is the host page's path; the guide has no URL of its own.
+ */
+export function guideArticleJsonLd(opts: {
+  headline: string;
+  description?: string;
+  path: string;
+  dateModified?: string;
+}): Jsonld {
+  const url = absoluteUrl(opts.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: opts.headline,
+    ...(opts.description ? { description: opts.description } : {}),
+    author: ref(ORG_ID),
+    publisher: ref(ORG_ID),
+    ...(opts.dateModified ? { dateModified: opts.dateModified } : {}),
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    url,
+  };
+}
+
+/**
  * FAQPage from Q&A pairs (PRD §13). Wired into the facet, alternatives, glossary,
  * and "for-processors" pages so their answer blocks are eligible for the FAQ rich
  * result. Skip rendering when the list is empty (Google rejects an empty FAQPage).

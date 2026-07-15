@@ -70,9 +70,27 @@ export function sanitizeBlocks<T extends { type: string; data?: Record<string, u
   if (!blocks?.length) return blocks;
 
   return blocks.map((block) => {
-    if (block.type !== "richtext" && block.type !== "htmlEmbed") return block;
-    const html = block.data?.html;
-    if (typeof html !== "string") return block;
-    return { ...block, data: { ...block.data, html: sanitizeBlogHtml(html) } };
+    if (block.type === "richtext" || block.type === "htmlEmbed") {
+      const html = block.data?.html;
+      if (typeof html !== "string") return block;
+      return { ...block, data: { ...block.data, html: sanitizeBlogHtml(html) } };
+    }
+
+    // A buyers guide carries HTML in `data.intro` and every `data.sections[].body`;
+    // both reach the DOM via `dangerouslySetInnerHTML` and must be scrubbed here.
+    if (block.type === "buyersGuide") {
+      const data = block.data ?? {};
+      const intro = typeof data.intro === "string" ? sanitizeBlogHtml(data.intro) : data.intro;
+      const sections = Array.isArray(data.sections)
+        ? data.sections.map((s) =>
+            s && typeof s === "object" && typeof (s as { body?: unknown }).body === "string"
+              ? { ...s, body: sanitizeBlogHtml((s as { body: string }).body) }
+              : s,
+          )
+        : data.sections;
+      return { ...block, data: { ...data, intro, sections } };
+    }
+
+    return block;
   });
 }

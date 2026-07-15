@@ -215,6 +215,37 @@ export async function getPublishedProcessorOptions(): Promise<
   }
 }
 
+/**
+ * Sibling categories for internal linking (the buyers-guide "Related categories"
+ * rail): same `parent` when one is set, otherwise same `type`. Published, excludes
+ * self, ordered by displayOrder. Resilient → [].
+ */
+export async function getSiblingCategories(
+  category: { _id: unknown; parent?: unknown; type?: unknown },
+  limit = 6,
+): Promise<{ name: string; slug: string }[]> {
+  try {
+    await connectToDatabase();
+    const match: Record<string, unknown> = category.parent
+      ? { parent: category.parent }
+      : { type: category.type };
+    const docs = await Category.find({
+      ...match,
+      isPublished: true,
+      _id: { $ne: category._id },
+    })
+      .sort({ displayOrder: 1, name: 1 })
+      .limit(limit)
+      .select("name slug")
+      .lean();
+    return docs.map((d) => ({ name: String(d.name), slug: String(d.slug) }));
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error("[public-data] getSiblingCategories failed:", err);
+    return [];
+  }
+}
+
 export async function getAllPublishedCategorySlugs(): Promise<string[]> {
   try {
     await connectToDatabase();

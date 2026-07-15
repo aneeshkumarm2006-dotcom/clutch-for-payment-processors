@@ -3,6 +3,7 @@ import {
   articleJsonLd,
   breadcrumbJsonLd,
   faqJsonLd,
+  guideArticleJsonLd,
   itemListJsonLd,
   organizationJsonLd,
   processorJsonLd,
@@ -222,6 +223,26 @@ export const contentTypes = {
         label: "FAQ",
         required: ["mainEntity"],
         build: (e) => (e.faqs?.length ? faqJsonLd(e.faqs) : null),
+      },
+      {
+        type: "Article",
+        label: "Buyers guide",
+        required: ["headline"],
+        overridable: ["headline", "description"],
+        // Emitted only when the page carries a buyers-guide block. Distinct @type
+        // from ItemList/FAQPage/BreadcrumbList, so it coexists cleanly; admins can
+        // switch it off via `structuredData.disabledTypes`.
+        build: (e) => {
+          const guide = e.blocks?.find((b) => b.type === "buyersGuide");
+          const data = (guide?.data ?? {}) as { title?: unknown; sections?: unknown };
+          if (!guide || !Array.isArray(data.sections) || data.sections.length === 0) return null;
+          const title = typeof data.title === "string" && data.title.trim() ? data.title : "";
+          return guideArticleJsonLd({
+            headline: title || `${e.data.name} buyers guide`,
+            description: e.data.description,
+            path: e.path,
+          });
+        },
       },
     ],
   }),

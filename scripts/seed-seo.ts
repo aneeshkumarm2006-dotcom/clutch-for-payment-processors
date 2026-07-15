@@ -3,6 +3,7 @@ import { loadEnv } from "./loadEnv";
 // Populate process.env from .env.local BEFORE anything reads it.
 loadEnv();
 
+import { randomUUID } from "node:crypto";
 import mongoose from "mongoose";
 import { connectToDatabase } from "@/lib/db";
 import { Category, PageSeo, Processor } from "@/models";
@@ -29,6 +30,18 @@ interface Faq {
   question: string;
   answer: string;
 }
+interface GuideSection {
+  heading: string;
+  /** Simple, safe HTML (`<p>`/`<ul>`). NOTE: the seed write bypasses `sanitizeBlocks`. */
+  body: string;
+}
+interface BuyersGuideSeed {
+  title: string;
+  intro?: string;
+  layout?: "tabs" | "stacked";
+  keyTakeaways?: string[];
+  sections: GuideSection[];
+}
 interface SeoBlock {
   metaTitle: string;
   metaDescription: string;
@@ -36,6 +49,8 @@ interface SeoBlock {
   /** Editorial focus term. Not rendered — it records which keyword the page is built to win. */
   focusKeyword?: string;
   faqs: Faq[];
+  /** Optional Capterra-style buyers guide, seeded as a `buyersGuide` content block. */
+  buyersGuide?: BuyersGuideSeed;
 }
 
 // --- Static pages → PageSeo ------------------------------------------------
@@ -172,6 +187,39 @@ const CATEGORIES: Record<string, SeoBlock> = {
           "Not necessarily. Several providers on this list have no monthly minimum, which suits businesses with lower or seasonal transaction volume.",
       },
     ],
+    buyersGuide: {
+      title: "Small Business Payment Processing Buyers Guide",
+      layout: "tabs",
+      intro:
+        "<p>Choosing a payment processor as a small business comes down to a few things that actually move the needle: the real cost per sale, how fast you get paid, and whether you're locked into a contract. This guide walks through each so you can shortlist providers with confidence.</p>",
+      keyTakeaways: [
+        "Flat-rate pricing (e.g. 2.9% + 30¢) is simplest for lower-volume businesses.",
+        "Watch for monthly fees, PCI fees, and long-term contracts, not just the headline rate.",
+        "Faster payouts matter for cash flow — compare 1–2 day vs standard settlement.",
+      ],
+      sections: [
+        {
+          heading: "What is small business payment processing?",
+          body:
+            "<p>Payment processing is the service that moves money from your customer's card or bank to your account when they buy from you. For a small business, a processor bundles the merchant account, the gateway, and often the card reader or checkout page into one monthly relationship, so you can accept cards online and in person without stitching the pieces together yourself.</p>",
+        },
+        {
+          heading: "What are the benefits for a small business?",
+          body:
+            "<p>The right processor lowers the friction of getting paid and the cost of every sale. Concrete benefits include:</p><ul><li>Transparent, predictable per-transaction pricing.</li><li>No long-term contract, so you can switch if a better fit appears.</li><li>Faster payouts that smooth out cash flow.</li><li>Built-in tools like invoicing, tap-to-pay, and basic reporting.</li></ul>",
+        },
+        {
+          heading: "What should you consider before signing up?",
+          body:
+            "<p>Look past the advertised rate. Check the monthly fee, any PCI-compliance or statement fees, the payout schedule, and whether the provider supports the payment methods your customers actually use. If you sell both online and in person, confirm one account covers both channels.</p>",
+        },
+        {
+          heading: "Trends in small business payments",
+          body:
+            "<p>Tap-to-pay on phones has removed most of the hardware cost of accepting cards in person, and flat-rate pricing has become the default for new businesses. Instant or next-day payouts, once an enterprise feature, are now widely available and worth prioritising for tighter cash flow.</p>",
+        },
+      ],
+    },
   },
   international: {
     metaTitle: "International Payment Processing Companies | Payment Processing Guide",
@@ -198,6 +246,39 @@ const CATEGORIES: Record<string, SeoBlock> = {
           "Most add a currency conversion markup on cross-border transactions, so it's worth comparing that rate alongside the base processing fee.",
       },
     ],
+    buyersGuide: {
+      title: "International Payment Processing Buyers Guide",
+      layout: "stacked",
+      intro:
+        "<p>Selling across borders adds currencies, local payment methods, and FX costs to the usual processing decision. This guide covers what separates a genuinely global processor from a domestic one with an international label.</p>",
+      keyTakeaways: [
+        "Multi-currency settlement beats converting everything back to one currency.",
+        "Local payment methods (not just cards) drive conversion in many markets.",
+        "FX markup is a real cost — compare it alongside the base processing rate.",
+      ],
+      sections: [
+        {
+          heading: "What is international payment processing?",
+          body:
+            "<p>International payment processing lets you accept payments from customers in other countries and currencies, then settle the funds in a currency and account that works for your business. A capable provider handles currency conversion, cross-border card rules, and the local methods shoppers expect in each market.</p>",
+        },
+        {
+          heading: "What are the benefits of going global?",
+          body:
+            "<ul><li>Higher conversion by showing prices in the shopper's own currency.</li><li>Access to local methods like SEPA, iDEAL, or wallets that cards can't reach.</li><li>Consolidated reporting across regions in one dashboard.</li><li>Reduced failed payments from cross-border card declines.</li></ul>",
+        },
+        {
+          heading: "What to consider before buying",
+          body:
+            "<p>Compare the currency-conversion markup, which local methods and regions are actually supported, and where funds settle. Also check compliance coverage (such as SCA in Europe) and whether payouts can land in multiple currencies without a forced conversion.</p>",
+        },
+        {
+          heading: "Trends in cross-border payments",
+          body:
+            "<p>Local payment methods keep gaining share against cards worldwide, and real-time cross-border settlement is becoming common. Processors are increasingly competing on transparent FX rather than hiding conversion inside the transaction fee.</p>",
+        },
+      ],
+    },
   },
   ecommerce: {
     metaTitle: "Ecommerce Payment Processing Companies | Payment Processing Guide",
@@ -225,6 +306,39 @@ const CATEGORIES: Record<string, SeoBlock> = {
           "Several processors on this list offer native Shopify integrations; filter by the Shopify integration tag to see them side by side.",
       },
     ],
+    buyersGuide: {
+      title: "Ecommerce Payment Processing Buyers Guide",
+      layout: "stacked",
+      intro:
+        "<p>For online stores the processor is part of the checkout experience, not just a back-office cost. This guide covers the APIs, fraud tools, and conversion features that separate ecommerce-first providers from general processors.</p>",
+      keyTakeaways: [
+        "Checkout UX and hosted-page quality directly affect conversion.",
+        "Built-in fraud tooling reduces chargebacks without blocking good customers.",
+        "Native platform integrations (Shopify, WooCommerce) cut integration time.",
+      ],
+      sections: [
+        {
+          heading: "What is ecommerce payment processing?",
+          body:
+            "<p>Ecommerce payment processing handles card and wallet payments made on your website or app. Beyond moving the money, an ecommerce processor provides the checkout components — hosted pages, embeddable fields, or full APIs — plus the fraud and tokenization tools online sales depend on.</p>",
+        },
+        {
+          heading: "What are the benefits for an online store?",
+          body:
+            "<ul><li>Optimized checkout that reduces cart abandonment.</li><li>Support for wallets like Apple Pay and Google Pay out of the box.</li><li>Tokenized card storage for subscriptions and one-click reorders.</li><li>Fraud scoring that adapts to your order patterns.</li></ul>",
+        },
+        {
+          heading: "What to consider before buying",
+          body:
+            "<p>Weigh the integration effort against your platform: a native Shopify or WooCommerce plugin can save weeks versus a raw API. Confirm the fraud tools, chargeback handling, and whether recurring billing is supported natively if you sell subscriptions.</p>",
+        },
+        {
+          heading: "Trends in online checkout",
+          body:
+            "<p>One-click and wallet-based checkout are now table stakes, and network tokenization is improving authorization rates on repeat customers. Expect processors to keep bundling fraud, tax, and subscription features that used to require separate vendors.</p>",
+        },
+      ],
+    },
   },
 };
 
@@ -281,17 +395,34 @@ async function main() {
 
   // 2. Categories (by slug) — set only SEO fields; leave everything else intact.
   for (const [slug, seo] of Object.entries(CATEGORIES)) {
-    const res = await Category.updateOne(
-      { slug },
-      {
-        $set: {
-          "seo.metaTitle": seo.metaTitle,
-          "seo.metaDescription": seo.metaDescription,
-          "seo.keywords": seo.keywords,
-          faqs: seo.faqs,
+    const set: Record<string, unknown> = {
+      "seo.metaTitle": seo.metaTitle,
+      "seo.metaDescription": seo.metaDescription,
+      "seo.keywords": seo.keywords,
+      faqs: seo.faqs,
+    };
+    // Seed the buyers guide as a `buyersGuide` content block. NOTE: this
+    // full-replaces `blocks` on re-seed (same as `faqs` above), so admin-added
+    // blocks on these three seed categories are reset to this known state. The seed
+    // write also bypasses `sanitizeBlocks`, hence the plain, safe HTML in the guide.
+    if (seo.buyersGuide) {
+      const g = seo.buyersGuide;
+      set.blocks = [
+        {
+          type: "buyersGuide",
+          id: randomUUID(),
+          data: {
+            title: g.title,
+            ...(g.intro ? { intro: g.intro } : {}),
+            layout: g.layout ?? "stacked",
+            showToc: true,
+            keyTakeaways: g.keyTakeaways ?? [],
+            sections: g.sections,
+          },
         },
-      },
-    );
+      ];
+    }
+    const res = await Category.updateOne({ slug }, { $set: set });
     // eslint-disable-next-line no-console
     console.log(
       res.matchedCount > 0

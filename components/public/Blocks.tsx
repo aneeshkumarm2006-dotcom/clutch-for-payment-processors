@@ -5,6 +5,7 @@ import type { IBlock } from "@/models";
 import { cn } from "@/lib/utils";
 import { RichText } from "@/components/public/RichText";
 import { FaqSection } from "@/components/public/FaqSection";
+import { BuyersGuide } from "@/components/public/BuyersGuide";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -241,6 +242,27 @@ function BlockRenderer({ block }: { block: IBlock }) {
           />
         </BlockShell>
       );
+
+    case "buyersGuide": {
+      // The category page pulls this block out and renders it full-width with tabs
+      // + related links (see category/[slug]/page.tsx). This inline case covers the
+      // other content types (blog/page/processor), where it renders in-flow.
+      const sections = asArray<{ heading?: string; body?: string }>(data.sections)
+        .filter((s) => s?.heading && s?.body)
+        .map((s) => ({ heading: s.heading as string, body: s.body as string }));
+      if (!sections.length) return null;
+      return (
+        <BlockShell>
+          <BuyersGuide
+            title={asString(data.title) || undefined}
+            intro={asString(data.intro) || undefined}
+            showToc={data.showToc !== false}
+            keyTakeaways={asArray<string>(data.keyTakeaways)}
+            sections={sections}
+          />
+        </BlockShell>
+      );
+    }
 
     default:
       // An unknown type means the config removed a block that content still uses.
