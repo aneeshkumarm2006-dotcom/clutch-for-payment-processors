@@ -156,10 +156,15 @@ export function ProcessorCard({
             website={website}
             affiliateUrl={affiliateUrl}
             slug={slug}
+            ariaLabel={`Visit ${name} website`}
             variant="secondary"
             size="sm"
           />
-          <Link href={profileHref} className={cn(buttonVariants({ variant: "primary", size: "sm" }))}>
+          <Link
+            href={profileHref}
+            aria-label={`View ${name} profile`}
+            className={cn(buttonVariants({ variant: "primary", size: "sm" }))}
+          >
             View profile
           </Link>
         </div>

@@ -36,6 +36,7 @@ export function MethodIcons({
 
   return (
     <div
+      role="img"
       className={cn("flex items-center gap-1.5 text-ink-400", className)}
       aria-label={`Accepts ${methods.map(humanizeEnum).join(", ")}`}
     >

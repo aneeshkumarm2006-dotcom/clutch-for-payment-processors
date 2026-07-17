@@ -17,6 +17,7 @@ export function VisitWebsiteButton({
   affiliateUrl,
   slug,
   label = "Visit website",
+  ariaLabel,
   variant = "secondary",
   size = "md",
   showIcon = true,
@@ -26,6 +27,7 @@ export function VisitWebsiteButton({
   affiliateUrl?: string;
   slug: string;
   label?: string;
+  ariaLabel?: string;
   variant?: ButtonProps["variant"];
   size?: ButtonProps["size"];
   showIcon?: boolean;
@@ -39,6 +41,7 @@ export function VisitWebsiteButton({
       href={href}
       target="_blank"
       rel="sponsored noopener"
+      aria-label={ariaLabel}
       onClick={() => trackEvent("visit_website", { processor: slug, sponsored: Boolean(affiliateUrl) })}
       className={cn(buttonVariants({ variant, size }), className)}
     >

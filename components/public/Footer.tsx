@@ -59,7 +59,7 @@ export function Footer({
               {siteName}
               <span className="text-violet-400">.</span>
             </Link>
-            <p className="mt-3 max-w-xs text-small text-ink-500">
+            <p className="mt-3 max-w-xs text-small text-ink-400">
               An independent directory and review platform for payment processors.
             </p>
             {socials.length > 0 && (
@@ -109,7 +109,7 @@ export function Footer({
           </FooterColumn>
         </div>
 
-        <div className="mt-12 border-t border-ink-800 pt-6 text-small text-ink-500">
+        <div className="mt-12 border-t border-ink-800 pt-6 text-small text-ink-400">
           {settings.footerText?.trim()
             ? settings.footerText
             : `© ${year} ${siteName}. Independent payment processor reviews — always confirm current fees and terms with each provider.`}
@@ -122,7 +122,7 @@ export function Footer({
 function FooterColumn({ heading, children }: { heading: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="text-label uppercase text-ink-500">{heading}</h2>
+      <h2 className="text-label uppercase text-ink-400">{heading}</h2>
       <ul className="mt-4 space-y-2.5 text-small">{children}</ul>
     </div>
   );
