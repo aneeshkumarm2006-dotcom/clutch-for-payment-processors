@@ -237,6 +237,7 @@ export function RichTextEditor({
       attributes: {
         class: cn(
           "min-h-44 max-w-none px-3 py-2.5 text-[0.875rem] leading-relaxed text-foreground focus:outline-none",
+          "break-words [overflow-wrap:anywhere]",
           "[&_h2]:mb-2 [&_h2]:mt-4 [&_h2]:text-h3 [&_h2]:font-semibold [&_h2]:tracking-tightish",
           "[&_h3]:mb-1.5 [&_h3]:mt-3 [&_h3]:text-h4 [&_h3]:font-semibold",
           "[&_p]:my-2 [&_ul]:my-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:my-2 [&_ol]:list-decimal [&_ol]:pl-5",

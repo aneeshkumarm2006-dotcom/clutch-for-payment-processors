@@ -365,9 +365,9 @@ export function SeoPostForm({
           </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1fr_340px] lg:items-start">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
           {/* Editor column with Edit / Preview tabs */}
-          <div>
+          <div className="min-w-0">
             <Tabs defaultValue="edit">
               <TabsList>
                 <TabsTrigger value="edit">Edit</TabsTrigger>
@@ -534,7 +534,7 @@ export function SeoPostForm({
           </div>
 
           {/* Right rail: visibility + live SEO checks */}
-          <div className="space-y-4 lg:sticky lg:top-20">
+          <div className="min-w-0 space-y-4 lg:sticky lg:top-20">
             <VisibilityCard />
             <SeoCheckPanel />
           </div>
