@@ -332,7 +332,7 @@ export function RichTextEditor({
     // the overflow must live here on the wrapper — not on a content-only sibling.
     <div
       style={{ maxHeight }}
-      className="overflow-y-auto rounded-lg border border-input bg-card focus-within:border-accent focus-within:ring-2 focus-within:ring-accent-subtle"
+      className="overflow-y-auto overscroll-contain rounded-lg border border-input bg-card focus-within:border-accent focus-within:ring-2 focus-within:ring-accent-subtle"
     >
       <div className="sticky top-0 z-10 flex flex-wrap items-center gap-0.5 border-b border-border bg-muted p-1 shadow-sm">
         {TOOLS.map((tool) => {
