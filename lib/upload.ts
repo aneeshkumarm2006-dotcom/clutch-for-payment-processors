@@ -1,4 +1,5 @@
 import { ApiError } from "@/lib/api";
+import { processImageForUpload } from "@/lib/image-processing";
 
 /**
  * lib/upload.ts — one image-upload interface, provider-agnostic (PRD §6 / §10.3
@@ -121,9 +122,17 @@ export async function uploadImage(
   opts: { filename: string; contentType: string; folder?: string },
 ): Promise<UploadResult> {
   const folder = opts.folder?.replace(/[^a-z0-9/-]/gi, "") || "uploads";
-  const { base, ext } = slugifyName(opts.filename, opts.contentType);
   const unique = crypto.randomUUID().slice(0, 8);
-  const bytes = data instanceof Buffer ? data : Buffer.from(data);
+  const original = data instanceof Buffer ? data : Buffer.from(data);
+
+  // SEO / page-speed: convert to WebP + compress under ~300 KB before storing.
+  // Every uploader in the app (admin + blog panels) reaches storage through
+  // here, so optimizing at this one point covers them all. SVGs pass through.
+  const processed = await processImageForUpload(original, opts.contentType);
+  const bytes = processed.buffer;
+  const contentType = processed.contentType;
+  const { base } = slugifyName(opts.filename, opts.contentType);
+  const ext = processed.ext;
 
   // 1. Cloudinary (preferred when configured) — signed REST upload.
   const cfg = cloudinaryConfig();
@@ -138,7 +147,7 @@ export async function uploadImage(
     );
 
     const form = new FormData();
-    form.append("file", new Blob([bytes], { type: opts.contentType }));
+    form.append("file", new Blob([bytes], { type: contentType }));
     form.append("api_key", cfg.apiKey);
     form.append("timestamp", timestamp);
     form.append("folder", folder);
