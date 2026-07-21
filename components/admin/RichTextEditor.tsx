@@ -331,7 +331,13 @@ export function RichTextEditor({
     // toolbar below can be `position: sticky` and stay pinned while the body
     // scrolls under it. Sticky needs its scroll container to be an ancestor, so
     // the overflow must live here on the wrapper — not on a content-only sibling.
+    //
+    // `data-lenis-prevent` opts this region out of the site-wide Lenis smooth
+    // scroll (see components/SmoothScroll.tsx). Without it, Lenis hijacks the
+    // wheel and scrolls the whole page even when the cursor is inside the editor
+    // — so a long post's body would never scroll on its own.
     <div
+      data-lenis-prevent
       style={{ maxHeight }}
       className="overflow-y-auto overscroll-contain rounded-lg border border-input bg-card focus-within:border-accent focus-within:ring-2 focus-within:ring-accent-subtle"
     >
