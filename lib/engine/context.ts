@@ -24,5 +24,8 @@ export function toEngineContext(settings: ISiteSettings | null | undefined): Eng
     logo: settings?.logo,
     sameAs: sameAs.length ? sameAs : undefined,
     email: settings?.contactEmail,
+    // The global site description doubles as the Organization node's description.
+    // A per-page fallback for this would be wrong; this is the one true global.
+    description: settings?.defaultSeo?.metaDescription,
   };
 }

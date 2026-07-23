@@ -47,6 +47,8 @@ export interface EngineContext {
   logo?: string;
   sameAs?: string[];
   email?: string;
+  /** One-line site description → the Organization node's `description`. */
+  description?: string;
 }
 
 /**

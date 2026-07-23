@@ -47,6 +47,9 @@ import { BLOCK_TYPES } from "@/lib/validators/blocks";
 export const siteConfig = {
   /** Fallback only; SiteSettings.siteName wins when set. */
   name: "PayCompare",
+  /** Fallback only; SiteSettings.defaultSeo.metaDescription wins. Feeds Organization.description. */
+  description:
+    "An independent comparison guide for payment processors, merchant accounts, and payment processing fees.",
   /** Path to the site-wide default OG image (`app/opengraph-image.tsx` renders it). */
   defaultOgImage: "/opengraph-image",
   /** Drives the WebSite SearchAction (sitelinks search box). */
@@ -327,6 +330,7 @@ export function baseGraph(ctx: EngineContext): Jsonld {
           logo: ctx.logo,
           sameAs: ctx.sameAs,
           email: ctx.email,
+          description: ctx.description || siteConfig.description,
         }),
         "@id": orgId(ctx),
         "@context": undefined,

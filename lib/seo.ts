@@ -192,12 +192,14 @@ export function organizationJsonLd(opts: {
   logo?: string;
   sameAs?: string[];
   email?: string;
+  description?: string;
 }): Jsonld {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: opts.name || SITE_NAME,
     url: SITE_URL,
+    ...(opts.description?.trim() ? { description: opts.description.trim() } : {}),
     ...(opts.logo ? { logo: absoluteUrl(opts.logo) } : {}),
     ...(opts.sameAs && opts.sameAs.length ? { sameAs: opts.sameAs } : {}),
     ...(opts.email
