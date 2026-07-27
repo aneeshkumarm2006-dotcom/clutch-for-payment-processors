@@ -145,7 +145,7 @@ export function ReviewsTable({ rows }: { rows: AdminReviewData[] }) {
       key: "processor",
       header: "Processor",
       sortAccessor: (r) => r.processorName?.toLowerCase() ?? "",
-      cell: (r) => <span className="text-small">{r.processorName ?? "—"}</span>,
+      cell: (r) => <span className="text-small">{r.processorName ?? "N/A"}</span>,
     },
     {
       key: "overallRating",
@@ -398,7 +398,7 @@ export function ReviewsTable({ rows }: { rows: AdminReviewData[] }) {
             rows={3}
             value={rejectReason}
             onChange={(e) => setRejectReason(e.target.value)}
-            placeholder="Reason (optional) — e.g. spam, off-topic, unverifiable."
+            placeholder="Reason (optional), e.g. spam, off-topic, unverifiable."
           />
           <DialogFooter>
             <Button

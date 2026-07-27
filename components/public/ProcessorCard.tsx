@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
-import { cn, formatRating, orDash } from "@/lib/utils";
+import { cn, formatRating, orMissing } from "@/lib/utils";
 import { humanizeEnum } from "@/lib/labels";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -51,9 +51,9 @@ export function ProcessorCard({
   const extraChips = bestFor.length - chips.length;
 
   const stats: { value: string; label: string }[] = [
-    { value: orDash(onlineCardRate), label: "online rate" },
-    { value: orDash(monthlyFee), label: "monthly fee" },
-    { value: payoutTime ? humanizeEnum(payoutTime) : "—", label: "payout" },
+    { value: orMissing(onlineCardRate), label: "online rate" },
+    { value: orMissing(monthlyFee), label: "monthly fee" },
+    { value: payoutTime ? humanizeEnum(payoutTime) : "N/A", label: "payout" },
   ];
 
   return (

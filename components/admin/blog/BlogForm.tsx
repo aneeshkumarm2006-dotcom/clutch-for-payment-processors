@@ -177,7 +177,7 @@ export function BlogForm({
                     altId="coverImageAlt"
                     altValue={form.watch("coverImageAlt")}
                     onAltChange={(v) => form.setValue("coverImageAlt", v)}
-                    altPlaceholder="Alt text — describe the cover image for SEO & accessibility"
+                    altPlaceholder="Alt text: describe the cover image for SEO & accessibility"
                   />
                 </FormControl>
                 <FormMessage />

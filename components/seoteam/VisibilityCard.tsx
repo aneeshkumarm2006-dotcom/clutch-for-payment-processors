@@ -66,7 +66,7 @@ export function VisibilityCard() {
   const scheduledDate = publishedAt ? new Date(publishedAt) : null;
   const isFuture = mounted && scheduledDate ? scheduledDate.getTime() > Date.now() : true;
 
-  let hint = "Hidden — not shown on the blog.";
+  let hint = "Hidden. Not shown on the blog.";
   if (visibility === "visible") hint = "Live now on the blog.";
   else if (visibility === "scheduled") {
     hint =

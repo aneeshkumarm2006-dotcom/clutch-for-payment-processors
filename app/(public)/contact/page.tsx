@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Contact us",
     description:
-      "Get in touch with the Payment Processor Guide team — feedback, corrections to a profile, or partnership enquiries.",
+      "Get in touch with the Payment Processor Guide team about feedback, corrections to a profile, or partnership enquiries.",
     path: "/contact",
   });
 }

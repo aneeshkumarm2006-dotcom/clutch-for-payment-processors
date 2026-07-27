@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, CalendarDays, Check, CheckCircle2, MapPin, X } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { cn, orDash } from "@/lib/utils";
+import { cn, MISSING, orMissing } from "@/lib/utils";
 import { humanizeEnum } from "@/lib/labels";
 import {
   getAlternatives,
@@ -51,7 +51,7 @@ export async function generateMetadata({
   const p = await getProcessorBySlug(params.slug);
   if (!p) return { title: "Processor not found" };
   return buildMetadata({
-    title: `${p.name} review — pricing, fees & features`,
+    title: `${p.name} review | pricing, fees and features`,
     description:
       p.shortDescription ||
       p.tagline ||
@@ -107,14 +107,14 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
     p.supportedRegions.length > 0
       ? p.supportedRegions.slice(0, 2).join(", ") +
         (p.supportedRegions.length > 2 ? ` +${p.supportedRegions.length - 2}` : "")
-      : "—";
+      : MISSING;
 
   const statItems = [
-    { label: "Starting rate", value: orDash(p.fees.onlineCardRate) },
-    { label: "Monthly fee", value: orDash(p.fees.monthlyFee) },
-    { label: "Payout", value: p.payoutTime ? humanizeEnum(p.payoutTime) : "—" },
-    { label: "Contract", value: p.contractType ? humanizeEnum(p.contractType) : "—" },
-    { label: "PCI level", value: orDash(p.pciLevel) },
+    { label: "Starting rate", value: orMissing(p.fees.onlineCardRate) },
+    { label: "Monthly fee", value: orMissing(p.fees.monthlyFee) },
+    { label: "Payout", value: p.payoutTime ? humanizeEnum(p.payoutTime) : MISSING },
+    { label: "Contract", value: p.contractType ? humanizeEnum(p.contractType) : MISSING },
+    { label: "PCI level", value: orMissing(p.pciLevel) },
     { label: "Regions", value: regionLabel },
   ];
 
@@ -308,14 +308,14 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
                   value:
                     p.pricingModel.length > 0
                       ? p.pricingModel.map(humanizeEnum).join(", ")
-                      : "—",
+                      : MISSING,
                 },
-                { label: "Contract", value: p.contractType ? humanizeEnum(p.contractType) : "—" },
+                { label: "Contract", value: p.contractType ? humanizeEnum(p.contractType) : MISSING },
                 {
                   label: "Free trial",
-                  value: p.freeTrial === true ? "Yes" : p.freeTrial === false ? "No" : "—",
+                  value: p.freeTrial === true ? "Yes" : p.freeTrial === false ? "No" : MISSING,
                 },
-                { label: "Monthly minimum", value: orDash(p.fees.monthlyMinimum) },
+                { label: "Monthly minimum", value: orMissing(p.fees.monthlyMinimum) },
               ]}
             />
             <div>
@@ -342,9 +342,9 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
               <FactList
                 title="At a glance"
                 items={[
-                  { label: "Currencies", value: orDash(p.currencies) },
-                  { label: "Payout", value: p.payoutTime ? humanizeEnum(p.payoutTime) : "—" },
-                  { label: "PCI level", value: orDash(p.pciLevel) },
+                  { label: "Currencies", value: orMissing(p.currencies) },
+                  { label: "Payout", value: p.payoutTime ? humanizeEnum(p.payoutTime) : MISSING },
+                  { label: "PCI level", value: orMissing(p.pciLevel) },
                   { label: "High-risk friendly", value: p.highRiskFriendly ? "Yes" : "No" },
                 ]}
               />

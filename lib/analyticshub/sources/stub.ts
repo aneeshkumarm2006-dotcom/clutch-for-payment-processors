@@ -121,7 +121,7 @@ function leadsDetail(): DetailTable[] {
     ["Jordan Miles", "Northwind Coffee", "$50k-$250k", "get-matched", "2026-07-05"],
     ["Priya Raman", "Lumen Studio", "$10k-$50k", "quote", "2026-07-05"],
     ["Diego Alvarez", "Alto Fitness", "$250k-$1M", "get-matched", "2026-07-04"],
-    ["Sam Whitaker", "—", "<$10k", "contact", "2026-07-04"],
+    ["Sam Whitaker", "N/A", "<$10k", "contact", "2026-07-04"],
     ["Chen Wei", "Harbor Goods", "$1M+", "quote", "2026-07-03"],
   ];
   return [

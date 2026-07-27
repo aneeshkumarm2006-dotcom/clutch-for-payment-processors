@@ -16,7 +16,18 @@ export {
   type MediaSource,
 } from "./Media";
 export { User, type IUser } from "./User";
-export { SiteSettings, type ISiteSettings } from "./SiteSettings";
+export {
+  SiteSettings,
+  type ISiteSettings,
+  type IHomepage,
+  type IHomeHero,
+  type IHomeSection,
+  type IHomeStep,
+  type IHomeStepsSection,
+  type IHomeCtaBand,
+  type IHomeCtaCard,
+  type IHomeSimpleSection,
+} from "./SiteSettings";
 export {
   AuditLog,
   type IAuditLog,

@@ -20,7 +20,7 @@ import {
 } from "./common";
 import { blocksSchema, structuredDataSchema } from "./blocks";
 
-/** Structured fee table (PRD §8.1) — every field optional ("Varies"/"—" when blank). */
+/** Structured fee table (PRD §8.1) — every field optional ("Varies"/"N/A" when blank). */
 export const feesSchema = z
   .object({
     onlineCardRate: z.string().trim().optional(),

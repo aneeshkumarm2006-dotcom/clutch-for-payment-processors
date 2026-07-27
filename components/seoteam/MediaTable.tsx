@@ -185,7 +185,7 @@ export function MediaTable({
                   <UsedInCell row={row} />
                 </TableCell>
                 <TableCell className="whitespace-nowrap text-right text-small tabular-nums text-muted-foreground">
-                  {row.width && row.height ? `${row.width}×${row.height}` : "—"}
+                  {row.width && row.height ? `${row.width}×${row.height}` : "N/A"}
                 </TableCell>
                 <TableCell className="whitespace-nowrap text-right text-small tabular-nums text-muted-foreground">
                   {formatBytes(row.bytes)}
@@ -478,7 +478,7 @@ function UsedInCell({ row }: { row: MediaRow }) {
           key={`${u.postId}-${u.field}-${i}`}
           href={`/seoteam/${u.postId}`}
           className="group flex items-center gap-1.5 text-small"
-          title={`${u.title} — ${FIELD_LABEL[u.field] ?? u.field} · ${u.status}`}
+          title={`${u.title} · ${FIELD_LABEL[u.field] ?? u.field} · ${u.status}`}
         >
           <Badge variant="outline" className="shrink-0">
             {FIELD_LABEL[u.field] ?? u.field}
@@ -492,7 +492,7 @@ function UsedInCell({ row }: { row: MediaRow }) {
 
 function FormatCell({ row }: { row: MediaRow }) {
   const format = row.format || formatFromUrl(row.url) || row.contentType?.split("/")[1];
-  if (!format) return <span className="text-small text-muted-foreground">—</span>;
+  if (!format) return <span className="text-small text-muted-foreground">N/A</span>;
   return (
     <Badge variant="outline" className="uppercase">
       {format}

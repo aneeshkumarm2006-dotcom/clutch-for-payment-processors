@@ -89,7 +89,7 @@ export const SEO_TEMPLATES: SeoTemplate[] = [
     id: "news",
     label: "News / Update",
     description: "Timely update on a processor, fee change, or industry regulation.",
-    starterHtml: `<p>Lead: what changed, when, and why it matters for merchants — in the first two sentences.</p>
+    starterHtml: `<p>Lead: what changed, when, and why it matters for merchants, in the first two sentences.</p>
 <h2>What changed</h2>
 <p>The update in plain terms.</p>
 <h2>Why it matters for merchants</h2>

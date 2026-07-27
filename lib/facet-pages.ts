@@ -37,7 +37,7 @@ export interface FacetPageDef {
   slug: string;
   /** Page H1. */
   h1: string;
-  /** Meta title (bare — the `· Payment Processor Guide` suffix is appended by the layout). */
+  /** Meta title (bare — the `| Payment Processor Guide` suffix is appended by the layout). */
   title: string;
   /** Meta description. */
   description: string;
@@ -158,7 +158,7 @@ export const FACET_PAGES: FacetPageDef[] = [
     h1: "Payment processors with a virtual terminal",
     title: "Payment processors with a virtual terminal",
     description:
-      "Compare processors that offer a virtual terminal for phone, mail, and keyed-in payments — on fees, features, and verified reviews.",
+      "Compare processors that offer a virtual terminal for phone, mail, and keyed-in payments on fees, features, and verified reviews.",
     intro:
       "A virtual terminal lets you key in card payments from any browser. It's ideal for phone and mail orders, invoicing, and businesses without a physical card reader. These processors include a virtual terminal in their dashboard.",
     filter: { integrations: ["virtual-terminal"] },
@@ -176,7 +176,7 @@ export const FACET_PAGES: FacetPageDef[] = [
     h1: "Payment processors with payment links",
     title: "Payment processors with payment links",
     description:
-      "Compare processors that support shareable payment links — no website needed — on fees, features, and verified reviews.",
+      "Compare processors that support shareable payment links, no website needed, on fees, features, and verified reviews.",
     intro:
       "Payment links let you get paid without a checkout page: create a link, share it by email, text, or social, and the customer pays on a hosted page. These processors support payment links out of the box.",
     filter: { integrations: ["payment-links"] },
@@ -280,7 +280,7 @@ export const FACET_PAGES: FacetPageDef[] = [
       {
         question: "Is Google Pay free for merchants?",
         answer:
-          "Google Pay adds no separate merchant fee — you pay your processor's standard card rate. Compare the Google Pay-compatible processors below on rate and platform support.",
+          "Google Pay adds no separate merchant fee. You pay your processor's standard card rate. Compare the Google Pay-compatible processors below on rate and platform support.",
       },
     ],
     related: ["apple-pay", "for-shopify", "flat-rate"],
@@ -288,7 +288,7 @@ export const FACET_PAGES: FacetPageDef[] = [
   {
     slug: "bnpl",
     h1: "Payment processors with buy now, pay later",
-    title: "Payment processors with BNPL (buy now, pay later)",
+    title: "Payment processors with BNPL | buy now, pay later",
     description:
       "Compare processors that offer buy now, pay later on fees, supported providers, and verified merchant reviews.",
     intro:
@@ -387,7 +387,7 @@ export const FACET_PAGES: FacetPageDef[] = [
     h1: "Payment processors with Tap to Pay",
     title: "Payment processors with Tap to Pay on phone",
     description:
-      "Compare processors that support Tap to Pay — contactless payments on a phone — on fees, hardware, and verified reviews.",
+      "Compare processors that support Tap to Pay, contactless payments on a phone, on fees, hardware, and verified reviews.",
     intro:
       "Tap to Pay turns a phone into a contactless card reader, so you can take in-person payments with no extra hardware. These processors support Tap to Pay on compatible iPhone or Android devices.",
     filter: { features: ["tap-to-pay"] },

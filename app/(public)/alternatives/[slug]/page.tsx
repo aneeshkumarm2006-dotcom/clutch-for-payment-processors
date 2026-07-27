@@ -37,7 +37,7 @@ export async function generateMetadata({
   if (!p) return { title: "Alternatives not found" };
   return buildMetadata({
     title: `Best ${p.name} alternatives`,
-    description: `Compare the top alternatives to ${p.name} on fees, payment methods, features, and verified merchant reviews — and find the payment processor that fits your business.`,
+    description: `Compare the top alternatives to ${p.name} on fees, payment methods, features, and verified merchant reviews, then find the payment processor that fits your business.`,
     path: `/alternatives/${p.slug}`,
     image: p.logo,
   });

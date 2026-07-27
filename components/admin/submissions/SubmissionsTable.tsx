@@ -104,7 +104,7 @@ export function SubmissionsTable({ rows }: { rows: AdminSubmissionData[] }) {
       const res = await apiClient.post<{ processorId: string }>(
         `/api/submissions/${row.id}/convert`,
       );
-      toast.success("Draft created — finish the listing.");
+      toast.success("Draft created. Finish the listing.");
       router.push(`/admin/processors/${res.processorId}`);
     } catch (err) {
       toast.error(err instanceof ApiClientError ? err.message : "Could not convert the submission.");
@@ -162,7 +162,7 @@ export function SubmissionsTable({ rows }: { rows: AdminSubmissionData[] }) {
       header: "Tier",
       sortAccessor: (r) => r.requestedTier ?? "",
       cell: (r) => (
-        <span className="text-small capitalize">{r.requestedTier ?? "—"}</span>
+        <span className="text-small capitalize">{r.requestedTier ?? "N/A"}</span>
       ),
     },
     {

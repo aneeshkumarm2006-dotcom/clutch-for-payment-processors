@@ -16,7 +16,7 @@ export function SettingsView() {
       <header>
         <h1 className="text-h1 tracking-tighter2 text-foreground">Settings</h1>
         <p className="mt-1 text-body text-muted-foreground">
-          Connect your data sources. Every save is validated live — a credential that doesn&apos;t work is never stored.
+          Connect your data sources. Every save is validated live: a credential that doesn&apos;t work is never stored.
         </p>
       </header>
 

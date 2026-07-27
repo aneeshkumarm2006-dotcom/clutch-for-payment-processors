@@ -80,7 +80,7 @@ function SortableBlock({
     return (
       <div className="rounded-lg border border-dashed border-border p-4">
         <p className="text-small text-muted-foreground">
-          Unknown block type &ldquo;{type}&rdquo; — it may have been disabled in the config. Its
+          Unknown block type &ldquo;{type}&rdquo;. It may have been disabled in the config. Its
           content is preserved.
         </p>
         <Button type="button" variant="ghost" size="sm" onClick={onRemove} className="mt-2 text-destructive">

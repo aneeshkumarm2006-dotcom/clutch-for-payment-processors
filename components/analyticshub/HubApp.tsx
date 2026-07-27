@@ -87,7 +87,7 @@ function ConfigScreen({ title, messages, status }: { title: string; messages: st
           </p>
         )}
         <p className="mt-4 text-micro text-muted-foreground">
-          Environment changes only take effect on new deployments — redeploy after editing env vars, then reload.
+          Environment changes only take effect on new deployments. Redeploy after editing env vars, then reload.
         </p>
       </div>
     </div>

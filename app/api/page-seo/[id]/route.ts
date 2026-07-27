@@ -61,7 +61,7 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
       action: "update",
       entity: "settings",
       entityId: params.id,
-      entityLabel: `Page SEO — ${updated.title}`,
+      entityLabel: `Page SEO: ${updated.title}`,
     });
 
     return json(updated);

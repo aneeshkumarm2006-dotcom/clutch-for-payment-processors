@@ -79,7 +79,7 @@ export function GoogleAdsCard({ status, onChange }: { status: HubStatus; onChang
   const ready = f.developerToken && f.clientId && f.clientSecret && f.refreshToken && f.customerId;
 
   return (
-    <ConnectionCard title="Google Ads" description="Advanced — cost, clicks, and conversions. Optional." state={state}>
+    <ConnectionCard title="Google Ads" description="Advanced: cost, clicks, and conversions. Optional." state={state}>
       {state === "connected" ? (
         <div className="space-y-3">
           <p className="text-small text-muted-foreground">A Google Ads customer is connected.</p>

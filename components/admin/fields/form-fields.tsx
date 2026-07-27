@@ -133,7 +133,7 @@ export function EnumSelectField({
             <SelectContent>
               {allowNone && (
                 <SelectItem value={NONE} className="text-muted-foreground">
-                  — None —
+                  None
                 </SelectItem>
               )}
               {options.map((opt) => (

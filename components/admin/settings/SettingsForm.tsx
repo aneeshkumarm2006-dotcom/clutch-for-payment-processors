@@ -1,51 +1,35 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import type { ZodError } from "zod";
-import { Loader2 } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { siteSettingsInput } from "@/lib/validators";
+import { cn } from "@/lib/utils";
 import { apiClient, ApiClientError } from "@/components/admin/api-client";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { TextField, TextareaField } from "@/components/admin/fields/form-fields";
-import { CheckboxGroup } from "@/components/admin/fields/CheckboxGroup";
 import { ImageUploadField } from "@/components/admin/fields/ImageUploadField";
 import {
   toSettingsPayload,
   type SettingsFormValues,
 } from "@/components/admin/settings/serialize";
 
-export interface FeaturedCategoryOption {
-  slug: string;
-  name: string;
-}
-
-export function SettingsForm({
-  defaultValues,
-  categories,
-}: {
-  defaultValues: SettingsFormValues;
-  categories: FeaturedCategoryOption[];
-}) {
+export function SettingsForm({ defaultValues }: { defaultValues: SettingsFormValues }) {
   const router = useRouter();
   const form = useForm<SettingsFormValues>({ defaultValues });
   const [saving, setSaving] = React.useState(false);
-
-  const nameBySlug = React.useMemo(
-    () => Object.fromEntries(categories.map((c) => [c.slug, c.name])),
-    [categories],
-  );
 
   const applyZodIssues = (error: ZodError) => {
     for (const issue of error.issues) {
@@ -123,46 +107,27 @@ export function SettingsForm({
           </div>
         </section>
 
-        {/* Homepage hero */}
-        <section className="space-y-5 rounded-lg border border-border bg-card p-5">
-          <h2 className="text-h4">Homepage hero</h2>
-          <TextField
-            name="homepageHeroTitle"
-            label="Hero title"
-            placeholder="Find the right payment processor"
-          />
-          <TextareaField
-            name="homepageHeroSubtitle"
-            label="Hero subtitle"
-            rows={2}
-            placeholder="Compare fees, features, and verified merchant reviews."
-          />
-          <FormField
-            control={form.control}
-            name="featuredCategorySlugs"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Featured categories</FormLabel>
-                <FormDescription>Highlighted on the homepage.</FormDescription>
-                <FormControl>
-                  {categories.length > 0 ? (
-                    <CheckboxGroup
-                      options={categories.map((c) => c.slug)}
-                      value={field.value ?? []}
-                      onChange={field.onChange}
-                      getLabel={(slug) => nameBySlug[slug] ?? slug}
-                      columns={2}
-                    />
-                  ) : (
-                    <p className="text-small text-muted-foreground">
-                      No categories yet — create some first.
-                    </p>
-                  )}
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        {/*
+          Homepage hero / featured categories moved to /admin/homepage, which edits
+          them alongside the rest of the landing page. The values still round-trip
+          through this form's payload (see `toSettingsPayload`) — `siteSettingsInput`
+          requires them, and dropping them here would `$unset` the hero on every save.
+        */}
+        <section className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-border bg-card p-5">
+          <div>
+            <h2 className="text-h4">Landing page</h2>
+            <p className="mt-0.5 text-small text-muted-foreground">
+              Hero, sections, featured categories, and homepage meta are edited on their own
+              page.
+            </p>
+          </div>
+          <Link
+            href="/admin/homepage"
+            className={cn(buttonVariants({ variant: "secondary", size: "sm" }))}
+          >
+            Edit landing page
+            <ArrowRight className="size-4" aria-hidden />
+          </Link>
         </section>
 
         {/* Contact & social */}

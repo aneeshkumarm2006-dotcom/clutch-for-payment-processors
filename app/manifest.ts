@@ -8,7 +8,7 @@ import { SITE_NAME } from "@/lib/seo";
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${SITE_NAME} — Compare payment processors`,
+    name: `${SITE_NAME} | Compare payment processors`,
     short_name: SITE_NAME,
     description:
       "Compare payment processors and gateways on fees, payment methods, integrations, and verified merchant reviews.",

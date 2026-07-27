@@ -57,7 +57,7 @@ export default async function AdminPageSeoPage() {
                   <TableCell className="font-medium">{p.title}</TableCell>
                   <TableCell className="text-muted-foreground">{p.path}</TableCell>
                   <TableCell className="max-w-[24rem] truncate text-muted-foreground">
-                    {p.seo?.metaTitle || <span className="italic">— default —</span>}
+                    {p.seo?.metaTitle || <span className="italic">Default</span>}
                   </TableCell>
                   <TableCell className="text-right">
                     <Link

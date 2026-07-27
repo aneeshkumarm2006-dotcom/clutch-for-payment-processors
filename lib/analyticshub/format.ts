@@ -11,19 +11,19 @@ const compactFmt = new Intl.NumberFormat("en-US", { notation: "compact", maximum
 
 /** `1234567` → `"1,234,567"`. */
 export function fmtNumber(v: number | null | undefined): string {
-  if (v == null || Number.isNaN(v)) return "—";
+  if (v == null || Number.isNaN(v)) return "N/A";
   return numberFmt.format(v);
 }
 
 /** `1234567` → `"1.2M"`. */
 export function fmtCompact(v: number | null | undefined): string {
-  if (v == null || Number.isNaN(v)) return "—";
+  if (v == null || Number.isNaN(v)) return "N/A";
   return compactFmt.format(v);
 }
 
 /** Currency with a code (default USD). `12.3` → `"$12.30"`. */
 export function fmtCurrency(v: number | null | undefined, currency = "USD"): string {
-  if (v == null || Number.isNaN(v)) return "—";
+  if (v == null || Number.isNaN(v)) return "N/A";
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: currency || "USD",
@@ -36,14 +36,14 @@ export function fmtCurrency(v: number | null | undefined, currency = "USD"): str
  * value is already 0–100 (e.g. GSC CTR delivered as a fraction vs. Meta rates).
  */
 export function fmtPercent(v: number | null | undefined, digits = 2, alreadyPercent = false): string {
-  if (v == null || Number.isNaN(v)) return "—";
+  if (v == null || Number.isNaN(v)) return "N/A";
   const pct = alreadyPercent ? v : v * 100;
   return `${pct.toFixed(digits)}%`;
 }
 
 /** Seconds → `"1m 05s"` / `"45s"` (GA4 average engagement time). */
 export function fmtDuration(seconds: number | null | undefined): string {
-  if (seconds == null || Number.isNaN(seconds)) return "—";
+  if (seconds == null || Number.isNaN(seconds)) return "N/A";
   const s = Math.max(0, Math.round(seconds));
   const m = Math.floor(s / 60);
   const rem = s % 60;
@@ -52,7 +52,7 @@ export function fmtDuration(seconds: number | null | undefined): string {
 
 /** Average position (GSC) — one decimal, lower is better. `3.42` → `"3.4"`. */
 export function fmtPosition(v: number | null | undefined): string {
-  if (v == null || Number.isNaN(v)) return "—";
+  if (v == null || Number.isNaN(v)) return "N/A";
   return v.toFixed(1);
 }
 
@@ -62,7 +62,7 @@ export interface Delta {
   /** Signed percent change vs. previous period, or null when incomputable. */
   pct: number | null;
   direction: DeltaDirection;
-  /** `"+12.3%"`, `"−4.0%"`, `"—"`. */
+  /** `"+12.3%"`, `"−4.0%"`, `"N/A"`. */
   label: string;
   /**
    * Is this change GOOD? Accounts for cost metrics where DOWN is good. The UI
@@ -82,7 +82,7 @@ export function computeDelta(
   costMetric = false,
 ): Delta {
   if (current == null || previous == null || Number.isNaN(current) || Number.isNaN(previous) || previous === 0) {
-    return { pct: null, direction: "flat", label: "—", good: null };
+    return { pct: null, direction: "flat", label: "N/A", good: null };
   }
   const pct = ((current - previous) / Math.abs(previous)) * 100;
   const direction: DeltaDirection = pct > 0.05 ? "up" : pct < -0.05 ? "down" : "flat";

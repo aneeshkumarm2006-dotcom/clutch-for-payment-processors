@@ -25,7 +25,7 @@ const FIELD_LABEL: Record<string, string> = {
 };
 
 function formatBytes(bytes?: number): string {
-  if (!bytes) return "—";
+  if (!bytes) return "N/A";
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
@@ -227,7 +227,7 @@ export function MediaDetailDialog({
             </div>
             {media.usageCount > 0 && (
               <p className="text-micro text-muted-foreground">
-                In use — remove it from the {media.usageCount} post
+                In use. Remove it from the {media.usageCount} post
                 {media.usageCount === 1 ? "" : "s"} above before it can be deleted.
               </p>
             )}

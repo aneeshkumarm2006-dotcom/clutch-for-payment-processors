@@ -75,7 +75,7 @@ export function OverviewView() {
                   <KpiCard
                     key={`${k.source}-${k.metric}`}
                     label={k.label}
-                    value={ok ? formatValue(k.kind, value, currency) : "—"}
+                    value={ok ? formatValue(k.kind, value, currency) : "N/A"}
                     delta={ok ? computeDelta(value, prev, k.cost) : undefined}
                     spark={ok ? seriesValues(res, k.metric) : undefined}
                     color={sourceHue(k.source, isDark)}
@@ -260,12 +260,12 @@ function TopStrip({
           {rows.map((row, i) => (
             <li key={i} className="flex items-center justify-between gap-3 text-small">
               <span className="min-w-0 truncate text-muted-foreground" title={String(row[labelCol] ?? "")}>
-                {String(row[labelCol] ?? "—")}
+                {String(row[labelCol] ?? "N/A")}
               </span>
               <span className="shrink-0 font-medium tabular-nums text-foreground">
                 {valueKind === "count"
                   ? formatValue("count", Number(row[valueCol] ?? 0))
-                  : String(row[valueCol] ?? "—").slice(0, 10)}
+                  : String(row[valueCol] ?? "N/A").slice(0, 10)}
               </span>
             </li>
           ))}

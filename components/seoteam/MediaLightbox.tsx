@@ -41,7 +41,7 @@ export function MediaLightbox({
   const format = (media.format || formatFromUrl(media.url) || "").toUpperCase();
   const meta = [
     media.width && media.height ? `${media.width}×${media.height}` : null,
-    formatBytes(media.bytes) !== "—" ? formatBytes(media.bytes) : null,
+    formatBytes(media.bytes) !== "N/A" ? formatBytes(media.bytes) : null,
     format || null,
   ]
     .filter(Boolean)

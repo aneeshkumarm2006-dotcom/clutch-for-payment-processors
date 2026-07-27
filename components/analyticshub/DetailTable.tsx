@@ -12,7 +12,7 @@ import type { DetailTable as DetailTableData, DetailColumn } from "@/lib/analyti
  * right-aligned tabular figures per the Mono Minimal table spec (§6.9).
  */
 function renderCell(col: DetailColumn, value: string | number, currency: string): string {
-  if (value == null || value === "") return "—";
+  if (value == null || value === "") return "N/A";
   switch (col.type) {
     case "number":
       return typeof value === "number" ? fmtNumber(value) : String(value);

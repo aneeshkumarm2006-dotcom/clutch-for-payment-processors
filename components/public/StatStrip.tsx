@@ -9,7 +9,7 @@ export interface StatItem {
 /**
  * Stat strip (DESIGN §6.10 / PRD §9.3 header). A row of label-over-value cells
  * separated by hairlines (achieved with a 1px gap over a border-colored bg).
- * Values use tabular figures. Caller passes "—"/"Varies" for missing data.
+ * Values use tabular figures. Caller passes "N/A"/"Varies" for missing data.
  */
 export function StatStrip({ items, className }: { items: StatItem[]; className?: string }) {
   if (!items.length) return null;

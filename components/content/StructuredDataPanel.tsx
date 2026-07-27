@@ -89,7 +89,7 @@ export function StructuredDataPanel({
       <div>
         <h2 className="text-h4">Structured data</h2>
         <p className="mt-0.5 text-small text-muted-foreground">
-          Generated automatically from this page&rsquo;s content. Everything below is optional —
+          Generated automatically from this page&rsquo;s content. Everything below is optional:
           leave it alone and the defaults apply.
         </p>
       </div>
@@ -158,7 +158,7 @@ export function StructuredDataPanel({
       {errors.length === 0 && notices.length === 0 && nodes.length > 0 && (
         <p className="flex items-center gap-2 text-small text-muted-foreground">
           <CircleCheck className="size-4 text-success" />
-          {nodes.length} valid {nodes.length === 1 ? "node" : "nodes"} — no issues.
+          {nodes.length} valid {nodes.length === 1 ? "node" : "nodes"}, no issues.
         </p>
       )}
 
@@ -170,7 +170,7 @@ export function StructuredDataPanel({
           <FormItem>
             <FormLabel>Custom JSON-LD (advanced)</FormLabel>
             <FormDescription>
-              Added alongside the generated schema. Must be valid JSON — an invalid blob blocks
+              Added alongside the generated schema. Must be valid JSON. An invalid blob blocks
               saving rather than shipping a broken tag.
             </FormDescription>
             <FormControl>

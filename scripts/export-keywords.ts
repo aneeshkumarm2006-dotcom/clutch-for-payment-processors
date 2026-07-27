@@ -30,7 +30,7 @@ async function main() {
   for (const c of cats as any[]) {
     const kws = c.seo?.keywords ?? [];
     if (kws.length) for (const k of kws) add(k, `${c.name} (category)`, `/category/${c.slug}`, "assigned");
-    else add(`${c.name.toLowerCase()}`, `${c.name} (category)`, `/category/${c.slug}`, "NOT SET — derive");
+    else add(`${c.name.toLowerCase()}`, `${c.name} (category)`, `/category/${c.slug}`, "NOT SET: derive");
   }
 
   // 3. Processors — assigned keywords + programmatic review & alternatives pages
@@ -39,7 +39,7 @@ async function main() {
     for (const k of pr.seo?.keywords ?? []) add(k, `${pr.name} (processor profile)`, `/processor/${pr.slug}`, "assigned");
     // Review/profile page target (derived from title pattern)
     if (!(pr.seo?.keywords ?? []).length)
-      add(`${pr.name.toLowerCase()} review`, `${pr.name} (processor profile)`, `/processor/${pr.slug}`, "NOT SET — derive");
+      add(`${pr.name.toLowerCase()} review`, `${pr.name} (processor profile)`, `/processor/${pr.slug}`, "NOT SET: derive");
     // Alternatives page (auto-generated per processor)
     add(`best ${pr.name.toLowerCase()} alternatives`, `Best ${pr.name} alternatives`, `/alternatives/${pr.slug}`, "programmatic");
   }
@@ -59,7 +59,7 @@ async function main() {
   for (const b of posts as any[]) {
     const kws = b.seo?.keywords ?? [];
     if (kws.length) for (const k of kws) add(k, `${b.title} (blog)`, `/blog/${b.slug}`, "assigned");
-    else add((b.seo?.metaTitle || b.title).toLowerCase(), `${b.title} (blog)`, `/blog/${b.slug}`, "NOT SET — derive");
+    else add((b.seo?.metaTitle || b.title).toLowerCase(), `${b.title} (blog)`, `/blog/${b.slug}`, "NOT SET: derive");
   }
 
   // 8. Directory hub facet pages + core static content pages (informational)
@@ -74,7 +74,7 @@ async function main() {
 
   // Legal / utility pages — indexable but not keyword targets (listed for completeness)
   for (const [page, path] of [["Contact", "/contact"], ["Privacy policy", "/privacy"], ["Terms", "/terms"], ["Search", "/search"]] as const)
-    add("— (no keyword target)", page, path, "utility");
+    add("(no keyword target)", page, path, "utility");
 
   // Emit TSV + write CSV
   console.log("Keyword\tTarget page\tTarget page URL\tStatus");

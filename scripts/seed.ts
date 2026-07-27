@@ -56,7 +56,7 @@ const CATEGORIES: SeedCategory[] = [
       "<p>The right e-commerce processor balances transparent per-transaction pricing with the checkout experience, payment methods, and fraud tooling your store needs. Compare online card rates, supported wallets, and platform integrations below.</p>",
   },
   {
-    name: "In-Person & Retail (POS)",
+    name: "In-Person and Retail POS",
     slug: "retail-pos",
     type: "use-case",
     shortDescription: "Card-present payments with terminals, readers, and tap-to-pay.",
@@ -64,12 +64,12 @@ const CATEGORIES: SeedCategory[] = [
       "<p>For shops, markets, and pop-ups, in-person processors combine competitive card-present rates with hardware, fast payouts, and tap-to-pay. Compare the options for taking payments at the counter or on the go.</p>",
   },
   {
-    name: "Subscriptions & SaaS",
+    name: "Subscriptions and SaaS",
     slug: "subscriptions",
     type: "use-case",
     shortDescription: "Recurring billing, dunning, and usage-based pricing.",
     introContent:
-      "<p>Subscription businesses need recurring billing, smart retries, proration, and usage-based pricing — not just a card form. Compare processors on their billing engines and developer tooling.</p>",
+      "<p>Subscription businesses need recurring billing, smart retries, proration, and usage-based pricing, not just a card form. Compare processors on their billing engines and developer tooling.</p>",
   },
   {
     name: "High-Risk Merchants",
@@ -77,10 +77,10 @@ const CATEGORIES: SeedCategory[] = [
     type: "use-case",
     shortDescription: "Processors that support higher-risk industries and chargebacks.",
     introContent:
-      "<p>If you've been turned away or frozen by a mainstream processor, high-risk-friendly providers underwrite industries others avoid — often with rolling reserves and chargeback tooling. Compare what's on offer.</p>",
+      "<p>If you've been turned away or frozen by a mainstream processor, high-risk-friendly providers underwrite industries others avoid, often with rolling reserves and chargeback tooling. Compare what's on offer.</p>",
   },
   {
-    name: "International & Cross-Border",
+    name: "International and Cross-Border",
     slug: "international",
     type: "region",
     shortDescription: "Multi-currency acceptance and local payment methods worldwide.",
@@ -88,7 +88,7 @@ const CATEGORIES: SeedCategory[] = [
       "<p>Selling across borders means accepting local payment methods, settling in multiple currencies, and minimising FX costs. Compare processors built for global reach.</p>",
   },
   {
-    name: "Marketplaces & Platforms",
+    name: "Marketplaces and Platforms",
     slug: "marketplaces",
     type: "use-case",
     shortDescription: "Split payments, payouts to sellers, and onboarding.",
@@ -104,10 +104,10 @@ const CATEGORIES: SeedCategory[] = [
       "<p>Small businesses are best served by simple, predictable pricing, quick setup, and no lock-in. Compare processors that won't bury you in monthly fees or annual contracts.</p>",
   },
   {
-    name: "Restaurants & Hospitality",
+    name: "Restaurants and Hospitality",
     slug: "restaurants",
     type: "industry",
-    shortDescription: "Tipping, table service, and POS built for food & drink.",
+    shortDescription: "Tipping, table service, and POS built for food and drink.",
     introContent:
       "<p>Restaurants need tipping, fast service, and POS hardware that survives a busy Friday night. Compare processors tailored to food, drink, and hospitality.</p>",
   },
@@ -255,7 +255,7 @@ const PROCESSORS: SeedProcessor[] = [
     sponsorRank: 1,
     isFeatured: true,
     seo: {
-      metaTitle: "Stripe review — pricing, fees & features",
+      metaTitle: "Stripe review | pricing, fees and features",
       metaDescription:
         "Is Stripe right for your business? Compare Stripe's pricing, payment methods, and merchant reviews.",
     },
@@ -318,7 +318,7 @@ const PROCESSORS: SeedProcessor[] = [
     website: "https://squareup.com",
     tagline: "All-in-one point of sale and payments for in-person businesses.",
     shortDescription:
-      "A complete POS-plus-payments ecosystem with free software, sleek hardware, and flat-rate pricing — ideal for retail and food.",
+      "A complete POS-plus-payments ecosystem with free software, sleek hardware, and flat-rate pricing, ideal for retail and food.",
     longDescription:
       "<p>Square pairs flat-rate payments with a genuinely good free point-of-sale app and affordable hardware. It's a favourite for cafés, markets, and small retailers who want one tidy system.</p><h3>Who it's for</h3><p>In-person and omnichannel small businesses that value ease of use over deep customisation.</p>",
     foundedYear: 2009,
@@ -396,7 +396,7 @@ const PROCESSORS: SeedProcessor[] = [
     bestFor: ["Enterprise", "Global", "Omnichannel"],
     industries: ["Retail", "Travel", "SaaS"],
     pros: ["Single platform across channels and regions", "Transparent interchange-plus pricing", "Rich data and risk tooling"],
-    cons: ["Built for scale — overkill for small merchants", "Requires technical integration"],
+    cons: ["Built for scale, so overkill for small merchants", "Requires technical integration"],
     editorScore: 4.6,
     listingTier: "premier",
     isVerified: true,
@@ -411,9 +411,9 @@ const PROCESSORS: SeedProcessor[] = [
     website: "https://www.braintreepayments.com",
     tagline: "A PayPal company offering developer-friendly online payments.",
     shortDescription:
-      "A flexible, developer-friendly gateway (a PayPal company) with strong support for cards, PayPal, and Venmo.",
+      "A flexible, developer-friendly gateway, a PayPal company, with strong support for cards, PayPal, and Venmo.",
     longDescription:
-      "<p>Braintree, owned by PayPal, offers a developer-friendly gateway with native PayPal and Venmo acceptance alongside cards and wallets — a popular choice for online businesses already in the PayPal ecosystem.</p>",
+      "<p>Braintree, owned by PayPal, offers a developer-friendly gateway with native PayPal and Venmo acceptance alongside cards and wallets, a popular choice for online businesses already in the PayPal ecosystem.</p>",
     foundedYear: 2007,
     headquarters: "Chicago, IL, USA",
     companySize: "251-1000",
@@ -456,7 +456,7 @@ const PROCESSORS: SeedProcessor[] = [
     website: "https://www.authorize.net",
     tagline: "A long-established payment gateway for online and MOTO payments.",
     shortDescription:
-      "A veteran gateway (a Visa solution) pairing card processing with a virtual terminal and recurring billing for traditional businesses.",
+      "A veteran gateway, a Visa solution, pairing card processing with a virtual terminal and recurring billing for traditional businesses.",
     longDescription:
       "<p>Authorize.net is one of the longest-running gateways, well suited to businesses that want a virtual terminal, recurring billing, and the option to bring their own merchant account.</p>",
     foundedYear: 1996,
@@ -502,7 +502,7 @@ const PROCESSORS: SeedProcessor[] = [
     website: "https://www.helcim.com",
     tagline: "Transparent interchange-plus pricing with automatic volume discounts.",
     shortDescription:
-      "A merchant-friendly processor with interchange-plus pricing, no monthly fees, and automatic volume discounts — great for growing SMBs.",
+      "A merchant-friendly processor with interchange-plus pricing, no monthly fees, and automatic volume discounts, great for growing SMBs.",
     longDescription:
       "<p>Helcim offers transparent interchange-plus pricing that gets cheaper automatically as you grow, with no monthly fees or contracts. It covers online, in-person, and invoicing in one account.</p>",
     foundedYear: 2006,
@@ -549,7 +549,7 @@ const PROCESSORS: SeedProcessor[] = [
     shortDescription:
       "A membership-pricing processor: pay a flat monthly subscription plus direct-cost interchange, which can save high-volume merchants.",
     longDescription:
-      "<p>Stax uses a subscription model — a flat monthly fee plus interchange at cost with no percentage markup — which can be very cost-effective for higher-volume merchants.</p>",
+      "<p>Stax uses a subscription model (a flat monthly fee plus interchange at cost with no percentage markup) that can be very cost-effective for higher-volume merchants.</p>",
     foundedYear: 2014,
     headquarters: "Orlando, FL, USA",
     companySize: "251-1000",
@@ -595,7 +595,7 @@ const PROCESSORS: SeedProcessor[] = [
     shortDescription:
       "A leading Indian payments platform with UPI, netbanking, cards, and wallets, plus a full payments and payouts API.",
     longDescription:
-      "<p>Razorpay is a leading Indian payment gateway with deep support for UPI, netbanking, cards, and wallets, plus subscriptions, payment links, and payouts — all behind a clean developer API.</p>",
+      "<p>Razorpay is a leading Indian payment gateway with deep support for UPI, netbanking, cards, and wallets, plus subscriptions, payment links, and payouts, all behind a clean developer API.</p>",
     foundedYear: 2014,
     headquarters: "Bengaluru, India",
     companySize: "1000+",
@@ -636,7 +636,7 @@ const PROCESSORS: SeedProcessor[] = [
     slug: "payu",
     logo: logo("payu.com"),
     website: "https://payu.com",
-    tagline: "Emerging-market payments across 50+ markets and local methods.",
+    tagline: "Emerging-market payments across more than 50 markets and local methods.",
     shortDescription:
       "A cross-border processor specialising in emerging markets, with broad local payment methods and high-risk acceptance.",
     longDescription:
@@ -821,13 +821,13 @@ const BLOG_POSTS: SeedBlogPost[] = [
     title: "Flat-rate vs interchange-plus: which pricing model saves you more?",
     slug: "flat-rate-vs-interchange-plus",
     excerpt:
-      "Flat-rate pricing is simple; interchange-plus is transparent. Here's how to tell which one actually costs your business less.",
+      "Flat-rate pricing is simple. Interchange-plus is transparent. Here's how to tell which one actually costs your business less.",
     content:
       "<p>Two pricing models dominate card processing: <strong>flat-rate</strong> and <strong>interchange-plus</strong>. The right one depends on your volume, average ticket size, and how much complexity you can tolerate.</p>" +
-      "<h2>Flat-rate pricing</h2><p>You pay one blended rate for every transaction — for example 2.9% + 30¢. It's predictable and easy to forecast, which is why it's the default for newer and smaller businesses.</p>" +
+      "<h2>Flat-rate pricing</h2><p>You pay one blended rate for every transaction, for example 2.9% + 30¢. It's predictable and easy to forecast, which is why it's the default for newer and smaller businesses.</p>" +
       "<h2>Interchange-plus pricing</h2><p>You pay the card network's interchange cost <em>plus</em> a fixed markup. It's more transparent and usually cheaper at scale because you're not subsidising the processor's blended margin.</p>" +
       "<h3>Which should you choose?</h3><ul><li><strong>Low volume or just starting out:</strong> flat-rate keeps things simple.</li><li><strong>Higher or growing volume:</strong> interchange-plus typically wins on cost.</li><li><strong>Want predictability above all:</strong> a subscription/membership model can beat both.</li></ul>" +
-      "<p>Run your real numbers before switching — a fraction of a percent adds up fast at volume.</p>",
+      "<p>Run your real numbers before switching. A fraction of a percent adds up fast at volume.</p>",
     author: "Payment Processor Guide Editorial",
     tags: ["Pricing", "Fees", "Guides"],
     relatedProcessorSlugs: ["stripe", "helcim", "stax"],
@@ -844,10 +844,10 @@ const BLOG_POSTS: SeedBlogPost[] = [
     excerpt:
       "If mainstream processors keep declining or freezing you, here's what to look for in a high-risk-friendly provider.",
     content:
-      "<p>Some industries — from CBD to travel to subscriptions with high chargebacks — get declined or frozen by mainstream processors. High-risk-friendly providers underwrite these businesses, but the terms differ.</p>" +
-      "<h2>What 'high-risk' actually means</h2><p>It's about the processor's risk exposure: chargeback rates, regulatory scrutiny, and refund patterns. Being labelled high-risk isn't a judgement on your business — it's about underwriting.</p>" +
-      "<h2>What to look for</h2><ul><li><strong>Clear underwriting</strong> for your specific industry.</li><li><strong>Chargeback tooling</strong> and alerts to keep your ratio healthy.</li><li><strong>Reasonable reserves</strong> — understand any rolling reserve before signing.</li><li><strong>Stable settlement</strong> so payouts aren't unpredictably held.</li></ul>" +
-      "<h3>A note on cost</h3><p>High-risk processing costs more — that's the trade for acceptance. Compare total cost including reserves, not just the headline rate.</p>",
+      "<p>Some industries, from CBD to travel to subscriptions with high chargebacks, get declined or frozen by mainstream processors. High-risk-friendly providers underwrite these businesses, but the terms differ.</p>" +
+      "<h2>What 'high-risk' actually means</h2><p>It's about the processor's risk exposure: chargeback rates, regulatory scrutiny, and refund patterns. Being labelled high-risk isn't a judgement on your business; it's about underwriting.</p>" +
+      "<h2>What to look for</h2><ul><li><strong>Clear underwriting</strong> for your specific industry.</li><li><strong>Chargeback tooling</strong> and alerts to keep your ratio healthy.</li><li><strong>Reasonable reserves</strong>: understand any rolling reserve before signing.</li><li><strong>Stable settlement</strong> so payouts aren't unpredictably held.</li></ul>" +
+      "<h3>A note on cost</h3><p>High-risk processing costs more; that's the trade for acceptance. Compare total cost including reserves, not just the headline rate.</p>",
     author: "Payment Processor Guide Editorial",
     tags: ["High-risk", "Guides"],
     relatedProcessorSlugs: ["payu", "authorize-net"],
@@ -862,11 +862,11 @@ const BLOG_POSTS: SeedBlogPost[] = [
     title: "How to lower your payment processing fees: 9 levers that actually work",
     slug: "how-to-lower-payment-processing-fees",
     excerpt:
-      "Processing fees are negotiable and optimisable. Here are nine practical levers to cut what you pay — without switching blindly.",
+      "Processing fees are negotiable and optimisable. Here are nine practical levers to cut what you pay, without switching blindly.",
     content:
       "<p>Processing fees feel fixed, but a surprising amount is within your control. Here are nine levers, from quick wins to bigger moves.</p>" +
-      "<h2>Quick wins</h2><ul><li><strong>Switch to interchange-plus</strong> if you're at volume on a flat or tiered plan.</li><li><strong>Pass less keyed-in volume</strong> — card-present and tokenised rates are lower.</li><li><strong>Enable AVS and 3-D Secure</strong> to qualify for better interchange and cut fraud.</li></ul>" +
-      "<h2>Bigger moves</h2><ul><li><strong>Negotiate your markup</strong> once you have leverage from volume.</li><li><strong>Consolidate volume</strong> with one processor to hit discount tiers.</li><li><strong>Review your reserve</strong> and chargeback ratio — both quietly cost you.</li></ul>" +
+      "<h2>Quick wins</h2><ul><li><strong>Switch to interchange-plus</strong> if you're at volume on a flat or tiered plan.</li><li><strong>Pass less keyed-in volume</strong>: card-present and tokenised rates are lower.</li><li><strong>Enable AVS and 3-D Secure</strong> to qualify for better interchange and cut fraud.</li></ul>" +
+      "<h2>Bigger moves</h2><ul><li><strong>Negotiate your markup</strong> once you have leverage from volume.</li><li><strong>Consolidate volume</strong> with one processor to hit discount tiers.</li><li><strong>Review your reserve</strong> and chargeback ratio; both quietly cost you.</li></ul>" +
       "<h3>Measure before and after</h3><p>Pull your <em>effective rate</em> (total fees ÷ total volume) each month. It's the single number that tells you whether any change actually helped.</p>",
     author: "Payment Processor Guide Editorial",
     tags: ["Fees", "Optimisation", "Guides"],
@@ -875,7 +875,7 @@ const BLOG_POSTS: SeedBlogPost[] = [
     seo: {
       metaTitle: "How to lower your payment processing fees",
       metaDescription:
-        "Nine practical ways to reduce card processing fees — pricing models, interchange optimisation, negotiation, and more.",
+        "Nine practical ways to reduce card processing fees, pricing models, interchange optimisation, negotiation, and more.",
     },
   },
 ];
@@ -919,7 +919,7 @@ const LEADS: SeedLead[] = [
     businessName: "Brooks Boards",
     monthlyVolume: "$10k-$50k",
     businessType: "Retail",
-    message: "Opening a second location — need a POS + payments setup that won't lock me into a long contract.",
+    message: "Opening a second location and need a POS + payments setup that won't lock me into a long contract.",
     status: "new",
     source: "get-matched",
     createdDaysAgo: 2,
@@ -956,7 +956,7 @@ const LEADS: SeedLead[] = [
     businessName: "Lagos Threads",
     monthlyVolume: "$50k-$250k",
     businessType: "Cross-border e-commerce",
-    message: "Selling into multiple countries — which processor handles local methods and multi-currency best?",
+    message: "Selling into multiple countries. Which processor handles local methods and multi-currency best?",
     status: "new",
     source: "get-matched",
     createdDaysAgo: 8,
@@ -1017,7 +1017,7 @@ const LEADS: SeedLead[] = [
     phone: "+1 407-555-0119",
     monthlyVolume: "$250k-$1M",
     businessType: "Healthcare",
-    message: "Higher ticket sizes — does the subscription pricing actually save us vs flat-rate?",
+    message: "Higher ticket sizes. Does the subscription pricing actually save us vs flat-rate?",
     status: "contacted",
     source: "profile-quote",
     createdDaysAgo: 28,
@@ -1046,7 +1046,7 @@ const SUBMISSIONS: SeedSubmission[] = [
     contactName: "Eleanor Voss",
     contactEmail: "partnerships@paddle.com",
     description:
-      "Merchant of record for SaaS — we handle payments, sales tax, and subscription billing globally. We'd like a listing in Subscriptions & SaaS.",
+      "Merchant of record for SaaS. We handle payments, sales tax, and subscription billing globally. We'd like a listing in Subscriptions & SaaS.",
     requestedTier: "premier",
     status: "new",
     createdDaysAgo: 1,
@@ -1072,7 +1072,7 @@ const SUBMISSIONS: SeedSubmission[] = [
       "European PSP with local methods (iDEAL, Bancontact, SEPA) and simple pricing. Requesting an International & Cross-Border listing.",
     requestedTier: "verified",
     status: "approved",
-    notes: "Approved — converted to a Verified processor draft. Awaiting final fee table.",
+    notes: "Approved. Converted to a Verified processor draft. Awaiting final fee table.",
     createdDaysAgo: 11,
   },
   {
@@ -1093,7 +1093,7 @@ const SUBMISSIONS: SeedSubmission[] = [
     description: "We guarantee the lowest rates anywhere, instant approval for any business!!!",
     requestedTier: "premier",
     status: "rejected",
-    notes: "Rejected — unverifiable claims, no public pricing, domain registered recently. Possible spam.",
+    notes: "Rejected: unverifiable claims, no public pricing, domain registered recently. Possible spam.",
     createdDaysAgo: 17,
   },
   {
@@ -1136,11 +1136,11 @@ async function seedSettings(): Promise<void> {
         siteName: "Payment Processor Guide",
         homepageHeroTitle: "Payment Processing Guide: Your Trusted Payment Processing Resource",
         homepageHeroSubtitle:
-          "Compare fees, features, and verified merchant reviews — all in one independent directory.",
+          "Compare fees, features, and verified merchant reviews, all in one independent directory.",
         featuredCategorySlugs: ["ecommerce", "retail-pos", "subscriptions", "high-risk", "international", "small-business"],
         contactEmail: "hello@paymentprocessorguide.test",
         socialLinks: { twitter: "https://twitter.com/paymentprocessorguide", linkedin: "https://www.linkedin.com/company/paymentprocessorguide" },
-        footerText: "© Payment Processor Guide. Independent payment processor reviews — always confirm current fees and terms with each provider.",
+        footerText: "© Payment Processor Guide. Independent payment processor reviews. Always confirm current fees and terms with each provider.",
       },
       $setOnInsert: { key: "singleton" },
     },
@@ -1328,7 +1328,7 @@ async function main(): Promise<void> {
   console.log(`✓ ${submissionDocs.length} submissions ready`);
 
   // eslint-disable-next-line no-console
-  console.log("\n✓ Seed complete — sample data loaded. Verify figures before going live.");
+  console.log("\n✓ Seed complete. Sample data loaded. Verify figures before going live.");
 }
 
 main()

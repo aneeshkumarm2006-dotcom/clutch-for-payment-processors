@@ -86,13 +86,13 @@ export function PostPreview() {
           <RichText html={content} className="mt-10" />
         ) : (
           <p className="mt-10 text-body text-muted-foreground">
-            Nothing to preview yet — start writing in the Edit tab.
+            Nothing to preview yet. Start writing in the Edit tab.
           </p>
         )}
 
         {hasKeywords && (
           <p className="mt-8 rounded-md border border-border bg-muted px-3 py-2 text-micro text-muted-foreground">
-            Keyword backlinks apply on the published page — they don’t show in this quick preview.
+            Keyword backlinks apply on the published page. They don’t show in this quick preview.
             Use “Open full preview” to see them.
           </p>
         )}

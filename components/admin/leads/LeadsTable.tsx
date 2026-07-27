@@ -113,7 +113,7 @@ export function LeadsTable({ rows }: { rows: AdminLeadData[] }) {
       key: "monthlyVolume",
       header: "Volume",
       sortAccessor: (r) => r.monthlyVolume ?? "",
-      cell: (r) => <span className="text-small tabular-nums">{r.monthlyVolume ?? "—"}</span>,
+      cell: (r) => <span className="text-small tabular-nums">{r.monthlyVolume ?? "N/A"}</span>,
     },
     {
       key: "source",
@@ -231,7 +231,7 @@ export function LeadsTable({ rows }: { rows: AdminLeadData[] }) {
               <DialogHeader>
                 <DialogTitle>{detail.name}</DialogTitle>
                 <DialogDescription>
-                  {detail.processorName ? `Quote — ${detail.processorName}` : "Get matched"} ·{" "}
+                  {detail.processorName ? `Quote: ${detail.processorName}` : "Get matched"} ·{" "}
                   {formatDate(detail.createdAt)}
                 </DialogDescription>
               </DialogHeader>

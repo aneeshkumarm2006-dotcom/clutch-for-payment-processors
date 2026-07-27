@@ -39,7 +39,7 @@ export function PasswordCard() {
   }
 
   return (
-    <ConnectionCard title="Change password" description="There is no reset flow — keep this safe.">
+    <ConnectionCard title="Change password" description="There is no reset flow, so keep this safe.">
       <div className="space-y-3">
         <div>
           <label className={label}>Current password</label>

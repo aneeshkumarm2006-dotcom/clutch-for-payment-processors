@@ -11,7 +11,7 @@ export const revalidate = 86400;
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Methodology — how we rank & verify",
+    title: "Methodology | how we rank and verify",
     description:
       "How Payment Processor Guide ranks payment processors, what a verified badge means, how reviews are collected and verified, and how sponsorship is disclosed.",
     path: "/methodology",
@@ -29,7 +29,7 @@ const RANK_STEPS = [
   },
   {
     title: "3 · Rank score",
-    body: "Within each tier, processors are ordered by a computed rank score — a weighted blend of their average rating (60%), review volume on a log scale so a handful of reviews can’t outweigh hundreds (25%), and our editorial score (15%).",
+    body: "Within each tier, processors are ordered by a computed rank score: a weighted blend of their average rating (60%), review volume on a log scale so a handful of reviews can’t outweigh hundreds (25%), and our editorial score (15%).",
   },
 ];
 

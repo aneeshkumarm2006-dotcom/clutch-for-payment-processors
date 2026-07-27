@@ -161,7 +161,7 @@ export function handleApiError(err: unknown) {
 
   if (isDuplicateKeyError(err)) {
     const field = err.keyValue ? Object.keys(err.keyValue)[0] : undefined;
-    const fieldErrors = field ? { [field]: ["Already in use — choose another."] } : undefined;
+    const fieldErrors = field ? { [field]: ["Already in use. Choose another."] } : undefined;
     return NextResponse.json(
       { error: "That value is already taken.", ...(fieldErrors ? { fieldErrors } : {}) },
       { status: 409 },

@@ -103,7 +103,7 @@ export async function fetchGsc(store: ConfigStore, range: DateRange): Promise<So
         { key: "position", label: "Position", type: "number", align: "right" },
       ],
       rows: queries.rows.map((r) => ({
-        query: r.keys?.[0] ?? "—",
+        query: r.keys?.[0] ?? "N/A",
         clicks: r.clicks ?? 0,
         impressions: r.impressions ?? 0,
         ctr: (r.ctr ?? 0) * 100,

@@ -168,7 +168,7 @@ export function ProcessorForm({
       }
       toast.success(
         targetPublished
-          ? "Processor published — it's live on the site."
+          ? "Processor published. It's live on the site."
           : processorId
             ? "Draft saved."
             : "Draft created.",
@@ -268,7 +268,7 @@ export function ProcessorForm({
               name="shortDescription"
               label="Short description"
               rows={2}
-              placeholder="~200 characters — shown on directory cards."
+              placeholder="~200 characters, shown on directory cards."
             />
             <FormField
               control={form.control}
@@ -484,13 +484,13 @@ export function ProcessorForm({
             {/* Ratings — read-only (PRD §10.3); only editorScore is editable. */}
             <Section
               title="Ratings"
-              description="Computed from approved reviews by lib/ratings.ts — not editable here."
+              description="Computed from approved reviews by lib/ratings.ts, not editable here."
             >
               <div className="rounded-lg border border-border bg-muted/40 p-4">
                 <div className="flex items-center gap-2">
                   <Star className="size-4 fill-star text-star" aria-hidden />
                   <span className="text-h3 tabular-nums">
-                    {ratings ? formatRating(ratings.ratingAverage) : "—"}
+                    {ratings ? formatRating(ratings.ratingAverage) : "N/A"}
                   </span>
                   <span className="text-small text-muted-foreground">
                     out of 5 · {ratings?.ratingCount ?? 0} approved{" "}
@@ -502,7 +502,7 @@ export function ProcessorForm({
                     <div key={key} className="flex items-center justify-between text-small">
                       <dt className="text-muted-foreground">{humanizeEnum(key)}</dt>
                       <dd className="tabular-nums text-foreground">
-                        {ratings ? formatRating(ratings.subRatings[key]) : "—"}
+                        {ratings ? formatRating(ratings.subRatings[key]) : "N/A"}
                       </dd>
                     </div>
                   ))}
@@ -551,7 +551,7 @@ export function ProcessorForm({
               <h2 className="text-h4">Page content</h2>
               <p className="mt-0.5 text-small text-muted-foreground">
                 Compose the profile from reusable blocks. While this is empty the profile keeps
-                showing its existing long description — adding a block replaces it.
+                showing its existing long description. Adding a block replaces it.
               </p>
             </div>
             <BlockEditor />

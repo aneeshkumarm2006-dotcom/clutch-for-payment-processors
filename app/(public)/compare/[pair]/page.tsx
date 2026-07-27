@@ -38,7 +38,7 @@ export async function generateMetadata({
   const names = processors.map((p) => p.name);
   const joined = names.join(" vs ");
   return buildMetadata({
-    title: `${joined} — side-by-side comparison`,
+    title: `${joined} | side-by-side comparison`,
     description: `Compare ${names.join(
       ", ",
     )} side by side: pricing, payment methods, integrations, features, and company facts to help you choose.`,

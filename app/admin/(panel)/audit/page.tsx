@@ -33,7 +33,7 @@ export default async function AdminAuditPage() {
       <div>
         <h1 className="text-h1 tracking-tighter2">Audit log</h1>
         <p className="mt-1 text-body text-muted-foreground">
-          Every admin change — who did what, and when. Showing the most recent{" "}
+          Every admin change: who did what, and when. Showing the most recent{" "}
           {rows.length === LIMIT ? `${LIMIT}` : rows.length}{" "}
           {rows.length === 1 ? "entry" : "entries"}.
         </p>

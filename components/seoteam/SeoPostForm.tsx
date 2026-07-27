@@ -319,7 +319,7 @@ export function SeoPostForm({
             ) : autoSaveState === "error" ? (
               <span className="inline-flex items-center gap-1.5 text-small text-warning">
                 <CircleAlert className="size-4" />
-                Couldn&rsquo;t save — will retry
+                Couldn&rsquo;t save, will retry
               </span>
             ) : isDirty ? (
               <span className="inline-flex items-center gap-1.5 text-small text-muted-foreground">
@@ -379,7 +379,7 @@ export function SeoPostForm({
                   <div>
                     <h2 className="text-h4">Template</h2>
                     <p className="mt-0.5 text-small text-muted-foreground">
-                      Pick a structure to start from — it pre-fills the editor with a heading outline.
+                      Pick a structure to start from. It pre-fills the editor with a heading outline.
                     </p>
                   </div>
                   <TemplatePicker
@@ -436,7 +436,7 @@ export function SeoPostForm({
                             altId="coverImageAlt"
                             altValue={form.watch("coverImageAlt")}
                             onAltChange={(v) => form.setValue("coverImageAlt", v)}
-                            altPlaceholder="Alt text — describe the cover image for SEO & accessibility"
+                            altPlaceholder="Alt text: describe the cover image for SEO & accessibility"
                             uploadEndpoint={SEOTEAM_UPLOAD}
                             onPickFromLibrary={openPicker}
                             onImageCommitted={scheduleAutoSave}
@@ -467,7 +467,7 @@ export function SeoPostForm({
                           />
                         </FormControl>
                         <FormDescription>
-                          Paste from Google Docs or Word — or click <span aria-hidden>&lt;&gt;</span> to
+                          Paste from Google Docs or Word, or click <span aria-hidden>&lt;&gt;</span> to
                           edit the raw HTML and drop in embed codes.
                         </FormDescription>
                         <FormMessage />
@@ -480,7 +480,7 @@ export function SeoPostForm({
                   <div>
                     <h2 className="text-h4">Content blocks</h2>
                     <p className="mt-0.5 text-small text-muted-foreground">
-                      Optional sections rendered after the post body — an FAQ block also generates
+                      Optional sections rendered after the post body. An FAQ block also generates
                       FAQ rich-result schema for you.
                     </p>
                   </div>

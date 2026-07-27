@@ -162,7 +162,7 @@ export function ProcessorsTable({
             <span className="text-small text-muted-foreground">({r.ratingCount})</span>
           </span>
         ) : (
-          <span className="text-small text-muted-foreground">—</span>
+          <span className="text-small text-muted-foreground">N/A</span>
         ),
     },
     {

@@ -73,7 +73,7 @@ export function StarRatingInput({
         );
       })}
       <span className="ml-2 w-10 text-small tabular-nums text-muted-foreground" aria-hidden>
-        {value ? `${value}.0` : "—"}
+        {value ? `${value}.0` : "N/A"}
       </span>
     </div>
   );

@@ -24,7 +24,7 @@ const isEffectiveAdmin = (u: { role?: unknown; isActive?: unknown }) =>
   u.role === "admin" && u.isActive !== false;
 
 const LAST_ADMIN_MSG =
-  "This is the last active admin — promote or activate another admin first.";
+  "This is the last active admin. Promote or activate another admin first.";
 
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
   try {

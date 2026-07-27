@@ -117,7 +117,7 @@ function applyOverrides(
       warnings.push({
         scope: typeOf(node),
         severity: "warn",
-        message: `"${key}" is not an overridable field on ${typeOf(node)} — ignored.`,
+        message: `"${key}" is not an overridable field on ${typeOf(node)}, so it was ignored.`,
       });
       continue;
     }
@@ -212,7 +212,7 @@ export function buildStructuredData<T>(
       warnings.push({
         scope: typeOf(node),
         severity: "warn",
-        message: `Both a block and this page's own fields produce ${typeOf(node)}. The block wins — one node per type is emitted.`,
+        message: `Both a block and this page's own fields produce ${typeOf(node)}. The block wins; one node per type is emitted.`,
       });
     }
     byType.set(typeOf(node), node);

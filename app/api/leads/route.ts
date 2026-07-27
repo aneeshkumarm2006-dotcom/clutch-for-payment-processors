@@ -103,7 +103,7 @@ async function notifyNewLead(lead: {
     await sendNotification({
       to,
       subject: lead.processorName
-        ? `New quote request — ${lead.processorName}`
+        ? `New quote request: ${lead.processorName}`
         : "New “get matched” lead",
       text: lines.join("\n"),
       replyTo: lead.email,

@@ -43,7 +43,7 @@ function useRelative(ts: number | null): string {
     const id = setInterval(() => tick((n) => n + 1), 30_000);
     return () => clearInterval(id);
   }, []);
-  if (!ts) return "—";
+  if (!ts) return "N/A";
   const s = Math.round((Date.now() - ts) / 1000);
   if (s < 45) return "just now";
   if (s < 3600) return `${Math.round(s / 60)}m ago`;

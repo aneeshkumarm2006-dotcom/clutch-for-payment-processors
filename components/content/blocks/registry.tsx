@@ -362,7 +362,7 @@ const media: BlockDef = {
                   altId={`${name}.data.alt`}
                   altValue={watch(`${name}.data.alt`)}
                   onAltChange={(v) => setValue(`${name}.data.alt`, v, { shouldDirty: true })}
-                  altPlaceholder="Alt text — describe the image for SEO & accessibility"
+                  altPlaceholder="Alt text: describe the image for SEO & accessibility"
                   {...(uploadEndpoint ? { uploadEndpoint } : {})}
                   {...(onPickFromLibrary ? { onPickFromLibrary } : {})}
                 />

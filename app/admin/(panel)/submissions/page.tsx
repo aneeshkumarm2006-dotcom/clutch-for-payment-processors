@@ -17,7 +17,7 @@ export default async function AdminSubmissionsPage() {
       <div>
         <h1 className="text-h1 tracking-tighter2">Submissions</h1>
         <p className="mt-1 text-body text-muted-foreground">
-          {rows.length} total · {newCount} new. “Get listed” requests — review, then convert to a
+          {rows.length} total · {newCount} new. “Get listed” requests. Review, then convert to a
           processor draft.
         </p>
       </div>

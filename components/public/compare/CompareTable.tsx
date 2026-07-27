@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Check, Minus, X } from "lucide-react";
-import { cn, orDash } from "@/lib/utils";
+import { cn, orMissing } from "@/lib/utils";
 import { humanizeEnum } from "@/lib/labels";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -21,40 +21,40 @@ import type { FeesData, ProcessorDetailData } from "@/lib/serialize";
 
 const cardFee = (p: ProcessorDetailData, key: keyof FeesData) => p.fees[key];
 
-/** Pricing rows — each pulls a value (or "—"/"Varies") from a processor. */
+/** Pricing rows — each pulls a value (or "N/A"/"Varies") from a processor. */
 const PRICING_ROWS: { label: string; value: (p: ProcessorDetailData) => string }[] = [
-  { label: "Online card rate", value: (p) => orDash(cardFee(p, "onlineCardRate")) },
-  { label: "In-person rate", value: (p) => orDash(cardFee(p, "inPersonCardRate")) },
-  { label: "Keyed-in rate", value: (p) => orDash(cardFee(p, "keyedInRate")) },
-  { label: "International", value: (p) => orDash(cardFee(p, "internationalRate")) },
-  { label: "ACH / bank", value: (p) => orDash(cardFee(p, "achRate")) },
-  { label: "Monthly fee", value: (p) => orDash(cardFee(p, "monthlyFee")) },
-  { label: "Setup fee", value: (p) => orDash(cardFee(p, "setupFee")) },
-  { label: "Monthly minimum", value: (p) => orDash(cardFee(p, "monthlyMinimum")) },
-  { label: "Chargeback fee", value: (p) => orDash(cardFee(p, "chargebackFee")) },
+  { label: "Online card rate", value: (p) => orMissing(cardFee(p, "onlineCardRate")) },
+  { label: "In-person rate", value: (p) => orMissing(cardFee(p, "inPersonCardRate")) },
+  { label: "Keyed-in rate", value: (p) => orMissing(cardFee(p, "keyedInRate")) },
+  { label: "International", value: (p) => orMissing(cardFee(p, "internationalRate")) },
+  { label: "ACH / bank", value: (p) => orMissing(cardFee(p, "achRate")) },
+  { label: "Monthly fee", value: (p) => orMissing(cardFee(p, "monthlyFee")) },
+  { label: "Setup fee", value: (p) => orMissing(cardFee(p, "setupFee")) },
+  { label: "Monthly minimum", value: (p) => orMissing(cardFee(p, "monthlyMinimum")) },
+  { label: "Chargeback fee", value: (p) => orMissing(cardFee(p, "chargebackFee")) },
   {
     label: "Pricing model",
-    value: (p) => (p.pricingModel.length ? p.pricingModel.map(humanizeEnum).join(", ") : "—"),
+    value: (p) => (p.pricingModel.length ? p.pricingModel.map(humanizeEnum).join(", ") : "N/A"),
   },
-  { label: "Contract", value: (p) => (p.contractType ? humanizeEnum(p.contractType) : "—") },
+  { label: "Contract", value: (p) => (p.contractType ? humanizeEnum(p.contractType) : "N/A") },
   {
     label: "Free trial",
-    value: (p) => (p.freeTrial === undefined ? "—" : p.freeTrial ? "Yes" : "No"),
+    value: (p) => (p.freeTrial === undefined ? "N/A" : p.freeTrial ? "Yes" : "No"),
   },
-  { label: "Payout time", value: (p) => (p.payoutTime ? humanizeEnum(p.payoutTime) : "—") },
+  { label: "Payout time", value: (p) => (p.payoutTime ? humanizeEnum(p.payoutTime) : "N/A") },
 ];
 
 /** Company-fact rows. */
 const COMPANY_ROWS: { label: string; value: (p: ProcessorDetailData) => string }[] = [
-  { label: "Founded", value: (p) => (p.foundedYear ? String(p.foundedYear) : "—") },
-  { label: "Headquarters", value: (p) => orDash(p.headquarters) },
-  { label: "Company size", value: (p) => (p.companySize ? `${p.companySize} staff` : "—") },
+  { label: "Founded", value: (p) => (p.foundedYear ? String(p.foundedYear) : "N/A") },
+  { label: "Headquarters", value: (p) => orMissing(p.headquarters) },
+  { label: "Company size", value: (p) => (p.companySize ? `${p.companySize} staff` : "N/A") },
   {
     label: "Regions",
-    value: (p) => (p.supportedRegions.length ? p.supportedRegions.join(", ") : "—"),
+    value: (p) => (p.supportedRegions.length ? p.supportedRegions.join(", ") : "N/A"),
   },
-  { label: "PCI level", value: (p) => orDash(p.pciLevel) },
-  { label: "Currencies", value: (p) => orDash(p.currencies) },
+  { label: "PCI level", value: (p) => orMissing(p.pciLevel) },
+  { label: "Currencies", value: (p) => orMissing(p.currencies) },
   { label: "High-risk friendly", value: (p) => (p.highRiskFriendly ? "Yes" : "No") },
 ];
 

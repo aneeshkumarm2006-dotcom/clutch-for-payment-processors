@@ -79,7 +79,7 @@ async function notifyNewSubmission(sub: {
 
     await sendNotification({
       to,
-      subject: `New processor submission — ${sub.processorName}`,
+      subject: `New processor submission: ${sub.processorName}`,
       text: lines.join("\n"),
       replyTo: sub.contactEmail,
     });

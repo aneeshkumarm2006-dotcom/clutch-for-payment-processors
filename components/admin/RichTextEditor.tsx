@@ -406,7 +406,7 @@ export function RichTextEditor({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           spellCheck={false}
-          placeholder="<p>Edit the raw HTML — paste embed codes here.</p>"
+          placeholder="<p>Edit the raw HTML. Paste embed codes here.</p>"
           className="min-h-44 w-full resize-y bg-card px-3 py-2.5 font-mono text-[0.8125rem] leading-relaxed text-foreground focus:outline-none"
         />
       ) : (

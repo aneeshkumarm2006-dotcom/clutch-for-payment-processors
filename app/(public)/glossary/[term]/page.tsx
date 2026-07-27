@@ -29,7 +29,7 @@ export function generateMetadata({ params }: { params: { term: string } }): Meta
   const t = getGlossaryTerm(params.term);
   if (!t) return { title: "Term not found" };
   return buildMetadata({
-    title: `${t.term} — payments glossary`,
+    title: `${t.term} | payments glossary`,
     description: t.short,
     path: `/glossary/${t.slug}`,
   });

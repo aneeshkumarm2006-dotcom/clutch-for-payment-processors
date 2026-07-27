@@ -46,7 +46,7 @@ export async function generateMetadata({
       pageKey: "compare",
       title: "Compare payment processors",
       description:
-        "Compare payment processors side by side — pricing, payment methods, integrations, and features.",
+        "Compare payment processors side by side on pricing, payment methods, integrations, and features.",
       path: "/compare",
     });
   }
@@ -59,8 +59,8 @@ export async function generateMetadata({
   const title = names.length >= 2 ? `Compare ${names.join(" vs ")}` : "Compare payment processors";
   const description =
     names.length >= 2
-      ? `Side-by-side comparison of ${names.join(", ")} — pricing, payment methods, integrations, features, and company facts.`
-      : "Compare payment processors side by side — pricing, payment methods, integrations, and features.";
+      ? `Side-by-side comparison of ${names.join(", ")} on pricing, payment methods, integrations, features, and company facts.`
+      : "Compare payment processors side by side on pricing, payment methods, integrations, and features.";
 
   const base = buildMetadata({ title, description, path: "/compare" });
   const pretty = prettyComparePath(slugs);

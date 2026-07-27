@@ -57,7 +57,7 @@ function iso(v: Date | string | undefined): string | null {
 export function toLeadRow(doc: LeanLead): LeadRow {
   return {
     id: String(doc._id),
-    name: doc.name ?? "—",
+    name: doc.name ?? "N/A",
     business: doc.businessName ?? null,
     volume: doc.monthlyVolume ?? null,
     source: doc.source ?? null,
@@ -69,7 +69,7 @@ export function toLeadRow(doc: LeanLead): LeadRow {
 export function toReviewRow(doc: LeanReview): ReviewRow {
   return {
     id: String(doc._id),
-    reviewer: doc.reviewerName ?? "—",
+    reviewer: doc.reviewerName ?? "N/A",
     company: doc.companyName ?? null,
     rating: typeof doc.overallRating === "number" ? doc.overallRating : null,
     title: doc.title ?? null,

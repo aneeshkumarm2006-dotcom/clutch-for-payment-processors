@@ -132,7 +132,7 @@ export async function fetchGa4(store: ConfigStore, range: DateRange): Promise<So
         { key: "sessions", label: "Sessions", type: "number", align: "right" },
       ],
       rows: (pages.data.rows ?? []).map((r) => ({
-        page: r.dimensionValues?.[0]?.value ?? "—",
+        page: r.dimensionValues?.[0]?.value ?? "N/A",
         views: num(r.metricValues?.[0]?.value),
         sessions: num(r.metricValues?.[1]?.value),
       })),
@@ -148,7 +148,7 @@ export async function fetchGa4(store: ConfigStore, range: DateRange): Promise<So
         { key: "users", label: "Users", type: "number", align: "right" },
       ],
       rows: (sources.data.rows ?? []).map((r) => ({
-        source: r.dimensionValues?.[0]?.value ?? "—",
+        source: r.dimensionValues?.[0]?.value ?? "N/A",
         sessions: num(r.metricValues?.[0]?.value),
         users: num(r.metricValues?.[1]?.value),
       })),

@@ -34,7 +34,7 @@ export const SOURCE_META: Record<SourceKey, SourceMeta> = {
   ga4: {
     label: "Analytics",
     path: "ga4",
-    blurb: "Google Analytics 4 — traffic, engagement, and key events.",
+    blurb: "Google Analytics 4: traffic, engagement, and key events.",
     metrics: {
       sessions: { label: "Sessions", kind: "count" },
       totalUsers: { label: "Users", kind: "count" },
@@ -49,7 +49,7 @@ export const SOURCE_META: Record<SourceKey, SourceMeta> = {
   gsc: {
     label: "Search Console",
     path: "gsc",
-    blurb: "Google Search Console — clicks, impressions, and ranking.",
+    blurb: "Google Search Console: clicks, impressions, and ranking.",
     metrics: {
       clicks: { label: "Clicks", kind: "count" },
       impressions: { label: "Impressions", kind: "count" },
@@ -62,7 +62,7 @@ export const SOURCE_META: Record<SourceKey, SourceMeta> = {
   meta: {
     label: "Meta Ads",
     path: "meta",
-    blurb: "Meta (Facebook/Instagram) Ads — spend and performance.",
+    blurb: "Meta (Facebook/Instagram) Ads: spend and performance.",
     metrics: {
       spend: { label: "Spend", kind: "currency", cost: true },
       impressions: { label: "Impressions", kind: "count" },
@@ -78,7 +78,7 @@ export const SOURCE_META: Record<SourceKey, SourceMeta> = {
   gads: {
     label: "Google Ads",
     path: "gads",
-    blurb: "Google Ads — cost, clicks, and conversions.",
+    blurb: "Google Ads: cost, clicks, and conversions.",
     metrics: {
       cost: { label: "Cost", kind: "currency", cost: true },
       impressions: { label: "Impressions", kind: "count" },
@@ -92,7 +92,7 @@ export const SOURCE_META: Record<SourceKey, SourceMeta> = {
   leads: {
     label: "Leads",
     path: "leads",
-    blurb: "Inbound growth — quote & get-matched leads, plus reviews.",
+    blurb: "Inbound growth: quote & get-matched leads, plus reviews.",
     metrics: {
       leads: { label: "New leads", kind: "count" },
       reviews: { label: "Reviews", kind: "count" },
@@ -106,7 +106,7 @@ export const SOURCE_META: Record<SourceKey, SourceMeta> = {
 
 /** Format a value for display given its metric kind. */
 export function formatValue(kind: MetricKind, value: number | null | undefined, currency = "USD"): string {
-  if (value == null || Number.isNaN(value)) return "—";
+  if (value == null || Number.isNaN(value)) return "N/A";
   switch (kind) {
     case "currency":
       return fmtCurrency(value, currency);

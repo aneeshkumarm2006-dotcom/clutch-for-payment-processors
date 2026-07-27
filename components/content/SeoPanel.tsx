@@ -58,7 +58,7 @@ function CharCount({ value, min, max }: { value: string; min: number; max: numbe
   return (
     <span className={ok || n === 0 ? "text-muted-foreground" : "text-warning"}>
       {n} / {max}
-      {n > 0 && !ok ? (n < min ? " — a little short" : " — may be truncated") : ""}
+      {n > 0 && !ok ? (n < min ? " (a little short)" : " (may be truncated)") : ""}
     </span>
   );
 }
@@ -225,7 +225,7 @@ export function SeoPanel({
         <TextField
           name={`${name}.ogTitle`}
           label="Social title"
-          description="Used only on Facebook / LinkedIn / X. Falls back to the meta title — it never changes the search-result title."
+          description="Used only on Facebook / LinkedIn / X. Falls back to the meta title. It never changes the search-result title."
         />
         <TextareaField
           name={`${name}.ogDescription`}
@@ -292,7 +292,7 @@ export function SeoPanel({
 
         {isForcedNoindex ? (
           <p className="rounded-lg border border-border bg-muted/40 p-3 text-small text-muted-foreground">
-            This route is always <code>noindex</code> — it takes query strings that would otherwise
+            This route is always <code>noindex</code>. It takes query strings that would otherwise
             fill the index with near-duplicate URLs. The toggles below can&rsquo;t override that.
           </p>
         ) : null}
@@ -304,7 +304,7 @@ export function SeoPanel({
             <FormItem>
               <FormLabel>Canonical URL</FormLabel>
               <FormDescription>
-                Leave blank to use this page&rsquo;s own URL. Must be on {HOST} — a canonical
+                Leave blank to use this page&rsquo;s own URL. Must be on {HOST}. A canonical
                 pointing at another domain would de-index this page.
               </FormDescription>
               <FormControl>
@@ -328,7 +328,7 @@ export function SeoPanel({
         */}
         {(
           [
-            { key: "robotsIndex", label: "Allow indexing", hint: "Off adds noindex — the page disappears from search." },
+            { key: "robotsIndex", label: "Allow indexing", hint: "Off adds noindex, so the page disappears from search." },
             { key: "robotsFollow", label: "Follow links", hint: "Off adds nofollow to every link on the page." },
           ] as const
         ).map(({ key, label, hint }) => (

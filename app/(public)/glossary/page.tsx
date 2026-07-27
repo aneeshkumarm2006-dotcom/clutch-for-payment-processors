@@ -17,7 +17,7 @@ export function generateMetadata(): Metadata {
   return buildMetadata({
     title: "Payments glossary",
     description:
-      "Plain-English definitions of payment processing terms — interchange, chargebacks, ACH, PCI, rolling reserves, tokenization, and more.",
+      "Plain-English definitions of payment processing terms: interchange, chargebacks, ACH, PCI, rolling reserves, tokenization, and more.",
     path: "/glossary",
   });
 }

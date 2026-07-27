@@ -658,3 +658,74 @@
 - `tsc --noEmit` passes. End-to-end upload needs live Cloudinary creds — set
   `CLOUDINARY_URL` in `.env.local` + `npm run dev`, then upload a blog cover / inline
   editor image and confirm it returns a `res.cloudinary.com` URL.
+
+---
+
+## Post-launch — Editable landing page (`/admin/homepage`)
+
+### The problem
+Only three homepage values were editable (`homepageHeroTitle`,
+`homepageHeroSubtitle`, `featuredCategorySlugs`, all on Settings). Every section
+heading, eyebrow, step, CTA card, item count, and the section order itself was
+hardcoded in `app/(public)/page.tsx`, and the "home" PageSeo record's `blocks[]`
+were editable in admin but **rendered nowhere**.
+
+### New data (reflected in PRD §8.8)
+- `SiteSettings.homepage` — a sub-document holding the whole landing-page config:
+  `hero` (eyebrow, search on/off + placeholder, both CTA buttons, stat row +
+  per-stat labels), one entry per section (`categories`, `featured`, `howItWorks`
+  incl. `steps[]`, `compare`, `blog`, `ctaBand` incl. `cards[]`, `content`, `faq`)
+  with `enabled` / `eyebrow` / `title` / `actionLabel` / `actionHref` / `limit`,
+  and `sectionOrder[]`.
+- **Every field is optional and no `enabled` has a schema default.** `undefined`
+  must stay distinguishable from `false` so "never configured" can mean "use the
+  built-in default" — a `default: true` would rewrite history the first time any
+  unrelated settings field is saved, and blank-means-inherit would break.
+- The hero **headline/sub-headline stay on the existing top-level fields**. One
+  source of truth beats a nested duplicate; the new editor writes those same two.
+
+### `lib/homepage.ts` is the only place the default copy lives
+`HOMEPAGE_DEFAULTS` + `resolveHomepage(settings)` merge config over defaults.
+`app/(public)/page.tsx` renders the resolved object and holds **no fallback
+strings of its own**, and the admin form seeds its placeholders from the same
+constant. A default written anywhere else will drift.
+
+### Decisions taken
+- **Its own route, not `PUT /api/settings`.** That handler full-replaces the
+  singleton and `$unset`s omitted keys, so a landing-page save posted there would
+  wipe siteName / contactEmail / socialLinks / defaultSeo. `/api/settings/homepage`
+  touches only the four landing-page keys. Admin-only, like `/api/settings`; also
+  added to `middleware.ts#ADMIN_ONLY`.
+- **One form, two endpoints.** The editor also owns the page's meta, so it saves
+  the SEO/FAQ/blocks half to `/api/page-seo/[id]` (the same "home" record
+  `/admin/page-seo` edits — not a copy). Both payloads are validated before either
+  request fires, so a failure in one leaves both untouched. The form's
+  `seo`/`faqs`/`blocks`/`structuredData` keys mirror `PageSeoFormValues` exactly so
+  `SeoPanel` / `FaqField` / `BlockEditor` / `StructuredDataPanel` mount unchanged.
+- **The admin page upserts the "home" PageSeo record** (`$setOnInsert`) so the SEO
+  tab works on an install where `npm run seed:seo` never ran, without touching an
+  existing one.
+- **Inputs are seeded from the STORED value with the default as placeholder.**
+  Pre-filling with defaults would bake today's copy into the document on first
+  save and make "clear to restore the default" unreachable.
+- **Content blocks now render.** The homepage gained an editorial slot for the
+  "home" PageSeo `blocks[]`, positioned like any other section. (`/processors` and
+  `/compare` still don't render theirs — same latent gap, out of scope here.)
+- **FAQPage schema is tied to the FAQ section being visible**, not to FAQs merely
+  existing. Google only accepts FAQ markup for Q&As the visitor can see.
+- **`limit` is clamped and guarded with `> 0`.** Mongo reads `.limit(0)` as *no
+  limit*, so passing a zero/disabled count straight through would have fetched an
+  entire collection for a section that renders nothing.
+- Settings keeps its hero values in the payload (hidden) and links to the new page
+  — `siteSettingsInput` requires them, so dropping them would `$unset` the hero on
+  every settings save.
+- Alternating section tints are computed over the sections that **actually
+  render**, not over the config, so reordering or emptying one can't leave two
+  tinted bands touching.
+
+### Verification
+- `tsc --noEmit`, `next lint`, and `npm test` (now `tests/index.test.ts`, which
+  aggregates analyticshub + the new `tests/homepage/homepage.test.ts`) all pass.
+- Manual: signed into `/admin/homepage`, edited a section heading + item count,
+  saved (both PUTs 200), confirmed the change on `/`, then cleared both fields and
+  confirmed the built-in default came back.

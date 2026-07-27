@@ -12,4 +12,5 @@ export * from "./seoPost";
 export * from "./media";
 export * from "./user";
 export * from "./siteSettings";
+export * from "./homepage";
 export * from "./pageSeo";

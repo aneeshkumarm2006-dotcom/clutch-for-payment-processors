@@ -29,8 +29,8 @@ const GTM_ENABLED = /^GTM-[A-Z0-9]+$/.test(GTM_CONTAINER_ID) && GTM_CONTAINER_ID
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Payment Processor Guide — Compare payment processors",
-    template: "%s · Payment Processor Guide",
+    default: "Payment Processor Guide | Compare payment processors",
+    template: "%s | Payment Processor Guide",
   },
   description:
     "Compare payment processors and gateways on fees, payment methods, integrations, and verified merchant reviews.",

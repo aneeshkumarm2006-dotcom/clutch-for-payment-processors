@@ -57,7 +57,7 @@ export default async function SeoPostPreviewPage({ params }: { params: { id: str
         <div className="flex items-center justify-between gap-3 border-b border-warning/40 bg-warning/10 px-4 py-2 text-small text-foreground">
           <span className="inline-flex items-center gap-2 font-medium">
             <Eye className="size-4" aria-hidden />
-            Preview — this post is not published yet.
+            Preview: this post is not published yet.
           </span>
           <Link href={`/seoteam/${post.id}`} className="underline underline-offset-2 hover:text-accent">
             Back to editor

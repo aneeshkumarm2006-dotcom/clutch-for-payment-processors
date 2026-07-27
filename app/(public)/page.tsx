@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, GitCompare, PencilLine, Search, Store } from "lucide-react";
+import { ArrowRight, GitCompare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SearchBox } from "@/components/public/SearchBox";
 import { CategoryCard } from "@/components/public/CategoryCard";
 import { ProcessorCard } from "@/components/public/ProcessorCard";
 import { BlogCard } from "@/components/public/BlogCard";
 import { LeadDialog } from "@/components/public/LeadDialog";
+import { Blocks } from "@/components/public/Blocks";
 import { Reveal, RevealGroup, RevealItem } from "@/components/public/Reveal";
 import { JsonLd } from "@/components/public/JsonLd";
 import { getOrCreateSiteSettings } from "@/lib/settings";
@@ -22,16 +23,19 @@ import { faqJsonLd } from "@/lib/seo";
 import { getPageSeo, pageSeoMetadata } from "@/lib/page-seo";
 import { FaqSection } from "@/components/public/FaqSection";
 import { formatCount } from "@/lib/utils";
+import { resolveHomepage, type HomeSectionKey } from "@/lib/homepage";
+import { homeIcon } from "@/lib/home-icons";
 
 /** Homepage (PRD §9.1). SSG + ISR. */
 export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
-  // Editable via admin → Page SEO ("home"); falls back to the copy below.
+  // Editable via admin → Landing page ("SEO & meta" tab, the "home" PageSeo
+  // record); falls back to the copy below.
   return pageSeoMetadata({
     pageKey: "home",
     title:
-      "Payment Processing Guide | Expert Payment Processing Guides, Gateways & Merchant Services",
+      "Payment Processing Guide | Expert Guides, Gateways and Merchant Services",
     description:
       "Compare payment processing platforms, merchant services providers, and credit card processing services on fees, features, and verified merchant reviews.",
     // Kept in sync with the "home" PageSeo record (scripts/seed-seo.ts), which
@@ -52,92 +56,301 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-const STEPS = [
-  {
-    Icon: Search,
-    title: "Browse",
-    body: "Filter the directory by fees, payment methods, integrations, region, and use case.",
-  },
-  {
-    Icon: GitCompare,
-    title: "Compare",
-    body: "Put 2–4 processors side by side on pricing, features, and verified merchant reviews.",
-  },
-  {
-    Icon: CheckCircle2,
-    title: "Decide",
-    body: "Read real reviews, check the methodology, and pick the processor that fits your business.",
-  },
-];
-
 export default async function HomePage() {
-  const [settings, allCategories, featured, topRated, stats, recentPosts, pageSeo] =
-    await Promise.all([
-      getOrCreateSiteSettings().catch(() => null),
-      getPublishedCategories(),
-      getFeaturedProcessors(6),
-      getTopRatedProcessors(4),
-      getDirectoryStats(),
-      getRecentBlogPosts(3),
-      getPageSeo("home"),
-    ]);
+  // Settings first, on its own: every fetch below is sized by the landing-page
+  // config it carries. `getOrCreateSiteSettings` is request-cached, so the layout
+  // reading it too costs nothing.
+  const settings = await getOrCreateSiteSettings().catch(() => null);
+  const home = resolveHomepage(settings);
 
-  const heroTitle = settings?.homepageHeroTitle || "Payment Processing Guide: Your Trusted Payment Processing Resource";
-  const heroSubtitle =
-    settings?.homepageHeroSubtitle ||
-    "Compare fees, features, and verified merchant reviews, all in one independent directory.";
+  // A disabled section fetches nothing. Note the `> 0` guards: Mongo reads
+  // `.limit(0)` as "no limit", so passing a zero count straight through would
+  // fetch the ENTIRE collection for a section that renders nothing.
+  const categoriesLimit = home.categories.enabled ? home.categories.limit : 0;
+  const featuredLimit = home.featured.enabled ? home.featured.limit : 0;
+  const comparePairs = home.compare.enabled ? home.compare.limit : 0;
+  const blogLimit = home.blog.enabled ? home.blog.limit : 0;
 
-  const featuredCategories = pickFeaturedCategories(
-    allCategories,
-    { featuredCategorySlugs: settings?.featuredCategorySlugs ?? [] },
-    8,
-  );
+  const [allCategories, featured, topRated, stats, recentPosts, pageSeo] = await Promise.all([
+    categoriesLimit > 0 ? getPublishedCategories() : Promise.resolve([]),
+    featuredLimit > 0 ? getFeaturedProcessors(featuredLimit) : Promise.resolve([]),
+    // Two processors per "A vs B" card.
+    comparePairs > 0 ? getTopRatedProcessors(comparePairs * 2) : Promise.resolve([]),
+    home.hero.statsEnabled ? getDirectoryStats() : Promise.resolve(null),
+    blogLimit > 0 ? getRecentBlogPosts(blogLimit) : Promise.resolve([]),
+    getPageSeo("home"),
+  ]);
 
-  // Compare teaser quick-picks: pair up the top-rated processors.
+  const featuredCategories =
+    categoriesLimit > 0
+      ? pickFeaturedCategories(
+          allCategories,
+          { featuredCategorySlugs: settings?.featuredCategorySlugs ?? [] },
+          categoriesLimit,
+        )
+      : [];
+
   const quickPicks: { a: (typeof topRated)[number]; b: (typeof topRated)[number] }[] = [];
-  for (let i = 0; i + 1 < topRated.length && quickPicks.length < 3; i += 2) {
+  for (let i = 0; i + 1 < topRated.length && quickPicks.length < comparePairs; i += 2) {
     quickPicks.push({ a: topRated[i]!, b: topRated[i + 1]! });
   }
 
-  const statItems = [
-    { value: stats.processors, label: "processors reviewed" },
-    { value: stats.reviews, label: "verified reviews" },
-    { value: stats.categories, label: "categories" },
-  ].filter((s) => s.value > 0);
+  const statItems = stats
+    ? [
+        { value: stats.processors, label: home.hero.statProcessorsLabel },
+        { value: stats.reviews, label: home.hero.statReviewsLabel },
+        { value: stats.categories, label: home.hero.statCategoriesLabel },
+      ].filter((s) => s.value > 0)
+    : [];
+
+  const faqs = pageSeo?.faqs ?? [];
+  const showFaqs = home.faq.enabled && faqs.length > 0;
+  const blocks = pageSeo?.blocks ?? [];
+  const showBlocks = home.content.enabled && blocks.length > 0;
+
+  /**
+   * Sections that will actually render, in the admin-configured order. Resolved
+   * before rendering so the alternating background can be computed over what's
+   * on the page rather than over the config — otherwise reordering or emptying a
+   * section would leave two tinted bands touching.
+   */
+  const visible = home.sectionOrder.filter((key) => {
+    switch (key) {
+      case "categories":
+        return featuredCategories.length > 0;
+      case "featured":
+        return featured.length > 0;
+      case "howItWorks":
+        return home.howItWorks.enabled;
+      case "compare":
+        return quickPicks.length > 0;
+      case "blog":
+        return recentPosts.length > 0;
+      case "content":
+        return showBlocks;
+      case "ctaBand":
+        return home.ctaBand.enabled && home.ctaBand.cards.length > 0;
+      case "faq":
+        return showFaqs;
+      default:
+        return false;
+    }
+  });
+
+  const renderSection = (key: HomeSectionKey, tinted: boolean) => {
+    const band = tinted ? "border-t bg-ink-50/60 dark:bg-ink-900/30" : "border-t";
+    const inner = "mx-auto max-w-content px-4 py-16 lg:px-6 lg:py-20";
+
+    switch (key) {
+      case "categories":
+        return (
+          <section key={key} className={band}>
+            <div className={inner}>
+              <SectionHeading section={home.categories} />
+              <RevealGroup className="mt-8 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4">
+                {featuredCategories.map((c) => (
+                  <RevealItem key={c.slug} className="h-full">
+                    <CategoryCard category={c} />
+                  </RevealItem>
+                ))}
+              </RevealGroup>
+            </div>
+          </section>
+        );
+
+      case "featured":
+        return (
+          <section key={key} className={band}>
+            <div className={inner}>
+              <SectionHeading section={home.featured} />
+              <RevealGroup className="mt-8 grid gap-4 md:grid-cols-2">
+                {featured.map((p) => (
+                  <RevealItem key={p.id}>
+                    <ProcessorCard processor={p} />
+                  </RevealItem>
+                ))}
+              </RevealGroup>
+            </div>
+          </section>
+        );
+
+      case "howItWorks":
+        return (
+          // The hero's default secondary button links to this anchor.
+          <section key={key} id="how-it-works" className={`scroll-mt-20 ${band}`}>
+            <div className={inner}>
+              <SectionHeading section={home.howItWorks} />
+              {home.howItWorks.steps.length > 0 && (
+                <ol className="mt-8 grid gap-6 md:grid-cols-3">
+                  {home.howItWorks.steps.map((step, i) => {
+                    const Icon = homeIcon(step.icon);
+                    return (
+                      <li key={`${step.title}-${i}`} className="rounded-lg border bg-card p-6">
+                        <div className="flex items-center gap-3">
+                          <span className="flex size-9 items-center justify-center rounded border bg-ink-50 text-ink-700 dark:bg-ink-900 dark:text-ink-300">
+                            <Icon className="size-5" aria-hidden />
+                          </span>
+                          <span className="text-label uppercase text-ink-500">Step {i + 1}</span>
+                        </div>
+                        {step.title && <h3 className="mt-4 text-h3 text-foreground">{step.title}</h3>}
+                        {step.body && (
+                          <p className="mt-2 text-body text-muted-foreground">{step.body}</p>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ol>
+              )}
+            </div>
+          </section>
+        );
+
+      case "compare":
+        return (
+          <section key={key} className={band}>
+            <div className={inner}>
+              <SectionHeading section={home.compare} />
+              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {quickPicks.map(({ a, b }) => (
+                  <Link
+                    key={`${a.slug}-${b.slug}`}
+                    href={`/compare?ids=${a.slug},${b.slug}`}
+                    className="group flex items-center justify-between gap-3 rounded-lg border bg-card p-5 transition-colors hover:border-border-strong"
+                  >
+                    <span className="text-h4 text-foreground">
+                      {a.name} <span className="text-muted-foreground">vs</span> {b.name}
+                    </span>
+                    <GitCompare
+                      className="size-5 shrink-0 text-ink-400 transition-colors group-hover:text-accent"
+                      aria-hidden
+                    />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+
+      case "blog":
+        return (
+          <section key={key} className={band}>
+            <div className={inner}>
+              <SectionHeading section={home.blog} />
+              <RevealGroup className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {recentPosts.map((post) => (
+                  <RevealItem key={post.id}>
+                    <BlogCard post={post} />
+                  </RevealItem>
+                ))}
+              </RevealGroup>
+            </div>
+          </section>
+        );
+
+      case "content":
+        return (
+          <section key={key} className={band}>
+            <div className={inner}>
+              {home.content.title && (
+                <h2 className="text-h1 tracking-tighter2 text-foreground">{home.content.title}</h2>
+              )}
+              <Reveal>
+                <Blocks blocks={blocks} className={home.content.title ? "mt-8" : undefined} />
+              </Reveal>
+            </div>
+          </section>
+        );
+
+      case "ctaBand":
+        return (
+          <section key={key} className={band}>
+            <div className="mx-auto grid max-w-content gap-4 px-4 py-16 md:grid-cols-2 lg:px-6 lg:py-20">
+              {home.ctaBand.cards.map((card, i) => {
+                const Icon = homeIcon(card.icon);
+                return (
+                  <div
+                    key={`${card.href}-${i}`}
+                    className="flex flex-col items-start rounded-lg border bg-card p-8"
+                  >
+                    <span className="flex size-10 items-center justify-center rounded border bg-ink-50 text-ink-700 dark:bg-ink-900 dark:text-ink-300">
+                      <Icon className="size-5" aria-hidden />
+                    </span>
+                    <h3 className="mt-4 text-h3 text-foreground">{card.title}</h3>
+                    {card.body && <p className="mt-2 text-body text-muted-foreground">{card.body}</p>}
+                    {card.cta && (
+                      <Button asChild variant="secondary" className="mt-5">
+                        <Link href={card.href}>{card.cta}</Link>
+                      </Button>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        );
+
+      case "faq":
+        return (
+          <section key={key} className={band}>
+            <div className={inner}>
+              <FaqSection faqs={faqs} title={home.faq.title} className="max-w-3xl" />
+            </div>
+          </section>
+        );
+
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
       {/*
-        Organization + WebSite are NOT emitted here any more — `app/(public)/layout.tsx`
+        Organization + WebSite are NOT emitted here — `app/(public)/layout.tsx`
         emits them as an @graph on every public page. Re-adding them here would
         declare the same two entities twice on the homepage.
+
+        FAQPage is tied to `showFaqs`, not to the FAQs merely existing: Google
+        requires the Q&As to be visible on the page, so hiding the section must
+        take its schema with it.
       */}
-      <JsonLd
-        data={pageSeo?.faqs && pageSeo.faqs.length > 0 ? [faqJsonLd(pageSeo.faqs)] : []}
-      />
+      <JsonLd data={showFaqs ? [faqJsonLd(faqs)] : []} />
 
       {/* Hero */}
       <section className="border-b">
         <div className="mx-auto max-w-content px-4 py-20 lg:px-6 lg:py-28">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-display text-foreground">{heroTitle}</h1>
-            <p className="mx-auto mt-5 max-w-2xl text-body-lg text-muted-foreground">{heroSubtitle}</p>
+            {home.hero.eyebrow && (
+              <p className="text-label uppercase text-ink-500">{home.hero.eyebrow}</p>
+            )}
+            <h1 className="text-display text-foreground">{home.hero.title}</h1>
+            <p className="mx-auto mt-5 max-w-2xl text-body-lg text-muted-foreground">
+              {home.hero.subtitle}
+            </p>
 
-            <div className="mx-auto mt-8 max-w-xl">
-              <SearchBox size="lg" placeholder="Search by name, e.g. Stripe, ACH, high-risk…" />
-            </div>
+            {home.hero.searchEnabled && (
+              <div className="mx-auto mt-8 max-w-xl">
+                <SearchBox size="lg" placeholder={home.hero.searchPlaceholder} />
+              </div>
+            )}
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <LeadDialog
-                source="home-hero"
-                triggerLabel="Get matched"
-                triggerVariant="accent"
-                triggerSize="lg"
-              />
-              <Button asChild variant="secondary" size="lg">
-                <Link href="#how-it-works">See how it works</Link>
-              </Button>
-            </div>
+            {(home.hero.primaryCtaEnabled || home.hero.secondaryCtaEnabled) && (
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                {home.hero.primaryCtaEnabled && (
+                  <LeadDialog
+                    source="home-hero"
+                    triggerLabel={home.hero.primaryCtaLabel}
+                    triggerVariant="accent"
+                    triggerSize="lg"
+                  />
+                )}
+                {home.hero.secondaryCtaEnabled && (
+                  <Button asChild variant="secondary" size="lg">
+                    <Link href={home.hero.secondaryCtaHref}>{home.hero.secondaryCtaLabel}</Link>
+                  </Button>
+                )}
+              </div>
+            )}
 
             {statItems.length > 0 && (
               <dl className="mx-auto mt-12 flex max-w-lg flex-wrap items-center justify-center gap-x-10 gap-y-4">
@@ -158,192 +371,33 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Popular categories */}
-      {featuredCategories.length > 0 && (
-        <section className="mx-auto max-w-content px-4 py-16 lg:px-6 lg:py-20">
-          <SectionHeading
-            eyebrow="Browse by need"
-            title="Popular categories"
-            action={{ label: "All categories", href: "/processors" }}
-          />
-          <RevealGroup className="mt-8 grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4">
-            {featuredCategories.map((c) => (
-              <RevealItem key={c.slug} className="h-full">
-                <CategoryCard category={c} />
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </section>
-      )}
-
-      {/* Featured / top-rated processors */}
-      {featured.length > 0 && (
-        <section className="border-t bg-ink-50/60 dark:bg-ink-900/30">
-          <div className="mx-auto max-w-content px-4 py-16 lg:px-6 lg:py-20">
-            <SectionHeading
-              eyebrow="Editor & merchant picks"
-              title="Featured processors"
-              action={{ label: "View all processors", href: "/processors" }}
-            />
-            <RevealGroup className="mt-8 grid gap-4 md:grid-cols-2">
-              {featured.map((p) => (
-                <RevealItem key={p.id}>
-                  <ProcessorCard processor={p} />
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          </div>
-        </section>
-      )}
-
-      {/* How it works */}
-      <section id="how-it-works" className="scroll-mt-20 border-t">
-        <div className="mx-auto max-w-content px-4 py-16 lg:px-6 lg:py-20">
-          <SectionHeading eyebrow="How it works" title="From shortlist to decision in minutes" />
-          <ol className="mt-8 grid gap-6 md:grid-cols-3">
-            {STEPS.map((step, i) => (
-              <li key={step.title} className="rounded-lg border bg-card p-6">
-                <div className="flex items-center gap-3">
-                  <span className="flex size-9 items-center justify-center rounded border bg-ink-50 text-ink-700 dark:bg-ink-900 dark:text-ink-300">
-                    <step.Icon className="size-5" aria-hidden />
-                  </span>
-                  <span className="text-label uppercase text-ink-500">Step {i + 1}</span>
-                </div>
-                <h3 className="mt-4 text-h3 text-foreground">{step.title}</h3>
-                <p className="mt-2 text-body text-muted-foreground">{step.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* Compare teaser */}
-      {quickPicks.length > 0 && (
-        <section className="border-t bg-ink-50/60 dark:bg-ink-900/30">
-          <div className="mx-auto max-w-content px-4 py-16 lg:px-6 lg:py-20">
-            <SectionHeading
-              eyebrow="Side by side"
-              title="Compare popular processors"
-              action={{ label: "Open compare", href: "/compare" }}
-            />
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {quickPicks.map(({ a, b }) => (
-                <Link
-                  key={`${a.slug}-${b.slug}`}
-                  href={`/compare?ids=${a.slug},${b.slug}`}
-                  className="group flex items-center justify-between gap-3 rounded-lg border bg-card p-5 transition-colors hover:border-border-strong"
-                >
-                  <span className="text-h4 text-foreground">
-                    {a.name} <span className="text-muted-foreground">vs</span> {b.name}
-                  </span>
-                  <GitCompare className="size-5 shrink-0 text-ink-400 transition-colors group-hover:text-accent" aria-hidden />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* From the blog */}
-      {recentPosts.length > 0 && (
-        <section className="border-t">
-          <div className="mx-auto max-w-content px-4 py-16 lg:px-6 lg:py-20">
-            <SectionHeading
-              eyebrow="Guides & comparisons"
-              title="From the blog"
-              action={{ label: "All articles", href: "/blog" }}
-            />
-            <RevealGroup className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {recentPosts.map((post) => (
-                <RevealItem key={post.id}>
-                  <BlogCard post={post} />
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          </div>
-        </section>
-      )}
-
-      {/* Dual CTA band */}
-      <section className="border-t">
-        <div className="mx-auto grid max-w-content gap-4 px-4 py-16 md:grid-cols-2 lg:px-6 lg:py-20">
-          <CtaCard
-            Icon={PencilLine}
-            title="Used a processor? Write a review"
-            body="Share your real merchant experience and help other businesses choose."
-            href="/write-review"
-            cta="Write a review"
-          />
-          <CtaCard
-            Icon={Store}
-            title="Run a payment company? Get listed"
-            body="Add your processor to the directory and reach businesses comparing options."
-            href="/for-processors"
-            cta="List your processor"
-          />
-        </div>
-      </section>
-
-      {pageSeo?.faqs && pageSeo.faqs.length > 0 && (
-        <section className="mx-auto max-w-content px-4 pb-16 lg:px-6">
-          <FaqSection faqs={pageSeo.faqs} className="max-w-3xl" />
-        </section>
-      )}
+      {visible.map((key, i) => renderSection(key, i % 2 === 1))}
     </>
   );
 }
 
+/** Eyebrow + heading + optional "see all" link. Both link fields must be set to render it. */
 function SectionHeading({
-  eyebrow,
-  title,
-  action,
+  section,
 }: {
-  eyebrow: string;
-  title: string;
-  action?: { label: string; href: string };
+  section: { eyebrow: string; title: string; actionLabel: string; actionHref: string };
 }) {
+  const showAction = Boolean(section.actionLabel && section.actionHref);
   return (
     <div className="flex flex-wrap items-end justify-between gap-3">
       <div>
-        <p className="text-label uppercase text-ink-500">{eyebrow}</p>
-        <h2 className="mt-2 text-h1 tracking-tighter2 text-foreground">{title}</h2>
+        {section.eyebrow && <p className="text-label uppercase text-ink-500">{section.eyebrow}</p>}
+        <h2 className="mt-2 text-h1 tracking-tighter2 text-foreground">{section.title}</h2>
       </div>
-      {action && (
+      {showAction && (
         <Link
-          href={action.href}
+          href={section.actionHref}
           className="inline-flex items-center gap-1 text-small font-medium text-accent hover:underline"
         >
-          {action.label}
+          {section.actionLabel}
           <ArrowRight className="size-4" aria-hidden />
         </Link>
       )}
-    </div>
-  );
-}
-
-function CtaCard({
-  Icon,
-  title,
-  body,
-  href,
-  cta,
-}: {
-  Icon: typeof Store;
-  title: string;
-  body: string;
-  href: string;
-  cta: string;
-}) {
-  return (
-    <div className="flex flex-col items-start rounded-lg border bg-card p-8">
-      <span className="flex size-10 items-center justify-center rounded border bg-ink-50 text-ink-700 dark:bg-ink-900 dark:text-ink-300">
-        <Icon className="size-5" aria-hidden />
-      </span>
-      <h3 className="mt-4 text-h3 text-foreground">{title}</h3>
-      <p className="mt-2 text-body text-muted-foreground">{body}</p>
-      <Button asChild variant="secondary" className="mt-5">
-        <Link href={href}>{cta}</Link>
-      </Button>
     </div>
   );
 }

@@ -78,7 +78,7 @@ function ComparisonBlock({ data }: { data: Record<string, unknown> }) {
                 </th>
                 {headers.map((h, ci) => (
                   <td key={h} className="px-4 py-3 text-muted-foreground">
-                    {asArray<string>(row.cells)[ci] ?? "—"}
+                    {asArray<string>(row.cells)[ci] ?? "N/A"}
                   </td>
                 ))}
               </tr>

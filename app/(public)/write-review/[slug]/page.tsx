@@ -24,7 +24,7 @@ export async function generateMetadata({
   return {
     ...buildMetadata({
       title: `Write a review of ${p.name}`,
-      description: `Share your experience with ${p.name} — pricing, support, reliability, and more.`,
+      description: `Share your experience with ${p.name} on pricing, support, reliability, and more.`,
       path: `/write-review/${p.slug}`,
     }),
     robots: { index: false, follow: true },

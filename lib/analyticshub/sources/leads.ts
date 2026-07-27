@@ -79,10 +79,10 @@ export async function fetchLeads(range: DateRange): Promise<SourceResult> {
           const r = toLeadRow(d);
           return {
             name: r.name,
-            business: r.business ?? "—",
-            volume: r.volume ?? "—",
-            source: r.source ?? "—",
-            createdAt: r.createdAt ?? "—",
+            business: r.business ?? "N/A",
+            volume: r.volume ?? "N/A",
+            source: r.source ?? "N/A",
+            createdAt: r.createdAt ?? "N/A",
           };
         }),
       },

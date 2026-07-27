@@ -205,7 +205,7 @@ export async function loginHandler(ctx: Ctx): Promise<Response> {
     return errorResponse((err as Error).message || "Database unreachable.", 503);
   }
   if (stored == null) {
-    return errorResponse("No account yet — complete first-run setup.", 400);
+    return errorResponse("No account yet. Complete first-run setup.", 400);
   }
 
   if (!scryptVerify(parsed.data.password, stored)) {

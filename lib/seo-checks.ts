@@ -70,7 +70,7 @@ export function evaluateSeo(s: SeoSignals, overrides: readonly string[] = []): S
       s.metaTitleLength >= META_TITLE_MIN && s.metaTitleLength <= META_TITLE_MAX ? "pass" : "warn",
     detail:
       s.metaTitleLength === 0
-        ? "Not set — defaults to the post title."
+        ? "Not set, defaults to the post title."
         : `${s.metaTitleLength} chars (aim ${META_TITLE_MIN}–${META_TITLE_MAX}).`,
   });
 
@@ -83,7 +83,7 @@ export function evaluateSeo(s: SeoSignals, overrides: readonly string[] = []): S
         : "warn",
     detail:
       s.metaDescriptionLength === 0
-        ? "Not set — defaults to the excerpt."
+        ? "Not set, defaults to the excerpt."
         : `${s.metaDescriptionLength} chars (aim ${META_DESC_MIN}–${META_DESC_MAX}).`,
   });
 
@@ -91,7 +91,7 @@ export function evaluateSeo(s: SeoSignals, overrides: readonly string[] = []): S
     id: "word-count",
     label: "Content length",
     status: s.wordCount >= MIN_WORDS ? "pass" : "warn",
-    detail: `${s.wordCount} words${s.wordCount < MIN_WORDS ? ` (thin — aim ${MIN_WORDS}+).` : "."}`,
+    detail: `${s.wordCount} words${s.wordCount < MIN_WORDS ? ` (thin, aim ${MIN_WORDS}+).` : "."}`,
   });
 
   for (const k of s.keywords) {

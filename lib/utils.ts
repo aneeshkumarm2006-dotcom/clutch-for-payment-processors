@@ -50,9 +50,16 @@ export function slugify(input: string): string {
     .replace(/-{2,}/g, "-"); // collapse repeats
 }
 
-/** Format a 0–5 rating to one decimal place (e.g. 4.8). Returns "—" when absent. */
+/**
+ * Placeholder shown wherever a value is missing. House style bans the em dash,
+ * so every "no data" cell reads "N/A" rather than a dash glyph. Anything that
+ * compares a formatted value against the placeholder must use this constant.
+ */
+export const MISSING = "N/A";
+
+/** Format a 0–5 rating to one decimal place (e.g. 4.8). Returns MISSING when absent. */
 export function formatRating(value?: number | null): string {
-  if (value == null || Number.isNaN(value)) return "—";
+  if (value == null || Number.isNaN(value)) return MISSING;
   return value.toFixed(1);
 }
 
@@ -63,22 +70,22 @@ export function formatCount(value?: number | null): string {
   return new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(value);
 }
 
-/** Render a possibly-missing field gracefully (PRD §9.3: show "—"/"Varies"). */
-export function orDash(value?: string | number | null): string {
-  if (value == null || value === "") return "—";
+/** Render a possibly-missing field gracefully (PRD §9.3: show "N/A"/"Varies"). */
+export function orMissing(value?: string | number | null): string {
+  if (value == null || value === "") return MISSING;
   return String(value);
 }
 
 /** Human-readable date, e.g. "Jun 29, 2026". */
 export function formatDate(date: Date | string | number): string {
   const d = date instanceof Date ? date : new Date(date);
-  if (Number.isNaN(d.getTime())) return "—";
+  if (Number.isNaN(d.getTime())) return MISSING;
   return new Intl.DateTimeFormat("en-US", { year: "numeric", month: "short", day: "numeric" }).format(d);
 }
 
-/** Human-readable byte size (e.g. "2.4 MB"). Returns "—" when the size is unknown. */
+/** Human-readable byte size (e.g. "2.4 MB"). Returns MISSING when the size is unknown. */
 export function formatBytes(bytes?: number | null): string {
-  if (bytes == null || Number.isNaN(bytes)) return "—";
+  if (bytes == null || Number.isNaN(bytes)) return MISSING;
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
   if (bytes < 1024 * 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;

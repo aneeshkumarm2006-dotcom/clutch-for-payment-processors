@@ -15,7 +15,7 @@ import { buildMetadata, serviceJsonLd, faqJsonLd } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "List your payment processor",
   description:
-    "Reach businesses actively comparing payment processors. Add your processor to the Payment Processor Guide directory — free to start, with Verified and Premier tiers for more visibility.",
+    "Reach businesses actively comparing payment processors. Add your processor to the Payment Processor Guide directory. Free to start, with Verified and Premier tiers for more visibility.",
   path: "/for-processors",
 });
 
@@ -119,7 +119,7 @@ export default function ForProcessorsPage() {
           serviceJsonLd({
             name: "Payment processor directory listing",
             description:
-              "List your payment processor on Payment Processor Guide to reach merchants comparing providers — free to start, with Verified and Premier tiers for more visibility.",
+              "List your payment processor on Payment Processor Guide to reach merchants comparing providers. Free to start, with Verified and Premier tiers for more visibility.",
             path: "/for-processors",
             offers: TIERS.map((t) => ({
               name: t.name,

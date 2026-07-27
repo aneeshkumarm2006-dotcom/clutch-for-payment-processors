@@ -15,7 +15,7 @@ export const revalidate = 1800;
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Blog — payment processing guides & comparisons",
+    title: "Blog | payment processing guides and comparisons",
     description:
       "Guides, comparisons, and explainers on payment processing fees, methods, and choosing the right provider.",
     path: "/blog",

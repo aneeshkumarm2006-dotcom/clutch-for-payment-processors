@@ -60,7 +60,7 @@ const PAGES: { pageKey: string; title: string; path: string; seo: SeoBlock }[] =
     title: "Homepage",
     path: "/",
     seo: {
-      metaTitle: "Payment Processing Guide | Compare Payment Processors & Fees",
+      metaTitle: "Payment Processing Guide | Compare Payment Processors and Fees",
       metaDescription:
         "Compare payment processing platforms, merchant services providers, and credit card processing services on fees, features, and verified merchant reviews.",
       // The homepage owns the broad "what is this site" head terms. The narrower
@@ -137,7 +137,7 @@ const PAGES: { pageKey: string; title: string; path: string; seo: SeoBlock }[] =
       metaTitle:
         "Payment Processor Comparison | Compare Payment Processors | Payment Processing Guide",
       metaDescription:
-        "Run a payment processor comparison on pricing, payout speed, and features. Use our credit card payment processor comparison tool to shortlist 2–4 providers fast.",
+        "Run a payment processor comparison on pricing, payout speed, and features. Use our credit card payment processor comparison tool to shortlist 2-4 providers fast.",
       keywords: ["payment processor comparison", "credit card payment processor comparison"],
       faqs: [
         {
@@ -195,7 +195,7 @@ const CATEGORIES: Record<string, SeoBlock> = {
       keyTakeaways: [
         "Flat-rate pricing (e.g. 2.9% + 30¢) is simplest for lower-volume businesses.",
         "Watch for monthly fees, PCI fees, and long-term contracts, not just the headline rate.",
-        "Faster payouts matter for cash flow — compare 1–2 day vs standard settlement.",
+        "Faster payouts matter for cash flow, so compare 1–2 day vs standard settlement.",
       ],
       sections: [
         {
@@ -254,7 +254,7 @@ const CATEGORIES: Record<string, SeoBlock> = {
       keyTakeaways: [
         "Multi-currency settlement beats converting everything back to one currency.",
         "Local payment methods (not just cards) drive conversion in many markets.",
-        "FX markup is a real cost — compare it alongside the base processing rate.",
+        "FX markup is a real cost, so compare it alongside the base processing rate.",
       ],
       sections: [
         {
@@ -320,7 +320,7 @@ const CATEGORIES: Record<string, SeoBlock> = {
         {
           heading: "What is ecommerce payment processing?",
           body:
-            "<p>Ecommerce payment processing handles card and wallet payments made on your website or app. Beyond moving the money, an ecommerce processor provides the checkout components — hosted pages, embeddable fields, or full APIs — plus the fraud and tokenization tools online sales depend on.</p>",
+            "<p>Ecommerce payment processing handles card and wallet payments made on your website or app. Beyond moving the money, an ecommerce processor provides the checkout components (hosted pages, embeddable fields, or full APIs) plus the fraud and tokenization tools online sales depend on.</p>",
         },
         {
           heading: "What are the benefits for an online store?",
@@ -345,9 +345,9 @@ const CATEGORIES: Record<string, SeoBlock> = {
 // --- Processors (by slug) --------------------------------------------------
 const PROCESSORS: Record<string, SeoBlock> = {
   stripe: {
-    metaTitle: "Stripe Merchant Services | Review, Fees & Pricing | Payment Processing Guide",
+    metaTitle: "Stripe Merchant Services | Review, Fees and Pricing | Payment Processing Guide",
     metaDescription:
-      "An independent look at Stripe merchant services — online rates, payout speed, integrations, and verified merchant reviews to help you decide if Stripe is the right fit.",
+      "An independent look at Stripe merchant services, online rates, payout speed, integrations, and verified merchant reviews to help you decide if Stripe is the right fit.",
     keywords: ["stripe merchant services"],
     faqs: [
       {
@@ -427,7 +427,7 @@ async function main() {
     console.log(
       res.matchedCount > 0
         ? `✓ Category: ${slug}`
-        : `⚠ Category not found (skipped): ${slug} — run \`npm run seed\` first`,
+        : `⚠ Category not found (skipped): ${slug}. Run \`npm run seed\` first`,
     );
   }
 
@@ -448,7 +448,7 @@ async function main() {
     console.log(
       res.matchedCount > 0
         ? `✓ Processor: ${slug}`
-        : `⚠ Processor not found (skipped): ${slug} — run \`npm run seed\` first`,
+        : `⚠ Processor not found (skipped): ${slug}. Run \`npm run seed\` first`,
     );
   }
 

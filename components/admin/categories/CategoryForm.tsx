@@ -177,7 +177,7 @@ export function CategoryForm({
             <h2 className="text-h4">Page content</h2>
             <p className="mt-0.5 text-small text-muted-foreground">
               Compose this page from reusable blocks. While it&rsquo;s empty the category keeps
-              showing its existing intro content — adding a block replaces it.
+              showing its existing intro content. Adding a block replaces it.
             </p>
           </div>
           <BlockEditor />

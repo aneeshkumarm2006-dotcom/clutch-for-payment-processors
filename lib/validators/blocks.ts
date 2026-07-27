@@ -237,7 +237,7 @@ export const structuredDataSchema = z
               return false;
             }
           },
-          { message: "Not valid JSON — fix the syntax before saving" },
+          { message: "Not valid JSON. Fix the syntax before saving" },
         )
         .optional(),
     ),

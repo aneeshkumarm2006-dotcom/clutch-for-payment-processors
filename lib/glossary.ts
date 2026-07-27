@@ -78,7 +78,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     aka: ["Interchange fee"],
     short: "The fee set by the card networks and paid to the customer's issuing bank on every card sale.",
     definition:
-      "Interchange is the largest component of card processing cost — a fee set by Visa, Mastercard, and other networks that goes to the cardholder's issuing bank. Rates vary by card type (rewards cards cost more), channel, and merchant category. No processor can discount interchange itself; they only mark it up.",
+      "Interchange is the largest component of card processing cost: a fee set by Visa, Mastercard, and other networks that goes to the cardholder's issuing bank. Rates vary by card type (rewards cards cost more), channel, and merchant category. No processor can discount interchange itself; they only mark it up.",
     related: ["interchange-plus", "assessment-fee", "effective-rate"],
     relatedFacets: ["interchange-plus"],
   },
@@ -95,7 +95,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "flat-rate-pricing",
     term: "Flat-rate pricing",
-    short: "One blended percentage (plus a fixed fee) on every sale, regardless of card type.",
+    short: "One blended percentage, plus a fixed fee, on every sale, regardless of card type.",
     definition:
       "Flat-rate pricing charges a single, predictable rate (such as 2.9% + $0.30) on every transaction, no matter the underlying interchange. It's simple and has no monthly minimums, which makes it ideal for new or low-volume businesses, but it can cost more than interchange-plus as volume grows.",
     related: ["interchange-plus", "tiered-pricing", "effective-rate"],
@@ -122,15 +122,15 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Markup",
     short: "The processor's own margin added on top of interchange and network fees.",
     definition:
-      "Markup is what the processor keeps — the amount added on top of the non-negotiable interchange and assessment fees. In interchange-plus pricing the markup is stated explicitly; in tiered or flat-rate pricing it's baked in and harder to see. Lower markup means a lower effective rate.",
+      "Markup is what the processor keeps: the amount added on top of the non-negotiable interchange and assessment fees. In interchange-plus pricing the markup is stated explicitly; in tiered or flat-rate pricing it's baked in and harder to see. Lower markup means a lower effective rate.",
     related: ["interchange-plus", "effective-rate", "assessment-fee"],
   },
   {
     slug: "assessment-fee",
     term: "Assessment fee",
-    short: "A small fee paid directly to the card network (Visa, Mastercard) on each transaction.",
+    short: "A small fee paid directly to the card network, such as Visa or Mastercard, on each transaction.",
     definition:
-      "Assessment fees are charged by the card networks themselves — separate from interchange, which goes to the issuing bank. They're a small percentage of volume and, like interchange, can't be discounted by a processor. Together interchange and assessments form the wholesale cost of accepting cards.",
+      "Assessment fees are charged by the card networks themselves, separate from interchange, which goes to the issuing bank. They're a small percentage of volume and, like interchange, can't be discounted by a processor. Together interchange and assessments form the wholesale cost of accepting cards.",
     related: ["interchange", "markup", "effective-rate"],
   },
   {
@@ -144,7 +144,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "monthly-minimum",
     term: "Monthly minimum",
-    short: "A floor on monthly fees — you pay the difference if processing fees fall short.",
+    short: "A floor on monthly fees: you pay the difference if processing fees fall short.",
     definition:
       "A monthly minimum is the least a processor will charge you in a month; if your transaction fees don't reach it, you pay the gap. It penalises seasonal or low-volume merchants, so many modern processors (especially flat-rate ones) advertise no monthly minimum.",
     related: ["gateway-fee", "flat-rate-pricing", "effective-rate"],
@@ -154,7 +154,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Surcharge",
     short: "A fee added to a card payment to pass processing costs to the customer.",
     definition:
-      "A surcharge is an extra charge added to credit-card transactions to offset the merchant's processing fee. It's regulated — capped in amount, banned in some regions, and it must be disclosed and applied only to credit (not debit) cards. Cash discounting is a related but distinct approach.",
+      "A surcharge is an extra charge added to credit-card transactions to offset the merchant's processing fee. It's regulated: capped in amount, banned in some regions, and it must be disclosed and applied only to credit (not debit) cards. Cash discounting is a related but distinct approach.",
     related: ["assessment-fee", "effective-rate"],
   },
   {
@@ -163,7 +163,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     aka: ["Auth"],
     short: "The issuing bank's approval that holds funds for a pending transaction.",
     definition:
-      "Authorization is the first step of a card payment: the issuing bank confirms the card is valid and the funds are available, then places a hold. No money moves yet — that happens at capture and settlement. An authorization can be voided before it's captured.",
+      "Authorization is the first step of a card payment: the issuing bank confirms the card is valid and the funds are available, then places a hold. No money moves yet; that happens at capture and settlement. An authorization can be voided before it's captured.",
     related: ["capture", "settlement", "void"],
   },
   {
@@ -214,7 +214,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     aka: ["Settlement time", "Funding time"],
     short: "How long after a sale the money actually lands in your bank account.",
     definition:
-      "Payout time is the delay between a settled transaction and funds arriving in your bank — commonly next-day or two business days (T+2), with some processors offering instant or same-day payout for a fee. Faster payouts help cash flow but can carry a premium.",
+      "Payout time is the delay between a settled transaction and funds arriving in your bank, commonly next-day or two business days (T+2), with some processors offering instant or same-day payout for a fee. Faster payouts help cash flow but can carry a premium.",
     related: ["settlement", "batch", "rolling-reserve"],
     relatedFacets: ["ach"],
   },
@@ -249,7 +249,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "chargeback-ratio",
     term: "Chargeback ratio",
-    short: "Chargebacks as a share of transactions — a key risk metric for processors.",
+    short: "Chargebacks as a share of transactions, a key risk metric for processors.",
     definition:
       "The chargeback ratio is your number of chargebacks divided by transactions (by count or volume) in a period. Card-network monitoring programs typically flag merchants above roughly 0.9–1%, which can bring fines, reserves, or account termination. Keeping it low is central to staying in good standing.",
     related: ["chargeback", "dispute", "high-risk-merchant"],
@@ -267,7 +267,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Rolling reserve",
     short: "A portion of your sales held back for months to cover potential chargebacks.",
     definition:
-      "A rolling reserve is a risk buffer: the processor withholds a percentage of each transaction (often 5–10%) for a set period, then releases it on a rolling basis. It protects the processor against future chargebacks but ties up cash — which is why some merchants seek processors with no rolling reserve.",
+      "A rolling reserve is a risk buffer: the processor withholds a percentage of each transaction (often 5–10%) for a set period, then releases it on a rolling basis. It protects the processor against future chargebacks but ties up cash, which is why some merchants seek processors with no rolling reserve.",
     related: ["chargeback", "high-risk-merchant", "underwriting"],
     relatedFacets: ["no-rolling-reserve"],
   },
@@ -276,7 +276,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "High-risk merchant",
     short: "A business in an industry with elevated chargeback, fraud, or regulatory risk.",
     definition:
-      "A high-risk merchant operates in a category banks consider riskier — such as subscriptions with free trials, travel, CBD, adult, or firearms — because of higher chargeback rates or regulation. These merchants face stricter underwriting, higher fees, and often rolling reserves, and need processors that specifically support their vertical.",
+      "A high-risk merchant operates in a category banks consider riskier, such as subscriptions with free trials, travel, CBD, adult, or firearms, because of higher chargeback rates or regulation. These merchants face stricter underwriting, higher fees, and often rolling reserves, and need processors that specifically support their vertical.",
     related: ["underwriting", "rolling-reserve", "chargeback-ratio", "kyc"],
     relatedFacets: ["no-rolling-reserve"],
   },
@@ -320,7 +320,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     aka: ["3DS", "Verified by Visa", "SCA"],
     short: "An extra authentication step that verifies the shopper and can shift fraud liability.",
     definition:
-      "3D Secure adds a verification step — a bank prompt, biometric, or one-time code — to confirm the shopper is the genuine cardholder. It underpins Strong Customer Authentication (SCA) in Europe and can shift liability for fraudulent chargebacks from the merchant to the issuer.",
+      "3D Secure adds a verification step, such as a bank prompt, biometric, or one-time code, to confirm the shopper is the genuine cardholder. It underpins Strong Customer Authentication (SCA) in Europe and can shift liability for fraudulent chargebacks from the merchant to the issuer.",
     related: ["avs", "cvv", "chargeback", "pci-dss"],
   },
   {
@@ -336,7 +336,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     slug: "cvv",
     term: "CVV",
     aka: ["CVC", "Card security code"],
-    short: "The 3–4 digit code that proves the shopper physically has the card.",
+    short: "The 3-4 digit code that proves the shopper physically has the card.",
     definition:
       "The CVV (Card Verification Value) is the short security code printed on a card. Requesting it for card-not-present sales helps prove the buyer holds the physical card; card networks prohibit storing it after authorization.",
     related: ["avs", "card-not-present", "3d-secure"],
@@ -375,7 +375,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     aka: ["Mobile wallet"],
     short: "A stored-card app like Apple Pay or Google Pay that speeds up secure checkout.",
     definition:
-      "A digital wallet stores a customer's cards on their device and pays with a tokenised, biometric-approved tap or click — for example Apple Pay, Google Pay, or PayPal. Wallets cut checkout friction and reduce fraud because the real card number is never shared.",
+      "A digital wallet stores a customer's cards on their device and pays with a tokenised, biometric-approved tap or click, for example Apple Pay, Google Pay, or PayPal. Wallets cut checkout friction and reduce fraud because the real card number is never shared.",
     related: ["nfc", "tap-to-pay", "tokenization"],
     relatedFacets: ["apple-pay", "google-pay"],
   },
@@ -395,14 +395,14 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     aka: ["CP"],
     short: "An in-person transaction where the physical card is dipped, tapped, or swiped.",
     definition:
-      "A card-present transaction is one where the card is physically read at a terminal — chip, tap, or swipe. Because it carries less fraud risk than online payments, card-present interchange rates are typically lower than card-not-present.",
+      "A card-present transaction is one where the card is physically read at a terminal by chip, tap, or swipe. Because it carries less fraud risk than online payments, card-present interchange rates are typically lower than card-not-present.",
     related: ["card-not-present", "emv", "tap-to-pay"],
   },
   {
     slug: "card-not-present",
     term: "Card-not-present",
     aka: ["CNP"],
-    short: "A remote transaction — online, phone, or mail — where the card isn't physically read.",
+    short: "A remote transaction, online, phone, or mail, where the card isn't physically read.",
     definition:
       "A card-not-present (CNP) transaction is any payment where the card isn't physically present: e-commerce, phone (MOTO), and mail orders. CNP carries higher fraud risk and higher interchange, so fraud tools like AVS, CVV, and 3D Secure matter most here.",
     related: ["card-present", "moto", "avs", "cvv"],
@@ -430,7 +430,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "payment-link",
     term: "Payment link",
-    short: "A shareable link that lets a customer pay on a hosted page — no website required.",
+    short: "A shareable link that lets a customer pay on a hosted page, no website required.",
     definition:
       "A payment link is a URL you create for a set or custom amount and send by email, text, or social; the customer pays on the processor's hosted page. It's the fastest way to get paid without building a checkout, popular with freelancers and service businesses.",
     related: ["hosted-checkout", "virtual-terminal", "recurring-billing"],
@@ -461,7 +461,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     aka: ["Failed-payment recovery"],
     short: "Automated retries and reminders that recover failed recurring payments.",
     definition:
-      "Dunning is the process of recovering revenue when a recurring payment fails — through smart retries, card-updater services, and customer emails prompting an update. Good dunning meaningfully reduces involuntary churn for subscription businesses.",
+      "Dunning is the process of recovering revenue when a recurring payment fails, through smart retries, card-updater services, and customer emails prompting an update. Good dunning meaningfully reduces involuntary churn for subscription businesses.",
     related: ["recurring-billing", "tokenization"],
   },
   {
@@ -469,7 +469,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Multi-currency",
     short: "Accepting payment in customers' currencies and settling in yours.",
     definition:
-      "Multi-currency processing lets you present prices and take payment in several currencies, then settle to your account — sometimes in the original currency, sometimes converted at an FX margin. Local-currency pricing improves international conversion; watch the conversion spread each processor charges.",
+      "Multi-currency processing lets you present prices and take payment in several currencies, then settle to your account, sometimes in the original currency, sometimes converted at an FX margin. Local-currency pricing improves international conversion; watch the conversion spread each processor charges.",
     related: ["sepa", "settlement", "payout-time"],
     relatedFacets: ["multi-currency", "crypto"],
   },

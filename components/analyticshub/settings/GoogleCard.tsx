@@ -137,7 +137,7 @@ export function GoogleCard({ status, onChange }: { status: HubStatus; onChange: 
 
   return (
     <ConnectionCard
-      title="Google — Analytics & Search Console"
+      title="Google Analytics & Search Console"
       description="GA4 traffic + Search Console rankings, from one Google connection."
       state={overall}
     >
@@ -146,7 +146,7 @@ export function GoogleCard({ status, onChange }: { status: HubStatus; onChange: 
           <div>
             <label className={label}>GA4 property</label>
             <select className={input} value={selProp} onChange={(e) => setSelProp(e.target.value)}>
-              <option value="">— none —</option>
+              <option value="">None</option>
               {opts?.properties.map((p) => (
                 <option key={p.propertyId} value={p.propertyId}>
                   {p.label} ({p.propertyId})
@@ -158,7 +158,7 @@ export function GoogleCard({ status, onChange }: { status: HubStatus; onChange: 
           <div>
             <label className={label}>Search Console site</label>
             <select className={input} value={selSite} onChange={(e) => setSelSite(e.target.value)}>
-              <option value="">— none —</option>
+              <option value="">None</option>
               {opts?.sites.map((s) => (
                 <option key={s} value={s}>
                   {s}

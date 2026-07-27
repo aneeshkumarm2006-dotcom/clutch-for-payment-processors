@@ -12,7 +12,7 @@ import { SITE_NAME } from "@/lib/seo";
 // `fileURLToPath`, which fails to resolve on some hosts (e.g. Windows paths with
 // spaces) and breaks the Node-runtime prerender of this image.
 export const runtime = "edge";
-export const alt = `${SITE_NAME} — Compare payment processors`;
+export const alt = `${SITE_NAME} | Compare payment processors`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -67,8 +67,8 @@ export default function OpengraphImage() {
             Compare payment processors
           </span>
           <span style={{ color: "#A1A1AA", fontSize: 32, maxWidth: 880, lineHeight: 1.3 }}>
-            Fees, payment methods, integrations, and verified merchant reviews — in one
-            independent directory.
+            Fees, payment methods, integrations, and verified merchant reviews, all in
+            one independent directory.
           </span>
         </div>
 

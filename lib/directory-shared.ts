@@ -45,7 +45,7 @@ const RATE_VALUES = RATE_BUCKETS.map((b) => b.value) as readonly string[];
 
 /** Monthly-fee buckets for the FilterRail (PRD §9.2). */
 export const FEE_BUCKETS = [
-  { value: "0", label: "$0 — no monthly fee" },
+  { value: "0", label: "$0 (no monthly fee)" },
   { value: "lt25", label: "Under $25" },
   { value: "25-99", label: "$25 – $99" },
   { value: "gt100", label: "$100 and up" },
