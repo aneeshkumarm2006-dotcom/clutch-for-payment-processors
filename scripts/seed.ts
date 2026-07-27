@@ -828,7 +828,7 @@ const BLOG_POSTS: SeedBlogPost[] = [
       "<h2>Interchange-plus pricing</h2><p>You pay the card network's interchange cost <em>plus</em> a fixed markup. It's more transparent and usually cheaper at scale because you're not subsidising the processor's blended margin.</p>" +
       "<h3>Which should you choose?</h3><ul><li><strong>Low volume or just starting out:</strong> flat-rate keeps things simple.</li><li><strong>Higher or growing volume:</strong> interchange-plus typically wins on cost.</li><li><strong>Want predictability above all:</strong> a subscription/membership model can beat both.</li></ul>" +
       "<p>Run your real numbers before switching — a fraction of a percent adds up fast at volume.</p>",
-    author: "PayCompare Editorial",
+    author: "Payment Processor Guide Editorial",
     tags: ["Pricing", "Fees", "Guides"],
     relatedProcessorSlugs: ["stripe", "helcim", "stax"],
     publishedAtDaysAgo: 7,
@@ -848,7 +848,7 @@ const BLOG_POSTS: SeedBlogPost[] = [
       "<h2>What 'high-risk' actually means</h2><p>It's about the processor's risk exposure: chargeback rates, regulatory scrutiny, and refund patterns. Being labelled high-risk isn't a judgement on your business — it's about underwriting.</p>" +
       "<h2>What to look for</h2><ul><li><strong>Clear underwriting</strong> for your specific industry.</li><li><strong>Chargeback tooling</strong> and alerts to keep your ratio healthy.</li><li><strong>Reasonable reserves</strong> — understand any rolling reserve before signing.</li><li><strong>Stable settlement</strong> so payouts aren't unpredictably held.</li></ul>" +
       "<h3>A note on cost</h3><p>High-risk processing costs more — that's the trade for acceptance. Compare total cost including reserves, not just the headline rate.</p>",
-    author: "PayCompare Editorial",
+    author: "Payment Processor Guide Editorial",
     tags: ["High-risk", "Guides"],
     relatedProcessorSlugs: ["payu", "authorize-net"],
     publishedAtDaysAgo: 21,
@@ -868,7 +868,7 @@ const BLOG_POSTS: SeedBlogPost[] = [
       "<h2>Quick wins</h2><ul><li><strong>Switch to interchange-plus</strong> if you're at volume on a flat or tiered plan.</li><li><strong>Pass less keyed-in volume</strong> — card-present and tokenised rates are lower.</li><li><strong>Enable AVS and 3-D Secure</strong> to qualify for better interchange and cut fraud.</li></ul>" +
       "<h2>Bigger moves</h2><ul><li><strong>Negotiate your markup</strong> once you have leverage from volume.</li><li><strong>Consolidate volume</strong> with one processor to hit discount tiers.</li><li><strong>Review your reserve</strong> and chargeback ratio — both quietly cost you.</li></ul>" +
       "<h3>Measure before and after</h3><p>Pull your <em>effective rate</em> (total fees ÷ total volume) each month. It's the single number that tells you whether any change actually helped.</p>",
-    author: "PayCompare Editorial",
+    author: "Payment Processor Guide Editorial",
     tags: ["Fees", "Optimisation", "Guides"],
     relatedProcessorSlugs: ["stripe", "helcim", "adyen"],
     publishedAtDaysAgo: 35,
@@ -1114,7 +1114,7 @@ const SUBMISSIONS: SeedSubmission[] = [
 // Seed runner
 // ---------------------------------------------------------------------------
 async function seedAdmin(): Promise<void> {
-  const email = process.env.ADMIN_SEED_EMAIL?.trim().toLowerCase() || "admin@paycompare.test";
+  const email = process.env.ADMIN_SEED_EMAIL?.trim().toLowerCase() || "admin@paymentprocessorguide.test";
   const password = process.env.ADMIN_SEED_PASSWORD || "change-me-in-production";
   const name = process.env.ADMIN_SEED_NAME?.trim() || "Admin";
   const passwordHash = await bcrypt.hash(password, 12);
@@ -1133,14 +1133,14 @@ async function seedSettings(): Promise<void> {
     { key: "singleton" },
     {
       $set: {
-        siteName: "PayCompare",
+        siteName: "Payment Processor Guide",
         homepageHeroTitle: "Payment Processing Guide: Your Trusted Payment Processing Resource",
         homepageHeroSubtitle:
           "Compare fees, features, and verified merchant reviews — all in one independent directory.",
         featuredCategorySlugs: ["ecommerce", "retail-pos", "subscriptions", "high-risk", "international", "small-business"],
-        contactEmail: "hello@paycompare.test",
-        socialLinks: { twitter: "https://twitter.com/paycompare", linkedin: "https://www.linkedin.com/company/paycompare" },
-        footerText: "© PayCompare. Independent payment processor reviews — always confirm current fees and terms with each provider.",
+        contactEmail: "hello@paymentprocessorguide.test",
+        socialLinks: { twitter: "https://twitter.com/paymentprocessorguide", linkedin: "https://www.linkedin.com/company/paymentprocessorguide" },
+        footerText: "© Payment Processor Guide. Independent payment processor reviews — always confirm current fees and terms with each provider.",
       },
       $setOnInsert: { key: "singleton" },
     },

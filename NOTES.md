@@ -13,7 +13,7 @@
 - shadcn/ui **New York** style, `baseColor: neutral`, components hand-added under `components/ui`.
 
 ### Decisions taken (defaults — confirm with operator, PRD §19)
-- **Product name:** `PayCompare` (placeholder kept).
+- **Product name:** `Payment Processor Guide` (placeholder kept).
 - **Image host:** Vercel Blob (`@vercel/blob`) wired as the default; `lib/upload.ts` will abstract it
   so Cloudinary remains a drop-in alternative (Stage 2).
 - **Dark mode:** tokens are defined for `.dark` (DESIGN §10.1) and `darkMode: "class"` is enabled,

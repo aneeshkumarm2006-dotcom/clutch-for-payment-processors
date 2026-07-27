@@ -34,7 +34,7 @@ export function Navbar({ categories }: { categories: CategoryData[] }) {
       <div className="mx-auto flex h-16 max-w-content items-center gap-4 px-4 lg:px-6">
         {/* Wordmark */}
         <Link href="/" className="shrink-0 text-h4 tracking-tighter2 text-foreground">
-          PayCompare<span className="text-accent">.</span>
+          Payment Processor Guide<span className="text-accent">.</span>
         </Link>
 
         {/* Desktop nav */}
@@ -77,7 +77,7 @@ export function Navbar({ categories }: { categories: CategoryData[] }) {
             <SheetContent side="right" className="flex w-full flex-col gap-6 sm:max-w-sm">
               <SheetHeader>
                 <SheetTitle className="text-left">
-                  PayCompare<span className="text-accent">.</span>
+                  Payment Processor Guide<span className="text-accent">.</span>
                 </SheetTitle>
               </SheetHeader>
 

@@ -15,7 +15,7 @@ import { buildMetadata, serviceJsonLd, faqJsonLd } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "List your payment processor",
   description:
-    "Reach businesses actively comparing payment processors. Add your processor to the PayCompare directory — free to start, with Verified and Premier tiers for more visibility.",
+    "Reach businesses actively comparing payment processors. Add your processor to the Payment Processor Guide directory — free to start, with Verified and Premier tiers for more visibility.",
   path: "/for-processors",
 });
 
@@ -119,7 +119,7 @@ export default function ForProcessorsPage() {
           serviceJsonLd({
             name: "Payment processor directory listing",
             description:
-              "List your payment processor on PayCompare to reach merchants comparing providers — free to start, with Verified and Premier tiers for more visibility.",
+              "List your payment processor on Payment Processor Guide to reach merchants comparing providers — free to start, with Verified and Premier tiers for more visibility.",
             path: "/for-processors",
             offers: TIERS.map((t) => ({
               name: t.name,
@@ -136,7 +136,7 @@ export default function ForProcessorsPage() {
       {/* Hero */}
       <section className="mt-6 max-w-3xl">
         <Badge variant="neutral">For payment processors</Badge>
-        <h1 className="mt-4 text-display text-foreground">List your processor on PayCompare</h1>
+        <h1 className="mt-4 text-display text-foreground">List your processor on Payment Processor Guide</h1>
         <p className="mt-4 max-w-2xl text-body-lg text-muted-foreground">
           Get in front of businesses comparing payment processors right now. Start free, add a
           Verified badge, or go Premier for top placement.

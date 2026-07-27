@@ -46,7 +46,7 @@ import { BLOCK_TYPES } from "@/lib/validators/blocks";
  */
 export const siteConfig = {
   /** Fallback only; SiteSettings.siteName wins when set. */
-  name: "PayCompare",
+  name: "Payment Processor Guide",
   /** Fallback only; SiteSettings.defaultSeo.metaDescription wins. Feeds Organization.description. */
   description:
     "An independent comparison guide for payment processors, merchant accounts, and payment processing fees.",

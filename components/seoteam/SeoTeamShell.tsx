@@ -52,7 +52,7 @@ export function SeoTeamShell({ children }: { children: React.ReactNode }) {
       <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col border-r border-ink-800 bg-ink-950 text-ink-300 md:flex">
         <div className="flex h-16 items-center px-5">
           <Link href="/seoteam" className="text-h4 tracking-tighter2 text-ink-50">
-            PayCompare<span className="text-violet-400">.</span>
+            Payment Processor Guide<span className="text-violet-400">.</span>
           </Link>
         </div>
 
@@ -80,14 +80,14 @@ export function SeoTeamShell({ children }: { children: React.ReactNode }) {
         </nav>
 
         <div className="border-t border-ink-800 px-3 py-3 text-micro text-ink-500">
-          SEO team · PayCompare
+          SEO team · Payment Processor Guide
         </div>
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-ink-200 bg-card/90 px-4 backdrop-blur lg:px-6">
           <Link href="/seoteam" className="text-h4 tracking-tighter2 text-foreground md:hidden">
-            PayCompare<span className="text-accent">.</span>
+            Payment Processor Guide<span className="text-accent">.</span>
           </Link>
 
           <div className="ml-auto flex items-center gap-1">

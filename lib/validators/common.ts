@@ -59,7 +59,7 @@ export const seoSchema = z
 
     // Scoped strictly to OG/Twitter. These must NEVER fall back into `metaTitle`:
     // `buildMetadata` treats any custom meta title as absolute, so leaking a social
-    // headline into it would strip the "· PayCompare" suffix off the SERP title.
+    // headline into it would strip the "· Payment Processor Guide" suffix off the SERP title.
     ogTitle: z.string().trim().max(200, "Keep under 200 characters").optional(),
     ogDescription: z.string().trim().max(400, "Keep under 400 characters").optional(),
     twitterCard: z.preprocess(

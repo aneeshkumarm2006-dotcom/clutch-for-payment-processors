@@ -33,7 +33,7 @@ export interface GoogleConfig {
   serviceAccountKey?: string; // raw JSON string
   propertyId?: string; // GA4 numeric property id
   propertyLabel?: string;
-  siteUrl?: string; // GSC property, e.g. "https://paycompare.com/"
+  siteUrl?: string; // GSC property, e.g. "https://paymentprocessorguide.com/"
   status?: "connected" | "reconnect_needed";
 }
 

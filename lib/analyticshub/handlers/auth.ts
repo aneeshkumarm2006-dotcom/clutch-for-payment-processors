@@ -28,7 +28,7 @@ export interface Project {
 }
 
 const DEFAULT_PROJECT: Project = {
-  name: "PayCompare",
+  name: "Payment Processor Guide",
   primaryColor: "#6D28D9", // electric violet — the brand's one accent
   accentColor: "#8B5CF6",
 };

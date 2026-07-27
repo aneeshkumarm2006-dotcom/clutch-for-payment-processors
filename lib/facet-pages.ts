@@ -37,7 +37,7 @@ export interface FacetPageDef {
   slug: string;
   /** Page H1. */
   h1: string;
-  /** Meta title (bare — the `· PayCompare` suffix is appended by the layout). */
+  /** Meta title (bare — the `· Payment Processor Guide` suffix is appended by the layout). */
   title: string;
   /** Meta description. */
   description: string;

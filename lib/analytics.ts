@@ -30,7 +30,7 @@ export function trackEvent(name: AnalyticsEvent, props: AnalyticsProps = {}): vo
     };
     w.va?.("event", { name, ...props });
     w.gtag?.("event", name, props);
-    window.dispatchEvent(new CustomEvent("paycompare:analytics", { detail: { name, ...props } }));
+    window.dispatchEvent(new CustomEvent("paymentprocessorguide:analytics", { detail: { name, ...props } }));
   } catch {
     /* swallow — analytics is best-effort */
   }

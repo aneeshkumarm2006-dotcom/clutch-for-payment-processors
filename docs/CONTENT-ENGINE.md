@@ -91,7 +91,7 @@ Three traps are encoded deliberately; don't "simplify" them away:
 
 - **`robotsIndex` is tri-state.** `undefined` (every pre-existing document) means *emit no robots directive*. `Boolean(seo.robotsIndex)` would resolve to `false` and **noindex the entire site on deploy**.
 - **`canonicalUrl` must be same-origin.** A cross-origin canonical de-indexes the page that sets it, so a foreign origin is ignored rather than trusted.
-- **`ogTitle` never falls back into `metaTitle`.** A custom meta title is treated as absolute (it drops the `· PayCompare` suffix), so leaking a social headline into it would silently rewrite every SERP title.
+- **`ogTitle` never falls back into `metaTitle`.** A custom meta title is treated as absolute (it drops the `· Payment Processor Guide` suffix), so leaking a social headline into it would silently rewrite every SERP title.
 
 `blocks` and `structuredData` are in `PRESERVE_ON_OMIT` (`lib/api.ts`). A BlogPost has **two** full-replace writers — `/api/blog/[id]` and `/api/seoteam/posts/[id]` — and `diffSetUnset` maps `undefined → $unset`. Without the preserve list, saving a post from one panel would delete the fields the other panel owns. An explicit `[]` still clears them, so an editor can delete their last block.
 

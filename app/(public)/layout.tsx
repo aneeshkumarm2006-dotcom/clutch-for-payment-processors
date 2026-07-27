@@ -28,7 +28,7 @@ export default async function PublicLayout({ children }: { children: React.React
   ]);
 
   const footerSettings = {
-    siteName: settings?.siteName ?? "PayCompare",
+    siteName: settings?.siteName ?? "Payment Processor Guide",
     socialLinks: settings?.socialLinks ?? {},
     footerText: settings?.footerText,
   };

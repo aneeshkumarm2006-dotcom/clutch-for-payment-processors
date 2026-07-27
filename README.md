@@ -1,4 +1,4 @@
-# PayCompare
+# Payment Processor Guide
 
 A directory, comparison, and review platform for payment processors / gateways.
 Built with Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui, and MongoDB.

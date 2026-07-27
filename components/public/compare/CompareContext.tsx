@@ -23,7 +23,7 @@ export interface CompareItem {
   logo?: string;
 }
 
-const STORAGE_KEY = "paycompare:compare";
+const STORAGE_KEY = "paymentprocessorguide:compare";
 
 interface CompareContextValue {
   items: CompareItem[];

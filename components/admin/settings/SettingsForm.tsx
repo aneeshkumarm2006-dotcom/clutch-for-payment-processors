@@ -94,7 +94,7 @@ export function SettingsForm({
         {/* Brand */}
         <section className="space-y-5 rounded-lg border border-border bg-card p-5">
           <h2 className="text-h4">Brand</h2>
-          <TextField name="siteName" label="Site name" placeholder="PayCompare" />
+          <TextField name="siteName" label="Site name" placeholder="Payment Processor Guide" />
           <div className="grid gap-5 sm:grid-cols-2">
             <FormField
               control={form.control}
@@ -172,7 +172,7 @@ export function SettingsForm({
             name="contactEmail"
             label="Contact email"
             type="email"
-            placeholder="hello@paycompare.com"
+            placeholder="hello@paymentprocessorguide.com"
           />
           <div className="grid gap-5 sm:grid-cols-2">
             <TextField name="socialLinks.twitter" label="Twitter / X" type="url" placeholder="https://x.com/…" />
@@ -184,7 +184,7 @@ export function SettingsForm({
             name="footerText"
             label="Footer text"
             rows={2}
-            placeholder="© PayCompare. Sponsored placements are labeled."
+            placeholder="© Payment Processor Guide. Sponsored placements are labeled."
           />
         </section>
 

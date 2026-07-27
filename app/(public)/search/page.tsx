@@ -26,7 +26,7 @@ export function generateMetadata({
   return {
     ...buildMetadata({
       title: q ? `Search results for “${q}”` : "Search",
-      description: "Search payment processors, categories, and articles on PayCompare.",
+      description: "Search payment processors, categories, and articles on Payment Processor Guide.",
       path: "/search",
     }),
     robots: { index: false, follow: true },

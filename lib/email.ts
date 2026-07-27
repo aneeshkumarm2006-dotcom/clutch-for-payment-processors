@@ -9,7 +9,7 @@ import { Resend } from "resend";
  * it — leads/submissions are persisted first, then we notify best-effort.
  */
 
-const FROM = process.env.EMAIL_FROM || "PayCompare <onboarding@resend.dev>";
+const FROM = process.env.EMAIL_FROM || "Payment Processor Guide <onboarding@resend.dev>";
 
 function getClient(): Resend | null {
   const key = process.env.RESEND_API_KEY;

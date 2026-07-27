@@ -20,7 +20,7 @@ export default async function AdminLoginPage() {
       <div className="w-full max-w-sm">
         <div className="mb-6 text-center">
           <span className="text-h3 tracking-tighter2 text-foreground">
-            PayCompare<span className="text-accent">.</span>
+            Payment Processor Guide<span className="text-accent">.</span>
           </span>
           <h1 className="mt-4 text-h2 tracking-tighter2">Admin sign in</h1>
           <p className="mt-1 text-small text-muted-foreground">

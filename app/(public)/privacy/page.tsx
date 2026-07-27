@@ -14,7 +14,7 @@ const EFFECTIVE_DATE = "January 1, 2026";
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Privacy policy",
-    description: "How PayCompare collects, uses, and protects your information.",
+    description: "How Payment Processor Guide collects, uses, and protects your information.",
     path: "/privacy",
   });
 }
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
 
         <h2>Who we are</h2>
         <p>
-          PayCompare (“we”, “us”) operates an independent directory and review platform for payment
+          Payment Processor Guide (“we”, “us”) operates an independent directory and review platform for payment
           processors. This policy explains what information we collect, why, and your choices.
         </p>
 

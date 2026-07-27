@@ -79,7 +79,7 @@ export function AdminShell({
       <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col border-r border-ink-800 bg-ink-950 text-ink-300 md:flex">
         <div className="flex h-16 items-center px-5">
           <Link href="/admin" className="text-h4 tracking-tighter2 text-ink-50">
-            PayCompare<span className="text-violet-400">.</span>
+            Payment Processor Guide<span className="text-violet-400">.</span>
           </Link>
         </div>
 
@@ -107,7 +107,7 @@ export function AdminShell({
         </nav>
 
         <div className="border-t border-ink-800 px-3 py-3 text-micro text-ink-500">
-          Admin · PayCompare
+          Admin · Payment Processor Guide
         </div>
       </aside>
 
@@ -116,7 +116,7 @@ export function AdminShell({
         <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-ink-200 bg-card/90 px-4 backdrop-blur lg:px-6">
           {/* Mobile brand (sidebar hidden < md) */}
           <Link href="/admin" className="text-h4 tracking-tighter2 text-foreground md:hidden">
-            PayCompare<span className="text-accent">.</span>
+            Payment Processor Guide<span className="text-accent">.</span>
           </Link>
 
           <div className="ml-auto">

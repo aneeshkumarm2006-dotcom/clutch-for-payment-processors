@@ -45,7 +45,7 @@ export function Footer({
   categories: CategoryData[];
   settings: FooterSettings;
 }) {
-  const siteName = settings.siteName || "PayCompare";
+  const siteName = settings.siteName || "Payment Processor Guide";
   const year = new Date().getFullYear();
   const categoryLinks = categories.slice(0, 5);
   const socials = SOCIALS.filter((s) => settings.socialLinks?.[s.key]);

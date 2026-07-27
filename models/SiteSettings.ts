@@ -43,7 +43,7 @@ const SiteSettingsSchema = new Schema<ISiteSettings>(
   {
     // Singleton guard: enforce a single settings document.
     key: { type: String, default: "singleton", unique: true, immutable: true },
-    siteName: { type: String, required: true, default: "PayCompare", trim: true },
+    siteName: { type: String, required: true, default: "Payment Processor Guide", trim: true },
     logo: { type: String, trim: true },
     primaryColor: { type: String, trim: true },
     homepageHeroTitle: {
@@ -57,7 +57,7 @@ const SiteSettingsSchema = new Schema<ISiteSettings>(
       default: "Compare fees, features, and verified merchant reviews.",
     },
     featuredCategorySlugs: { type: [String], default: [] },
-    contactEmail: { type: String, required: true, default: "hello@paycompare.test", trim: true },
+    contactEmail: { type: String, required: true, default: "hello@paymentprocessorguide.test", trim: true },
     socialLinks: { type: SocialLinksSchema, default: () => ({}) },
     footerText: { type: String },
     defaultSeo: { type: SeoSchema, default: () => ({}) },

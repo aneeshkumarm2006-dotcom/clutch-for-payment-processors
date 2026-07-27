@@ -31,7 +31,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: post.title,
     description:
-      post.excerpt || `${post.title} — a guide from the PayCompare blog on payment processing.`,
+      post.excerpt || `${post.title} — payment processing insight from the Payment Processor Guide blog.`,
     path: `/blog/${post.slug}`,
     image: post.coverImage,
     seo: post.seo,

@@ -71,7 +71,7 @@ export function LoginForm() {
                 <Input
                   type="email"
                   autoComplete="username"
-                  placeholder="admin@paycompare.test"
+                  placeholder="admin@paymentprocessorguide.test"
                   autoFocus
                   {...field}
                 />

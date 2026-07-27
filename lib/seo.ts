@@ -9,12 +9,12 @@ import type { ISeo } from "@/models";
  * The JSON-LD builders return plain objects rendered by `components/public/JsonLd`.
  *
  * The root layout (`app/layout.tsx`) already sets `metadataBase` + a
- * `"%s · PayCompare"` title template, so per-page titles here are the bare page
+ * `"%s · Payment Processor Guide"` title template, so per-page titles here are the bare page
  * name (the suffix is appended automatically) unless `absoluteTitle` is set.
  */
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-export const SITE_NAME = "PayCompare";
+export const SITE_NAME = "Payment Processor Guide";
 
 /** Resolve a path (or pass through an absolute URL) to an absolute URL string. */
 export function absoluteUrl(path = "/"): string {
@@ -64,7 +64,7 @@ interface BuildMetadataArgs {
   image?: string;
   /** Entity `seo` block — its values override the title/description/image above. */
   seo?: Partial<ISeo> | null;
-  /** Use the title verbatim (no `· PayCompare` suffix) — for the homepage. */
+  /** Use the title verbatim (no `· Payment Processor Guide` suffix) — for the homepage. */
   absoluteTitle?: boolean;
   /** OpenGraph type (default "website"; "article" for blog posts). */
   ogType?: "website" | "article" | "profile";
@@ -101,7 +101,7 @@ export function buildMetadata({
   const canonical = safeCanonical(seo?.canonicalUrl, canonicalPath ?? path);
 
   // A hand-written SEO meta title is authoritative: render it verbatim (no
-  // ` · PayCompare` template suffix). Only auto/fallback page titles get the
+  // ` · Payment Processor Guide` template suffix). Only auto/fallback page titles get the
   // brand template. `absoluteTitle` (homepage) forces verbatim regardless.
   const useAbsolute = absoluteTitle || Boolean(customTitle);
 

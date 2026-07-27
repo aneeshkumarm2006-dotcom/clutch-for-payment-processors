@@ -94,7 +94,7 @@ const PAGES: { pageKey: string; title: string; path: string; seo: SeoBlock }[] =
             "Transparent pricing, no long lock-in, payment methods your customers actually use, and a payment processing platform that integrates with the tools you already run.",
         },
         {
-          question: "Is PayCompare free to use?",
+          question: "Is Payment Processor Guide free to use?",
           answer:
             "Yes, browsing, filtering, and comparing processors is free for merchants. We're funded by sponsored placements and affiliate links, which never affect ratings.",
         },

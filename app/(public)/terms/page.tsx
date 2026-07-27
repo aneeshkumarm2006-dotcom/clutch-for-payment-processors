@@ -14,7 +14,7 @@ const EFFECTIVE_DATE = "January 1, 2026";
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Terms of service",
-    description: "The terms that govern your use of the PayCompare website.",
+    description: "The terms that govern your use of the Payment Processor Guide website.",
     path: "/terms",
   });
 }
@@ -44,13 +44,13 @@ export default function TermsPage() {
 
         <h2>Acceptance</h2>
         <p>
-          By accessing or using PayCompare (the “Service”), you agree to these terms. If you don’t
+          By accessing or using Payment Processor Guide (the “Service”), you agree to these terms. If you don’t
           agree, please don’t use the Service.
         </p>
 
         <h2>Use of the Service</h2>
         <p>
-          PayCompare provides directory, comparison, and review content for informational purposes.
+          Payment Processor Guide provides directory, comparison, and review content for informational purposes.
           You agree to use the Service lawfully and not to interfere with its operation, scrape it at
           scale, or attempt to game rankings or reviews.
         </p>
@@ -84,7 +84,7 @@ export default function TermsPage() {
         <h2>Disclaimer & limitation of liability</h2>
         <p>
           The Service is provided “as is” without warranties of any kind. To the maximum extent
-          permitted by law, PayCompare is not liable for any indirect or consequential damages arising
+          permitted by law, Payment Processor Guide is not liable for any indirect or consequential damages arising
           from your use of the Service or reliance on its content.
         </p>
 

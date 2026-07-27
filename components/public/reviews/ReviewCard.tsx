@@ -22,7 +22,7 @@ const SUB_LABELS: Record<SubRatingKey, string> = {
   reliability: "Reliability",
 };
 
-const HELPFUL_KEY = "paycompare:helpful";
+const HELPFUL_KEY = "paymentprocessorguide:helpful";
 
 function readVoted(): Set<string> {
   if (typeof window === "undefined") return new Set();

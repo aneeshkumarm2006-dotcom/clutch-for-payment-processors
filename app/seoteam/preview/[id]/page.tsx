@@ -46,7 +46,7 @@ export default async function SeoPostPreviewPage({ params }: { params: { id: str
     getOrCreateSiteSettings().catch(() => null),
   ]);
   const footerSettings = {
-    siteName: settings?.siteName ?? "PayCompare",
+    siteName: settings?.siteName ?? "Payment Processor Guide",
     socialLinks: settings?.socialLinks ?? {},
     footerText: settings?.footerText,
   };

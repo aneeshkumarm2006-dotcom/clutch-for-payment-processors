@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Methodology — how we rank & verify",
     description:
-      "How PayCompare ranks payment processors, what a verified badge means, how reviews are collected and verified, and how sponsorship is disclosed.",
+      "How Payment Processor Guide ranks payment processors, what a verified badge means, how reviews are collected and verified, and how sponsorship is disclosed.",
     path: "/methodology",
   });
 }
@@ -48,7 +48,7 @@ export default function MethodologyPage() {
       <header className="mt-4 max-w-prose">
         <h1 className="text-h1 tracking-tighter2 text-foreground">How we rank and verify</h1>
         <p className="mt-3 text-body-lg text-muted-foreground">
-          PayCompare is an independent directory. Here’s exactly how listings are ordered, what our
+          Payment Processor Guide is an independent directory. Here’s exactly how listings are ordered, what our
           badges mean, and how we handle reviews and sponsorship, so you can judge what you read.
         </p>
       </header>
@@ -129,7 +129,7 @@ export default function MethodologyPage() {
         </div>
         <Prose className="mt-3">
           <p>
-            PayCompare is free for merchants. We’re funded by sponsored placements and affiliate
+            Payment Processor Guide is free for merchants. We’re funded by sponsored placements and affiliate
             links. When you click “Visit website” we may earn a commission, at no cost to you. These
             links are marked with <code className="rounded bg-ink-100 px-1 text-small dark:bg-ink-800">rel=&quot;sponsored&quot;</code> and we tag affiliate clicks for our own analytics.
           </p>

@@ -48,7 +48,7 @@ export async function pageSeoMetadata(opts: {
   // deliberately do NOT: they are a single site-wide string, so falling back to
   // them would give every PageSeo route the *same* <title> — and because
   // `buildMetadata` treats any custom title as absolute, they'd also lose the
-  // "· PayCompare" suffix. The page's own hardcoded copy is the right fallback.
+  // "· Payment Processor Guide" suffix. The page's own hardcoded copy is the right fallback.
   const defaultSeo = settings?.defaultSeo;
   const mergedSeo: Partial<ISeo> = {
     ...page?.seo,

@@ -13,9 +13,9 @@ export const revalidate = 86400;
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "About PayCompare",
+    title: "About Payment Processor Guide",
     description:
-      "PayCompare is an independent directory and review platform that helps businesses compare payment processors on fees, features, and verified merchant reviews.",
+      "Payment Processor Guide is an independent directory and review platform that helps businesses compare payment processors on fees, features, and verified merchant reviews.",
     path: "/about",
   });
 }
@@ -51,17 +51,17 @@ export default function AboutPage() {
       <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "About" }]} />
 
       <header className="mt-4 max-w-prose">
-        <h1 className="text-h1 tracking-tighter2 text-foreground">About PayCompare</h1>
+        <h1 className="text-h1 tracking-tighter2 text-foreground">About Payment Processor Guide</h1>
         <p className="mt-3 text-body-lg text-muted-foreground">
           Choosing how to accept payments is one of the highest-stakes decisions a business makes,
-          and one of the hardest to research. We built PayCompare to fix that.
+          and one of the hardest to research. We built Payment Processor Guide to fix that.
         </p>
       </header>
 
       <section className="mt-10 max-w-prose">
         <Prose>
           <p>
-            PayCompare is an independent directory, comparison, and review platform for payment
+            Payment Processor Guide is an independent directory, comparison, and review platform for payment
             processors and gateways. Whether you’re a startup picking your first gateway, a retailer
             adding in-person payments, or a high-risk merchant who keeps getting turned away, our goal
             is to get you from “I need to accept payments” to a confident decision in minutes.
@@ -93,7 +93,7 @@ export default function AboutPage() {
         <Prose>
           <h2>How we make money</h2>
           <p>
-            PayCompare is free for merchants. We’re funded by sponsored placements and affiliate
+            Payment Processor Guide is free for merchants. We’re funded by sponsored placements and affiliate
             links, both of which are clearly disclosed. This never changes a processor’s rating or
             review content. Read exactly how on our <Link href="/methodology">methodology</Link>{" "}
             page.
