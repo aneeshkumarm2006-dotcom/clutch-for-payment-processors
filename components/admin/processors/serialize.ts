@@ -1,6 +1,6 @@
 import type { ProcessorInput } from "@/lib/validators";
 import type { EngineEntity } from "@/lib/engine";
-import type { ProcessorEngineData } from "@/config/content-engine";
+import type { ProcessorEngineData, ProcessorReviewsEngineData } from "@/config/content-engine";
 import {
   blankSeoValues,
   blankStructuredDataValues,
@@ -66,6 +66,35 @@ export interface FaqFormValue {
   answer: string;
 }
 
+/**
+ * The "Reviews page" tab (`/processor/<slug>/reviews`).
+ *
+ * A whole second page's worth of editorial on the same document, so it gets its
+ * own nested form values rather than being flattened into the processor's. The
+ * shapes are the shared panel ones, which is the point: the SEO panel, block
+ * editor, FAQ field and schema panel all mount against `reviewsPage.*` with no
+ * changes to any of them.
+ */
+export interface ReviewsPageFormValues {
+  heading: string;
+  intro: string;
+  seo: SeoFormValues;
+  faqs: FaqFormValue[];
+  blocks: BlockFormValue[];
+  structuredData: StructuredDataFormValues;
+}
+
+export function blankReviewsPageValues(): ReviewsPageFormValues {
+  return {
+    heading: "",
+    intro: "",
+    seo: blankSeoValues(),
+    faqs: [],
+    blocks: [],
+    structuredData: blankStructuredDataValues(),
+  };
+}
+
 /** All form values as controlled (no `undefined`). */
 export interface ProcessorFormValues {
   name: string;
@@ -116,6 +145,7 @@ export interface ProcessorFormValues {
   faqs: FaqFormValue[];
   blocks: BlockFormValue[];
   structuredData: StructuredDataFormValues;
+  reviewsPage: ReviewsPageFormValues;
 }
 
 function blankFees(): FeesFormValues {
@@ -168,6 +198,7 @@ export function blankProcessorValues(): ProcessorFormValues {
     faqs: [],
     blocks: [],
     structuredData: blankStructuredDataValues(),
+    reviewsPage: blankReviewsPageValues(),
     isPublished: false,
   };
 }
@@ -232,6 +263,40 @@ export function toProcessorFormValues(doc: LeanProcessor): ProcessorFormValues {
     faqs: (doc.faqs ?? []).map((f) => ({ question: str(f.question), answer: str(f.answer) })),
     blocks: toBlockFormValues(doc.blocks as never),
     structuredData: toStructuredDataFormValues(doc.structuredData as never),
+    reviewsPage: toReviewsPageFormValues(doc.reviewsPage),
+  };
+}
+
+/** Hydrate the Reviews-page tab. An absent sub-document is simply a blank tab. */
+export function toReviewsPageFormValues(raw: unknown): ReviewsPageFormValues {
+  const rp = (raw ?? {}) as Record<string, unknown>;
+  const faqs = (rp.faqs ?? []) as { question?: unknown; answer?: unknown }[];
+  return {
+    heading: str(rp.heading),
+    intro: str(rp.intro),
+    seo: toSeoFormValues(rp.seo as never),
+    faqs: faqs.map((f) => ({ question: str(f.question), answer: str(f.answer) })),
+    blocks: toBlockFormValues(rp.blocks as never),
+    structuredData: toStructuredDataFormValues(rp.structuredData as never),
+  };
+}
+
+/**
+ * Reviews-page values → payload.
+ *
+ * Always returns an object, never `undefined`. This form DOES render the tab, so
+ * it must state the reviews page explicitly on every save — including "the editor
+ * emptied it". Returning `undefined` for a blank tab would hit the
+ * `PRESERVE_ON_OMIT` rule and make a cleared field impossible to clear.
+ */
+export function toReviewsPagePayload(values: ReviewsPageFormValues): Record<string, unknown> {
+  return {
+    heading: blankToUndef(values.heading),
+    intro: blankToUndef(values.intro),
+    seo: toSeoPayload(values.seo),
+    faqs: values.faqs,
+    blocks: toBlocksPayload(values.blocks),
+    structuredData: toStructuredDataPayload(values.structuredData),
   };
 }
 
@@ -294,6 +359,7 @@ export function toProcessorPayload(
     // including `[]` to mean "the editor deleted them all".
     blocks: toBlocksPayload(values.blocks),
     structuredData: toStructuredDataPayload(values.structuredData),
+    reviewsPage: toReviewsPagePayload(values.reviewsPage),
   } satisfies Record<keyof ProcessorInput, unknown>;
 }
 
@@ -344,6 +410,40 @@ export function toProcessorEnginePreview(
   };
 }
 
+/**
+ * The reviews page's own schema preview. Same merge trick as
+ * `toProcessorEnginePreview`: the aggregate rating lives on the server, so
+ * without the saved values underneath, the preview would show a Product with no
+ * `aggregateRating` and imply the editor had broken it.
+ *
+ * The individual `review` nodes are deliberately absent from the preview. They
+ * are whatever the page renders at request time, which the form cannot know.
+ */
+export function toProcessorReviewsEnginePreview(
+  values: ProcessorFormValues,
+  base: ProcessorPreviewBase = {},
+): EngineEntity<ProcessorReviewsEngineData> {
+  const slug = values.slug.trim() || base.slug || "";
+  const rp = values.reviewsPage;
+  return {
+    contentType: "processorReviews",
+    path: `/processor/${slug}/reviews`,
+    seo: toSeoPayload(rp.seo) as never,
+    faqs: rp.faqs.filter((f) => f.question.trim() && f.answer.trim()),
+    blocks: rp.blocks as never,
+    structuredData: toStructuredDataPayload(rp.structuredData) as never,
+    data: {
+      name: values.name,
+      slug,
+      description: rp.intro || values.shortDescription || values.tagline,
+      logo: values.logo,
+      ratingAverage: base.ratingAverage,
+      ratingCount: base.ratingCount,
+      primaryCategory: base.primaryCategory,
+    },
+  };
+}
+
 /** Which tab owns a field — so publish-validation can jump to the first error. */
 export const FIELD_TAB: Record<string, string> = {
   name: "basics",
@@ -386,4 +486,5 @@ export const FIELD_TAB: Record<string, string> = {
   seo: "seo",
   blocks: "content",
   structuredData: "schema",
+  reviewsPage: "reviews-page",
 };

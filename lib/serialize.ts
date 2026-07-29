@@ -29,6 +29,7 @@ import type {
   CategoryEngineData,
   PageEngineData,
   ProcessorEngineData,
+  ProcessorReviewsEngineData,
 } from "@/config/content-engine";
 
 /**
@@ -140,6 +141,42 @@ export function toFaqs(raw: unknown): IFaqItem[] | undefined {
   return items.length ? items : undefined;
 }
 
+/**
+ * The processor's reviews-page editorial layer (`/processor/<slug>/reviews`).
+ *
+ * Same whitelist rule as everything else in this file: a field added to
+ * `IProcessorReviewsPage` and not added here is silently dropped before it reaches
+ * the page. Returns `undefined` when the editor has written nothing at all, so the
+ * route can tell "no editorial layer" from "an empty one".
+ */
+export interface ReviewsPageData {
+  heading?: string;
+  intro?: string;
+  seo: ISeo;
+  faqs?: IFaqItem[];
+  blocks?: IBlock[];
+  structuredData?: IStructuredData;
+}
+
+export function toReviewsPageData(raw: unknown): ReviewsPageData | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const r = raw as Record<string, unknown>;
+  const out: ReviewsPageData = {
+    heading: str(r.heading),
+    intro: str(r.intro),
+    seo: toSeoData(r.seo),
+    faqs: toFaqs(r.faqs),
+    blocks: toBlocks(r.blocks),
+    structuredData: toStructuredData(r.structuredData),
+  };
+  // `toSeoData` always returns an object, so testing `out.seo` for truthiness
+  // would make every processor look like it had an editorial layer.
+  const hasSeo = Object.values(out.seo).some((v) => v !== undefined);
+  const meaningful =
+    out.heading || out.intro || out.faqs || out.blocks || out.structuredData || hasSeo;
+  return meaningful ? out : undefined;
+}
+
 /** Flatten a lean Processor document into serializable card props. */
 export function toProcessorCardData(doc: Lean): ProcessorCardData {
   const fees = (doc.fees ?? {}) as Record<string, unknown>;
@@ -234,6 +271,8 @@ export interface ProcessorDetailData extends ProcessorCardData {
   faqs?: IFaqItem[];
   blocks?: IBlock[];
   structuredData?: IStructuredData;
+  /** Editorial layer for `/processor/<slug>/reviews`. Absent = generated copy only. */
+  reviewsPage?: ReviewsPageData;
 }
 
 const FEE_KEYS: (keyof FeesData)[] = [
@@ -321,6 +360,7 @@ export function toProcessorDetailData(doc: Lean): ProcessorDetailData {
     faqs: toFaqs(doc.faqs),
     blocks: toBlocks(doc.blocks),
     structuredData: toStructuredData(doc.structuredData),
+    reviewsPage: toReviewsPageData(doc.reviewsPage),
   };
 }
 
@@ -788,6 +828,44 @@ export function toProcessorEngineEntity(
       ratingAverage: p.ratingAverage,
       ratingCount: p.ratingCount,
       pricingSummary: p.pricingSummary ?? p.fees.onlineCardRate,
+      primaryCategory: primary ? { name: primary.name, slug: primary.slug } : undefined,
+      reviews: reviews.map((r) => ({
+        author: r.reviewerName,
+        rating: r.overallRating,
+        title: r.title,
+        body: r.body,
+        datePublished: r.createdAt,
+      })),
+    },
+  };
+}
+
+/**
+ * `/processor/[slug]/reviews`. Same source document as the profile, different
+ * page: the SEO/FAQs/blocks all come from the `reviewsPage` sub-document, and
+ * `description` prefers the editor's lede over the profile's short description
+ * because that lede is what the page is actually about.
+ */
+export function toProcessorReviewsEngineEntity(
+  p: ProcessorDetailData,
+  reviews: EngineReviewInput[] = [],
+): EngineEntity<ProcessorReviewsEngineData> {
+  const primary = p.categories[0];
+  const rp = p.reviewsPage;
+  return {
+    contentType: "processorReviews",
+    path: `/processor/${p.slug}/reviews`,
+    seo: rp?.seo,
+    faqs: rp?.faqs,
+    blocks: rp?.blocks,
+    structuredData: rp?.structuredData,
+    data: {
+      name: p.name,
+      slug: p.slug,
+      description: rp?.intro ?? p.shortDescription ?? p.tagline,
+      logo: p.logo,
+      ratingAverage: p.ratingAverage,
+      ratingCount: p.ratingCount,
       primaryCategory: primary ? { name: primary.name, slug: primary.slug } : undefined,
       reviews: reviews.map((r) => ({
         author: r.reviewerName,

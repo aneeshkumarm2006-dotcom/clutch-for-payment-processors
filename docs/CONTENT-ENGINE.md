@@ -79,6 +79,28 @@ Then add its key to `enabledBlocks`.
 
 `richtext` and `htmlEmbed` HTML is sanitized **on save** (`lib/sanitize-html.ts`), the same as the blog body.
 
+## Two pages from one document — the processor reviews page
+
+A processor now backs **two** public URLs, from one Mongo document:
+
+| URL | Content type | Editorial source | Targets |
+|---|---|---|---|
+| `/processor/<slug>` | `processor` | `seo`, `faqs`, `blocks` | "{name} review", pricing, fees |
+| `/processor/<slug>/reviews` | `processorReviews` | `reviewsPage.{heading,intro,seo,faqs,blocks,structuredData}` | "{name} reviews" |
+
+`reviewsPage` is a sub-document on Processor with its own full SEO block, so the two pages can carry different titles, descriptions and robots directives. The admin edits it in the Processor form's **Reviews page** tab, where every panel is the shared one mounted against `reviewsPage.*` (`SeoPanel name="reviewsPage.seo"`, `BlockEditor name="reviewsPage.blocks"`, `FaqField name="reviewsPage.faqs"`, `StructuredDataPanel contentType="processorReviews" name="reviewsPage.structuredData"`). Nothing in those components changed to support it, which is the test of whether the panels were really content-type-agnostic.
+
+Four rules the route and the sitemap have to agree on:
+
+- **Filtered views are `noindex, follow`.** Sort × rating × industry × mention is a combinatorial URL space over reviews that already exist on page 1. Same reasoning as `/compare?ids=`. Pagination is *not* filtered: `?page=2` holds reviews found nowhere else and stays indexable.
+- **Canonicals are self-referencing in every state**, including filtered ones. Pointing a noindexed URL's canonical at a different page sends two contradictory signals; the page picks `noindex` and lets the canonical just describe the URL it is on.
+- **A page with no reviews and no editorial sections noindexes itself**, and `getSitemapEntries` leaves it out. Both halves are `hasReviewContent`; a sitemap that lists a URL answering `noindex` is a Search Console error.
+- **Only reviews the page actually renders are marked up.** The profile marks up its 3 teaser reviews, the reviews page marks up the 10 at the top of its list. Review markup for content a visitor can't see on that URL is what Google's review-snippet guidelines prohibit.
+
+The `Product` node is emitted on both URLs with the same absolute `@id` (`…/processor/<slug>#product`), so the two pages describe one product entity rather than two products with identical ratings.
+
+The profile keeps a rating summary, the top-mention chips and the newest 3 reviews, then links here. Carrying the full archive on both would have the two URLs competing for the same query with substantially the same text.
+
 ## Pages without an entity — `PageSeo`
 
 `PageSeo` backs every page that has no Processor or Category of its own. One record, two `kind`s:

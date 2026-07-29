@@ -53,6 +53,11 @@ export async function POST(req: Request) {
       ...data,
       slug,
       blocks: sanitizeBlocks(data.blocks),
+      // The reviews page has its own block list on the same document — it reaches
+      // the DOM the same way and must be scrubbed the same way.
+      ...(data.reviewsPage
+        ? { reviewsPage: { ...data.reviewsPage, blocks: sanitizeBlocks(data.reviewsPage.blocks) } }
+        : {}),
     });
 
     void logAudit({

@@ -70,6 +70,33 @@ export interface IProcessorTopMention {
   count: number;
 }
 
+/**
+ * Editorial layer for the processor's dedicated reviews page
+ * (`/processor/<slug>/reviews`).
+ *
+ * The reviews themselves live in the Review collection and are never duplicated
+ * here — this holds only what an editor writes AROUND them: the H1, the lede, its
+ * own meta/robots/canonical, FAQs, and an ordered block list rendered under the
+ * review list. It is a second, independent SEO surface on the same document, which
+ * is why it carries its own `seo` rather than sharing the profile's: the profile
+ * targets "{name} review / pricing / fees" and this page targets "{name} reviews",
+ * and one `metaTitle` cannot serve both.
+ *
+ * All of it is optional. A processor with no `reviewsPage` still gets the page —
+ * it just renders generated copy, exactly as it did before an editor touched it.
+ */
+export interface IProcessorReviewsPage {
+  /** Visible `<h1>`. Falls back to a generated "{name} reviews" when blank. */
+  heading?: string;
+  /** Lede paragraph under the H1. Plain text. */
+  intro?: string;
+  seo: ISeo;
+  faqs?: IFaqItem[];
+  /** Ordered blocks rendered BELOW the review list (admin-composed sections). */
+  blocks?: IBlock[];
+  structuredData?: IStructuredData;
+}
+
 export interface IProcessor {
   name: string;
   slug: string;
@@ -133,6 +160,9 @@ export interface IProcessor {
   blocks?: IBlock[];
   structuredData?: IStructuredData;
 
+  /** Editorial layer for `/processor/<slug>/reviews`. Absent = generated copy only. */
+  reviewsPage?: IProcessorReviewsPage;
+
   createdAt: Date;
   updatedAt: Date;
 }
@@ -174,6 +204,23 @@ const TopMentionSchema = new Schema<IProcessorTopMention>(
     count: { type: Number, required: true, min: 0 },
   },
   { _id: false },
+);
+
+/**
+ * `minimize: false` for the same reason `BlockSchema` sets it: Mongoose strips
+ * empty objects, and an editor who has only set `reviewsPage.seo.metaTitle` would
+ * otherwise see the surrounding sub-document vanish on the next read.
+ */
+const ReviewsPageSchema = new Schema<IProcessorReviewsPage>(
+  {
+    heading: { type: String, trim: true },
+    intro: { type: String, trim: true },
+    seo: { type: SeoSchema, default: () => ({}) },
+    faqs: { type: [FaqSchema], default: undefined },
+    blocks: { type: [BlockSchema], default: undefined },
+    structuredData: { type: StructuredDataSchema, default: undefined },
+  },
+  { _id: false, minimize: false },
 );
 
 const ProcessorSchema = new Schema<IProcessor>(
@@ -231,6 +278,8 @@ const ProcessorSchema = new Schema<IProcessor>(
     faqs: { type: [FaqSchema], default: undefined },
     blocks: { type: [BlockSchema], default: undefined },
     structuredData: { type: StructuredDataSchema, default: undefined },
+
+    reviewsPage: { type: ReviewsPageSchema, default: undefined },
   },
   { timestamps: true },
 );

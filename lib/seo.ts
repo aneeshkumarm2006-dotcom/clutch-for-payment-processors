@@ -340,6 +340,14 @@ export function processorJsonLd(opts: {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
+    // Two URLs now describe this same product — the profile and its reviews page
+    // (`/processor/<slug>/reviews`), each carrying the aggregate rating and the
+    // reviews it actually shows. A stable, absolute @id derived from the profile
+    // says "these are one entity", instead of leaving a crawler to guess whether
+    // it has found two products with suspiciously identical ratings. It must be
+    // absolute for the same reason ORG_ID is: a bare "#product" would resolve
+    // against whichever page it appeared on and mint a different id per URL.
+    "@id": `${absoluteUrl(`/processor/${opts.slug}`)}#product`,
     name: opts.name,
     ...(opts.description ? { description: opts.description } : {}),
     ...(opts.logo ? { image: absoluteUrl(opts.logo) } : {}),

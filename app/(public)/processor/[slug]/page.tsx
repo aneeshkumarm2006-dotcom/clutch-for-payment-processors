@@ -12,7 +12,7 @@ import {
   getAllPublishedProcessorSlugs,
   getApprovedReviews,
   getProcessorBySlug,
-  getReviewIndustries,
+  REVIEWS_TEASER_COUNT,
 } from "@/lib/public-data";
 import { buildMetadata } from "@/lib/seo";
 import { applySeoRedirect } from "@/lib/seo-redirect";
@@ -24,7 +24,7 @@ import { Blocks } from "@/components/public/Blocks";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { RichText } from "@/components/public/RichText";
 import { RatingStars } from "@/components/public/RatingStars";
-import { ReviewsSection } from "@/components/public/reviews/ReviewsSection";
+import { ReviewsSummary } from "@/components/public/reviews/ReviewsSummary";
 import { StatStrip } from "@/components/public/StatStrip";
 import { FeeTable } from "@/components/public/FeeTable";
 import { FeatureChecklist } from "@/components/public/FeatureChecklist";
@@ -71,10 +71,17 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
   // Before any other work: a retired listing hands its URL to its replacement.
   applySeoRedirect(p.seo, `/processor/${p.slug}`);
 
-  const [alternatives, initialReviews, reviewIndustries, settings] = await Promise.all([
+  // The profile now teases the reviews and links to `/processor/<slug>/reviews`
+  // for the rest, so it only needs the newest few. The industry filter went with
+  // the full list, which is why `getReviewIndustries` is no longer called here.
+  const [alternatives, teaserReviews, settings] = await Promise.all([
     getAlternatives(p, 4),
-    getApprovedReviews({ processorId: p.id, sort: "newest", page: 1 }),
-    getReviewIndustries(p.id),
+    getApprovedReviews({
+      processorId: p.id,
+      sort: "newest",
+      page: 1,
+      limit: REVIEWS_TEASER_COUNT,
+    }),
     getOrCreateSiteSettings().catch(() => null),
   ]);
   const primaryCategory = p.categories[0];
@@ -88,9 +95,13 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
   // All of this page's JSON-LD — Product + AggregateRating + Review, BreadcrumbList,
   // FAQPage — now comes from the engine, which reads `config/content-engine.ts`,
   // applies any admin overrides, and drops nodes that would be invalid.
+  // Only the reviews this page actually shows are marked up. Review markup for
+  // content a visitor can't see on the URL is exactly what Google's review-snippet
+  // guidelines prohibit, and the full set now lives on the reviews page, which
+  // marks up its own.
   const { nodes } = buildStructuredData(
     "processor",
-    toProcessorEngineEntity(p, initialReviews.items.slice(0, 5)),
+    toProcessorEngineEntity(p, teaserReviews.items),
     toEngineContext(settings),
   );
 
@@ -357,17 +368,26 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
 
         {/* Reviews */}
         <section id="reviews" className="scroll-mt-32 border-b border-border py-10">
-          <SectionTitle>Reviews</SectionTitle>
-          <ReviewsSection
-            processorId={p.id}
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <SectionTitle>Reviews</SectionTitle>
+            {p.ratingCount > 0 && (
+              <Link
+                href={`/processor/${p.slug}/reviews`}
+                className="inline-flex items-center gap-1 text-small font-medium text-accent hover:underline"
+              >
+                All {p.name} reviews
+                <ArrowRight className="size-4" aria-hidden />
+              </Link>
+            )}
+          </div>
+          <ReviewsSummary
             processorName={p.name}
             processorSlug={p.slug}
             average={p.ratingAverage}
             count={p.ratingCount}
             subRatings={p.subRatings}
             topMentions={p.topMentions}
-            industries={reviewIndustries}
-            initial={initialReviews}
+            reviews={teaserReviews.items}
           />
         </section>
 

@@ -266,6 +266,17 @@ export async function getAllPublishedCategorySlugs(): Promise<string[]> {
 
 export const REVIEWS_PAGE_SIZE = 5;
 
+/**
+ * Page size on the dedicated reviews page (`/processor/<slug>/reviews`), where
+ * the reviews ARE the content rather than one section of a profile. Larger than
+ * `REVIEWS_PAGE_SIZE` on purpose: every extra review is unique, on-topic text in
+ * the initial HTML, and fewer pages means fewer near-duplicate paginated URLs.
+ */
+export const REVIEWS_FULL_PAGE_SIZE = 20;
+
+/** How many reviews on the profile before it defers to the full reviews page. */
+export const REVIEWS_TEASER_COUNT = 3;
+
 export type ReviewSort = "newest" | "highest" | "most-helpful";
 
 export interface ApprovedReviewsParams {
@@ -582,7 +593,11 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
   try {
     await connectToDatabase();
     const [processors, categories, posts] = await Promise.all([
-      Processor.find({ isPublished: true, ...indexableFilter }).select("slug updatedAt").lean(),
+      Processor.find({ isPublished: true, ...indexableFilter })
+        // `ratingCount` is not a sitemap field — it decides whether the reviews
+        // page is worth listing at all (see below).
+        .select("slug updatedAt ratingCount")
+        .lean(),
       Category.find({ isPublished: true, ...indexableFilter }).select("slug updatedAt").lean(),
       BlogPost.find({ ...publishedFilter(), ...indexableFilter }).select("slug updatedAt").lean(),
     ]);
@@ -604,10 +619,30 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
       return [{ path: `/compare/${comparePairToParam(pair)}`, lastModified }];
     });
 
+    /**
+     * `/processor/<slug>/reviews` — listed only once the processor actually HAS
+     * approved reviews.
+     *
+     * The route itself renders for every published processor (it is linked from
+     * the profile, and a zero-review page is a legitimate destination for the
+     * "write a review" CTA), but a review page with no reviews on it is thin
+     * content. Advertising it in the sitemap asks Google to crawl and index a page
+     * whose whole reason to exist hasn't happened yet — so the page noindexes
+     * itself in that state and the sitemap agrees with it. The two rules must stay
+     * in step; see `hasReviewContent` in the reviews route.
+     */
+    const reviewEntries: SitemapEntry[] = processors
+      .filter((p) => Number(p.ratingCount ?? 0) > 0)
+      .map((p) => ({
+        path: `/processor/${String(p.slug)}/reviews`,
+        lastModified: toDate(p.updatedAt),
+      }));
+
     return [
       ...processors.map(toEntry("/processor")),
       // Each processor also has a "/alternatives/<slug>" landing page.
       ...processors.map(toEntry("/alternatives")),
+      ...reviewEntries,
       ...categories.map(toEntry("/category")),
       ...posts.map(toEntry("/blog")),
       ...compareEntries,

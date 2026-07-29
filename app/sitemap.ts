@@ -60,11 +60,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: absoluteUrl(e.path),
     lastModified: e.lastModified,
     changeFrequency: e.path.startsWith("/blog/") ? "monthly" : "weekly",
-    priority: e.path.startsWith("/processor/")
-      ? 0.8
-      : e.path.startsWith("/alternatives/")
-        ? 0.7
-        : 0.6,
+    // A processor's reviews page ranks below its profile deliberately: the
+    // profile is the canonical destination for the brand query, the reviews page
+    // is the deeper "{name} reviews" surface hanging off it.
+    priority: e.path.endsWith("/reviews")
+      ? 0.7
+      : e.path.startsWith("/processor/")
+        ? 0.8
+        : e.path.startsWith("/alternatives/")
+          ? 0.7
+          : 0.6,
   }));
 
   // Curated facet landing pages + glossary terms. Their copy lives in static

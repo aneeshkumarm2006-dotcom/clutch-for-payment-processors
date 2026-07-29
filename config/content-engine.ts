@@ -109,6 +109,26 @@ export interface ProcessorEngineData {
   primaryCategory?: { name: string; slug: string };
 }
 
+/**
+ * The dedicated reviews page (`/processor/<slug>/reviews`). Deliberately a
+ * SEPARATE content type from `processor` rather than a flag on it: it emits the
+ * same Product node but a different breadcrumb trail, and its FAQPage comes from
+ * `reviewsPage.faqs`, not the profile's. Sharing one content type would force
+ * every `build()` to branch on which URL it was rendering — the exact
+ * domain-logic-in-the-engine the config exists to prevent.
+ */
+export interface ProcessorReviewsEngineData {
+  name: string;
+  slug: string;
+  description?: string;
+  logo?: string;
+  ratingAverage?: number;
+  ratingCount?: number;
+  /** The reviews actually rendered on this page (capped by the caller). */
+  reviews?: ProcessorJsonLdReview[];
+  primaryCategory?: { name: string; slug: string };
+}
+
 export interface CategoryEngineData {
   name: string;
   slug: string;
@@ -202,6 +222,82 @@ export const contentTypes = {
         // Superseded by an FAQ block when the page has one — see the engine's
         // one-node-per-type rule.
         build: (e) => (e.faqs?.length ? faqJsonLd(e.faqs) : null),
+      },
+    ],
+  }),
+
+  processorReviews: defineContentType<ProcessorReviewsEngineData>({
+    label: "Processor reviews page",
+    schema: [
+      {
+        type: "Product",
+        label: "Product (with rating & reviews)",
+        required: ["name"],
+        overridable: ["name", "description", "image", "brand"],
+        /**
+         * Emitted only once there is a rating to report. A reviews page with no
+         * approved reviews yet has nothing a Product node could add — and a
+         * Product asserting a rating it doesn't have is precisely the markup
+         * Google issues manual actions over.
+         */
+        build: (e) =>
+          (e.data.ratingCount ?? 0) > 0
+            ? processorJsonLd({
+                name: e.data.name,
+                slug: e.data.slug,
+                description: e.data.description,
+                logo: e.data.logo,
+                ratingAverage: e.data.ratingAverage,
+                ratingCount: e.data.ratingCount,
+                reviews: e.data.reviews,
+              })
+            : null,
+      },
+      {
+        type: "BreadcrumbList",
+        required: ["itemListElement"],
+        build: (e) =>
+          breadcrumbJsonLd([
+            home,
+            { name: "Processors", path: "/processors" },
+            ...(e.data.primaryCategory
+              ? [
+                  {
+                    name: e.data.primaryCategory.name,
+                    path: `/category/${e.data.primaryCategory.slug}`,
+                  },
+                ]
+              : []),
+            { name: e.data.name, path: `/processor/${e.data.slug}` },
+            { name: "Reviews", path: e.path },
+          ]),
+      },
+      {
+        type: "FAQPage",
+        label: "FAQ",
+        required: ["mainEntity"],
+        // From `reviewsPage.faqs`. An FAQ block on this page supersedes it, per
+        // the engine's one-node-per-type rule.
+        build: (e) => (e.faqs?.length ? faqJsonLd(e.faqs) : null),
+      },
+      {
+        type: "Article",
+        label: "Guide",
+        required: ["headline"],
+        overridable: ["headline", "description"],
+        // Same rule as `category`/`page`: only when the editor has actually added
+        // a buyers-guide block, so a bare review list never claims to be an article.
+        build: (e) => {
+          const guide = e.blocks?.find((b) => b.type === "buyersGuide");
+          const data = (guide?.data ?? {}) as { title?: unknown; sections?: unknown };
+          if (!guide || !Array.isArray(data.sections) || data.sections.length === 0) return null;
+          const title = typeof data.title === "string" && data.title.trim() ? data.title : "";
+          return guideArticleJsonLd({
+            headline: title || `${e.data.name} reviews`,
+            description: e.data.description,
+            path: e.path,
+          });
+        },
       },
     ],
   }),

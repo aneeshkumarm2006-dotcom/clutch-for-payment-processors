@@ -71,6 +71,12 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     // PRESERVE_ON_OMIT. Block HTML is scrubbed on the way in, like the blog body.
     const { slug, ...rest } = processorInput.parse(await req.json());
     rest.blocks = sanitizeBlocks(rest.blocks);
+    // The reviews page carries its own block list, and it reaches the DOM through
+    // the same `dangerouslySetInnerHTML` path. Scrubbing only the top-level array
+    // would leave that one unsanitized.
+    if (rest.reviewsPage) {
+      rest.reviewsPage = { ...rest.reviewsPage, blocks: sanitizeBlocks(rest.reviewsPage.blocks) };
+    }
     const parts = diffSetUnset(rest, { preserve: PRESERVE_ON_OMIT });
     parts.$set.slug = await resolveSlug(params.id, rest.name, slug);
 

@@ -39,6 +39,31 @@ export const feesSchema = z
   .default({});
 
 /**
+ * Editorial layer for `/processor/<slug>/reviews`.
+ *
+ * OPTIONAL as a whole, with no `.default({})`. A form that doesn't render the
+ * Reviews-page tab must be able to omit the key entirely and have the write route
+ * leave the stored value alone — see `PRESERVE_ON_OMIT` in `lib/api.ts`. Giving it
+ * a default here would turn every such save into "wipe the reviews page".
+ *
+ * `blocks` keeps the same tri-state as the top-level one (absent = preserve,
+ * `[]` = the editor deleted them all, `[…]` = set), which is why `blocksSchema` is
+ * reused verbatim rather than re-declared with a default.
+ */
+export const reviewsPageSchema = z
+  .object({
+    heading: z.string().trim().max(200, "Keep under 200 characters").optional(),
+    intro: z.string().trim().max(600, "Keep under 600 characters").optional(),
+    seo: seoSchema,
+    faqs: faqsSchema,
+    blocks: blocksSchema,
+    structuredData: structuredDataSchema,
+  })
+  .optional();
+
+export type ReviewsPageInput = z.infer<typeof reviewsPageSchema>;
+
+/**
  * Writable Processor fields (PRD §8.1 / §10.3). Used by the admin tabbed form
  * and the create/update API.
  *
@@ -107,6 +132,10 @@ export const processorInput = z.object({
   // "delete it". A default of `[]` here would defeat that and wipe saved blocks.
   blocks: blocksSchema,
   structuredData: structuredDataSchema,
+
+  // The dedicated reviews page's own meta, FAQs and sections. Same omission rule
+  // as `blocks` above — see `reviewsPageSchema`.
+  reviewsPage: reviewsPageSchema,
 });
 
 /** Partial variant for PATCH updates. */

@@ -63,6 +63,7 @@ import {
   blankProcessorValues,
   toProcessorEnginePreview,
   toProcessorPayload,
+  toProcessorReviewsEnginePreview,
   type ProcessorFormValues,
 } from "@/components/admin/processors/serialize";
 
@@ -76,6 +77,7 @@ const TABS = [
   { value: "content", label: "Content" },
   { value: "seo", label: "SEO" },
   { value: "schema", label: "Schema" },
+  { value: "reviews-page", label: "Reviews page" },
 ] as const;
 
 type FieldName = Path<ProcessorFormValues>;
@@ -579,6 +581,71 @@ export function ProcessorForm({
                 toProcessorEnginePreview(values as unknown as ProcessorFormValues, saved)
               }
             />
+          </TabsContent>
+
+          {/* 10. Reviews page — a second public URL edited from this same form.
+              Every panel here is the shared one, bound to `reviewsPage.*`. */}
+          <TabsContent value="reviews-page" className="space-y-6">
+            <div>
+              <h2 className="text-h4">Reviews page</h2>
+              <p className="mt-0.5 text-small text-muted-foreground">
+                The processor&rsquo;s review archive at{" "}
+                <span className="font-mono text-micro">/processor/{watchedSlug || "…"}/reviews</span>
+                . The reviews themselves come from the review queue; everything below is the
+                editorial layer around them. All optional: leave it blank and the page writes its
+                own headline, intro, and meta.
+              </p>
+            </div>
+
+            <TextField
+              name="reviewsPage.heading"
+              label="Heading (H1)"
+              placeholder={`${form.watch("name") || "Processor"} reviews`}
+              description="The visible headline. Separate from the SEO title below, which is what shows in search results."
+            />
+            <TextareaField
+              name="reviewsPage.intro"
+              label="Intro"
+              rows={3}
+              placeholder="One or two sentences under the headline."
+            />
+
+            <div className="border-t border-border pt-6">
+              <h3 className="text-h4">Sections</h3>
+              <p className="mb-4 mt-0.5 text-small text-muted-foreground">
+                Rendered below the review list. Use any block: FAQ, comparison table, pros and
+                cons, feature grid, buyers guide, rich text, CTA, media, embed.
+              </p>
+              <BlockEditor name="reviewsPage.blocks" />
+            </div>
+
+            <div className="border-t border-border pt-6">
+              <SeoPanel
+                name="reviewsPage.seo"
+                path={`/processor/${watchedSlug || "…"}/reviews`}
+                fallbackTitle={`${form.watch("name") || "Processor"} reviews`}
+                fallbackDescription={form.watch("shortDescription")}
+                imageField="logo"
+              />
+            </div>
+
+            <div className="border-t border-border pt-6">
+              <FaqField
+                name="reviewsPage.faqs"
+                description="Shown at the bottom of the reviews page and emitted as FAQ rich-result schema. Skipped if you add an FAQ block above, so the same questions never appear twice."
+              />
+            </div>
+
+            <div className="border-t border-border pt-6">
+              <StructuredDataPanel
+                contentType="processorReviews"
+                name="reviewsPage.structuredData"
+                ctx={engineCtx}
+                toEntity={(values) =>
+                  toProcessorReviewsEnginePreview(values as unknown as ProcessorFormValues, saved)
+                }
+              />
+            </div>
           </TabsContent>
         </Tabs>
 

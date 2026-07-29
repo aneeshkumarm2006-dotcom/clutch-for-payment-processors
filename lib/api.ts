@@ -122,7 +122,7 @@ export function diffSetUnset(
  * Fields that must never be `$unset` just because a payload omitted them — they
  * are edited on panels that not every form renders. Pass to `diffSetUnset`.
  */
-export const PRESERVE_ON_OMIT = ["blocks", "structuredData"] as const;
+export const PRESERVE_ON_OMIT = ["blocks", "structuredData", "reviewsPage"] as const;
 
 /** Build a Mongo update doc from a $set/$unset pair, omitting an empty $unset. */
 export function buildUpdateDoc(parts: {

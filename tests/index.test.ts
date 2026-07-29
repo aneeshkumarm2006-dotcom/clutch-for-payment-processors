@@ -5,3 +5,4 @@
  */
 import "./analyticshub/index.test";
 import "./homepage/homepage.test";
+import "./reviews/reviews-page.test";
