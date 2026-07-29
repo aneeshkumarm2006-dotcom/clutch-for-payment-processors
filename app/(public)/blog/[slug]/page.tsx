@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPublishedBlogSlugs, getBlogPostBySlug } from "@/lib/public-data";
 import { absoluteUrl, buildMetadata } from "@/lib/seo";
+import { applySeoRedirect } from "@/lib/seo-redirect";
 import { buildStructuredData } from "@/lib/engine";
 import { toEngineContext } from "@/lib/engine/context";
 import { toBlogEngineEntity } from "@/lib/serialize";
@@ -46,6 +47,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const data = await getBlogPostBySlug(params.slug);
   if (!data) notFound();
   const { post, relatedProcessors, morePosts } = data;
+  // Before any other work: a retired post hands its URL to its replacement.
+  applySeoRedirect(post.seo, `/blog/${post.slug}`);
   const settings = await getOrCreateSiteSettings().catch(() => null);
 
   const canonical = absoluteUrl(`/blog/${post.slug}`);

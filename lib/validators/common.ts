@@ -77,6 +77,43 @@ export const seoSchema = z
     robotsFollow: z.preprocess(emptyToUndefined, z.boolean().optional()),
 
     focusKeyword: z.string().trim().max(100).optional(),
+
+    /**
+     * A site-relative path, never an absolute URL. An off-site redirect from a
+     * page an editor controls is an open-redirect waiting to happen, and it
+     * hands the page's accumulated authority to someone else's domain.
+     */
+    redirectTo: z.preprocess(
+      emptyToUndefined,
+      z
+        .string()
+        .trim()
+        .regex(/^\/(?!\/)[^\s?#]*$/, "Use a path on this site, starting with /, e.g. /new-page")
+        .max(200)
+        .optional(),
+    ),
+
+    /** Free-text key shared by the regional variants of one page. */
+    localeGroup: z
+      .preprocess(
+        emptyToUndefined,
+        z
+          .string()
+          .trim()
+          .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Lowercase letters, numbers and hyphens only")
+          .max(80)
+          .optional(),
+      ),
+    /** BCP 47 tag, e.g. `en`, `en-CA`, `fr-CA`. Emitted verbatim as an hreflang. */
+    locale: z.preprocess(
+      emptyToUndefined,
+      z
+        .string()
+        .trim()
+        .regex(/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-[a-zA-Z]{2}|-\d{3})?$/, "Use a tag like en or en-CA")
+        .max(35)
+        .optional(),
+    ),
   })
   .default({});
 

@@ -134,11 +134,18 @@ const PAGES: { pageKey: string; title: string; path: string; seo: SeoBlock }[] =
     title: "Compare",
     path: "/compare",
     seo: {
-      metaTitle:
-        "Payment Processor Comparison | Compare Payment Processors | Payment Processing Guide",
+      // Kept in step with `scripts/seed-doc-content.ts`, which assigns
+      // "payment gateway vs payment processor" to this page and writes the same
+      // two strings. Change one without the other and whichever seed runs last
+      // wins, which is how the two pages ended up competing in the first place.
+      metaTitle: "Payment Processor Comparison | Gateway vs Processor Explained",
       metaDescription:
-        "Run a payment processor comparison on pricing, payout speed, and features. Use our credit card payment processor comparison tool to shortlist 2-4 providers fast.",
-      keywords: ["payment processor comparison", "credit card payment processor comparison"],
+        "Compare payment processors on pricing, payout speed, and features, and see how a payment gateway, a processor, a merchant account, and a PSP actually differ.",
+      keywords: [
+        "payment processor comparison",
+        "credit card payment processor comparison",
+        "payment gateway vs payment processor",
+      ],
       faqs: [
         {
           question: "What should I look at in a payment processor comparison?",

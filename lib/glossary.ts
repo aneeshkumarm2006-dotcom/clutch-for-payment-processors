@@ -251,7 +251,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Chargeback ratio",
     short: "Chargebacks as a share of transactions, a key risk metric for processors.",
     definition:
-      "The chargeback ratio is your number of chargebacks divided by transactions (by count or volume) in a period. Card-network monitoring programs typically flag merchants above roughly 0.9–1%, which can bring fines, reserves, or account termination. Keeping it low is central to staying in good standing.",
+      "The chargeback ratio is your number of chargebacks divided by transactions (by count or volume) in a period. Card-network monitoring programs typically flag merchants above roughly 0.9% to 1%, which can bring fines, reserves, or account termination. Keeping it low is central to staying in good standing.",
     related: ["chargeback", "dispute", "high-risk-merchant"],
   },
   {
@@ -267,7 +267,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Rolling reserve",
     short: "A portion of your sales held back for months to cover potential chargebacks.",
     definition:
-      "A rolling reserve is a risk buffer: the processor withholds a percentage of each transaction (often 5–10%) for a set period, then releases it on a rolling basis. It protects the processor against future chargebacks but ties up cash, which is why some merchants seek processors with no rolling reserve.",
+      "A rolling reserve is a risk buffer: the processor withholds a percentage of each transaction (often 5% to 10%) for a set period, then releases it on a rolling basis. It protects the processor against future chargebacks but ties up cash, which is why some merchants seek processors with no rolling reserve.",
     related: ["chargeback", "high-risk-merchant", "underwriting"],
     relatedFacets: ["no-rolling-reserve"],
   },
@@ -303,7 +303,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     aka: ["PCI compliance", "Payment Card Industry Data Security Standard"],
     short: "The security standard every business handling card data must follow.",
     definition:
-      "PCI DSS is the card industry's security standard for storing, processing, and transmitting cardholder data. Compliance requirements scale with volume (Levels 1–4). Using a hosted checkout or tokenization shifts most of the burden to your processor and shrinks your compliance scope.",
+      "PCI DSS is the card industry's security standard for storing, processing, and transmitting cardholder data. Compliance requirements scale with volume (Levels 1 to 4). Using a hosted checkout or tokenization shifts most of the burden to your processor and shrinks your compliance scope.",
     related: ["tokenization", "hosted-checkout", "3d-secure"],
   },
   {

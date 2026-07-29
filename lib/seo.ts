@@ -24,11 +24,24 @@ export function absoluteUrl(path = "/"): string {
 
 /**
  * Routes the site force-noindexes, by prefix. An admin must not be able to make
- * these indexable from a PageSeo record: `/search` and `/compare` accept arbitrary
- * query strings, so indexing them invites unbounded near-duplicate URLs, and
+ * these indexable from a PageSeo record: `/search` accepts arbitrary query
+ * strings, so indexing it invites unbounded near-duplicate URLs, and
  * `/write-review` is a form. Applied AFTER the entity `seo` block, so it wins.
+ *
+ * `/compare` is deliberately NOT here. A prefix rule cannot tell the three
+ * compare URLs apart, and they want opposite treatment:
+ *
+ *   `/compare`                    the landing page, indexable, own PageSeo copy
+ *   `/compare/stripe-vs-paypal`   curated pair, indexable, in the sitemap
+ *   `/compare?ids=a,b,c`          combinatorial, noindex
+ *
+ * Only the last is a near-duplicate risk, and it is the one URL shape a prefix
+ * match can't isolate — so the compare page sets `robots` itself the moment
+ * `ids` is present. Putting `/compare` back here silently noindexes the two
+ * curated surfaces (the sitemap would keep listing pages that say "don't index
+ * me"), which is exactly what it used to do.
  */
-export const NOINDEX_ROUTES: readonly string[] = ["/search", "/write-review", "/compare"];
+export const NOINDEX_ROUTES: readonly string[] = ["/search", "/write-review"];
 
 const isNoindexRoute = (path: string) =>
   NOINDEX_ROUTES.some((p) => path === p || path.startsWith(`${p}/`) || path.startsWith(`${p}?`));
@@ -74,6 +87,13 @@ interface BuildMetadataArgs {
   robots?: { index?: boolean; follow?: boolean };
   /** Page-level canonical override, e.g. `/compare` pointing at its pretty path. */
   canonicalPath?: string;
+  /**
+   * `hreflang` alternates, as BCP 47 tag → site-relative path (plus an optional
+   * `x-default`). Only pass a COMPLETE set that includes this page's own locale:
+   * hreflang is reciprocal, and a set that omits the page declaring it, or that
+   * points at a URL which doesn't point back, is ignored wholesale by Google.
+   */
+  languages?: Record<string, string>;
 }
 
 /**
@@ -93,6 +113,7 @@ export function buildMetadata({
   keywords,
   robots,
   canonicalPath,
+  languages,
 }: BuildMetadataArgs): Metadata {
   const customTitle = seo?.metaTitle?.trim();
   const metaTitle = customTitle || title;
@@ -129,7 +150,19 @@ export function buildMetadata({
     title: useAbsolute ? { absolute: metaTitle } : metaTitle,
     description: metaDescription,
     ...(keywords && keywords.length > 0 ? { keywords } : {}),
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      // Absolute, because an hreflang must be a fully qualified URL. Emitted only
+      // when there is more than one variant: a single self-referencing hreflang
+      // says nothing and Google drops the set anyway.
+      ...(languages && Object.keys(languages).length > 1
+        ? {
+            languages: Object.fromEntries(
+              Object.entries(languages).map(([tag, p]) => [tag, absoluteUrl(p)]),
+            ),
+          }
+        : {}),
+    },
     ...(hasRobots
       ? {
           robots: {

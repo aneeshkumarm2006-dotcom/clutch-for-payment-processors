@@ -97,6 +97,9 @@ export function toSeoData(raw: unknown): ISeo {
     robotsIndex: bool(s.robotsIndex),
     robotsFollow: bool(s.robotsFollow),
     focusKeyword: str(s.focusKeyword),
+    redirectTo: str(s.redirectTo),
+    localeGroup: str(s.localeGroup),
+    locale: str(s.locale),
   };
 }
 
@@ -844,9 +847,23 @@ export function toPageEngineEntity(opts: {
   title: string;
   path: string;
   description?: string;
-  page: Lean | null;
+  /**
+   * The PageSeo record, or null when the route has none yet. Typed `unknown`
+   * because callers hand it a lean Mongo doc, a mongoose interface or a form's
+   * values — every field is re-read through the `toX` narrowers below anyway,
+   * so a stricter type here would only buy casts at the call sites.
+   */
+  page: unknown;
+  /** Last edit, for the guide Article's `dateModified`. Accepts a Date or ISO string. */
+  dateModified?: Date | string;
 }): EngineEntity<PageEngineData> {
-  const doc = opts.page ?? {};
+  const doc = (opts.page ?? {}) as Lean;
+  const dateModified =
+    opts.dateModified instanceof Date
+      ? opts.dateModified.toISOString()
+      : typeof opts.dateModified === "string" && opts.dateModified.trim()
+        ? opts.dateModified
+        : undefined;
   return {
     contentType: "page",
     path: opts.path,
@@ -854,6 +871,11 @@ export function toPageEngineEntity(opts: {
     faqs: toFaqs(doc.faqs),
     blocks: toBlocks(doc.blocks),
     structuredData: toStructuredData(doc.structuredData),
-    data: { title: opts.title, path: opts.path, description: opts.description },
+    data: {
+      title: opts.title,
+      path: opts.path,
+      description: opts.description,
+      ...(dateModified ? { dateModified } : {}),
+    },
   };
 }

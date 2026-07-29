@@ -38,8 +38,10 @@ export { AnalyticsHubConfig, type IAnalyticsHubConfig } from "./AnalyticsHubConf
 export {
   PageSeo,
   PAGE_SEO_KEYS,
+  PAGE_SEO_KINDS,
   type IPageSeo,
   type PageSeoKey,
+  type PageSeoKind,
 } from "./PageSeo";
 export {
   type ISeo,

@@ -74,6 +74,8 @@ export function SeoPanel({
   imageField,
   uploadEndpoint,
   onPickFromLibrary,
+  showRedirect = true,
+  showLocaleVariants = false,
 }: {
   name?: string;
   /** Form field holding the page's own title. Omit for pages whose title isn't editable. */
@@ -87,6 +89,19 @@ export function SeoPanel({
   imageField?: string;
   uploadEndpoint?: string;
   onPickFromLibrary?: (apply: (img: { url: string; alt: string }) => void) => void;
+  /**
+   * Both of these back fields that only DO something on pages wired to read
+   * them, and a control that silently does nothing is worse than no control.
+   *
+   * `redirectTo` is honoured by the processor, category, blog and landing pages
+   * (`applySeoRedirect`); it is hidden elsewhere, and always on the homepage,
+   * which has nowhere to redirect to.
+   *
+   * `localeGroup`/`locale` are read by the landing route only, so the variant
+   * fields are opt-in.
+   */
+  showRedirect?: boolean;
+  showLocaleVariants?: boolean;
 }) {
   const { control } = useFormContext();
 
@@ -355,7 +370,43 @@ export function SeoPanel({
             )}
           />
         ))}
+
+        {showRedirect && path !== "/" && (
+          <TextField
+            name={`${name}.redirectTo`}
+            label="Redirect this page to"
+            placeholder="/replacement-page"
+            description="Retires this URL with a permanent 308 to another page on this site. Use it to consolidate a duplicate: unlike a canonical it is obeyed, and unlike noindex it passes the old page's authority on. Leave blank for no redirect. Do not point two pages at each other."
+          />
+        )}
       </section>
+
+      {/* ---------------- Regional variants ---------------- */}
+      {showLocaleVariants && (
+        <section className="space-y-4 border-t border-border pt-6">
+          <div>
+            <h2 className="text-h4">Regional variants</h2>
+            <p className="mt-0.5 text-small text-muted-foreground">
+              For pages that exist once per country or language. Fill in BOTH fields on EVERY
+              variant, using the same group name. Google only honours an hreflang set where all
+              the variants point at each other, so a half-filled one is ignored entirely.
+            </p>
+          </div>
+
+          <TextField
+            name={`${name}.localeGroup`}
+            label="Variant group"
+            placeholder="ecommerce-pos-reviews"
+            description="A shared key naming the set. Any page with the same key is treated as a variant of this one."
+          />
+          <TextField
+            name={`${name}.locale`}
+            label="Locale"
+            placeholder="en-US"
+            description="This variant's language and region, e.g. en, en-US, en-CA, fr-CA."
+          />
+        </section>
+      )}
     </div>
   );
 }

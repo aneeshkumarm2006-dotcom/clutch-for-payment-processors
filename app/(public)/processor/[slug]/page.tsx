@@ -15,6 +15,7 @@ import {
   getReviewIndustries,
 } from "@/lib/public-data";
 import { buildMetadata } from "@/lib/seo";
+import { applySeoRedirect } from "@/lib/seo-redirect";
 import { buildStructuredData } from "@/lib/engine";
 import { toEngineContext } from "@/lib/engine/context";
 import { toProcessorEngineEntity } from "@/lib/serialize";
@@ -67,6 +68,8 @@ export async function generateMetadata({
 export default async function ProcessorProfilePage({ params }: { params: { slug: string } }) {
   const p = await getProcessorBySlug(params.slug);
   if (!p) notFound();
+  // Before any other work: a retired listing hands its URL to its replacement.
+  applySeoRedirect(p.seo, `/processor/${p.slug}`);
 
   const [alternatives, initialReviews, reviewIndustries, settings] = await Promise.all([
     getAlternatives(p, 4),

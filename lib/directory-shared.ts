@@ -36,8 +36,8 @@ const SORT_VALUES = SORT_OPTIONS.map((s) => s.value) as readonly string[];
 /** Online-card-rate buckets for the FilterRail (PRD §9.2). */
 export const RATE_BUCKETS = [
   { value: "lt2", label: "Under 2%" },
-  { value: "2-2.5", label: "2% – 2.5%" },
-  { value: "2.5-3", label: "2.5% – 3%" },
+  { value: "2-2.5", label: "2% to 2.5%" },
+  { value: "2.5-3", label: "2.5% to 3%" },
   { value: "gt3", label: "3% and up" },
   { value: "custom", label: "Custom / varies" },
 ] as const;
@@ -47,7 +47,7 @@ const RATE_VALUES = RATE_BUCKETS.map((b) => b.value) as readonly string[];
 export const FEE_BUCKETS = [
   { value: "0", label: "$0 (no monthly fee)" },
   { value: "lt25", label: "Under $25" },
-  { value: "25-99", label: "$25 – $99" },
+  { value: "25-99", label: "$25 to $99" },
   { value: "gt100", label: "$100 and up" },
 ] as const;
 const FEE_VALUES = FEE_BUCKETS.map((b) => b.value) as readonly string[];

@@ -12,6 +12,7 @@ import {
   getSiblingCategories,
 } from "@/lib/public-data";
 import { buildMetadata } from "@/lib/seo";
+import { applySeoRedirect } from "@/lib/seo-redirect";
 import { buildStructuredData } from "@/lib/engine";
 import { toEngineContext } from "@/lib/engine/context";
 import { toCategoryEngineEntity, toBlocks } from "@/lib/serialize";
@@ -88,6 +89,8 @@ export default async function CategoryPage({
 }) {
   const category = await getCategoryBySlug(params.slug);
   if (!category) notFound();
+  // Before any other work: a retired category hands its URL to its replacement.
+  applySeoRedirect(category.seo, `/category/${category.slug}`);
 
   const directoryParams = parseDirectoryParams(searchParams);
   const [result, settings, siblings] = await Promise.all([

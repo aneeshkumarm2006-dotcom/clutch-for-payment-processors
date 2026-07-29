@@ -54,7 +54,7 @@ const NAV: NavItem[] = [
   { label: "Submissions", href: "/admin/submissions", icon: FileText },
   { label: "Blog", href: "/admin/blog", icon: Newspaper },
   { label: "Landing page", href: "/admin/homepage", icon: Home, adminOnly: true },
-  { label: "Page SEO", href: "/admin/page-seo", icon: Search, adminOnly: true },
+  { label: "Pages & SEO", href: "/admin/page-seo", icon: Search, adminOnly: true },
   { label: "Users", href: "/admin/users", icon: Users, adminOnly: true },
   { label: "Audit log", href: "/admin/audit", icon: ScrollText, adminOnly: true },
   { label: "Settings", href: "/admin/settings", icon: Settings, adminOnly: true },

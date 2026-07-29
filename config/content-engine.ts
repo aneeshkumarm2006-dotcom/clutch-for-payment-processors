@@ -65,12 +65,15 @@ export const seoDefaults = {
   twitterCard: "summary_large_image" as const,
   /**
    * Routes the site force-noindexes. NOTHING an admin sets can override these —
-   * `buildMetadata` applies them last. `/search` and `/compare` take arbitrary
-   * query strings, so letting them be indexed invites unbounded near-duplicate
-   * pages; `/write-review` is a form. A prefix match, so `/write-review/stripe`
-   * is covered by `/write-review`.
+   * `buildMetadata` applies them last. `/search` takes arbitrary query strings,
+   * so letting it be indexed invites unbounded near-duplicate pages;
+   * `/write-review` is a form. A prefix match, so `/write-review/stripe` is
+   * covered by `/write-review`.
+   *
+   * `/compare` is handled by the compare page itself, not here — see the note on
+   * `NOINDEX_ROUTES` in `lib/seo.ts`. Keep the two lists in step.
    */
-  noindexRoutes: ["/search", "/write-review", "/compare"] as readonly string[],
+  noindexRoutes: ["/search", "/write-review"] as readonly string[],
   /** Ideal meta lengths. Advisory — surfaced as warnings, never enforced as errors. */
   titleLength: { min: 50, max: 60 },
   descriptionLength: { min: 150, max: 160 },
@@ -128,6 +131,8 @@ export interface PageEngineData {
   title: string;
   path: string;
   description?: string;
+  /** ISO date. Feeds the guide Article's `dateModified` freshness signal. */
+  dateModified?: string;
 }
 
 const home: Crumb = { name: "Home", path: "/" };
@@ -301,6 +306,29 @@ export const contentTypes = {
         label: "FAQ",
         required: ["mainEntity"],
         build: (e) => (e.faqs?.length ? faqJsonLd(e.faqs) : null),
+      },
+      {
+        type: "Article",
+        label: "Guide",
+        required: ["headline"],
+        overridable: ["headline", "description"],
+        // Same rule as `category`: emitted only when the page carries a
+        // buyers-guide block, so a thin utility page never claims to be an
+        // article. `dateModified` is the point of it here — a long-form landing
+        // page with no freshness signal reads as undated to both crawlers and
+        // the AI assistants that cite by recency.
+        build: (e) => {
+          const guide = e.blocks?.find((b) => b.type === "buyersGuide");
+          const data = (guide?.data ?? {}) as { title?: unknown; sections?: unknown };
+          if (!guide || !Array.isArray(data.sections) || data.sections.length === 0) return null;
+          const title = typeof data.title === "string" && data.title.trim() ? data.title : "";
+          return guideArticleJsonLd({
+            headline: title || e.data.title,
+            description: e.data.description,
+            path: e.path,
+            dateModified: e.data.dateModified,
+          });
+        },
       },
     ],
   }),

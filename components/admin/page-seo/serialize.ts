@@ -21,6 +21,15 @@ export interface FaqFormValue {
 }
 
 export interface PageSeoFormValues {
+  /**
+   * Landing pages only — a `route` record's page renders these from code.
+   * Optional because forms that own just the SEO half of a record reuse this
+   * shape: the homepage editor, for one, has no URL or H1 of its own to offer.
+   */
+  heading?: string;
+  subheading?: string;
+  path?: string;
+  isPublished?: boolean;
   seo: SeoFormValues;
   faqs: FaqFormValue[];
   blocks: BlockFormValue[];
@@ -35,6 +44,10 @@ const str = (v: unknown) => (v == null ? "" : String(v));
 
 export function blankPageSeoValues(): PageSeoFormValues {
   return {
+    heading: "",
+    subheading: "",
+    path: "",
+    isPublished: false,
     seo: blankSeoValues(),
     faqs: [],
     blocks: [],
@@ -44,6 +57,10 @@ export function blankPageSeoValues(): PageSeoFormValues {
 
 export function toPageSeoFormValues(doc: LeanPageSeo): PageSeoFormValues {
   return {
+    heading: str(doc.heading),
+    subheading: str(doc.subheading),
+    path: str(doc.path),
+    isPublished: doc.isPublished !== false,
     seo: toSeoFormValues(doc.seo as never),
     faqs: (doc.faqs ?? []).map((f) => ({ question: str(f.question), answer: str(f.answer) })),
     blocks: toBlockFormValues(doc.blocks as never),
@@ -51,8 +68,24 @@ export function toPageSeoFormValues(doc: LeanPageSeo): PageSeoFormValues {
   };
 }
 
-export function toPageSeoPayload(values: PageSeoFormValues): Record<string, unknown> {
+/**
+ * Form → PUT body. The page-shaped fields are only sent for a landing page:
+ * `route` records have no use for them, and the API drops them anyway — sending
+ * them would just make an empty `heading` box look like a cleared value.
+ */
+export function toPageSeoPayload(
+  values: PageSeoFormValues,
+  opts: { isLanding?: boolean } = {},
+): Record<string, unknown> {
   return {
+    ...(opts.isLanding
+      ? {
+          heading: values.heading?.trim() || undefined,
+          subheading: values.subheading?.trim() || undefined,
+          path: values.path?.trim(),
+          isPublished: values.isPublished ?? true,
+        }
+      : {}),
     seo: toSeoPayload(values.seo),
     // Empty rows are dropped by the validator (faqsSchema).
     faqs: values.faqs,

@@ -145,7 +145,7 @@ export const HOMEPAGE_DEFAULTS: ResolvedHomepage = {
       {
         icon: "compare",
         title: "Compare",
-        body: "Put 2–4 processors side by side on pricing, features, and verified merchant reviews.",
+        body: "Put 2 to 4 processors side by side on pricing, features, and verified merchant reviews.",
       },
       {
         icon: "check",

@@ -79,6 +79,37 @@ Then add its key to `enabledBlocks`.
 
 `richtext` and `htmlEmbed` HTML is sanitized **on save** (`lib/sanitize-html.ts`), the same as the blog body.
 
+## Pages without an entity — `PageSeo`
+
+`PageSeo` backs every page that has no Processor or Category of its own. One record, two `kind`s:
+
+| kind | What it is | Who creates it | `path` |
+|---|---|---|---|
+| `route` | SEO + FAQs + an editorial block slot for a page that **exists in code** (`/`, `/processors`, `/compare`, `/glossary`, `/payment-processors/ach`) | seeded (`npm run seed:seo`, `npm run seed:doc-content`) | fixed at seed time, immutable in the admin |
+| `landing` | A standalone page that **is** the record — heading, lede, blocks, SEO, nothing else | created in admin → Pages & SEO | editable, one root-level slug |
+
+A `landing` page is served by `app/(public)/[landing]/page.tsx`, a root-level dynamic segment that Next.js only reaches after every static route and every other dynamic segment has failed to match. Unknown slug or unpublished record → `notFound()`. `RESERVED_LANDING_PATHS` (in `lib/validators/pageSeo.ts`) rejects a path a real route already owns, because such a record would save fine and then never render.
+
+**Wiring an existing route up to a record is one call.** No new key needed — the route already knows its own path:
+
+```ts
+const page = await getPageSeoByPath("/glossary");   // lib/page-seo.ts
+<Blocks blocks={toBlocks(page?.blocks)} />
+// and in generateMetadata: pageSeoMetadata({ …fallbacks, path: "/glossary", byPath: true })
+```
+
+Both are optional at every step: with no record the page renders exactly as it did before. That is what makes deepening a page (the ACH facet, say) content work rather than an edit to a shared registry.
+
+Deleting is allowed for `landing` only. Deleting a `route` record wouldn't remove its page, just strip the meta off a page that stays live, so the API refuses it — unpublish or clear the fields instead.
+
+### Regional variants (hreflang)
+
+A page that exists once per country carries `seo.localeGroup` (a shared key naming the set) and `seo.locale` (its BCP 47 tag). `getLocaleVariants` collects the set, `toHreflangMap` turns it into the `languages` map `buildMetadata` emits, and the landing route also renders a visible "Also available for" switcher so the variants link to each other in HTML, not just in `<head>`.
+
+Both fields are required on **every** variant. hreflang is reciprocal: a set where one page omits itself, or points at a URL that doesn't point back, is discarded by Google in full. Requiring both fields is what makes the emitted set complete by construction. `x-default` is emitted only when a region-less variant (`en`, not `en-CA`) exists — with two regional pages and no neutral one, picking by sort order would quietly nominate whichever country sorts first as the world's default.
+
+Only the landing route reads these, so the admin fields are hidden elsewhere (`showLocaleVariants`). Same reasoning hides `redirectTo` on pages that don't consult it: a control that silently does nothing is worse than no control.
+
 ## Per-page SEO
 
 `SeoSchema` (in `models/shared.ts`) is shared by Processor, Category, BlogPost, PageSeo and SiteSettings — a field added there lands on all five. It now carries meta title/description/keywords, OG title/description/image, Twitter card, canonical, robots and a focus keyword.
@@ -87,11 +118,13 @@ Precedence, strongest first:
 
 > **system noindex → page-level args → entity `seo` → site default → page's hardcoded copy**
 
-Three traps are encoded deliberately; don't "simplify" them away:
+Four traps are encoded deliberately; don't "simplify" them away:
 
 - **`robotsIndex` is tri-state.** `undefined` (every pre-existing document) means *emit no robots directive*. `Boolean(seo.robotsIndex)` would resolve to `false` and **noindex the entire site on deploy**.
 - **`canonicalUrl` must be same-origin.** A cross-origin canonical de-indexes the page that sets it, so a foreign origin is ignored rather than trusted.
 - **`ogTitle` never falls back into `metaTitle`.** A custom meta title is treated as absolute (it drops the `· Payment Processor Guide` suffix), so leaking a social headline into it would silently rewrite every SERP title.
+- **A `redirectTo` page must leave the sitemap.** `seo.redirectTo` retires a URL with a 308 (`applySeoRedirect`, honoured by the processor, category, blog and landing pages). It is the right way to consolidate a duplicate — a canonical is only a hint, a noindex passes nothing on — but a redirected URL is not a page, so `indexableFilter` in `lib/public-data.ts` drops it. That filter is SPREAD into `publishedFilter()`, which already owns `$or`, hence `{$in: [null, ""]}` rather than a second `$or` that would silently replace the publish-date clause.
+- **`/compare` is NOT in `noindexRoutes`.** A prefix rule can't tell the three compare URLs apart, and they want opposite treatment: bare `/compare` is an indexable landing page with its own copy, `/compare/stripe-vs-square` is a curated pair in the sitemap, and only `/compare?ids=` is a combinatorial near-duplicate. The compare page sets `robots` itself when `ids` is present. Adding `/compare` back to the list silently noindexes the two curated surfaces while the sitemap keeps advertising them.
 
 `blocks` and `structuredData` are in `PRESERVE_ON_OMIT` (`lib/api.ts`). A BlogPost has **two** full-replace writers — `/api/blog/[id]` and `/api/seoteam/posts/[id]` — and `diffSetUnset` maps `undefined → $unset`. Without the preserve list, saving a post from one panel would delete the fields the other panel owns. An explicit `[]` still clears them, so an editor can delete their last block.
 
@@ -105,6 +138,21 @@ npm run migrate:blocks -- --up --commit --collection=processors --slug=stripe
 ```
 
 `--up` **copies**; it never deletes the source field. That's what makes `--down` a true inverse — it drops `blocks`/`structuredData` and the page falls straight back to the legacy field it never stopped having. Nothing is reconstructed, so nothing can be lost in the round-trip. BlogPost is excluded from `--up` (see the table above).
+
+## Seeding content
+
+```bash
+npm run seed:seo                       # the original keyword-mapped meta plan
+npm run seed:doc-content -- --dry-run  # the editorial content plan, preview only
+npm run seed:doc-content               # apply it
+```
+
+`seed.ts` and `seed-seo.ts` full-replace the fields they own, so re-running either resets admin edits made since. `seed-doc-content.ts` is surgical instead: it `$set`s only the dotted paths its source doc supplies, merges keyword lists rather than replacing them, never rewrites a `metaTitle` the doc has nothing to say about, and derives stable block ids from the page + position so a reseed is a genuine no-op rather than a churned document.
+
+Two invariants it has to respect, and so does anything like it:
+
+- **Blocks replace `longDescription` (processors) and `introContent` (categories)** on the public page. Every block list it writes to a record with existing prose therefore re-wraps that prose in a leading `richtext` block. Drop that and the guide silently deletes the page's opening paragraph.
+- **`lib/sanitize-html.ts` imports `server-only`** and cannot run under `tsx`. Seed scripts can't call `sanitizeBlocks`, so `seed-doc-content.ts` checks its HTML against a tag allowlist and fails the run on anything outside it. Content written through the admin still goes through the real sanitizer.
 
 ---
 

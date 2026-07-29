@@ -1,29 +1,45 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
+import { Blocks } from "@/components/public/Blocks";
+import { FaqSection } from "@/components/public/FaqSection";
 import { JsonLd } from "@/components/public/JsonLd";
 import { GLOSSARY_TERMS, glossaryByLetter } from "@/lib/glossary";
-import { buildMetadata, breadcrumbJsonLd, definedTermSetJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, definedTermSetJsonLd, faqJsonLd } from "@/lib/seo";
+import { getPageSeoByPath, pageSeoMetadata } from "@/lib/page-seo";
+import { toBlocks, toFaqs } from "@/lib/serialize";
 
 /**
  * Payments glossary hub (`/glossary`). A static A–Z index of every term, linking
  * to the individual `/glossary/<slug>` pages. Emits DefinedTermSet JSON-LD so the
  * whole glossary reads as one structured reference — a strong topical-authority
  * and AI-citation surface.
+ *
+ * The A–Z index alone is thin for a page targeting head terms like "payment
+ * gateway vs payment processor", so meta, FAQs and an editorial block slot come
+ * from the `/glossary` PageSeo record (admin → Page SEO). All three are optional:
+ * with no record the page renders exactly as it did before.
  */
 export const revalidate = 86400;
 
-export function generateMetadata(): Metadata {
-  return buildMetadata({
+const FALLBACK_DESCRIPTION =
+  "Plain-English definitions of payment processing terms: interchange, chargebacks, ACH, PCI, rolling reserves, tokenization, and more.";
+
+export function generateMetadata(): Promise<Metadata> {
+  return pageSeoMetadata({
     title: "Payments glossary",
-    description:
-      "Plain-English definitions of payment processing terms: interchange, chargebacks, ACH, PCI, rolling reserves, tokenization, and more.",
+    description: FALLBACK_DESCRIPTION,
     path: "/glossary",
+    byPath: true,
   });
 }
 
-export default function GlossaryHubPage() {
+export default async function GlossaryHubPage() {
   const groups = glossaryByLetter();
+  const page = await getPageSeoByPath("/glossary");
+  const blocks = toBlocks(page?.blocks);
+  const faqs = toFaqs(page?.faqs);
+  const hasFaqBlock = Boolean(blocks?.some((b) => b.type === "faq"));
 
   return (
     <div className="mx-auto max-w-content px-4 py-10 lg:px-6">
@@ -34,6 +50,9 @@ export default function GlossaryHubPage() {
             { name: "Glossary", path: "/glossary" },
           ]),
           definedTermSetJsonLd(GLOSSARY_TERMS.map((t) => ({ term: t.term, slug: t.slug }))),
+          // Google requires the Q&As to be visible, so the schema is tied to the
+          // section actually rendering — not merely to the FAQs existing.
+          ...(!hasFaqBlock && faqs?.length ? [faqJsonLd(faqs)] : []),
         ]}
       />
 
@@ -47,7 +66,11 @@ export default function GlossaryHubPage() {
         </p>
       </header>
 
-      <nav aria-label="Jump to letter" className="mt-8 flex flex-wrap gap-1.5">
+      {/* Editorial slot. Sits above the A–Z index because this is the copy the
+          page ranks on; the index is reference material readers scroll to. */}
+      <Blocks blocks={blocks} className="mt-10" />
+
+      <nav aria-label="Jump to letter" className="mt-12 flex flex-wrap gap-1.5">
         {groups.map((g) => (
           <a
             key={g.letter}
@@ -81,6 +104,8 @@ export default function GlossaryHubPage() {
           </section>
         ))}
       </div>
+
+      {!hasFaqBlock && <FaqSection faqs={faqs} />}
     </div>
   );
 }

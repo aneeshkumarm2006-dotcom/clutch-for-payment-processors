@@ -32,6 +32,28 @@ export interface ISeo {
   robotsFollow?: boolean;
   /** The one term this page is trying to rank for. Drives on-page SEO checks. */
   focusKeyword?: string;
+
+  /**
+   * Retire this URL into another one with a 308. Site-relative path only.
+   *
+   * This is the honest way to consolidate a duplicate: a canonical is a hint
+   * search engines may ignore, and a noindex throws away whatever the old URL
+   * had earned. A redirect passes the signal on and stops the two pages
+   * competing. The page checks this before rendering anything, and the sitemap
+   * drops any record that sets it.
+   */
+  redirectTo?: string;
+
+  /**
+   * Regional/language variants of the same page, for `hreflang`.
+   *
+   * `localeGroup` is a free-text key shared by every variant (e.g.
+   * "ecommerce-pos-reviews"); `locale` is that variant's BCP 47 tag ("en-CA").
+   * Both must be set for either to do anything — one page alone is not a set,
+   * and hreflang is only valid when the variants point at each other.
+   */
+  localeGroup?: string;
+  locale?: string;
 }
 
 export const SeoSchema = new Schema<ISeo>(
@@ -49,6 +71,9 @@ export const SeoSchema = new Schema<ISeo>(
     robotsIndex: { type: Boolean },
     robotsFollow: { type: Boolean },
     focusKeyword: { type: String, trim: true },
+    redirectTo: { type: String, trim: true },
+    localeGroup: { type: String, trim: true, index: true },
+    locale: { type: String, trim: true },
   },
   { _id: false },
 );

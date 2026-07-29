@@ -7,7 +7,7 @@ import { toPageSeoFormValues } from "@/components/admin/page-seo/serialize";
 import { getOrCreateSiteSettings } from "@/lib/settings";
 import { toEngineContext } from "@/lib/engine/context";
 
-/** Edit a static page's SEO + FAQs. */
+/** Edit a page record: SEO + FAQs + blocks, plus the page itself when it's a landing page. */
 export const dynamic = "force-dynamic";
 
 export default async function EditPageSeoPage({ params }: { params: { id: string } }) {
@@ -26,6 +26,7 @@ export default async function EditPageSeoPage({ params }: { params: { id: string
         pageId={String(doc._id)}
         title={doc.title}
         path={doc.path}
+        kind={doc.kind === "landing" ? "landing" : "route"}
         defaultValues={toPageSeoFormValues(doc)}
         engineCtx={toEngineContext(settings)}
       />

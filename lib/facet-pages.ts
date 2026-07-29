@@ -226,7 +226,7 @@ export const FACET_PAGES: FacetPageDef[] = [
       {
         question: "How much does ACH processing cost?",
         answer:
-          "ACH usually costs a flat fee per transaction or a low capped percentage, versus roughly 2.5–3% for cards. Compare the ACH-capable processors here to see exact pricing.",
+          "ACH usually costs a flat fee per transaction or a low capped percentage, versus roughly 2.5% to 3% for cards. Compare the ACH-capable processors here to see exact pricing.",
       },
     ],
     related: ["interchange-plus", "with-invoicing", "multi-currency"],
@@ -377,7 +377,7 @@ export const FACET_PAGES: FacetPageDef[] = [
       {
         question: "What is a rolling reserve?",
         answer:
-          "It's a risk buffer: the processor holds back, say, 5–10% of each transaction for a set period before releasing it. Processors with no rolling reserve pay out your full balance on the normal payout schedule.",
+          "It's a risk buffer: the processor holds back, say, 5% to 10% of each transaction for a set period before releasing it. Processors with no rolling reserve pay out your full balance on the normal payout schedule.",
       },
     ],
     related: ["interchange-plus", "ach", "flat-rate"],

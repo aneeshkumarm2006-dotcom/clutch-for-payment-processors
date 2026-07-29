@@ -41,13 +41,22 @@ const SOCIALS: { key: keyof ISiteSettings["socialLinks"]; label: string; Icon: L
 export function Footer({
   categories,
   settings,
+  landingPages = [],
 }: {
   categories: CategoryData[];
   settings: FooterSettings;
+  /** Admin-created landing pages, appended to "Popular" so they aren't orphans. */
+  landingPages?: { label: string; href: string }[];
 }) {
   const siteName = settings.siteName || "Payment Processor Guide";
   const year = new Date().getFullYear();
   const categoryLinks = categories.slice(0, 5);
+  // De-duped by href so a landing page that also appears in POPULAR_LINKS is
+  // listed once rather than twice.
+  const popularLinks = [
+    ...POPULAR_LINKS,
+    ...landingPages.filter((l) => !POPULAR_LINKS.some((p) => p.href === l.href)),
+  ];
   const socials = SOCIALS.filter((s) => settings.socialLinks?.[s.key]);
 
   return (
@@ -91,7 +100,7 @@ export function Footer({
           </FooterColumn>
 
           <FooterColumn heading="Popular">
-            {POPULAR_LINKS.map((l) => (
+            {popularLinks.map((l) => (
               <FooterLink key={l.href} href={l.href} label={l.label} />
             ))}
           </FooterColumn>

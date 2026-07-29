@@ -16,17 +16,25 @@ function add(kw: string, page: string, path: string, assigned: string) {
   rows.push({ kw, page, url: `${SITE}${path}`, assigned });
 }
 
+/**
+ * A retired URL is not a keyword target. A record with `seo.redirectTo` answers
+ * 308 and never renders, so listing it produces phantom rows — and, worse, rows
+ * that look like two pages competing for one term when one of them no longer
+ * exists. Excluded everywhere below.
+ */
+const notRedirected = { "seo.redirectTo": { $in: [null, ""] } } as const;
+
 async function main() {
   await connectToDatabase();
 
   // 1. Static pages (PageSeo) — explicitly assigned meta keywords
-  const pages = await PageSeo.find({}).lean();
+  const pages = await PageSeo.find(notRedirected).lean();
   for (const p of pages) {
     for (const k of p.seo?.keywords ?? []) add(k, p.title, p.path, "assigned");
   }
 
   // 2. Categories — assigned keywords, else derive from name
-  const cats = await Category.find({}).sort({ name: 1 }).lean();
+  const cats = await Category.find(notRedirected).sort({ name: 1 }).lean();
   for (const c of cats as any[]) {
     const kws = c.seo?.keywords ?? [];
     if (kws.length) for (const k of kws) add(k, `${c.name} (category)`, `/category/${c.slug}`, "assigned");
@@ -34,7 +42,7 @@ async function main() {
   }
 
   // 3. Processors — assigned keywords + programmatic review & alternatives pages
-  const procs = await Processor.find({}).sort({ name: 1 }).lean();
+  const procs = await Processor.find(notRedirected).sort({ name: 1 }).lean();
   for (const pr of procs as any[]) {
     for (const k of pr.seo?.keywords ?? []) add(k, `${pr.name} (processor profile)`, `/processor/${pr.slug}`, "assigned");
     // Review/profile page target (derived from title pattern)
@@ -55,7 +63,9 @@ async function main() {
     add(`${pair[0]} vs ${pair[1]}`, `${pair[0]} vs ${pair[1]}`, `/compare/${comparePairToParam(pair)}`, "programmatic");
 
   // 7. Blog posts (published) — target keyword = assigned meta keyword, else metaTitle/title
-  const posts = await BlogPost.find({ status: "published" }).sort({ title: 1 }).lean();
+  const posts = await BlogPost.find({ status: "published", ...notRedirected })
+    .sort({ title: 1 })
+    .lean();
   for (const b of posts as any[]) {
     const kws = b.seo?.keywords ?? [];
     if (kws.length) for (const k of kws) add(k, `${b.title} (blog)`, `/blog/${b.slug}`, "assigned");

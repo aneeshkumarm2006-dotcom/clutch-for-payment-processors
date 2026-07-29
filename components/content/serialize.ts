@@ -35,6 +35,9 @@ export interface SeoFormValues {
   robotsIndex?: boolean;
   robotsFollow?: boolean;
   focusKeyword: string;
+  redirectTo: string;
+  localeGroup: string;
+  locale: string;
 }
 
 export function blankSeoValues(): SeoFormValues {
@@ -50,6 +53,9 @@ export function blankSeoValues(): SeoFormValues {
     robotsIndex: undefined,
     robotsFollow: undefined,
     focusKeyword: "",
+    redirectTo: "",
+    localeGroup: "",
+    locale: "",
   };
 }
 
@@ -67,6 +73,9 @@ export function toSeoFormValues(seo: Partial<ISeo> | undefined | null): SeoFormV
     robotsIndex: seo?.robotsIndex,
     robotsFollow: seo?.robotsFollow,
     focusKeyword: seo?.focusKeyword ?? "",
+    redirectTo: seo?.redirectTo ?? "",
+    localeGroup: seo?.localeGroup ?? "",
+    locale: seo?.locale ?? "",
   };
 }
 
@@ -88,6 +97,9 @@ export function toSeoPayload(values: SeoFormValues): Record<string, unknown> {
     robotsIndex: values.robotsIndex,
     robotsFollow: values.robotsFollow,
     focusKeyword: blank(values.focusKeyword),
+    redirectTo: blank(values.redirectTo),
+    localeGroup: blank(values.localeGroup),
+    locale: blank(values.locale),
   };
 }
 

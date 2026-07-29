@@ -552,13 +552,39 @@ export interface SitemapEntry {
   lastModified: Date;
 }
 
+/**
+ * Exclude anything an editor has explicitly noindexed.
+ *
+ * `seo.robotsIndex` is tri-state: `undefined` on the vast majority of documents
+ * means "say nothing about robots", and only an explicit `false` is a noindex.
+ * So this must be `$ne: false`, never a truthiness test — `{ robotsIndex: true }`
+ * would empty the sitemap of every record that has never been touched.
+ *
+ * Listing a noindexed URL in the sitemap is a contradiction Search Console
+ * reports as an error: the file says "crawl and index this", the page says
+ * "don't". It happens whenever a page is deliberately noindexed to consolidate a
+ * duplicate, which is exactly what the eCommerce POS category is.
+ */
+const indexableFilter = {
+  "seo.robotsIndex": { $ne: false },
+  // A redirected URL is not a page. Listing it asks Google to crawl something
+  // that answers 308, which at best wastes crawl budget and at worst reads as a
+  // sitemap full of soft errors.
+  //
+  // `$in: [null, ""]` rather than an `$or`: Mongo matches a missing field
+  // against `null`, and this filter is SPREAD into `publishedFilter()`, which
+  // already owns the `$or` key. A second `$or` would silently replace the
+  // publish-date clause and start listing scheduled posts.
+  "seo.redirectTo": { $in: [null, ""] },
+} as const;
+
 export async function getSitemapEntries(): Promise<SitemapEntry[]> {
   try {
     await connectToDatabase();
     const [processors, categories, posts] = await Promise.all([
-      Processor.find({ isPublished: true }).select("slug updatedAt").lean(),
-      Category.find({ isPublished: true }).select("slug updatedAt").lean(),
-      BlogPost.find(publishedFilter()).select("slug updatedAt").lean(),
+      Processor.find({ isPublished: true, ...indexableFilter }).select("slug updatedAt").lean(),
+      Category.find({ isPublished: true, ...indexableFilter }).select("slug updatedAt").lean(),
+      BlogPost.find({ ...publishedFilter(), ...indexableFilter }).select("slug updatedAt").lean(),
     ]);
 
     const toDate = (v: unknown): Date => (v instanceof Date ? v : new Date(String(v)));

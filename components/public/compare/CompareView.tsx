@@ -68,8 +68,9 @@ export function CompareView({ processors }: { processors: ProcessorDetailData[] 
             {processors.length === 1 ? "Add one more processor" : "Pick processors to compare"}
           </h2>
           <p className="mx-auto mt-2 max-w-prose text-small text-muted-foreground">
-            Compare 2–4 processors side by side: pricing, payment methods, integrations, features,
-            and company facts. Use the picker above, or “Add to compare” from any processor card.
+            Compare 2 to 4 processors side by side: pricing, payment methods, integrations,
+            features, and company facts. Use the picker above, or &ldquo;Add to compare&rdquo; from
+            any processor card.
           </p>
         </div>
       )}

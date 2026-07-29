@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/public/JsonLd";
 import { CompareProvider } from "@/components/public/compare/CompareContext";
 import { CompareBar } from "@/components/public/compare/CompareBar";
 import { getPublishedCategories } from "@/lib/public-data";
+import { getLandingPageLinks } from "@/lib/page-seo";
 import { getOrCreateSiteSettings } from "@/lib/settings";
 import { toEngineContext } from "@/lib/engine/context";
 import { baseGraph } from "@/config/content-engine";
@@ -22,9 +23,12 @@ import { baseGraph } from "@/config/content-engine";
  * page body share one read per request.
  */
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
-  const [categories, settings] = await Promise.all([
+  const [categories, settings, landingLinks] = await Promise.all([
     getPublishedCategories(),
     getOrCreateSiteSettings().catch(() => null),
+    // Admin-created landing pages have no other route into the site, so without
+    // a site-wide link they'd be orphans reachable only from the sitemap.
+    getLandingPageLinks(),
   ]);
 
   const footerSettings = {
@@ -39,7 +43,7 @@ export default async function PublicLayout({ children }: { children: React.React
       <div className="flex min-h-screen flex-col">
         <Navbar categories={categories} />
         <main className="flex-1">{children}</main>
-        <Footer categories={categories} settings={footerSettings} />
+        <Footer categories={categories} settings={footerSettings} landingPages={landingLinks} />
       </div>
       <CompareBar />
     </CompareProvider>

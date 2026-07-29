@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
+import { Blocks } from "@/components/public/Blocks";
 import { DirectoryView } from "@/components/public/directory/DirectoryView";
 import { LeadDialog } from "@/components/public/LeadDialog";
 import { JsonLd } from "@/components/public/JsonLd";
 import { parseDirectoryParams, queryDirectory } from "@/lib/processors-query";
 import { FACET_SLUGS, getFacetPage, mergeFacetParams } from "@/lib/facet-pages";
-import { buildMetadata, breadcrumbJsonLd, itemListJsonLd, faqJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, itemListJsonLd, faqJsonLd } from "@/lib/seo";
+import { getPageSeoByPath, pageSeoMetadata } from "@/lib/page-seo";
+import { toBlocks, toFaqs } from "@/lib/serialize";
 
 /**
  * Faceted "best-for" landing page (`/payment-processors/<facet>`). A curated set
@@ -17,6 +20,11 @@ import { buildMetadata, breadcrumbJsonLd, itemListJsonLd, faqJsonLd } from "@/li
  *
  * `dynamicParams = false` → only the curated `FACET_SLUGS` render; any other
  * segment 404s (no arbitrary/spam facet URLs). SSR when the rail adds filters.
+ *
+ * `lib/facet-pages.ts` supplies the baseline copy for all 18 facets. A facet that
+ * earns real editorial investment (long-form guide, its own meta, its own FAQs)
+ * gets a PageSeo record at the same path, which overrides that baseline — so
+ * deepening one facet is content work rather than an edit to a shared registry.
  */
 export const revalidate = 1800;
 export const dynamicParams = false;
@@ -34,10 +42,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const facet = getFacetPage(params.facet);
   if (!facet) return { title: "Not found" };
-  return buildMetadata({
+  return pageSeoMetadata({
     title: facet.title,
     description: facet.description,
     path: `/payment-processors/${facet.slug}`,
+    byPath: true,
   });
 }
 
@@ -52,8 +61,17 @@ export default async function FacetPage({
   if (!facet) notFound();
 
   const directoryParams = mergeFacetParams(parseDirectoryParams(searchParams), facet.filter);
-  const result = await queryDirectory(directoryParams);
   const basePath = `/payment-processors/${facet.slug}`;
+  const [result, page] = await Promise.all([
+    queryDirectory(directoryParams),
+    getPageSeoByPath(basePath),
+  ]);
+
+  const blocks = toBlocks(page?.blocks);
+  const hasFaqBlock = Boolean(blocks?.some((b) => b.type === "faq"));
+  // An editor's FAQs replace the registry's rather than appending to them:
+  // appending is how a page ends up answering the same question twice.
+  const faqs = toFaqs(page?.faqs) ?? facet.faqs;
 
   const related = (facet.related ?? [])
     .map((s) => getFacetPage(s))
@@ -69,7 +87,8 @@ export default async function FacetPage({
             { name: facet.h1, path: basePath },
           ]),
           itemListJsonLd(result.items.map((p) => ({ name: p.name, path: `/processor/${p.slug}` }))),
-          faqJsonLd(facet.faqs),
+          // The FAQ block emits its own FAQPage; two on one URL is invalid.
+          ...(hasFaqBlock ? [] : [faqJsonLd(faqs)]),
         ]}
       />
 
@@ -90,17 +109,22 @@ export default async function FacetPage({
         <DirectoryView result={result} basePath={basePath} searchParams={searchParams} />
       </div>
 
-      <section className="mt-14 max-w-prose">
-        <h2 className="text-h2 tracking-tighter2 text-foreground">Frequently asked questions</h2>
-        <dl className="mt-6 divide-y divide-ink-150 dark:divide-ink-800">
-          {facet.faqs.map((f) => (
-            <div key={f.question} className="py-5">
-              <dt className="text-h4 text-foreground">{f.question}</dt>
-              <dd className="mt-2 text-body text-muted-foreground">{f.answer}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      {/* Editorial slot: long-form copy sits below the listings it explains. */}
+      <Blocks blocks={blocks} className="mt-14" />
+
+      {!hasFaqBlock && faqs.length > 0 && (
+        <section className="mt-14 max-w-prose">
+          <h2 className="text-h2 tracking-tighter2 text-foreground">Frequently asked questions</h2>
+          <dl className="mt-6 divide-y divide-ink-150 dark:divide-ink-800">
+            {faqs.map((f) => (
+              <div key={f.question} className="py-5">
+                <dt className="text-h4 text-foreground">{f.question}</dt>
+                <dd className="mt-2 text-body text-muted-foreground">{f.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       {related.length > 0 && (
         <section className="mt-14">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
+import { Blocks } from "@/components/public/Blocks";
 import { CompareView } from "@/components/public/compare/CompareView";
 import { FaqSection } from "@/components/public/FaqSection";
 import { JsonLd } from "@/components/public/JsonLd";
@@ -7,6 +8,7 @@ import { getProcessorsBySlugs } from "@/lib/public-data";
 import { COMPARE_MAX } from "@/components/public/compare/constants";
 import { buildMetadata, absoluteUrl, faqJsonLd } from "@/lib/seo";
 import { getPageSeo, pageSeoMetadata } from "@/lib/page-seo";
+import { toBlocks } from "@/lib/serialize";
 import { prettyComparePath } from "@/lib/compare-pairs";
 
 /**
@@ -14,8 +16,14 @@ import { prettyComparePath } from "@/lib/compare-pairs";
  *
  * `?ids=` carries 2–4 processor slugs (also reached from the compare tray). The
  * page resolves them to full detail data and hands them to the client CompareView
- * (which owns add/remove + the searchable picker). Query-param-driven, so it's
- * dynamic and kept out of the index (canonical points at the bare `/compare`).
+ * (which owns add/remove + the searchable picker).
+ *
+ * Indexing splits on whether `ids` is present, and this page is the only place
+ * that can tell — `NOINDEX_ROUTES` used to prefix-match `/compare` and so
+ * noindexed the bare landing page and every curated `/compare/a-vs-b` route
+ * along with it. Bare `/compare` is a real landing page with its own PageSeo
+ * copy and editorial blocks; anything carrying `ids` is combinatorial and gets
+ * `noindex` set here, canonicalised to the pretty pair URL when one exists.
  */
 export const dynamic = "force-dynamic";
 
@@ -37,11 +45,15 @@ export async function generateMetadata({
   searchParams: { ids?: string | string[] };
 }): Promise<Metadata> {
   const slugs = parseIds(searchParams.ids);
+  // Any `ids` at all makes this a selection URL, not the landing page. A single
+  // id is still a query-driven near-duplicate, so it must not slip into the
+  // index just because it can't fill a comparison table.
+  const hasSelection = Boolean(searchParams.ids);
 
   // Bare `/compare` (no ids) is the real landing page we want indexed and
   // ranking (e.g. "payment processor comparison"). Its SEO is editable via
   // admin → Page SEO ("compare").
-  if (slugs.length < 2) {
+  if (!hasSelection) {
     return pageSeoMetadata({
       pageKey: "compare",
       title: "Compare payment processors",
@@ -79,12 +91,15 @@ export default async function ComparePage({
 }) {
   const slugs = parseIds(searchParams.ids);
   const processors = await getProcessorsBySlugs(slugs);
-  // FAQs only on the bare landing (no selection) — that's the indexable page.
-  const pageSeo = slugs.length < 2 ? await getPageSeo("compare") : null;
+  // Editorial copy only on the bare landing (no selection) — that's the
+  // indexable page, and it's the one a reader arrives at cold.
+  const pageSeo = searchParams.ids ? null : await getPageSeo("compare");
+  const blocks = toBlocks(pageSeo?.blocks);
+  const hasFaqBlock = Boolean(blocks?.some((b) => b.type === "faq"));
 
   return (
     <div className="mx-auto max-w-content px-4 py-8 lg:px-6 lg:py-10">
-      {pageSeo?.faqs && pageSeo.faqs.length > 0 && (
+      {!hasFaqBlock && pageSeo?.faqs && pageSeo.faqs.length > 0 && (
         <JsonLd data={faqJsonLd(pageSeo.faqs)} />
       )}
       <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "Compare" }]} />
@@ -98,7 +113,10 @@ export default async function ComparePage({
         <CompareView processors={processors} />
       </div>
 
-      <FaqSection faqs={pageSeo?.faqs} />
+      {/* The comparison tool is the tool; this is the copy the page ranks on. */}
+      <Blocks blocks={blocks} className="mt-14" />
+
+      {!hasFaqBlock && <FaqSection faqs={pageSeo?.faqs} />}
     </div>
   );
 }
