@@ -1,0 +1,135 @@
+{
+  "name": "PayJunction",
+  "slug": "payjunction",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAADAFBMVEVMaXEwstUddI8xs9gws9Yws9cwstYwstYvsdUvsdUws9Uxs9cxs9gtsdYxs9c9psAusNEvtNgxtNcwstYxs9cxstYvn8QxstYwsdYysdYxs9cxtNgur9Uvp88xs9cstdcAFgAcm8QvsNMxs9gws9Mvts4xtNcxtNcys9gzsswts9YxstUxtNgxs9cxtNcxtNctsdgxsdcss9MtrdMxs9czsdgvtNkxs9cusNcvtNQws9gxs9cortYxtNgwtNgwstcwtdcxstcss+AwsNUxtNgustgvstUui9Ews9gwstoordMws9gjsP8vsdQws9cxtNcxtNcwstYxtNgws9gvtNUusdUws9gwsdEwtNcwtdUus9c0qtMxs9cvs9cxs9gvstUwstAws9cvtNcws9gws9gsvdIxs9Yus9YytNgws9cvrtYyrtYxs9cxsNcyu80xs9cwsNcws9cxs9cxs9gxstcws9YxsdUustYxtNgst9cxs9cvsNUwtNgwtNcxs9cws9cxstYwtNcws9UwsdYws9cwstYwsNYwstYsstQws9cvs9cxstcts9EvsdUwsNYws9cwtNcxs9cws9gttdQws9cytdIxs9gxtNcur9MwstcwtdgxtNgws9Yxstcws9cvs9YxsdgqqsQwsdQtr9Ixs9YvsNcws9cwstgzrtQxstcws9kvrdQwstgwtNgwtNgxs9crsNQutNgusdYxstcwsdgwsdYwsdYxs9gvsdgvstMvtNcvsdQsr9IwqtQxs9Ywsdcxs9Yttdkvstcxs9gwstcwstcxs9gwtNgzsdQvs9Mtr9EttdYxtNcuttYwtNcxtNcxtNgxs9gys9cxtNcwrdcxtdgwtNYut9MytNgytdkzt9s0ut8zuN0ytdo0u+E0vOIztdo0uuA0veI0ud4ytNkzud4ztts1veM1vuQzuNwzt9w1v+Y1v+Uyttoztto0u+Ayttszud80veMyud4xtdkzttkyt9w1wOc0vuMzu+A1vuMzt900vOAzud01wuk1wOUoA8ejAAAA2HRSTlMAbgLZ3+uSv1yASu+fOP0DH3+1pICJEMh3OPjHHCC2JgEHQOovCtfeoxRfXPybr+IP9CgI+xMw6EFgvm8m9MdQU9ALd62PMwXNPw37ATXw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",
+  "website": "https://www.payjunction.com",
+  "tagline": "US merchant services provider offering paperless card and ACH processing on month-to-month terms with no cancellation fee.",
+  "shortDescription": "PayJunction is a Santa Barbara-based processor that pairs its own smart terminals with a browser-based virtual terminal on month-to-month terms. Published card rates start at 1.49% + $0.15 and ACH at 0.75%, and it advertises no gateway, PCI or cancellation fees.",
+  "longDescription": "<p>PayJunction is an independent payment processor based in Santa Barbara, California, founded in 2000 and still privately held. It built its reputation on <strong>paperless payments</strong>, keeping signatures, receipts and transaction history in the cloud instead of on paper, and it now serves medical and dental practices, auto repair shops, veterinary clinics, law firms and other appointment-based businesses. PayJunction runs its own terminal hardware, virtual terminal, mobile app, gateway and API rather than reselling someone else's stack.</p><h3>Pricing and how it works</h3><p>PayJunction publishes three plans. The Standard plan advertises card rates <strong>as low as 1.49% + $0.15</strong> and ACH as low as 0.75%. The Enterprise plan is a custom quote: you submit recent statements and PayJunction offers to match or beat your effective rate. The Surcharge plan can take credit card cost to as low as 0% for the merchant by passing a compliant surcharge to the cardholder, with PIN debit and ACH still billed to the business. The gateway, virtual terminal and PCI compliance program are bundled into the rate rather than billed on top, and PayJunction advertises no PCI fee, no gateway fee, no monthly minimum and no cancellation fee. Independent reviews report that a monthly service fee of about $35 applies to accounts processing under roughly $10,000 a month. Service is month-to-month, so terminals can be returned and the account closed at any time. Deposits generally land one to three business days after a batch settles, with American Express taking three to five.</p><h3>Who it is for</h3><p>PayJunction suits US-based, low-risk businesses that take payments in person, over the phone and by emailed invoice or text-to-pay link, and that value predictable billing and human support over developer tooling. Its no-code browser extension, which adds card capture to vertical software that has no native payment integration, is a genuine differentiator for practices running niche practice management systems. It is a poor fit if you need multi-currency settlement, sell outside the United States, or operate in a high-risk category. PayJunction accepts foreign-issued cards but settles only in US dollars, and it does not underwrite high-risk merchants.</p>",
+  "foundedYear": 2000,
+  "headquarters": "Santa Barbara, CA, United States",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "US"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "interchange-plus",
+    "custom-quote"
+  ],
+  "pricingSummary": "The Standard plan advertises card rates as low as 1.49% + $0.15 and ACH as low as 0.75%, with the gateway, virtual terminal and PCI program bundled in. Enterprise pricing is a custom quote based on your current statements.",
+  "fees": {
+    "onlineCardRate": "From 1.49% + $0.15",
+    "inPersonCardRate": "From 1.49% + $0.15 on the Standard plan",
+    "achRate": "From 0.75%",
+    "monthlyFee": "None above $10k volume",
+    "setupFee": "None advertised",
+    "pciFee": "$0",
+    "monthlyMinimum": "None",
+    "earlyTerminationFee": "$0"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "2-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "ach"
+  ],
+  "integrations": [
+    "api",
+    "virtual-terminal",
+    "payment-links",
+    "invoicing",
+    "pos-hardware"
+  ],
+  "currencies": "USD only",
+  "features": [
+    "recurring-billing",
+    "tokenization",
+    "reporting-dashboard",
+    "tap-to-pay",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "small-business",
+    "retail-pos",
+    "subscriptions"
+  ],
+  "bestFor": [
+    "Healthcare practices",
+    "Auto repair shops",
+    "Professional services"
+  ],
+  "industries": [
+    "Healthcare",
+    "Automotive",
+    "Veterinary",
+    "Legal"
+  ],
+  "pros": [
+    "Month-to-month service with no cancellation fee, and the gateway, virtual terminal and PCI program are bundled into the rate rather than billed separately",
+    "Publishes concrete entry pricing of 1.49% + $0.15 for cards and 0.75% for ACH, which is unusual for a traditional merchant services provider",
+    "The no-code browser extension adds card capture to vertical practice management software that has no payment integration of its own"
+  ],
+  "cons": [
+    "Headline rates are quoted as 'as low as', so your real cost depends on an underwriting quote rather than the published number",
+    "Accounts under roughly $10,000 in monthly volume pick up a monthly service fee of about $35 that higher volume accounts avoid",
+    "US only and USD only, with no multi-currency settlement and no underwriting for high-risk categories"
+  ],
+  "editorScore": 4.2,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "PayJunction Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "PayJunction publishes card rates from 1.49 percent plus 15 cents, ACH from 0.75 percent, month-to-month terms and no cancellation fee for US merchants.",
+    "keywords": [
+      "payjunction review",
+      "payjunction pricing",
+      "payjunction fees",
+      "payjunction credit card processing"
+    ],
+    "focusKeyword": "payjunction review"
+  },
+  "faqs": [
+    {
+      "question": "How much does PayJunction cost?",
+      "answer": "PayJunction's Standard plan advertises card rates as low as 1.49% + $0.15 and ACH from 0.75%, with no gateway fee, no PCI fee and no monthly minimum. Independent reviews report a monthly service fee of about $35 for accounts processing under roughly $10,000 a month. Enterprise pricing is a custom quote based on your current processing statements."
+    },
+    {
+      "question": "Does PayJunction require a contract?",
+      "answer": "No. PayJunction sells month-to-month and states that merchants can return their terminals and cancel at any time at no cost, with no early termination fee. That applies to accounts opened directly with PayJunction. Accounts sold through third-party resellers can carry separate multi-year terms, so confirm whose paper you are signing before you commit."
+    },
+    {
+      "question": "Is PayJunction good for high-risk merchants?",
+      "answer": "No. PayJunction underwrites low-risk US businesses such as medical and dental practices, auto repair shops and professional services firms. It does not offer high-risk merchant accounts, offshore accounts, or accounts for restricted verticals like CBD, adult or firearms. Merchants in those categories need a specialist high-risk provider instead."
+    },
+    {
+      "question": "How long do PayJunction deposits take?",
+      "answer": "PayJunction says bank deposits generally take one to three business days after a batch settles, counting banking days only. Card batches settled by 5pm Pacific follow that schedule and batches settled later slip an extra business day, while ACH has a 1pm Pacific cutoff. American Express deposits take three to five days."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "payjunction.com",
+  "logoSource": "https://www.google.com/s2/favicons?sz=128&domain=payjunction.com",
+  "sources": [
+    "https://www.payjunction.com/payments/pricing.html",
+    "https://www.payjunction.com/",
+    "https://www.merchantmaverick.com/reviews/payjunction-review/",
+    "https://support.payjunction.com/hc/en-us/articles/210470528-How-long-does-it-take-to-receive-my-funds",
+    "https://support.payjunction.com/hc/en-us/articles/211726437-Is-PayJunction-PCI-compliant-is-PayJunction-secure-and-what-type-of-security-does-PayJunction-use",
+    "https://merchantcostconsulting.com/lower-credit-card-processing-fees/payjunction-review/",
+    "https://www.cardfellow.com/product-directory/gateways/payjunction-review",
+    "https://www.linkedin.com/company/payjunction"
+  ]
+}

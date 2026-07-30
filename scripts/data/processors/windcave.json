@@ -1,0 +1,148 @@
+{
+  "name": "Windcave",
+  "slug": "windcave",
+  "logo": "data:image/png;base64,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",
+  "website": "https://www.windcave.com",
+  "tagline": "New Zealand-based omnichannel processor and acquirer covering online, in-store and unattended payments in more than 40 countries.",
+  "shortDescription": "Formerly Payment Express, Windcave runs its own gateway, acquiring licences and terminal hardware across NZ, Australia, the UK, the US, Canada and Europe. Pricing is quoted per merchant on blended, Interchange+ or Interchange++ models.",
+  "longDescription": "<p>Windcave is a payment processor founded in Auckland, New Zealand in 1999 and known as Payment Express until it rebranded in July 2019. It now employs more than 400 people across offices in New Zealand, Australia, the UK, the US, Canada and Lithuania, and operates in over 40 countries. Unusually for a company of its size it owns the whole stack: the gateway, its own merchant acquiring licences, and payment terminals designed and manufactured in house since 2015. Acquiring launched in New Zealand in 2016, Australia in 2018, the UK and US in 2020, Canada in 2021 and Europe in 2023.</p><h3>Pricing and how it works</h3><p>Windcave publishes no rates. Every merchant is quoted individually, and the company offers three merchant service fee models: blended, where interchange, scheme and acquirer costs are collapsed into one fixed percentage of card sales; Interchange+, which passes interchange through with a separate acquirer fee; and Interchange++, which itemises interchange, scheme fee and acquirer fee separately. Windcave states that the rate depends on transaction count, average ticket size, the share of international transactions and which payment methods are enabled, and that international transactions attract additional fees. Funds are generally settled into the merchant bank account the following business day, with configurable settlement cut-off times. The commercial terms are the sticking point: new merchant agreements run to a 36-month term from the start date, and cancellation fees apply. Merchants should also budget for gateway and establishment charges that sit alongside the merchant service fee.</p><h3>Who it is for</h3><p>Windcave suits mid-market and enterprise merchants that need one provider across ecommerce, staffed retail and unattended terminals, particularly in Australia and New Zealand where it is one of the few non-bank acquirers. Its unattended and self-service coverage for parking, vending, fuel, transport and ticketing is genuinely hard to replicate elsewhere. It is a weaker choice for small merchants and startups, who will find the opaque quoting process and the three-year commitment heavy next to month-to-month competitors with published rates.</p>",
+  "foundedYear": 1999,
+  "headquarters": "Auckland, New Zealand",
+  "companySize": "251-1000",
+  "supportedRegions": [
+    "Global",
+    "US",
+    "CA",
+    "UK",
+    "EU"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "interchange-plus",
+    "custom-quote"
+  ],
+  "pricingSummary": "Windcave does not publish rates. Merchant service fees are quoted per account on a blended, Interchange+ or Interchange++ model, and depend on volume, average ticket size and the mix of international transactions.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "inPersonCardRate": "Custom quote, with Windcave acting as acquirer in NZ, Australia, the UK, the US, Canada and Europe",
+    "internationalRate": "Not published. Windcave states that additional fees apply to international transactions",
+    "monthlyFee": "Custom quote",
+    "earlyTerminationFee": "Cancellation fees apply on the 36-month agreement, amount not published"
+  },
+  "contractType": "long-term",
+  "freeTrial": false,
+  "payoutTime": "next-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "ach",
+    "bnpl",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "payment-links",
+    "virtual-terminal",
+    "pos-hardware",
+    "shopify",
+    "woocommerce",
+    "magento"
+  ],
+  "currencies": "Multi-currency processing on Visa and Mastercard through supported acquirers, covering currencies including AUD, CAD, EUR, NZD, SGD and USD",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "reporting-dashboard"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "retail-pos",
+    "ecommerce",
+    "international",
+    "restaurants"
+  ],
+  "bestFor": [
+    "Omnichannel retail",
+    "Unattended payments",
+    "Enterprise",
+    "ANZ merchants"
+  ],
+  "industries": [
+    "Retail",
+    "Hospitality",
+    "Parking and transport",
+    "Government"
+  ],
+  "pros": [
+    "Owns the gateway, the acquiring licences and the terminal hardware, so online, in-store and unattended payments settle through one platform and one dashboard in more than 40 countries",
+    "Rare depth in unattended and self-service payments for parking, vending, fuel, transport and ticketing, a segment most gateways do not build hardware for",
+    "PCI DSS Level 1 service provider with PCI P2PE and ISO 27001 certification, scheme network tokenization, 3D Secure 2 and rules-based fraud scoring"
+  ],
+  "cons": [
+    "Publishes no rates at all, so the merchant service fee, gateway fee and establishment fee all have to be negotiated through sales before you can compare it to anything",
+    "New merchant agreements carry a 36-month term with cancellation fees, which is a long commitment next to month-to-month competitors",
+    "Multi-currency processing is restricted to Visa and Mastercard and only works with a short list of supported acquiring banks"
+  ],
+  "editorScore": 3.6,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Windcave Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Windcave is a New Zealand-based omnichannel processor and acquirer in 40-plus countries. See its pricing model, 36-month contract terms and features.",
+    "keywords": [
+      "windcave review",
+      "windcave pricing",
+      "windcave fees",
+      "payment express review",
+      "windcave payment gateway"
+    ],
+    "focusKeyword": "windcave review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Windcave cost?",
+      "answer": "Windcave does not publish rates, so every merchant is quoted individually. It offers three merchant service fee models: blended, which is a single fixed percentage of card sales, Interchange+, which passes interchange through with a separate acquirer fee, and Interchange++, which itemises interchange, scheme fee and acquirer fee. The rate depends on volume, average ticket size and international mix."
+    },
+    {
+      "question": "Does Windcave lock you into a contract?",
+      "answer": "Yes. Windcave states in its merchant FAQ that new merchant agreements include a 36-month term from the start date, and that cancellation fees apply if you leave early. Merchants should ask sales for the exact cancellation amount in writing before signing, because that three-year commitment is significantly longer than most month-to-month gateway agreements."
+    },
+    {
+      "question": "How fast does Windcave pay out?",
+      "answer": "Funds are generally settled into the nominated bank account the following business day, although Windcave notes this can vary by location and acquiring arrangement. The platform also supports custom settlement cut-off times so merchants can align the batch close with their trading hours rather than a fixed processor deadline."
+    },
+    {
+      "question": "What payment methods does Windcave support?",
+      "answer": "Windcave accepts Visa, Mastercard, American Express, Diners, Discover, JCB and UnionPay International, plus Apple Pay, Google Pay, PayPal, Alipay, WeChat Pay, Klarna, ACH, Interac Online and its Account2Account bank transfer product. Multi-currency processing is limited to Visa and Mastercard and only works with acquirers that support it."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "windcave.com",
+  "logoSource": "https://windcave.com/image/favicon.ico",
+  "sources": [
+    "https://www.windcave.com/",
+    "https://www.windcave.com/about",
+    "https://www.windcave.com/features",
+    "https://www.windcave.com/online-payments",
+    "https://www.windcave.com/support-merchant-frequently-asked-questions-merchant-faq",
+    "https://www.windcave.com/certifications-and-compliance",
+    "https://www.windcave.com/merchant-ecommerce-payline",
+    "https://www.windcave.com/wipsplus-recurring-billing",
+    "https://opmc.co.nz/payment-express-has-rebranded-themselves-as-windcave/",
+    "https://knowledgecenter.zuora.com/Zuora_Payments/Manage_payment_gateway_integrations_and_payment_methods/Set_up_payment_gateway_integrations/Windcave_Payment_Gateway_Integration/A_Overview_of_Windcave_payment_gateway_integration"
+  ]
+}

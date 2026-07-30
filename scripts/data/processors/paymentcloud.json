@@ -1,0 +1,143 @@
+{
+  "name": "PaymentCloud",
+  "slug": "paymentcloud",
+  "logo": "data:image/png;base64,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",
+  "website": "https://paymentcloudinc.com",
+  "tagline": "US merchant services provider that specializes in placing high-risk and hard-to-approve businesses with acquiring banks and gateways.",
+  "shortDescription": "PaymentCloud is a Los Angeles-area merchant account provider, acquired by Electronic Merchant Systems in 2024, that focuses on high-risk categories other processors decline. Pricing is quote-only, and independent reviews report high-risk rates near 3.5% to 3.95% plus $0.25.",
+  "longDescription": "<p>PaymentCloud is a merchant services provider founded in 2015 by Shawn Silver and Neal Hoffman and based in Encino, in the Los Angeles area of California. Electronic Merchant Systems acquired it in January 2024, and both founders moved into executive roles at the parent company. PaymentCloud is <strong>not an acquiring bank</strong>. It is a sales, underwriting and onboarding layer that matches a business with an acquirer, a sponsor bank and a gateway, most often Authorize.Net or NMI, which is how it can place categories that flat-rate aggregators such as Stripe and Square decline outright.</p><h3>Pricing and how it works</h3><p>PaymentCloud publishes no rate card. Every account is individually underwritten and priced, and the company offers flat-rate, tiered and interchange-plus structures depending on the merchant. Reviewers who have obtained quotes report roughly 2% + $0.25 for low-risk accounts, 2.7% + $0.25 for mid risk and 3.5% to 3.95% + $0.25 for high risk, a monthly account fee somewhere between $5 and $25, and a gateway fee around $19.95 where Authorize.Net or NMI is provisioned. There is no application or setup fee and a terminal is normally supplied free for the life of the account. Low-risk accounts run month-to-month with the early termination fee waived in writing, while high-risk accounts commonly sit on a two-year term with automatic renewal, a reported early termination fee near $495, and a rolling reserve held by the acquiring bank. PCI Level 1 protection comes from the gateway PaymentCloud provisions rather than from a card vault of its own. Because every number is negotiated, treat published figures as reference points and insist on a written schedule of fees.</p><h3>Who it is for</h3><p>PaymentCloud is aimed at businesses that struggle to get approved anywhere else: CBD and hemp, nutraceuticals, firearms, adult, vape, debt relief, travel, tech support, dropshipping and continuity billing. It serves merchants in the United States, Canada and Europe, and it does not offer true offshore accounts. Low-risk merchants who are easy to approve will usually find cheaper and far more transparent pricing from a published-rate processor, so the value here is approval odds and account management rather than cost.</p>",
+  "foundedYear": 2015,
+  "headquarters": "Encino, CA, United States",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "EU"
+  ],
+  "pricingModel": [
+    "custom-quote",
+    "flat-rate",
+    "tiered",
+    "interchange-plus"
+  ],
+  "pricingSummary": "Quote-only pricing with no published rate card. Independent reviews report roughly 2% + $0.25 for low-risk accounts and about 3.5% to 3.95% + $0.25 for high risk, plus a monthly fee of $5 to $25 and a gateway fee near $19.95.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "inPersonCardRate": "Custom quote. Reviewers report about 2% + $0.25 for low-risk accounts",
+    "achRate": "Custom quote",
+    "monthlyFee": "$5 to $25 reported",
+    "setupFee": "$0",
+    "earlyTerminationFee": "Waived in writing on low-risk accounts. Reported near $495 on high-risk contracts"
+  },
+  "contractType": "long-term",
+  "freeTrial": false,
+  "payoutTime": "2-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "ach",
+    "crypto",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "virtual-terminal",
+    "pos-hardware",
+    "shopify",
+    "woocommerce",
+    "magento",
+    "bigcommerce"
+  ],
+  "currencies": "Mainly USD, with accounts available to US, Canadian and European merchants",
+  "features": [
+    "fraud-protection",
+    "chargeback-protection",
+    "recurring-billing",
+    "reporting-dashboard",
+    "tokenization",
+    "tap-to-pay"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": true,
+  "categorySlugs": [
+    "high-risk",
+    "ecommerce",
+    "retail-pos"
+  ],
+  "bestFor": [
+    "High-risk merchants",
+    "CBD and hemp",
+    "Firearms",
+    "Adult"
+  ],
+  "industries": [
+    "CBD and hemp",
+    "Nutraceuticals",
+    "Firearms",
+    "Adult"
+  ],
+  "pros": [
+    "Approves categories that flat-rate aggregators decline outright, and assigns a named account manager to each merchant",
+    "No application or setup fee, and a card terminal is normally supplied free for the life of the account",
+    "Provisions mainstream gateways such as Authorize.Net and NMI, so integrations, tokenization and reporting are standard rather than proprietary"
+  ],
+  "cons": [
+    "No published rate card of any kind, so every quote arrives through a commissioned sales rep and has to be benchmarked against competing offers",
+    "High-risk accounts typically carry a two-year term with automatic renewal, an early termination fee and a rolling reserve held by the acquirer",
+    "Low-risk merchants will usually pay more here than with a processor that publishes flat-rate pricing, and there are no offshore accounts on offer"
+  ],
+  "editorScore": 3.8,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "PaymentCloud Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "PaymentCloud places high-risk merchants with acquirers. Quote-only pricing, reported high-risk rates near 3.95 percent plus 25 cents, and no setup fee.",
+    "keywords": [
+      "paymentcloud review",
+      "paymentcloud pricing",
+      "paymentcloud fees",
+      "paymentcloud high-risk merchant account"
+    ],
+    "focusKeyword": "paymentcloud review"
+  },
+  "faqs": [
+    {
+      "question": "How much does PaymentCloud cost?",
+      "answer": "PaymentCloud does not publish rates. Pricing is quoted per merchant after underwriting. Independent reviews that obtained quotes report roughly 2% + $0.25 for low-risk accounts, 2.7% + $0.25 for mid risk and 3.5% to 3.95% + $0.25 for high risk, plus a monthly fee of about $5 to $25 and a gateway fee near $19.95. There is no application or setup fee."
+    },
+    {
+      "question": "Is PaymentCloud good for high-risk merchants?",
+      "answer": "Yes, that is its core business. PaymentCloud underwrites categories that flat-rate processors reject, including CBD and hemp, nutraceuticals, firearms, adult, vape, debt relief, travel and continuity billing. Approvals are commonly quoted at 24 hours to five days. The trade-off is higher pricing, longer terms and, for many high-risk accounts, a rolling reserve held by the acquiring bank."
+    },
+    {
+      "question": "Does PaymentCloud require a long-term contract?",
+      "answer": "It depends on risk level. Low-risk accounts are month-to-month and Merchant Maverick reports that the early termination fee is waived in writing. High-risk accounts usually run on a two-year term that renews automatically for one-year periods, with a reported early termination fee near $495. Ask for the term and the ETF in writing before signing."
+    },
+    {
+      "question": "Who owns PaymentCloud?",
+      "answer": "Electronic Merchant Systems, a Cleveland-based payment technology provider, acquired PaymentCloud in January 2024. Cofounder Shawn Silver became chief revenue officer at EMS and cofounder Neal Hoffman became chief marketing officer. PaymentCloud continues to operate under its own brand and website, using the parent group's processing infrastructure and distribution."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "paymentcloudinc.com",
+  "logoSource": "https://paymentcloudinc.com/wp-content/uploads/2025/01/PC-Logo-512-300x300.webp",
+  "sources": [
+    "https://paymentcloudinc.com/",
+    "https://paymentcloudinc.com/about/",
+    "https://paymentcloudinc.com/contact/",
+    "https://www.merchantmaverick.com/reviews/paymentcloud-review/",
+    "https://www.nerdwallet.com/business/software/learn/paymentcloud",
+    "https://www.websiteplanet.com/credit-card-processing/paymentcloud/",
+    "https://www.prnewswire.com/news-releases/electronic-merchant-systems-ems-expands-with-acquisition-of-la-based-paymentcloud-302048408.html",
+    "https://www.authorize.net/resources/reseller-directory/payment-cloud.html"
+  ]
+}

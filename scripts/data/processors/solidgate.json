@@ -1,0 +1,146 @@
+{
+  "name": "Solidgate",
+  "slug": "solidgate",
+  "logo": "data:image/png;base64,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",
+  "website": "https://solidgate.com",
+  "tagline": "Solidgate is a payment orchestration and card-acquiring platform built for global digital subscription businesses that route volume across many acquirers.",
+  "shortDescription": "Solidgate combines payment orchestration, in-house card acquiring and a subscription engine in one integration. Founded in 2016 and based in Cyprus, it routes card and local payments across 100-plus acquirers for global digital businesses.",
+  "longDescription": "<p><strong>Solidgate</strong> is a payment orchestration and acquiring platform founded in 2016 by Yuriy Alekseev and Kirill Tarnopolskyi. It is headquartered in Nicosia, Cyprus, with teams in Kyiv and Warsaw and roughly 300 staff. Rather than acting as a single acquirer, Solidgate sits as one integration in front of more than 100 global and local acquirers and 150-plus payment methods, layering smart routing, cascading retries, a provider-agnostic card vault, an antifraud engine, chargeback representment, tax calculation and reconciliation on top. Published customers include Bolt, Headway, BetterMe, Ajax Systems and DRESSX.</p><h3>Pricing and how it works</h3><p>Solidgate does not publish rates anywhere. Pricing is quoted per merchant and scales with transaction volume and product mix rather than sitting on a fixed monthly platform fee. The developer documentation does set out the fee components that appear on a contract: a discount fee charged as a percentage of each successful charge, per-request authorization and capture fees, void and refund fees, a 3D Secure fee, a chargeback fee, a risk premium that applies once dispute ratios pass agreed thresholds, and a minimum monthly fee. Value-added services such as tokenization, fraud screening, chargeback prevention alerts and representment are priced on top. Onboarding runs through underwriting with a dedicated manager, and Solidgate quotes anything from one day for a simple setup to about two weeks for a multi-region rollout.</p><h3>Who it is for</h3><p>Solidgate is aimed at companies selling digital products globally at scale, particularly subscription apps in health, education and media where authorization rates, involuntary churn and dispute ratios move revenue directly. It supports Visa, Mastercard and American Express plus Apple Pay, Google Pay, PayPal, Klarna, iDEAL, Pix, Boleto, OXXO, Blik, Przelewy24, UPI, Alipay and WeChat Pay, processes in 150-plus local currencies, and offers plugins for Shopify, WooCommerce, Magento, PrestaShop, OpenCart and WHMCS alongside its API. It holds PCI DSS Level 1 and ISO 27001:2022 certification. Small merchants and anyone who wants instant self-serve signup will be better served elsewhere. Solidgate rewards teams with a payments owner who will actually tune routing rules.</p>",
+  "foundedYear": 2016,
+  "headquarters": "Nicosia, Cyprus",
+  "companySize": "251-1000",
+  "supportedRegions": [
+    "EU",
+    "UK",
+    "US",
+    "Global"
+  ],
+  "pricingModel": [
+    "custom-quote"
+  ],
+  "pricingSummary": "Solidgate publishes no rates. Pricing is negotiated per merchant and scales with transaction volume, built from a percentage discount fee plus per-transaction authorization, capture, refund, 3D Secure and chargeback fees, with a minimum monthly fee.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "monthlyFee": "No platform fee",
+    "monthlyMinimum": "A minimum monthly fee applies, amount set in your contract",
+    "chargebackFee": "Charged per chargeback received, amount set in your contract",
+    "refundPolicy": "A refund fee applies to each successful refund, whether full or partial"
+  },
+  "contractType": "annual",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "bnpl",
+    "upi",
+    "netbanking",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "payment-links",
+    "shopify",
+    "woocommerce",
+    "magento"
+  ],
+  "currencies": "150+ local currencies",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "chargeback-protection",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "international",
+    "subscriptions",
+    "ecommerce",
+    "developers"
+  ],
+  "bestFor": [
+    "Subscription apps",
+    "Global ecommerce",
+    "Payment orchestration"
+  ],
+  "industries": [
+    "Digital subscriptions",
+    "SaaS",
+    "Mobile apps",
+    "Ecommerce"
+  ],
+  "pros": [
+    "One integration fronts 100-plus acquirers with smart routing and cascading retries, so you get orchestration without buying a separate orchestration vendor",
+    "Runs its own card acquiring in Europe as well as the routing layer, letting merchants consolidate contracts instead of juggling gateway and acquirer separately",
+    "Antifraud, chargeback prevention alerts and automated representment ship as part of the platform, which matters for subscription models with heavy dispute exposure"
+  ],
+  "cons": [
+    "No rates are published anywhere, so you cannot compare cost without going through sales and an underwriting process",
+    "A minimum monthly fee plus a risk premium tied to dispute ratios can make it expensive for small merchants or those with uneven monthly volume",
+    "Independent review coverage is thin at roughly 16 ratings across G2, Capterra and Software Advice, so there is little third-party evidence to weigh"
+  ],
+  "editorScore": 4.2,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Solidgate Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Solidgate review: orchestration plus EU card acquiring across 100-plus acquirers, with quote-only pricing. See the fee components, methods and who it fits.",
+    "keywords": [
+      "solidgate review",
+      "solidgate pricing",
+      "solidgate fees",
+      "payment orchestration platform",
+      "solidgate vs stripe"
+    ],
+    "focusKeyword": "solidgate review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Solidgate cost?",
+      "answer": "Solidgate does not publish rates. Pricing is quoted per merchant and scales with transaction volume and product mix rather than a fixed platform fee. Its documentation lists the components a contract can contain: a percentage discount fee on each successful charge, authorization, capture, void and refund fees, a 3D Secure fee, a chargeback fee, a risk premium tied to dispute ratios and a minimum monthly fee."
+    },
+    {
+      "question": "Is Solidgate a payment gateway or an acquirer?",
+      "answer": "Both. Solidgate runs its own card acquiring in Europe and also operates an orchestration layer that connects merchants to more than 100 other global and local acquirers through a single integration. In practice you can start on Solidgate acquiring, add third-party providers for specific corridors, then move traffic between them using smart routing and cascading retries."
+    },
+    {
+      "question": "Which payment methods does Solidgate support?",
+      "answer": "Solidgate supports Visa, Mastercard and American Express, plus Apple Pay, Google Pay, PayPal and a long list of local methods including iDEAL, Klarna, Pix, Boleto, OXXO, Blik, Przelewy24, UPI, Alipay, WeChat Pay, Cash App Pay and Pay by Bank. It processes in more than 150 local currencies. It does not support cryptocurrency payments."
+    },
+    {
+      "question": "Is Solidgate good for high-risk merchants?",
+      "answer": "Not especially. Solidgate markets itself to global digital subscription, SaaS and ecommerce businesses rather than to restricted verticals, and its documented fee model includes a risk premium that applies once dispute ratios exceed agreed thresholds. Merchants in genuinely high-risk categories should expect close underwriting and are usually better served by a specialist high-risk acquirer."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "solidgate.com",
+  "logoSource": "https://solidgate.com/api/proxy/?pathname=https%3A%2F%2Ffa7cda2cubg8rqr9.public.blob.vercel-storage.com%2F512x512_f4979cbe73.png",
+  "sources": [
+    "https://solidgate.com/",
+    "https://solidgate.com/pricing",
+    "https://solidgate.com/acquiring/",
+    "https://docs.solidgate.com/",
+    "https://docs.solidgate.com/finance/commissions/",
+    "https://docs.solidgate.com/payments/payments-overview/",
+    "https://docs.solidgate.com/finance/financial-reports/settlements/",
+    "https://docs.solidgate.com/compliance/pci-dss/",
+    "https://www.capterra.com/p/275753/Solidgate/",
+    "https://www.getapp.com/website-ecommerce-software/a/solidgate/"
+  ]
+}

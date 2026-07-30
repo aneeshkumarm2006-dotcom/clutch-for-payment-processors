@@ -1,0 +1,154 @@
+{
+  "name": "Mollie",
+  "slug": "mollie",
+  "logo": "data:image/png;base64,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",
+  "website": "https://www.mollie.com",
+  "tagline": "European payment service provider with published per-transaction pricing, deep local method coverage and no monthly fee for online payments.",
+  "shortDescription": "Amsterdam-based PSP that handles acquiring and payouts itself for merchants in the EEA, Switzerland and the UK. Online card payments start at 1.8% + EUR 0.25 for EEA consumer cards, with no setup fee, no monthly fee and no lock-in contract.",
+  "longDescription": "<p>Mollie is a European payment service provider founded in Amsterdam in 2004. It is a regulated European payment institution rather than a reseller, so it handles acquiring, settlement and payouts itself. The company employs roughly 1,100 people and only accepts merchants registered in the European Economic Area, Switzerland or the United Kingdom. Its product line covers hosted checkout, an API with drop-in components, payment links, invoicing, subscriptions, marketplace split payments through Mollie Connect, and in-person payments via card terminals or Tap to Pay on iPhone.</p><h3>Pricing and how it works</h3><p>Mollie publishes a full per-method rate card and charges no setup fee, no monthly platform fee and no minimum turnover on the online product. Visa and Mastercard consumer cards issued in the EEA cost 1.8% + EUR 0.25. EEA commercial cards and American Express cost 2.9% + EUR 0.25, and cards issued outside the EEA cost 3.25% + EUR 0.25. UK merchants get a separate table that starts at 1.2% + GBP 0.20 for UK domestic consumer cards. Local methods are priced individually: iDEAL is EUR 0.32, SEPA Direct Debit is EUR 0.35, Bancontact is 1.4% + EUR 0.25 and Klarna runs from 2.99% + EUR 0.35 up to 4.99% depending on the market. In-person payments are sold either pay-as-you-go with no monthly fee or on a Pro plan at EUR 20 per month with lower percentage rates and one terminal licence included. A lost dispute costs EUR 25, a SEPA Direct Debit chargeback costs EUR 10, five payouts a month are free and each extra payout costs EUR 0.25. Merchants processing roughly EUR 50,000 a month or more can negotiate volume pricing or an Interchange++ model.</p><h3>Who it is for</h3><p>Mollie suits European online sellers who want one contract covering cards plus the local methods that actually convert in each market, and who value fast self-serve onboarding over a long enterprise sales cycle. Platforms and marketplaces are well served by Mollie Connect, and small merchants benefit from the absence of fixed costs. It is the wrong fit for anyone outside Europe, for high-risk verticals, and for very large merchants who would do better on a straight interchange-plus contract from the start.</p>",
+  "foundedYear": 2004,
+  "headquarters": "Amsterdam, Netherlands",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "EU",
+    "UK"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "interchange-plus",
+    "custom-quote"
+  ],
+  "pricingSummary": "Online cards start at 1.8% + EUR 0.25 for EEA consumer Visa and Mastercard, with no setup fee and no monthly fee. Local methods are priced per transaction, for example EUR 0.32 for iDEAL and EUR 0.35 for SEPA Direct Debit.",
+  "fees": {
+    "onlineCardRate": "1.8% + EUR 0.25",
+    "inPersonCardRate": "From 1.2% on the pay-as-you-go plan, or 0.85% + GBP 0.10 on the GBP 20 per month Pro plan in the UK",
+    "internationalRate": "3.25% + EUR 0.25 for cards issued outside the EEA",
+    "achRate": "SEPA Direct Debit EUR 0.35 per transaction, Bacs Direct Debit 0.90% + GBP 0.20 in the UK",
+    "monthlyFee": "EUR 0 online",
+    "setupFee": "EUR 0",
+    "chargebackFee": "EUR 25 per lost dispute, EUR 10 per SEPA Direct Debit chargeback",
+    "monthlyMinimum": "None",
+    "earlyTerminationFee": "None on standard online pricing"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "sepa",
+    "bnpl",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "shopify",
+    "woocommerce",
+    "magento",
+    "wix",
+    "payment-links",
+    "invoicing",
+    "pos-hardware"
+  ],
+  "currencies": "38 processing currencies, with settlement into EUR and GBP balances plus optional multi-currency payouts",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "marketplace-split",
+    "reporting-dashboard",
+    "tap-to-pay",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "international",
+    "small-business",
+    "subscriptions",
+    "marketplaces"
+  ],
+  "bestFor": [
+    "European ecommerce",
+    "Small business",
+    "Marketplaces",
+    "Subscriptions"
+  ],
+  "industries": [
+    "Online retail",
+    "SaaS",
+    "Hospitality",
+    "Digital agencies"
+  ],
+  "pros": [
+    "Full rate card published per payment method, with no setup fee, no monthly platform fee and no lock-in contract on the online product",
+    "Best-in-class coverage of European local methods including iDEAL, Bancontact, Klarna, Przelewy24, BLIK, TWINT and SEPA Direct Debit",
+    "Fast self-serve onboarding plus a well-documented API, drop-in components and more than 50 ecommerce plugins"
+  ],
+  "cons": [
+    "Only signs merchants registered in the EEA, Switzerland or the UK, so US, Canadian and Asian businesses cannot open an account",
+    "Blended card pricing means higher-volume merchants pay above true interchange-plus cost until they qualify for volume or Interchange++ terms at around EUR 50,000 a month",
+    "A lost dispute costs EUR 25 on top of the reversed sale, and only five payouts a month are free before a EUR 0.25 charge applies to each extra payout"
+  ],
+  "editorScore": 4.3,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Mollie Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Mollie charges 1.8 percent plus 0.25 EUR on EEA consumer cards, with no monthly fee for online payments. See rates, payouts, limits and who it suits.",
+    "keywords": [
+      "mollie review",
+      "mollie pricing",
+      "mollie fees",
+      "mollie payment gateway",
+      "mollie vs stripe"
+    ],
+    "focusKeyword": "mollie review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Mollie cost?",
+      "answer": "Mollie charges per transaction with no setup or monthly platform fee on the online product. EEA consumer Visa and Mastercard payments cost 1.8% + EUR 0.25, EEA commercial cards and American Express cost 2.9% + EUR 0.25, and non-EEA cards cost 3.25% + EUR 0.25. Local methods are priced separately, such as EUR 0.32 for iDEAL and EUR 0.35 for SEPA Direct Debit."
+    },
+    {
+      "question": "Does Mollie charge a monthly fee?",
+      "answer": "No monthly fee applies to online payments. Mollie bills only per transaction, with no setup fee, no minimum turnover and no fixed contract on standard online pricing. In-person payments are different: the pay-as-you-go terminal plan is also free monthly, while the Pro plan costs EUR 20 per month and includes one terminal licence at lower percentage rates."
+    },
+    {
+      "question": "Which countries can use Mollie?",
+      "answer": "Mollie accepts businesses registered in the European Economic Area, Switzerland and the United Kingdom, covering more than 20 supported countries including the Netherlands, Belgium, Germany, France, Italy, Spain, Poland, Ireland and the UK. An IBAN or UK bank account is required to sign up. Merchants based in the US, Canada, Asia, Latin America or Africa cannot open a Mollie account."
+    },
+    {
+      "question": "Is Mollie good for high-risk merchants?",
+      "answer": "No. Mollie underwrites conventional European businesses and does not position itself as a high-risk acquirer, so verticals such as adult content, gambling, nutraceuticals and most crypto services are outside its appetite. High-risk merchants are usually better served by a specialist acquirer that prices for elevated chargeback ratios and can support rolling reserves."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "mollie.com",
+  "logoSource": "https://framerusercontent.com/images/qv5pP6IyH5pkUJsKlgG23E4RbBM.png",
+  "sources": [
+    "https://www.mollie.com/pricing",
+    "https://www.mollie.com/gb/pricing",
+    "https://www.mollie.com/integrations",
+    "https://docs.mollie.com/docs/multicurrency",
+    "https://docs.mollie.com/docs/payment-methods",
+    "https://help.mollie.com/hc/en-us/articles/35795203499154-What-fees-do-I-pay-for-disputes",
+    "https://help.mollie.com/hc/en-us/articles/115002116105-Can-I-use-Mollie-s-services-in-my-country",
+    "https://help.mollie.com/hc/en-us/articles/115000010065-When-do-I-receive-my-money-from-Mollie",
+    "https://www.mollie.com/products/pos-payments/tap-to-pay-on-iphone",
+    "https://tracxn.com/d/companies/mollie/__0qs4RDRb-IIgClr0blXe__l3XgA9xkUHMmg1sTN0Qds"
+  ]
+}

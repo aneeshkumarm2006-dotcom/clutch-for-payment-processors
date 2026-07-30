@@ -1,0 +1,131 @@
+{
+  "name": "Invoiced",
+  "slug": "invoiced",
+  "logo": "data:image/png;base64,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",
+  "website": "https://www.invoiced.com",
+  "tagline": "Accounts receivable automation platform, now owned by Flywire, that runs invoicing, collections and cash application on top of your existing payment rails.",
+  "shortDescription": "Invoiced is a B2B accounts receivable platform acquired by Flywire in 2024. It automates invoicing, dunning, customer payment portals and cash application, then routes the actual card and bank payments through a connected gateway rather than acquiring them itself.",
+  "longDescription": "<p>Invoiced is an accounts receivable automation platform founded in Austin, Texas in 2013 by Jared King and Parag Patel. Flywire, the Nasdaq-listed global payments company, acquired it in August 2024, and it now ships as Flywire's dedicated invoice-to-cash product for B2B finance teams. The distinction that matters for buyers is that <strong>Invoiced is a billing and collections layer, not a card acquirer</strong>. It issues the invoice, chases it, presents a customer payment portal and reconciles the cash, while the underlying card or bank transaction settles through a connected gateway or through Flywire's own network.</p><h3>Pricing and how it works</h3><p>Invoiced no longer publishes a rate card or plan tiers. Since the Flywire acquisition the product is sold by quote through a demo, and Capterra lists it as contact vendor for pricing, with no free version and no free trial. Expect a platform subscription scoped to invoice volume, entities and modules, plus separate payment acceptance costs. Those payment costs are not Invoiced's own rates: card and bank debit pricing comes from whichever gateway you connect, or from Flywire where you use its cross-border network, so the real cost of a paid invoice sits in that contract rather than in the Invoiced subscription. Modules include A/R automation, Smart Chasing dunning, a customer portal, payment plans, CashMatch cash application and analytics, with native connectors for NetSuite, Sage Intacct, Microsoft Dynamics 365, Workday, QuickBooks and Xero, plus an API for everything else. Invoiced states that its platform has been independently verified for PCI Level 1 compliance by a QSA, and stored payment credentials are vaulted at the connected gateway rather than in Invoiced itself.</p><h3>Who it is for</h3><p>Invoiced targets mid-market B2B finance teams that already have an ERP and a processor and are drowning in manual collections: high invoice counts, net terms, partial payments and messy remittance data. Multi-currency support and direct debit coverage through ACH, SEPA and Bacs make it workable for companies invoicing across-borders. It is the wrong tool if what you actually need is a merchant account, a consumer-facing checkout, or self-serve pricing you can sign up for online, and it is oversized for a small business sending a few dozen invoices a month.</p>",
+  "foundedYear": 2013,
+  "headquarters": "Austin, TX, United States",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "EU",
+    "UK",
+    "Global"
+  ],
+  "pricingModel": [
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "Custom quote only. Invoiced stopped publishing plan pricing after the Flywire acquisition, and payment acceptance is billed separately by the gateway or network you connect.",
+  "fees": {
+    "onlineCardRate": "Set by your gateway",
+    "achRate": "Set by your connected gateway or by Flywire, not by Invoiced",
+    "monthlyFee": "Custom quote"
+  },
+  "contractType": "annual",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "ach",
+    "sepa",
+    "wire"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "payment-links",
+    "invoicing"
+  ],
+  "currencies": "Multi-currency, with the Flywire network covering 140+ currencies",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "reporting-dashboard",
+    "tokenization",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "international"
+  ],
+  "bestFor": [
+    "Mid-market B2B",
+    "Finance teams",
+    "Recurring billing"
+  ],
+  "industries": [
+    "SaaS",
+    "Wholesale distribution",
+    "Healthcare",
+    "Professional services"
+  ],
+  "pros": [
+    "Covers the whole invoice-to-cash cycle in one system, including automated dunning, customer portals, payment plans and AI-assisted cash application",
+    "Native connectors for NetSuite, Sage Intacct, Dynamics 365, Workday, QuickBooks and Xero, with an API for systems that are not on the list",
+    "Flywire ownership adds cross-border collection, direct debit coverage and multi-currency reach that standalone A/R tools rarely match"
+  ],
+  "cons": [
+    "No published pricing, no free version and no free trial, so every evaluation has to start with a sales demo",
+    "It is not a merchant account, so you still need a gateway or processor contract and the per-transaction rates sit outside Invoiced's control",
+    "Built for mid-market invoice volumes, which makes it heavy and costly for small businesses sending only a few dozen invoices a month"
+  ],
+  "editorScore": 4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Invoiced Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Invoiced is Flywire-owned accounts receivable automation. Custom quote pricing, ERP connectors, and card and ACH costs set by your connected gateway.",
+    "keywords": [
+      "invoiced review",
+      "invoiced pricing",
+      "invoiced fees",
+      "invoiced accounts receivable automation"
+    ],
+    "focusKeyword": "invoiced review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Invoiced cost?",
+      "answer": "Invoiced does not publish pricing. Since Flywire acquired the company in 2024 the platform is quoted per customer after a demo, and Capterra lists it as contact vendor for pricing with no free version and no free trial. Budget for a subscription scoped to invoice volume and modules, plus separate card and bank payment costs charged by your gateway."
+    },
+    {
+      "question": "Is Invoiced a payment processor?",
+      "answer": "No. Invoiced is an accounts receivable and invoice-to-cash layer, not an acquirer or merchant account provider. It creates and chases invoices, presents a payment portal and reconciles receipts, while the transaction itself settles through a connected gateway or the Flywire network. Stored payment credentials are vaulted at that gateway, not inside Invoiced."
+    },
+    {
+      "question": "Who owns Invoiced?",
+      "answer": "Flywire Corporation, the Nasdaq-listed payments company, acquired Invoiced in August 2024. Invoiced was founded in Austin, Texas in 2013 by Jared King and Parag Patel and now operates as Flywire's A/R automation product for B2B finance teams, combining its workflow software with Flywire's global payment network."
+    },
+    {
+      "question": "What ERP systems does Invoiced integrate with?",
+      "answer": "Invoiced ships native connectors for NetSuite, Sage Intacct, Microsoft Dynamics 365, Workday, QuickBooks and Xero. Cloud systems outside that list connect through its API, and on-premise systems use its ERP Connect option. Invoiced also cites integration with roughly 1,000 other applications through its integration tooling."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "invoiced.com",
+  "logoSource": "https://invoiced.com/wp-content/uploads/fbrfg/favicon.svg",
+  "sources": [
+    "https://www.invoiced.com/",
+    "https://www.invoiced.com/accounts-receivable",
+    "https://www.invoiced.com/accounts-receivable/pricing",
+    "https://docs.invoiced.com/accounts-receivable/payments/gateways",
+    "https://www.invoiced.com/resources/blog/what-is-pci-level-1-compliance-and-why-do-you-need-to-know",
+    "https://ir.flywire.com/news-releases/news-release-details/flywire-acquires-invoiced-bolster-its-global-b2b-payment-network",
+    "https://www.capterra.com/p/222215/Invoiced/",
+    "https://www.dnb.com/business-directory/company-profiles.invoiced_inc.a25e2d017e9b4c7d6b03623d4fb3390d.html"
+  ]
+}

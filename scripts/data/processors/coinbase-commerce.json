@@ -1,0 +1,127 @@
+{
+  "name": "Coinbase Commerce",
+  "slug": "coinbase-commerce",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAqFBMVEVMaXH///////////////////////////////////////////////////////////////////////////////////////////8AUv8gaP/f6f+AqP9Aff8QXf+/1P8wc//v9P+Qs/+gvv+fvv+/0/8wcv8QXP9gk/+vyf9vnv9wnv9fk//P3v/P3/9QiP+Aqf9wnf9gkv9/qf+wyf+PtP+Ps/9/qP9PiP89s+cZAAAAF3RSTlMAEM+vv++Q3yBAn4BgUKAwcF9/j29PsEW5WuoAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAU1SURBVHja7VvXdtpAEEUFFZodB0cFVTAGDLjFSf7/zwKcONZWzax2ITnJfbY1w7Sd2uupIBhPvYHr+9EJvu063jS86p0Fwciz+xEXfdcbB0aJW6HnRy2wB6Ep8uGgH4HQH4z1U7+6AVL/ZRYDvboI3QgNN7wo+ZMYPl2UvCYWgg7kj3C62YJ1E3XGjdVB+n6kAb6qNVqfI034rKZ92c9P1/XLY5nk8QF5Umaber2XCUHBEj4JA08xy06EaeTZ7E4YHK+x9AXir4oXLvHfTKzWIlvEqZ/vfMVGSv2dB74cHIQ3BDbvC4ssBqKcdzMErvktkhiBZN6BAx79NYq8iAUYBxz6aRYr4DFV4oBDfxYrYqbAgcXQT8tYGQkjBLvNFxz6P+o87oC8ZvIUOX3m9XuOO2KGehimdOAr484oaTVIkpSAiv9pEmsAbQh9sSH6JuizHPgW7AHSRZ/lQGAGoSn6LAchIALopH/goGpXAuWBZawVGfn1IccDNPs/jQfy+0FLCKxj7ZjLA+KINIBcPwN5KrVD0gKT2AAymQhIATzFRlBLREAIIDVDn1KCK45BS0MMUEpoioDIwhewry03i93pJ6VFvQXyfCcQQYC2wKyuqMC9gPBQEv/z0debIAWQFdyyZYsMBkO+CSZq5I/Ytf5vQiQG7/THGAHkb7JC/BVlBSFPAwk2z8U94oQjDH4x0EzEihYrqtqaEW0cNEXQt9ggIDekLaAdUi3hr2LIauAe7kVCDqQyyJt/6p0YaNbiXxFpjaIWmjrwmSi0hb+nEhRgHQS0E8o08AZviz1AdTA6MOABWS/h9OVmsKeMwAUW4imCAekvaaYFNhUFJI2IFa43KfnSIxmNr4AmsMcxUADfg4AIQzs9FtD2W5refNu7hkWBOZaBJ1gkuCacoNZkgi06mBNu4IDKIbQGDh4lREE8iC7IdB8iQ3CJl2AJTOk1wifSsQSWyOhlAOY6qSkGIoIBseFG/xn4Rxi4iBHC3HB/njiw1PcWQWETofjHJUJxsypYnf8x+gJ9jiss/R0sKfSgCQn6NXqGJiRjWHcqwzKQwKQZkoXRfazrPVwAk9IrcFqeaRMAlZYTGclTrEkEC2Bh4iJKs0yTAJjSbAQtTmstOTlpArd0eb7SUp7vZOX5ihkb+NDKXn+Dwj51SJpGUBlv0SRsmyyEj2ogJXLLtHXFNqksvW26lmlXymmVToCFPaRRuVNpVIaoVq3UG2tUt/q2x2mVtjerS6EQigzVrPZ/d8uHyHb9aq9GnhLA4GNhFD2wKOeUGKoasuiSiIaXxMhmDVxM2NR3Ry6qdL/YlArDS1c4tFJa2oFgJZ7buecY25HljS/ZHTA0uPwuWyVxzU8Ok0gsAFoE6b3x4TWzS0OK4Jvp8b3TtsDwYNYAOAsMZDjU7ovtKxz0Ekt19iWWi6/xkLmZ0UUmD7hLaGyV689dZqNWSQ4caAiJGZ1GSpesPcwADoQN/cWhfKWSWan+1ikqs8N+p22p1caOw3Hpo28prPW+qtJ/1bVYrGaLWapvtRq5WX5yvkLvcvk5l9tF1x1wFjJuZ9dG3HlYDr/y2UIOHDZF5wMHNjv4KBrkPOQvhaB+9rBHJtcKRy6vwhWn/kjzmc9uXW+y5fuZz/LxpV6nms98eA+DKjzr7zz1OnrDsDv9YYdjt6MlOB0nIt1PP0cd9KDp7FOVhQtfnbp674+DCUoM/aGBQ/DxBHz4bO74emK3er0XWj2TCMaeKzp+t72R2eP3j75eOPUc134///fdgTdVPLz/CcN7plYecPNxAAAAAElFTkSuQmCC",
+  "website": "https://commerce.coinbase.com",
+  "tagline": "Coinbase Commerce was Coinbase's self-custody crypto checkout for merchants, shut down on 31 March 2026 and folded into the custodial Coinbase Business.",
+  "shortDescription": "Coinbase Commerce let merchants take crypto payments at a flat 1 percent fee, settling into a self-custody wallet. Coinbase closed the merchant portal on 31 March 2026 and pointed merchants to Coinbase Business, which is custodial and US and Singapore only.",
+  "longDescription": "<p><strong>Coinbase Commerce is no longer available.</strong> It was the merchant payments product of Coinbase Global, the listed US crypto exchange, and it let online sellers accept cryptocurrency directly into a wallet they controlled. Coinbase closed the Commerce merchant portal on 31 March 2026 and consolidated the product into Coinbase Business, a custodial platform launched internationally in late 2025. Merchants can no longer sign up, log in or take payments through Commerce.</p><h3>Pricing and how it worked</h3><p>Commerce charged a flat 1 percent fee on crypto payments, with no setup fee, no monthly subscription and no card-style interchange. Blockchain network fees were separate and depended on the asset and the chain. In its final form the product ran on the Onchain Payment Protocol, which widened accepted assets from about 13 to hundreds and swapped them on chain through a decentralized exchange so that the merchant settled in USDC and avoided price volatility. Payments landed in a self-custody wallet, which meant no chargebacks and no rolling reserve, but also meant the merchant held the seed phrase and carried the loss if it went missing.</p><h3>Who it is for</h3><p>Commerce suited crypto-native businesses, developers and international sellers who wanted stablecoin settlement without a bank relationship. It plugged into Shopify, WooCommerce and custom sites through a public API, hosted checkout pages, payment buttons and webhooks. It was never a substitute for a card processor, because customers had to pay from a crypto wallet rather than a card.</p><h3>What replaced it</h3><p>Coinbase Business is the official successor, but it is custodial and available only in the United States and Singapore, so merchants elsewhere had no migration path and had to move to another crypto gateway. The underlying technology lives on: the Commerce Payments Protocol that Coinbase and Shopify open sourced in 2025 still powers USDC payments on Base for Shopify merchants, and Coinbase continues to sell USDC payment links and payouts under the Coinbase Business brand. Anyone comparing crypto checkout options today should treat Commerce as historical.</p>",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate"
+  ],
+  "pricingSummary": "Coinbase Commerce charged a flat 1% on crypto payments with no monthly or setup fee, plus separate blockchain network fees. The product was shut down on 31 March 2026.",
+  "fees": {
+    "onlineCardRate": "1% flat on crypto",
+    "internationalRate": "No extra cross-border charge, the flat 1% applied worldwide",
+    "monthlyFee": "$0",
+    "setupFee": "$0",
+    "monthlyMinimum": "None",
+    "chargebackFee": "None, on-chain crypto payments were not reversible",
+    "earlyTerminationFee": "None",
+    "refundPolicy": "Merchant-initiated refunds were sent back on chain; there was no chargeback mechanism"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "instant",
+  "paymentMethods": [
+    "crypto"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "payment-links",
+    "invoicing",
+    "shopify",
+    "woocommerce"
+  ],
+  "currencies": "Hundreds of crypto assets, settled in USDC",
+  "features": [
+    "multi-currency",
+    "no-rolling-reserve",
+    "chargeback-protection",
+    "developer-friendly"
+  ],
+  "pciLevel": "N/A",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "developers",
+    "international"
+  ],
+  "bestFor": [
+    "Crypto payments",
+    "Developers",
+    "Global sellers"
+  ],
+  "industries": [
+    "Web3",
+    "Digital products",
+    "SaaS",
+    "Online retail"
+  ],
+  "pros": [
+    "Flat 1 percent fee with no monthly, setup or gateway charges undercut typical card processing costs",
+    "Self-custody settlement gave instant access to funds, with no chargebacks and no rolling reserve",
+    "Plugins for Shopify and WooCommerce plus a documented API and webhooks made integration straightforward"
+  ],
+  "cons": [
+    "The merchant portal closed permanently on 31 March 2026, so the product can no longer be signed up for or used",
+    "The official successor, Coinbase Business, is custodial and limited to the United States and Singapore, leaving merchants elsewhere with no migration path",
+    "Self-custody put seed phrase security on the merchant, and the wind-down flow asked users to type recovery phrases into a web form, which security researchers criticized as a phishing template"
+  ],
+  "editorScore": 1.5,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "isPublished": false,
+  "seo": {
+    "metaTitle": "Coinbase Commerce Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Coinbase Commerce charged a flat 1 percent on crypto payments, but the merchant portal closed on 31 March 2026. What it cost and what replaced it.",
+    "keywords": [
+      "coinbase commerce review",
+      "coinbase commerce pricing",
+      "coinbase commerce fees",
+      "coinbase commerce shutdown"
+    ],
+    "focusKeyword": "coinbase commerce review"
+  },
+  "faqs": [
+    {
+      "question": "Is Coinbase Commerce still available?",
+      "answer": "No. Coinbase permanently closed the Coinbase Commerce merchant portal on 31 March 2026. Merchants can no longer sign up, log in or process payments through it, and the product has been consolidated into Coinbase Business. Anyone who still held balances was told to move funds out using the official withdrawal tool before the deadline, or by importing their recovery phrase into a compatible wallet."
+    },
+    {
+      "question": "How much did Coinbase Commerce charge?",
+      "answer": "Coinbase Commerce charged a flat 1 percent fee on crypto payments. There was no setup fee, no monthly subscription and no separate cross-border rate, so the 1 percent applied worldwide. Blockchain network fees were charged separately and varied by asset and chain. Because settlement was on chain into a merchant-controlled wallet, there were no chargeback fees or rolling reserves."
+    },
+    {
+      "question": "What is the difference between Coinbase Commerce and Coinbase Business?",
+      "answer": "Custody and coverage. Coinbase Commerce was self-custodial: payments went straight to a wallet whose keys the merchant held, and it was available almost everywhere. Coinbase Business is custodial, so Coinbase holds the funds, and it is offered only in the United States and Singapore. It adds fiat off-ramps, accounting integrations with tools such as QuickBooks and Xero, and USDC payment rails."
+    },
+    {
+      "question": "Which cryptocurrencies did Coinbase Commerce accept?",
+      "answer": "By the end it accepted hundreds of assets across networks including Base, Ethereum, Polygon and Solana, among them Bitcoin, Ether, USDC, DAI and Litecoin. The Onchain Payment Protocol expanded the list from about 13 supported assets and swapped incoming tokens on chain through a decentralized exchange so the merchant always settled in USDC and avoided price swings."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "commerce.coinbase.com",
+  "logoSource": "https://www.google.com/s2/favicons?sz=128&domain=commerce.coinbase.com",
+  "sources": [
+    "https://www.moonpay.com/newsroom/coinbase-commerce-shutdown-guide-for-merchants",
+    "https://crypto.news/coinbase-commerce-seed-phrase-page-alarms-security-community-ahead-of-march-31-shutdown/",
+    "https://help.coinbase.com/en/transitioning-from-coinbase-commerce-to-coinbase-business",
+    "https://bilixe.com/listing/coinbase-commerce/",
+    "https://www.coinbase.com/blog/coinbase-commerce-onchain-payment-protocol-deep-dive",
+    "https://shopify.engineering/commerce-payments-protocol",
+    "https://www.coinbase.com/blog/coinbase-and-shopify-bring-usdc-payments-on-base-to-millions-of-merchants-worldwide",
+    "https://request.network/coinbase-commerce-alternative/",
+    "https://www.coindesk.com/business/2025/10/16/crypto-exchange-coinbase-introduces-its-own-stablecoin-payments-platform"
+  ]
+}

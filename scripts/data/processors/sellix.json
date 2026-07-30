@@ -1,0 +1,130 @@
+{
+  "name": "Sellix",
+  "slug": "sellix",
+  "logo": "data:image/png;base64,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",
+  "website": "https://sellix.com",
+  "tagline": "Sellix was a digital goods e-commerce platform with crypto and card checkout, taken offline in January 2025 when law enforcement seized its domain.",
+  "shortDescription": "Sellix sold storefront and checkout software for digital products, with more than 50 fiat and crypto payment options. Its sellix.io domain was seized in Operation Talent in January 2025 and the platform has not returned, so it is not a usable option today.",
+  "longDescription": "<p><strong>Sellix is not currently operating.</strong> Sellix was an all-in-one e-commerce platform for sellers of digital goods, created by Italian founder Daniele Servadei and run by Sellix SRL of Bologna, Italy. It gave vendors a hosted storefront, automated delivery of software licenses, accounts and files, an affiliate system, Discord and Telegram integrations, and a checkout that accepted both cards and a long list of cryptocurrencies. In late January 2025 the sellix.io domain was seized by the FBI and international partners as part of Operation Talent, an action aimed mainly at the Cracked and Nulled forums that had used Sellix to process payments. The domain still does not resolve.</p><h3>Pricing and how it worked</h3><p>Before the seizure Sellix ran a freemium model. The free tier allowed unlimited products and orders but took a 5 percent cut of each sale. The Pro plan cost 29 euros per month, or 24.99 euros per month paid annually, and reduced the platform fee to roughly 3 percent. The Business plan cost 199 euros per month, or 1,999 euros paid annually, and reduced it to about 1 percent. Those platform fees sat on top of whatever the connected gateway charged, so a Stripe or PayPal sale still carried normal card processing costs. Crypto payments settled through Sellix wallet infrastructure and were subject to blockchain network fees.</p><h3>Who it is for</h3><p>Nobody, at present. The historical fit was solo sellers and small teams shipping digital products such as software keys, accounts, ebooks and server hosting, particularly those who wanted crypto checkout without building it themselves. Anyone researching Sellix today should treat it as a case study in platform risk and choose an operating alternative instead.</p><h3>Current status</h3><p>Sellix published a statement at sellix.com dated 17 August 2025 saying it had cooperated with authorities, that merchant funds were safe, that the businesses under investigation accounted for less than 0.1 percent of its revenue, and that it holds an Italian OAM registration as a virtual asset service provider. The same statement told merchants to explore other solutions until the service returns, and conceded that the future of the business had been irreparably compromised. No relaunch has happened since.</p>",
+  "headquarters": "Bologna, Italy",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "subscription"
+  ],
+  "pricingSummary": "Sellix charged a platform fee on every sale plus an optional subscription: 5% on the free tier, about 3% on the 29 euro per month Pro plan and about 1% on the 199 euro per month Business plan, all on top of the connected gateway's own fees. The platform has been offline since January 2025.",
+  "fees": {
+    "onlineCardRate": "1% to 5% platform fee",
+    "monthlyFee": "$0 to 199 euros",
+    "setupFee": "$0",
+    "refundPolicy": "Set by the seller; crypto payments were irreversible once confirmed on chain"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": true,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "paypal",
+    "crypto",
+    "bnpl",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "payment-links"
+  ],
+  "currencies": "Several fiat currencies plus a broad list of cryptocurrencies",
+  "features": [
+    "fraud-protection",
+    "multi-currency",
+    "recurring-billing",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "N/A",
+  "highRiskFriendly": true,
+  "categorySlugs": [
+    "ecommerce",
+    "high-risk",
+    "small-business"
+  ],
+  "bestFor": [
+    "Digital goods",
+    "Crypto sellers",
+    "Solo sellers"
+  ],
+  "industries": [
+    "Digital products",
+    "Software licenses",
+    "Gaming accounts",
+    "Online services"
+  ],
+  "pros": [
+    "Free tier allowed unlimited products and orders, so sellers could launch with no fixed cost",
+    "Supported more than 50 fiat and crypto payment options, including coins that most gateways ignore",
+    "Automated digital delivery, affiliate tracking and Discord integration were built in rather than bolted on"
+  ],
+  "cons": [
+    "The sellix.io domain was seized in January 2025 and the platform has not come back online, so no new merchant can use it",
+    "The 5 percent free-plan fee stacked on top of Stripe or PayPal charges, which made small transactions expensive",
+    "Its permissive stance on digital goods attracted sellers of illicit products, which is what put the company in the path of Operation Talent"
+  ],
+  "editorScore": 1,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "isPublished": false,
+  "seo": {
+    "metaTitle": "Sellix Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Sellix review: the digital goods platform charged 5 percent on its free plan, but sellix.io was seized in January 2025 and the service remains offline.",
+    "keywords": [
+      "sellix review",
+      "sellix pricing",
+      "sellix fees",
+      "sellix alternatives"
+    ],
+    "focusKeyword": "sellix review"
+  },
+  "faqs": [
+    {
+      "question": "Is Sellix still working?",
+      "answer": "No. Sellix is offline. The sellix.io domain was seized in late January 2025 by the FBI and international partners during Operation Talent, an action targeting the Cracked and Nulled forums that used Sellix for payments. The domain still does not resolve. Sellix published a statement in August 2025 saying it hoped to restore service, but no relaunch has taken place."
+    },
+    {
+      "question": "How much did Sellix cost?",
+      "answer": "Sellix ran a free plan with unlimited products and orders that took a 5 percent cut of each sale. The Pro plan cost 29 euros per month, or 24.99 euros per month billed annually, and lowered the platform fee to around 3 percent. The Business plan cost 199 euros per month, or 1,999 euros annually, for roughly 1 percent. Gateway fees were charged separately."
+    },
+    {
+      "question": "Why was Sellix seized by the FBI?",
+      "answer": "Sellix was seized because the Cracked and Nulled cybercrime forums used it to process payments. In Operation Talent, carried out between 28 and 30 January 2025, law enforcement in the United States and Europe took down twelve domains connected to those marketplaces, including sellix.io. Sellix says it cooperated with investigators and that the accounts under scrutiny were a fraction of its revenue."
+    },
+    {
+      "question": "What should Sellix sellers use instead?",
+      "answer": "Sellers should move to an operating platform. Sellix left no migration window, so stores, listings and order history vanished with the domain. Replacements depend on what you sell: general digital goods platforms such as Gumroad or Lemon Squeezy cover cards and payouts, while merchants who specifically need crypto checkout will need a dedicated crypto payment gateway alongside a normal card processor."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "sellix.com",
+  "logoSource": "https://avatars.githubusercontent.com/Sellix?size=256",
+  "sources": [
+    "https://sellix.com/",
+    "https://en.wikipedia.org/wiki/Operation_Talent",
+    "https://cyberscoop.com/fbi-seized-cracked-nulled-sellix-cybercriminal-forum/",
+    "https://www.justice.gov/opa/pr/cracked-and-nulled-marketplaces-disrupted-international-cyber-operation",
+    "https://hackread.com/operation-talent-fbi-seizes-nulled-to-cracked-to-sellix-io/",
+    "https://whop.com/blog/how-to-use-sellix/",
+    "https://www.saasworthy.com/product/sellix-io/pricing",
+    "https://www.linkedin.com/company/sellix-srl",
+    "https://tracxn.com/d/companies/sellix/__KskoxAiwWS6RgEtcLcJXYHbesl43CTa-2BjczqW_yJk",
+    "https://docs.sellix.io/introduction"
+  ]
+}

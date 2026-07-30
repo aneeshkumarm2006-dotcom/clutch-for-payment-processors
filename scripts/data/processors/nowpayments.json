@@ -1,0 +1,134 @@
+{
+  "name": "NOWPayments",
+  "slug": "nowpayments",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABg1BMVEXw8PDJ4ZHx8PKz2V2v11L08fn08fqz2Vy02V7v7+7w8O/c6L/s7uay2Vm32mXv8O6v11PH4Y3d6cPv8O/t7+my2Fm422iw11S12WDx8PO02V/v7++z2Vv08fvJ4ZKw11XG4Iur1Ujs7ufy8fa42mfv7+232maq1Ufz8Pey2Vrx8PHs7uXI4Y/u7+yz2Fzy8Pbc6MDb57za57vK4ZPw8PGv11Tz8fmu10/z8fje6cSz2Fv48v/t7uju7+3d6cLd6MKu1k/L4pfX5rPj69DG4Iry8PT18fv08fjf6snw7/Dc6cHz8Pbu7uzH4I348/+22mW32mTo7N26227w8O6z2V622mOx2Va22mK22WLr7uXr7uTa57yu11Dv8O2z2F3b6L7c6L7e6cXt7+rk69Pq7eHp7eDj69G12WG522nu7+vz8ffq7eCt1k/t7+jb6L3P5KH18fy12WKr1Umt1k6t107C34HD34TH4YzE34fr7eTw7++422nH4Ivb573K4pTB3n/z8PiJVVERAAAACXBIWXMAAAsSAAALEgHS3X78AAACeElEQVR42u2bV3PaQBSFQSBANMngRCCLYjoYHDsBjHucxDW203vvvfeen563POy9nlmyg8dJzve8OvuJ0Qt3z3o8AADwmxGDY0QxVT40nNY5tLCaQI8LPZDk9r83ORERmZi8m1YxaM8v3mRC7zOhRuDgqO0XsUcjAfPP9w+no+OHLRJazWfKVECP5FIhkVQuoasIaIWS65BQ+1DA4AT8oaBIyFIUiMZjPhLq90IAAhCAAAQgAIG/SWBh9VqYwu5GOdNQF5he8WiENvu+dF1jeU5VoHPFuBwVGRvm9m+N0YVzp07UlQSC7sVKXKQ0s6STALO7OF4iS+MnaWR/AsF6jOBONWmAEbgx5dK1MWUBH8WxsoyAHrEcZrGygGyA6vMQgAAEIAABCEBgTwgwYzqWlO39uSlOX1u1b7b08+yYjh1UsthV7/Zxcfpam52Wf54bVJrFo/msV5IfQ4QPzXdfJZ/PHjtSNLmxaiYgR217q0pe1nrzKv2yKxeQ4YbVO43rGTZrW/RzcWa+FNbLkgmKZwCGPkQ/eN++/cNacndONiAAAQhAAAIQgAAEIAABCEAAAhCAAAQg8J8JMK2A8iov8KxhSlYN+oGWArT1labNjOkePlpu08Wq+yejlE+fP77OWQKdpw+eFGiD4NK82u+vFU6fIwWCivN+bSMhsLH2IsRUDa7f6plKAtEL50mDwH37fZYbVjP9Affqgq4mUKjUz9L+gLfXMgVaj58z/QGnk1AUkG7BDKQGBAEIQAACEIAABPaCgPQ1nYFcE+rnotJALkp5PI3bS02583++f5DN3ykq/lvpyp7/79A/SId37breYK4LAgD+fX4B2X7ttWKOaYwAAAAASUVORK5CYII=",
+  "website": "https://nowpayments.io",
+  "tagline": "NOWPayments is a non-custodial crypto payment gateway that settles 350-plus cryptocurrencies straight to your own wallet for a 0.5% service fee.",
+  "shortDescription": "Launched by the ChangeNOW exchange team in 2019, NOWPayments lets merchants accept 350-plus cryptocurrencies with funds settling straight to a wallet the merchant controls. Fees are 0.5% for same-coin payments and 1% when conversion is involved, plus network fees.",
+  "longDescription": "<p><strong>NOWPayments</strong> is a non-custodial cryptocurrency payment gateway launched in 2019 by the team behind the ChangeNOW exchange. It is registered in Saint Vincent and the Grenadines with a working address in Tallinn, Estonia, and it runs lean, with public sources putting the team at around 15 people. Non-custodial is the defining trait: NOWPayments never holds private keys to merchant wallets, so a confirmed payment moves on chain to an address the merchant already controls instead of sitting in a platform balance. An optional custody balance is available for merchants who want off-chain operations, but direct settlement is the default.</p><h3>Pricing and how it works</h3><p>The service fee is 0.5% when the customer pays and the merchant receives the same coin. It rises to 1% for multi-currency payments, fixed-rate payments and payments where the fee is passed to the buyer, because each of those routes through a conversion. Blockchain network fees are separate and vary by chain and congestion. On the non-custodial flow the customer pays a network fee on deposit and further network fees apply to processing and payout, so small transactions can carry a real cost well above the headline percentage. There is no setup fee and no monthly platform fee on standard usage, and NOWPayments says higher monthly volume can earn a reduced rate. Converting to fiat and paying out to a bank account costs extra and is only offered in some regions.</p><h3>Who it is for</h3><p>This fits merchants who actively want crypto revenue and prefer to hold it: online stores, SaaS and hosting companies billing through WHMCS, streamers, creators and nonprofits collecting donations. Integration options include a REST API with a sandbox, hosted invoices, payment links, a payment widget, a donation button, a point-of-sale terminal link, recurring crypto subscriptions, mass payouts and plugins for Shopify, WooCommerce, Magento 2, PrestaShop, OpenCart, Ecwid, Zen Cart and WHMCS.</p><h3>What it is not</h3><p>NOWPayments is not a card processor and does not provide a merchant account. No Visa or Mastercard rails are involved in the core product, there is no interchange, no acquiring bank and no chargeback process, because on-chain payments are irreversible. A third-party fiat on-ramp can let a shopper pay by card and have the merchant receive crypto, but that card leg is operated by an external provider rather than by NOWPayments. Anyone who needs ordinary card acceptance still needs a separate processor running alongside it.</p>",
+  "foundedYear": 2019,
+  "headquarters": "Tallinn, Estonia",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate"
+  ],
+  "pricingSummary": "NOWPayments charges a flat 0.5% service fee on same-coin crypto payments and 1% when a conversion is involved, such as multi-currency, fixed-rate or fee-paid-by-user payments. Blockchain network fees are extra and there is no monthly or setup fee.",
+  "fees": {
+    "onlineCardRate": "0.5% service fee",
+    "internationalRate": "0.5% worldwide, crypto settlement has no cross-border surcharge",
+    "monthlyFee": "$0",
+    "setupFee": "$0",
+    "monthlyMinimum": "None",
+    "chargebackFee": "None, on-chain payments are irreversible and cannot be charged back",
+    "refundPolicy": "Refunds are manual on-chain sends from the merchant wallet, with no built-in dispute process"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "instant",
+  "paymentMethods": [
+    "crypto"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "payment-links",
+    "invoicing",
+    "shopify",
+    "woocommerce",
+    "magento"
+  ],
+  "currencies": "350+ cryptocurrencies and 75+ fiat display currencies",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "reporting-dashboard",
+    "no-rolling-reserve",
+    "developer-friendly"
+  ],
+  "pciLevel": "N/A",
+  "highRiskFriendly": true,
+  "categorySlugs": [
+    "ecommerce",
+    "high-risk",
+    "international",
+    "nonprofits",
+    "developers"
+  ],
+  "bestFor": [
+    "Crypto-native merchants",
+    "Online stores",
+    "Donations"
+  ],
+  "industries": [
+    "Ecommerce",
+    "SaaS and hosting",
+    "Gaming",
+    "Nonprofits"
+  ],
+  "pros": [
+    "Non-custodial by default, so settled funds land in a wallet you control and NOWPayments never holds your private keys or your balance",
+    "A flat 0.5% service fee with no setup cost, no monthly fee and no minimum is among the cheapest published pricing in crypto payments",
+    "Very broad asset coverage at 350-plus coins and 30-plus stablecoins, with ready-made plugins for Shopify, WooCommerce, Magento, PrestaShop, OpenCart and WHMCS"
+  ],
+  "cons": [
+    "Crypto only, with no card, ACH or SEPA rails, so for most merchants it can only ever be a secondary checkout option next to a real processor",
+    "Registered offshore in Saint Vincent and the Grenadines with a team of roughly 15, and reviewers report inconsistent support response times",
+    "Network fees are charged separately on deposit, processing and payout, and cashing out to a bank account costs extra and is limited to some regions"
+  ],
+  "editorScore": 4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "NOWPayments Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "NOWPayments review: a non-custodial crypto gateway charging 0.5 percent, or 1 percent with conversion. See fees, supported coins and why no cards are used.",
+    "keywords": [
+      "nowpayments review",
+      "nowpayments fees",
+      "nowpayments pricing",
+      "crypto payment gateway",
+      "non-custodial crypto payments"
+    ],
+    "focusKeyword": "nowpayments review"
+  },
+  "faqs": [
+    {
+      "question": "How much does NOWPayments cost?",
+      "answer": "NOWPayments charges a flat 0.5% service fee when the customer pays and the merchant receives the same coin, rising to 1% for multi-currency payments, fixed-rate payments and payments where the fee is passed to the buyer. There is no setup fee and no monthly fee. Blockchain network fees are separate and vary by chain, and higher monthly volume can qualify for a lower rate."
+    },
+    {
+      "question": "Does NOWPayments accept credit cards?",
+      "answer": "No. NOWPayments is a crypto-only gateway and does not process card payments or issue merchant accounts. A third-party fiat on-ramp can let a shopper pay by card and have the merchant receive crypto, but that card leg is run by an external provider. Merchants who need normal Visa and Mastercard acceptance will still need a separate processor alongside it."
+    },
+    {
+      "question": "What does non-custodial mean for merchants?",
+      "answer": "It means NOWPayments never holds your private keys or your funds. Once a payment confirms on chain it is forwarded to a wallet address you already control, so there is no platform balance, no rolling reserve and no freeze risk on settled funds. An optional custody balance exists if you want off-chain operations, but it is not the default behavior."
+    },
+    {
+      "question": "Is NOWPayments good for high-risk merchants?",
+      "answer": "Often yes, for a specific structural reason. Because no card networks are involved there is no interchange, no chargeback ratio to breach and no acquiring bank underwriting to fail, which is why merchants declined elsewhere turn to crypto gateways. Verification is light for basic crypto-only accounts, although fiat withdrawal features require identity checks and some regions are excluded."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "nowpayments.io",
+  "logoSource": "https://avatars.githubusercontent.com/NOWPayments?size=256",
+  "sources": [
+    "https://nowpayments.io/pricing",
+    "https://nowpayments.io/",
+    "https://nowpayments.io/about",
+    "https://nowpayments.io/help/about-nowpayments/about",
+    "https://nowpayments.io/help/about-nowpayments/about/what-are-your-fees",
+    "https://nowpayments.io/help/payments/plugins",
+    "https://nowpayments.io/payment-integration/shopify-plugin",
+    "https://nowpayments.io/crypto-subscriptions",
+    "https://nowpayments.io/payment-tools",
+    "https://coingape.com/nowpayments-review/"
+  ]
+}

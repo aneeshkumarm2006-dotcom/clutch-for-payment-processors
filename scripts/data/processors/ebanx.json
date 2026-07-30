@@ -1,0 +1,131 @@
+{
+  "name": "EBANX",
+  "slug": "ebanx",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAB6VBMVEVMaXEADisADSsADSoADisADioADioADisAAAAAFSoADSoADiwADSsAEiQADSsADSoADSsADSoAESoADykADioADSoADSoAESsADisADioADSoADy0ADSoADSkADisAEycADSsADSsADisADisADSkADisADioADisADSsADiwADSoADSsADyp5ofkADisDDisAUf/y8vICDisAR98ATvgDEzvt7/OUs/dCffyFqfkLGDQASuvb3N8CLYsCJ3kbY/4BO7jV3/QCJ3gDDy0ATO4AS+wDDiwASuoBM6ABNKS7zfV0nfkDU/8AT/kBPsQCG1QIV/+BpvgCK4YLWP68zvUMWf4DETJudoUDFkRcjvoDGEq8v8Y7RlwKFzMDGUzi4+VznfkBMJXU3vS6vcQBP8Xh4uRsdIQBO7nr6+wBPb8AUf5cjfocY/4ATvWApvgATfE6RVsCGlMDF0js7O1djvoAS+4cZP67vsUATfMIVv8CH2MCKYIDEzwCLY7j5OYARtwBP8Z8o/mGqvkDFDwBPsMCImoCKYEDEDGVtPcDGU0CLY0ASOMDGEttdYUBQc0CG1UBPcADFkY5RFqBp/h9pPkCHlwCHmADEC8CImna294AUv/x8fEJVv9DffwCIGQBO7fZ2t16ofkASOJZwgoLAAAALXRSTlMA1d+twsTS9wEM0TSGDs+Dq9AeRDaF3R2wSIQz3DdHDUzg09RKNa7DzkXeglVkMkw4AAAACXBIWXMAADsOAAA7DgHMtqGDAAACmElEQVR42u3b5W4bURCG4ZPEiSkNNVRm7u7s1hxmZmYqMzMzMzNcaZ26kZIq8TleeTyNNO8FnO+R1v45QkRy5KanJtv1hGRP3pK3ySHmtDRDT3BJO2fNrynUCdrsnNnPWa+TlFYQ2Xem6UQlLfkDKNTJSpne36gTtjr8/3NRArIdYpVOmluk0wIyRSotwCbW0QLyhZ0WYBc6cQyYD1DUPzxuxr3x809H1QAjJSZSH0+oAEZOm2gdeCUHFJWYiP0YlQL6TdT2SQHDuIDdUsA1XMBeKQB33/xMDTAZsCgA/qZApxb3OgM9fjXAVEhDKlSpApi6qaH1plIO8Ic0xG75pYAmDbUeKSCAC3ggBRzDBbyWAnD3tZ/UAI0BDGAAAxjAAAYsCsBEsLzDiHsd54LNaoDBbgOp3sMqgMEWA62WM3LARLeBWG+zFBA0UPsqBZTjAo5IARdxAV+kANx94xM1wGAAAxjAAAYwgAEMYMD/B4Ao9fke3i2tqLW+Vvu99MOYry/aRlTA35431FtZr29oV3hcBQDwvup6rPO/uu4rPa0GAKirOhvL/PGuasWHVQEAvv3q+xU+5WfVAQCXW9XmW+/F8GgsAHh3QWX/6DfAAkB7sXy/+CTgAeClR7b/eAgwAXB7T/T9O1cAFwDVV70Lz3sf1QE2AODUi4X2b4zF/poFAMDbg4fmmX92ycpblgAATyb/+TV6JoesvWQREG6grLHNU+P11njaGssGLD9jHRCnGMAABjCAAQxgAAMYIHYRR3/mk0wLWEl/6pVHC9ghcmkBK4Qjm3I/I3x+vIwSsG366DSFbj8rcvbrIj77FTlEh8eugpnTayfJV8hyzj5+35ro+Q1r557fO9zLbdsTdf6fb8t0z5z//waSV7GMUmQ3fwAAAABJRU5ErkJggg==",
+  "website": "https://www.ebanx.com",
+  "tagline": "A cross-border payment platform that connects global merchants to local payment methods across Latin America, Africa and Asia.",
+  "shortDescription": "EBANX gives global merchants one integration to more than 200 local payment methods in over 20 rising markets, including Pix, boleto, OXXO Pay and UPI. Pricing is quoted per country and per method rather than published.",
+  "longDescription": "<p><strong>EBANX</strong> is a cross-border payments company founded in Curitiba, Brazil in 2012 by Joao Del Valle, Alphonse Voigt, Antonio Maganhotte and Wagner Ruiz. It is privately held, employs several hundred people, and added a technology and regulatory base in Singapore in 2026. Its job is narrow and specific: let a global merchant sell into rising markets using the payment methods people there actually use, rather than international cards alone. Merchants integrate once and get pay-in and payout in the same platform.</p><h3>Pricing and how it works</h3><p>EBANX does not publish a processing rate card. Pricing is quoted per merchant, per country and per payment method, which is unsurprising given that Pix in Brazil, OXXO Pay in Mexico and UPI in India have almost nothing in common economically. Its published fee schedule does list ancillary charges, including a chargeback fee of $15 and a refund fee of $1, plus a settlement fee on extra settlements requested inside the same month beyond the free one. Capterra reviewers report a platform fee of $200 a month on the EBANX One plan on top of transaction pricing, and rate the product 1.7 out of 5 for value for money. There is no free trial or free tier. Settlement timing depends on the payment method, and merchants who do not nominate a currency are settled in US dollars by default.</p><h3>Coverage</h3><p>EBANX covers more than 20 countries and more than 200 local payment methods across Latin America, Africa and Asia, including Brazil, Mexico, Colombia, Chile, Peru, Argentina, Uruguay, India, South Africa, Nigeria, Egypt, the Philippines, Indonesia and Thailand, with Turkey, Malaysia and Vietnam added more recently. It is a direct Pix participant holding a payment initiator license issued by Brazil's central bank in 2023, is certified PCI DSS Level 1, and has extended recurring billing into markets where storing a card on file is uncommon.</p><h3>Who it is for</h3><p>Streaming services, SaaS vendors, travel platforms, gaming companies, online education and marketplaces with meaningful volume in emerging markets. A small merchant taking occasional Brazilian orders will find the commercial model heavy for the value.</p>",
+  "foundedYear": 2012,
+  "headquarters": "Curitiba, Brazil",
+  "companySize": "251-1000",
+  "supportedRegions": [
+    "Global",
+    "IN"
+  ],
+  "pricingModel": [
+    "custom-quote"
+  ],
+  "pricingSummary": "EBANX publishes no processing rates and quotes pricing per merchant, per country and per payment method. Its published fee schedule does list a $15 chargeback fee and a $1 refund fee.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "monthlyFee": "Not published",
+    "chargebackFee": "$15 per chargeback under the published fee schedule",
+    "refundPolicy": "Refunds supported, with a $1 fee per refund paid to the customer on the merchant's behalf under the published fee schedule"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "upi",
+    "netbanking",
+    "wallets",
+    "wire"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "woocommerce",
+    "magento"
+  ],
+  "currencies": "Local currencies across 20+ rising markets, with merchant settlement in US dollars by default or in local currency",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "reporting-dashboard"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "international",
+    "ecommerce",
+    "subscriptions"
+  ],
+  "bestFor": [
+    "LatAm expansion",
+    "Streaming and SaaS",
+    "Cross-border ecommerce"
+  ],
+  "industries": [
+    "Streaming",
+    "SaaS",
+    "Travel",
+    "Online education"
+  ],
+  "pros": [
+    "One integration reaches more than 200 local methods that actually convert in these markets, including Pix, boleto, OXXO Pay, SPEI, PSE and UPI",
+    "Locally regulated rather than routed through a partner, with a Brazilian central bank payment initiator license for Pix since 2023 and PCI DSS Level 1 certification",
+    "Covers more than 20 countries across Latin America, Africa and Asia in one contract, with pay-in and payout on the same platform"
+  ],
+  "cons": [
+    "No public rate card at all, and pricing is negotiated country by country and method by method, so you cannot compare costs before entering a sales process",
+    "Capterra reviewers report a $200 per month platform fee on top of transaction pricing and score the product 1.7 out of 5 for value for money and 1.7 for customer service",
+    "Onboarding is enterprise-paced rather than instant, with reviewers describing setups that ran past two months, and settlement timing varies by payment method rather than following one schedule"
+  ],
+  "editorScore": 4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "EBANX Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "EBANX connects global merchants to Pix, boleto, OXXO Pay and UPI across Latin America, Africa and Asia. See how its custom pricing and fees work.",
+    "keywords": [
+      "ebanx review",
+      "ebanx pricing",
+      "ebanx fees",
+      "latin america payment gateway",
+      "cross-border payments latam"
+    ],
+    "focusKeyword": "ebanx review"
+  },
+  "faqs": [
+    {
+      "question": "How much does EBANX cost?",
+      "answer": "EBANX does not publish a standard processing rate. Pricing is quoted per merchant, per country and per payment method, since the economics of Pix, boleto, OXXO Pay and UPI differ sharply. Its published fee schedule lists a $15 chargeback fee and a $1 refund fee, and Capterra reviewers report a $200 monthly platform fee on the EBANX One plan on top of transaction pricing."
+    },
+    {
+      "question": "Which countries and payment methods does EBANX support?",
+      "answer": "EBANX covers more than 20 countries across Latin America, Africa and Asia with more than 200 local payment methods. That includes Pix and boleto in Brazil, OXXO Pay and SPEI in Mexico, PSE in Colombia, UPI and netbanking in India, plus cards, digital wallets, bank transfers and cash vouchers in markets such as South Africa, Nigeria, Egypt, the Philippines and Indonesia."
+    },
+    {
+      "question": "Is EBANX better than Stripe or Adyen for Latin America?",
+      "answer": "It depends on how much local method depth you need. EBANX is built specifically around local methods and holds local licenses, including a Brazilian central bank payment initiator license for Pix, which is what it competes on. Stripe and Adyen give you broader global coverage under one contract but thinner local method and cash voucher support in several of these markets."
+    },
+    {
+      "question": "How long does EBANX take to pay out?",
+      "answer": "Settlement timing varies by payment method and market rather than following one schedule, and payouts pass a compliance review before release. EBANX settles in US dollars by default when a merchant does not nominate a currency, and can settle in local currency instead. Capterra reviewers describe onboarding taking more than two months, so plan the launch timeline around that."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "ebanx.com",
+  "logoSource": "https://ebanx.com/favicon.svg",
+  "sources": [
+    "https://www.ebanx.com/en/legal/pricing-fees/",
+    "https://www.ebanx.com/en/legal/merchants/terms-and-conditions-for-payment-processing-services/",
+    "https://www.ebanx.com/en/online-payment-methods/",
+    "https://www.ebanx.com/en/markets-coverage/",
+    "https://business.ebanx.com/en/blog/security/ebanx-front-runner-of-pci-dss-compliance-in-latin-america/",
+    "https://www.capterra.com/p/178524/Online-Payments-in-Latin-America/",
+    "https://igamingpaymentsolutions.com/providers/ebanx",
+    "https://markets.financialcontent.com/stocks/article/gnwcq-2026-4-21-ebanx-expands-recurring-alternative-payments-offering-unlocks-a-1-billion-user-potential-across-12-emerging-markets",
+    "https://www.crunchbase.com/organization/ebanx",
+    "https://github.com/ebanx/woocommerce-gateway-ebanx"
+  ]
+}

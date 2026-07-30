@@ -1,0 +1,148 @@
+{
+  "name": "Corepay",
+  "slug": "corepay",
+  "logo": "data:image/png;base64,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",
+  "website": "https://corepay.net",
+  "tagline": "A Florida-based high-risk merchant account provider that places specialty businesses with acquiring banks in the US, UK, EU, Canada and Australia.",
+  "shortDescription": "Corepay underwrites dedicated high-risk merchant accounts and places them with acquiring banks across several markets. It publishes no rates, quoting flat-rate, interchange-plus or custom pricing, with no application, setup or annual fees.",
+  "longDescription": "<p><strong>Corepay</strong> is a full-service payment provider based in Winter Park, Florida, that concentrates on high-risk and specialty merchant accounts. It is not a bank. Corepay underwrites each application itself and then places the business with one of the acquiring banks and processors it works with in the US, UK, EU, Canada and Australia, so an approved merchant gets a dedicated MID rather than a slot inside a shared aggregate account. That structure is the reason it can take on categories that Stripe, Square and PayPal decline on sight.</p><h3>Pricing and how it works</h3><p>Corepay publishes no rate card. Its pricing page names three structures, a single flat rate on every transaction, interchange-plus with a fixed markup, or a fully custom schedule built around volume, industry and processing history, and all three require a quote. The company advertises no application fee, no setup fee, no annual fee and no monthly minimum, and Merchant Maverick's review lists a $0 setup fee. Two costs sit outside that promise. The card networks bill high-risk registration separately, and Corepay's own fee guide puts those at $950 a year for Visa and $500 a year for Mastercard. Most high-risk approvals also carry a rolling reserve, which the same guide describes as typically 5 to 15 percent of deposits held for 90 to 180 days. Approvals usually land in one to three business days and US accounts fund next day.</p><h3>The platform</h3><p>Processing runs through NetValve, Corepay's own gateway, which routes across multiple acquirers, tokenizes cards in a PCI Level 1 vault, retries declined recurring transactions and scores transactions for fraud in real time. Chargeback work is handled in house through CB-Alert and a direct connection to Visa Rapid Dispute Resolution. Merchants who prefer a familiar gateway can stay on NMI or Authorize.Net instead, and Corepay lists plugins for Shopify, WooCommerce, Magento, BigCommerce and Wix.</p><h3>Who it is for</h3><p>Corepay is aimed at established high-risk sellers in CBD and hemp, nutraceuticals, telemedicine, age-verified content, dating, travel, firearms and continuity billing, particularly those with enough volume to justify interchange-plus. Low-risk businesses that just need a published card rate will find cheaper and far more transparent options elsewhere.</p>",
+  "headquarters": "Winter Park, FL, United States",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "EU",
+    "UK"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "interchange-plus",
+    "custom-quote"
+  ],
+  "pricingSummary": "Corepay publishes no rates. It quotes flat-rate, interchange-plus or fully custom pricing after underwriting, and advertises no application, setup or annual fees and no monthly minimum.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "achRate": "Custom quote, marketed as lower cost than card processing",
+    "monthlyFee": "None advertised",
+    "setupFee": "$0",
+    "monthlyMinimum": "None",
+    "chargebackFee": "Not published, set per account",
+    "earlyTerminationFee": "Not disclosed up front, varies by contract"
+  },
+  "contractType": "long-term",
+  "freeTrial": false,
+  "payoutTime": "next-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "ach",
+    "sepa",
+    "crypto",
+    "upi",
+    "wallets",
+    "wire"
+  ],
+  "integrations": [
+    "api",
+    "shopify",
+    "woocommerce",
+    "magento",
+    "bigcommerce",
+    "wix"
+  ],
+  "currencies": "Multi-currency, with acquiring in the US, UK, EU, Canada and Australia across 30+ countries",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "tokenization",
+    "reporting-dashboard",
+    "chargeback-protection",
+    "24-7-support"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": true,
+  "categorySlugs": [
+    "high-risk",
+    "ecommerce",
+    "subscriptions",
+    "international"
+  ],
+  "bestFor": [
+    "High-risk ecommerce",
+    "CBD and supplements",
+    "Telehealth",
+    "Continuity billing"
+  ],
+  "industries": [
+    "CBD and hemp",
+    "Nutraceuticals",
+    "Telemedicine",
+    "Online dating"
+  ],
+  "pros": [
+    "Underwrites dedicated merchant accounts for categories aggregators refuse, with most specialty approvals returned in one to three business days",
+    "No application, setup, annual or monthly minimum fees, and merchants can choose flat-rate or interchange-plus rather than being forced into one model",
+    "Chargeback tooling is built in house through CB-Alert and Visa Rapid Dispute Resolution, and US accounts get next-day funding"
+  ],
+  "cons": [
+    "Not a single processing rate is published anywhere, so the only way to learn your cost is to apply and take whatever quote underwriting returns",
+    "Contract length is not disclosed before you apply, and Merchant Maverick reports that three-year terms are common on high-risk accounts",
+    "Rolling reserves apply to most high-risk approvals, and Corepay's own guide puts typical reserves at 5 to 15 percent of deposits held for 90 to 180 days"
+  ],
+  "editorScore": 3.8,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Corepay Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Corepay is a high-risk merchant account provider in Winter Park, Florida. See its custom pricing, zero setup fee policy, reserves and contract terms.",
+    "keywords": [
+      "corepay review",
+      "corepay pricing",
+      "corepay fees",
+      "high-risk merchant account provider",
+      "corepay vs stripe"
+    ],
+    "focusKeyword": "corepay review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Corepay cost?",
+      "answer": "Corepay does not publish rates. It quotes flat-rate, interchange-plus or fully custom pricing after underwriting your business, and advertises no application fee, no setup fee, no annual fee and no monthly minimum. Two costs sit outside that: the card networks bill high-risk registration separately, which Corepay's own guide puts at $950 a year for Visa and $500 for Mastercard."
+    },
+    {
+      "question": "Is Corepay good for high-risk merchants?",
+      "answer": "Yes, that is its core business. Corepay underwrites each account individually and places it with acquiring banks that accept CBD, nutraceuticals, telemedicine, age-verified content, dating, travel and subscription billing. Most specialty approvals come back within one to three business days, and merchants receive a dedicated merchant ID rather than a shared aggregate account, which reduces the risk of a sudden blanket shutdown."
+    },
+    {
+      "question": "How long does Corepay take to approve and fund an account?",
+      "answer": "Corepay says most specialty accounts are approved within one to three business days once documents are submitted, and that integration usually takes another one to two business days after approval. US merchant accounts settle with next-day funding. High-risk approvals often carry a rolling reserve, and Corepay describes typical high-risk reserves as 5 to 15 percent held for 90 to 180 days."
+    },
+    {
+      "question": "Does Corepay lock you into a long contract?",
+      "answer": "Corepay does not publish contract terms. Merchant Maverick's review notes that terms vary by account, that three-year agreements are common on high-risk merchant accounts, and that early termination is handled case by case. Since none of this is visible before underwriting, ask for the term length, the termination clause and the reserve release schedule in writing before signing."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "corepay.net",
+  "logoSource": "https://corepay.net/wp-content/uploads/brand/favicon.svg",
+  "sources": [
+    "https://corepay.net/pricing/",
+    "https://corepay.net/solutions/high-risk-merchant-accounts/",
+    "https://corepay.net/solutions/payment-gateways/",
+    "https://corepay.net/integrations/",
+    "https://corepay.net/articles/high-risk-credit-card-processing-fees/",
+    "https://corepay.net/articles/how-to-survive-merchant-account-rolling-reserves/",
+    "https://www.merchantmaverick.com/reviews/corepay-review/",
+    "https://www.zoominfo.com/c/corepay/478195355"
+  ]
+}

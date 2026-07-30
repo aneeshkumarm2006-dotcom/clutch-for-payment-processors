@@ -1,0 +1,135 @@
+{
+  "name": "Merchant One",
+  "slug": "merchant-one",
+  "logo": "data:image/png;base64,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",
+  "website": "https://merchantone.com",
+  "tagline": "Merchant One is a Miami Beach-based ISO that resells Wells Fargo merchant accounts with tiered pricing, Clover hardware and a $13.95 monthly fee.",
+  "shortDescription": "Merchant One is a registered ISO of Wells Fargo Bank selling merchant accounts to US small businesses. Advertised rates start at 0.29 percent with a $13.95 monthly fee, but real pricing is quoted case by case and the company has a long complaint record about fees and contracts.",
+  "longDescription": "<p>Merchant One is a merchant services provider based in Miami Beach, Florida, and a registered ISO of Wells Fargo Bank, N.A., Concord, CA. Better Business Bureau records put the start of the business in 2004. Rather than operating its own payments platform, it sells merchant accounts, a payment gateway with more than 175 shopping cart integrations, a virtual terminal and Clover point-of-sale hardware to small and mid-sized US businesses, then supports those accounts with dedicated account managers and 24/7 phone support.</p><h3>Pricing and how it works</h3><p>Merchant One advertises a qualified swiped rate of 0.29 percent to 1.55 percent and a qualified keyed-in rate of 0.29 percent to 1.99 percent, a $13.95 monthly fee and a $0 setup fee. Those are tiered rates. The 0.29 percent figure is the floor of the qualified tier rather than a rate most merchants will average, because transactions that fall into mid-qualified and non-qualified buckets cost noticeably more. There is no published rate sheet: every account is quoted individually after a sales call. Independent reviews report an annual fee of around $99, and describe both three-year terms with early termination fees and negotiated month-to-month deals, so the agreement you sign depends heavily on what you negotiate.</p><h3>Who it is for</h3><p>Merchant One targets US small businesses that want a single point of contact, subsidized terminal placement and fast approval, including merchants turned down elsewhere. It is a reasonable fit for a retail shop or restaurant that values a named account manager over a self-serve dashboard. It is a poor fit for anyone who wants transparent published pricing, for online-first businesses that flat-rate providers serve more cheaply, or for merchants unwilling to negotiate. The company holds an A-plus rating with the Better Business Bureau, but its BBB customer review score is low and dozens of complaints have been closed there in the past three years, most of them about fees and cancellation terms that merchants say were not explained up front. Get every fee and the exact contract length in writing before signing.</p>",
+  "foundedYear": 2004,
+  "headquarters": "Miami Beach, FL, United States",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "US"
+  ],
+  "pricingModel": [
+    "tiered",
+    "interchange-plus",
+    "custom-quote"
+  ],
+  "pricingSummary": "Merchant One advertises qualified rates of 0.29% to 1.55% swiped and 0.29% to 1.99% keyed in, plus a $13.95 monthly fee and no setup fee. Actual pricing is tiered and quoted per merchant after a sales call, so the advertised floor is rarely the effective rate.",
+  "fees": {
+    "onlineCardRate": "0.29% to 1.99% qualified",
+    "inPersonCardRate": "0.29% to 1.55% qualified swiped rate",
+    "keyedInRate": "0.29% to 1.99% qualified rate",
+    "monthlyFee": "$13.95",
+    "setupFee": "$0",
+    "pciFee": "Support states PCI compliance is covered by the monthly fee, so confirm this in writing",
+    "earlyTerminationFee": "Charged but not published. Independent reviews report a $295 flat fee or $25 per remaining month, with some complaints citing substantially higher amounts"
+  },
+  "contractType": "long-term",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "ach"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "virtual-terminal",
+    "pos-hardware"
+  ],
+  "currencies": "USD, US merchants only",
+  "features": [
+    "recurring-billing",
+    "tokenization",
+    "tap-to-pay",
+    "reporting-dashboard",
+    "24-7-support"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "small-business",
+    "retail-pos",
+    "restaurants"
+  ],
+  "bestFor": [
+    "Small business",
+    "Retail",
+    "Restaurants"
+  ],
+  "industries": [
+    "Retail",
+    "Restaurants",
+    "Hospitality",
+    "E-commerce"
+  ],
+  "pros": [
+    "Advertised qualified rates start at 0.29 percent, and interchange-plus pricing is available if you ask for it",
+    "Every account gets a named account manager, with 24/7 phone support and terminal placement programs that avoid upfront hardware cost",
+    "Approval is fast and the company works with merchants that flat-rate providers and stricter underwriters turn away"
+  ],
+  "cons": [
+    "Pricing is tiered and unpublished, so the headline 0.29 percent is a qualified tier floor that few merchants will average once mid-qualified and non-qualified transactions are counted",
+    "Independent reviews and BBB complaints repeatedly describe multi-year contracts with early termination fees that salespeople had said did not exist",
+    "Some reviewers report funding taking a week or more despite the next-day funding the company markets, and there is no published rate sheet to check any of it against"
+  ],
+  "editorScore": 2.7,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Merchant One Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Merchant One review: qualified rates from 0.29 percent, a USD 13.95 monthly fee, tiered unpublished pricing and the contract terms to check first.",
+    "keywords": [
+      "merchant one review",
+      "merchant one pricing",
+      "merchant one fees",
+      "merchant one contract"
+    ],
+    "focusKeyword": "merchant one review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Merchant One cost?",
+      "answer": "Merchant One advertises a qualified swiped rate of 0.29 percent to 1.55 percent, a qualified keyed-in rate of 0.29 percent to 1.99 percent, a $13.95 monthly fee and no setup fee. Independent reviews also report an annual fee of around $99. There is no published rate sheet, so the actual rate is set during a sales call and varies by business type and volume."
+    },
+    {
+      "question": "Does Merchant One require a long-term contract?",
+      "answer": "Usually yes. Multiple independent reviews describe three-year agreements with an early termination fee, although some merchants report negotiating month-to-month terms. Reported termination fees range from a $295 flat charge or $25 for each remaining month to several hundred dollars per remaining year. Merchant One does not publish its standard term, so ask for the contract length and cancellation fee in writing before signing."
+    },
+    {
+      "question": "Is the 0.29 percent rate realistic?",
+      "answer": "Rarely. That figure is the floor of the qualified tier under a tiered pricing model. Transactions that do not meet qualified criteria, such as rewards cards, corporate cards and many card-not-present sales, are downgraded to mid-qualified or non-qualified tiers that cost more. Your effective rate, meaning total fees divided by total volume, is the number that matters, and it will be higher."
+    },
+    {
+      "question": "Is Merchant One good for high-risk merchants?",
+      "answer": "Not especially. Merchant One is a registered ISO of Wells Fargo Bank and underwrites to standard bank criteria, so it is not a high-risk specialist in the way that dedicated high-risk acquirers are. It does market fast approval and works with businesses that flat-rate providers decline, but merchants in restricted categories such as adult, firearms or CBD should approach a specialist instead."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "merchantone.com",
+  "logoSource": "https://www.merchantone.com/wp-content/uploads/2019/08/logo-icon-merchant-one-gold-flat.png",
+  "sources": [
+    "https://merchantone.com/",
+    "https://www.merchantone.com/get-started/",
+    "https://www.bbb.org/us/fl/miami-beach/profile/credit-card-processing-services/merchant-one-inc-0633-26002306",
+    "https://www.websiteplanet.com/credit-card-processing/merchant-one/",
+    "https://www.top10.com/merchant-services/reviews/merchant-one",
+    "https://www.cardfellow.com/credit-card-processors/merchant-one",
+    "https://merchantservices-usa.com/reviews/merchantone",
+    "https://www.businessnewsdaily.com/16082-merchant-one.html",
+    "https://www.cardpaymentoptions.com/credit-card-processors/merchant-one-review/",
+    "https://www.forbes.com/advisor/business/software/merchant-one-review/"
+  ]
+}

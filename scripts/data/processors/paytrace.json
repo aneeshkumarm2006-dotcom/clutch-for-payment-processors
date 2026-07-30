@@ -1,0 +1,138 @@
+{
+  "name": "PayTrace",
+  "slug": "paytrace",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAYFBMVEVMaXH/xYvo7Ob/7dj/sFn/1av+5sr/+Omey+eHw+R0ud/x9fJSqdi74PH/2LD/yZGi1ez54cWe0Or/zZev1uz/yY//21AAh8r/nzf/nTEAhMn/rln/pUX/uXEnlNA+nNPzbkq7AAAAF3RSTlMA/TOLKPpaB/v1/hj8j7vbYnbAnPphiz8hQmsAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAThSURBVHja7ZrhmqsoDIaVVqnVStV2BQF7/3e52O4ZAQG1A7r7rN/PcWxeYxJCMIoOGQXy2yPzp8sD5PkK87d7VvRt51Ftf61vSxFA9urFLZ7Vta/itsh8Xfi3/kHo+uwO5+yn1z6M+Q9CUbvNQ1CEM/9G6Gvg9H9g+0MoXBwE4BXa/qCLNRvyYgv7bWtNhqzdRq+72X69kf22u+b7BODMS3hMs9ZjKVZ/uTBkQqpmgChb14svZUWrIvT1bAS8MgD9KaoLzQV6SYb5tVPC5OZ7fa+VEt/f3DWoyP23GKqL9XcA67kY+b0yxcW6iUxyQFfDEACVlOfTZ1QuBurzaukhe2BPwu4SCsARBLcRoOvvYexDxc0PDaCfXyt+r6vdzRJAdwAcAAfAAXAAHAAHwP8VoPvXeGCfjgg8JOU7AGyjA+AAmAUAcF8AkFT7AlQsBrsCcMKaHQFggzHh6X4AgBOMcQl3A0DCvHBBvhdAysibIM73Acjjt31MaLUJQKsDPOkHIJQLboVQL49ihz+MgyL4jwMEQJhUFIPQrtNH4cXY+jQM/1GgVHwYpvb1JALeCuMCODmO6K5jypdYEqGnIFGgP780sE4pUQjQGIc5SkYtDM9SuiU1T4PVcTFEGKsuGG9LOfnRUs/8Nd5CSuMw9O2AMQKB6gChsR6mfLzGlgEAOaBKy6y47bLcGIH6fTKA8msOANstqTyqfY0Fr5o4QKQiMD3OsvSQHao6Td4AZuOf4+FdKeaF0E+FIMbgdMWgHE2Wk0HlvOAdrUyqA/Hwh5+fk9joooZJ8hnhkXlg3+lHNqfRbXIODFdk1yQL7J8Ysd4Ar7YDEzsAlN6odsmoHMmvU4+a+ycVp0cSdoAokX8QzQI8mRO4Nh9ZuQBKKTzm1wklBzHVoxbehzg0nMk4AJRKMNevgFhJJ0PhGFIxi9YARMpLxdxFkCe2ki5/pVLc1wGclULlbBdiRmaT5tabjiVdABHSlqrSUo8qtaZbciY3fkfjBNBqNaHI9BpAqZV0Eq/YYzgB1H5lqNQ0OQPt1ZYca/ZXbTHcAJP1UiDEzWlcs5uSM31FY6s2WW4A44LJKP10S4hThqfXURT5A5C75tEE/tP2YMPFlXu8OQAtDMZXgTExXljb2M4CAIRXiHBj85TEo8qVANEZGV2NLc8PzZ3CqGQtgKhHjCx9/nS+VfkCIE8WERBsnTT9EkCs9RyTefcjEIUCiFJEyczj89OybvE7gAg+xYJH7OZpCaKgAENNEl4wlh7CeAMW98vfA0SgSkTllwvgZ+cYl2BFw/4LgPf/l8MK8KnPjFHO0dAkwO0ABj+kz2dTCj2fzyqdt+4b4G3x863eYnkGWK8D4AA4AJYCPDcAwHYAzIIByLMOpH1WTMm6Qcw3ksdNk6fkZPEM4FvJwxtCz3rHTL7e1CyVsr3iYHJoqWzAA9hPY+UZoXu2U4a1bxi6qtM1Qhu/h7hQHV6Yak2jba45SiNfX/fnpdZNkzgynRxrXaZotDyJYm0Ybax1FZu0uZ407Z+NU28QE7yNCDMXmpRtRWCrMwnbxgGxbbnNN3kJrknnFgTulWaDQJxZ6dIEk7D+ny3yJScB82/JZzqpawLwK/OEL1xhTogy4hdC/JpYXZb3LlUTD7tvb6I8RtWqZhuCs1+BkF/n/Lf1N9gSJ9IJPz+3AAAAAElFTkSuQmCC",
+  "website": "https://paytrace.net",
+  "tagline": "US payment gateway built for B2B and B2G sellers, with automated Level 2 and Level 3 data to cut interchange on commercial cards.",
+  "shortDescription": "Spokane-based gateway owned by North, focused on business-to-business card acceptance. It automatically fills the enhanced data fields that qualify commercial cards for Level 2 and Level 3 interchange, but it publishes no rate card of its own.",
+  "longDescription": "<p>PayTrace is a payment gateway founded in 2004 and headquartered in Spokane, Washington. North American Bancard, which now trades as North, acquired it in March 2022 and made it the group's preferred gateway. PayTrace reports more than 40,000 merchants and $46 billion settled in 2023, and it is sold both directly and through a partner network of several hundred resellers. The product set covers a browser-based virtual terminal, hosted payment fields, pay-now buttons, payment links, a customer vault, recurring billing, ACH through Trace ACH and receivables automation through Trace AR.</p><h3>Pricing and how it works</h3><p>PayTrace does not publish a rate card. Its own pages route pricing questions to a sales conversation or a free statement review, and in the classic gateway model the processing rate is set by whichever merchant services provider sells you the account. Third-party listings put the gateway subscription in the region of $15 to $75 per month depending on plan, with per-transaction fees of roughly $0.10 to $0.30, so treat those figures as indicative rather than official. PayTrace's published billing terms do confirm a $25 handling fee for each bank rejection of an authorized ACH debit and a late charge of 1.5% per month. The real economics sit in interchange optimization. PayTrace automatically submits the purchase order number, tax amount, AVS data and line-item detail that commercial cards need to qualify for lower interchange tiers. On its own published tables a Visa Corporate or Purchasing card can settle at 1.75% + $0.10 at the best qualification level against 2.95% + $0.10 unqualified, which is where the saving comes from. Funding is next-day against a midnight ET cut-off, or same-day with a cut-off as late as 10:30 am ET.</p><h3>Who it is for</h3><p>PayTrace is a strong fit for US wholesalers, distributors, manufacturers and government suppliers that invoice other businesses and take a high share of corporate and purchasing cards. Those merchants gain the most from Level 2 and Level 3 automation, surcharging and the ERP and accounting integrations. It is a poor fit for consumer-facing retail, for anyone trading outside the US, and for merchants who want published, comparable pricing before they talk to a salesperson.</p>",
+  "foundedYear": 2004,
+  "headquarters": "Spokane, WA, United States",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "US"
+  ],
+  "pricingModel": [
+    "interchange-plus",
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "PayTrace does not publish rates. The gateway is sold as a monthly subscription plus a per-transaction fee, with the card processing rate set by the merchant services provider, and third-party listings cite roughly $15 to $75 per month.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "keyedInRate": "Custom quote, with Level 2 and Level 3 qualification applied automatically where the data is present",
+    "achRate": "Custom quote through Trace ACH, plus a $25 handling fee for each rejected ACH debit",
+    "monthlyFee": "Roughly $15 to $75",
+    "setupFee": "Varies by reseller",
+    "monthlyMinimum": "Varies"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "next-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "ach"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "virtual-terminal",
+    "payment-links",
+    "invoicing",
+    "woocommerce",
+    "magento"
+  ],
+  "currencies": "USD for US merchants",
+  "features": [
+    "recurring-billing",
+    "fraud-protection",
+    "tokenization",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "subscriptions",
+    "small-business"
+  ],
+  "bestFor": [
+    "B2B sellers",
+    "Wholesale",
+    "Level 3 processing",
+    "Government suppliers"
+  ],
+  "industries": [
+    "Wholesale distribution",
+    "Manufacturing",
+    "Medical supplies",
+    "Professional services"
+  ],
+  "pros": [
+    "Automates the Level 2 and Level 3 data fields that commercial cards need, which can move a Visa Purchasing card from 2.95% + $0.10 unqualified to 1.75% + $0.10",
+    "Broad B2B tooling in one account, covering virtual terminal, customer vault, recurring billing, payment links, ACH and receivables automation",
+    "Optional surcharging plus next-day funding, with same-day funding available against a 10:30 am ET cut-off"
+  ],
+  "cons": [
+    "No published pricing anywhere on its own site, so merchants cannot compare cost without going through a sales call or a statement review",
+    "Rates and contract terms are largely set by the reselling merchant services provider, which makes the same gateway cost very different from partner to partner",
+    "Aimed at US merchants processing in USD, with none of the local method or multi-currency coverage an international seller would need"
+  ],
+  "editorScore": 3.8,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "PayTrace Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "PayTrace is a US gateway built for B2B card payments, with Level 2 and Level 3 automation. See what it costs, how it works and where it falls short.",
+    "keywords": [
+      "paytrace review",
+      "paytrace pricing",
+      "paytrace fees",
+      "paytrace gateway",
+      "level 3 processing gateway"
+    ],
+    "focusKeyword": "paytrace review"
+  },
+  "faqs": [
+    {
+      "question": "How much does PayTrace cost?",
+      "answer": "PayTrace does not publish pricing. The gateway is billed as a monthly subscription plus a per-transaction fee, and third-party listings put that in the region of $15 to $75 per month with roughly $0.10 to $0.30 per transaction. The card processing rate is set separately by whichever merchant services provider sells the account, so quotes vary widely."
+    },
+    {
+      "question": "What is Level 3 processing and does PayTrace handle it automatically?",
+      "answer": "Level 3 processing means submitting extra data such as purchase order numbers, tax amounts, AVS details and line-item product information so commercial cards qualify for lower interchange. PayTrace populates those fields automatically from its product list and customer records. On its published tables that can take a Visa Purchasing card from 2.95% + $0.10 unqualified to 1.75% + $0.10."
+    },
+    {
+      "question": "Who owns PayTrace?",
+      "answer": "PayTrace was acquired in March 2022 by North American Bancard, which now trades as North, and it operates as a North company. PayTrace continues to run from Spokane, Washington with its own support team and around 80 employees. After the acquisition it became North's preferred gateway and added support for the group's EPX processing network."
+    },
+    {
+      "question": "Is PayTrace good for high-risk merchants?",
+      "answer": "No. PayTrace is built for conventional US business-to-business and business-to-government sellers such as distributors, manufacturers and professional services firms. Underwriting sits with North or the reselling provider, and neither positions the product for elevated chargeback verticals. High-risk merchants should look at a specialist acquirer that prices for reserves and dispute exposure."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "paytrace.net",
+  "logoSource": "https://www.google.com/s2/favicons?sz=128&domain=paytrace.net",
+  "sources": [
+    "https://paytrace.net/",
+    "https://paytrace.net/interchange-optimization",
+    "https://paytrace.net/merchant-services",
+    "https://paytrace.net/online-payments",
+    "https://paytrace.net/virtual-terminal",
+    "https://paytrace.com/billingterms.html",
+    "https://paytrace.net/blog/paytrace-is-joining-north-american-bancard",
+    "https://www.cardfellow.com/product-directory/gateways/paytrace-gateway-review",
+    "https://www.depositfix.com/payment-gateways/paytrace",
+    "https://fintech.global/2022/03/21/paytrace-snapped-up-by-north-american-bancard/",
+    "https://www.getapp.com/finance-accounting-software/a/paytrace/"
+  ]
+}
