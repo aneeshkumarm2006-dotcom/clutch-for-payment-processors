@@ -39,7 +39,9 @@ export const revalidate = 1800;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const pages = await getPublishedLandingPages();
+  // `excludeRedirected`: a prerendered page can't serve a 308 — see the note on
+  // `getPublishedLandingPages`. A retired landing page renders on demand instead.
+  const pages = await getPublishedLandingPages({ excludeRedirected: true });
   return pages.map((p) => ({ landing: p.path.replace(/^\//, "") }));
 }
 

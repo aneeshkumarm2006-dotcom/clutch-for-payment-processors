@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { Blocks } from "@/components/public/Blocks";
 import { CompareView } from "@/components/public/compare/CompareView";
 import { FaqSection } from "@/components/public/FaqSection";
 import { JsonLd } from "@/components/public/JsonLd";
-import { getProcessorsBySlugs } from "@/lib/public-data";
+import { getProcessorsBySlugs, getPublishedProcessorOptions } from "@/lib/public-data";
 import { COMPARE_MAX } from "@/components/public/compare/constants";
 import { buildMetadata, absoluteUrl, faqJsonLd } from "@/lib/seo";
 import { getPageSeo, pageSeoMetadata } from "@/lib/page-seo";
 import { toBlocks } from "@/lib/serialize";
-import { prettyComparePath } from "@/lib/compare-pairs";
+import {
+  POPULAR_COMPARE_PAIRS,
+  comparePairToParam,
+  prettyComparePath,
+} from "@/lib/compare-pairs";
 
 /**
  * Compare `/compare?ids=stripe,paypal,square` (PRD §9.4).
@@ -90,12 +96,36 @@ export default async function ComparePage({
   searchParams: { ids?: string | string[] };
 }) {
   const slugs = parseIds(searchParams.ids);
+  const isLanding = !searchParams.ids;
   const processors = await getProcessorsBySlugs(slugs);
-  // Editorial copy only on the bare landing (no selection) — that's the
-  // indexable page, and it's the one a reader arrives at cold.
-  const pageSeo = searchParams.ids ? null : await getPageSeo("compare");
+  // Editorial copy and the curated-pair hub links only on the bare landing (no
+  // selection) — that's the indexable page, and the one a reader arrives at cold.
+  const [pageSeo, processorOptions] = isLanding
+    ? await Promise.all([getPageSeo("compare"), getPublishedProcessorOptions()])
+    : [null, []];
   const blocks = toBlocks(pageSeo?.blocks);
   const hasFaqBlock = Boolean(blocks?.some((b) => b.type === "faq"));
+
+  /**
+   * The curated head-to-heads, as links to their pretty `/compare/a-vs-b` pages.
+   *
+   * This hub link is the whole reason those 20 pages are crawlable. They are
+   * statically generated, indexable, and listed in the sitemap, but until now
+   * nothing on the site linked to them — the landing page rendered only the
+   * client-side compare tool, whose "compare" action pushes a `?ids=` URL that is
+   * deliberately `noindex`. A sitemap entry is a hint; an internal link from an
+   * indexed page is what actually gets a URL crawled, which is why Search Console
+   * held 19 of the 20 at "Discovered - currently not indexed".
+   *
+   * A pair is dropped when either side is unpublished, mirroring the rule in
+   * `getSitemapEntries` and `/compare/[pair]` — so this can never link a 404.
+   */
+  const nameBySlug = new Map(processorOptions.map((p) => [p.slug, p.name]));
+  const curatedPairs = POPULAR_COMPARE_PAIRS.flatMap((pair) => {
+    const [a, b] = pair.map((s) => nameBySlug.get(s));
+    if (!a || !b) return [];
+    return [{ href: `/compare/${comparePairToParam(pair)}`, a, b }];
+  });
 
   return (
     <div className="mx-auto max-w-content px-4 py-8 lg:px-6 lg:py-10">
@@ -112,6 +142,33 @@ export default async function ComparePage({
       <div className="mt-8">
         <CompareView processors={processors} />
       </div>
+
+      {isLanding && curatedPairs.length > 0 && (
+        <section className="mt-14">
+          <h2 className="text-h2 tracking-tighter2 text-foreground">Popular comparisons</h2>
+          <p className="mt-2 max-w-prose text-body text-muted-foreground">
+            The head-to-heads merchants ask about most, each written up on its own page.
+          </p>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {curatedPairs.map(({ href, a, b }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="group flex items-center justify-between gap-3 rounded-lg border bg-card p-4 transition-colors hover:border-border-strong"
+                >
+                  <span className="text-body font-medium text-foreground">
+                    {a} <span className="font-normal text-muted-foreground">vs</span> {b}
+                  </span>
+                  <ArrowRight
+                    className="size-4 shrink-0 text-ink-400 transition-colors group-hover:text-accent"
+                    aria-hidden
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* The comparison tool is the tool; this is the copy the page ranks on. */}
       <Blocks blocks={blocks} className="mt-14" />

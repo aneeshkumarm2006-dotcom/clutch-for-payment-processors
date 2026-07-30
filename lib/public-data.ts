@@ -180,11 +180,17 @@ export async function getProcessorsBySlugs(slugs: string[]): Promise<ProcessorDe
   }
 }
 
-/** Slugs of all published processors for `generateStaticParams` (resilient → []). */
+/**
+ * Slugs of all published processors for `generateStaticParams` (resilient → []).
+ * Redirected records are excluded so their 308 is a real one — see
+ * `getAllPublishedBlogSlugs` for why prerendering defeats `redirect()`.
+ */
 export async function getAllPublishedProcessorSlugs(): Promise<string[]> {
   try {
     await connectToDatabase();
-    const docs = await Processor.find({ isPublished: true }).select("slug").lean();
+    const docs = await Processor.find({ isPublished: true, ...notRedirected })
+      .select("slug")
+      .lean();
     return docs.map((d) => String(d.slug));
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -246,10 +252,17 @@ export async function getSiblingCategories(
   }
 }
 
+/**
+ * Slugs for `generateStaticParams`. Redirected records are excluded so their 308
+ * is a real one — see `getAllPublishedBlogSlugs` for why prerendering defeats
+ * `redirect()`.
+ */
 export async function getAllPublishedCategorySlugs(): Promise<string[]> {
   try {
     await connectToDatabase();
-    const docs = await Category.find({ isPublished: true }).select("slug").lean();
+    const docs = await Category.find({ isPublished: true, ...notRedirected })
+      .select("slug")
+      .lean();
     return docs.map((d) => String(d.slug));
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -395,6 +408,30 @@ function publishedFilter() {
   };
 }
 
+/**
+ * Drop posts retired into another URL via `seo.redirectTo`.
+ *
+ * Spread into the LISTING queries only — the index grid, the "more reading"
+ * rail, the homepage's recent posts. A consolidated post still answers on its
+ * own URL (with a 308), but nothing should keep sending readers and crawlers at
+ * a redirect: every such link is a hop that dilutes the link and wastes crawl
+ * budget on a URL whose whole job is to point elsewhere.
+ *
+ * Also spread into the `generateStaticParams` slug lists, for a different
+ * reason: a prerendered page CANNOT serve a 308 (see `getAllPublishedBlogSlugs`).
+ *
+ * Deliberately NOT applied to the by-slug lookups (`getBlogPostBySlug` and
+ * friends). The route has to find the record to read `redirectTo` off it;
+ * filtering there turns a 308 into a 404.
+ *
+ * `$in: [null, ""]` rather than an `$or`, for the reason `indexableFilter`
+ * documents: Mongo matches a missing field against `null`, and this is spread
+ * alongside `publishedFilter()`, which already owns the `$or` key — a second one
+ * would silently replace the publish-date clause and start listing scheduled
+ * posts.
+ */
+const notRedirected = { "seo.redirectTo": { $in: [null, ""] } } as const;
+
 export interface BlogIndexResult {
   items: BlogCardData[];
   total: number;
@@ -411,7 +448,7 @@ export async function getPublishedBlogPosts(
   const pageNum = Math.max(1, page);
   try {
     await connectToDatabase();
-    const filter = publishedFilter();
+    const filter = { ...publishedFilter(), ...notRedirected };
     const [docs, total] = await Promise.all([
       BlogPost.find(filter)
         .sort({ publishedAt: -1, createdAt: -1 })
@@ -462,7 +499,7 @@ export async function getBlogPostBySlug(slug: string): Promise<{
       .filter((p) => p && typeof p === "object" && "name" in p)
       .map(toProcessorCardData);
 
-    const moreDocs = await BlogPost.find({ ...publishedFilter(), _id: { $ne: doc._id } })
+    const moreDocs = await BlogPost.find({ ...publishedFilter(), ...notRedirected, _id: { $ne: doc._id } })
       .sort({ publishedAt: -1, createdAt: -1 })
       .limit(3)
       .select("title slug excerpt coverImage author tags publishedAt createdAt readingTimeMinutes")
@@ -504,7 +541,7 @@ export async function getBlogPostForPreview(id: string): Promise<{
       .filter((p) => p && typeof p === "object" && "name" in p)
       .map(toProcessorCardData);
 
-    const moreDocs = await BlogPost.find({ ...publishedFilter(), _id: { $ne: doc._id } })
+    const moreDocs = await BlogPost.find({ ...publishedFilter(), ...notRedirected, _id: { $ne: doc._id } })
       .sort({ publishedAt: -1, createdAt: -1 })
       .limit(3)
       .select("title slug excerpt coverImage author tags publishedAt createdAt readingTimeMinutes")
@@ -526,7 +563,7 @@ export async function getBlogPostForPreview(id: string): Promise<{
 export async function getRecentBlogPosts(limit = 3): Promise<BlogCardData[]> {
   try {
     await connectToDatabase();
-    const docs = await BlogPost.find(publishedFilter())
+    const docs = await BlogPost.find({ ...publishedFilter(), ...notRedirected })
       .sort({ publishedAt: -1, createdAt: -1 })
       .limit(limit)
       .select("title slug excerpt coverImage author tags publishedAt createdAt readingTimeMinutes")
@@ -539,11 +576,26 @@ export async function getRecentBlogPosts(limit = 3): Promise<BlogCardData[]> {
   }
 }
 
-/** Slugs of all published posts for `generateStaticParams` (resilient → []). */
+/**
+ * Slugs of all published posts for `generateStaticParams` (resilient → []).
+ *
+ * Redirected posts are EXCLUDED, and that exclusion is what makes their 308
+ * work. `redirect()` inside a prerendered page is not an HTTP redirect: the
+ * build bakes it into a static shell that answers 200 and defers the navigation
+ * to the client router, so a crawler sees a blank page with a soft redirect
+ * instead of the permanent one the record asked for. Leaving the slug out sends
+ * the route down the `dynamicParams = true` path, where it renders on demand and
+ * `applySeoRedirect` can actually throw a 308.
+ *
+ * The route still resolves the post — `getBlogPostBySlug` is deliberately NOT
+ * filtered — so the URL keeps working; it just stops being prerendered.
+ */
 export async function getAllPublishedBlogSlugs(): Promise<string[]> {
   try {
     await connectToDatabase();
-    const docs = await BlogPost.find(publishedFilter()).select("slug").lean();
+    const docs = await BlogPost.find({ ...publishedFilter(), ...notRedirected })
+      .select("slug")
+      .lean();
     return docs.map((d) => String(d.slug));
   } catch (err) {
     // eslint-disable-next-line no-console

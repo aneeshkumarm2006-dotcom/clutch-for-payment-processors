@@ -6,7 +6,7 @@ import { Blocks } from "@/components/public/Blocks";
 import { DirectoryView } from "@/components/public/directory/DirectoryView";
 import { LeadDialog } from "@/components/public/LeadDialog";
 import { JsonLd } from "@/components/public/JsonLd";
-import { parseDirectoryParams, queryDirectory } from "@/lib/processors-query";
+import { getFacetIndexability, parseDirectoryParams, queryDirectory } from "@/lib/processors-query";
 import { FACET_SLUGS, getFacetPage, mergeFacetParams } from "@/lib/facet-pages";
 import { breadcrumbJsonLd, itemListJsonLd, faqJsonLd } from "@/lib/seo";
 import { getPageSeoByPath, pageSeoMetadata } from "@/lib/page-seo";
@@ -42,11 +42,22 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const facet = getFacetPage(params.facet);
   if (!facet) return { title: "Not found" };
+
+  /**
+   * A facet matching no processor is thin content: a heading, an intro, and an
+   * empty grid. It noindexes itself and drops out of the sitemap until the
+   * directory catches up — `getFacetIndexability` owns the rule and the sitemap
+   * reads the same map, so the page and the file advertising it can't disagree.
+   * `follow` stays on so the directory links on the page still count.
+   */
+  const indexable = (await getFacetIndexability()).get(facet.slug) ?? true;
+
   return pageSeoMetadata({
     title: facet.title,
     description: facet.description,
     path: `/payment-processors/${facet.slug}`,
     byPath: true,
+    ...(indexable ? {} : { robots: { index: false, follow: true } }),
   });
 }
 

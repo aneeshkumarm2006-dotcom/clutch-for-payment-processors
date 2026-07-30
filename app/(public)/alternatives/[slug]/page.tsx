@@ -10,9 +10,10 @@ import {
   getAllPublishedProcessorSlugs,
   getAlternatives,
   getProcessorBySlug,
+  getPublishedProcessorOptions,
 } from "@/lib/public-data";
 import { buildMetadata, breadcrumbJsonLd, itemListJsonLd, faqJsonLd } from "@/lib/seo";
-import { prettyComparePath } from "@/lib/compare-pairs";
+import { compareHref } from "@/lib/compare-pairs";
 
 /**
  * Processor "alternatives" landing page (`/alternatives/<slug>`). Targets the
@@ -67,7 +68,10 @@ export default async function AlternativesPage({ params }: { params: { slug: str
   const p = await getProcessorBySlug(params.slug);
   if (!p) notFound();
 
-  const alternatives = await getAlternatives(p, 8);
+  const [alternatives, allProcessors] = await Promise.all([
+    getAlternatives(p, 8),
+    getPublishedProcessorOptions(),
+  ]);
   const primaryCategory = p.categories[0];
   const basePath = `/alternatives/${p.slug}`;
   const faqs = buildFaqs(p.name, alternatives[0]?.name);
@@ -83,6 +87,7 @@ export default async function AlternativesPage({ params }: { params: { slug: str
         ];
 
   const compareIds = [p.slug, ...alternatives.slice(0, 3).map((a) => a.slug)].join(",");
+  const siblings = allProcessors.filter((o) => o.slug !== p.slug);
 
   return (
     <div className="mx-auto max-w-content px-4 py-10 lg:px-6">
@@ -148,12 +153,11 @@ export default async function AlternativesPage({ params }: { params: { slug: str
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {alternatives.map((alt) => {
-            const compareHref = prettyComparePath([p.slug, alt.slug]) ?? `/compare?ids=${p.slug},${alt.slug}`;
             return (
               <div key={alt.id} className="flex flex-col gap-2">
                 <ProcessorCard processor={alt} />
                 <Link
-                  href={compareHref}
+                  href={compareHref([p.slug, alt.slug])}
                   className="inline-flex items-center gap-1 self-start text-small font-medium text-accent hover:underline"
                 >
                   Compare {p.name} vs {alt.name} <ArrowRight className="size-3.5" aria-hidden />
@@ -175,6 +179,32 @@ export default async function AlternativesPage({ params }: { params: { slug: str
           ))}
         </dl>
       </section>
+
+      {/*
+        Sibling alternatives guides.
+
+        Each of these pages used to hang off its own processor profile and
+        nothing else, so the set had no lateral links and Google left all of them
+        at "Discovered - currently not indexed". Linking siblings turns 11 leaves
+        into one crawlable cluster: reaching any page reaches the rest.
+      */}
+      {siblings.length > 0 && (
+        <section className="mt-14">
+          <h2 className="text-h3 text-foreground">Alternatives to other processors</h2>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {siblings.map((s) => (
+              <li key={s.slug}>
+                <Link
+                  href={`/alternatives/${s.slug}`}
+                  className="inline-flex items-center rounded-full border px-3.5 py-1.5 text-small font-medium text-foreground transition-colors hover:border-border-strong hover:text-accent"
+                >
+                  {s.name} alternatives
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="mt-14 rounded-lg border bg-card p-8 text-center">
         <h2 className="text-h3 text-foreground">Not sure which processor fits?</h2>

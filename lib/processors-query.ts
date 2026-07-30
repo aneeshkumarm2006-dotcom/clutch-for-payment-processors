@@ -1,13 +1,17 @@
+import { cache } from "react";
 import { Types, type PipelineStage } from "mongoose";
 import { connectToDatabase } from "@/lib/db";
 import { Processor, Category } from "@/models";
 import { toProcessorCardData } from "@/lib/serialize";
+import { FACET_PAGES, mergeFacetParams } from "@/lib/facet-pages";
+import { getPageSeoByPath } from "@/lib/page-seo";
 import {
   PAGE_SIZE,
   REVIEW_LOG_CAP,
   RATE_VALUES,
   FEE_VALUES,
   escapeRegex,
+  parseDirectoryParams,
   type ProcessorSort,
   type DirectoryParams,
   type DirectoryResult,
@@ -278,3 +282,57 @@ export async function queryDirectory(
     return empty;
   }
 }
+
+/**
+ * Whether each curated facet page is worth indexing right now, keyed by slug.
+ *
+ * A facet whose filter matches nothing still renders — heading, intro, FAQs, an
+ * empty results grid — which is thin content wearing a landing page's clothes.
+ * `/payment-processors/crypto` is the live case: no published processor lists a
+ * `crypto` payment method, so Google crawled it and declined to index it
+ * ("Crawled - currently not indexed") while the sitemap kept asking for it.
+ * `/payment-processors/for-squarespace` is one published integration away from
+ * the same fate.
+ *
+ * This is the rule `/processor/<slug>/reviews` already applies to a processor
+ * with no reviews: the page stays reachable and linked, but it noindexes itself
+ * and drops out of the sitemap until it has something to show. Suppression is a
+ * state, not a deletion — publish a matching processor and the facet becomes
+ * indexable again with no code change.
+ *
+ * Two things override an empty count, both of them a human having said
+ * otherwise: editorial blocks on the facet's PageSeo record (at which point the
+ * copy, not the listing, is the page), and an explicit `seo.robotsIndex` in the
+ * admin. `robotsIndex` is TRI-STATE, so that test must be `!== undefined` — a
+ * truthiness check would read "never touched" as "editor said noindex" and
+ * noindex every facet on the site.
+ *
+ * The route's `generateMetadata` and the sitemap both read this one map, so the
+ * page and the file it is advertised in cannot disagree. `cache()` dedupes it
+ * across a request. Resilient: on failure a facet is reported indexable, because
+ * a DB blip must not silently empty the facet section of the sitemap.
+ */
+export const getFacetIndexability = cache(async (): Promise<Map<string, boolean>> => {
+  const map = new Map<string, boolean>();
+  const base = parseDirectoryParams({});
+
+  await Promise.all(
+    FACET_PAGES.map(async (facet) => {
+      try {
+        const [result, record] = await Promise.all([
+          queryDirectory(mergeFacetParams(base, facet.filter)),
+          getPageSeoByPath(`/payment-processors/${facet.slug}`),
+        ]);
+        const editorDecided =
+          Boolean(record?.blocks?.length) || record?.seo?.robotsIndex !== undefined;
+        map.set(facet.slug, result.total > 0 || editorDecided);
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error(`[processors-query] facet indexability failed for ${facet.slug}:`, err);
+        map.set(facet.slug, true);
+      }
+    }),
+  );
+
+  return map;
+});

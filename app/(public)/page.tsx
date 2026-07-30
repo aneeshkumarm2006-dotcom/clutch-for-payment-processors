@@ -20,6 +20,7 @@ import {
   pickFeaturedCategories,
 } from "@/lib/public-data";
 import { faqJsonLd } from "@/lib/seo";
+import { POPULAR_COMPARE_PAIRS, compareHref } from "@/lib/compare-pairs";
 import { getPageSeo, pageSeoMetadata } from "@/lib/page-seo";
 import { FaqSection } from "@/components/public/FaqSection";
 import { formatCount } from "@/lib/utils";
@@ -90,9 +91,32 @@ export default async function HomePage() {
         )
       : [];
 
+  /**
+   * "A vs B" cards, drawn from the top-rated processors.
+   *
+   * Curated pairs are picked FIRST, because only a curated pair has a pretty,
+   * indexable `/compare/a-vs-b` URL — everything else falls back to the noindex
+   * `?ids=` tool (see `compareHref`). Pairing purely by rank, as this used to,
+   * spent the homepage's three strongest internal links on URLs that tell Google
+   * not to index them while the 20 curated pages the sitemap advertises got none.
+   * Rank order still decides which curated pairs win, and any leftover slots fall
+   * back to sequential pairing so the section never renders short.
+   */
   const quickPicks: { a: (typeof topRated)[number]; b: (typeof topRated)[number] }[] = [];
-  for (let i = 0; i + 1 < topRated.length && quickPicks.length < comparePairs; i += 2) {
-    quickPicks.push({ a: topRated[i]!, b: topRated[i + 1]! });
+  const bySlug = new Map(topRated.map((p) => [p.slug, p]));
+  const used = new Set<string>();
+  for (const [aSlug, bSlug] of POPULAR_COMPARE_PAIRS) {
+    if (quickPicks.length >= comparePairs) break;
+    const a = bySlug.get(aSlug);
+    const b = bySlug.get(bSlug);
+    if (!a || !b || used.has(aSlug) || used.has(bSlug)) continue;
+    quickPicks.push({ a, b });
+    used.add(aSlug);
+    used.add(bSlug);
+  }
+  const leftovers = topRated.filter((p) => !used.has(p.slug));
+  for (let i = 0; i + 1 < leftovers.length && quickPicks.length < comparePairs; i += 2) {
+    quickPicks.push({ a: leftovers[i]!, b: leftovers[i + 1]! });
   }
 
   const statItems = stats
@@ -214,7 +238,7 @@ export default async function HomePage() {
                 {quickPicks.map(({ a, b }) => (
                   <Link
                     key={`${a.slug}-${b.slug}`}
-                    href={`/compare?ids=${a.slug},${b.slug}`}
+                    href={compareHref([a.slug, b.slug])}
                     className="group flex items-center justify-between gap-3 rounded-lg border bg-card p-5 transition-colors hover:border-border-strong"
                   >
                     <span className="text-h4 text-foreground">

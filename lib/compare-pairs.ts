@@ -97,3 +97,20 @@ export function prettyComparePath(slugs: string[]): string | null {
     .join("|");
   return PATH_BY_KEY.get(key) ?? null;
 }
+
+/**
+ * The href for ANY "compare these processors" link. A curated pair resolves to
+ * its pretty, indexable `/compare/a-vs-b` route; everything else falls back to
+ * the `?ids=` tool.
+ *
+ * Every internal compare link must go through this rather than hand-building a
+ * `?ids=` string. `?ids=` is deliberately `noindex` (see `/compare/page.tsx`), so
+ * linking a curated pair that way points readers — and every internal link
+ * signal — at a URL that tells Google not to index it, while the pretty page the
+ * sitemap advertises collects no links at all. The homepage did exactly this for
+ * its three "quick pick" comparisons, which is a large part of why 19 of the 20
+ * curated pairs sat in Search Console as "Discovered - currently not indexed".
+ */
+export function compareHref(slugs: string[]): string {
+  return prettyComparePath(slugs) ?? `/compare?ids=${slugs.join(",")}`;
+}

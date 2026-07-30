@@ -34,6 +34,24 @@ import type { ISeo } from "@/models";
  *
  * `permanentRedirect` signals by throwing, so this never returns when it fires.
  * Do not call it inside a `try` that swallows errors.
+ *
+ * ## This is the FALLBACK tier, not the 308
+ *
+ * A redirect thrown from a page Next is allowed to CACHE is not an HTTP redirect.
+ * Every caller here sets `revalidate`, so the render is cached and Next answers
+ * `200 OK` with a `<meta http-equiv="refresh">` in the body. Google honours a
+ * zero-delay meta refresh as a permanent redirect, but treats it as a weaker
+ * signal than a 308, and it is not what the admin field promises.
+ *
+ * The real 308 comes from `redirects()` in `next.config.mjs`, which reads the
+ * same `seo.redirectTo` fields at build time. That covers every redirect that
+ * existed when the site was built; this function covers the gap — a redirect an
+ * editor sets between deploys, which takes effect on the next revalidation
+ * instead of waiting for one. The two tiers agree because they read one field.
+ *
+ * Do NOT try to force a 308 here with `unstable_noStore()`. It throws
+ * `app-static-to-dynamic-error` on a route that declares `revalidate`, turning
+ * the redirect into a 500.
  */
 export function applySeoRedirect(
   seo: Partial<ISeo> | null | undefined,

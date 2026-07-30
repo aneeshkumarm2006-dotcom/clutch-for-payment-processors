@@ -3,6 +3,7 @@ import { absoluteUrl } from "@/lib/seo";
 import { getSitemapEntries } from "@/lib/public-data";
 import { getPageSeoLastModified, getPublishedLandingPages } from "@/lib/page-seo";
 import { FACET_SLUGS } from "@/lib/facet-pages";
+import { getFacetIndexability } from "@/lib/processors-query";
 import { GLOSSARY_SLUGS } from "@/lib/glossary";
 
 /**
@@ -33,10 +34,11 @@ const STATIC_PATHS: { path: string; priority: number }[] = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [entries, landings, editedAt] = await Promise.all([
+  const [entries, landings, editedAt, facetIndexable] = await Promise.all([
     getSitemapEntries(),
     getPublishedLandingPages({ indexableOnly: true }),
     getPageSeoLastModified(),
+    getFacetIndexability(),
   ]);
 
   /**
@@ -75,7 +77,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Curated facet landing pages + glossary terms. Their copy lives in static
   // registries, so most carry no date; a facet an editor has deepened with a
   // PageSeo record (e.g. `/payment-processors/ach`) gets that record's date.
-  const facetEntries: MetadataRoute.Sitemap = FACET_SLUGS.map((slug) => ({
+  //
+  // A facet matching zero published processors is dropped: the page noindexes
+  // itself in that state (see `getFacetIndexability`, which both sides read), and
+  // listing a noindexed URL is the same contradiction `indexableFilter` exists to
+  // avoid. Defaults to listing — a missing entry means the lookup failed, and a
+  // DB blip must not silently empty the facet section.
+  const facetEntries: MetadataRoute.Sitemap = FACET_SLUGS.filter(
+    (slug) => facetIndexable.get(slug) ?? true,
+  ).map((slug) => ({
     url: absoluteUrl(`/payment-processors/${slug}`),
     ...withDate(`/payment-processors/${slug}`),
     changeFrequency: "weekly",

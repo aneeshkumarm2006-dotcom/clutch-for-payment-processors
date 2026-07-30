@@ -69,24 +69,30 @@ export const getLandingPage = cache(async (path: string): Promise<IPageSeo | nul
  *
  * Pass `indexableOnly` for the sitemap, which must additionally drop anything an
  * editor has explicitly noindexed — listing a noindexed URL is a contradiction
- * Search Console reports as an error. The route's `generateStaticParams` wants
- * the unfiltered list: a noindexed page is still a live page and should still be
- * prerendered.
+ * Search Console reports as an error.
+ *
+ * Pass `excludeRedirected` for `generateStaticParams`. A noindexed page is still
+ * a live page and should still be prerendered, but a REDIRECTED one must not be:
+ * `redirect()` inside a prerendered page is not an HTTP redirect — the build
+ * bakes it into a shell that answers 200 and defers to the client router, so a
+ * crawler sees a soft redirect instead of a 308. Leaving it out of the static set
+ * sends it down the `dynamicParams` path, where the redirect is real.
  *
  * `seo.robotsIndex` is tri-state, hence `$ne: false`. `undefined` (no robots
  * directive at all) describes nearly every document and must stay in;
  * `{ robotsIndex: true }` would empty the sitemap.
  */
 export async function getPublishedLandingPages(
-  opts: { indexableOnly?: boolean } = {},
+  opts: { indexableOnly?: boolean; excludeRedirected?: boolean } = {},
 ): Promise<{ path: string; updatedAt: Date }[]> {
   try {
     await connectToDatabase();
     const docs = await PageSeo.find({
       kind: "landing",
       isPublished: true,
-      ...(opts.indexableOnly
-        ? { "seo.robotsIndex": { $ne: false }, "seo.redirectTo": { $in: [null, ""] } }
+      ...(opts.indexableOnly ? { "seo.robotsIndex": { $ne: false } } : {}),
+      ...(opts.indexableOnly || opts.excludeRedirected
+        ? { "seo.redirectTo": { $in: [null, ""] } }
         : {}),
     })
       .select("path updatedAt")
@@ -247,6 +253,13 @@ export async function pageSeoMetadata(opts: {
   byPath?: boolean;
   /** `hreflang` alternates — see `buildMetadata`. Build them with `toHreflangMap`. */
   languages?: Record<string, string>;
+  /**
+   * Page-level robots, for a route that can tell it currently has nothing worth
+   * indexing (an empty facet listing). Beats the record's `seo.robotsIndex`, so
+   * pass it only when the page's own state is the authority — callers that want
+   * an editor's explicit choice to win should check `seo.robotsIndex` first.
+   */
+  robots?: { index?: boolean; follow?: boolean };
 }): Promise<Metadata> {
   const [page, settings] = await Promise.all([
     opts.byPath || !opts.pageKey ? getPageSeoByPath(opts.path) : getPageSeo(opts.pageKey),
@@ -276,5 +289,6 @@ export async function pageSeoMetadata(opts: {
     seo: mergedSeo,
     keywords: page?.seo?.keywords?.length ? page.seo.keywords : opts.keywords,
     ...(opts.languages ? { languages: opts.languages } : {}),
+    ...(opts.robots ? { robots: opts.robots } : {}),
   });
 }
