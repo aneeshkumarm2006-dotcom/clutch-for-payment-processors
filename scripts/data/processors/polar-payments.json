@@ -1,0 +1,149 @@
+{
+  "name": "Polar",
+  "slug": "polar-payments",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAADAFBMVEVMaXH////+/v7+/v7+/v7+/v7////////////////////////////////////////+/v7////////+/v7+/v7////////////////////////+/v7////////////////////////////////////////////+/v7+/v7////////+/v7////////////////////////////////////////////////////////+/v7////////////////////////////////+/v7////+/v7////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+/v7////////////+/v7////////////////////////////////////////////////////+/v7////////////////////////////////////////+/v7////////////+/v7////////////////+/v7////////////////////////+/v7////////////////+/v7+/v7////////////+/v7////////////////////////////////////+/v7////////////////////////////////////////////////////////////////////////////////+/v7////////////////////////////////////////////////+/v7////////////////////////////////////////+/v7////////////////////+/v7////////////////////////////////+/v7////+/v7////////////////////////////////+/v7///////////////////////////////8e/9BWAAAA/3RSTlMA++7t/On+Afnx3fgm8NX99hDy7+Dj6tT0BY/i9TnkuPra8+zc5wblB/fM383XCQwa0Nki1mlBFTIKv+boIOGyq+sDzwscAkYEK84koKKw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",
+  "website": "https://polar.sh",
+  "tagline": "Merchant of record for developers that sells your product under its own name, handles sales tax and VAT liability, and pays you out through Stripe Connect.",
+  "shortDescription": "Polar is a Stockholm-based merchant of record built on Stripe, aimed at indie developers and AI builders selling digital products. The free Starter plan takes 5% + $0.50 per transaction, falling to 3.4% + $0.30 on the $400 per month Scale plan, with tax liability included.",
+  "longDescription": "<p><strong>Polar</strong> is a merchant of record founded in Stockholm in 2022 by Birk Jernström, who previously founded Tictail and ran product for Shop at Shopify after the 2018 acquisition. It began as a monetization tool for open-source maintainers and shipped version 1.0 of the merchant-of-record product in September 2024. Accel led a $10 million seed round in June 2025 alongside Abstract, Mischief and a long list of founder angels. By mid-2025 Polar reported more than 18,000 customers across over 100 countries. The platform itself is open source, which is part of why it spread through indie developer circles as fast as it did.</p><h3>Pricing and how it works</h3><p>Polar publishes a full rate card across four plans. Starter is free and takes 5% + $0.50 per transaction. Pro is $20 a month at 3.8% + $0.40, Growth is $100 a month at 3.6% + $0.35, and Scale is $400 a month at 3.4% + $0.30. Polar puts the break-even points at roughly $1,379, $5,634 and $19,048 of monthly sales. Cards issued outside the United States add 1.5%, a dispute costs $15, and legacy Early Member accounts remain on 4% + $0.40 with an extra 0.5% on subscription renewals. Payout costs are Stripe's, passed through with no Polar markup: $2 in any month with a payout, then 0.25% + $0.25 per withdrawal, plus 0.25% currency conversion inside the EU and up to 1% elsewhere. Payouts are manual, never automatic. Organizations created after May 12, 2026 carry a 7-day settlement delay on each transaction. Batches process about 24 hours after you trigger them, and money lands in 4 to 7 business days. Minimum withdrawal is $10 in USD, around $13 in EUR and $15 in GBP, with roughly 30 currencies set near a $40 equivalent.</p><h3>Who it is for</h3><p>Polar targets solo developers and small AI or SaaS teams who want to sell worldwide without registering for VAT in a dozen jurisdictions. Sellers can be based in 145 countries because payouts run on Stripe Connect Express, which reaches markets where standard Stripe Payments is unavailable, India included. The exclusions are the US sanctions list: Cuba, Russia, Iran, North Korea and Syria.</p><h3>Merchant of record versus gateway</h3><p>The headline 5% looks expensive next to Stripe's own 2.9% + $0.30, and that is the wrong comparison. A gateway charges you to move a card payment while you stay the legal seller: you register for and remit VAT and GST, and you fight your own chargebacks. Polar becomes the seller of record instead. It is named on the customer's statement, it calculates and remits the tax, it carries the liability, and you never open a merchant account. Stripe still does card processing, authorization, settlement, fraud monitoring, refunds and chargebacks underneath, though Polar does not disclose what share of the 5% Stripe keeps. The trade is control for coverage, and the control you give up is real. Polar holds accounts to a 0.4% chargeback rate, stricter than the 0.7% card networks tolerate. It runs a KYC review of up to 14 days before your first payout, and it can hold funds until the 120-day chargeback window closes. Trustpilot reviewers describe that experience directly: abrupt account closures, held payouts and slow support. Compare Polar with Paddle, Lemon Squeezy and Dodo Payments, not with Stripe.</p>",
+  "foundedYear": 2022,
+  "headquarters": "Stockholm, Sweden",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "EU",
+    "UK",
+    "IN",
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "subscription"
+  ],
+  "pricingSummary": "The free Starter plan charges 5% + $0.50 per transaction, dropping to 3.8% + $0.40 on the $20 Pro plan, 3.6% + $0.35 on the $100 Growth plan and 3.4% + $0.30 on the $400 Scale plan. Non-US cards add 1.5% and a dispute costs $15. Those rates cover the sales tax and VAT liability a plain gateway leaves with you.",
+  "fees": {
+    "onlineCardRate": "5% + $0.50 on Starter",
+    "internationalRate": "An extra 1.5% on any card issued outside the United States",
+    "monthlyFee": "$0 to $400 by plan",
+    "setupFee": "$0",
+    "chargebackFee": "$15 per dispute",
+    "monthlyMinimum": "None",
+    "earlyTerminationFee": "None. Plans are monthly and Starter is free",
+    "refundPolicy": "Polar issues refunds as the seller of record, and payouts can be held until the 120-day chargeback window closes if your account is under review"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "payment-links"
+  ],
+  "currencies": "Multi-currency orders are converted to USD at the rate at the time of the transaction, so settlement stays in USD",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "subscriptions",
+    "international",
+    "developers",
+    "small-business"
+  ],
+  "bestFor": [
+    "Indie developers",
+    "Digital products",
+    "AI and SaaS startups",
+    "Global sales tax"
+  ],
+  "industries": [
+    "Software and SaaS",
+    "AI tools",
+    "Developer tools",
+    "Digital downloads"
+  ],
+  "pros": [
+    "As merchant of record Polar calculates and remits sales tax, VAT and GST and carries the liability itself, so a solo seller never files a return in a foreign jurisdiction",
+    "Sellers can be based in 145 countries because payouts run on Stripe Connect Express, which covers markets such as India where standard Stripe Payments is not available",
+    "The whole rate card is public, from 5% + $0.50 on the free Starter plan down to 3.4% + $0.30 on Scale, and payout costs are Stripe's own with no Polar markup"
+  ],
+  "cons": [
+    "5% + $0.50 on the free plan is punishing at low ticket sizes, and non-US cards add another 1.5%, which for a genuinely global indie seller applies to most of the volume",
+    "Payouts are manual only. Organizations created after May 12, 2026 carry a 7-day settlement delay, and funds can be held until the 120-day chargeback window closes once an account goes under review",
+    "Trustpilot reviewers report abrupt account closures with no clear explanation, blocked payouts and unanswered support tickets. Polar also enforces a 0.4% chargeback ceiling, stricter than the 0.7% the card networks use"
+  ],
+  "editorScore": 4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Polar Review | Merchant of Record Pricing and Fees | Payment Processing Guide",
+    "metaDescription": "Polar review: the free Starter plan takes 5 percent plus 50 cents, down to 3.4 percent plus 30 cents on Scale. Merchant of record, sales tax included.",
+    "keywords": [
+      "polar review",
+      "polar.sh pricing",
+      "polar.sh fees",
+      "polar vs paddle",
+      "polar vs lemon squeezy"
+    ],
+    "focusKeyword": "polar review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Polar cost?",
+      "answer": "Polar sells four plans. Starter is free and charges 5% + $0.50 per transaction. Pro costs $20 a month at 3.8% + $0.40, Growth is $100 a month at 3.6% + $0.35, and Scale is $400 a month at 3.4% + $0.30. Cards issued outside the United States add 1.5% and each dispute costs $15. Payout costs are Stripe's own, passed through without markup: $2 in any month you take a payout, then 0.25% + $0.25 per withdrawal, plus 0.25% to 1% for currency conversion."
+    },
+    {
+      "question": "Is Polar a payment gateway or a merchant of record?",
+      "answer": "Merchant of record, which is a different thing entirely. A gateway moves the money and leaves you as the legal seller, responsible for registering for VAT and GST, filing returns and disputing chargebacks. Polar becomes the seller: it appears on the customer's statement, calculates and remits the tax, carries the liability and pays you the balance. That is why 5% + $0.50 sits well above Stripe's own 2.9% + $0.30. Stripe still handles card processing, settlement and disputes underneath Polar, though Polar does not publish what share of the fee Stripe keeps."
+    },
+    {
+      "question": "How long do Polar payouts take?",
+      "answer": "Payouts are manual, never automatic, so nothing moves until you trigger a withdrawal. Organizations created after May 12, 2026 carry a 7-day settlement delay on each transaction, while older accounts settle immediately. Batches process about 24 hours after you initiate them and typically land within 4 to 7 business days. Minimums apply per currency, starting at $10 in USD, around $13 in EUR and $15 in GBP, with roughly 30 currencies set near a $40 equivalent. A first payout also requires a KYC review that Polar says takes up to 14 days."
+    },
+    {
+      "question": "Which countries can sell with Polar?",
+      "answer": "Polar supports sellers in 145 countries, excluding only the US-sanctioned markets of Cuba, Russia, Iran, North Korea and Syria. The reach comes from Stripe Connect Express, which operates in more places than standard Stripe Payments, so developers in India and other markets where Stripe accounts are restricted can still get paid. Because Polar is the merchant of record, your customers can be anywhere. The country list constrains where you can be based to receive money, not where you can sell."
+    },
+    {
+      "question": "What are the best Polar alternatives?",
+      "answer": "Paddle, Lemon Squeezy and Dodo Payments are the direct comparisons, since all three are merchants of record that take on sales tax and VAT liability the same way Polar does. Compare them on the effective rate at your actual ticket size, the surcharge on non-US cards, how fast payouts clear and how the provider behaves when an account gets flagged for review. If you would rather keep the tax compliance work in house, a plain gateway such as Stripe will always cost less per transaction than any merchant of record."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "polar.sh",
+  "logoSource": "https://polar.sh/favicon.png",
+  "sources": [
+    "https://polar.sh/resources/pricing",
+    "https://polar.sh/docs/merchant-of-record/fees",
+    "https://polar.sh/docs/features/finance/payouts",
+    "https://polar.sh/docs/merchant-of-record/supported-countries",
+    "https://polar.sh/docs/merchant-of-record/account-reviews",
+    "https://polar.sh/legal/payment-processor-partners",
+    "https://polar.sh/resources/comparison/stripe",
+    "https://polar.sh/features/finance",
+    "https://polar.sh/blog/polar-seed-announcement",
+    "https://techcrunch.com/2025/06/17/after-shopify-bought-his-last-startup-birk-jernstrom-wants-to-help-developers-build-one-person-unicorns",
+    "https://www.trustpilot.com/review/polar.sh",
+    "https://www.crunchbase.com/organization/polar-0258"
+  ]
+}

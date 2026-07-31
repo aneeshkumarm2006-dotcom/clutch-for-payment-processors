@@ -24,6 +24,7 @@ import type {
 import type { AuditAction, AuditEntity } from "@/models/AuditLog";
 import type { IBlock, IFaqItem, ISeo, IStructuredData } from "@/models/shared";
 import type { EngineEntity } from "@/lib/engine/types";
+import type { ProcessorJsonLdReview } from "@/lib/seo";
 import type {
   BlogPostEngineData,
   CategoryEngineData,
@@ -801,10 +802,31 @@ export function toAuditLogData(doc: Lean): AuditLogData {
 /** Reviews as the Product node wants them. Sub-set of ReviewCardData. */
 export interface EngineReviewInput {
   reviewerName: string;
+  reviewerTitle?: string;
+  companyName?: string;
   overallRating: number;
   title?: string;
   body?: string;
+  pros?: string;
+  cons?: string;
+  useCase?: string;
   createdAt?: string;
+}
+
+/** One review, card shape → Product.review shape. Shared by both entity adapters. */
+function toEngineReview(r: EngineReviewInput): ProcessorJsonLdReview {
+  return {
+    author: r.reviewerName,
+    authorTitle: r.reviewerTitle,
+    authorCompany: r.companyName,
+    rating: r.overallRating,
+    title: r.title,
+    body: r.body,
+    pros: r.pros,
+    cons: r.cons,
+    useCase: r.useCase,
+    datePublished: r.createdAt,
+  };
 }
 
 export function toProcessorEngineEntity(
@@ -829,13 +851,7 @@ export function toProcessorEngineEntity(
       ratingCount: p.ratingCount,
       pricingSummary: p.pricingSummary ?? p.fees.onlineCardRate,
       primaryCategory: primary ? { name: primary.name, slug: primary.slug } : undefined,
-      reviews: reviews.map((r) => ({
-        author: r.reviewerName,
-        rating: r.overallRating,
-        title: r.title,
-        body: r.body,
-        datePublished: r.createdAt,
-      })),
+      reviews: reviews.map(toEngineReview),
     },
   };
 }
@@ -867,13 +883,7 @@ export function toProcessorReviewsEngineEntity(
       ratingAverage: p.ratingAverage,
       ratingCount: p.ratingCount,
       primaryCategory: primary ? { name: primary.name, slug: primary.slug } : undefined,
-      reviews: reviews.map((r) => ({
-        author: r.reviewerName,
-        rating: r.overallRating,
-        title: r.title,
-        body: r.body,
-        datePublished: r.createdAt,
-      })),
+      reviews: reviews.map(toEngineReview),
     },
   };
 }

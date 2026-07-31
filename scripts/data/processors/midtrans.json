@@ -1,0 +1,144 @@
+{
+  "name": "Midtrans",
+  "slug": "midtrans",
+  "logo": "data:image/png;base64,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",
+  "website": "https://midtrans.com",
+  "tagline": "Indonesian payment gateway owned by GoTo Financial, with a published rate for every method: GoPay, QRIS, virtual accounts, cards and convenience stores.",
+  "shortDescription": "Jakarta payment gateway, bought by Gojek in 2017 and now sold under GoTo Financial. Cards cost 2.9% + IDR 2,000, QRIS 0.7% and virtual accounts a flat IDR 4,000, with no setup fee and no monthly fee. Registration takes Indonesian legal and tax documents.",
+  "longDescription": "<p><strong>Midtrans</strong> is an Indonesian payment gateway founded in Jakarta in January 2012 as a joint venture between MidPlaza Group, Veritrans Inc of Japan and BEENOS. Gojek bought it in December 2017, alongside Kartuku and Mapan, and after Gojek merged with Tokopedia the company ended up inside GoTo Financial, the fintech arm of PT GoTo Gojek Tokopedia Tbk. The product itself is unglamorous and useful. One integration gives an Indonesian merchant roughly 25 payment channels: GoPay, QRIS, bank virtual accounts, credit cards and cash at Indomaret or Alfamart counters. Merchants connect through the hosted Snap checkout, the Core API, payment links, Android and iOS SDKs, or plugins for WooCommerce, Magento, PrestaShop and OpenCart.</p><h3>Pricing and how it works</h3><p>Midtrans publishes its whole rate card and charges nothing to register, integrate or stay connected. No setup fee, no monthly fee, no charge for the Core API. The only cost is per successful transaction. Bank transfer and virtual account payments cost a flat IDR 4,000 whatever the ticket size. QRIS is 0.7%, GoPay and ShopeePay are 2%, DANA and OVO are 1.5%, and cards on Visa, Mastercard, JCB, American Express and UnionPay cost 2.9% + IDR 2,000. Paylater is priced by provider, at 1.7% for Akulaku PayLater and 2% for Kredivo. Cash over the counter is IDR 5,000 at Alfamart, Alfamidi and DAN+DAN, and IDR 1,000 on top of the partner's own rate at Indomaret. Every figure excludes 11% VAT, charged on the fee rather than the sale, except on QRIS, GoPay and ShopeePay where the quoted rate already includes it. Payouts cost IDR 5,000 to a bank account or IDR 2,500 to GoPay. The money is not quick. A transaction has to sit at settled status for three business days before it can be withdrawn. After that a merchant can request a payout on any business day, or set a daily, weekly or monthly schedule that only fires once the balance clears IDR 50,000. Refunds and chargebacks carry no extra Midtrans fee, but the original transaction fee is not given back.</p><h3>Who it is for</h3><p>Indonesian online sellers, marketplaces and subscription businesses that need QRIS and GoPay to convert as well as cards do. Ticket size, not volume, is the first thing to model here. The flat IDR 4,000 virtual account fee is generous on a large basket and brutal on a small one: at an average order of IDR 30,000 that single channel costs over 13%, while at IDR 500,000 it costs under 1%. Merchants selling low-value digital goods should push buyers towards QRIS.</p><h3>What Midtrans is not</h3><p>It is not a cross-border gateway. Midtrans processes in Indonesian rupiah only, under Bank Indonesia regulation, so a merchant pricing in dollars has to convert before sending the charge request and wears the currency risk itself. It is also not open to all comers. Activating an account means submitting Indonesian legal and tax documents: a KTP and NPWP for a sole trader, or a deed of establishment, the Ministry of Law and Human Rights decree, a director's KTP or passport, a company NPWP and an NIB for a PT or CV. Foreign-owned entities can register, but they still need an Indonesian tax ID and a director holding a KITAS or KITAP. A global merchant that wants Indonesian methods without an Indonesian entity needs a cross-border aggregator instead.</p>",
+  "foundedYear": 2012,
+  "headquarters": "Jakarta, Indonesia",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate"
+  ],
+  "pricingSummary": "Cards cost 2.9% + IDR 2,000, QRIS 0.7%, GoPay and ShopeePay 2%, and a bank transfer or virtual account is a flat IDR 4,000. Nothing else is charged: no setup fee, no monthly fee, no fee for the Core API. All rates exclude 11% VAT on the fee, except QRIS, GoPay and ShopeePay where VAT is already included.",
+  "fees": {
+    "onlineCardRate": "2.9% + IDR 2,000",
+    "internationalRate": "Same 2.9% + IDR 2,000 card rate. Midtrans processes in IDR only, so the issuing bank handles any currency conversion",
+    "achRate": "Bank transfer and virtual account are a flat IDR 4,000 per transaction across BCA, BNI, BRI, Mandiri, Permata, CIMB, Danamon, BSI and others",
+    "monthlyFee": "IDR 0 per month",
+    "setupFee": "IDR 0, registration and integration are free",
+    "chargebackFee": "No separate Midtrans fee on a refund or chargeback, but the original transaction fee is not returned",
+    "monthlyMinimum": "None",
+    "refundPolicy": "Refunds are supported on card, GoPay, QRIS, ShopeePay and Akulaku once a transaction reaches settlement status, and the customer receives 100% of the amount paid. Other methods have to be refunded by the merchant directly"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "t+3",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "bnpl",
+    "wallets",
+    "wire"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "mobile-sdk",
+    "payment-links",
+    "woocommerce",
+    "magento"
+  ],
+  "currencies": "Indonesian rupiah only, following Bank Indonesia regulation, so merchants pricing in other currencies must convert to IDR before sending the charge request",
+  "features": [
+    "recurring-billing",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "reporting-dashboard"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "small-business",
+    "subscriptions"
+  ],
+  "bestFor": [
+    "Indonesian ecommerce",
+    "Local payment methods",
+    "Small business",
+    "Subscriptions"
+  ],
+  "industries": [
+    "Online retail",
+    "Travel",
+    "Marketplaces",
+    "Healthtech"
+  ],
+  "pros": [
+    "Publishes a complete per-method rate card. Registration, integration and the Core API all cost nothing, so the only cost is the transaction fee itself",
+    "One integration covers roughly 25 Indonesian channels, including GoPay, QRIS at 0.7%, ShopeePay, DANA, OVO, bank virtual accounts, Akulaku and Kredivo paylater and cash at Indomaret and Alfamart",
+    "Sits inside GoTo Financial alongside GoPay, which is why the largest wallet in Indonesia is a first-class payment method here rather than a bolted-on integration"
+  ],
+  "cons": [
+    "Rupiah only, under Bank Indonesia regulation. A cross-border seller has to convert prices to IDR before charging and carries the currency risk itself",
+    "Cash flow is slow by design. A transaction must sit settled for three business days before it can be withdrawn, and a scheduled payout only releases once the balance clears IDR 50,000",
+    "The flat IDR 4,000 virtual account fee does not scale down, so a low-ticket merchant selling at IDR 25,000 loses about 16% on that channel alone"
+  ],
+  "editorScore": 4.1,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Midtrans Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Midtrans charges 2.9 percent plus IDR 2,000 on cards, 0.7 percent on QRIS and a flat IDR 4,000 on virtual accounts. See fees, payouts and who it suits.",
+    "keywords": [
+      "midtrans review",
+      "midtrans pricing",
+      "midtrans fees",
+      "midtrans payment gateway",
+      "payment gateway indonesia"
+    ],
+    "focusKeyword": "midtrans review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Midtrans cost?",
+      "answer": "Midtrans charges per successful transaction and nothing else. There is no setup fee, no monthly fee and no charge for using the Core API. Credit and debit cards cost 2.9% + IDR 2,000. QRIS is 0.7%, GoPay and ShopeePay are 2%, and DANA and OVO are 1.5%. A bank transfer or virtual account payment is a flat IDR 4,000 regardless of value, and cash at Alfamart is IDR 5,000. Akulaku PayLater is 1.7% and Kredivo is 2%. All rates exclude 11% VAT charged on the fee, except QRIS, GoPay and ShopeePay where VAT is already included in the quoted rate."
+    },
+    {
+      "question": "How long does Midtrans take to pay out?",
+      "answer": "Longer than most merchants expect. A transaction has to hold settlement status for three business days before it becomes eligible for withdrawal. After that you can request a payout on any business day from the Billings menu in the Merchant Administration Portal, or set an automatic daily, weekly or monthly schedule that only releases funds once the balance passes IDR 50,000. The transfer itself costs IDR 5,000 to a bank account or IDR 2,500 to GoPay, and Midtrans deducts its transaction fees and any card MDR before the net amount lands."
+    },
+    {
+      "question": "Can a foreign company use Midtrans?",
+      "answer": "Only with Indonesian paperwork. Midtrans does have a registration path for foreign individuals and foreign business entities, but it still asks for an Indonesian tax ID, a passport plus a KITAS or KITAP for the owner or director, bank documents and business licences from the country of origin. On top of that the platform processes in rupiah only under Bank Indonesia regulation, so you convert prices to IDR before charging. A business with no Indonesian presence at all is better served by a cross-border provider that already holds the local licences."
+    },
+    {
+      "question": "Who owns Midtrans?",
+      "answer": "GoTo Financial, the fintech arm of PT GoTo Gojek Tokopedia Tbk. Midtrans started in January 2012 as a joint venture between MidPlaza Group, Veritrans Inc of Japan and BEENOS. Gojek acquired it in December 2017, in the same round of deals that brought in Kartuku and Mapan, and it moved under the GoTo umbrella after Gojek merged with Tokopedia. The brand still sells under its own name and website, and the group relationship is why GoPay pricing and integration are treated as core rather than as a third-party wallet."
+    },
+    {
+      "question": "Is Midtrans good for small transactions?",
+      "answer": "Not on every channel. The flat IDR 4,000 bank transfer and virtual account fee does not scale down, so an IDR 25,000 order loses about 16% to that one channel while an IDR 500,000 order loses less than 1%. QRIS at 0.7% and the percentage-priced wallets are far kinder to small baskets. Low-ticket merchants should default their checkout to QRIS or GoPay and treat virtual accounts as the option for larger orders rather than the standard one."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "midtrans.com",
+  "logoSource": "https://midtrans.com/assets/img/ico.png",
+  "sources": [
+    "https://midtrans.com/pricing",
+    "https://midtrans.com/en",
+    "https://docs.midtrans.com/docs/biaya",
+    "https://docs.midtrans.com/docs/berapa-harga-midtrans-payment-service",
+    "https://docs.midtrans.com/docs/berapa-biaya-transaksi-untuk-qris",
+    "https://docs.midtrans.com/docs/when-can-i-withdraw-my-transaction-funds-from-midtrans",
+    "https://docs.midtrans.com/docs/receive-your-fund",
+    "https://docs.midtrans.com/docs/what-are-the-legal-documents-required-for-midtrans-account-registration",
+    "https://docs.midtrans.com/docs/will-i-be-charged-for-chargebacks-or-refunds",
+    "https://docs.midtrans.com/docs/can-i-receive-payments-using-other-currency-than-idr",
+    "https://beenos.com/en/news-center/detail/bns_pr_20171215/",
+    "https://bilixe.com/listing/midtrans/"
+  ]
+}

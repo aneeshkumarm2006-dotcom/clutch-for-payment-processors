@@ -1,0 +1,143 @@
+{
+  "name": "Banquest Payment Systems",
+  "slug": "banquest",
+  "logo": "data:image/png;base64,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",
+  "website": "https://banquest.com",
+  "tagline": "Payroc-owned New Jersey ISO selling a proprietary gateway to B2B and large-ticket merchants. No rates published, and the contract runs three years.",
+  "shortDescription": "Banquest is a Lakewood, New Jersey ISO founded in 2011, later bought by Payroc and now trading as Payroc BQ LLC. It publishes no rates at all. Its own merchant program guide sets an initial three-year term with an early termination fee.",
+  "longDescription": "<p>Banquest Payment Systems started in Lakewood, New Jersey in 2011. It sells merchant accounts and a proprietary gateway to mid-size and large businesses, with a stated focus on large-ticket and B2B corporate card volume. Payroc later bought it alongside Retriever Merchant Solutions, ACHeck21, Beanstalk and ECS, a batch of deals that Payroc's own company history credits with pushing the group past 100,000 merchants. The legal entity behind the brand today is <strong>Payroc BQ LLC</strong>, and the footer on every page states that it is a registered Independent Sales Office of Wells Fargo Bank, N.A., Concord, CA. Banquest is therefore not an acquirer. Its merchant program guide names Wells Fargo as the bank and First Data Merchant Services, now part of Fiserv, as the processor. Some Banquest material also references Citizens Bank, N.A. of Providence, RI.</p><h3>Pricing and how it works</h3><p>Banquest publishes nothing. There is no rate card, no plan table and no monthly fee anywhere on the site, only the claim that the rate quoted is the rate you pay, with no hidden charges, fine print, or surprise fees. Every number comes out of a sales conversation. The contract that follows is the part worth reading. The program terms and conditions posted on Banquest's own signup form provide for an <strong>initial three-year term</strong>, and terminating before it expires makes the merchant responsible for an early termination fee. The amount sits in Part IV of the fee schedule rather than anywhere public. The same guide passes card network arbitration costs through, listing $250 to file with Visa and $150 with Mastercard plus a $250 review fee. Cardpaymentoptions, reviewing parent company Payroc in July 2026, reports monthly PCI compliance fees, account maintenance fees and gateway access fees as standard across the group, along with merchants who say termination fees were described as absent at signing. Ask for the full schedule of fees in writing.</p><h3>Who it is for</h3><p>The pitch is accounts receivable automation, not checkout conversion. Banquest sells a Payment Portal in a Box that lets customers pull up their invoices and pay online, plus an API and prebuilt plugins for QuickBooks, NetSuite, Salesforce, SAP and WooCommerce. One integration covers credit cards, signature debit, e-checks, ACH and cryptocurrency. The gateway automates Level III interchange qualification, splits GSA cards, routes American Express, and handles 3D Secure, tokenization, a customer vault, recurring schedules and fraud scoring. If you invoice other businesses and government buyers for large amounts, that Level III automation is where the money is, because qualifying a commercial card at Level III usually saves more than any markup negotiation will.</p><h3>What Banquest is not</h3><p>It is not a self-serve gateway you can sign up for with a card and a checkbox, and it is not priced like one. What you get is a traditional ISO relationship, with underwriting, a paper contract and a sales rep, wrapped around genuinely capable B2B software. Small merchants and anyone who wants to know the price before a phone call should look at a published-rate processor instead. Payroc is also an active consolidator, so it is worth asking which platform your account and gateway will sit on for the length of that three-year term.</p>",
+  "foundedYear": 2011,
+  "headquarters": "Lakewood, NJ, United States",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "US"
+  ],
+  "pricingModel": [
+    "custom-quote",
+    "interchange-plus",
+    "tiered"
+  ],
+  "pricingSummary": "Banquest publishes no rates of any kind. Pricing comes from a sales quote after underwriting, and Cardpaymentoptions reports that parent company Payroc quotes both interchange-plus and tiered structures with monthly PCI, account and gateway fees layered on top.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "inPersonCardRate": "Custom quote",
+    "monthlyFee": "Custom quote",
+    "chargebackFee": "Not published. The program guide passes through card network arbitration costs of $250 to file with Visa and $150 with Mastercard, plus a $250 review fee",
+    "pciFee": "Not published. Cardpaymentoptions reports a monthly PCI compliance fee across Payroc-owned portfolios",
+    "earlyTerminationFee": "Not published. The program guide makes you responsible for an early termination fee if you cancel before the initial three-year term expires, with the amount set out in Part IV of the fee schedule"
+  },
+  "contractType": "long-term",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "ach",
+    "crypto",
+    "apple-pay",
+    "google-pay"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "virtual-terminal",
+    "invoicing",
+    "woocommerce",
+    "pos-hardware"
+  ],
+  "currencies": "USD, on US merchant accounts sponsored by Wells Fargo Bank, N.A.",
+  "features": [
+    "recurring-billing",
+    "tokenization",
+    "fraud-protection",
+    "3d-secure",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "developers",
+    "subscriptions"
+  ],
+  "bestFor": [
+    "B2B Invoicing",
+    "Large Ticket Merchants",
+    "Level III Processing",
+    "Accounts Receivable Teams"
+  ],
+  "industries": [
+    "B2B Wholesale",
+    "Government Contracting",
+    "Professional Services",
+    "Software and SaaS"
+  ],
+  "pros": [
+    "The gateway automates Level III interchange qualification, GSA card splits and American Express routing, which moves the effective rate on large-ticket B2B and government card volume more than a markup negotiation would",
+    "One API covers credit cards, signature debit, e-checks, ACH and cryptocurrency, with prebuilt plugins for QuickBooks, NetSuite, Salesforce, SAP and WooCommerce",
+    "Payroc ownership puts real scale behind the brand: the parent reported more than $115 billion in annual processing volume, 1,000 employees and 190,000 merchants as of September 2024"
+  ],
+  "cons": [
+    "No published rates anywhere on the site, so every number arrives through a sales rep. Cardpaymentoptions reports that Payroc-owned portfolios routinely add monthly PCI, account maintenance and gateway fees on top of the quoted rate",
+    "The merchant program guide sets an initial three-year term with an early termination fee whose amount is buried in Part IV of the fee schedule instead of being disclosed publicly",
+    "The BBB has no rating for Banquest because it holds too little information on the company. Independent merchant reviews of the brand are close to nonexistent, so there is no track record to check before signing"
+  ],
+  "editorScore": 3.4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Banquest Payment Systems Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Banquest publishes no rates and its program guide sets a three-year term with an early termination fee. See what it sells and who it actually suits.",
+    "keywords": [
+      "banquest review",
+      "banquest payment systems pricing",
+      "banquest payment systems fees",
+      "banquest vs authorize.net",
+      "b2b payment gateway"
+    ],
+    "focusKeyword": "banquest payment systems review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Banquest cost?",
+      "answer": "Banquest does not publish rates. There is no rate card, no plan table and no monthly fee anywhere on the site, only a claim that the rate quoted is the rate you pay with no hidden charges. Pricing is set per merchant after underwriting and arrives through a sales conversation. Cardpaymentoptions, reviewing parent company Payroc in July 2026, reports interchange-plus and tiered quotes plus a monthly PCI compliance fee, an account or maintenance fee and gateway access fees. Ask for the complete schedule of fees in writing before signing anything."
+    },
+    {
+      "question": "Does Banquest require a long-term contract?",
+      "answer": "Yes. The merchant program terms and conditions published on Banquest's own signup form set an initial three-year term, and the document states that terminating before that term expires makes you responsible for an early termination fee. The amount is not disclosed publicly; it sits in Part IV of the agreement under Additional Fee Information. That is a materially worse term than the month-to-month contracts most published-rate processors offer, so get the fee amount and the renewal terms in writing first."
+    },
+    {
+      "question": "Who is Banquest's acquirer and gateway?",
+      "answer": "Banquest is not an acquiring bank. Its footer states that Payroc BQ LLC, doing business as Banquest Payment Systems, is a registered Independent Sales Office of Wells Fargo Bank, N.A., Concord, CA, and its merchant program guide names First Data Merchant Services, now part of Fiserv, as the processor. The gateway is Banquest's own, documented at docs.banquestgateway.com, covering hosted tokenization, digital wallets, webhooks and Level III interchange qualification. Some Banquest material also references Citizens Bank, N.A. of Providence, RI."
+    },
+    {
+      "question": "Who owns Banquest Payment Systems?",
+      "answer": "Payroc. Banquest was founded in Lakewood, New Jersey in 2011 and was later acquired by Payroc alongside Retriever Merchant Solutions, ACHeck21, Beanstalk and ECS, a group of deals that Payroc's own company history credits with taking the group past 100,000 merchants. The legal entity is now Payroc BQ LLC, doing business as Banquest Payment Systems. Payroc reported more than $115 billion in annual processing volume, 1,000 employees and 190,000 merchants as of September 2024."
+    },
+    {
+      "question": "Is Banquest good for small businesses?",
+      "answer": "Usually not. Banquest markets to mid-size and large businesses processing high volume and large-ticket transactions, and its strengths are Level III interchange qualification, GSA card splits and accounts receivable automation. None of that pays off on a small ticket. A three-year initial term, an undisclosed early termination fee and quote-only pricing are also a poor trade for a small merchant who could sign a month-to-month account with published rates somewhere else."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "banquest.com",
+  "logoSource": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_192,h_192/https://banquest.com/wp-content/uploads/2020/06/cropped-icon-192x192.png",
+  "sources": [
+    "https://banquest.com/",
+    "https://banquest.com/about/",
+    "https://banquest.com/api/",
+    "https://banquest.com/SignupForm/pdf/bps-tandc.pdf",
+    "https://docs.banquestgateway.com/api/v2",
+    "https://payroc.com/about/company-history/",
+    "https://payroc.com/timeline/payroc-achieves-more-growth-through-acquisition/",
+    "https://www.cardpaymentoptions.com/credit-card-processors/payroc/",
+    "https://www.bbb.org/us/nj/lakewood/profile/payment-processing-services/banquest-payment-systems-corporation-0221-90152739",
+    "https://www.linkedin.com/company/banquest-payment-systems"
+  ]
+}

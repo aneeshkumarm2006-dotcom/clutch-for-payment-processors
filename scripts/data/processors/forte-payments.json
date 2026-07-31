@@ -1,0 +1,145 @@
+{
+  "name": "CSG Forte",
+  "slug": "forte-payments",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABZVBMVEVMaXEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADptmVAAAAAdnRSTlMAwMzUq6TH3dzuAQL+xgO/uKLbbm/Xs9pevqUGp62qjNj7of2pekejM1qoj9VThQeOCqC1nKxQBK+u1s0FzomyvJN+wSvCbFthytNExYuAlD3Sn2hcRnJBe01i7ThO/HlUYFgyul9FlVK0w9/IdcSICwjhDeh4hEC9rQAAAAlwSFlzAAA7DgAAOw4BzLahgwAAAghJREFUeNrtmllTE0EURpsYiGZPJonZDFkgmD1xAcQFFRRcQHFfAfcdUGR+v7715GHmy61Kl2XVd55P3TmVh3TPTZQadL+FbVcqaSukHFx6lqy527XA9YLTDqXSFXc7/Gv/QKneVxvwwDkxg+x41KEnkP39p7JsyB09cQ3bb7T9GNs/VA5L1/TIErYXtf0J23vqGJb8euQEtiPa9mM7Of6AKVHAcQYwgAEMYAADGMAABjCAAQz49wFbWJrRI0d4k7yr7Rlsn1RnsTStR1axXdT2NLavqgZ0wu/0yDoe+Vzbp8PQXldBuETYce48Wsi+57Rnkd38u34JPoqXA660z39UQ3zOLLnb6S+dYbt+oe1ul+PZoCKEECIl+CEW8GDlxfCX63zcy47cXBAHnEPHS9VZsInsTFT4/Nf4OO6IjuOHwoA8Dihp+wq2Y8KAmGhbPjfKlUyG7FI6OcqllAEMYAADGMAABjCAAQxgAAP+s4Cxv5olhQFFPPKUtjewfUMYsItHNrT9Ctsp6YKkCT8A598P+8jOFaQbkqh18YQHl1PDK4/s1EsP+/Zsj0svQggxzf38LZ87y29N/3BpoW11wmzB6jY8jrNGA7r4PvDeaEDCHvu2XIaBSykDGMAABjCAAQxgAAMYwAAGMEBGy5Ys9w3wFAccmV1QnEHP9w3MBoSeJL0e/7t/qP4AXGzOtMU8XVMAAAAASUVORK5CYII=",
+  "website": "https://www.forte.net",
+  "tagline": "ACH-first payment processor owned by CSG, built for utility, government, healthcare and property management billing rather than card-led retail.",
+  "shortDescription": "CSG Forte began in 1998 as ACH Direct, took the Forte name in 2013 and was bought by CSG in October 2018. ACH is the headline: third-party listings put eCheck debits near $0.25 per item against roughly 2.9% + $0.31 on cards. Forte publishes a $25 ACH chargeback fee.",
+  "longDescription": "<p><strong>CSG Forte</strong> is the payments arm of CSG Systems International, and it is an ACH house first and a card processor second. The business started in 1998 as ACH Direct in Allen, Texas, took the Forte Payment Systems name in 2013, and was acquired by CSG on October 2, 2018. CSG added iCheckGateway, sold as iCG Pay, in June 2024 for $17 million upfront plus earn-outs, and folded it into the same brand. Ownership changed again on May 14, 2026, when NEC's Netcracker subsidiary completed a take-private of CSG. The current brand is CSG Forte; the operating entity, CSG Forte Payments, Inc., is a licensed US money transmitter under NMLS ID 1986669, with a separate Quebec-licensed Canadian entity. The company reports 175,000 merchants, 260 million transactions and more than $195 billion in annual payments volume.</p><h3>Pricing and how it works</h3><p>Forte does not publish a rate card. Its partner materials describe a tiered schedule with preferred pricing tiers for both ACH and card volume, quoted per merchant after underwriting. Third-party listings converge on roughly $0.25 per ACH debit and cards near 2.9% + $0.31 for Visa, Mastercard and Discover, with American Express closer to 3.15%. The same listings show a $2.50 monthly gateway fee and a $29.99 monthly charge for merchants who do not validate PCI compliance. Treat all of it as reported figures rather than quotes. What Forte does publish is its ACH per-occurrence schedule: $25 per chargeback, $25 per reversal, $35 for account maintenance, $35 for a written statement of unauthorized debit retrieval, $35 for early funding and $55 per recall. Funding is the other thing to price. Standard ACH carries a three to five business day transaction review hold and settlement can run to six business days. Accelerated, Expedited and Next Day Funding cut the hold to two days, one day and roughly one business day respectively, billed as a monthly fee scaled to processed volume. Same-day ACH has a 4:45 pm ET submission cutoff.</p><h3>What CSG Forte is not</h3><p>It is not a high-risk acquirer and it is not a flat-rate card aggregator. The verticals it underwrites are billing-heavy and low-dispute: municipalities, utilities, insurers, healthcare providers, landlords, tolling authorities and subscription software. It is also not three separate companies. Forte Payment Systems, ACH Direct and iCG Pay all resolve to the same business today, which matters when you turn up old documentation or a legacy support number.</p><h3>Who it is for</h3><p>Organizations that bill recurring amounts to bank accounts rather than cards, where a flat $0.25 debit beats a percentage rate on a $300 utility bill or an $1,800 rent payment, and where account validation and NSF recovery change collections more than checkout conversion does. Forte's verification stack checks account ownership against a database of more than 596 million records, and its automated recovery re-presents failed debits up to twice within Nacha rules, recovering around 60% on average. Card-led ecommerce sellers with small basket sizes will do better elsewhere. So will anyone who needs settled funds the next morning and does not want to pay for a faster funding tier.</p>",
+  "foundedYear": 1998,
+  "headquarters": "Fort Worth, TX, United States",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "US",
+    "CA"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "tiered",
+    "custom-quote"
+  ],
+  "pricingSummary": "CSG Forte publishes no rate card and quotes each merchant on a tiered schedule. Third-party listings report ACH near $0.25 per debit and cards near 2.9% + $0.31, with a $2.50 monthly gateway fee. Forte does publish its ACH per-occurrence fees, including $25 per chargeback and $55 per recall.",
+  "fees": {
+    "onlineCardRate": "Reported 2.9% + $0.31",
+    "achRate": "Reported near $0.25 per debit on a tiered schedule. Forte publishes ACH per-occurrence fees of $25 per chargeback, $25 per reversal, $35 for account maintenance, $35 for a written statement of unauthorized debit retrieval, $35 for early funding and $55 per recall",
+    "monthlyFee": "Reported $2.50 gateway",
+    "chargebackFee": "$25.00 per ACH chargeback, published by Forte",
+    "pciFee": "Reported at $29.99 a month if PCI compliance is not validated"
+  },
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "ach",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "virtual-terminal",
+    "payment-links",
+    "invoicing",
+    "pos-hardware"
+  ],
+  "currencies": "USD for US merchants and CAD in Canada, where CSG Forte Paiements Canada is licensed as a money-services business in Quebec",
+  "features": [
+    "recurring-billing",
+    "fraud-protection",
+    "tokenization",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "nonprofits",
+    "ecommerce",
+    "small-business"
+  ],
+  "bestFor": [
+    "ACH and eCheck billing",
+    "Government and utilities",
+    "Property management",
+    "Recurring bill payments"
+  ],
+  "industries": [
+    "Utilities",
+    "Government",
+    "Property management",
+    "Healthcare"
+  ],
+  "pros": [
+    "ACH is the core product, not a bolt-on. The gap between reported eCheck debits near $0.25 per item and roughly 2.9% + $0.31 on cards is what decides the bill on any large recurring payment",
+    "Account validation and authentication check ownership against a database of more than 596 million records, and automated NSF re-presentment recovers around 60% of failed debits",
+    "Built for the billing verticals most processors skip, with a US money transmitter license, a Quebec-licensed Canadian entity, 175,000 merchants and 260 million transactions a year"
+  ],
+  "cons": [
+    "No public rate card. Pricing is tiered and quoted per merchant, and the only figures Forte publishes are ACH per-occurrence fees such as $25 per chargeback and $55 per recall",
+    "Standard ACH carries a three to five business day transaction review hold with settlement running to six business days, and faster funding is sold as a separate paid tier",
+    "Capterra and GetApp reviewers who otherwise rate it 4.5 out of 5 repeatedly flag a dated interface, thin reporting and awkward integrations. The business has also changed owner twice since 2018"
+  ],
+  "editorScore": 4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "CSG Forte Review | ACH Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "CSG Forte is an ACH-first processor. Reported eCheck pricing near 25 cents per debit versus roughly 2.9 percent on cards. Best for billers and utilities.",
+    "keywords": [
+      "csg forte review",
+      "csg forte pricing",
+      "csg forte ach fees",
+      "forte payment systems review",
+      "csg forte vs authorize.net"
+    ],
+    "focusKeyword": "csg forte review"
+  },
+  "faqs": [
+    {
+      "question": "How much does CSG Forte charge for ACH payments?",
+      "answer": "Forte does not publish a rate card, and its partner materials describe a tiered schedule quoted per merchant. Third-party listings put ACH debits near $0.25 per transaction alongside a $2.50 monthly gateway fee. Forte does publish its ACH per-occurrence fees on its own legal pages: $25 per chargeback, $25 per reversal, $35 for account maintenance, $35 for a written statement of unauthorized debit retrieval, $35 for early funding and $55 per recall. Faster funding is billed as a monthly fee scaled to volume."
+    },
+    {
+      "question": "Is Forte the same company as CSG Forte?",
+      "answer": "Yes. The business was founded in 1998 as ACH Direct, renamed itself Forte Payment Systems in 2013, and became CSG Forte after CSG acquired it on October 2, 2018. The legal entity is CSG Forte Payments, Inc. CSG also bought iCheckGateway, sold as iCG Pay, in June 2024 and moved it under the same brand, so merchants who signed with iCG Pay are now CSG Forte customers. Old Forte and ACH Direct documentation still circulates and refers to the same platform."
+    },
+    {
+      "question": "How long does CSG Forte take to fund ACH payments?",
+      "answer": "The standard transaction review hold is three to five business days, and Forte notes that settlement between banks can take up to six business days. Three paid tiers shorten it: Accelerated Funding uses a two-day hold, Expedited Funding a one-day hold with funds in roughly two business days, and Next Day Funding delivers in about one business day. Split-fund merchants and Canadian dollar processing add another day. Same-day ACH submissions must be in by 4:45 pm ET."
+    },
+    {
+      "question": "Who owns CSG Forte?",
+      "answer": "CSG Systems International, which itself is no longer independent. NEC's Netcracker Technology subsidiary completed a take-private acquisition of CSG on May 14, 2026, in a deal announced in October 2025 at $80.70 per share and an enterprise value near $2.9 billion. CSG Forte continues to trade under its own brand and website as CSG's payments business. Before CSG, Forte Payment Systems was independent and based in Allen, Texas."
+    },
+    {
+      "question": "Is CSG Forte good for high-risk merchants?",
+      "answer": "No. Forte underwrites conventional billers: utilities, municipalities and government agencies, insurers, healthcare providers, property managers, tolling authorities, education and subscription software. Nothing in its positioning targets elevated chargeback verticals, and its ACH strengths in validation and NSF recovery assume a customer base that has agreed to a recurring debit. Merchants in CBD, adult, nutraceuticals or continuity billing should look at a specialist high-risk acquirer that prices for reserves and dispute exposure."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "forte.net",
+  "logoSource": "https://forte.net/icon?bd14fcfaec14cbc6",
+  "sources": [
+    "https://www.forte.net/",
+    "https://www.forte.net/about-csg-forte",
+    "https://www.forte.net/why-csg-forte/complete-payments-solution/online-ach-payments/",
+    "https://www.forte.net/legal-privacy/service-fee-requirements",
+    "https://www.forte.net/what-is-same-day-ach/",
+    "https://support.forte.net/support/solutions/articles/11000132746-ach-funding-processing-time-and-faster-funding-options-faq-",
+    "https://support.forte.net/support/solutions/articles/11000053797-cutoff-times-faq",
+    "https://support.forte.net/support/solutions/articles/11000128010-csg-icg-acquisition-external-faqs",
+    "https://ir.csgi.com/press-releases/press-release-details/2018/CSG-Acquires-Forte-Payment-Systems/default.aspx",
+    "https://www.netcracker.com/news/press-releases/nec-completes-acquisition-of-csg-systems-netcracker-to-lead-combined-business",
+    "https://www.capterra.com/p/135920/Forte-Payment-Systems/pricing/",
+    "https://bilixe.com/listing/csg-forte-payment-gateway/"
+  ]
+}

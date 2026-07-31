@@ -1,0 +1,140 @@
+{
+  "name": "Payment Depot",
+  "slug": "payment-depot",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAMFBMVEVMaXEAqOsAN2YANma+6frM7vvM7vsAqusAN2bM7/wBre4ALl1PwO8AhsIAisYAaJ7wsvb9AAAAB3RSTlMA/qUw5TCXLBRYKQAAAAlwSFlzAAALEgAACxIB0t1+/AAAATxJREFUeNrt21tSwzAQRFHrZctSFO9/t7wKQiClSaGMBorbG+hTI3+6l+WS4H2eEO/DciNhSvkH4pthav0r4bo/G+TTEULOpgKj/ovAqv/9O/DZVhCyYYLtAd5OkE1j/AIvb+BtAd4ekI0DAAAAAAAA/BVAVct9gKO1s1JkQM1nV7aiFRFQj+d6xUiA2lTrZcCh3C8CtPslQLMGbJstQP0LEAC1AQAAAAAAAAAAAPj9ADeaMYArp9EMAUrchzMCKPtuCnDRGPCQAwwA3AkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAI/pjd+TyHwBrd+g0AZC6U68JgP7YTR+w9ud++oDUHzyqA1Zh8qkNiNLoVRkQkzS7VQYkcXisCohJnn5rAtZ7xu96gDXdHuD7r4DeXzI/BMR41f4EhX7/rBxAlv4AAAAASUVORK5CYII=",
+  "website": "https://paymentdepot.com",
+  "tagline": "Stax-owned US merchant account provider that dropped the flat membership fee it was built on. Pricing is now interchange-plus, quoted account by account.",
+  "shortDescription": "Stax Payments bought Payment Depot in 2021 and rebranded it Payment Depot by Stax. The California reseller's flat monthly membership is gone. In its place: an advertised 0.2% to 1.95% markup over interchange and a separate quote for every merchant.",
+  "longDescription": "<p>Payment Depot launched in 2013 in Orange, California as a wholesale-style processor, charging a flat monthly membership instead of a percentage markup. Stax Payments, the Orlando company that traded as Fattmerchant until 2021, bought it that same year and markets the brand today as <strong>Payment Depot by Stax</strong>. It is not an acquiring bank. The footer on its own site states that PaymentDepot.com is a registered ISO of Wells Fargo Bank, N.A., Concord, CA. A Clover trademark notice on the same page points at the Fiserv hardware and platform sitting behind the merchant account.</p><h3>Pricing and how it works</h3><p>The membership plans that made Payment Depot's name are gone. The pricing page now carries one number: variable rates as low as 0.2% to 1.95% layered on top of interchange, with no cancellation fee and no published monthly tier. Merchant Maverick, reviewing the account in July 2026, puts it plainly: unlike the former membership-pricing model, current rates are based on the business and require a custom quote. NerdWallet's January 2026 review lists a $0 monthly fee alongside a $10 monthly PCI compliance charge, so the fixed cost has not disappeared so much as moved. Comparison sites including CardFellow still publish the old Starter, Starter Plus and Growth tiers at $59, $79 and $99 a month against $125,000, $250,000 and $500,000 annual volume caps. Those numbers are stale. Get the markup in basis points, the per-item cents, the PCI charge and any gateway fee in writing before you sign.</p><h3>Who it is for</h3><p>US-based merchants only, and nothing high-risk. That leaves conventional retail, ecommerce and service businesses with enough volume that a negotiated percentage markup beats a flat-rate aggregator. The account runs month to month with no early termination fee, the strongest thing on the term sheet. Integrations are the standard ISO set: Shopify, WooCommerce, BigCommerce, QuickBooks, Authorize.Net and Clover hardware, plus invoicing, payment links, recurring payments and stored cards.</p><h3>What Payment Depot is not</h3><p>It is not Stax, even though Stax owns it. Stax publishes a subscription starting at $99 per month with 0% markup on interchange and flat fees of $0.08 per card-present transaction and $0.15 per card-not-present transaction. Payment Depot sells the opposite shape: a percentage markup with no advertised subscription. If your volume is high enough for a fixed monthly fee to amortise, price the Stax listing rather than this one. Nor is it still the wholesale membership club it was before 2023. Its Trustpilot score of 2.3 out of 5 is dominated by merchants who signed under the old model and say their effective rate climbed afterwards.</p>",
+  "foundedYear": 2013,
+  "headquarters": "Orange, CA, United States",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "US"
+  ],
+  "pricingModel": [
+    "interchange-plus",
+    "custom-quote"
+  ],
+  "pricingSummary": "Payment Depot advertises a variable markup of 0.2% to 1.95% over interchange and no cancellation fee. There is no rate card. Merchant Maverick reports that the old membership plans are gone and every account is now individually quoted.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "inPersonCardRate": "Custom quote. The pricing page advertises a markup of 0.2% to 1.95% over interchange",
+    "monthlyFee": "Custom quote",
+    "setupFee": "$0",
+    "pciFee": "$10 per month according to NerdWallet's January 2026 review",
+    "earlyTerminationFee": "None. The pricing page advertises no cancellation fees"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "virtual-terminal",
+    "payment-links",
+    "invoicing",
+    "pos-hardware",
+    "shopify",
+    "woocommerce",
+    "bigcommerce"
+  ],
+  "currencies": "USD only. Payment Depot accepts US-based merchants and does not open accounts abroad",
+  "features": [
+    "recurring-billing",
+    "tokenization",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "retail-pos",
+    "small-business"
+  ],
+  "bestFor": [
+    "Small Business",
+    "Retail Storefronts",
+    "Ecommerce",
+    "Month-To-Month Terms"
+  ],
+  "industries": [
+    "Retail",
+    "Ecommerce",
+    "Professional Services"
+  ],
+  "pros": [
+    "The account runs month to month and the pricing page advertises no cancellation fees, so walking away costs nothing but the paperwork",
+    "Interchange-plus is the default rather than an upsell, and the advertised band of 0.2% to 1.95% gives you a published number to negotiate against",
+    "Standard ISO plumbing, so the usual integrations work without custom development: Shopify, WooCommerce, BigCommerce, QuickBooks, Authorize.Net and Clover hardware"
+  ],
+  "cons": [
+    "The flat monthly membership that made the brand worth choosing is gone. Merchant Maverick's July 2026 review states that rates now require a custom quote, with no standard plans or volume tiers published",
+    "Trustpilot rates the company 2.3 out of 5, with recurring themes of higher effective rates after the Stax acquisition, unanswered cancellation requests and billing that continued after merchants tried to close",
+    "NerdWallet reports a $10 monthly PCI compliance fee on top of the quoted markup, and Payment Depot underwrites low-risk US businesses only"
+  ],
+  "editorScore": 3.5,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Payment Depot Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Payment Depot now quotes interchange-plus at 0.2 to 1.95 percent markup, with no membership plan and no cancellation fee. See fees and who it suits.",
+    "keywords": [
+      "payment depot review",
+      "payment depot pricing",
+      "payment depot fees",
+      "payment depot vs stax"
+    ],
+    "focusKeyword": "payment depot review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Payment Depot cost?",
+      "answer": "Payment Depot no longer publishes a rate card. Its pricing page advertises a variable markup of 0.2% to 1.95% on top of interchange and no cancellation fee, but the actual number depends on your business and arrives through a quote. Merchant Maverick's July 2026 review confirms the company publishes no standard monthly plans or processing-volume tiers. NerdWallet's January 2026 review lists a $0 monthly fee plus a $10 monthly PCI compliance charge. Ask for the markup in basis points, the per-item cents and every recurring fee in writing before you sign."
+    },
+    {
+      "question": "Does Payment Depot still have membership plans?",
+      "answer": "No. The $59, $79 and $99 monthly membership tiers that built Payment Depot's reputation are gone. Stax moved the brand onto interchange-plus pricing, and the current site advertises only a percentage markup with no subscription fee. Several comparison sites still list the old Starter, Starter Plus and Growth plans against $125,000, $250,000 and $500,000 annual caps, so check the date on anything you read. Merchant Maverick, updated in July 2026, states plainly that current rates require a custom quote."
+    },
+    {
+      "question": "What is the difference between Payment Depot and Stax?",
+      "answer": "Stax owns Payment Depot, but the two sell opposite pricing shapes. Stax publishes a subscription starting at $99 per month with 0% markup on interchange, $0.08 per card-present transaction and $0.15 per card-not-present transaction. Payment Depot charges a percentage markup of 0.2% to 1.95% over interchange with no advertised subscription. Higher-volume merchants usually do better on the Stax model, because the fixed fee spreads across more transactions. Below that, $99 a month buys capacity you will not use."
+    },
+    {
+      "question": "Is Payment Depot good for high-risk merchants?",
+      "answer": "No. Merchant Maverick lists high-risk merchants among the categories Payment Depot does not accept, and it signs US-based businesses only. CBD and hemp, nutraceuticals, firearms, adult, debt relief and continuity billing all need a specialist acquirer that prices for elevated chargeback ratios and can hold a rolling reserve. If a flat-rate aggregator such as Square or Stripe has already declined your category, Payment Depot is unlikely to give a different answer."
+    },
+    {
+      "question": "Does Payment Depot charge a cancellation fee?",
+      "answer": "No. The pricing page advertises no cancellation fees and the account runs month to month, the best term on the sheet. Trustpilot reviewers rate the company 2.3 out of 5, though, and one recurring complaint is that cancellation requests went unanswered while billing continued. Cancel in writing, keep the confirmation, and check the following month's statement. Hardware terms are separate from the account term, so confirm what happens to any terminal you were supplied."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "paymentdepot.com",
+  "logoSource": "https://www.google.com/s2/favicons?sz=128&domain=paymentdepot.com",
+  "sources": [
+    "https://paymentdepot.com/pricing/",
+    "https://paymentdepot.com/",
+    "https://paymentdepot.com/contact/",
+    "https://www.merchantmaverick.com/reviews/payment-depot-review/",
+    "https://www.nerdwallet.com/business/software/reviews/payment-depot",
+    "https://www.cardfellow.com/credit-card-processors/payment-depot",
+    "https://fitsmallbusiness.com/payment-depot-review/",
+    "https://merchantservices-usa.com/reviews/payment-depot",
+    "https://www.trustpilot.com/review/paymentdepot.com",
+    "https://staxpayments.com/pricing/",
+    "https://www.linkedin.com/company/payment-depot"
+  ]
+}

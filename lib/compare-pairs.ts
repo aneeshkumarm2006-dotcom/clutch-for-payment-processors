@@ -48,6 +48,84 @@ export const POPULAR_COMPARE_PAIRS: readonly (readonly [string, string])[] = [
   ["braintree", "authorize-net"],
   ["authorize-net", "stax"],
   ["helcim", "stax"], // interchange-plus / membership value plays
+
+  // --- Segment head-to-heads, added with the 2026-07-31 listing batch ---------
+  // Same selection rule as above: both sides have to be names a merchant would
+  // actually cross-shop, which in practice means they compete in one segment.
+  // Deliberately still not the full matrix — pairs like "Midtrans vs Dharma"
+  // (an Indonesian gateway against a US nonprofit-focused ISO) have no searcher
+  // behind them and would be thin pages nobody asked for.
+
+  // Gateways sold through ISOs and ISVs. NMI and Authorize.Net are the two names
+  // a reseller-sourced merchant is choosing between.
+  ["authorize-net", "nmi"],
+  ["authorize-net", "fluidpay"],
+  ["authorize-net", "paytrace"],
+  ["authorize-net", "forte-payments"], // card gateway vs ACH-led gateway
+  ["nmi", "fluidpay"], // the closest direct competitor NMI has
+  ["nmi", "paytrace"],
+  ["nmi", "easy-pay-direct"],
+  ["forte-payments", "paytrace"], // ACH and B2B billing
+
+  // Subscription and usage billing. These sit above a gateway, so the comparison
+  // that matters is against each other, never against an acquirer.
+  ["metronome-billing", "orb-billing"], // the direct rivalry in usage billing
+  ["maxio", "orb-billing"],
+  ["maxio", "metronome-billing"],
+  ["maxio", "chargeover"],
+  ["maxio", "billsby"],
+  ["maxio", "invoiced"],
+  ["chargeover", "billsby"],
+  ["chargeover", "invoiced"],
+
+  // Merchant of record vs raw gateway, the decision an indie SaaS seller makes.
+  ["polar-payments", "dodo-payments"],
+  ["stripe", "polar-payments"],
+  ["stripe", "dodo-payments"],
+
+  // High-risk placement. Quote-only providers, so the comparison is approval
+  // odds, contract length and reserves rather than a rate card.
+  ["paymentcloud", "soar-payments"],
+  ["paymentcloud", "durango-merchant-services"],
+  ["paymentcloud", "corepay"],
+  ["paymentcloud", "easy-pay-direct"],
+  ["corepay", "soar-payments"],
+  ["corepay", "durango-merchant-services"],
+  ["soar-payments", "durango-merchant-services"],
+  ["easy-pay-direct", "soar-payments"],
+
+  // US merchant services and interchange-plus value plays.
+  ["stax", "payment-depot"], // Stax owns Payment Depot — high-intent search
+  ["stax", "dharma-merchant-services"],
+  ["stax", "merchant-one"],
+  ["helcim", "payment-depot"],
+  ["helcim", "dharma-merchant-services"], // the two published-markup shops
+  ["helcim", "payjunction"],
+  ["helcim", "merchant-one"],
+  ["dharma-merchant-services", "payjunction"],
+  ["merchant-one", "payment-depot"],
+  ["merchant-one", "tidal-commerce"],
+  ["payjunction", "banquest"],
+
+  // India. Both sides are RBI-licensed aggregators competing for the same book.
+  ["razorpay", "easebuzz"],
+  ["payu", "easebuzz"],
+
+  // Cross-border and European.
+  ["stripe", "mollie"],
+  ["stripe", "midtrans"],
+  ["stripe", "solidgate"],
+  ["stripe", "ebanx"],
+  ["mollie", "adyen"],
+  ["adyen", "windcave"], // enterprise omnichannel with own acquiring
+
+  // Specialists whose nearest published rival is Stripe rather than each other.
+  // Their true head-to-heads are Coinbase Commerce and Paddle, both of which are
+  // seeded unpublished, and a pair naming an unpublished slug renders a 404.
+  // "X vs Stripe" is the real search for both anyway: Stripe is the default these
+  // are argued against.
+  ["stripe", "nowpayments"], // accepting crypto instead of, or alongside, cards
+  ["stripe", "revenuecat"], // in-app purchase billing vs web checkout
 ];
 
 /** The `-vs-` delimiter joining the two slugs in a pretty compare URL. */

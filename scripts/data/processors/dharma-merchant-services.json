@@ -1,0 +1,138 @@
+{
+  "name": "Dharma Merchant Services",
+  "slug": "dharma-merchant-services",
+  "logo": "data:image/png;base64,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",
+  "website": "https://dharmamerchantservices.com",
+  "tagline": "Publishes its exact interchange-plus markup by industry rather than quoting it, and prices nonprofits lower still.",
+  "shortDescription": "Dharma is a San Francisco-founded ISO that prints its markup on a public page. Retail accounts pay interchange plus 0.15% + $0.08, ecommerce accounts 0.20% + $0.11, both on a $20 monthly account. Nonprofits get 0.10% and a $15 monthly fee.",
+  "longDescription": "<p>Dharma Merchant Services has been selling merchant accounts since 2007, when Jeff Marcous and his daughter Alexia founded it in San Francisco. It is a registered ISO/MSP of Synovus Bank in Columbus, Georgia, and the mailing address it publishes today is 41 Watchung Plaza in Montclair, New Jersey. Merchant Maverick reports that the underlying processing runs on Fiserv and TSYS. Dharma says it became a Certified B Corporation in 2009 and, in January 2012, one of California's first legal Benefit Corporations. It also says it gives a share of profits to nonprofits its own customers choose. Six people are listed on the team page, which tells you the scale of the operation.</p><h3>Pricing and how it works</h3><p>Almost nobody in US merchant services publishes their markup. Dharma does, on a public page, broken out by industry. Retail, restaurant, lodging and healthcare accounts pay interchange plus <strong>0.15% + $0.08</strong> per authorization on Visa, Mastercard and Discover, and 0.25% + $0.08 on American Express. Ecommerce and other card-not-present accounts pay <strong>0.20% + $0.11</strong>, with American Express at 0.30% + $0.11. B2B follows the same split: 0.15% + $0.08 card present, 0.20% + $0.11 card not present. Nonprofits get the best numbers on the site, 0.10% + $0.08 in a storefront or 0.10% + $0.11 online. Merchants processing over $100,000 a month drop to 0.10% on the percentage side. The account fee is $20 a month, or $15 for nonprofits. Interchange and card assessments pass through at cost. A chargeback costs $25 and closing the account costs $49. The list of fees Dharma says it does not charge runs longer than the list it does: no annual fee, no monthly minimum, no PCI compliance fee, no early termination fee, no batch fee, no AVS fee, no regulatory fee and no virtual terminal fee.</p><h3>Who it is for</h3><p>The monthly fee is the filter. Dharma's own low-volume page says the account works best at volume levels of at least a few thousand dollars a month, and points smaller merchants at Square or PayPal instead. Merchant Maverick puts the practical floor closer to $10,000 a month. Above that, a nonprofit taking donations online or a retailer with steady card volume will usually beat a flat-rate aggregator by a wide margin. The MX Merchant gateway, virtual terminal, mobile processing and online reporting come with the account at no extra charge. Authorize.Net costs more. Card-present merchants are normally funded the next business day and card-not-present merchants in two, depending on which platform your merchant ID sits on.</p><h3>What Dharma is not</h3><p>It is not a high-risk shop and it does not sign international merchants. Merchant Maverick notes that high-risk applicants get referred out to PaymentCloud rather than underwritten in house. It is also not a technology company. Phone support runs weekday business hours on Pacific time, the gateway belongs to someone else, and there is no marketplace splitting, no multi-currency and no developer platform of its own. What you are buying here is honest arithmetic and a phone that gets answered, not a product roadmap.</p>",
+  "foundedYear": 2007,
+  "headquarters": "Montclair, NJ, United States",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "US"
+  ],
+  "pricingModel": [
+    "interchange-plus"
+  ],
+  "pricingSummary": "Retail accounts pay interchange plus 0.15% + $0.08, card-not-present accounts 0.20% + $0.11, both on a $20 monthly account fee. Nonprofits pay 0.10% + $0.08 in person or 0.10% + $0.11 online on $15 a month. Anyone over $100,000 a month drops to 0.10%.",
+  "fees": {
+    "onlineCardRate": "IC + 0.20% + $0.11",
+    "inPersonCardRate": "Interchange plus 0.15% + $0.08 per authorization on Visa, Mastercard and Discover, and 0.25% + $0.08 on American Express",
+    "keyedInRate": "Interchange plus 0.20% + $0.11, the same as ecommerce",
+    "monthlyFee": "$20, $15 nonprofit",
+    "setupFee": "$0",
+    "chargebackFee": "$25 per instance",
+    "monthlyMinimum": "None",
+    "pciFee": "None",
+    "earlyTerminationFee": "None, but closing the account costs a $49 closure fee"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover"
+  ],
+  "integrations": [
+    "api",
+    "virtual-terminal",
+    "invoicing",
+    "payment-links",
+    "pos-hardware"
+  ],
+  "currencies": "USD only. Dharma signs US-based merchants and does not offer international or multi-currency accounts",
+  "features": [
+    "recurring-billing",
+    "reporting-dashboard"
+  ],
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "nonprofits",
+    "small-business",
+    "retail-pos",
+    "ecommerce"
+  ],
+  "bestFor": [
+    "Nonprofits",
+    "Small Business",
+    "Retail Storefronts",
+    "Transparent Pricing"
+  ],
+  "industries": [
+    "Nonprofits",
+    "Retail",
+    "Restaurants",
+    "B2B Wholesale"
+  ],
+  "pros": [
+    "The full markup is published by industry rather than quoted, so you can price the account before you speak to a salesperson: 0.15% + $0.08 in a store, 0.20% + $0.11 online",
+    "Nonprofits pay interchange plus 0.10% + $0.08 card present or 0.10% + $0.11 online on a $15 monthly fee, among the cheapest published donation processing in the US",
+    "No annual fee, no monthly minimum, no PCI compliance fee and no early termination fee, with interchange and card assessments passed through at cost"
+  ],
+  "cons": [
+    "The $20 monthly fee makes the account uneconomic at low volume. Dharma's own low-volume page sends smaller merchants to Square or PayPal, and Merchant Maverick puts the practical floor near $10,000 a month",
+    "No high-risk and no international merchants. Merchant Maverick reports that high-risk applicants are referred out to PaymentCloud rather than underwritten in house",
+    "It is a six-person ISO reselling Fiserv and TSYS, with a $49 account closure fee, phone support only during Pacific business hours and no gateway of its own beyond MX Merchant"
+  ],
+  "editorScore": 4.4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Dharma Merchant Services Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Dharma publishes its markup: interchange plus 0.15 percent and 8 cents in store, 0.20 percent and 11 cents online, on a 20 dollar monthly account fee.",
+    "keywords": [
+      "dharma merchant services review",
+      "dharma merchant services pricing",
+      "dharma merchant services fees",
+      "dharma merchant services vs helcim",
+      "nonprofit credit card processing"
+    ],
+    "focusKeyword": "dharma merchant services review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Dharma Merchant Services cost?",
+      "answer": "Dharma publishes its rates by industry. Retail, restaurant, lodging and healthcare accounts pay interchange plus 0.15% + $0.08 per authorization on Visa, Mastercard and Discover, and 0.25% + $0.08 on American Express. Ecommerce and other card-not-present accounts pay 0.20% + $0.11, with American Express at 0.30% + $0.11. The account fee is $20 a month. Merchants processing more than $100,000 a month drop to 0.10% on the percentage side. Interchange and card assessments pass through at cost, a chargeback costs $25, and closing the account costs $49."
+    },
+    {
+      "question": "Does Dharma charge a monthly fee?",
+      "answer": "Yes, $20 a month for most accounts and $15 a month for nonprofits, and that is the only recurring charge. Dharma lists no annual fee, no monthly minimum, no PCI compliance fee, no early termination fee, no batch fee, no AVS fee, no regulatory fee and no virtual terminal fee. The virtual terminal, mobile processing and online reporting come with the account. Authorize.Net costs extra if you want it instead of the included MX Merchant gateway, and the nonprofit page lists a gateway option at $10 a month plus $0.05 per transaction."
+    },
+    {
+      "question": "Is Dharma good for nonprofits?",
+      "answer": "It is one of the cheapest published options in the US market. Nonprofits pay interchange plus 0.10% + $0.08 per authorization at a storefront or 0.10% + $0.11 online, with American Express at 0.20%, on a $15 monthly account fee. Dharma says it became a Certified B Corporation in 2009 and one of California's first legal Benefit Corporations in January 2012, and that it donates a share of profits to nonprofits chosen by its customers. The catch is the same as for everyone else: below roughly $10,000 a month the fixed fee eats the saving."
+    },
+    {
+      "question": "Is Dharma good for high-risk merchants?",
+      "answer": "No. Dharma underwrites conventional US businesses only and does not sign high-risk or international accounts. Merchant Maverick reports that high-risk applicants get referred to PaymentCloud rather than underwritten in house. Verticals such as CBD and hemp, nutraceuticals, firearms, adult, debt relief, travel and continuity billing need a specialist acquirer that prices for elevated chargeback ratios and can hold a rolling reserve. If Square or Stripe has already declined your category, Dharma will decline it too."
+    },
+    {
+      "question": "How fast does Dharma pay out?",
+      "answer": "It depends on your processing platform and whether the sale was card present. Dharma says card-present transactions are almost always funded the next business day if you batch before your platform's cutoff, and card-not-present transactions usually fund in two days, occasionally accelerated to one. The cutoffs differ by platform: 7pm Eastern on Omaha, 9pm Eastern on TSYS and 2am Eastern on First Data North. Missing your cutoff pushes the batch into the following day's funding cycle."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "dharmamerchantservices.com",
+  "logoSource": "https://web.archive.org/web/2026im_/https://dharmamerchantservices.com/wp-content/uploads/2015/03/cropped-dharma_horizontal_red.png",
+  "sources": [
+    "https://dharmamerchantservices.com/industries/retail-small-business/rates-fees/",
+    "https://dharmamerchantservices.com/industries/ecommerce-online/rates-fees/",
+    "https://dharmamerchantservices.com/industries/b2b-processing/rates-fees/",
+    "https://dharmamerchantservices.com/industries/nonprofits/rates-fees/",
+    "https://dharmamerchantservices.com/pricing/interchange-plus-pricing/",
+    "https://dharmamerchantservices.com/industries/ecommerce-online/",
+    "https://dharmamerchantservices.com/faq/how-quickly-will-i-receive-my-funds/",
+    "https://dharmamerchantservices.com/faq/what-is-a-b-corporation/",
+    "https://dharmamerchantservices.com/low-volume/",
+    "https://dharmamerchantservices.com/about/team/",
+    "https://dharmamerchantservices.com/contact/",
+    "https://www.merchantmaverick.com/reviews/dharma-merchant-services-review/"
+  ]
+}

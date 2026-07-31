@@ -1,0 +1,145 @@
+{
+  "name": "Durango Merchant Services",
+  "slug": "durango-merchant-services",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAHlBMVEVMaXE/WXQ/WnU/WnQ+WnT4kB8/WnWNb1TGgjxqZV859PvyAAAABXRSTlMAM9tzqH02isAAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAN5SURBVHja5ZzhdvMgCIaDUpX7v+Evbbd9bTXmxYCes9E/+9GMR0SDCN22ASGKkUNIPxICx0i0TZBdN79ofpcdwxeip/xH3CB27QkUDwYCxv42GWQ7eJX2LwY7M4yofyIsVW+EcEX9A4Euul66LFfcMSYTiQuH/zUPS2b/qjPGZCpqAk7GwrrpD8lcNAvSQ7+GgJKT0Mrx4wSO+iECSq5CS8ePeKKz/tNtmZO78MT9V70rT9HfI/h0gFwwyTmLGLhB5QD5ppEdBMRgdAJ0AN8Qo5PQ2IFyuQ1IyWP7UXMFSj4Y6Ks0EEQ/CUdbcMsIOcnrR6Qy1akVCN8CSwugYasCfKmzEo63gIwB1AhFNH7YeQcUEKBGyLgJensgDlD5bIFN0HsJCg5Q0RbQBN2XgArg89sFM0E/CigagATPQoDDMB0ATkBoGJJ1AAldC4zGgVqAT6eRs/jwLA7RAlSTICduyNYAAi5GBk8CogWokKXrhtEeIN0wE0QsFB8AKJgJGDuLDAAIZoKAHQYHAFATEHQYGAHI2CMROo1ZAJRjJwguAJ/r4GAOAnQeHwLAQsR9NwYSEiYA5cgLoxMA6ATRDUAwJ4hISsITgN0AEvYQI0khT4DgBwCuwy3NssDBMvADAA+r8wD+ngX+vA+gD/3ejUjQiGTWy6jMfhnBQeGvDUgKGpfPigkPTyZOAODZ7A4QVh5M7kkSXnk25G0SQC9H4nI4Bc+mj8Opy/EcTJw/82TBP0WTu8nSmKyzZNUT/XQxJe80XT5J1gbvROVZupqTabIaz9gzWLNQnJLV/9PlwTNdn4ELg5jsbkxw/S9XJqTzQc2VTe+raOFE0QDg43+7viVNfN37txnLkte3t5yu35xWt+39q1MGq4fkhgLkolqsBJbPNG/P5VNydX9+doPP0O29jJUwnKtv3N8zNv1G6hsVDK3gdAAALCJpVXTFywD3eh65UEoUGi6AiqgKiQ4qici9kO2spC7OAogLa+n69XRzJqFX0ziFgBYXFMapJeUDRea8sKBzAgFU4s6L9TsSwCX+vFi/01pQNVnExfrt90R9w5MtwVDDFa/qcDHvNBpvebPptbrU+3jdEwIt7fez6HmkcQSjlstRBMOm0xGEYN36q+r7Ne761fRdOzeA05kdgs/YK0u0MALzpAb8pyn2XwDYfwPgIfe/aFT3P5vZJiuwvSklAAAAAElFTkSuQmCC",
+  "website": "https://durangomerchantservices.com",
+  "tagline": "Long-running Colorado high-risk ISO that places domestic, international and offshore merchant accounts, with month-to-month terms for most merchants.",
+  "shortDescription": "A Durango, Colorado ISO specializing in hard-to-approve accounts, with offshore placements through acquirers in Canada, Panama, the UK and the EU. Rates are quote-only, but Merchant Maverick reports most merchants get month-to-month terms with no early termination fee.",
+  "longDescription": "<p>Durango Merchant Services is an independent sales organization in Durango, Colorado that has been placing hard-to-approve merchants for well over two decades. Exactly how long is oddly difficult to pin down: its own marketing says 1997, CardFellow's directory says 1999 and its LinkedIn profile says 2004. It is a broker, not a bank. Merchant Maverick reports that Durango works with more than a dozen banks and processors to place an account, and that spread of relationships is what the offshore product rests on. Alongside domestic US accounts it arranges international and offshore placements through acquirers in Canada, Panama, the United Kingdom and the European Union, with currency conversion and multi-currency settlement. Neither PaymentCloud nor Soar Payments offers anything comparable.</p><h3>Pricing and how it works</h3><p>Nothing is published, and Merchant Maverick is blunt about the reason: Durango does not list rates, fees or contract terms because it sells to high-risk businesses whose pricing is assigned case by case after underwriting. Reviewers who have gathered quotes disagree on the band. GuidingDecisions reports discount rates of 1.95% to 4.95% plus $0.15 to $0.25 per transaction with monthly account fees of $10 to $60, while Wise's review puts the range higher at 2.5% to 5.5% plus $0.20 to $0.50. Treat both as indicative rather than as a quote. What is consistent across reviews is the contract, and it is the best in this category: no setup fee, a $10 monthly minimum, month-to-month terms with no early termination fee for most merchants, and rolling reserves used mainly on very high-risk startups rather than as a default. The exceptions are real. Merchant Maverick notes that some high-risk businesses are put on a three-year initial term with an early termination fee of up to $500, so the month-to-month default is a starting position, not a guarantee.</p><h3>The platform</h3><p>Durango sells a gateway under its own name, which Merchant Maverick describes as a proprietary product, offering recurring billing, a secure customer vault, address verification, QuickBooks integration and roughly 150 cart plugins. The module names are the same set NMI licenses to resellers as a white label, so read \"proprietary\" as branding rather than engineering. eChecks are supported and a cryptocurrency merchant account is available. But Merchant Maverick is explicit that eChecks are not the same thing as ACH and that Durango does not offer ACH, which matters if the plan was to run bank debits for recurring billing.</p><h3>Who it is for</h3><p>Merchants who have already been declined, and in particular merchants who need an acquirer outside the United States or settlement in more than one currency. Merchant Maverick scores Durango 4.8 out of 5 and reports an A+ BBB rating with zero complaints filed in the last three years, which is rare in this trade. The main operational catch is availability. Phone support runs Monday to Friday, 8:30am to 5pm Mountain time, with no weekend or overnight cover, which is an awkward fit for the European and offshore merchants the international product is built to serve.</p>",
+  "headquarters": "Durango, CO, United States",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "EU",
+    "UK"
+  ],
+  "pricingModel": [
+    "custom-quote",
+    "interchange-plus",
+    "tiered"
+  ],
+  "pricingSummary": "Durango publishes no rates, fees or contract terms. Merchant Maverick reports interchange-plus and tiered structures assigned per account, with no setup fee and a $10 monthly minimum. GuidingDecisions puts quoted discount rates in a 1.95% to 4.95% band plus $0.15 to $0.25 per transaction.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "achRate": "eCheck only. Merchant Maverick reports Durango does not offer true ACH",
+    "monthlyFee": "Custom quote",
+    "setupFee": "$0",
+    "monthlyMinimum": "$10 per month, per Merchant Maverick",
+    "earlyTerminationFee": "None for most merchants. Up to $500 on some high-risk contracts, per Merchant Maverick"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "crypto"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "virtual-terminal",
+    "pos-hardware",
+    "shopify",
+    "woocommerce",
+    "magento",
+    "bigcommerce"
+  ],
+  "currencies": "Multi-currency with currency conversion, using acquirers in Canada, Panama, the United Kingdom and the European Union alongside US banks",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "chargeback-protection",
+    "reporting-dashboard"
+  ],
+  "highRiskFriendly": true,
+  "categorySlugs": [
+    "high-risk",
+    "international",
+    "ecommerce"
+  ],
+  "bestFor": [
+    "Offshore merchants",
+    "High-risk ecommerce",
+    "Multi-currency sellers",
+    "Cryptocurrency businesses"
+  ],
+  "industries": [
+    "Nutraceuticals",
+    "Firearms",
+    "Travel",
+    "Debt and credit services"
+  ],
+  "pros": [
+    "Merchant Maverick reports month-to-month terms with no early termination fee for most merchants, and no setup fee. That combination is close to unheard of among high-risk providers",
+    "Offshore and international placements run through acquirers in Canada, Panama, the United Kingdom and the European Union, with currency conversion and a cryptocurrency merchant account option",
+    "Merchant Maverick scores Durango 4.8 out of 5 and reports an A+ BBB rating with zero complaints filed in the last three years"
+  ],
+  "cons": [
+    "No rates, fees or contract terms appear on the site, and the review sites that publish quote ranges disagree: 1.95% to 4.95% at GuidingDecisions against 2.5% to 5.5% at Wise",
+    "Merchant Maverick reports that some high-risk merchants are put on a three-year initial term with an early termination fee of up to $500, so month-to-month is a default rather than a promise",
+    "Merchant Maverick states that Durango offers eChecks but not true ACH, and phone support runs only Monday to Friday, 8:30am to 5pm Mountain time, which suits offshore merchants badly"
+  ],
+  "editorScore": 4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Durango Merchant Services Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Durango places high-risk and offshore merchant accounts. Quote-only pricing, no setup fee and month-to-month terms with no early termination fee for most.",
+    "keywords": [
+      "durango merchant services review",
+      "durango merchant services pricing",
+      "durango merchant services fees",
+      "offshore merchant account provider",
+      "durango merchant services vs paymentcloud"
+    ],
+    "focusKeyword": "durango merchant services review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Durango Merchant Services cost?",
+      "answer": "Durango publishes no pricing. Merchant Maverick notes that rates, fees and contract terms are all withheld because pricing is assigned per account after underwriting, using either interchange-plus or tiered structures. The consistent figures across reviews are a $0 setup fee and a $10 monthly minimum. On the variable side, reviewers disagree: GuidingDecisions reports discount rates of 1.95% to 4.95% plus $0.15 to $0.25 per transaction with monthly fees of $10 to $60, while Wise's review reports 2.5% to 5.5% plus $0.20 to $0.50. Get the full schedule in writing before signing."
+    },
+    {
+      "question": "Does Durango Merchant Services offer offshore merchant accounts?",
+      "answer": "Yes, and it is the main reason to shortlist Durango over a domestic-only competitor. Merchant Maverick lists Durango as its pick for offshore merchants, and reviewers report acquiring relationships in Canada, Panama, the United Kingdom and the European Union alongside US banks. Accounts can settle in multiple currencies with conversion built in, and Durango adds fraud tooling for cross-border volume. Rivals such as PaymentCloud and Soar Payments place US accounts only, and Soar goes further by requiring an owner with a US Social Security number, which rules out foreign-owned applicants entirely."
+    },
+    {
+      "question": "Does Durango require a long-term contract?",
+      "answer": "Usually not. Merchant Maverick reports that most Durango merchants sign month-to-month agreements with no early termination fee, which is unusual for high-risk processing where two and three-year terms are standard. The exception is the riskiest end of the book: some high-risk businesses receive a three-year initial term with an early termination fee of up to $500. Rolling reserves follow the same pattern, applied mainly to very high-risk startups rather than to every approved account. Confirm your own term, termination fee and reserve schedule in writing before boarding."
+    },
+    {
+      "question": "Is Durango a payment processor or a broker?",
+      "answer": "A broker. Durango is an independent sales organization, and Merchant Maverick reports that it works with more than a dozen banks and processors to place each account rather than running one platform of its own. That matters in two directions. It is why Durango can approve businesses other providers decline, because it can shop an application across several risk appetites and jurisdictions. It also means the pricing, the reserve and the funding schedule are ultimately set by whichever acquiring bank takes the account, not by Durango."
+    },
+    {
+      "question": "Does Durango support ACH payments?",
+      "answer": "Not in the way most merchants mean. Durango sells eCheck processing, including check acceptance over the web and by telephone with bounced-check protection, for an additional monthly fee. Merchant Maverick is explicit that eChecks are not the same thing as ACH and that Durango does not offer ACH processing. If your model depends on recurring bank debits rather than card-on-file billing, that gap matters, and providers such as Corepay and Soar Payments do sell true ACH alongside their card accounts. Cryptocurrency acceptance is available as a separate merchant account."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "durangomerchantservices.com",
+  "logoSource": "https://www.google.com/s2/favicons?sz=128&domain=durangomerchantservices.com",
+  "sources": [
+    "https://www.merchantmaverick.com/reviews/durango-merchant-services-review/",
+    "https://www.merchantmaverick.com/best-high-risk-merchant-account-providers/",
+    "https://www.cardfellow.com/credit-card-processors/durango-merchant-services",
+    "https://www.guidingdecisions.com/durango-merchant-services-review-high-risk-and-offshore-processing-built-on-25-years-of-placement-expertise",
+    "https://wise.com/us/blog/durango-merchant-services-review",
+    "https://paymentproviders.io/providers/durango",
+    "https://sharkprocessing.com/durango-merchant-services-review/",
+    "https://www.nmi.com/products/payment-gateway/"
+  ]
+}

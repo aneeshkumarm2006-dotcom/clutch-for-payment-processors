@@ -1,0 +1,136 @@
+{
+  "name": "Soar Payments",
+  "slug": "soar-payments",
+  "logo": "data:image/png;base64,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",
+  "website": "https://www.soarpay.com",
+  "tagline": "Texas high-risk provider that returns a price the moment you finish the online form, across more than 50 regulated verticals. US businesses only.",
+  "shortDescription": "Soar Payments is a Houston-area high-risk ISO, now branded SoarPay and operating as a DBA of AltruPay LLC. Pricing is quote-only, but the quote is automated: no application fee, and a $495 early termination fee on high-risk contracts.",
+  "longDescription": "<p>Soar Payments is a high-risk merchant account provider founded in July 2015 and run from 21 Waterway Avenue in The Woodlands, the Houston suburb where it has held BBB accreditation since 2018. The website now brands the company as SoarPay, and the footer sets out the corporate structure plainly: Soar Payments is a DBA for AltruPay LLC, a registered ISO of Commercial Bank of California in Irvine. It is <strong>not an acquirer</strong> and it does not own a gateway. It underwrites the application, places the account behind a sponsor bank, and provisions one of four gateways it resells: Authorize.Net, NMI, FluidPay or AcceptBlue. The accepted list runs past 50 verticals, including nutraceuticals, firearms, CBD, vape, credit repair, debt collection, MLM, sports betting, seminars, timeshare, pawn shops and telemedicine.</p><h3>Pricing and how it works</h3><p>There is no rate card, but there is something most competitors lack: an automated quote engine that returns a price the moment you finish the application form rather than a callback three days later. Soar's own FAQ says it sells interchange-plus and calls that the most transparent model in the industry. Merchant Maverick and TailoredPay both describe something narrower in practice: low-risk merchants get interchange-plus, and mid-risk and high-risk merchants are usually placed on tiered pricing. No application or setup fee applies. Low-risk accounts run month-to-month with no early termination fee. High-risk accounts carry a $495 early termination fee. Soar is unusually specific about reserves for this category: 5 to 10 percent of processing volume, reviewed every 60 to 90 days against your financials, and not imposed on every merchant. Rates can be revisited after three to six months of clean processing, and the company says it will look at a verified competing offer. Settlement lands 48 to 72 hours after a batch closes, and monthly fees are debited in the first week of the following month.</p><h3>Who it is for</h3><p>Domestic merchants only, and that limit is stricter than it first looks. Soar will not sign a business headquartered outside the United States and requires an owner with a valid US Social Security number, so there is no offshore option and no route for a foreign parent company. Inside that boundary it suits a US seller in a regulated vertical who wants a price today and can accept tiered pricing in exchange for approval in 48 to 72 hours. TailoredPay's review collects the recurring merchant complaints. They are about cash rather than cost: funds held shortly after the first transactions settle, extra documentation requested after approval, and termination fees billed years after signup.</p>",
+  "foundedYear": 2015,
+  "headquarters": "The Woodlands, TX, United States",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "US"
+  ],
+  "pricingModel": [
+    "custom-quote",
+    "interchange-plus",
+    "tiered"
+  ],
+  "pricingSummary": "Quote-only, but the quote is automated: finish the online application and a price comes back immediately. There is no application or setup fee. Soar's FAQ says it sells interchange-plus, while Merchant Maverick and TailoredPay report that mid-risk and high-risk accounts usually land on tiered pricing.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "achRate": "Custom quote. ACH and eCheck are offered and marketed as cheaper than cards",
+    "monthlyFee": "Custom quote",
+    "setupFee": "$0, and no application fee",
+    "monthlyMinimum": "Possible, set per account",
+    "earlyTerminationFee": "None on low-risk accounts. $495 on high-risk contracts, per Merchant Maverick"
+  },
+  "contractType": "long-term",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "ach"
+  ],
+  "integrations": [
+    "api",
+    "virtual-terminal",
+    "shopify",
+    "woocommerce",
+    "magento",
+    "bigcommerce"
+  ],
+  "currencies": "USD only. Soar accepts US-registered businesses whose owners hold a valid US Social Security number",
+  "features": [
+    "recurring-billing",
+    "fraud-protection",
+    "tokenization",
+    "reporting-dashboard"
+  ],
+  "highRiskFriendly": true,
+  "categorySlugs": [
+    "high-risk",
+    "ecommerce",
+    "subscriptions"
+  ],
+  "bestFor": [
+    "US high-risk merchants",
+    "Fast approvals",
+    "Continuity billing",
+    "Firearms and FFL dealers"
+  ],
+  "industries": [
+    "Nutraceuticals",
+    "Firearms",
+    "Credit repair",
+    "Travel"
+  ],
+  "pros": [
+    "The online application returns an automated price quote immediately instead of routing you to a sales callback, and there is no application or setup fee",
+    "Soar publishes its reserve policy in its own FAQ: 5 to 10 percent of volume, reviewed every 60 to 90 days, and not applied to every merchant. That is more disclosure than most high-risk ISOs give",
+    "Four gateways are on the menu, Authorize.Net, NMI, FluidPay and AcceptBlue, and the company documents a rate review after three to six months of clean processing"
+  ],
+  "cons": [
+    "No rates are published anywhere. Soar's FAQ promises interchange-plus, but Merchant Maverick and TailoredPay both report that mid-risk and high-risk merchants usually end up on tiered pricing",
+    "High-risk contracts carry a $495 early termination fee, and TailoredPay's review collects merchant reports of that fee being billed years after signup",
+    "US-only, with a valid Social Security number required from an owner, so there is no offshore placement and no route for a foreign-owned business"
+  ],
+  "editorScore": 3.7,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Soar Payments Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Soar Payments quotes high-risk merchants instantly online. No setup fee, a USD 495 early termination fee on high-risk deals, and US accounts only.",
+    "keywords": [
+      "soar payments review",
+      "soar payments pricing",
+      "soar payments fees",
+      "soarpay high-risk merchant account",
+      "soar payments vs paymentcloud"
+    ],
+    "focusKeyword": "soar payments review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Soar Payments cost?",
+      "answer": "Soar publishes no rates, but it is the rare high-risk provider that quotes without a phone call: complete the online application and its engine returns a price straight away. There is no application or setup fee. The company's FAQ says pricing is interchange-plus, adjusted for your industry, processing history, monthly volume and average ticket. Merchant Maverick and TailoredPay both report that in practice only low-risk merchants get interchange-plus, and that mid-risk and high-risk accounts are usually placed on tiered pricing. Expect a monthly account fee, a gateway fee and a chargeback fee on top, none of which are published."
+    },
+    {
+      "question": "Does Soar Payments require a long-term contract?",
+      "answer": "It depends on how you are underwritten. Merchant Maverick reports that low-risk merchants sign month-to-month with no early termination fee, and that high-risk accounts carry an early termination fee of $495. Reviewers who have seen the paperwork describe a two-year initial term on mid-risk and high-risk deals that then renews a year at a time. TailoredPay's review collects merchant reports of that termination fee being charged years after signup, so read the initial term, the renewal clause and the cancellation notice window before you sign anything."
+    },
+    {
+      "question": "Does Soar Payments offer offshore merchant accounts?",
+      "answer": "No. Soar's FAQ states that it only provides merchant accounts to US-based businesses whose owners hold a valid US Social Security number, and that it cannot serve a business headquartered or primarily operating outside the United States. There is no offshore or international acquiring option at all. Merchants who need an acquirer outside the US, multi-currency settlement, or placement for a foreign parent company should look at a provider such as Durango Merchant Services, which arranges accounts through banks in Canada, Panama, the United Kingdom and the European Union."
+    },
+    {
+      "question": "How long does Soar Payments take to approve and fund an account?",
+      "answer": "Soar says pre-approval usually comes back within one business day of a complete application and that full underwriting approval takes three to five business days, while its marketing pages quote 48 to 72 hours for many accounts. Once you are live, settlements typically reach your business bank account 48 to 72 hours after a batch closes. Monthly fees are debited during the first week of each month for the previous month. If a rolling reserve applies, it holds 5 to 10 percent of volume and is reviewed every 60 to 90 days."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "soarpay.com",
+  "logoSource": "https://www.soarpay.com/wp-content/uploads/2026/01/cropped-spfav-192x192.png",
+  "sources": [
+    "https://www.soarpay.com/",
+    "https://www.soarpay.com/about-us/",
+    "https://www.soarpay.com/frequently-asked-questions/",
+    "https://www.soarpay.com/high-risk-merchant-accounts/",
+    "https://www.soarpay.com/ach/",
+    "https://www.soarpay.com/platform/",
+    "https://www.soarpay.com/contact-us/",
+    "https://www.merchantmaverick.com/reviews/soar-payments-review/",
+    "https://www.merchantmaverick.com/best-high-risk-merchant-account-providers/",
+    "https://tailoredpay.com/blog/soar-payments-review/",
+    "https://www.bbb.org/us/tx/the-woodlands/profile/credit-card-processing-services/soar-payments-0915-90050992",
+    "https://www.altrupay.com/"
+  ]
+}

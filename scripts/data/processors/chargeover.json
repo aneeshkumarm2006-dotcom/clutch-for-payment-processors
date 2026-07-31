@@ -1,0 +1,142 @@
+{
+  "name": "ChargeOver",
+  "slug": "chargeover",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAADAFBMVEXxaD75qWD5rGLxaz/xaz/5rGPycULxZz7wZj3xZzzzdUXxaD/4p2D1iE/2klT4pF74olzxaT/yc0Pzfkn3oFzwZz3xbkH3nFr3nVr1i1H3n1zydkX0hU34pl71jlH2lFb2lVX0ekb0fEf0iE/0hEz3mFf0gkv3mln2l1f5rWL0fUn0f0nxZj3uZDpMaXH1Zz30gEr2mFjwZjz4pF75rmL3q2H0Zz3uZDz8s2b5rmL3l1fyaj/////yaT7yaD7yaz/ybEDybkHybUDzckPyaT/zcUPyb0Lya0DxZz3zcEL0fUn1h073k1XybUHzc0TzdETzdUX4nVr0e0j///74n1v0f0rzdkX//fzyb0H1gEv//v30ekf1gkz2jFH1hE31gUvycEL4oVzzd0b0fkr2j1P5qGD1g0z3lVb2ilD0eUf3l1f4m1n3klT1iE/1hU31aT72i1H0fEn3mVjzcUL4oFz2kFPzeEb0aj72jlL2iU/2kVT4mln5o132jVL5pl/5pF75qWH5pV/0fEj3mFjzaD33llf6q2L3llb0eEf5qmH6rWPzc0P6rGLycETzdkj0aj/0eEn3lFb3kVT1gErzbDPxXCr5ol31g03+8u3yYC30fEvyZTD3mFfybkLzckXyaDD/+/n81sf2kFTzdEX0cDX0gU33mlj1hlD6wqjzbjr/+PX1fkzyZzX3aj/zcD794dX+sGXxaD7+rGLzekj+7ufxWSX+sWX0dTn5tZr3nXz8287yajbzazr7yrbzc0f4fkr5s5P95dz7xbD2hET4onnxYjL5h073d0X9qF/5g0z0dj/zcjz6up36vaX4q4/2iVL2kVX2bED1jlP4ekf3c0P6jVH8nlv8mlj0ek/1ej32klf7zLv2bkH6kVP0fVL4ooP7llb0eUP1gT7+6uHyZjj4qIj2cUL8oVz1iFn80sH3mXb3nm/0fED2jlf5ilD1h171f0T2j2X5t5/1iWH2j2r9pF73mGP2iUv4qIH8a0D2k277k1X0g1v1glT3mG/0ckTAUKppAAAA03RSTlP26Oj+6P7o9vfp6Pb+6Oj+6Pb+/v7+/v7o6Oj+/ujo/ujo6P7o6Ojo/ujo6PVRANXo/vzo60TJXMPE8P/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+A0yQxgAAAAlwSFlzAAALEwAACxMBAJqcGAAAE11JREFUeNqlmwlYVOe5x2nTNCa3bXoTmzTG1qbNYvY06XLvw2GHQVEWQRgcVIggi1EKEhUXoiWJwYszRQOVGWQTpqxCLBjAAQIoJgEBk7SJS6Nxi3tdo9EkPvd7v+Wc7zvnzAzY/0PQBJj/792+5UzweO73//u7J5988vtY32P6xUsvvfRT0IQJE34OeuKJJx577FdIP8H6JdJDDz30Y6xHH3308cdfeOHpp5966tdIjzzyyD1UP2T6gaK7Of3h2ec8fv/uu++gD6a/U32A9RXSyZMnP8X6DPQF0jfffPM50j9B/0bavXv3h0TvYX0Ceh/rH6AvQf9C+ohqK9KfkJbduPGsx/+8e6eidevWrPkR0b2gl8cjzZz5INLixb+dPHnypEmT9u5dseJjUE5GRmrqb5AmTpyYnGy3R0ffj5TbgrR06cNI94HM5oSEB7DuINpG9DPQizee9/jdO/9HtX79+rVrAWHN/PnzX3vtz6tXr1r115dffXXmzJkzZryycuXixQsWvJmSMn36woVbliRlZ2OARYumTZs2d25ycnz8rOjExJDM3Mi4uLS8pfNiIiIiwsPyA4KCphoMsX5+/v6+vj4+np6eXl5e3khTiMZ5PPnunTLAWgIwnwKsWrXqZV2AjStGARATEc4DhOoCvPGMArCeB3iNZOCvJAMzEMArKxe/vvnNt1I2bACApKTsHPcAYW4BvMd5fF8BWCtUQA2wePHrCxYQgBUYYM6cjNTlAJCeTgGiE0NCItUZmDo1gQEE6wK8c6c2AQQAWkAGWPm31xFACgJYuHDFkiXZKoDZs0cLEDhaAGgBAJjJAUAJpk9HLbAkKQcBpLoBUJfABcB6rb+mBUgPogqgDCRhgIzlFGATApjlvgcYgJcGQPZnAH9WVwB6kJ9CAMgAgGlaAOTvDMBHBvDmAdZzCeBmQKwAGYIU1AIb8TIALUCGIB1Nwez4+GgMEOkOwFMLoPZ3UgHSg9PZ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",
+  "website": "https://chargeover.com",
+  "tagline": "Minneapolis recurring billing and invoicing platform that meters on customer count instead of taking a share of the revenue it bills.",
+  "shortDescription": "ChargeOver automates subscriptions, invoicing and dunning on top of a gateway you already hold. Plans start at $229 per month and scale with the number of paying customers you bill. There is no per-transaction fee and no cut of revenue.",
+  "longDescription": "<p>ChargeOver is a recurring billing and invoicing platform founded in 2011 by Keith Palmer and Ryan Bantz, run from 1000 Shelard Parkway in Minneapolis. It is a small operation. Tracxn put the headcount at 17 in May 2026, and the company's own team page lists roughly a dozen people. The product covers subscription lifecycle emails, automated invoicing, dunning and card-expiry reminders, a self-service billing portal, more than 40 reports and a developer API. Native connections go out to QuickBooks, Xero, HubSpot and Salesforce, and billing models run from fixed-price subscriptions through to metered, quantity-based and add-on configurations.</p><h3>Pricing and how it works</h3><p>ChargeOver publishes one figure: plans <strong>start at $229 per month</strong>, on flat monthly terms with no annual contract or commitment. Capterra and Software Advice both record that tier as the Standard plan. The pricing page names no tiers and shows no ladder, so the only public number is the floor. ITQlick, updated in February 2026, still lists an older structure of a $115 Starter, a $229 Growth and a quoted Enterprise, which the vendor no longer shows. What ChargeOver does spell out is the shape of the meter. You are charged on monthly active customers, defined as anyone with an active subscription or who has paid or owes you for the current period. Crossing the customer count in your plan moves you to the next tier automatically, and it moves you back down again when the count falls. No per-transaction fees, no cut of invoiced revenue: that is the company's main pricing argument against percentage-billed rivals. Signup gives you a free sandbox account, limited to test transactions until you upgrade to go live.</p><h3>Who it is for</h3><p>ChargeOver suits small and mid-sized B2B businesses that already keep their books in QuickBooks or Xero and want invoicing and collections automated without handing over a slice of revenue. Capterra reviewers rate it 4.7 out of 5 across 86 reviews; 83 percent of those reviewers are small businesses, mostly in software, marketing and IT services. Because the meter counts customers rather than dollars, it gets cheaper in relative terms as your average invoice grows, and dearer if you bill a lot of small accounts.</p><h3>What ChargeOver is not</h3><p>ChargeOver is not a merchant account and not a card acquirer. It connects to more than 50 gateways, among them Authorize.net, Stripe, Adyen, Braintree, PayPal, Payflow Pro, QuickBooks Payments, Moneris, Forte, BlueSnap, eWay, Pin Payments and Windcave. Your card rate is whatever that gateway and its acquirer charge. ChargeOver's own pricing page puts the typical figure at 2.9% + $0.30 per transaction and says plainly that gateway and merchant account fees are not included in any plan. The platform takes card, PayPal and ACH for recurring transactions, is certified as a PCI-DSS compliant Level 1 Service Provider, and supports multiple currencies inside a single account.</p>",
+  "foundedYear": 2011,
+  "headquarters": "Minneapolis, MN, United States",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "UK",
+    "EU",
+    "Global"
+  ],
+  "pricingModel": [
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "Plans start at $229 per month on flat monthly terms with no annual contract. The bill scales with the number of monthly active customers you invoice. ChargeOver adds no per-transaction fee and takes no percentage of the revenue it bills.",
+  "fees": {
+    "onlineCardRate": "Gateway rate, from 2.9%",
+    "monthlyFee": "From $229 per month",
+    "achRate": "Set by your gateway. ACH is supported for recurring transactions",
+    "setupFee": "Not published. Free sandbox account before you go live",
+    "chargebackFee": "Charged by your gateway or acquiring bank, not by ChargeOver",
+    "earlyTerminationFee": "None. ChargeOver advertises no annual contracts or commitments"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": true,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "paypal",
+    "ach"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "invoicing",
+    "payment-links"
+  ],
+  "currencies": "Multiple currencies supported, and several can be used at once inside the same ChargeOver account",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "reporting-dashboard",
+    "tokenization",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "small-business",
+    "developers"
+  ],
+  "bestFor": [
+    "B2B Subscriptions",
+    "Recurring Invoicing",
+    "QuickBooks Users"
+  ],
+  "industries": [
+    "SaaS",
+    "IT Services",
+    "Marketing Agencies",
+    "Professional Services"
+  ],
+  "pros": [
+    "The meter runs on customer count, not on money, so ChargeOver adds no per-transaction fee and takes no percentage of the revenue it invoices for you",
+    "Flat monthly billing, no annual contract or commitment, and a free sandbox account that exercises every feature on test transactions before you go live",
+    "Two-way native accounting integrations with QuickBooks and Xero, plus HubSpot and Salesforce, more than 50 gateway connections and over 40 built-in reports"
+  ],
+  "cons": [
+    "The pricing page shows only the $229 starting figure. No named tiers, no customer-count ladder, so you cannot work out your own bill without contacting sales",
+    "A $229 monthly floor with no free tier prices out small merchants, and reviewers on Capterra and Software Advice flag the high entry cost repeatedly",
+    "Weak mobile access and a fiddly initial setup come up on both Capterra and Software Advice, and one reviewer says the mobile gap was still there after raising it with support"
+  ],
+  "editorScore": 4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "ChargeOver Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "ChargeOver recurring billing starts at USD 229 per month with no per-transaction fee and no cut of revenue. See how the customer-count pricing works.",
+    "keywords": [
+      "chargeover review",
+      "chargeover pricing",
+      "chargeover fees",
+      "chargeover vs chargebee",
+      "recurring billing software"
+    ],
+    "focusKeyword": "chargeover review"
+  },
+  "faqs": [
+    {
+      "question": "How much does ChargeOver cost?",
+      "answer": "ChargeOver publishes a starting price of $229 per month, which Capterra and Software Advice both record as the Standard plan. Billing is flat monthly with no annual contract, and the amount scales with how many monthly active customers you bill. Nothing above the entry price is published, so pricing a larger book means talking to sales. Payment gateway and merchant account fees sit outside the plan entirely and are charged by your processor."
+    },
+    {
+      "question": "Does ChargeOver charge transaction fees?",
+      "answer": "No. ChargeOver states that its pricing is fixed and based on the number of paying customers your business bills, with no per-transaction charge and no percentage of invoiced revenue added on. That is the core difference between it and billing platforms that skim a share of what they process for you. Card and ACH costs still apply, but they come from your gateway and merchant account. ChargeOver's own pricing page cites a typical gateway fee of 2.9% + $0.30 per transaction, which varies by provider."
+    },
+    {
+      "question": "Is ChargeOver a payment gateway or a merchant account?",
+      "answer": "Neither. ChargeOver is a billing layer that sits above your payment stack. It handles subscriptions, invoices, dunning and reporting, then passes the actual charge to a gateway you already hold. It connects to more than 50 of them, including Authorize.net, Stripe, Adyen, Braintree, PayPal, QuickBooks Payments, Moneris, BlueSnap and Windcave. You keep your own merchant account and negotiate your own card rates. For the data it does hold, ChargeOver is certified as a PCI-DSS compliant Level 1 Service Provider."
+    },
+    {
+      "question": "How does ChargeOver count paying customers?",
+      "answer": "A monthly active customer is anyone with an active subscription, or anyone who has paid you or owes you money for the current period. Go over the customer count included in your plan and ChargeOver moves you up to the next tier automatically; when your count falls again, it moves you back down. Your bill therefore tracks your customer base rather than your revenue, which favours businesses with high average invoice values."
+    },
+    {
+      "question": "What are the best ChargeOver alternatives?",
+      "answer": "Chargebee, Recurly, Stripe Billing and Maxio are the usual comparisons. Chargebee and Recurly are broader products with deeper SaaS metrics and higher entry prices. Stripe Billing is cheaper to start if you already process on Stripe, but it locks the billing layer to one processor. Maxio adds ASC 606 revenue recognition at $599 per month. ChargeOver's argument against all of them is the pricing shape: a flat monthly fee metered on customer count instead of a percentage of the revenue it invoices."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "chargeover.com",
+  "logoSource": "https://cdn.prod.website-files.com/6321d2582ab71d22a64bc62a/6452ae9bd93237bbbfb51643_co-logo-webflow-256x256.png",
+  "sources": [
+    "https://chargeover.com/pricing",
+    "https://chargeover.com/",
+    "https://chargeover.com/about",
+    "https://chargeover.com/payment-gateways/",
+    "https://chargeover.com/payment-solutions/",
+    "https://chargeover.com/security/",
+    "https://www.capterra.com/p/141294/ChargeOver/",
+    "https://www.softwareadvice.com/accounting/chargeover-profile/",
+    "https://www.itqlick.com/chargeover/pricing",
+    "https://tracxn.com/d/companies/chargeover/__EOAlhV98BxhxmNp92aEnqiSa02iJVpyOHkIU8D_4d9Y",
+    "https://www.getapp.com/finance-accounting-software/a/chargeover/"
+  ]
+}

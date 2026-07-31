@@ -1,0 +1,142 @@
+{
+  "name": "Tidal Commerce",
+  "slug": "tidal-commerce",
+  "logo": "data:image/png;base64,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",
+  "website": "https://www.tidalcommerce.com",
+  "tagline": "Chicago ISO selling interchange-plus card processing, a branded gateway and its own Waves POS system. Sponsored into the card networks by Westamerica Bank.",
+  "shortDescription": "Tidal Commerce is a Chicago ISO registered through Westamerica Bank. It sells merchant accounts, a branded gateway and the Waves POS platform, publishes no rates at all, and funds in two business days. Quotes are interchange-plus with no setup or cancellation fee.",
+  "longDescription": "<p>Tidal Commerce is a merchant services company in Chicago that sells card processing, a branded payment gateway and its own point of sale system, Waves POS. Its BBB record dates the business to November 2004, names Jerry Lai as founder and chief executive, and shows an A+ rating with accreditation running back to 2006. Built In Chicago puts headcount at around 21, and the company keeps a second office in Tampa. The footer states the fact that matters most to a buyer: Tidal Commerce is a <strong>Registered ISO/MSP of Westamerica Bank</strong>, the Santa Rosa, California acquirer that sponsors it into the card networks. Tidal also runs a channel business, signing banks, credit unions, associations, ISOs and software vendors onto its Atlas CRM with lifetime residuals.</p><h3>Pricing and how it works</h3><p>Nothing is published. No rate, no monthly fee, no hardware price, not even a plan table for the five Waves POS tiers. The pitch is a free savings analysis of your existing statements, wrapped around a claim that merchants who switch save an average of 25% or more, hedged with the usual note that actual savings vary. Third-party reviewers describe the underlying model as interchange-plus with a Tidal markup. Tidal advertises no hidden fees, no setup fee and no cancellation fee, a materially better starting point than the two-year terms common elsewhere in US merchant services. Deposits reach the merchant bank account in two business days or less, so there is no next-day funding. On security, Tidal says it is PCI DSS certified to the payment industry's highest standard and bundles up to $100,000 a year in breach coverage. It names no validation level and publishes no attestation of compliance, so ask for the AOC before you lean on that claim.</p><h3>The platform</h3><p>The gateway carries Tidal branding, but the module names give away the plumbing: Customer Vault, QuickClick buttons, a gateway emulator for migrating off Authorize.Net, and more than 175 shopping cart integrations. Those are NMI product names, and NMI sells its platform as a white label that resellers dress in their own logo, colors and URL. Waves POS is the more distinctive product, running on iOS and Android, iPad, all-in-one terminals, self-ordering kiosks and customer displays, with inventory and ingredient tracking, table management, QuickBooks sync, online ordering, surcharging and cash discounting.</p><h3>What Tidal Commerce is not</h3><p>It is not a high-risk processor. Tidal markets to retail, restaurants, hotels, nonprofits, banks and credit unions, and nothing on the site addresses CBD, adult, nutraceuticals, firearms or any other routinely declined vertical, so merchants in those categories belong with PaymentCloud, Soar Payments or Durango instead. It is also not an acquirer and not a direct processor. Westamerica Bank holds the sponsorship and the gateway technology is licensed. Pricing, underwriting appetite and the funding schedule are all set a layer above Tidal.</p>",
+  "foundedYear": 2004,
+  "headquarters": "Chicago, IL, United States",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "US"
+  ],
+  "pricingModel": [
+    "interchange-plus",
+    "custom-quote"
+  ],
+  "pricingSummary": "Tidal publishes no rates at all. It quotes after reviewing your current processing statements, advertises no setup fee and no cancellation fee, and claims switchers save an average of 25% or more. Third-party reviewers describe the model as interchange-plus with a Tidal markup.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "monthlyFee": "Custom quote",
+    "setupFee": "$0 advertised",
+    "earlyTerminationFee": "None advertised",
+    "pciFee": "Not published. The PCI program includes up to $100,000 a year in breach coverage"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "2-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "ach"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "virtual-terminal",
+    "payment-links",
+    "pos-hardware",
+    "woocommerce",
+    "magento",
+    "wix"
+  ],
+  "currencies": "USD. Tidal sells to US merchants and publishes no multi-currency or cross-border pricing",
+  "features": [
+    "recurring-billing",
+    "tokenization",
+    "fraud-protection",
+    "reporting-dashboard"
+  ],
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "retail-pos",
+    "restaurants",
+    "small-business",
+    "nonprofits"
+  ],
+  "bestFor": [
+    "Retail stores",
+    "Restaurants",
+    "Hotels and hospitality",
+    "Nonprofits"
+  ],
+  "industries": [
+    "Retail",
+    "Restaurants",
+    "Hospitality",
+    "Nonprofits"
+  ],
+  "pros": [
+    "No setup fee and no cancellation fee are advertised, which is unusual for an ISO that also places POS hardware on the counter",
+    "Waves POS is a genuine product rather than a resold terminal, spanning iPad, all-in-one units, kiosks and customer displays with inventory, table management, online ordering and QuickBooks sync",
+    "The PCI program includes an online compliance dashboard for the self-assessment questionnaire and vulnerability scans, plus up to $100,000 a year in data breach coverage"
+  ],
+  "cons": [
+    "Not one price is published, including for the five Waves POS tiers, so every quote begins with handing your current processing statements to a rep",
+    "Tidal claims PCI DSS certification at the payment industry's highest standard but names no validation level and publishes no attestation of compliance",
+    "High-risk verticals are not served at all. The gateway is a branded white label rather than Tidal technology: Customer Vault, QuickClick and the gateway emulator are all NMI module names"
+  ],
+  "editorScore": 3.6,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Tidal Commerce Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Tidal Commerce publishes no rates. See what its interchange-plus quotes, Waves POS tiers, two day funding and Westamerica Bank ISO status really mean.",
+    "keywords": [
+      "tidal commerce review",
+      "tidal commerce pricing",
+      "tidal commerce fees",
+      "waves pos review",
+      "tidal commerce vs square"
+    ],
+    "focusKeyword": "tidal commerce review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Tidal Commerce cost?",
+      "answer": "Tidal publishes no pricing whatsoever, not for card processing, not for gateway access and not for the five Waves POS tiers. Every number comes from a quote built after a rep reviews your current processing statements, which the company markets as a free savings analysis. Third-party reviewers describe the underlying model as interchange-plus, meaning you pay the card networks' interchange plus a Tidal markup that is negotiated rather than posted. Tidal does advertise no hidden fees, no setup fee and no cancellation fee. The fixed costs should therefore be lower than a typical POS contract, even though the variable ones stay opaque."
+    },
+    {
+      "question": "Is Tidal Commerce a payment processor or an ISO?",
+      "answer": "An ISO. Tidal's own footer describes it as a Registered ISO/MSP of Westamerica Bank, the California acquirer that sponsors it into Visa and Mastercard. Tidal sells, boards and services the account. The acquiring risk, the underwriting appetite and the funding timetable sit with Westamerica. That distinction matters if something goes wrong, because a hold or a termination decision is ultimately the bank's to make. Tidal also resells its merchant program and gateway to other banks, credit unions, ISOs and software vendors through a partner channel."
+    },
+    {
+      "question": "Is the Tidal Commerce payment gateway proprietary?",
+      "answer": "Only the branding is. The gateway's feature set, a Customer Vault for tokenized card storage, QuickClick payment buttons, a gateway emulator that lets merchants migrate off Authorize.Net without rewriting code, and more than 175 cart integrations, matches NMI's module names one for one. NMI sells its platform as a white label and invites resellers to apply their own logo, colors and URL, and it does not sell directly to merchants. Practically this is good news: it is a mature, widely integrated gateway. It just is not something Tidal built."
+    },
+    {
+      "question": "Does Tidal Commerce work with high-risk merchants?",
+      "answer": "There is no sign that it does. Tidal's site targets retail, restaurants, hotels and hospitality, nonprofits, banks, credit unions and associations, and it says nothing about CBD, adult, nutraceuticals, firearms, debt relief or other verticals that mainstream underwriting declines. Its published funding and PCI material is written for conventional low-risk businesses. Merchants in restricted categories should approach a specialist such as PaymentCloud, Soar Payments, Corepay or Durango Merchant Services, all of which underwrite for elevated chargeback ratios and can arrange the rolling reserves those accounts usually require."
+    },
+    {
+      "question": "How fast does Tidal Commerce deposit funds?",
+      "answer": "Tidal states that deposits post to your bank account in two business days or less, so it does not offer next-day funding and does not advertise same-day settlement. That is a normal schedule for an ISO-boarded account on a bank-sponsored platform, but it is slower than the next-day funding several competitors use as a headline feature. If cash flow timing matters to your business, confirm the cutoff time for batch closing and whether the two business day figure applies to card-present and card-not-present volume alike."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "tidalcommerce.com",
+  "logoSource": "https://cdn.prod.website-files.com/61264f5e893ace70811e49ea/61b8e889d328629748ff0ebb_tidal-commerce-webclip.png",
+  "sources": [
+    "https://www.tidalcommerce.com/",
+    "https://www.tidalcommerce.com/products",
+    "https://www.tidalcommerce.com/products/merchant-account",
+    "https://www.tidalcommerce.com/products/payment-gateway",
+    "https://www.tidalcommerce.com/products/waves-pos",
+    "https://www.tidalcommerce.com/features/pci-compliance",
+    "https://www.tidalcommerce.com/partners/iso-agent",
+    "https://www.bbb.org/us/il/chicago/profile/credit-card-processing-services/tidal-commerce-0654-88016309",
+    "https://www.builtinchicago.org/company/tidal-commerce",
+    "https://10topcreditcardprocessors.com/tidal-commerce-merchant-review/",
+    "https://www.nmi.com/products/payment-gateway/"
+  ]
+}

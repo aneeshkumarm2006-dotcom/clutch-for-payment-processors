@@ -1,0 +1,155 @@
+{
+  "name": "NMI",
+  "slug": "nmi",
+  "logo": "data:image/png;base64,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",
+  "website": "https://www.nmi.com",
+  "tagline": "White-label gateway sold through ISOs, software platforms and banks, never direct to merchants. One integration reaches more than 150 processor connections.",
+  "shortDescription": "NMI is a Schaumburg, Illinois gateway that partners rebrand as their own. Its ISO page says so plainly: NMI does not recruit merchants directly. Merchants buy from a reseller, usually at roughly $10 to $25 a month plus whatever per-transaction fee that reseller sets.",
+  "longDescription": "<p><strong>NMI</strong> is a payment gateway and embedded payments platform, not an acquirer, and almost nobody buys it from NMI. Network Merchants was founded in 2001 by James McKenzie and Ted Cucci, ran for years out of Roselle, Illinois and now works from Schaumburg. Francisco Partners took a majority stake in 2017, Great Hill Partners stayed on the register and Insight Partners added a growth investment in September 2021. Steven Pinado replaced Vijay Sondhi as chief executive in September 2025. The company counts 6,000 channel partners, more than 1.2 million active merchants, 235,000 connected devices and over $700 billion in annual payments volume. Its own ISO page states the model in one sentence: NMI does not recruit merchants directly.</p><p>Much of the platform was bought rather than built. NMI acquired the Bristol gateway and EMV kernel firm Creditcall in early 2018, card-present gateway USAePay in February 2021 and merchant CRM IRIS CRM in December 2021. The payments onboarding and underwriting business of Agreement Express followed in January 2023, and Sphere's commercial division in October 2023. Account-to-account infrastructure provider Dwolla arrived in May 2026, which NMI called its sixth acquisition, and pricing-intelligence firm Fee Navigator a few weeks after that.</p><h3>Pricing and how it works</h3><p>There is no rate card and no direct sales channel. CardFellow puts it bluntly: it is not possible to go direct to NMI for the gateway or a merchant account, and every rate and fee is set by the processing company that resells it, with some advertising $10 a month and others $25. Published reseller cards show how wide the spread runs. Agvance users on the SSI program pay $30.95 a month plus $0.206 per card transaction, and $15.70 a month plus $0.27 per eCheck, for the same gateway. NMI bills the merchant, pays the partner a commission and leaves the retail price to the partner. The number on your statement says more about your ISO than it does about NMI.</p><h3>What NMI is not</h3><p>It is not a merchant account. NMI does not underwrite, hold funds or settle money, so your discount rate, reserve requirement and funding schedule all come from whichever acquirer your reseller places you with. The gateway sits in front of more than 150 processor connections and over 300 EMV device certifications, which is what makes an NMI integration portable when you change acquirers later. The onboarding, underwriting and risk tooling picked up from Agreement Express and Sphere is sold to partners for boarding their own merchants, not to merchants for running their own risk.</p><h3>Who it is for</h3><p>ISOs, agent offices, banks and vertical software companies that want one certification covering ecommerce, retail, mobile and unattended payments under their own brand, plus the merchants those partners board. If you want a gateway you can price and buy this afternoon, Authorize.Net publishes $25 a month plus 2.9% + $0.30 and will sell to you directly. If you do end up on NMI through a reseller, get the monthly gateway fee, the per-transaction fee and the notice period in writing. Reviewers report unannounced price increases, and support quality that tracks whichever partner sold the account.</p>",
+  "foundedYear": 2001,
+  "headquarters": "Schaumburg, IL, United States",
+  "companySize": "251-1000",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "EU",
+    "UK"
+  ],
+  "pricingModel": [
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "NMI publishes no rate card and does not sell to merchants directly. Resellers advertise the gateway at roughly $10 to $25 a month plus a per-transaction fee. The card processing rate is separate again, set by whichever acquirer sits behind the account.",
+  "fees": {
+    "onlineCardRate": "Set by your acquirer",
+    "keyedInRate": "Set by your acquirer, not by NMI",
+    "achRate": "Reseller-set. The SSI rate card for Agvance lists $15.70 per month plus $0.27 per eCheck",
+    "monthlyFee": "About $10 to $25",
+    "setupFee": "Set by the reselling ISO",
+    "chargebackFee": "Charged by the acquiring bank, not by NMI",
+    "earlyTerminationFee": "Set by the reselling ISO and not published by NMI"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "ach",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "shopify",
+    "woocommerce",
+    "magento",
+    "bigcommerce",
+    "mobile-sdk",
+    "virtual-terminal",
+    "pos-hardware"
+  ],
+  "currencies": "Multi-currency processing including USD and CAD, with the usable list set by the connected acquirer",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "developers",
+    "ecommerce",
+    "retail-pos",
+    "subscriptions"
+  ],
+  "bestFor": [
+    "ISOs and agents",
+    "Software platforms",
+    "Omnichannel payments",
+    "White-label gateways"
+  ],
+  "industries": [
+    "Payment ISOs",
+    "Vertical SaaS",
+    "Retail and POS",
+    "Unattended and vending"
+  ],
+  "pros": [
+    "One integration covers ecommerce, card-present, mobile and unattended payments, across more than 150 processor connections and over 300 EMV device certifications",
+    "Partners control the brand from onboarding through residuals reporting, and NMI states on its own ISO page that it does not recruit merchants directly",
+    "Scale a smaller gateway cannot match: 6,000 channel partners, more than 1.2 million active merchants and over $700 billion in annual payments volume"
+  ],
+  "cons": [
+    "You cannot buy it directly. CardFellow notes it is not possible to go direct to NMI for the gateway or a merchant account, so both price and support quality depend entirely on the reseller you land with",
+    "Nothing is published and the spread between partners is wide. The SSI card for Agvance users is $30.95 a month plus $0.206 per transaction; other resellers advertise $10 a month for the same gateway",
+    "Merchant-facing reviews report surprise price increases running into the thousands and billing that continued after cancellation, complaints NMI cannot fully answer because the reseller owns the relationship"
+  ],
+  "editorScore": 4.2,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "NMI Payment Gateway Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "The NMI payment gateway is sold only via resellers, typically 10 to 25 dollars a month plus a per-transaction fee. Best for ISOs and software platforms.",
+    "keywords": [
+      "nmi payment gateway",
+      "nmi review",
+      "nmi gateway pricing",
+      "nmi gateway fees",
+      "nmi vs authorize.net"
+    ],
+    "focusKeyword": "nmi payment gateway"
+  },
+  "faqs": [
+    {
+      "question": "How much does the NMI payment gateway cost?",
+      "answer": "NMI publishes no pricing, because it does not sell to merchants. The reseller sets the price. CardFellow reports that some processors advertise the gateway from $10 a month while others charge $25, and published reseller cards go higher still: SSI bills Agvance users $30.95 a month plus $0.206 per card transaction, and $15.70 a month plus $0.27 per eCheck. On top of the gateway fee you pay a separate card processing rate to the acquirer your ISO places you with."
+    },
+    {
+      "question": "Can a merchant buy NMI directly?",
+      "answer": "No. NMI sells through ISOs, agent offices, banks, payment facilitators and software companies, and its ISO page states that it does not recruit merchants directly. CardFellow says the same from the buyer's side: it is not possible to go direct to NMI for either the gateway or a merchant account. In most deployments the gateway is white-labeled, so the login screen, colors and URL carry the reseller's brand rather than NMI's."
+    },
+    {
+      "question": "Is NMI a payment gateway or a merchant account?",
+      "answer": "A gateway. NMI authorizes and routes transactions, stores cards, runs recurring billing and handles fraud screening, but it does not underwrite merchants, hold funds or settle money. You still need a merchant account with an acquirer, and that contract sets your discount rate, reserve requirement and funding schedule. The upside of the split is portability: NMI connects to more than 150 processors, so changing acquirer does not usually mean rewriting your integration."
+    },
+    {
+      "question": "What companies has NMI acquired?",
+      "answer": "Creditcall, the Bristol gateway and EMV kernel developer, in early 2018. USAePay, a card-present gateway, in February 2021. IRIS CRM, a merchant-management platform, in December 2021. The payments onboarding and underwriting business of Agreement Express in January 2023, and Sphere's commercial division in October 2023. Account-to-account provider Dwolla followed in May 2026, described by NMI as its sixth acquisition, and pricing-intelligence firm Fee Navigator a few weeks later."
+    },
+    {
+      "question": "How does NMI compare with Authorize.Net?",
+      "answer": "Authorize.Net publishes its price and sells direct: $25 a month plus 2.9% + $0.30 on the all-in-one plan. NMI does neither, so its cost depends on the reseller. What you get for that opacity is breadth. NMI covers card-present, unattended and mobile acceptance alongside ecommerce, connects to more than 150 processors, and gives partners a gateway they can put their own brand on. For a single merchant who just wants a gateway today, Authorize.Net is the simpler purchase."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "nmi.com",
+  "logoSource": "https://www.nmi.com/wp-content/themes/nmi/images/favicon-32x32.png?v=2.13.63",
+  "sources": [
+    "https://www.nmi.com/products/payment-gateway/",
+    "https://www.nmi.com/who-we-serve/independent-sales-iso/",
+    "https://www.nmi.com/about-us/",
+    "https://www.nmi.com/about-us/news/nmi-acquires-dwolla/",
+    "https://www.nmi.com/about-us/news/nmi-acquires-spheres-commercial-division-simplifying-payments-for-partners/",
+    "https://www.greathillpartners.com/media/nmi-agrees-to-acquire-creditcall-to-expand-emv-and-omnichannel-capabilities",
+    "https://www.digitaltransactions.net/why-nmi-has-scooped-up-long-time-gateway-provider-usaepay/",
+    "https://www.paymentsdive.com/news/nmi-purchases-iris-to-expand-merchant-services/617149/",
+    "https://www.paymentsdive.com/news/nmi-leadership-change-ceo-sondhi-pinado/757668/",
+    "https://www.cardfellow.com/blog/authorize-net-vs-nmi-comparing-and-contrasting-payment-gateways",
+    "https://helpcenter.agvance.net/home/ssi-pricing-for-nmi-gateway-and-features",
+    "https://isvpaymentintegration.com/reviews/nmi/"
+  ]
+}

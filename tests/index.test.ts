@@ -4,5 +4,6 @@
  * exit code if any fail. Add new suites here so they can't be forgotten by CI.
  */
 import "./analyticshub/index.test";
+import "./compare/compare-pairs.test";
 import "./homepage/homepage.test";
 import "./reviews/reviews-page.test";

@@ -1,0 +1,138 @@
+{
+  "name": "Orb",
+  "slug": "orb-billing",
+  "logo": "data:image/png;base64,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",
+  "website": "https://www.withorb.com",
+  "tagline": "Usage-based billing for AI and infrastructure companies. It meters events and issues invoices on top of your existing gateway. Adyen bought it in 2026.",
+  "shortDescription": "Orb is usage-based billing for AI and SaaS companies, used by Vercel, Replit and Supabase. It publishes no rates: sales quotes Core, Advanced and Enterprise against your invoice billings and raw event volume. Adyen's $335 million purchase closed in July 2026.",
+  "longDescription": "<p><strong>Orb</strong> is a usage-based billing platform founded in San Francisco in 2021 by Alvaro Morales and Kshitij Grover. It raised $19.1 million in 2023, then a $25 million Series B led by Mayfield in September 2024 that took total funding to $44.1 million. Menlo Ventures, Greylock, South Park Commons and Uncorrelated Ventures are also on the cap table. In January 2026 the company rebranded from a billing platform to what it now calls the revenue design company. Five months later Adyen agreed to buy it for $335 million in cash, and the deal closed on July 1, 2026. Orb now runs as a wholly owned Adyen subsidiary under what Adyen calls an incubator model. It has told customers it will keep operating as a stand-alone product, and that they can still choose their own payment processing partner. Named customers include Vercel, Replit, Supabase, Glean, Neo4j, Redis, LaunchDarkly and Writer.</p><h3>Pricing and how it works</h3><p>Orb publishes nothing. The pricing page lists three tiers, Core, Advanced and Enterprise, and every one of them reads Custom pricing. Orb says the bill runs off two meters of its own: total invoice billings you issue to your end customers, and raw events ingested, with an additional platform fee on Advanced and Enterprise. Orb pulled an earlier public rate card. The third-party tracker AI Billing still models roughly $720 per month for a small deployment, but says that figure comes from the withdrawn page rather than a live quote. There is no free tier and no published trial. Advanced adds data warehouse sync, Salesforce, NetSuite, customer hierarchy and premium support. Enterprise adds SLAs and dedicated support. Expect a sales cycle before you see a number.</p><h3>Who it is for</h3><p>Orb suits AI and infrastructure companies whose pricing changes faster than an engineering team can ship it: token and inference metering, credit burn-down, hybrid platform fees stacked on consumption, quantities adjusted mid-cycle. It handles high event volumes and lets you define billable metrics in SQL, which is why developer-tool companies pick it. That flexibility is also the cost. There is no hosted checkout and the customer portal is read-only, so a team without billing engineers will spend real time on setup, and some G2 reviewers describe still fighting the data model months into a deployment.</p><h3>What Orb is not</h3><p>Orb is not a merchant account, an acquirer or a payment gateway. It never underwrites you and it never touches your money. Cards, ACH, Stripe Link and wallet payments are collected through a gateway you already hold, and Orb supports Stripe and Adyen for that. Invoices sync one way to Bill.com, Stripe Invoicing, QuickBooks and NetSuite, and tax runs through Avalara, Anrok, Numeral, Sphere, Stripe Tax and TaxJar. Adyen ownership sharpens a question rather than settling it: Orb says multi-gateway support stays, but a merchant processing with a rival acquirer is trusting a roadmap promise. Benchmark Orb against Metronome, Lago and Zuora, not against processors.</p>",
+  "foundedYear": 2021,
+  "headquarters": "San Francisco, CA, United States",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "EU",
+    "UK",
+    "Global"
+  ],
+  "pricingModel": [
+    "custom-quote",
+    "subscription"
+  ],
+  "pricingSummary": "Orb publishes no rates. Core, Advanced and Enterprise are all quoted by sales, priced against the invoice billings you issue and the raw events you ingest, with a platform fee on the two higher tiers. AI Billing models roughly $720 per month for a small deployment, but that figure comes from Orb's withdrawn public rate card, not a live quote.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "monthlyFee": "Custom quote",
+    "setupFee": "Not published",
+    "chargebackFee": "Set by the gateway you connect, not by Orb"
+  },
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "ach",
+    "crypto",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "invoicing"
+  ],
+  "currencies": "Set by the Stripe or Adyen account you connect rather than by Orb",
+  "features": [
+    "recurring-billing",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "N/A",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "developers"
+  ],
+  "bestFor": [
+    "AI and inference billing",
+    "Usage-based pricing",
+    "Developer tools",
+    "Enterprise SaaS"
+  ],
+  "industries": [
+    "AI platforms",
+    "Developer infrastructure",
+    "B2B SaaS",
+    "Data and analytics"
+  ],
+  "pros": [
+    "Billable metrics are defined in SQL and the ingestion pipeline is built for high-volume event streams, which is why Vercel, Replit and Supabase run their metering on it",
+    "Collects through Stripe or Adyen and syncs invoices to Bill.com, Stripe Invoicing, QuickBooks and NetSuite. Orb repeated its gateway-agnostic commitment publicly when the Adyen deal closed on July 1, 2026",
+    "Pricing changes, mid-cycle quantity adjustments and hybrid plans that stack platform fees on consumption are all reconfigured without an engineering release. That is the specific problem Orb was built for"
+  ],
+  "cons": [
+    "No rates published anywhere. All three tiers read Custom pricing, and the roughly $720 per month figure still circulating comes from a rate card Orb has since deleted, not a current quote",
+    "No hosted checkout, no payment processing of its own, and a customer portal that is read-only, so every customer-facing surface is your build and your engineering time",
+    "Adyen has owned Orb outright since the $335 million deal closed in July 2026. A merchant processing with a competing acquirer is relying on a stated commitment to multi-gateway support, not on independence"
+  ],
+  "editorScore": 3.9,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Orb Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Orb review: the usage-based billing platform publishes no rates and quotes every tier. Adyen bought it for USD 335 million in 2026. See who it fits.",
+    "keywords": [
+      "orb review",
+      "orb billing pricing",
+      "orb billing fees",
+      "orb vs metronome",
+      "usage-based billing platform"
+    ],
+    "focusKeyword": "orb review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Orb cost?",
+      "answer": "Orb does not publish a price. Its pricing page lists Core, Advanced and Enterprise and marks all three as custom pricing, so every number arrives after a sales conversation. Orb says the bill tracks two things: the invoice billings you issue to your own customers and the raw events you ingest, with a platform fee added on Advanced and Enterprise. AI Billing models roughly $720 per month for a small deployment, but flags that the figure comes from a public rate card Orb has since removed rather than a live quote."
+    },
+    {
+      "question": "Is Orb a payment processor?",
+      "answer": "No. Orb never underwrites a merchant, never holds funds and never touches card data. It meters usage, applies your pricing and produces the invoice, then hands collection to a gateway you already have. Stripe and Adyen are the two supported gateways, covering cards, ACH, Stripe Link, Apple Pay, Google Pay and Amazon Pay, and Orb can also sync invoices one way to Bill.com, Stripe Invoicing, QuickBooks and NetSuite. You still need your own merchant account or payment provider before Orb is of any use."
+    },
+    {
+      "question": "Who owns Orb?",
+      "answer": "Adyen. The Dutch acquirer agreed to buy Orb for $335 million in cash on June 11, 2026 and completed the purchase on July 1, 2026. Orb now sits as an indirect wholly owned subsidiary that Adyen runs under an incubator model, and Orb has said it will keep operating as a stand-alone product with customers still free to choose their own payment processing partner. Before the deal Orb was independent, founded in San Francisco in 2021 and backed by Mayfield, Menlo Ventures and Greylock across $44.1 million of funding."
+    },
+    {
+      "question": "Orb vs Metronome: which should I pick?",
+      "answer": "Both meter usage and invoice for AI and SaaS companies, and the practical split is transparency and ownership. Metronome publishes a self-serve rate of 0.8% of billing volume plus $0.04 per 1,000 ingested events, so you can model the cost before you talk to anyone. Orb publishes nothing and quotes every tier. Metronome has belonged to Stripe since January 2026 and Orb to Adyen since July 2026, so both now sit inside an acquirer, just a different one. If your gateway is Stripe, the alignment argues one way. If it is Adyen, it argues the other."
+    },
+    {
+      "question": "What are the best Orb alternatives?",
+      "answer": "Metronome is the closest like-for-like competitor and the obvious first comparison, though Stripe absorbed it in January 2026. Lago is the open-source option for teams that want to host the metering layer themselves. Zuora, Chargebee and Maxio come at the problem from subscription management rather than high-volume event metering, which shows if your pricing is mostly seats and tiers. None of these is a merchant account, so whichever you pick you still need an acquirer or gateway underneath it."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "withorb.com",
+  "logoSource": "https://withorb.com/apple-touch-icon.png",
+  "sources": [
+    "https://www.withorb.com/pricing",
+    "https://www.withorb.com/",
+    "https://www.withorb.com/press",
+    "https://www.withorb.com/blog/orb-next-chapter",
+    "https://docs.withorb.com/invoicing/payments",
+    "https://docs.withorb.com/invoicing/structure",
+    "https://www.adyen.com/press-and-media/jtrg4qd7j3p4rj",
+    "https://www.adyen.com/press-and-media/adyen-closes-talonone-and-orb-acquisitions-announces-leadership-updates",
+    "https://www.aibilling.dev/providers/orb",
+    "https://www.fintechfutures.com/baas/us-fintech-orb-raises-25m-series-b-funding-to-support-billing-platform-growth",
+    "https://tracxn.com/d/companies/orb/__63B8j6APdgjGiYPW2igp1NAzJFaQtziA1tEOa8iH6vw"
+  ]
+}

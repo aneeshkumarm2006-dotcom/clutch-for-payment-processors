@@ -1,0 +1,144 @@
+{
+  "name": "Easebuzz",
+  "slug": "easebuzz",
+  "logo": "data:image/png;base64,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",
+  "website": "https://easebuzz.in",
+  "tagline": "RBI-licensed Indian payment aggregator for online, offline and cross-border collections, with payouts and reconciliation on the same platform.",
+  "shortDescription": "Pune payments platform with a full-service RBI payment aggregator licence, issued in November 2025. It quotes rather than publishes: about 1.5% per transaction on average, no setup fee, no annual fee. UPI and RuPay debit acceptance carries zero MDR under Indian law.",
+  "longDescription": "<p><strong>Easebuzz</strong> is a Pune payments company founded in 2014 by Rohit Prasad and Vikram Kumar and commercially live since 2016. It is not reselling somebody else's gateway. The Reserve Bank of India issued it Certificate of Authorisation No. 252/2025 on 19 November 2025, covering online payment aggregation, offline acceptance through POS terminals and UPI soundboxes, and cross-border inward and outward payments. That followed in-principle approval in 2022 and online payment aggregator authorisation in February 2025. The company says it serves more than 250,000 merchants across education, real estate, ecommerce, SaaS and travel, and handles around three million transactions a day at annualised gross transaction value above $50 billion. It reported INR 656 crore of revenue and INR 19 crore of net profit in FY2024-25. It raised a $30 million Series A led by Bessemer Venture Partners in April 2025 and employs roughly 480 people across six offices.</p><h3>Pricing and how it works</h3><p>Easebuzz does not publish a per-method rate card. Its pricing page gives one average, about 1.5% per transaction across cards, UPI, netbanking and wallets, with no setup fee and no annual maintenance charge, then hands you to sales for a quote tied to business category and monthly volume. SoftwareSuggest lists the API rates as 1.2% on debit cards, 2.2% on credit cards, 2% on netbanking and 2.4% on wallets, with a flat 2.5% on the payment link and webstore products, but those are directory figures rather than a vendor commitment. The number that changes the arithmetic most is on none of those lists. Under Section 10A of the Payment and Settlement Systems Act 2007, UPI person-to-merchant payments settled bank to bank and RuPay debit cards have carried a zero merchant discount rate since 1 January 2020. An aggregator can still bill a platform or service fee on those transactions, and many do, but there is no network MDR to pass through. Because UPI carries the majority of Indian retail volume for most merchants, the effective blended cost usually sits well below the card headline. Settlement is T+1 working day as standard, with instant and same-day settlement offered on request. Refunds reach the customer roughly six to seven business days after the request reaches the acquiring bank.</p><h3>Who it is for</h3><p>Indian businesses that collect recurring or high-frequency payments and want one vendor for acceptance, payouts and reconciliation. Education is the strongest vertical, through the FeesBuzz fee-collection product, followed by real estate, direct-to-consumer ecommerce and SaaS. The cross-border half of the licence also makes it a reasonable pick for exporters and SaaS firms billing overseas customers. It accepts 30+ currencies from more than 100 countries and settles into an Indian account in INR.</p><h3>What Easebuzz is not</h3><p>It is not a global processor. Merchants have to be Indian entities settling to an Indian bank account, and even international collections land in rupees, so a business incorporated anywhere else cannot use it. It is also not permanently insulated from card economics. The zero-MDR advantage exists only on UPI and RuPay debit, and that regime is under active review: the Parliamentary Standing Committee on Finance recommended in a March 2026 report that MDR return for large merchants, and the Payments Council of India has pushed a tiered 0.30% proposal. No binding notification has followed. Price your card and UPI mix as though one might.</p>",
+  "foundedYear": 2014,
+  "headquarters": "Pune, India",
+  "companySize": "251-1000",
+  "supportedRegions": [
+    "IN"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "custom-quote"
+  ],
+  "pricingSummary": "Easebuzz quotes an average of about 1.5% per transaction across cards, UPI, netbanking and wallets, with no setup fee and no annual maintenance charge. There is no per-method rate card. UPI person-to-merchant and RuPay debit acceptance carry zero merchant discount rate under Indian law, so the effective blended cost usually sits well below the card rate.",
+  "fees": {
+    "onlineCardRate": "Around 1.5% average",
+    "internationalRate": "Quoted separately. Acceptance in 30+ currencies from more than 100 countries, settled to an Indian bank account in INR",
+    "achRate": "UPI person-to-merchant and RuPay debit carry zero merchant discount rate under Section 10A of the Payment and Settlement Systems Act 2007, though an aggregator may still bill a platform fee",
+    "monthlyFee": "INR 0 per month",
+    "setupFee": "INR 0, no setup fee and no annual maintenance charge",
+    "monthlyMinimum": "None",
+    "refundPolicy": "Refunds reach the customer roughly six to seven business days after the request reaches the acquiring bank"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "next-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "upi",
+    "netbanking",
+    "wallets",
+    "bnpl"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "payment-links",
+    "invoicing",
+    "pos-hardware"
+  ],
+  "currencies": "INR for domestic collections, plus acceptance in 30+ currencies from more than 100 countries with settlement into an Indian bank account in INR",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "tokenization",
+    "reporting-dashboard",
+    "24-7-support"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "small-business",
+    "subscriptions",
+    "international"
+  ],
+  "bestFor": [
+    "Indian businesses",
+    "Education fee collection",
+    "Subscriptions",
+    "Exporters and SaaS"
+  ],
+  "industries": [
+    "Education",
+    "Real estate",
+    "Ecommerce",
+    "SaaS"
+  ],
+  "pros": [
+    "Holds RBI Certificate of Authorisation No. 252/2025, issued 19 November 2025, covering online, offline POS and cross-border aggregation, which only a handful of Indian players have in one licence",
+    "No setup fee and no annual maintenance charge. Settlement is T+1 working day as standard, and instant or same-day settlement is available on request",
+    "Covers 150+ payment modes including UPI AutoPay, 50+ netbanking options, EMI and BNPL, and adds payouts over UPI, IMPS, NEFT and RTGS from the same platform"
+  ],
+  "cons": [
+    "Publishes no rate card. The pricing page gives an average of about 1.5% and refers you to sales, so the per-method numbers circulating on directory sites are third-party figures rather than vendor commitments",
+    "Settlement is the recurring complaint. Techjockey reviewers score customer support 3.7 out of 5 and cite delayed settlements, and merchants note that nothing settles on banking holidays, so a cluster of them pushes funds back several days",
+    "India only. Merchants must be Indian entities and even international collections settle into an Indian bank account in INR, so a business incorporated elsewhere cannot open an account"
+  ],
+  "editorScore": 4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Easebuzz Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Easebuzz averages about 1.5 percent per transaction with no setup fee and next working day settlement. UPI is zero MDR. Built for Indian businesses.",
+    "keywords": [
+      "easebuzz review",
+      "easebuzz pricing",
+      "easebuzz fees",
+      "easebuzz vs razorpay",
+      "payment gateway india"
+    ],
+    "focusKeyword": "easebuzz review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Easebuzz cost?",
+      "answer": "Easebuzz quotes rather than publishes. Its pricing page gives an average of about 1.5% per transaction across cards, UPI, netbanking and wallets, with no setup fee and no annual maintenance charge, and says custom rates are available at higher volumes. SoftwareSuggest lists the API rates as 1.2% on debit cards, 2.2% on credit cards, 2% on netbanking and 2.4% on wallets, plus a flat 2.5% on payment links and the webstore, but treat those as directory figures. Get the per-method schedule in writing before signing, because the blend depends heavily on how much of your volume arrives over UPI."
+    },
+    {
+      "question": "Does Easebuzz charge for UPI payments?",
+      "answer": "There is no merchant discount rate to charge. Under Section 10A of the Payment and Settlement Systems Act 2007, UPI person-to-merchant transactions settled bank to bank and RuPay debit cards have been zero MDR in India since 1 January 2020, so no network fee is passed to the merchant. Aggregators can still bill a platform or service fee for routing, reconciliation and risk, and that is where any UPI line on your invoice comes from. The regime is under review: a March 2026 Parliamentary Standing Committee on Finance report recommended reintroducing MDR for large merchants, though no binding notification has followed."
+    },
+    {
+      "question": "How quickly does Easebuzz settle money?",
+      "answer": "T+1 working day is the standard, where T is the transaction date, and instant or same-day settlement is available on request. The practical caveat is banking holidays, since settlement does not run on non-working days, so a long weekend or a run of holidays pushes funds back. Techjockey reviewers score customer support 3.7 out of 5 and specifically flag delayed settlements as a recurring complaint. If cash flow is tight, price the instant settlement option into your quote rather than assuming T+1 always holds."
+    },
+    {
+      "question": "Is Easebuzz an RBI licensed payment aggregator?",
+      "answer": "Yes. The Reserve Bank of India issued Certificate of Authorisation No. 252/2025 on 19 November 2025, authorising Easebuzz as a full-service payment aggregator across online payments, offline acceptance through POS terminals and UPI soundboxes, and cross-border inward and outward payments. It had held in-principle approval since 2022 and received online payment aggregator authorisation in February 2025. The company also states PCI DSS Level 1, SOC 2 and ISO certification. The licence matters commercially, because an unlicensed aggregator cannot legally hold merchant funds in an escrow account in India."
+    },
+    {
+      "question": "What are the best Easebuzz alternatives?",
+      "answer": "PayU and Infibeam Avenues are the closest licensed comparisons, both authorised by the RBI on similar full-service terms, and Razorpay and Cashfree are the other names on most Indian shortlists. All of them face the same zero-MDR rule on UPI and RuPay debit, so the real differences show up in card rates, settlement speed and the surrounding software rather than in headline pricing. Easebuzz competes hardest on vertical products such as school and college fee collection. A merchant whose customers are mostly overseas should also weigh a merchant of record, which handles VAT and sales tax registration rather than only moving money."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "easebuzz.in",
+  "logoSource": "https://easebuzz.in/static/base/assets_aug_2021/img/easebuzz/home/android-chrome-512x512.png",
+  "sources": [
+    "https://easebuzz.in/pricing/",
+    "https://easebuzz.in/online-payment-gateway-India/",
+    "https://easebuzz.in/about/",
+    "https://easebuzz.in/explainers/payments/how-businesses-select-payment-gateway/",
+    "https://easebuzz.in/explainers/payments/payment-gateway-for-startups/",
+    "https://easebuzz.in/news-room/press-release/easebuzz-secures-all-three-key-payment-licenses-from-rbi/",
+    "https://www.electronicpaymentsinternational.com/news/easebuzz-rbi-payment/",
+    "https://inc42.com/buzz/easebuzz-gets-final-nod-from-rbi-to-operate-as-online-payment-aggregator/",
+    "https://www.techjockey.com/detail/easebuzz",
+    "https://www.softwaresuggest.com/easebuzz",
+    "https://bilixe.com/listing/easebuzz-payment-gateway/",
+    "https://www.terra-insight.com/insights/mdr-charged-on-zero-mdr-upi-rupay-debit-leakage-india/"
+  ]
+}

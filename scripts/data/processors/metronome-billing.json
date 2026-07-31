@@ -1,0 +1,135 @@
+{
+  "name": "Metronome",
+  "slug": "metronome-billing",
+  "logo": "data:image/png;base64,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",
+  "website": "https://metronome.com",
+  "tagline": "Usage-based billing infrastructure for AI and cloud companies, now owned by Stripe. It meters events and issues invoices through your own payment provider.",
+  "shortDescription": "Metronome is the usage-based billing engine behind OpenAI, Anthropic and NVIDIA. Stripe completed its acquisition on January 14, 2026. It publishes a rate, which few rivals do: the self-serve Starter plan is 0.8% of billing volume plus $0.04 per 1,000 ingested events.",
+  "longDescription": "<p><strong>Metronome</strong> is a usage-based billing platform founded in San Francisco in November 2019 by Scott Woody and Kevin Liu. It raised $128 million in total, the last round a $50 million Series C led by NEA in February 2025 with a16z, General Catalyst, Workday Ventures and Activant participating. Stripe agreed to buy the company in December 2025 and completed the acquisition on January 14, 2026, at a price Payments Dive and Upstarts Media put near $1 billion, though neither side confirmed terms. Stripe's own announcement names OpenAI, Anthropic and NVIDIA as companies running on Metronome's metering engine. That is unusually direct confirmation of a customer list most billing vendors only hint at. Metronome adds Databricks and Confluent, and says it bills for more than 150 million end users. Patrick Collison described Stripe as integrating those capabilities with the Stripe Billing platform, so the standalone roadmap is now Stripe's roadmap.</p><h3>Pricing and how it works</h3><p>Metronome is the rare platform in this category that puts a number on the page. The self-serve Starter plan bills 0.8% of the invoice volume you run through it plus $0.04 per 1,000 ingested events, with no separate platform fee listed. Invoice $200,000 a month and you pay around $1,600 in volume fees before event charges. The Custom tier is quoted, and it adds Salesforce and NetSuite, invoicing through the AWS, Azure and Google Cloud marketplaces, data warehouse and BI exports, a dedicated account manager and stronger SLAs. Both tiers include real-time metering, billable metrics defined in SQL, enterprise contract handling with commitments, amendments and true-ups, and 34-day event backdating. The percentage is charged on money you bill, not money Metronome moves. It stacks on top of whatever your card processor already takes.</p><h3>Who it is for</h3><p>This is infrastructure for companies whose revenue is measured in tokens, GPU seconds, API calls or rows scanned, and whose largest contracts are negotiated agreements rather than credit-card self-serve. The event pipeline is built for billions of events a month, and the contract model handles multi-year commitments and true-ups properly, which is why the frontier AI labs ended up here. Small teams are the wrong fit. Reviewers report consistently that configuration takes longer than planned and needs SQL fluency. Metronome also does not cover feature gating, entitlement enforcement or credit expiry.</p><h3>What Metronome is not</h3><p>Metronome is not a merchant account, an acquirer or a merchant of record. It never underwrites you, never holds your funds and never assumes tax liability. You bring your own Stripe account. When a billing period closes, Metronome writes the invoice into Stripe, Stripe charges the card or the ACH mandate, and payment status syncs back. Invoices can also route to QuickBooks, NetSuite, Bill and the three cloud marketplaces. Third-party analysts flag that Metronome carries no built-in currency conversion and no regional price books, so multi-currency selling needs logic you write yourself. Compare it with Orb, Lago and Zuora, not with processors.</p>",
+  "foundedYear": 2019,
+  "headquarters": "San Francisco, CA, United States",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "EU",
+    "UK",
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "custom-quote"
+  ],
+  "pricingSummary": "The self-serve Starter plan charges 0.8% of the billing volume you invoice through Metronome plus $0.04 per 1,000 ingested events, and lists no platform fee. The Custom tier is quoted, and it adds marketplace invoicing, warehouse exports, a dedicated account manager and stronger SLAs.",
+  "fees": {
+    "onlineCardRate": "0.8% of billings",
+    "monthlyFee": "None on Starter",
+    "setupFee": "None published",
+    "chargebackFee": "Set by your own payment provider, not by Metronome"
+  },
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "ach"
+  ],
+  "integrations": [
+    "api",
+    "invoicing"
+  ],
+  "currencies": "Set by the Stripe account you connect. Metronome has no built-in currency conversion or regional price books",
+  "features": [
+    "recurring-billing",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "N/A",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "developers"
+  ],
+  "bestFor": [
+    "AI and LLM billing",
+    "Cloud infrastructure",
+    "Enterprise contracts",
+    "High event volume"
+  ],
+  "industries": [
+    "AI labs",
+    "Cloud infrastructure",
+    "Data platforms",
+    "B2B SaaS"
+  ],
+  "pros": [
+    "Publishes a real self-serve rate, 0.8% of billing volume plus $0.04 per 1,000 ingested events. Almost nobody else in usage-based billing will put a number on the page",
+    "Stripe's own acquisition announcement names OpenAI, Anthropic and NVIDIA as customers, so the claim that it meters at frontier AI scale is verifiable rather than a logo wall",
+    "Enterprise contract handling covers multi-year commitments, amendments, true-ups and 34-day event backdating. That is exactly where lighter billing tools break on negotiated deals"
+  ],
+  "cons": [
+    "Stripe completed the acquisition on January 14, 2026 and says it is folding the capabilities into Stripe Billing, so anyone buying the standalone product today is buying a roadmap that belongs to a processor",
+    "The 0.8% is charged on the money you invoice, not the money Metronome moves, and it sits on top of what your card processor already takes. At volume the billing layer reads as a second processing fee",
+    "Reviewers consistently report setup running longer than planned and requiring SQL fluency, and there is no built-in currency conversion, regional price book, feature gating or entitlement enforcement"
+  ],
+  "editorScore": 4.1,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Metronome Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Metronome review: the Starter plan bills 0.8 percent of billing volume plus 4 cents per 1,000 events. Stripe bought it in 2026. See fees and who it suits.",
+    "keywords": [
+      "metronome review",
+      "metronome billing pricing",
+      "metronome billing fees",
+      "metronome vs orb",
+      "usage-based billing for ai companies"
+    ],
+    "focusKeyword": "metronome review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Metronome cost?",
+      "answer": "Metronome publishes its entry rate, which is rare in this category. The self-serve Starter plan charges 0.8% of the billing volume you invoice through the platform plus $0.04 per 1,000 ingested events, and no separate platform fee is listed. A company invoicing $200,000 a month therefore pays around $1,600 in volume fees before event charges. The Custom tier is quoted by sales and adds Salesforce and NetSuite, invoicing through the AWS, Azure and Google Cloud marketplaces, warehouse exports, a dedicated account manager and stronger SLAs."
+    },
+    {
+      "question": "Is Metronome a payment processor?",
+      "answer": "No. Metronome meters usage and produces invoices, but it does not underwrite merchants, hold funds or move money. You connect your own Stripe account. When a billing period closes, Metronome creates the matching Stripe invoice, Stripe collects by card or ACH, and the payment status syncs back to Metronome. Invoices can also route to QuickBooks, NetSuite, Bill and the AWS, Azure and Google Cloud marketplaces. The 0.8% Metronome charges is separate from whatever your processor takes, and sits on top of it."
+    },
+    {
+      "question": "Does Stripe own Metronome?",
+      "answer": "Yes. Stripe announced the acquisition in December 2025 and completed it on January 14, 2026. Terms were not officially disclosed, though Payments Dive and Upstarts Media reported a price of roughly $1 billion. Patrick Collison said Stripe is integrating Metronome's capabilities with the Stripe Billing platform, and Metronome's own post confirmed the deal without committing to how long the standalone product will be sold separately. Buyers on a non-Stripe gateway should ask directly about long-term support before signing anything."
+    },
+    {
+      "question": "Metronome vs Orb: what is the difference?",
+      "answer": "They solve the same problem and differ on transparency and ownership. Metronome publishes a self-serve rate of 0.8% of billing volume plus $0.04 per 1,000 events. Orb publishes nothing and quotes all three of its tiers. Metronome leans toward enterprise contract mechanics, commitments and true-ups. Orb leans toward fast pricing iteration and SQL-defined metrics for developer-tool companies. Both now belong to payment companies: Stripe took Metronome in January 2026 and Adyen took Orb in July 2026."
+    },
+    {
+      "question": "Do OpenAI and Anthropic use Metronome?",
+      "answer": "Yes, and it is confirmed by Stripe rather than only by Metronome. Stripe's newsroom post announcing completion of the acquisition states that the platform already powers some of the most ambitious AI companies, naming OpenAI, Anthropic and NVIDIA. Metronome additionally lists Databricks and Confluent, and says it bills for more than 150 million end users. That level of named, first-party confirmation is unusual in billing software, where vendor logo walls often outrun the actual contracts."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "metronome.com",
+  "logoSource": "https://cdn.prod.website-files.com/67d16f49f8d727a72056608c/68e7fc6f9d30b470beab206c_metronome-256x256.png",
+  "sources": [
+    "https://metronome.com/pricing",
+    "https://metronome.com/integrations",
+    "https://metronome.com/blog/our-next-chapter-metronome-is-now-part-of-stripe",
+    "https://docs.metronome.com/integrations/invoice-integrations/stripe",
+    "https://stripe.com/newsroom/news/stripe-completes-metronome-acquisition",
+    "https://www.pymnts.com/acquisitions/2026/stripe-completes-purchase-of-billing-firm-metronome/",
+    "https://www.paymentsdive.com/news/stripe-to-buy-metronome/807055/",
+    "https://www.businesswire.com/news/home/20250225320307/en/Metronome-Secures-$50-Million-in-Series-C-Funding-to-Drive-Adoption-of-Usage-Based-Pricing-in-Software-and-AI",
+    "https://research.contrary.com/company/metronome",
+    "https://www.stigg.io/blog-posts/metronome-reviews",
+    "https://www.aibilling.dev/providers/metronome",
+    "https://tracxn.com/d/companies/metronome/__tFj7orkjWfejBfFaMjI8s0p22m-aX39SKoU-uhYCyno"
+  ]
+}

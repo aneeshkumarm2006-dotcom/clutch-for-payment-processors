@@ -1,0 +1,148 @@
+{
+  "name": "Dodo Payments",
+  "slug": "dodo-payments",
+  "logo": "data:image/png;base64,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",
+  "website": "https://dodopayments.com",
+  "tagline": "Merchant of record for SaaS, AI and digital products. It becomes the legal seller on every order and handles the VAT, GST and sales tax that follow.",
+  "shortDescription": "Bengaluru merchant of record, founded in 2024, for SaaS, AI and digital product sellers. Cards cost 4% + $0.40 in the US, and the surcharges stack: 1.5% international, 0.5% on subscriptions. A cross-border subscription lands nearer 6% all in.",
+  "longDescription": "<p><strong>Dodo Payments</strong> is a merchant of record for digital products, founded in Bengaluru in 2024 by Ayush Agarwal and Rishabh Goel and backed by roughly $1.1 million of pre-seed funding from Antler, 9Unicorns and Venture Catalysts. The model matters more here than the technology. As merchant of record, Dodo becomes the legal seller on every order. That means it registers for and remits VAT, GST and sales tax across more than 190 jurisdictions, issues the compliant invoice, and absorbs chargeback liability rather than passing it to the developer. It takes payment from buyers in 226 countries through more than 40 local methods, including UPI, Pix, iDEAL, SEPA, PayPal and buy-now-pay-later, and prices in over 80 currencies. That puts it up against Paddle, Lemon Squeezy and Polar rather than against Stripe.</p><h3>Pricing and how it works</h3><p>Dodo publishes the whole stack, which is more than several competitors do. The base rate is 4% + $0.40 on US domestic cards and wallets, or 4% + INR 15 on Indian domestic payments. International payments add 1.5%. Subscriptions and usage-based billing add 0.5%. PayPal and BNPL such as Klarna and Afterpay add 3%. Bring your own processor and the platform fee drops to 0.5%. Refunds cost $1 each and disputes cost $30, and the revenue-recovery features are free to switch on, with a 5% fee charged only on revenue actually recovered. There is no monthly fee, no setup fee and no minimum volume. Add the parts up before you compare anything. A cross-border SaaS subscription pays 4% plus 1.5% plus 0.5% plus $0.40, which lands close to 6% before currency conversion, and buyers absorb a 2% to 4% spread on non-USD payments. Payouts run twice a month by default, with the 1st to 15th period paid on the 18th and the 16th to month end paid on the 4th. Weekly cycles are available to higher-volume merchants on request, and Dodo can put higher-risk accounts on a monthly cycle. The wallet balance across all currencies has to exceed $50 before a payout runs, a payout under $1,000 costs $5, and a USD SWIFT transfer costs $25. Funds take one to two business days to land.</p><h3>Who it is for</h3><p>Solo developers, indie SaaS, AI tools and game studios selling worldwide who would otherwise spend more on tax advice than the fee costs them. It is most useful to founders in India, Southeast Asia, Latin America and the Middle East, where approval from a mainstream processor is often the hard part. KYC clears in 24 to 72 working hours, and minors can register with a parent or guardian's details.</p><h3>What Dodo Payments is not</h3><p>It is not a payment gateway or a merchant account. The gap between 4% and a gateway's card rate is the price of tax registration, invoicing and dispute liability moving off your balance sheet, and it is only worth paying if you actually sell across borders. It does not handle physical goods, offers no Shopify plugin and does not onboard ecommerce storefronts. The supported routes are the API, framework adapters for Next.js and Nuxt, payment links, a Framer plugin and a WooCommerce plugin for digital items. It is also young. Founded in 2024, it has a shorter operating record than Paddle, and Rebounce's review points to public Trustpilot reports of account holds and delayed first payouts. Treat it the way you would any early-stage merchant of record and start with part of your revenue rather than all of it.</p>",
+  "foundedYear": 2024,
+  "headquarters": "Bengaluru, India",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "Global",
+    "US",
+    "EU",
+    "UK",
+    "IN"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "custom-quote"
+  ],
+  "pricingSummary": "4% + $0.40 on US domestic cards, plus 1.5% on international payments, 0.5% on subscriptions and usage billing, and 3% on PayPal or BNPL. There is no monthly fee and no minimum volume, but a cross-border SaaS subscription lands near 6% all in before currency conversion.",
+  "fees": {
+    "onlineCardRate": "4% + $0.40 in the US",
+    "internationalRate": "Add 1.5% for international payments, 3% more for PayPal or BNPL such as Klarna and Afterpay, and 0.5% for subscriptions or usage-based billing",
+    "monthlyFee": "$0 per month",
+    "setupFee": "$0",
+    "chargebackFee": "$30 per dispute",
+    "monthlyMinimum": "None, and no minimum volume or revenue share",
+    "refundPolicy": "$1 per refund, deducted from the merchant balance"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "paypal",
+    "sepa",
+    "bnpl",
+    "upi",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "payment-links",
+    "invoicing",
+    "woocommerce"
+  ],
+  "currencies": "80+ presentment currencies across 226 buyer countries, with merchant payouts consolidated into USD, GBP or EUR wallets",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "chargeback-protection",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "ecommerce",
+    "international",
+    "developers"
+  ],
+  "bestFor": [
+    "SaaS and AI products",
+    "Indie developers",
+    "Global tax compliance",
+    "Subscriptions"
+  ],
+  "industries": [
+    "SaaS",
+    "AI tools",
+    "Digital products",
+    "Game studios"
+  ],
+  "pros": [
+    "Publishes the entire fee stack rather than one blended number: 4% + $0.40 in the US, 1.5% international, 0.5% subscriptions, $1 per refund and $30 per dispute, with no monthly fee and no minimum volume",
+    "Registers, files and remits VAT, GST and sales tax across more than 190 jurisdictions and absorbs chargeback liability, so a solo seller never registers for tax abroad",
+    "Onboards sellers in markets where mainstream processor approval is difficult, takes payment from buyers in 226 countries with 40+ local methods including UPI, Pix, iDEAL and SEPA, and clears KYC in 24 to 72 working hours"
+  ],
+  "cons": [
+    "The headline 4% applies only to US domestic cards. A cross-border subscription stacks 1.5% international and 0.5% subscription on top and lands near 6% before currency conversion, and PayPal or BNPL adds a further 3%",
+    "Payouts are slow and hemmed in. The default cycle is twice a month, on the 18th and the 4th, the wallet balance must clear $50, a payout under $1,000 costs $5, and INR payouts were discontinued, so Indian sellers settle in USD, GBP or EUR",
+    "Founded in 2024, so the operating record is short, and Rebounce's review cites public Trustpilot reports of account holds and delayed first payouts alongside slow support responses"
+  ],
+  "editorScore": 3.7,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Dodo Payments Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaDescription": "Dodo Payments charges 4 percent plus 40 cents in the US, plus 1.5 percent international and 0.5 percent on subscriptions. A merchant of record for SaaS.",
+    "keywords": [
+      "dodo payments review",
+      "dodo payments pricing",
+      "dodo payments fees",
+      "dodo payments vs paddle",
+      "merchant of record saas"
+    ],
+    "focusKeyword": "dodo payments review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Dodo Payments cost?",
+      "answer": "The base rate is 4% + $0.40 on US domestic cards and wallets, with no monthly fee, no setup fee and no minimum volume. Surcharges stack on top: 1.5% for international payments, 0.5% for subscriptions and usage-based billing, and 3% for PayPal or BNPL such as Klarna and Afterpay. Indian domestic payments are 4% + INR 15. Refunds cost $1 and disputes cost $30. A cross-border SaaS subscription therefore runs near 6% all in, before the 2% to 4% spread that non-USD buyers absorb. Merchants who bring their own processor pay a 0.5% platform fee instead."
+    },
+    {
+      "question": "How and when does Dodo Payments pay out?",
+      "answer": "Twice a month by default. The 1st to 15th period pays on the 18th and the 16th to month end pays on the 4th, with weekly cycles available to higher-volume merchants on request and monthly cycles applied at Dodo's discretion to higher-risk accounts. The combined wallet balance across currencies has to exceed $50 before anything is sent, payouts below $1,000 carry a $5 fee, and a USD SWIFT transfer costs $25. Money takes one to two business days to reach the bank. Payouts settle only through USD, GBP or EUR wallets, since INR payouts were discontinued."
+    },
+    {
+      "question": "How does Dodo Payments handle VAT and sales tax?",
+      "answer": "It becomes the legal seller, so the obligation is Dodo's rather than yours. The platform detects the buyer's location, applies the correct VAT, GST or sales tax at checkout, issues a compliant invoice and files and remits across more than 190 jurisdictions. Indian merchants have GST applied automatically based on customer location, and registered UK entities have to file a W-8BEN-E. You still owe income tax on what you receive in your own country, and you still have to give Dodo the customer's billing address, because that is what the invoice and the filing depend on."
+    },
+    {
+      "question": "Is Dodo Payments better than Paddle, Lemon Squeezy or Polar?",
+      "answer": "It depends on where you are incorporated and what you sell. All four are merchants of record that take on tax and chargeback liability, so the comparison is really about seller eligibility, effective rate and product maturity. Dodo's argument is reach into markets where mainstream processor onboarding is difficult, 226 buyer countries, 40+ local methods including UPI and Pix, and published surcharges rather than one blended number. Against that, it was founded in 2024 and has the shortest track record of the group. Model your actual mix, because the international and subscription surcharges move the effective rate a long way."
+    },
+    {
+      "question": "Can Dodo Payments be used for physical products?",
+      "answer": "No. Dodo's documentation states that it does not support physical goods and does not offer a Shopify plugin, and ecommerce storefronts sit outside what it onboards. The platform is built for SaaS, AI tools, digital downloads, courses and game content, which is also why the tax logic works cleanly: digital services follow the buyer's location for VAT and GST, and Dodo files on that basis. A seller with a physical catalogue needs a conventional gateway plus their own tax registrations, or a merchant of record that explicitly supports goods."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "dodopayments.com",
+  "logoSource": "https://dodopayments.com/favicon.svg",
+  "sources": [
+    "https://dodopayments.com/pricing",
+    "https://dodopayments.com/features/merchant-of-record",
+    "https://dodopayments.com/payments/local-payment-methods",
+    "https://dodopayments.com/blogs/pci-dss-compliance-digital-business",
+    "https://docs.dodopayments.com/features/payouts/payout-structure",
+    "https://docs.dodopayments.com/miscellaneous/faq",
+    "https://docs.dodopayments.com/miscellaneous/list-of-countries-we-accept-payments-from",
+    "https://www.rebounce.dev/blog/dodo-payments-review",
+    "https://www.skydo.com/blog/dodo-payments-features-and-fees",
+    "https://inc42.com/company/dodo-payments/"
+  ]
+}

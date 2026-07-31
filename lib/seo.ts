@@ -317,10 +317,37 @@ export function comparePairJsonLd(opts: {
 
 export interface ProcessorJsonLdReview {
   author: string;
+  /** Reviewer's job title → Person.jobTitle. */
+  authorTitle?: string;
+  /** Reviewer's company → Person.worksFor Organization. */
+  authorCompany?: string;
   rating: number;
   title?: string;
   body?: string;
+  /** Free text; appended to reviewBody as "Use case: …", matching the card UI. */
+  useCase?: string;
+  /** Newline-separated lines (how the card renders them) → positiveNotes ItemList. */
+  pros?: string;
+  /** Newline-separated lines → negativeNotes ItemList. */
+  cons?: string;
   datePublished?: string;
+}
+
+/**
+ * pros/cons are stored as free text and rendered line-by-line
+ * (`whitespace-pre-line`), so the ItemList splits on the same newlines the
+ * reader sees. Leading bullet characters editors sometimes type are stripped.
+ */
+function reviewNotesJsonLd(text: string | undefined): Jsonld | null {
+  const items = (text ?? "")
+    .split(/\r?\n/)
+    .map((line) => line.trim().replace(/^[-•·*]\s*/, ""))
+    .filter(Boolean);
+  if (!items.length) return null;
+  return {
+    "@type": "ItemList",
+    itemListElement: items.map((name, i) => ({ "@type": "ListItem", position: i + 1, name })),
+  };
 }
 
 /**
@@ -366,14 +393,33 @@ export function processorJsonLd(opts: {
       : {}),
     ...(opts.reviews && opts.reviews.length
       ? {
-          review: opts.reviews.map((r) => ({
-            "@type": "Review",
-            author: { "@type": "Person", name: r.author },
-            reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5, worstRating: 1 },
-            ...(r.title ? { name: r.title } : {}),
-            ...(r.body ? { reviewBody: r.body } : {}),
-            ...(r.datePublished ? { datePublished: r.datePublished } : {}),
-          })),
+          review: opts.reviews.map((r) => {
+            // "Use case:" is folded into reviewBody exactly as the card shows it,
+            // so the markup never claims text the page doesn't render.
+            const body = [r.body, r.useCase ? `Use case: ${r.useCase}` : ""]
+              .filter(Boolean)
+              .join(" ");
+            const positiveNotes = reviewNotesJsonLd(r.pros);
+            const negativeNotes = reviewNotesJsonLd(r.cons);
+            return {
+              "@type": "Review",
+              author: {
+                "@type": "Person",
+                name: r.author,
+                ...(r.authorTitle ? { jobTitle: r.authorTitle } : {}),
+                ...(r.authorCompany
+                  ? { worksFor: { "@type": "Organization", name: r.authorCompany } }
+                  : {}),
+              },
+              reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5, worstRating: 1 },
+              ...(r.title ? { name: r.title } : {}),
+              ...(body ? { reviewBody: body } : {}),
+              ...(positiveNotes ? { positiveNotes } : {}),
+              ...(negativeNotes ? { negativeNotes } : {}),
+              // Date only — schema.org wants a Date here, not a timestamp.
+              ...(r.datePublished ? { datePublished: r.datePublished.slice(0, 10) } : {}),
+            };
+          }),
         }
       : {}),
   };

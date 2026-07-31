@@ -1,0 +1,138 @@
+{
+  "name": "Billsby",
+  "slug": "billsby",
+  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAY1BMVEUeJDIAABPu7u8LFScADiKkpakPGCn///8AAA8ACyGGiI2trrF2eX8bITAVHSy6u74AABfz9PQAAAkAAADh4uOYmZ4AABzLy818foTT09U8QEtOUlpVWGBqbHM1OUQlKjePkJVocjFRAAAACXBIWXMAAAsSAAALEgHS3X78AAABd0lEQVR42u3ay3aDIBgE4B9BBA2Cd6NJ2vd/ytp9NacLnUVmlq6+wxGBQSnAEQIIIIAAAggggAAC/nrYZAe5AjB3ai+uuwJQatmNJ4AAAggggAACCCCAAAII+AjA7Pxu2isAU3WQ/ChDHu/ZycfzzhzFj8nZZ5WdCHDyLsF6t0Yg4Df1aHMoYBsHbyMUsBHUo4ECRKyfsAAJXYUFiLQDGCAuBwOkjWCAdD0YEL7AADElGCBtDwbUKxggagID6gcYIG0GBpgBDAgvMEBcBgb4CAboEgzYm4iXAYKAAZLQANeAASpDA/pPHwH4O2DQH6IFDLA39GJUgQE7s/C6DUkAb0j2VuPLAK4Hb8sX8LY8RfDR7AU+mrkJC9BPcEFhGnBFM2EbEpVjS6pxxtZ0acYWle+K0pMBdRuhZfW49Mi6XqcceGERjCqbAgWoTaqHpjjr2s4eRGszJrUO9xOv7Z63g5Tf281lwR+bCSCAAAIIIIAAAggg4D/5AWPZaTSGipA5AAAAAElFTkSuQmCC",
+  "website": "https://www.billsby.com",
+  "tagline": "UK subscription billing platform that charged a base monthly fee plus a small percentage of billed revenue above a free allowance.",
+  "shortDescription": "Billsby is a London-based subscription billing layer that sits on a gateway you bring. Third-party listings put the Core plan at $35 to $45 per month plus 0.4% of revenue above a $15,000 monthly allowance, but its website has been offline since at least July 2026.",
+  "longDescription": "<p>Billsby is a subscription billing platform launched in 2018 and operated by Billsby Limited, incorporated on 31 March 2017 with a registered office at 3rd Floor, 86-90 Paul Street, London. It does what a billing layer does: products, plans and cycles, add-ons and allowances, coupons, invoicing and credit notes, dunning, sales tax automation, an embeddable checkout and a customer self-service portal. What set it apart was the pricing shape: a modest base fee plus a small cut of the revenue it billed above a free monthly allowance.</p><p>Its current condition has to be stated before anything else. As of 31 July 2026 the whole of billsby.com returns an Azure Static Web Apps 404, pricing page included. The trial registration endpoint that the support site links to returns an nginx 404, so no new account can be opened. status.billsby.com resolves to a decommissioned Statuspage. The newest post on the support changelog is roughly three years old. Companies House records a first Gazette notice for compulsory strike-off against Billsby Limited on 26 May 2026, suspended on 17 June 2026, with accounts for the year to 31 March 2025 still overdue at both Billsby Limited and Billsby Holdings Limited. The dashboard at app.billsby.com and the documentation site still load, so existing merchants are not locked out, but the company is not visibly selling or shipping.</p><h3>Pricing and how it works</h3><p>The vendor's own price list is unreachable, so these figures come from third-party records rather than Billsby. Capterra and GetApp both log the Core plan at $35 per month flat rate, with a one-month trial, unlimited products and users, multi-currency and multiple gateways, and 0.4% charged on revenue above a $15,000 monthly allowance. Independent reviewers list Core at $45 per month on the same 0.4% and $15,000 terms, plus a Pro plan at $135 per month whose larger allowance is reported variously at $30,000 and $50,000. A Custom tier sat above that. Read the base fee as $35 to $45 and the overage as 0.4% of billed revenue, and treat every one of those numbers as unverifiable until the pricing page comes back. None of it includes card processing.</p><h3>Who it is for</h3><p>The design target was small subscription businesses that wanted a hosted checkout and a self-service portal without building either. The revenue share is kind at low volume, since a merchant billing under $15,000 a month pays only the base fee, and it bites above that: 0.4% on $200,000 of monthly billings adds $800 to a $45 invoice. Capterra rates the product 4.6 across 17 reviews. That average hides a split: warm reviews from 2020, hostile ones from 2026. On the evidence above, nobody should start a new implementation here.</p><h3>What Billsby is not</h3><p>Billsby's own documentation is blunt about it: \"We're not a payment gateway, we're a subscription management system that handles recurring billing, invoicing, and lifecycle management for your customers.\" It holds no card data: the Billsby Vault runs on Spreedly and stores tokens only. Charges route to a gateway you bring, from a list covering Stripe, Braintree, Adyen, Checkout.com, Authorize.net, NMI, IXOPAY, CloverConnect and PaymentCloud. Your card rate is set by that gateway and its acquirer, never by Billsby. ACH is offered in beta. Your base currency is fixed at registration and cannot be changed later, though you can bill in additional currencies and point each at a different gateway.</p>",
+  "foundedYear": 2018,
+  "headquarters": "London, United Kingdom",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "UK",
+    "EU",
+    "US",
+    "Global"
+  ],
+  "pricingModel": [
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "Third-party listings record a Core plan at $35 to $45 per month plus 0.4% of revenue above a $15,000 monthly allowance, and a Pro plan at $135 per month with a larger allowance. Billsby's own pricing page has been offline since at least July 2026, so none of it can be confirmed with the vendor.",
+  "fees": {
+    "onlineCardRate": "Set by your gateway",
+    "monthlyFee": "$35 to $45 reported",
+    "achRate": "Set by your gateway. ACH is a beta feature in Billsby",
+    "chargebackFee": "Charged by your gateway or acquiring bank, not by Billsby",
+    "refundPolicy": "Refunds and credit notes are issued in Billsby, but the money moves through your gateway"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "ach"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "invoicing"
+  ],
+  "currencies": "Multi-currency billing with a different gateway routable per currency. The base currency is set at registration and cannot be changed afterwards",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "tokenization",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "small-business",
+    "ecommerce"
+  ],
+  "bestFor": [
+    "Small Subscription Businesses",
+    "Hosted Checkout",
+    "Low Monthly Billings"
+  ],
+  "industries": [
+    "SaaS",
+    "Subscription Boxes",
+    "Media And Publishing",
+    "Membership Sites"
+  ],
+  "pros": [
+    "The revenue share costs nothing beyond the base fee until you bill more than $15,000 in a month, which made it one of the cheapest entry points in subscription billing",
+    "Card data never touches Billsby. The Billsby Vault runs on Spreedly and holds tokens only, which leaves you free to move between nine gateways including Stripe, Adyen, Checkout.com and NMI",
+    "Checkout and account management ship as drop-in embed codes, so a small team gets a hosted signup flow and a customer self-service portal without writing either one"
+  ],
+  "cons": [
+    "The company looks dormant. On 31 July 2026 the whole of billsby.com returned an Azure 404, the trial registration endpoint 404s so no new account can be opened, and status.billsby.com is a decommissioned Statuspage",
+    "Companies House shows a first Gazette notice for compulsory strike-off against Billsby Limited on 26 May 2026, suspended on 17 June 2026, with accounts to 31 March 2025 overdue at both Billsby Limited and Billsby Holdings Limited",
+    "Support and development have stalled. The newest post on the support changelog is around three years old, and 2026 reviewers on G2 and Capterra describe chasing acknowledged, unfixed faults for three months with no reply"
+  ],
+  "editorScore": 2.9,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Billsby Review | Pricing, Fees and Company Status | Payment Processing Guide",
+    "metaDescription": "Billsby charged from USD 35 per month plus 0.4 percent above a USD 15,000 allowance, but its website is offline in 2026. Read before you commit.",
+    "keywords": [
+      "billsby review",
+      "billsby pricing",
+      "billsby fees",
+      "billsby vs chargebee",
+      "billsby alternatives"
+    ],
+    "focusKeyword": "billsby review"
+  },
+  "faqs": [
+    {
+      "question": "Is Billsby still in business?",
+      "answer": "Billsby Limited is still listed as active at Companies House, but the signs are poor. The entire billsby.com website returned a 404 on 31 July 2026, new account registration is broken, and the status page has been decommissioned. Companies House filed a first Gazette notice for compulsory strike-off on 26 May 2026, suspended it on 17 June 2026, and accounts for the year to 31 March 2025 remain overdue. The dashboard and documentation still load for existing merchants, so this reads as a dormant product rather than a formal shutdown, but do not start a new build on it."
+    },
+    {
+      "question": "How much does Billsby cost?",
+      "answer": "The vendor's pricing page is offline, so only third-party records remain. Capterra and GetApp log the Core plan at $35 per month, with a one-month trial and 0.4% charged on revenue above a $15,000 monthly allowance. Independent reviewers put Core at $45 per month on the same terms, with a Pro plan at $135 per month whose bigger allowance is reported as either $30,000 or $50,000. A Custom tier sat above those. None of the figures include card processing, which is billed by whichever gateway you connect."
+    },
+    {
+      "question": "Is Billsby a payment gateway or a merchant account?",
+      "answer": "Neither, and its own documentation says so directly: Billsby describes itself as a subscription management system rather than a payment gateway. It never touches raw card data. The Billsby Vault is powered by Spreedly and holds tokens; the actual charge goes to a gateway you already hold, from a list including Stripe, Braintree, Adyen, Checkout.com, Authorize.net, NMI, IXOPAY, CloverConnect and PaymentCloud. Your percentage plus fixed fee per transaction is set by that gateway and its acquiring bank, and Billsby's fee sits on top of it."
+    },
+    {
+      "question": "How does Billsby's percentage of revenue pricing work?",
+      "answer": "You pay a flat monthly plan fee, and above a free monthly revenue allowance Billsby takes a small percentage of what it bills for you. On the Core plan the allowance was $15,000 a month and the rate above it was 0.4%. That is generous for a merchant billing $10,000 a month, who pays the base fee alone. It scales badly in the other direction: at $200,000 of monthly billings the 0.4% adds roughly $800 on top of a base fee under $50, which is where flat-fee platforms start winning."
+    },
+    {
+      "question": "What are the best Billsby alternatives?",
+      "answer": "Chargebee and Recurly are the closest replacements on features, both gateway-agnostic and both with far healthier trading positions. Stripe Billing is the cheapest option if you already process on Stripe and accept being tied to one processor. ChargeOver is worth a look if the percentage-of-revenue model is what put you off, since it charges a flat monthly fee metered on customer count instead. For merchants who want tax and liability handled too, a merchant of record such as Paddle or Lemon Squeezy is a different model at a higher price."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "billsby.com",
+  "logoSource": "https://www.google.com/s2/favicons?sz=128&domain=billsby.com",
+  "sources": [
+    "https://www.billsby.com/pricing",
+    "https://www.billsby.com/",
+    "https://app.billsby.com/registration",
+    "https://status.billsby.com/",
+    "https://support.billsby.com/changelog",
+    "https://support.billsby.com/docs/payment-gateways",
+    "https://support.billsby.com/docs/pci-dss-compliance",
+    "https://support.billsby.com/docs/currencies",
+    "https://find-and-update.company-information.service.gov.uk/company/10701418/filing-history",
+    "https://find-and-update.company-information.service.gov.uk/company/09674366",
+    "https://www.capterra.com/p/192675/Billsby/",
+    "https://unibee.dev/blog/billsby-review-2025-subscription-management-software/"
+  ]
+}
