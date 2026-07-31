@@ -15,6 +15,7 @@ export type AnalyticsEvent =
   | "add_to_compare"
   | "remove_from_compare"
   | "directory_search"
+  | "search_suggestion_select"
   | "write_review_cta"
   | "lead_submit"
   | "submission_submit";

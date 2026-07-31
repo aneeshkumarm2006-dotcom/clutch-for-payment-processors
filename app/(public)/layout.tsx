@@ -3,6 +3,7 @@ import { Footer } from "@/components/public/Footer";
 import { JsonLd } from "@/components/public/JsonLd";
 import { CompareProvider } from "@/components/public/compare/CompareContext";
 import { CompareBar } from "@/components/public/compare/CompareBar";
+import { PageSearchProvider } from "@/components/public/PageSearchContext";
 import { getPublishedCategories } from "@/lib/public-data";
 import { getLandingPageLinks } from "@/lib/page-seo";
 import { getOrCreateSiteSettings } from "@/lib/settings";
@@ -40,11 +41,15 @@ export default async function PublicLayout({ children }: { children: React.React
   return (
     <CompareProvider>
       <JsonLd data={baseGraph(toEngineContext(settings))} />
-      <div className="flex min-h-screen flex-col">
-        <Navbar categories={categories} />
-        <main className="flex-1">{children}</main>
-        <Footer categories={categories} settings={footerSettings} landingPages={landingLinks} />
-      </div>
+      {/* Wraps navbar + main together: the navbar's search hides itself while a
+          search box inside `main` is on screen. */}
+      <PageSearchProvider>
+        <div className="flex min-h-screen flex-col">
+          <Navbar categories={categories} />
+          <main className="flex-1">{children}</main>
+          <Footer categories={categories} settings={footerSettings} landingPages={landingLinks} />
+        </div>
+      </PageSearchProvider>
       <CompareBar />
     </CompareProvider>
   );

@@ -102,6 +102,19 @@
     pointer-events: none;
   }
 
+  /* Pre-hydration half of the navbar-search swap (components/public/PageSearchContext.tsx).
+   * The server can't know a page renders its own search box, so the navbar would
+   * paint its duplicate and then drop it a moment later. This hides it in the SSR
+   * markup instead; `page-search-live` lands before the first post-hydration paint
+   * and hands the decision to React, which can also bring the box back once the
+   * page's own search scrolls away.
+   *
+   * Hides the box, not its slot: the slot keeps reserving its width in both
+   * states, so hydration can't shift the CTA next to it. */
+  html:not(.page-search-live) body:has(main [data-page-search]) [data-nav-search] > * {
+    display: none;
+  }
+
   body {
     background: var(--background);
     color: var(--foreground);

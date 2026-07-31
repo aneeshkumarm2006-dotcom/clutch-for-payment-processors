@@ -13,11 +13,17 @@ import {
 } from "@/components/ui/sheet";
 import { SearchBox } from "@/components/public/SearchBox";
 import { MegaMenu } from "@/components/public/MegaMenu";
+import { usePageSearchVisible } from "@/components/public/PageSearchContext";
 import type { CategoryData } from "@/lib/serialize";
 
 /**
  * Public navbar (DESIGN §6.6). Wordmark (one violet accent), categories
  * mega-menu, inline search, and CTAs on desktop; a right-side Sheet on mobile.
+ *
+ * The desktop search is duplicate chrome whenever the page itself puts a search
+ * box on screen (home hero, `/search`), so it yields to it and fades back in once
+ * that box scrolls away — see `PageSearchContext`. Its slot keeps its width either
+ * way so the CTA never shifts.
  */
 const NAV_LINKS = [
   { label: "Processors", href: "/processors" },
@@ -28,6 +34,7 @@ const NAV_LINKS = [
 
 export function Navbar({ categories }: { categories: CategoryData[] }) {
   const [open, setOpen] = React.useState(false);
+  const pageSearchVisible = usePageSearchVisible();
 
   return (
     <header className="sticky top-0 z-40 border-b bg-card/80 backdrop-blur">
@@ -53,7 +60,18 @@ export function Navbar({ categories }: { categories: CategoryData[] }) {
 
         {/* Desktop search + CTAs */}
         <div className="ml-auto hidden items-center gap-2 lg:flex">
-          <SearchBox className="w-64" placeholder="Search processors…" />
+          {/* Fixed-width slot: unmounting the box (rather than just hiding it)
+              keeps it out of the tab order, and reserving the space stops the
+              CTA from jumping as it comes and goes. */}
+          <div data-nav-search className="w-64">
+            {!pageSearchVisible && (
+              <SearchBox
+                chrome
+                className="w-64 animate-in fade-in slide-in-from-top-1 duration-200"
+                placeholder="Search processors…"
+              />
+            )}
+          </div>
           <Button asChild variant="accent">
             <Link href="/write-review">Write a review</Link>
           </Button>
@@ -81,7 +99,7 @@ export function Navbar({ categories }: { categories: CategoryData[] }) {
                 </SheetTitle>
               </SheetHeader>
 
-              <SearchBox />
+              <SearchBox chrome />
 
               <nav className="flex flex-col gap-1">
                 {[{ label: "All processors", href: "/processors" }, ...NAV_LINKS.filter((l) => l.href !== "/processors")].map(

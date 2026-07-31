@@ -729,3 +729,45 @@ constant. A default written anywhere else will drift.
 - Manual: signed into `/admin/homepage`, edited a section heading + item count,
   saved (both PUTs 200), confirmed the change on `/`, then cleared both fields and
   confirmed the built-in default came back.
+
+---
+
+## Post-launch — Navbar search yields to in-page search
+
+### The problem
+The homepage hero and `/search` both put a large search box in `main`, while the
+navbar carried its own inline copy 200px above it. Two search inputs on screen at
+once, both doing exactly the same thing.
+
+### Decisions taken
+- **Detected, not routed.** `components/public/PageSearchContext.tsx` holds the
+  state; a page-level `SearchBox` registers itself and reports viewport visibility
+  via `IntersectionObserver`, and the navbar hides its own box while any are on
+  screen. No route allowlist to keep in sync — a new page that renders a
+  `SearchBox` in `main` gets the behaviour for free.
+- **It comes back on scroll.** Once the page's box scrolls under the sticky header
+  (`rootMargin: -64px` = navbar height) the navbar's returns, so search is never
+  more than a glance away. That's the "dynamic" half; a plain per-route hide would
+  have left long pages with no search at all below the fold.
+- **`chrome` prop marks the navbar/mobile-menu boxes** so they stay out of the
+  registry and can't suppress themselves.
+- **The nav box unmounts rather than hiding** (keeps it out of the tab order) but
+  its `w-64` slot always reserves the space, so the "Write a review" CTA never
+  shifts as it comes and goes.
+- **Pre-hydration is handled in CSS, not JS.** The server can't know whether a page
+  renders its own search, so SSR would paint the duplicate and drop it a frame
+  later. A `html:not(.page-search-live) body:has(main [data-page-search])` rule in
+  `globals.css` hides it in the SSR markup; `PageSearchProvider` adds
+  `page-search-live` in a layout effect (before the first post-hydration paint) to
+  hand the decision to React, and each box takes one synchronous
+  `getBoundingClientRect` measurement in the same pass because the observer's first
+  callback is async.
+- Unmount reports `false`, so a client-side route change away from the homepage
+  can't leave the navbar search permanently hidden.
+
+### Verification
+- `tsc --noEmit` and `next lint` pass.
+- Manual (1440×900): `/` and `/search?q=stripe` load with no navbar search and the
+  CTA in place; scrolling past the hero fades it in; `/processors` shows it from
+  the top; client-side nav both directions flips it correctly; no hydration
+  warnings in the console.
