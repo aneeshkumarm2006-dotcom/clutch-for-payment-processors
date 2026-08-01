@@ -30,9 +30,12 @@ import { processorPublishInput } from "@/lib/validators/processor";
  *
  * Listing data lives in `scripts/data/processors/<slug>.json`, one file per
  * listing, rather than as literals here: adding the next processor is dropping in
- * a file, and each file diffs on its own. `logo` is an inline base64 data URI
- * (the convention in this DB; `logo.clearbit.com`, which seed.ts still uses, is
- * dead). Regenerate one with `node scripts/fetch-logos.mjs`.
+ * a file, and each file diffs on its own. `logo` is a REMOTE CDN URL — inline
+ * base64 data URIs are rejected (see the guard below): they cost ~200 KB of HTML
+ * across the listing pages and produce an invalid `Product.image` in the JSON-LD.
+ * To add a logo, generate a PNG with `node scripts/fetch-logos.mjs`, upload it
+ * through the admin image field (or `scripts/migrate-logos-to-cdn.ts`), and paste
+ * the resulting URL.
  *
  * `categorySlugs` is resolved to Category ObjectIds at write time, and every
  * record is validated through `processorPublishInput` first, the same zod schema
@@ -105,6 +108,15 @@ async function main(): Promise<void> {
       logoSource: _logoSource,
       ...rest
     } = listing;
+    // A `data:` logo silently costs every listing page kilobytes of base64 and
+    // breaks `Product.image` (a data URI resolved against the site origin is not
+    // a fetchable URL). Caught here rather than after 33 files are already written.
+    if (typeof listing.logo === "string" && listing.logo.startsWith("data:")) {
+      throw new Error(
+        `${listing.slug}: logo is an inline data: URI. Upload it and use the CDN URL ` +
+          `(see scripts/migrate-logos-to-cdn.ts).`,
+      );
+    }
     try {
       return {
         slug: listing.slug,

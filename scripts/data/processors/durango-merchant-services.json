@@ -1,7 +1,7 @@
 {
   "name": "Durango Merchant Services",
   "slug": "durango-merchant-services",
-  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAHlBMVEVMaXE/WXQ/WnU/WnQ+WnT4kB8/WnWNb1TGgjxqZV859PvyAAAABXRSTlMAM9tzqH02isAAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAN5SURBVHja5ZzhdvMgCIaDUpX7v+Evbbd9bTXmxYCes9E/+9GMR0SDCN22ASGKkUNIPxICx0i0TZBdN79ofpcdwxeip/xH3CB27QkUDwYCxv42GWQ7eJX2LwY7M4yofyIsVW+EcEX9A4Euul66LFfcMSYTiQuH/zUPS2b/qjPGZCpqAk7GwrrpD8lcNAvSQ7+GgJKT0Mrx4wSO+iECSq5CS8ePeKKz/tNtmZO78MT9V70rT9HfI/h0gFwwyTmLGLhB5QD5ppEdBMRgdAJ0AN8Qo5PQ2IFyuQ1IyWP7UXMFSj4Y6Ks0EEQ/CUdbcMsIOcnrR6Qy1akVCN8CSwugYasCfKmzEo63gIwB1AhFNH7YeQcUEKBGyLgJensgDlD5bIFN0HsJCg5Q0RbQBN2XgArg89sFM0E/CigagATPQoDDMB0ATkBoGJJ1AAldC4zGgVqAT6eRs/jwLA7RAlSTICduyNYAAi5GBk8CogWokKXrhtEeIN0wE0QsFB8AKJgJGDuLDAAIZoKAHQYHAFATEHQYGAHI2CMROo1ZAJRjJwguAJ/r4GAOAnQeHwLAQsR9NwYSEiYA5cgLoxMA6ATRDUAwJ4hISsITgN0AEvYQI0khT4DgBwCuwy3NssDBMvADAA+r8wD+ngX+vA+gD/3ejUjQiGTWy6jMfhnBQeGvDUgKGpfPigkPTyZOAODZ7A4QVh5M7kkSXnk25G0SQC9H4nI4Bc+mj8Opy/EcTJw/82TBP0WTu8nSmKyzZNUT/XQxJe80XT5J1gbvROVZupqTabIaz9gzWLNQnJLV/9PlwTNdn4ELg5jsbkxw/S9XJqTzQc2VTe+raOFE0QDg43+7viVNfN37txnLkte3t5yu35xWt+39q1MGq4fkhgLkolqsBJbPNG/P5VNydX9+doPP0O29jJUwnKtv3N8zNv1G6hsVDK3gdAAALCJpVXTFywD3eh65UEoUGi6AiqgKiQ4qici9kO2spC7OAogLa+n69XRzJqFX0ziFgBYXFMapJeUDRea8sKBzAgFU4s6L9TsSwCX+vFi/01pQNVnExfrt90R9w5MtwVDDFa/qcDHvNBpvebPptbrU+3jdEwIt7fez6HmkcQSjlstRBMOm0xGEYN36q+r7Ne761fRdOzeA05kdgs/YK0u0MALzpAb8pyn2XwDYfwPgIfe/aFT3P5vZJiuwvSklAAAAAElFTkSuQmCC",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612792/logos/durango-merchant-services-logo-d8c7fa12.webp",
   "website": "https://durangomerchantservices.com",
   "tagline": "Long-running Colorado high-risk ISO that places domestic, international and offshore merchant accounts, with month-to-month terms for most merchants.",
   "shortDescription": "A Durango, Colorado ISO specializing in hard-to-approve accounts, with offshore placements through acquirers in Canada, Panama, the UK and the EU. Rates are quote-only, but Merchant Maverick reports most merchants get month-to-month terms with no early termination fee.",
@@ -94,7 +94,7 @@
   "isSponsored": false,
   "isFeatured": false,
   "seo": {
-    "metaTitle": "Durango Merchant Services Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaTitle": "Durango Merchant Services Review | Pricing, Fees and Features",
     "metaDescription": "Durango places high-risk and offshore merchant accounts. Quote-only pricing, no setup fee and month-to-month terms with no early termination fee for most.",
     "keywords": [
       "durango merchant services review",

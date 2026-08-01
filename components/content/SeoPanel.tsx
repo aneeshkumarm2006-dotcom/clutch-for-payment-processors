@@ -206,6 +206,12 @@ export function SeoPanel({
         />
 
         <TextField
+          name={`${name}.h1`}
+          label="H1 heading"
+          description="The visible heading on the page, not a meta tag. Leave blank to use the page's default. Write it for a reader; a stuffed H1 reads worse and ranks no better."
+        />
+
+        <TextField
           name={`${name}.keywords`}
           label="Meta keywords"
           description="Comma-separated. Ignored by Google; kept for other engines and internal tooling."

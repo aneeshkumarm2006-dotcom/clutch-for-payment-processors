@@ -367,7 +367,7 @@ const ACH_BLOCKS: BlockSpec[] = [
 // ═══════════════════════════════════════════════════════════════════════════
 
 const HIGH_RISK_SEO: SeoSpec = {
-  metaTitle: "High Risk Merchant Accounts | Payment Processing Guide",
+  metaTitle: "High Risk Merchant Accounts",
   metaDescription:
     "Compare high risk merchant account providers and high risk payment processors on approval rates, fees, rolling reserves, and chargeback tools for your industry.",
   focusKeyword: "high risk merchant account",
@@ -603,9 +603,9 @@ const STRIPE_BLOCKS = (longDescription?: string): BlockSpec[] => [
 // ═══════════════════════════════════════════════════════════════════════════
 
 const SQUARE_SEO: SeoSpec = {
-  metaTitle: "Square Review | Square Fees, Alternatives and Clover Comparison",
+  metaTitle: "Square Review: Fees, Clover Comparison and Alternatives",
   metaDescription:
-    "An independent Square review covering Square fees, hardware costs, Clover vs Square, and the best Square alternatives for small business owners comparing processors.",
+    "An independent Square review covering Square fees, hardware costs, Clover vs Square, and the best Square alternatives for small businesses.",
   focusKeyword: "square fees",
   keywords: [
     "square fees",
@@ -1197,7 +1197,7 @@ const CA_LANDING: LandingSpec = {
   subheading:
     "Seven eCommerce POS systems compared for Canadian retailers on CAD pricing, GST, HST and PST handling, Interac debit support, and local settlement.",
   seo: {
-    metaTitle: "eCommerce POS Reviews Canada | Payment Processing Guide",
+    metaTitle: "eCommerce POS Reviews Canada",
     metaDescription:
       "Compare the best eCommerce POS Reviews Canada has to offer, with CAD pricing, GST/HST-ready systems, and top providers. Find your fit and start selling today!",
     focusKeyword: "ecommerce pos reviews canada",
@@ -1287,7 +1287,7 @@ const US_LANDING: LandingSpec = {
   subheading:
     "Seven eCommerce POS systems compared for U.S. retailers on USD pricing, multi-state sales tax automation, EMV and contactless compliance, and domestic settlement.",
   seo: {
-    metaTitle: "eCommerce POS Reviews USA | Payment Processing Guide",
+    metaTitle: "eCommerce POS Reviews USA",
     metaDescription:
       "Compare the best eCommerce POS Reviews USA has to offer, with USD pricing, sales-tax-ready systems, and top providers. Find your fit and start selling today!",
     focusKeyword: "ecommerce pos reviews usa",

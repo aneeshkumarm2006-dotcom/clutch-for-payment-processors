@@ -106,9 +106,9 @@ const PAGES: { pageKey: string; title: string; path: string; seo: SeoBlock }[] =
     title: "Processors directory",
     path: "/processors",
     seo: {
-      metaTitle: "Online Payment Processing Companies | Payment Processing Guide",
+      metaTitle: "Compare 41 Payment Processors by Rate and Monthly Fee",
       metaDescription:
-        "Compare online payment processing companies by fees, features, and verified reviews. Filter payment processing companies online by pricing model, region, and use case.",
+      "Stripe posts 2.9 percent plus 30 cents, Helcim bills interchange plus 0.50 percent, and 39 more sit alongside them. Filter by pricing model and region.",
       keywords: ["online payment processing companies", "payment processing companies online"],
       faqs: [
         {
@@ -170,9 +170,9 @@ const PAGES: { pageKey: string; title: string; path: string; seo: SeoBlock }[] =
 // --- Categories (by slug) --------------------------------------------------
 const CATEGORIES: Record<string, SeoBlock> = {
   "small-business": {
-    metaTitle: "Merchant Services for Small Business | Payment Processing Guide",
+    metaTitle: "Helcim vs Square vs Stax and 16 More for Small Business",
     metaDescription:
-      "Compare merchant services for small business with no long-term contracts, and see real credit card processing fees for small business side by side before signing up.",
+      "Flat rate or interchange plus is the first thing to settle. Stax runs 99 dollars a month for interchange plus 15 cents. Square takes no monthly fee at all.",
     keywords: [
       "merchant services for small business",
       "credit card processing fees for small business",
@@ -229,9 +229,9 @@ const CATEGORIES: Record<string, SeoBlock> = {
     },
   },
   international: {
-    metaTitle: "International Payment Processing Companies | Payment Processing Guide",
+    metaTitle: "International Payment Processing Starts With Local Methods",
     metaDescription:
-      "Compare international payment processing companies for multi-currency acceptance and local payment methods, including leading global payment processing companies.",
+      "Once you sell outside your home market, FX and local methods drive the cost. Adyen adds 0.60 percent and 13 cents over interchange, PayU 2 to 3 percent.",
     keywords: [
       "international payment processing companies",
       "global payment processing companies",
@@ -288,9 +288,9 @@ const CATEGORIES: Record<string, SeoBlock> = {
     },
   },
   ecommerce: {
-    metaTitle: "Ecommerce Payment Processing Companies | Payment Processing Guide",
+    metaTitle: "Which Ecommerce Payment Processor Fits Your Online Store",
     metaDescription:
-      "Compare ecommerce payment processing companies on checkout tools, APIs, and fraud protection, and see how leading digital payment processing companies price out.",
+      "Thirty online processors ranked on rate, monthly fee and payout speed. Mollie lists 1.8 percent, well under the 2.9 percent that Stripe posts for cards.",
     keywords: [
       "ecommerce payment processing companies",
       "digital payment processing companies",
@@ -352,9 +352,13 @@ const CATEGORIES: Record<string, SeoBlock> = {
 // --- Processors (by slug) --------------------------------------------------
 const PROCESSORS: Record<string, SeoBlock> = {
   stripe: {
-    metaTitle: "Stripe Merchant Services | Review, Fees and Pricing | Payment Processing Guide",
+    // 49 chars. The old value was 78 (Semrush: "title element is too long") and
+    // said "Payment Processing Guide" while the rest of the site says
+    // "Payment Processor Guide". A stored metaTitle renders verbatim with no
+    // brand suffix, so this string is the whole rendered <title>.
+    metaTitle: "Stripe Merchant Services Review: Fees and Pricing",
     metaDescription:
-      "An independent look at Stripe merchant services, online rates, payout speed, integrations, and verified merchant reviews to help you decide if Stripe is the right fit.",
+      "An independent Stripe merchant services review covering online rates, Canadian fees, payout speed, the fee calculator, and alternatives to Stripe.",
     keywords: ["stripe merchant services"],
     faqs: [
       {

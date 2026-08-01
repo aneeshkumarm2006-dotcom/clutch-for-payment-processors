@@ -157,7 +157,33 @@ export interface PageEngineData {
 
 const home: Crumb = { name: "Home", path: "/" };
 
-/** Product + Offer. `Offer` is only emitted when there's a real price to state. */
+/**
+ * Product for a processor profile. Carries the pricing line, but NOT as an Offer.
+ *
+ * This used to emit `offers: { "@type": "Offer", description, url, availability }`
+ * with no `price`. The comment defending it had the diagnosis right and the
+ * conclusion backwards: an Offer without a price isn't "describing rather than
+ * pricing", it's an invalid Offer. `price` (or `priceSpecification`) is the one
+ * REQUIRED property of Offer, so every profile shipped a hard validation error,
+ * and emitting `offers` at all is what promotes the node from a product snippet
+ * to a merchant listing, which then enforces the stricter rules the node cannot
+ * satisfy. That is the "structured data that contains markup errors" Semrush
+ * reports on all ten rated profiles.
+ *
+ * Proof it was the Offer and not the (also broken) base64 image: the same Product
+ * node renders on `/processor/<slug>/reviews` with the identical image and is NOT
+ * flagged. The only structural difference is that the reviews variant has no
+ * `offers`.
+ *
+ * The pricing text still ships, as an `additionalProperty`. That carries the same
+ * string with no Offer contract attached, so nothing is lost from the markup and
+ * the Product stays eligible for the product-snippet result on name +
+ * aggregateRating + review. Inventing a numeric price is not an option: this site
+ * stores pricing as free text ("2.9% + 30¢ online, no monthly fee",
+ * "Interchange++ : $0.13 + interchange + 0.60%"), holds no currency field, and
+ * does not sell the product, so a merchant-listing claim would be unsupportable
+ * even with a number to put in it.
+ */
 const processorProduct = (
   e: { data: ProcessorEngineData },
 ): Jsonld | null => {
@@ -172,15 +198,11 @@ const processorProduct = (
     reviews: d.reviews,
   });
 
-  // Offer without a price is noise — schema.org wants `price` + `priceCurrency`,
-  // and this site stores pricing as free text ("2.9% + 30¢"), which is not a
-  // number. So we describe the offer rather than pretending to price it.
   if (d.pricingSummary) {
-    node.offers = {
-      "@type": "Offer",
-      description: d.pricingSummary,
-      ...(d.website ? { url: d.website } : {}),
-      availability: "https://schema.org/InStock",
+    node.additionalProperty = {
+      "@type": "PropertyValue",
+      name: "Pricing",
+      value: d.pricingSummary,
     };
   }
   return node;
@@ -194,7 +216,13 @@ export const contentTypes = {
         type: "Product",
         label: "Product (with rating & reviews)",
         required: ["name"],
-        overridable: ["name", "description", "image", "brand", "offers"],
+        // `offers` is deliberately NOT overridable. The admin override field is a
+        // free-form JSON box with no per-property validation, so allowing it back
+        // means an editor can reinstate exactly the priceless Offer this builder
+        // was just fixed to stop emitting, and nothing would flag it until the
+        // next audit. If a real priced Offer is ever needed, it belongs in the
+        // builder with numeric `price` + `priceCurrency` fields behind it.
+        overridable: ["name", "description", "image", "brand"],
         build: processorProduct,
       },
       {

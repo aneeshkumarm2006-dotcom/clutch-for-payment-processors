@@ -1,7 +1,7 @@
 {
   "name": "Payment Depot",
   "slug": "payment-depot",
-  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAMFBMVEVMaXEAqOsAN2YANma+6frM7vvM7vsAqusAN2bM7/wBre4ALl1PwO8AhsIAisYAaJ7wsvb9AAAAB3RSTlMA/qUw5TCXLBRYKQAAAAlwSFlzAAALEgAACxIB0t1+/AAAATxJREFUeNrt21tSwzAQRFHrZctSFO9/t7wKQiClSaGMBorbG+hTI3+6l+WS4H2eEO/DciNhSvkH4pthav0r4bo/G+TTEULOpgKj/ovAqv/9O/DZVhCyYYLtAd5OkE1j/AIvb+BtAd4ekI0DAAAAAAAA/BVAVct9gKO1s1JkQM1nV7aiFRFQj+d6xUiA2lTrZcCh3C8CtPslQLMGbJstQP0LEAC1AQAAAAAAAAAAAPj9ADeaMYArp9EMAUrchzMCKPtuCnDRGPCQAwwA3AkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAI/pjd+TyHwBrd+g0AZC6U68JgP7YTR+w9ud++oDUHzyqA1Zh8qkNiNLoVRkQkzS7VQYkcXisCohJnn5rAtZ7xu96gDXdHuD7r4DeXzI/BMR41f4EhX7/rBxAlv4AAAAASUVORK5CYII=",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612770/logos/payment-depot-logo-4cc4ee52.webp",
   "website": "https://paymentdepot.com",
   "tagline": "Stax-owned US merchant account provider that dropped the flat membership fee it was built on. Pricing is now interchange-plus, quoted account by account.",
   "shortDescription": "Stax Payments bought Payment Depot in 2021 and rebranded it Payment Depot by Stax. The California reseller's flat monthly membership is gone. In its place: an advertised 0.2% to 1.95% markup over interchange and a separate quote for every merchant.",
@@ -87,7 +87,7 @@
   "isSponsored": false,
   "isFeatured": false,
   "seo": {
-    "metaTitle": "Payment Depot Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaTitle": "Payment Depot Review | Pricing, Fees and Features",
     "metaDescription": "Payment Depot now quotes interchange-plus at 0.2 to 1.95 percent markup, with no membership plan and no cancellation fee. See fees and who it suits.",
     "keywords": [
       "payment depot review",

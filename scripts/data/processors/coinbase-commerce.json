@@ -1,7 +1,7 @@
 {
   "name": "Coinbase Commerce",
   "slug": "coinbase-commerce",
-  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAqFBMVEVMaXH///////////////////////////////////////////////////////////////////////////////////////////8AUv8gaP/f6f+AqP9Aff8QXf+/1P8wc//v9P+Qs/+gvv+fvv+/0/8wcv8QXP9gk/+vyf9vnv9wnv9fk//P3v/P3/9QiP+Aqf9wnf9gkv9/qf+wyf+PtP+Ps/9/qP9PiP89s+cZAAAAF3RSTlMAEM+vv++Q3yBAn4BgUKAwcF9/j29PsEW5WuoAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAU1SURBVHja7VvXdtpAEEUFFZodB0cFVTAGDLjFSf7/zwKcONZWzax2ITnJfbY1w7Sd2uupIBhPvYHr+9EJvu063jS86p0Fwciz+xEXfdcbB0aJW6HnRy2wB6Ep8uGgH4HQH4z1U7+6AVL/ZRYDvboI3QgNN7wo+ZMYPl2UvCYWgg7kj3C62YJ1E3XGjdVB+n6kAb6qNVqfI034rKZ92c9P1/XLY5nk8QF5Umaber2XCUHBEj4JA08xy06EaeTZ7E4YHK+x9AXir4oXLvHfTKzWIlvEqZ/vfMVGSv2dB74cHIQ3BDbvC4ssBqKcdzMErvktkhiBZN6BAx79NYq8iAUYBxz6aRYr4DFV4oBDfxYrYqbAgcXQT8tYGQkjBLvNFxz6P+o87oC8ZvIUOX3m9XuOO2KGehimdOAr484oaTVIkpSAiv9pEmsAbQh9sSH6JuizHPgW7AHSRZ/lQGAGoSn6LAchIALopH/goGpXAuWBZawVGfn1IccDNPs/jQfy+0FLCKxj7ZjLA+KINIBcPwN5KrVD0gKT2AAymQhIATzFRlBLREAIIDVDn1KCK45BS0MMUEpoioDIwhewry03i93pJ6VFvQXyfCcQQYC2wKyuqMC9gPBQEv/z0debIAWQFdyyZYsMBkO+CSZq5I/Ytf5vQiQG7/THGAHkb7JC/BVlBSFPAwk2z8U94oQjDH4x0EzEihYrqtqaEW0cNEXQt9ggIDekLaAdUi3hr2LIauAe7kVCDqQyyJt/6p0YaNbiXxFpjaIWmjrwmSi0hb+nEhRgHQS0E8o08AZviz1AdTA6MOABWS/h9OVmsKeMwAUW4imCAekvaaYFNhUFJI2IFa43KfnSIxmNr4AmsMcxUADfg4AIQzs9FtD2W5refNu7hkWBOZaBJ1gkuCacoNZkgi06mBNu4IDKIbQGDh4lREE8iC7IdB8iQ3CJl2AJTOk1wifSsQSWyOhlAOY6qSkGIoIBseFG/xn4Rxi4iBHC3HB/njiw1PcWQWETofjHJUJxsypYnf8x+gJ9jiss/R0sKfSgCQn6NXqGJiRjWHcqwzKQwKQZkoXRfazrPVwAk9IrcFqeaRMAlZYTGclTrEkEC2Bh4iJKs0yTAJjSbAQtTmstOTlpArd0eb7SUp7vZOX5ihkb+NDKXn+Dwj51SJpGUBlv0SRsmyyEj2ogJXLLtHXFNqksvW26lmlXymmVToCFPaRRuVNpVIaoVq3UG2tUt/q2x2mVtjerS6EQigzVrPZ/d8uHyHb9aq9GnhLA4GNhFD2wKOeUGKoasuiSiIaXxMhmDVxM2NR3Ry6qdL/YlArDS1c4tFJa2oFgJZ7buecY25HljS/ZHTA0uPwuWyVxzU8Ok0gsAFoE6b3x4TWzS0OK4Jvp8b3TtsDwYNYAOAsMZDjU7ovtKxz0Ekt19iWWi6/xkLmZ0UUmD7hLaGyV689dZqNWSQ4caAiJGZ1GSpesPcwADoQN/cWhfKWSWan+1ikqs8N+p22p1caOw3Hpo28prPW+qtJ/1bVYrGaLWapvtRq5WX5yvkLvcvk5l9tF1x1wFjJuZ9dG3HlYDr/y2UIOHDZF5wMHNjv4KBrkPOQvhaB+9rBHJtcKRy6vwhWn/kjzmc9uXW+y5fuZz/LxpV6nms98eA+DKjzr7zz1OnrDsDv9YYdjt6MlOB0nIt1PP0cd9KDp7FOVhQtfnbp674+DCUoM/aGBQ/DxBHz4bO74emK3er0XWj2TCMaeKzp+t72R2eP3j75eOPUc134///fdgTdVPLz/CcN7plYecPNxAAAAAElFTkSuQmCC",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612745/logos/coinbase-commerce-logo-f599b241.webp",
   "website": "https://commerce.coinbase.com",
   "tagline": "Coinbase Commerce was Coinbase's self-custody crypto checkout for merchants, shut down on 31 March 2026 and folded into the custodial Coinbase Business.",
   "shortDescription": "Coinbase Commerce let merchants take crypto payments at a flat 1 percent fee, settling into a self-custody wallet. Coinbase closed the merchant portal on 31 March 2026 and pointed merchants to Coinbase Business, which is custodial and US and Singapore only.",
@@ -80,7 +80,7 @@
   "isFeatured": false,
   "isPublished": false,
   "seo": {
-    "metaTitle": "Coinbase Commerce Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaTitle": "Coinbase Commerce Review | Pricing, Fees and Features",
     "metaDescription": "Coinbase Commerce charged a flat 1 percent on crypto payments, but the merchant portal closed on 31 March 2026. What it cost and what replaced it.",
     "keywords": [
       "coinbase commerce review",

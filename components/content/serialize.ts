@@ -35,6 +35,8 @@ export interface SeoFormValues {
   robotsIndex?: boolean;
   robotsFollow?: boolean;
   focusKeyword: string;
+  /** Visible H1 override. Falls back to the route's own default heading. */
+  h1: string;
   redirectTo: string;
   localeGroup: string;
   locale: string;
@@ -53,6 +55,7 @@ export function blankSeoValues(): SeoFormValues {
     robotsIndex: undefined,
     robotsFollow: undefined,
     focusKeyword: "",
+    h1: "",
     redirectTo: "",
     localeGroup: "",
     locale: "",
@@ -73,6 +76,7 @@ export function toSeoFormValues(seo: Partial<ISeo> | undefined | null): SeoFormV
     robotsIndex: seo?.robotsIndex,
     robotsFollow: seo?.robotsFollow,
     focusKeyword: seo?.focusKeyword ?? "",
+    h1: seo?.h1 ?? "",
     redirectTo: seo?.redirectTo ?? "",
     localeGroup: seo?.localeGroup ?? "",
     locale: seo?.locale ?? "",
@@ -97,6 +101,7 @@ export function toSeoPayload(values: SeoFormValues): Record<string, unknown> {
     robotsIndex: values.robotsIndex,
     robotsFollow: values.robotsFollow,
     focusKeyword: blank(values.focusKeyword),
+    h1: blank(values.h1),
     redirectTo: blank(values.redirectTo),
     localeGroup: blank(values.localeGroup),
     locale: blank(values.locale),

@@ -16,10 +16,40 @@ import type { ISeo } from "@/models";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const SITE_NAME = "Payment Processor Guide";
 
-/** Resolve a path (or pass through an absolute URL) to an absolute URL string. */
+/**
+ * Resolve a path (or pass through an already-absolute URI) to an absolute URL.
+ *
+ * The scheme test is deliberately broader than `https?:` — it matches ANY URI
+ * scheme. It used to match only http(s), so a `data:image/png;base64,…` value
+ * fell through to the `new URL(…, SITE_URL)` branch and came back as
+ * `https://www.paymentprocessingguide.com/data:image/png;base64,…`: a string that
+ * is not a URL of anything. Every processor logo was stored that way, so every
+ * profile page shipped a broken `Product.image` (Semrush: "structured data that
+ * contains markup errors"). The logos now live on a CDN, and this stops the same
+ * mangling if an editor ever pastes a data URI into an image field again.
+ *
+ * Passing it through is the honest outcome, not the fix — see `httpImageUrl`,
+ * which is what schema and OG tags use, and which drops non-http images entirely.
+ */
 export function absoluteUrl(path = "/"): string {
-  if (/^https?:\/\//i.test(path)) return path;
+  if (/^[a-z][a-z0-9+.-]*:/i.test(path)) return path;
   return new URL(path.startsWith("/") ? path : `/${path}`, SITE_URL).toString();
+}
+
+/**
+ * An absolute http(s) image URL, or `undefined` if the value can't be one.
+ *
+ * Structured data and `og:image` are consumed by machines that will fetch the
+ * URL: Google, Slack, Twitter, Facebook. A `data:` URI can't be fetched, so
+ * emitting one is worse than emitting nothing — it turns a page with no image
+ * into a page with a broken image, which is an outright markup error rather than
+ * a missing optional field. Site-relative paths are still resolved normally.
+ */
+export function httpImageUrl(image: string | undefined | null): string | undefined {
+  const raw = image?.trim();
+  if (!raw) return undefined;
+  const resolved = absoluteUrl(raw);
+  return /^https?:\/\//i.test(resolved) ? resolved : undefined;
 }
 
 /**
@@ -118,7 +148,9 @@ export function buildMetadata({
   const customTitle = seo?.metaTitle?.trim();
   const metaTitle = customTitle || title;
   const metaDescription = seo?.metaDescription?.trim() || description;
-  const ogImage = seo?.ogImage?.trim() || image;
+  // Non-http images (a pasted `data:` URI) are dropped rather than emitted:
+  // a crawler that cannot fetch og:image treats the card as broken, not absent.
+  const ogImage = httpImageUrl(seo?.ogImage?.trim() || image);
   const canonical = safeCanonical(seo?.canonicalUrl, canonicalPath ?? path);
 
   // A hand-written SEO meta title is authoritative: render it verbatim (no
@@ -177,7 +209,7 @@ export function buildMetadata({
       url: canonical,
       siteName: SITE_NAME,
       type: ogType,
-      ...(ogImage ? { images: [{ url: absoluteUrl(ogImage) }] } : {}),
+      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
     },
     twitter: {
       // A site-wide default OG image (`app/opengraph-image.tsx`) always exists,
@@ -185,7 +217,7 @@ export function buildMetadata({
       card: seo?.twitterCard || "summary_large_image",
       title: socialTitle,
       description: socialDescription,
-      ...(ogImage ? { images: [absoluteUrl(ogImage)] } : {}),
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
   };
 }
@@ -233,7 +265,7 @@ export function organizationJsonLd(opts: {
     name: opts.name || SITE_NAME,
     url: SITE_URL,
     ...(opts.description?.trim() ? { description: opts.description.trim() } : {}),
-    ...(opts.logo ? { logo: absoluteUrl(opts.logo) } : {}),
+    ...(httpImageUrl(opts.logo) ? { logo: httpImageUrl(opts.logo) } : {}),
     ...(opts.sameAs && opts.sameAs.length ? { sameAs: opts.sameAs } : {}),
     ...(opts.email
       ? {
@@ -377,7 +409,7 @@ export function processorJsonLd(opts: {
     "@id": `${absoluteUrl(`/processor/${opts.slug}`)}#product`,
     name: opts.name,
     ...(opts.description ? { description: opts.description } : {}),
-    ...(opts.logo ? { image: absoluteUrl(opts.logo) } : {}),
+    ...(httpImageUrl(opts.logo) ? { image: httpImageUrl(opts.logo) } : {}),
     brand: { "@type": "Brand", name: opts.name },
     url: absoluteUrl(`/processor/${opts.slug}`),
     ...(hasRatings
@@ -441,7 +473,7 @@ export function articleJsonLd(opts: {
     "@type": "BlogPosting",
     headline: opts.title,
     ...(opts.description ? { description: opts.description } : {}),
-    ...(opts.image ? { image: absoluteUrl(opts.image) } : {}),
+    ...(httpImageUrl(opts.image) ? { image: httpImageUrl(opts.image) } : {}),
     author: { "@type": "Person", name: opts.author },
     // Reference the Organization the public layout already declares, rather than
     // inlining a second copy of it on every post.

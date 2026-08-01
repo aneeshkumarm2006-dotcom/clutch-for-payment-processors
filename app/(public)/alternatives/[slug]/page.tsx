@@ -37,8 +37,17 @@ export async function generateMetadata({
   const p = await getProcessorBySlug(params.slug);
   if (!p) return { title: "Alternatives not found" };
   return buildMetadata({
-    title: `Best ${p.name} alternatives`,
-    description: `Compare the top alternatives to ${p.name} on fees, payment methods, features, and verified merchant reviews, then find the payment processor that fits your business.`,
+    /*
+      `absoluteTitle` keeps the layout's brand suffix off. With it, the three
+      longest brand names on the site ("Durango Merchant Services" and friends)
+      rendered at 68-69 characters and lost the brand to truncation anyway.
+    */
+    title: `Best ${p.name} Alternatives: Compared on Fees`,
+    absoluteTitle: true,
+    // Was 160-181 characters, so Google truncated the tail on every one of the
+    // 41 alternatives pages. Trimmed to fit even the longest brand name on the
+    // site ("Durango Merchant Services", 25 chars) at 150 characters.
+    description: `Alternatives to ${p.name}, compared on fees, payment methods, features, and verified merchant reviews so you can find a better fit.`,
     path: `/alternatives/${p.slug}`,
     image: p.logo,
   });

@@ -1,7 +1,7 @@
 {
   "name": "EBANX",
   "slug": "ebanx",
-  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAB6VBMVEVMaXEADisADSsADSoADisADioADioADisAAAAAFSoADSoADiwADSsAEiQADSsADSoADSsADSoAESoADykADioADSoADSoAESsADisADioADSoADy0ADSoADSkADisAEycADSsADSsADisADisADSkADisADioADisADSsADiwADSoADSsADyp5ofkADisDDisAUf/y8vICDisAR98ATvgDEzvt7/OUs/dCffyFqfkLGDQASuvb3N8CLYsCJ3kbY/4BO7jV3/QCJ3gDDy0ATO4AS+wDDiwASuoBM6ABNKS7zfV0nfkDU/8AT/kBPsQCG1QIV/+BpvgCK4YLWP68zvUMWf4DETJudoUDFkRcjvoDGEq8v8Y7RlwKFzMDGUzi4+VznfkBMJXU3vS6vcQBP8Xh4uRsdIQBO7nr6+wBPb8AUf5cjfocY/4ATvWApvgATfE6RVsCGlMDF0js7O1djvoAS+4cZP67vsUATfMIVv8CH2MCKYIDEzwCLY7j5OYARtwBP8Z8o/mGqvkDFDwBPsMCImoCKYEDEDGVtPcDGU0CLY0ASOMDGEttdYUBQc0CG1UBPcADFkY5RFqBp/h9pPkCHlwCHmADEC8CImna294AUv/x8fEJVv9DffwCIGQBO7fZ2t16ofkASOJZwgoLAAAALXRSTlMA1d+twsTS9wEM0TSGDs+Dq9AeRDaF3R2wSIQz3DdHDUzg09RKNa7DzkXeglVkMkw4AAAACXBIWXMAADsOAAA7DgHMtqGDAAACmElEQVR42u3b5W4bURCG4ZPEiSkNNVRm7u7s1hxmZmYqMzMzMzNcaZ26kZIq8TleeTyNNO8FnO+R1v45QkRy5KanJtv1hGRP3pK3ySHmtDRDT3BJO2fNrynUCdrsnNnPWa+TlFYQ2Xem6UQlLfkDKNTJSpne36gTtjr8/3NRArIdYpVOmluk0wIyRSotwCbW0QLyhZ0WYBc6cQyYD1DUPzxuxr3x809H1QAjJSZSH0+oAEZOm2gdeCUHFJWYiP0YlQL6TdT2SQHDuIDdUsA1XMBeKQB33/xMDTAZsCgA/qZApxb3OgM9fjXAVEhDKlSpApi6qaH1plIO8Ic0xG75pYAmDbUeKSCAC3ggBRzDBbyWAnD3tZ/UAI0BDGAAAxjAAAYsCsBEsLzDiHsd54LNaoDBbgOp3sMqgMEWA62WM3LARLeBWG+zFBA0UPsqBZTjAo5IARdxAV+kANx94xM1wGAAAxjAAAYwgAEMYMD/B4Ao9fke3i2tqLW+Vvu99MOYry/aRlTA35431FtZr29oV3hcBQDwvup6rPO/uu4rPa0GAKirOhvL/PGuasWHVQEAvv3q+xU+5WfVAQCXW9XmW+/F8GgsAHh3QWX/6DfAAkB7sXy/+CTgAeClR7b/eAgwAXB7T/T9O1cAFwDVV70Lz3sf1QE2AODUi4X2b4zF/poFAMDbg4fmmX92ycpblgAATyb/+TV6JoesvWQREG6grLHNU+P11njaGssGLD9jHRCnGMAABjCAAQxgAAMYIHYRR3/mk0wLWEl/6pVHC9ghcmkBK4Qjm3I/I3x+vIwSsG366DSFbj8rcvbrIj77FTlEh8eugpnTayfJV8hyzj5+35ro+Q1r557fO9zLbdsTdf6fb8t0z5z//waSV7GMUmQ3fwAAAABJRU5ErkJggg==",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612749/logos/ebanx-logo-4b32a8a1.webp",
   "website": "https://www.ebanx.com",
   "tagline": "A cross-border payment platform that connects global merchants to local payment methods across Latin America, Africa and Asia.",
   "shortDescription": "EBANX gives global merchants one integration to more than 200 local payment methods in over 20 rising markets, including Pix, boleto, OXXO Pay and UPI. Pricing is quoted per country and per method rather than published.",
@@ -82,7 +82,7 @@
   "isSponsored": false,
   "isFeatured": false,
   "seo": {
-    "metaTitle": "EBANX Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaTitle": "EBANX Review | Pricing, Fees and Features",
     "metaDescription": "EBANX connects global merchants to Pix, boleto, OXXO Pay and UPI across Latin America, Africa and Asia. See how its custom pricing and fees work.",
     "keywords": [
       "ebanx review",

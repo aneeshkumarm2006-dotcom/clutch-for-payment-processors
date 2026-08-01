@@ -99,6 +99,7 @@ export function toSeoData(raw: unknown): ISeo {
     robotsIndex: bool(s.robotsIndex),
     robotsFollow: bool(s.robotsFollow),
     focusKeyword: str(s.focusKeyword),
+    h1: str(s.h1),
     redirectTo: str(s.redirectTo),
     localeGroup: str(s.localeGroup),
     locale: str(s.locale),

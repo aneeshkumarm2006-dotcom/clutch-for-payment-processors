@@ -1,7 +1,7 @@
 {
   "name": "Metronome",
   "slug": "metronome-billing",
-  "logo": "data:image/png;base64,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",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612783/logos/metronome-billing-logo-aaa38da5.webp",
   "website": "https://metronome.com",
   "tagline": "Usage-based billing infrastructure for AI and cloud companies, now owned by Stripe. It meters events and issues invoices through your own payment provider.",
   "shortDescription": "Metronome is the usage-based billing engine behind OpenAI, Anthropic and NVIDIA. Stripe completed its acquisition on January 14, 2026. It publishes a rate, which few rivals do: the self-serve Starter plan is 0.8% of billing volume plus $0.04 per 1,000 ingested events.",
@@ -80,7 +80,7 @@
   "isSponsored": false,
   "isFeatured": false,
   "seo": {
-    "metaTitle": "Metronome Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaTitle": "Metronome Review | Pricing, Fees and Features",
     "metaDescription": "Metronome review: the Starter plan bills 0.8 percent of billing volume plus 4 cents per 1,000 events. Stripe bought it in 2026. See fees and who it suits.",
     "keywords": [
       "metronome review",

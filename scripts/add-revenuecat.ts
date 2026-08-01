@@ -34,12 +34,17 @@ import { processorPublishInput } from "@/lib/validators/processor";
  */
 
 /**
- * The RC mark from revenuecat.com/favicon/favicon.png, resized to 128px and
- * PNG-compressed (2.2 KB). Inlined as a data URI to match how every other
- * processor logo is stored in this DB, and so the script has no network
- * dependency on a re-run.
+ * The RC mark from revenuecat.com/favicon/favicon.png, resized to 128px, WebP
+ * compressed, and served from the CDN.
+ *
+ * Previously an inline `data:` URI. Logos moved to the CDN in
+ * `scripts/migrate-logos-to-cdn.ts`: a data URI is re-downloaded on every page
+ * view, adds its base64 weight to both the HTML and the RSC payload, and becomes
+ * an invalid `Product.image` once `absoluteUrl()` resolves it against the site
+ * origin. Do not put a data URI back here.
  */
-const LOGO_DATA_URI = "data:image/png;base64,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";
+const LOGO_URL =
+  "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612744/logos/revenuecat-logo-45aa00ec.webp";
 
 /** Category slugs this listing belongs to. Both exist (see `scripts/seed.ts`). */
 const CATEGORY_SLUGS = ["subscriptions", "developers"] as const;
@@ -47,7 +52,7 @@ const CATEGORY_SLUGS = ["subscriptions", "developers"] as const;
 const REVENUECAT = {
   name: "RevenueCat",
   slug: "revenuecat",
-  logo: LOGO_DATA_URI,
+  logo: LOGO_URL,
   website: "https://www.revenuecat.com",
   tagline: "In-app subscription infrastructure for mobile and web apps.",
   shortDescription:
@@ -123,7 +128,7 @@ const REVENUECAT = {
   isPublished: true,
 
   seo: {
-    metaTitle: "RevenueCat Review | Pricing, Fees and Features | Payment Processing Guide",
+    metaTitle: "RevenueCat Review | Pricing, Fees and Features",
     metaDescription:
       "An independent look at RevenueCat, the in-app subscription platform. What its 1 percent tracked revenue fee covers, how web billing works, and who it suits.",
     keywords: ["revenuecat review", "revenuecat pricing", "revenuecat fees"],

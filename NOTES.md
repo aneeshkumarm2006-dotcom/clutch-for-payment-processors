@@ -771,3 +771,105 @@ once, both doing exactly the same thing.
   CTA in place; scrolling past the hero fades it in; `/processors` shows it from
   the top; client-side nav both directions flips it correctly; no hydration
   warnings in the console.
+
+## Post-launch — Semrush site audit remediation (2026-08-02)
+
+Source: `site_audit/www.paymentprocessingguide.com_*_20260801.xlsx`. Semrush crawled
+78 of the site's 278 URLs, so several of its findings turned out to be the visible
+edge of a defect that was present on pages it never reached. Where that happened,
+the fix is applied site-wide rather than to the flagged pages only.
+
+### Root causes behind multiple reported issues
+
+- **Logos stored as inline `data:` URIs.** All 45 processor logos (203 KB of
+  base64) plus one blog cover. This alone produced three separate audit failures:
+  an invalid `Product.image` (`absoluteUrl()` resolved the data URI against the
+  site origin, producing `https://…/data:image/jpeg;base64,…`), an equally invalid
+  `og:image`/`twitter:image`, and ~200 KB of HTML on every listing page feeding
+  "low text to HTML ratio" on 76 of 78 pages. Migrated to Cloudinary via
+  `scripts/migrate-logos-to-cdn.ts`. `/processor/stripe` went 446 KB → 315 KB.
+  Guards added so it cannot regress: `absoluteUrl()` now passes ANY URI scheme
+  through instead of mangling it, the new `httpImageUrl()` drops non-http images
+  before they reach schema or OG tags, `scripts/add-processors.ts` rejects a
+  `data:` logo, and the seed literals hold CDN URLs.
+
+- **`Product.offers` with no price.** The real cause of "structured data that
+  contains markup errors" (2 per profile, 10 profiles). `price` is Offer's one
+  required property, and emitting `offers` at all promotes the node from a product
+  snippet to a merchant listing, whose stricter rules the node cannot satisfy.
+  Confirmed by the control case: `/processor/<slug>/reviews` carries the same
+  Product node with the same broken image and is NOT flagged. Its only structural
+  difference is the absence of `offers`. The pricing text now ships as an
+  `additionalProperty` (same string, no Offer contract), and `offers` was removed
+  from the rule's `overridable` list so it cannot be reinstated from the admin.
+
+- **A DB blip during ISR regeneration was being cached as a 404.** Not in the
+  Semrush report; found by crawling all 278 sitemap URLs. 34 of them served
+  `HTTP 404` with `X-Vercel-Cache: HIT` while every corresponding document was
+  present and `isPublished: true`. Every single-entity lookup caught its own
+  connection error and returned `null`, which the route read as "does not exist"
+  and Next cached for the full 30-minute revalidate window. Detail lookups now
+  re-throw (`rethrowLookupFailure` in `lib/public-data.ts`, plus `getLandingPage`),
+  so a failure is an uncached 500 rather than a cached 404. Listing helpers still
+  fail open, which is correct for them.
+
+### Content and metadata
+
+- **Titles and descriptions.** Semrush flagged 5 over-long titles; auditing all 240
+  built pages found 73 over 66 characters and 39 descriptions over 160. Now 0 and 0,
+  with no duplicates. Most were template problems, not data problems: the compare
+  pair title appended " | side-by-side comparison" before the brand suffix, the
+  glossary title used two pipes, and ~34 stored processor `metaTitle`s had
+  " | Payment Processing Guide" baked in (also the wrong brand: the site name is
+  "Payment Processor Guide"; the other string is the domain). Scripts:
+  `fix-meta-lengths.ts`, `fix-processor-title-suffix.ts`, `apply-meta-rewrites.ts`.
+
+- **Glossary depth.** All 50 term pages were ~80 words. Each now carries `detail`
+  ("How it works"), `example` (a worked example with real numbers), and `faqs`
+  (also emitted as FAQPage JSON-LD), taking them to ~580 words. New optional fields
+  on `GlossaryTerm`; the FAQ node is emitted only when the section actually renders.
+
+- **`/contact`** gained a "what we can help with / what we cannot" section: it was
+  ~90 words, and a comparison site's contact page is where a reader judges whether
+  it is accountable.
+
+### Identity and linking
+
+- **`SiteSettings` held placeholder production data**: `socialLinks` pointed at two
+  404 URLs (rendered in the footer of all 240 pages AND fed into
+  `Organization.sameAs`), `contactEmail` was `hello@paymentprocessorguide.test` on a
+  reserved TLD that can never resolve, while being shown as a live `mailto:` and
+  used as the lead-notification fallback, and `footerText` called the site a
+  "Sample directory". Fixed by `scripts/fix-site-identity.ts` and in the seed. The
+  social links were REMOVED rather than guessed: an unverified `sameAs` is worth
+  less than no `sameAs`.
+
+- **Internal links.** Footer categories were `slice(0, 5)` against 11 published
+  categories, so `/category/restaurants` had zero inbound links anywhere and one
+  admin-created category had silently evicted a commercial one from every page; now
+  `slice(0, 12)` plus a glossary column. This matters more than it looks: the header
+  MegaMenu and mobile Sheet render inside Radix portals, so they contribute ZERO
+  crawlable links and the footer is the only site-wide link source. Processor cards
+  now link `/processor/<slug>/reviews` (those pages went from 1 inbound link to
+  12-65), profiles render linked category chips, and 23 glossary `related` arrays
+  gained entries so no term sits below 3 inbound contextual links (`bnpl` and
+  `surcharge` had zero, and Semrush caught neither).
+
+- `getPublishedCategories` now excludes `seo.redirectTo` records, which had put a
+  308 hop in the site-wide footer.
+
+### Deliberately NOT done
+
+- **"Low text to HTML ratio" is not fully fixable and was not chased.** Measured
+  after the logo migration, every page still lands at 2-9% against Semrush's 10%
+  threshold, because the RSC flight payload is a second serialization of the
+  rendered tree and is 50-55% of every response. No config flag removes it, and
+  rewriting off the App Router to satisfy a notice would be a bad trade. The
+  correlation across measured pages is with text VOLUME, not with bloat, which is
+  why the glossary and contact expansions were the right lever.
+- **Vendor sites returning 403 to crawlers** (helcim.com, staxpayments.com,
+  easypaydirect.com, dharmamerchantservices.com, durangomerchantservices.com) are
+  live sites behind bot protection, not broken links. They already carry
+  `rel="sponsored noopener"`. No change.
+- **`/write-review/*` and `/compare?ids=` "blocked from crawling"** are the intended
+  `noindex` behaviour, not a defect.

@@ -1,7 +1,7 @@
 {
   "name": "PayTrace",
   "slug": "paytrace",
-  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAYFBMVEVMaXH/xYvo7Ob/7dj/sFn/1av+5sr/+Omey+eHw+R0ud/x9fJSqdi74PH/2LD/yZGi1ez54cWe0Or/zZev1uz/yY//21AAh8r/nzf/nTEAhMn/rln/pUX/uXEnlNA+nNPzbkq7AAAAF3RSTlMA/TOLKPpaB/v1/hj8j7vbYnbAnPphiz8hQmsAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAThSURBVHja7ZrhmqsoDIaVVqnVStV2BQF7/3e52O4ZAQG1A7r7rN/PcWxeYxJCMIoOGQXy2yPzp8sD5PkK87d7VvRt51Ftf61vSxFA9urFLZ7Vta/itsh8Xfi3/kHo+uwO5+yn1z6M+Q9CUbvNQ1CEM/9G6Gvg9H9g+0MoXBwE4BXa/qCLNRvyYgv7bWtNhqzdRq+72X69kf22u+b7BODMS3hMs9ZjKVZ/uTBkQqpmgChb14svZUWrIvT1bAS8MgD9KaoLzQV6SYb5tVPC5OZ7fa+VEt/f3DWoyP23GKqL9XcA67kY+b0yxcW6iUxyQFfDEACVlOfTZ1QuBurzaukhe2BPwu4SCsARBLcRoOvvYexDxc0PDaCfXyt+r6vdzRJAdwAcAAfAAXAAHAAHwP8VoPvXeGCfjgg8JOU7AGyjA+AAmAUAcF8AkFT7AlQsBrsCcMKaHQFggzHh6X4AgBOMcQl3A0DCvHBBvhdAysibIM73Acjjt31MaLUJQKsDPOkHIJQLboVQL49ihz+MgyL4jwMEQJhUFIPQrtNH4cXY+jQM/1GgVHwYpvb1JALeCuMCODmO6K5jypdYEqGnIFGgP780sE4pUQjQGIc5SkYtDM9SuiU1T4PVcTFEGKsuGG9LOfnRUs/8Nd5CSuMw9O2AMQKB6gChsR6mfLzGlgEAOaBKy6y47bLcGIH6fTKA8msOANstqTyqfY0Fr5o4QKQiMD3OsvSQHao6Td4AZuOf4+FdKeaF0E+FIMbgdMWgHE2Wk0HlvOAdrUyqA/Hwh5+fk9joooZJ8hnhkXlg3+lHNqfRbXIODFdk1yQL7J8Ysd4Ar7YDEzsAlN6odsmoHMmvU4+a+ycVp0cSdoAokX8QzQI8mRO4Nh9ZuQBKKTzm1wklBzHVoxbehzg0nMk4AJRKMNevgFhJJ0PhGFIxi9YARMpLxdxFkCe2ki5/pVLc1wGclULlbBdiRmaT5tabjiVdABHSlqrSUo8qtaZbciY3fkfjBNBqNaHI9BpAqZV0Eq/YYzgB1H5lqNQ0OQPt1ZYca/ZXbTHcAJP1UiDEzWlcs5uSM31FY6s2WW4A44LJKP10S4hThqfXURT5A5C75tEE/tP2YMPFlXu8OQAtDMZXgTExXljb2M4CAIRXiHBj85TEo8qVANEZGV2NLc8PzZ3CqGQtgKhHjCx9/nS+VfkCIE8WERBsnTT9EkCs9RyTefcjEIUCiFJEyczj89OybvE7gAg+xYJH7OZpCaKgAENNEl4wlh7CeAMW98vfA0SgSkTllwvgZ+cYl2BFw/4LgPf/l8MK8KnPjFHO0dAkwO0ABj+kz2dTCj2fzyqdt+4b4G3x863eYnkGWK8D4AA4AJYCPDcAwHYAzIIByLMOpH1WTMm6Qcw3ksdNk6fkZPEM4FvJwxtCz3rHTL7e1CyVsr3iYHJoqWzAA9hPY+UZoXu2U4a1bxi6qtM1Qhu/h7hQHV6Yak2jba45SiNfX/fnpdZNkzgynRxrXaZotDyJYm0Ybax1FZu0uZ407Z+NU28QE7yNCDMXmpRtRWCrMwnbxgGxbbnNN3kJrknnFgTulWaDQJxZ6dIEk7D+ny3yJScB82/JZzqpawLwK/OEL1xhTogy4hdC/JpYXZb3LlUTD7tvb6I8RtWqZhuCs1+BkF/n/Lf1N9gSJ9IJPz+3AAAAAElFTkSuQmCC",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612764/logos/paytrace-logo-940d3570.webp",
   "website": "https://paytrace.net",
   "tagline": "US payment gateway built for B2B and B2G sellers, with automated Level 2 and Level 3 data to cut interchange on commercial cards.",
   "shortDescription": "Spokane-based gateway owned by North, focused on business-to-business card acceptance. It automatically fills the enhanced data fields that qualify commercial cards for Level 2 and Level 3 interchange, but it publishes no rate card of its own.",
@@ -88,7 +88,7 @@
   "isSponsored": false,
   "isFeatured": false,
   "seo": {
-    "metaTitle": "PayTrace Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaTitle": "PayTrace Review | Pricing, Fees and Features",
     "metaDescription": "PayTrace is a US gateway built for B2B card payments, with Level 2 and Level 3 automation. See what it costs, how it works and where it falls short.",
     "keywords": [
       "paytrace review",

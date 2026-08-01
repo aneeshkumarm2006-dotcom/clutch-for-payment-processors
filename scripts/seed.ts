@@ -171,14 +171,40 @@ interface SeedProcessor {
   seo: { metaTitle?: string; metaDescription?: string };
 }
 
-// Logos are fetched live from Clearbit (major brands) for the demo.
-const logo = (domain: string) => `https://logo.clearbit.com/${domain}`;
+/**
+ * Logos, by slug, as CDN URLs.
+ *
+ * Previously `https://logo.clearbit.com/<domain>` — that service is dead, so the
+ * seed wrote broken image URLs. It was then worked around by storing logos as
+ * inline `data:` URIs, which cost ~200 KB of base64 on every listing page and
+ * produced an invalid `Product.image` in the JSON-LD (a data URI resolved
+ * against the site origin is not a fetchable URL). `scripts/migrate-logos-to-cdn.ts`
+ * moved them to Cloudinary; these are the resulting URLs.
+ *
+ * Keep these as remote URLs. Never re-introduce a `data:` URI here — see the
+ * migration script's header for what it breaks.
+ */
+const LOGOS: Record<string, string> = {
+  stripe: "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612726/logos/stripe-logo-a46565b9.webp",
+  paypal: "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612728/logos/paypal-logo-30c998a1.webp",
+  square: "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612729/logos/square-logo-bb06b147.webp",
+  adyen: "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612731/logos/adyen-logo-062466cc.webp",
+  braintree: "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612733/logos/braintree-logo-b1000a96.webp",
+  "authorize-net":
+    "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612734/logos/authorize-net-logo-65f8dc17.webp",
+  helcim: "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612736/logos/helcim-logo-cfa9870c.webp",
+  stax: "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612738/logos/stax-logo-655e0b29.webp",
+  razorpay: "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612739/logos/razorpay-logo-6d61c02b.webp",
+  payu: "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612741/logos/payu-logo-5b613f78.webp",
+};
+
+const logo = (slug: string) => LOGOS[slug] ?? "";
 
 const PROCESSORS: SeedProcessor[] = [
   {
     name: "Stripe",
     slug: "stripe",
-    logo: logo("stripe.com"),
+    logo: logo("stripe"),
     website: "https://stripe.com",
     tagline: "Developer-first payments infrastructure for internet businesses.",
     shortDescription:
@@ -263,7 +289,7 @@ const PROCESSORS: SeedProcessor[] = [
   {
     name: "PayPal",
     slug: "paypal",
-    logo: logo("paypal.com"),
+    logo: logo("paypal"),
     website: "https://www.paypal.com",
     tagline: "The widely recognised wallet and checkout button merchants trust.",
     shortDescription:
@@ -314,7 +340,7 @@ const PROCESSORS: SeedProcessor[] = [
   {
     name: "Square",
     slug: "square",
-    logo: logo("squareup.com"),
+    logo: logo("square"),
     website: "https://squareup.com",
     tagline: "All-in-one point of sale and payments for in-person businesses.",
     shortDescription:
@@ -360,7 +386,7 @@ const PROCESSORS: SeedProcessor[] = [
   {
     name: "Adyen",
     slug: "adyen",
-    logo: logo("adyen.com"),
+    logo: logo("adyen"),
     website: "https://www.adyen.com",
     tagline: "Enterprise-grade global payments on a single platform.",
     shortDescription:
@@ -407,7 +433,7 @@ const PROCESSORS: SeedProcessor[] = [
   {
     name: "Braintree",
     slug: "braintree",
-    logo: logo("braintreepayments.com"),
+    logo: logo("braintree"),
     website: "https://www.braintreepayments.com",
     tagline: "A PayPal company offering developer-friendly online payments.",
     shortDescription:
@@ -452,7 +478,7 @@ const PROCESSORS: SeedProcessor[] = [
   {
     name: "Authorize.net",
     slug: "authorize-net",
-    logo: logo("authorize.net"),
+    logo: logo("authorize-net"),
     website: "https://www.authorize.net",
     tagline: "A long-established payment gateway for online and MOTO payments.",
     shortDescription:
@@ -498,7 +524,7 @@ const PROCESSORS: SeedProcessor[] = [
   {
     name: "Helcim",
     slug: "helcim",
-    logo: logo("helcim.com"),
+    logo: logo("helcim"),
     website: "https://www.helcim.com",
     tagline: "Transparent interchange-plus pricing with automatic volume discounts.",
     shortDescription:
@@ -543,7 +569,7 @@ const PROCESSORS: SeedProcessor[] = [
   {
     name: "Stax",
     slug: "stax",
-    logo: logo("staxpayments.com"),
+    logo: logo("stax"),
     website: "https://staxpayments.com",
     tagline: "Subscription-style pricing that passes interchange straight through.",
     shortDescription:
@@ -589,7 +615,7 @@ const PROCESSORS: SeedProcessor[] = [
   {
     name: "Razorpay",
     slug: "razorpay",
-    logo: logo("razorpay.com"),
+    logo: logo("razorpay"),
     website: "https://razorpay.com",
     tagline: "India's developer-friendly payments and business banking suite.",
     shortDescription:
@@ -634,7 +660,7 @@ const PROCESSORS: SeedProcessor[] = [
   {
     name: "PayU",
     slug: "payu",
-    logo: logo("payu.com"),
+    logo: logo("payu"),
     website: "https://payu.com",
     tagline: "Emerging-market payments across more than 50 markets and local methods.",
     shortDescription:
@@ -648,7 +674,7 @@ const PROCESSORS: SeedProcessor[] = [
     pricingModel: ["custom-quote", "flat-rate"],
     pricingSummary: "Custom pricing by market and risk profile. Local methods supported widely.",
     fees: {
-      onlineCardRate: "2% – 3% (by market)",
+      onlineCardRate: "2% to 3% (by market)",
       internationalRate: "Varies by market",
       monthlyFee: "Varies",
       refundPolicy: "Varies by market",
@@ -1134,12 +1160,21 @@ async function seedSettings(): Promise<void> {
     {
       $set: {
         siteName: "Payment Processor Guide",
-        homepageHeroTitle: "Payment Processing Guide: Your Trusted Payment Processing Resource",
+        homepageHeroTitle: "Payment processing guide: find the right processor",
         homepageHeroSubtitle:
-          "Compare fees, features, and verified merchant reviews, all in one independent directory.",
+          "Compare payment processors, merchant services providers, and credit card processing " +
+          "companies on real fees, payout speed, and verified merchant reviews.",
         featuredCategorySlugs: ["ecommerce", "retail-pos", "subscriptions", "high-risk", "international", "small-business"],
-        contactEmail: "hello@paymentprocessorguide.test",
-        socialLinks: { twitter: "https://twitter.com/paymentprocessorguide", linkedin: "https://www.linkedin.com/company/paymentprocessorguide" },
+        // Real address on the live domain. The old value was
+        // "hello@paymentprocessorguide.test": `.test` is a reserved TLD that can
+        // never resolve, and this address is rendered as a live mailto: on
+        // /contact AND used as the fallback destination for lead notifications.
+        contactEmail: "hello@paymentprocessingguide.com",
+        // Empty on purpose. The seeded twitter/linkedin URLs both returned 404,
+        // and they feed Organization.sameAs, which is how a search engine
+        // confirms an entity's identity. An unverified sameAs is worth less than
+        // no sameAs. Add the real profile URLs in /admin > Settings.
+        socialLinks: {},
         footerText: "© Payment Processor Guide. Independent payment processor reviews. Always confirm current fees and terms with each provider.",
       },
       $setOnInsert: { key: "singleton" },

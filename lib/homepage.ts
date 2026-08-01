@@ -98,9 +98,10 @@ export interface ResolvedHomepage {
 export const HOMEPAGE_DEFAULTS: ResolvedHomepage = {
   hero: {
     eyebrow: "",
-    title: "Payment Processing Guide: Your Trusted Payment Processing Resource",
+    title: "Payment processing guide: find the right processor",
     subtitle:
-      "Compare fees, features, and verified merchant reviews, all in one independent directory.",
+      "Compare payment processors, merchant services providers, and credit card processing " +
+      "companies on real fees, payout speed, and verified merchant reviews.",
     searchEnabled: true,
     searchPlaceholder: "Search by name, e.g. Stripe, ACH, high-risk…",
     primaryCtaEnabled: true,

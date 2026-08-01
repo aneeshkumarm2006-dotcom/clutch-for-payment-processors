@@ -1,7 +1,7 @@
 {
   "name": "CSG Forte",
   "slug": "forte-payments",
-  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABZVBMVEVMaXEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADptmVAAAAAdnRSTlMAwMzUq6TH3dzuAQL+xgO/uKLbbm/Xs9pevqUGp62qjNj7of2pekejM1qoj9VThQeOCqC1nKxQBK+u1s0FzomyvJN+wSvCbFthytNExYuAlD3Sn2hcRnJBe01i7ThO/HlUYFgyul9FlVK0w9/IdcSICwjhDeh4hEC9rQAAAAlwSFlzAAA7DgAAOw4BzLahgwAAAghJREFUeNrtmllTE0EURpsYiGZPJonZDFkgmD1xAcQFFRRcQHFfAfcdUGR+v7715GHmy61Kl2XVd55P3TmVh3TPTZQadL+FbVcqaSukHFx6lqy527XA9YLTDqXSFXc7/Gv/QKneVxvwwDkxg+x41KEnkP39p7JsyB09cQ3bb7T9GNs/VA5L1/TIErYXtf0J23vqGJb8euQEtiPa9mM7Of6AKVHAcQYwgAEMYAADGMAABjCAAQz49wFbWJrRI0d4k7yr7Rlsn1RnsTStR1axXdT2NLavqgZ0wu/0yDoe+Vzbp8PQXldBuETYce48Wsi+57Rnkd38u34JPoqXA660z39UQ3zOLLnb6S+dYbt+oe1ul+PZoCKEECIl+CEW8GDlxfCX63zcy47cXBAHnEPHS9VZsInsTFT4/Nf4OO6IjuOHwoA8Dihp+wq2Y8KAmGhbPjfKlUyG7FI6OcqllAEMYAADGMAABjCAAQxgAAP+s4Cxv5olhQFFPPKUtjewfUMYsItHNrT9Ctsp6YKkCT8A598P+8jOFaQbkqh18YQHl1PDK4/s1EsP+/Zsj0svQggxzf38LZ87y29N/3BpoW11wmzB6jY8jrNGA7r4PvDeaEDCHvu2XIaBSykDGMAABjCAAQxgAAMYwAAGMEBGy5Ys9w3wFAccmV1QnEHP9w3MBoSeJL0e/7t/qP4AXGzOtMU8XVMAAAAASUVORK5CYII=",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612786/logos/forte-payments-logo-6f6e87b3.webp",
   "website": "https://www.forte.net",
   "tagline": "ACH-first payment processor owned by CSG, built for utility, government, healthcare and property management billing rather than card-led retail.",
   "shortDescription": "CSG Forte began in 1998 as ACH Direct, took the Forte name in 2013 and was bought by CSG in October 2018. ACH is the headline: third-party listings put eCheck debits near $0.25 per item against roughly 2.9% + $0.31 on cards. Forte publishes a $25 ACH chargeback fee.",
@@ -90,7 +90,7 @@
   "isSponsored": false,
   "isFeatured": false,
   "seo": {
-    "metaTitle": "CSG Forte Review | ACH Pricing, Fees and Features | Payment Processing Guide",
+    "metaTitle": "CSG Forte Review | ACH Pricing, Fees and Features",
     "metaDescription": "CSG Forte is an ACH-first processor. Reported eCheck pricing near 25 cents per debit versus roughly 2.9 percent on cards. Best for billers and utilities.",
     "keywords": [
       "csg forte review",

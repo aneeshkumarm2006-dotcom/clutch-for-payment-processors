@@ -31,11 +31,31 @@ const escapeHtml = (s: string): string =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const escapeAttr = (s: string): string => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 
+/**
+ * `target="_blank"` and `rel="noopener"` apply to EXTERNAL links only.
+ *
+ * They used to be unconditional, which contradicted this module's own doc
+ * comment and made every internal keyword backlink open a new tab. That is wrong
+ * twice over: it is jarring on a same-site link, and it discourages the reader
+ * from following the internal path the link exists to create. `noopener` is also
+ * meaningless for a same-origin destination.
+ *
+ * A relative path (`/glossary/chargeback`) is the internal case; anything with a
+ * scheme is treated as external.
+ */
 function anchorHtml(link: KeywordLink, text: string): string {
-  const rel = ["noopener"];
+  const isExternal = /^[a-z][a-z0-9+.-]*:/i.test(link.url);
+  const rel: string[] = [];
+  if (isExternal) rel.push("noopener");
   if (link.rel === "nofollow") rel.push("nofollow");
   if (link.rel === "sponsored") rel.push("sponsored");
-  return `<a href="${escapeAttr(link.url)}" target="_blank" rel="${rel.join(" ")}">${escapeHtml(text)}</a>`;
+
+  const attrs = [
+    `href="${escapeAttr(link.url)}"`,
+    ...(isExternal ? ['target="_blank"'] : []),
+    ...(rel.length ? [`rel="${rel.join(" ")}"`] : []),
+  ];
+  return `<a ${attrs.join(" ")}>${escapeHtml(text)}</a>`;
 }
 
 interface Ctx {

@@ -10,7 +10,7 @@ import {
   type GlossaryTerm,
 } from "@/lib/glossary";
 import { getFacetPage, type FacetPageDef } from "@/lib/facet-pages";
-import { buildMetadata, breadcrumbJsonLd, definedTermJsonLd } from "@/lib/seo";
+import { buildMetadata, breadcrumbJsonLd, definedTermJsonLd, faqJsonLd } from "@/lib/seo";
 
 /**
  * Glossary term page (`/glossary/<slug>`). Statically generated from the term
@@ -29,7 +29,18 @@ export function generateMetadata({ params }: { params: { term: string } }): Meta
   const t = getGlossaryTerm(params.term);
   if (!t) return { title: "Term not found" };
   return buildMetadata({
-    title: `${t.term} | payments glossary`,
+    /*
+      Was "{term} | payments glossary", to which the layout appended
+      " | Payment Processor Guide" — two pipes and 46 characters of scaffolding
+      around a two-word term, pushing the longer terms past 60 characters.
+
+      This shape leads with the term and then states the intent behind the query
+      ("what is X", "X meaning"), which is what the page actually answers now
+      that each entry carries a "How it works" section, a worked example, and an
+      FAQ. `absoluteTitle` keeps the brand suffix off.
+    */
+    title: `${t.term}: Definition and How It Works`,
+    absoluteTitle: true,
     description: t.short,
     path: `/glossary/${t.slug}`,
   });
@@ -61,6 +72,9 @@ export default function GlossaryTermPage({ params }: { params: { term: string } 
             definition: t.definition,
             aka: t.aka,
           }),
+          // Only when the term actually renders an FAQ section — Google rejects an
+          // FAQPage whose questions aren't visible on the page.
+          ...(t.faqs?.length ? [faqJsonLd(t.faqs)] : []),
         ]}
       />
 
@@ -83,6 +97,40 @@ export default function GlossaryTermPage({ params }: { params: { term: string } 
         <p className="text-body-lg text-foreground">{t.short}</p>
         <p className="mt-4 text-body text-muted-foreground">{t.definition}</p>
       </div>
+
+      {t.detail && t.detail.length > 0 && (
+        <section className="mt-10 max-w-prose">
+          <h2 className="text-h3 text-foreground">How it works</h2>
+          {t.detail.map((para) => (
+            <p key={para.slice(0, 48)} className="mt-4 text-body text-muted-foreground">
+              {para}
+            </p>
+          ))}
+        </section>
+      )}
+
+      {t.example && (
+        <section className="mt-10 max-w-prose">
+          <h2 className="text-h3 text-foreground">Worked example</h2>
+          <p className="mt-4 rounded-lg border bg-card p-5 text-body text-muted-foreground">
+            {t.example}
+          </p>
+        </section>
+      )}
+
+      {t.faqs && t.faqs.length > 0 && (
+        <section className="mt-10 max-w-prose">
+          <h2 className="text-h3 text-foreground">Frequently asked questions</h2>
+          <dl className="mt-4 divide-y border-t">
+            {t.faqs.map((f) => (
+              <div key={f.question} className="py-4">
+                <dt className="text-body font-semibold text-foreground">{f.question}</dt>
+                <dd className="mt-2 text-body text-muted-foreground">{f.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       {related.length > 0 && (
         <section className="mt-12">

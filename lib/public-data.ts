@@ -19,19 +19,61 @@ import {
 } from "@/lib/serialize";
 
 /**
- * Resilient public read helpers (Stage 3 / M3). Every function catches a Mongo
- * outage and returns a safe default so SSG/ISR pages render an empty state (and
+ * Resilient public read helpers (Stage 3 / M3). LISTING functions catch a Mongo
+ * outage and return a safe default so SSG/ISR pages render an empty state (and
  * `next build` doesn't fail) when the DB is unreachable.
+ *
+ * DETAIL LOOKUPS DO NOT. See `rethrowLookupFailure` below — swallowing an error
+ * there is how a five-second database blip turns into a cached 404.
  */
+
+/**
+ * Re-throw a failed single-entity lookup instead of reporting "not found".
+ *
+ * Every route that resolves one entity ends in `if (!x) notFound()`. When the
+ * lookup swallowed a connection error and returned `null`, that reads as "this
+ * page does not exist" — and Next.js caches the 404 for the route's whole
+ * `revalidate` window. A transient Atlas hiccup during one ISR regeneration
+ * therefore serves a hard 404 to every visitor, and to Googlebot, for the next
+ * 30 minutes.
+ *
+ * This is not hypothetical. A crawl of all 278 sitemap URLs found 34 serving
+ * `HTTP 404` with `X-Vercel-Cache: HIT` — eight published processors, their
+ * eleven `/alternatives/*` pages, and fifteen curated `/compare/*` pairs — while
+ * every one of those documents was present and `isPublished: true` in Mongo.
+ * They were fine before and fine after; they had simply regenerated during a
+ * connection failure. A sitemap that intermittently serves 404s is the fastest
+ * way to get pages dropped from the index.
+ *
+ * Throwing instead produces a 500, which Next does NOT cache and which Google
+ * treats as "try again later" rather than "this is gone". A real missing
+ * document still returns `null` and still 404s, which is correct.
+ */
+function rethrowLookupFailure(fn: string, err: unknown): never {
+  // eslint-disable-next-line no-console
+  console.error(`[public-data] ${fn} failed (serving 500, not 404):`, err);
+  throw err instanceof Error
+    ? err
+    : new Error(`[public-data] ${fn} failed: ${String(err)}`);
+}
 
 /** Card-facing projection — keep payloads small. */
 const CARD_FIELDS =
   "name slug logo website affiliateUrl tagline shortDescription ratingAverage ratingCount fees.onlineCardRate fees.monthlyFee payoutTime bestFor paymentMethods isVerified isSponsored listingTier";
 
+/**
+ * Published categories for navigation (navbar, footer, homepage grid).
+ *
+ * `notRedirected` matters here: a category that has been consolidated into
+ * another URL via `seo.redirectTo` still answers on its own path, with a 308.
+ * Listing it in the site-wide footer put a redirect hop on every one of the 240
+ * pages, wasting the link and the crawl. The sitemap already excluded these; the
+ * navigation did not.
+ */
 export async function getPublishedCategories(): Promise<CategoryData[]> {
   try {
     await connectToDatabase();
-    const cats = await Category.find({ isPublished: true })
+    const cats = await Category.find({ isPublished: true, ...notRedirected })
       .sort({ displayOrder: 1, name: 1 })
       .lean();
     return cats.map(toCategoryData);
@@ -47,9 +89,7 @@ export async function getCategoryBySlug(slug: string) {
     await connectToDatabase();
     return await Category.findOne({ slug, isPublished: true }).lean();
   } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error("[public-data] getCategoryBySlug failed:", err);
-    return null;
+    rethrowLookupFailure("getCategoryBySlug", err);
   }
 }
 
@@ -109,9 +149,7 @@ export async function getProcessorBySlug(slug: string): Promise<ProcessorDetailD
     if (!doc) return null;
     return toProcessorDetailData(doc);
   } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error("[public-data] getProcessorBySlug failed:", err);
-    return null;
+    rethrowLookupFailure("getProcessorBySlug", err);
   }
 }
 
@@ -174,9 +212,9 @@ export async function getProcessorsBySlugs(slugs: string[]): Promise<ProcessorDe
       .filter((d): d is NonNullable<typeof d> => Boolean(d))
       .map(toProcessorDetailData);
   } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error("[public-data] getProcessorsBySlugs failed:", err);
-    return [];
+    // Feeds `/compare/a-vs-b`, which calls `notFound()` when fewer than two
+    // processors come back — so an empty array on error is a cached 404 too.
+    rethrowLookupFailure("getProcessorsBySlugs", err);
   }
 }
 
@@ -511,9 +549,7 @@ export async function getBlogPostBySlug(slug: string): Promise<{
       morePosts: moreDocs.map(toBlogCardData),
     };
   } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error("[public-data] getBlogPostBySlug failed:", err);
-    return null;
+    rethrowLookupFailure("getBlogPostBySlug", err);
   }
 }
 

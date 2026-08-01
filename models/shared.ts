@@ -34,6 +34,22 @@ export interface ISeo {
   focusKeyword?: string;
 
   /**
+   * Visible `<h1>` override.
+   *
+   * Added because the processor profile rendered `<h1>{name}</h1>` — a one-word
+   * heading like "Stripe" on all 45 listings. The H1 is the strongest on-page
+   * relevance slot there is, and a bare brand name spends it on a term the title
+   * tag already owns, which is why Semrush reported "content not optimized" on
+   * profiles whose keyword density was otherwise fine.
+   *
+   * Kept as an editorial override rather than a template change so a listing can
+   * say something specific ("Stripe merchant services review") while the rest
+   * fall back to a sensible default. Not a meta field: this is the heading a
+   * human reads, so it must stay readable, not keyword-stuffed.
+   */
+  h1?: string;
+
+  /**
    * Retire this URL into another one with a 308. Site-relative path only.
    *
    * This is the honest way to consolidate a duplicate: a canonical is a hint
@@ -71,6 +87,7 @@ export const SeoSchema = new Schema<ISeo>(
     robotsIndex: { type: Boolean },
     robotsFollow: { type: Boolean },
     focusKeyword: { type: String, trim: true },
+    h1: { type: String, trim: true },
     redirectTo: { type: String, trim: true },
     localeGroup: { type: String, trim: true, index: true },
     locale: { type: String, trim: true },

@@ -52,6 +52,13 @@ export const getPageSeoByPath = cache(async (path: string): Promise<IPageSeo | n
 /**
  * A standalone landing page by its path. Unpublished records resolve to `null`
  * so the route 404s: a draft must not be reachable by guessing its URL.
+ *
+ * A FAILED lookup, on the other hand, re-throws. `app/(public)/[landing]/page.tsx`
+ * turns `null` into `notFound()`, and Next caches that 404 for the route's whole
+ * revalidate window — so swallowing a connection error here takes a published
+ * landing page off the internet for half an hour. The two lookups above are
+ * additive (a `null` there just means "no editorial override") and correctly
+ * stay fail-open. See `rethrowLookupFailure` in lib/public-data.ts.
  */
 export const getLandingPage = cache(async (path: string): Promise<IPageSeo | null> => {
   try {
@@ -59,8 +66,8 @@ export const getLandingPage = cache(async (path: string): Promise<IPageSeo | nul
     return await PageSeo.findOne({ path, kind: "landing", isPublished: true }).lean<IPageSeo>();
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.error("[page-seo] getLandingPage failed:", err);
-    return null;
+    console.error("[page-seo] getLandingPage failed (serving 500, not 404):", err);
+    throw err;
   }
 });
 

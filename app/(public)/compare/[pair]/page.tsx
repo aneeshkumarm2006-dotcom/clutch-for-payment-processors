@@ -37,11 +37,23 @@ export async function generateMetadata({
 
   const names = processors.map((p) => p.name);
   const joined = names.join(" vs ");
+  /*
+    The title used to append " | side-by-side comparison" before the layout added
+    " | Payment Processor Guide" on top. That is 51 characters of boilerplate on a
+    title whose only distinguishing content is the two brand names, and it pushed
+    all 68 curated pairs to 66-94 characters. Google truncated the brand names
+    off the pairs with the longest names, which are exactly the ones a searcher
+    would not otherwise recognise. "Compare" leads instead, matching the query.
+
+    `absoluteTitle` keeps the layout suffix off: for the longest pairings even the
+    bare "Compare A vs B" is close to the limit.
+  */
+  const title = `Compare ${joined}: Fees and Features`;
   return buildMetadata({
-    title: `${joined} | side-by-side comparison`,
-    description: `Compare ${names.join(
-      ", ",
-    )} side by side: pricing, payment methods, integrations, features, and company facts to help you choose.`,
+    title: title.length <= 60 ? title : `Compare ${joined}`,
+    absoluteTitle: true,
+    // Kept under 155 characters for the longest real pairing on the site.
+    description: `${joined} compared on pricing, payment methods, integrations, payout speed, and verified merchant reviews.`,
     path: `/compare/${params.pair}`,
   });
 }

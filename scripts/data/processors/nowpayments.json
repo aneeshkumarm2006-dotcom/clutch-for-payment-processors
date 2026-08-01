@@ -1,7 +1,7 @@
 {
   "name": "NOWPayments",
   "slug": "nowpayments",
-  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABg1BMVEXw8PDJ4ZHx8PKz2V2v11L08fn08fqz2Vy02V7v7+7w8O/c6L/s7uay2Vm32mXv8O6v11PH4Y3d6cPv8O/t7+my2Fm422iw11S12WDx8PO02V/v7++z2Vv08fvJ4ZKw11XG4Iur1Ujs7ufy8fa42mfv7+232maq1Ufz8Pey2Vrx8PHs7uXI4Y/u7+yz2Fzy8Pbc6MDb57za57vK4ZPw8PGv11Tz8fmu10/z8fje6cSz2Fv48v/t7uju7+3d6cLd6MKu1k/L4pfX5rPj69DG4Iry8PT18fv08fjf6snw7/Dc6cHz8Pbu7uzH4I348/+22mW32mTo7N26227w8O6z2V622mOx2Va22mK22WLr7uXr7uTa57yu11Dv8O2z2F3b6L7c6L7e6cXt7+rk69Pq7eHp7eDj69G12WG522nu7+vz8ffq7eCt1k/t7+jb6L3P5KH18fy12WKr1Umt1k6t107C34HD34TH4YzE34fr7eTw7++422nH4Ivb573K4pTB3n/z8PiJVVERAAAACXBIWXMAAAsSAAALEgHS3X78AAACeElEQVR42u2bV3PaQBSFQSBANMngRCCLYjoYHDsBjHucxDW203vvvfeen563POy9nlmyg8dJzve8OvuJ0Qt3z3o8AADwmxGDY0QxVT40nNY5tLCaQI8LPZDk9r83ORERmZi8m1YxaM8v3mRC7zOhRuDgqO0XsUcjAfPP9w+no+OHLRJazWfKVECP5FIhkVQuoasIaIWS65BQ+1DA4AT8oaBIyFIUiMZjPhLq90IAAhCAAAQgAIG/SWBh9VqYwu5GOdNQF5he8WiENvu+dF1jeU5VoHPFuBwVGRvm9m+N0YVzp07UlQSC7sVKXKQ0s6STALO7OF4iS+MnaWR/AsF6jOBONWmAEbgx5dK1MWUBH8WxsoyAHrEcZrGygGyA6vMQgAAEIAABCEBgTwgwYzqWlO39uSlOX1u1b7b08+yYjh1UsthV7/Zxcfpam52Wf54bVJrFo/msV5IfQ4QPzXdfJZ/PHjtSNLmxaiYgR217q0pe1nrzKv2yKxeQ4YbVO43rGTZrW/RzcWa+FNbLkgmKZwCGPkQ/eN++/cNacndONiAAAQhAAAIQgAAEIAABCEAAAhCAAAQg8J8JMK2A8iov8KxhSlYN+oGWArT1labNjOkePlpu08Wq+yejlE+fP77OWQKdpw+eFGiD4NK82u+vFU6fIwWCivN+bSMhsLH2IsRUDa7f6plKAtEL50mDwH37fZYbVjP9Affqgq4mUKjUz9L+gLfXMgVaj58z/QGnk1AUkG7BDKQGBAEIQAACEIAABPaCgPQ1nYFcE+rnotJALkp5PI3bS02583++f5DN3ykq/lvpyp7/79A/SId37breYK4LAgD+fX4B2X7ttWKOaYwAAAAASUVORK5CYII=",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612759/logos/nowpayments-logo-c89d521d.webp",
   "website": "https://nowpayments.io",
   "tagline": "NOWPayments is a non-custodial crypto payment gateway that settles 350-plus cryptocurrencies straight to your own wallet for a 0.5% service fee.",
   "shortDescription": "Launched by the ChangeNOW exchange team in 2019, NOWPayments lets merchants accept 350-plus cryptocurrencies with funds settling straight to a wallet the merchant controls. Fees are 0.5% for same-coin payments and 1% when conversion is involved, plus network fees.",
@@ -85,7 +85,7 @@
   "isSponsored": false,
   "isFeatured": false,
   "seo": {
-    "metaTitle": "NOWPayments Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaTitle": "NOWPayments Review | Pricing, Fees and Features",
     "metaDescription": "NOWPayments review: a non-custodial crypto gateway charging 0.5 percent, or 1 percent with conversion. See fees, supported coins and why no cards are used.",
     "keywords": [
       "nowpayments review",

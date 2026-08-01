@@ -52,7 +52,14 @@ export async function generateMetadata({
   const p = await getProcessorBySlug(params.slug);
   if (!p) return { title: "Processor not found" };
   return buildMetadata({
-    title: `${p.name} review | pricing, fees and features`,
+    /*
+      Fallback title, used when a listing has no stored `seo.metaTitle`.
+      It used to be "{name} review | pricing, fees and features", to which the
+      layout then appended " | Payment Processor Guide" — 54 characters of
+      boilerplate around a brand name, taking six profiles past 66 characters.
+      "Fees and Pricing" carries the same query intent in a third of the space.
+    */
+    title: `${p.name} Review: Fees and Pricing`,
     description:
       p.shortDescription ||
       p.tagline ||
@@ -173,7 +180,15 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
 
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h1 className="text-h1 tracking-tighter2 text-foreground">{p.name}</h1>
+                  {/*
+                    Was a bare `{p.name}`, giving all 45 profiles a one-word H1
+                    that repeated the brand the title tag already owns. The
+                    default now says what the page IS, and `seo.h1` lets a listing
+                    override it with its own target phrasing.
+                  */}
+                  <h1 className="text-h1 tracking-tighter2 text-foreground">
+                    {p.seo?.h1?.trim() || `${p.name} review`}
+                  </h1>
                   {p.isVerified && (
                     <span className="inline-flex items-center gap-1 text-accent" title="Verified">
                       <CheckCircle2 className="size-5" aria-hidden />
@@ -268,6 +283,30 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
               <ChipBlock title="Best for" items={p.bestFor} />
               <ChipBlock title="Regions" items={p.supportedRegions} />
               <ChipBlock title="Industries" items={p.industries} />
+            </div>
+          )}
+
+          {/*
+            Linked category chips. A processor's categories were previously shown
+            only in the breadcrumb, and only the FIRST one — so a category that
+            was no processor's primary category could end up with no inbound link
+            at all (/category/restaurants had zero; nonprofits had one). This also
+            gives the reader the obvious next step: "who else does this".
+          */}
+          {p.categories.length > 0 && (
+            <div className="mt-8">
+              <h3 className="text-label uppercase text-ink-500">Listed in</h3>
+              <div className="mt-2.5 flex flex-wrap gap-1.5">
+                {p.categories.map((c) => (
+                  <Link
+                    key={c.slug}
+                    href={`/category/${c.slug}`}
+                    className="inline-flex items-center rounded-full border px-3 py-1 text-small font-medium text-foreground transition-colors hover:border-border-strong hover:text-accent"
+                  >
+                    {c.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           )}
 

@@ -78,6 +78,9 @@ export const seoSchema = z
 
     focusKeyword: z.string().trim().max(100).optional(),
 
+    /** Visible H1 override. Capped short: a heading, not a paragraph. */
+    h1: z.preprocess(emptyToUndefined, z.string().trim().max(120).optional()),
+
     /**
      * A site-relative path, never an absolute URL. An off-site redirect from a
      * page an editor controls is an open-redirect waiting to happen, and it

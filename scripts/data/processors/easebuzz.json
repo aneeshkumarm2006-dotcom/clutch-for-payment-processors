@@ -1,7 +1,7 @@
 {
   "name": "Easebuzz",
   "slug": "easebuzz",
-  "logo": "data:image/png;base64,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",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612788/logos/easebuzz-logo-c0a5b56a.webp",
   "website": "https://easebuzz.in",
   "tagline": "RBI-licensed Indian payment aggregator for online, offline and cross-border collections, with payouts and reconciliation on the same platform.",
   "shortDescription": "Pune payments platform with a full-service RBI payment aggregator licence, issued in November 2025. It quotes rather than publishes: about 1.5% per transaction on average, no setup fee, no annual fee. UPI and RuPay debit acceptance carries zero MDR under Indian law.",
@@ -89,7 +89,7 @@
   "isSponsored": false,
   "isFeatured": false,
   "seo": {
-    "metaTitle": "Easebuzz Review | Pricing, Fees and Features | Payment Processing Guide",
+    "metaTitle": "Easebuzz Review | Pricing, Fees and Features",
     "metaDescription": "Easebuzz averages about 1.5 percent per transaction with no setup fee and next working day settlement. UPI is zero MDR. Built for Indian businesses.",
     "keywords": [
       "easebuzz review",

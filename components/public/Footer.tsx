@@ -25,6 +25,28 @@ const POPULAR_LINKS = [
   { label: "Payments glossary", href: "/glossary" },
 ];
 
+/**
+ * Head glossary terms, linked site-wide.
+ *
+ * The header's MegaMenu and mobile Sheet both render their links inside Radix
+ * `PopoverContent` / `SheetContent`, which are not in the server HTML — so every
+ * crawlable site-wide link on this site comes from this footer, and no individual
+ * glossary term had one. These eight are the terms a reader actually arrives
+ * looking for (they are the line items on a merchant statement), which is why a
+ * glossary column is a normal pattern for a payments reference site rather than
+ * a link dump.
+ */
+const GLOSSARY_LINKS = [
+  { label: "Interchange", href: "/glossary/interchange" },
+  { label: "Effective rate", href: "/glossary/effective-rate" },
+  { label: "Merchant account", href: "/glossary/merchant-account" },
+  { label: "Payment gateway", href: "/glossary/payment-gateway" },
+  { label: "Chargeback", href: "/glossary/chargeback" },
+  { label: "PCI DSS", href: "/glossary/pci-dss" },
+  { label: "Rolling reserve", href: "/glossary/rolling-reserve" },
+  { label: "Payout time", href: "/glossary/payout-time" },
+];
+
 const LEGAL_LINKS = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
@@ -50,7 +72,15 @@ export function Footer({
 }) {
   const siteName = settings.siteName || "Payment Processor Guide";
   const year = new Date().getFullYear();
-  const categoryLinks = categories.slice(0, 5);
+  /*
+    Was `slice(0, 5)`. With 11 published categories that silently stranded six of
+    them: /category/restaurants had ZERO inbound links anywhere on the site,
+    nonprofits had one, developers two. Worse, the list is ordered by
+    `displayOrder, name`, so creating one admin category evicted a strong
+    commercial category from every page at once. The cap stays (an unbounded
+    footer is its own problem) but is now well above the real category count.
+  */
+  const categoryLinks = categories.slice(0, 12);
   // De-duped by href so a landing page that also appears in POPULAR_LINKS is
   // listed once rather than twice.
   const popularLinks = [
@@ -62,7 +92,7 @@ export function Footer({
   return (
     <footer className="mt-auto bg-ink-950 text-ink-300">
       <div className="mx-auto max-w-content px-4 py-16 lg:px-6">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(4,1fr)]">
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.4fr_repeat(5,1fr)]">
           <div>
             <Link href="/" className="text-h4 tracking-tighter2 text-ink-50">
               {siteName}
@@ -105,6 +135,13 @@ export function Footer({
             ))}
           </FooterColumn>
 
+          <FooterColumn heading="Glossary">
+            {GLOSSARY_LINKS.map((l) => (
+              <FooterLink key={l.href} href={l.href} label={l.label} />
+            ))}
+            <FooterLink href="/glossary" label="All terms" />
+          </FooterColumn>
+
           <FooterColumn heading="Company">
             {COMPANY_LINKS.map((l) => (
               <FooterLink key={l.href} href={l.href} label={l.label} />
@@ -121,7 +158,7 @@ export function Footer({
         <div className="mt-12 border-t border-ink-800 pt-6 text-small text-ink-400">
           {settings.footerText?.trim()
             ? settings.footerText
-            : `© ${year} ${siteName}. Independent payment processor reviews — always confirm current fees and terms with each provider.`}
+            : `© ${year} ${siteName}. Independent payment processor reviews. Always confirm current fees and terms with each provider.`}
         </div>
       </div>
     </footer>

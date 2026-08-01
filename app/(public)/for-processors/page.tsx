@@ -14,8 +14,9 @@ import { buildMetadata, serviceJsonLd, faqJsonLd } from "@/lib/seo";
  */
 export const metadata: Metadata = buildMetadata({
   title: "List your payment processor",
+  // Was 184 chars, the longest description on the site.
   description:
-    "Reach businesses actively comparing payment processors. Add your processor to the Payment Processor Guide directory. Free to start, with Verified and Premier tiers for more visibility.",
+    "Add your processor to an independent directory and reach businesses actively comparing options. Free to list, with Verified and Premier tiers available.",
   path: "/for-processors",
 });
 

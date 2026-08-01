@@ -1,7 +1,7 @@
 {
   "name": "Billsby",
   "slug": "billsby",
-  "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAY1BMVEUeJDIAABPu7u8LFScADiKkpakPGCn///8AAA8ACyGGiI2trrF2eX8bITAVHSy6u74AABfz9PQAAAkAAADh4uOYmZ4AABzLy818foTT09U8QEtOUlpVWGBqbHM1OUQlKjePkJVocjFRAAAACXBIWXMAAAsSAAALEgHS3X78AAABd0lEQVR42u3ay3aDIBgE4B9BBA2Cd6NJ2vd/ytp9NacLnUVmlq6+wxGBQSnAEQIIIIAAAggggAAC/nrYZAe5AjB3ai+uuwJQatmNJ4AAAggggAACCCCAAAII+AjA7Pxu2isAU3WQ/ChDHu/ZycfzzhzFj8nZZ5WdCHDyLsF6t0Yg4Df1aHMoYBsHbyMUsBHUo4ECRKyfsAAJXYUFiLQDGCAuBwOkjWCAdD0YEL7AADElGCBtDwbUKxggagID6gcYIG0GBpgBDAgvMEBcBgb4CAboEgzYm4iXAYKAAZLQANeAASpDA/pPHwH4O2DQH6IFDLA39GJUgQE7s/C6DUkAb0j2VuPLAK4Hb8sX8LY8RfDR7AU+mrkJC9BPcEFhGnBFM2EbEpVjS6pxxtZ0acYWle+K0pMBdRuhZfW49Mi6XqcceGERjCqbAgWoTaqHpjjr2s4eRGszJrUO9xOv7Z63g5Tf281lwR+bCSCAAAIIIIAAAggg4D/5AWPZaTSGipA5AAAAAElFTkSuQmCC",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785612798/logos/billsby-logo-55f61912.webp",
   "website": "https://www.billsby.com",
   "tagline": "UK subscription billing platform that charged a base monthly fee plus a small percentage of billed revenue above a free allowance.",
   "shortDescription": "Billsby is a London-based subscription billing layer that sits on a gateway you bring. Third-party listings put the Core plan at $35 to $45 per month plus 0.4% of revenue above a $15,000 monthly allowance, but its website has been offline since at least July 2026.",
@@ -83,7 +83,7 @@
   "isSponsored": false,
   "isFeatured": false,
   "seo": {
-    "metaTitle": "Billsby Review | Pricing, Fees and Company Status | Payment Processing Guide",
+    "metaTitle": "Billsby Review | Pricing, Fees and Company Status",
     "metaDescription": "Billsby charged from USD 35 per month plus 0.4 percent above a USD 15,000 allowance, but its website is offline in 2026. Read before you commit.",
     "keywords": [
       "billsby review",

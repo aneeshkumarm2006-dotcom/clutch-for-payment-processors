@@ -102,7 +102,7 @@ export function ProcessorCard({
           </div>
         </div>
 
-        <div className="ml-auto shrink-0">
+        <div className="ml-auto shrink-0 text-right">
           <RatingStars
             value={ratingAverage}
             count={ratingCount}
@@ -111,6 +111,26 @@ export function ProcessorCard({
             emptyLabel="No reviews"
             size={15}
           />
+          {/*
+            The only link to `/processor/<slug>/reviews` used to be on the profile
+            itself, so all ten review pages sat on exactly one inbound internal
+            link. This card renders on /processors, every category, every facet
+            and every alternatives page, so one link here reaches them from
+            dozens of surfaces.
+
+            `relative z-10` is load-bearing: the card title's `before:inset-0`
+            pseudo-element covers the whole card to make it clickable, and without
+            a stacking context this link sits underneath it and never receives
+            the click.
+          */}
+          {ratingCount > 0 && (
+            <Link
+              href={`/processor/${slug}/reviews`}
+              className="relative z-10 mt-1 block text-micro text-muted-foreground underline-offset-2 hover:text-accent hover:underline"
+            >
+              Read reviews
+            </Link>
+          )}
         </div>
       </div>
 

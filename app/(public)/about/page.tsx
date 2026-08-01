@@ -13,9 +13,13 @@ export const revalidate = 86400;
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
+    // Verbatim: the layout template would otherwise render
+    // "About Payment Processor Guide | Payment Processor Guide".
     title: "About Payment Processor Guide",
+    absoluteTitle: true,
+    // Was 170 chars, so Google truncated the tail.
     description:
-      "Payment Processor Guide is an independent directory and review platform that helps businesses compare payment processors on fees, features, and verified merchant reviews.",
+      "An independent directory that compares payment processors on fees, features, and verified merchant reviews. Who publishes it and how it makes money.",
     path: "/about",
   });
 }
