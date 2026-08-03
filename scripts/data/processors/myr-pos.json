@@ -1,0 +1,206 @@
+{
+  "name": "MYR POS",
+  "slug": "myr-pos",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1785788430/logos/myr-logo-8abf0f70.webp",
+  "website": "https://www.myr.io",
+  "tagline": "Cloud iPad point of sale for quick-service restaurants. MYR runs the ordering and the terminal integration. A partner processor sets the card rates.",
+  "shortDescription": "Montreal-built iPad POS used by over 1,500 quick-service restaurants in Canada and the US. Software is $80 to $150 a month plus $1,000 to $2,000 of hardware per station. MYR does not process cards: you sign with TD, Payroc, Square or Moneris and MYR integrates the terminal.",
+  "longDescription": "<p><strong>MYR POS</strong> is a cloud point-of-sale system for quick-service restaurants, founded in Montreal in 2016 as Koomi and renamed MYR, short for Master Your Rush, in May 2021. It runs on iPads and is used by more than 1,500 locations across Canada and the United States: coffee shops, bubble tea counters, bakeries, delis, pizzerias, food trucks and the QSR franchises built on the same pattern. The product is narrow on purpose. It is built for a line of people waiting, not for table service, and almost every design choice follows from that.</p><h3>MYR is a POS, not a payment processor</h3><p>This matters more than anything else on the page if you found MYR while shopping for card rates. MYR does not underwrite merchants, does not set a discount rate and does not move your money. It integrates with merchant services partners and you sign a separate processing agreement with one of them. In Canada that is most often TD Merchant Solutions, whose TD Desk and Move 5000 terminals are integrated for in-store payments and whose Online Mart product backs MYR Online ordering. Payroc, Square and Moneris are the other partners named in MYR's own material and in third-party reviews. MYR describes terminal integration as no-fee, meaning it does not add a surcharge for connecting the terminal to the till, and says its partners are held to competitive QSR rates. Your effective cost per card is still whatever that partner quotes you, and it is the number worth negotiating hardest, because at quick-service ticket sizes the per-transaction component does more damage than the percentage.</p><h3>Pricing</h3><p>MYR publishes its software pricing, which is unusual in restaurant POS. Starter is $80 a month and covers one POS station. Standard is $150 a month and covers up to three POS stations, three kitchen displays and three Rover handhelds, and it adds the online ordering modules, MYR Online, digital loyalty and gift cards, along with the third-party delivery integrations. Enterprise is a custom quote for franchises and multi-location groups, and brings centralized menu management, per-location pricing and unlimited registers and displays. Hardware is bought, not rented: from $1,000 on Starter and from $1,900 on Standard, with a typical station landing between $1,500 and $2,000. Financing and leasing partners are offered instead of a rental option. Installation can happen within five business days in the simple case, though full onboarding runs up to three weeks. MYR does not publish contract length or an early termination fee, so ask for both in writing before you sign.</p><h3>What you actually get</h3><p>Order capture is the core: on-site tills, MYR Online for direct web orders, phone orders, drive-thru, and Rover, a handheld that lets staff take orders down the line instead of at the counter. Third-party delivery orders from Uber Eats, DoorDash, Grubhub, Postmates, Skip and Ritual land in the same queue rather than on a rack of separate tablets, which is the single feature most operators cite as the reason they switched. A kitchen display system, a customer-facing display, Epson TM-M30 receipt printers and Socket Mobile barcode scanners fill out the hardware. Behind the counter there is inventory and recipe management, menu management with per-location and per-platform pricing, real-time multi-location reporting, digital loyalty and gift cards. Integrations cover QuickBooks Online, Wave, Sage and Acumatica for accounting, 7shifts and Piecemeal for scheduling, WISK, RESTOCK and DYNE for inventory and analytics, DataCandy for loyalty and gift cards, Onfleet, Uber Direct and DoorDash Drive for dispatch, Solink for video and cash tracking, and Revenu Quebec's SRM and WEB-MEV for Quebec fiscal compliance, which is a genuine reason Quebec operators shortlist MYR at all.</p><h3>Where it stops</h3><p>iPad only. There is no Android build, so the hardware decision is made for you. The customer-facing display shows the order and promotes add-ons but is not a self-service ordering kiosk. Table management is thin and MYR does not pretend to serve full-service restaurants. Reviewers on Capterra consistently ask for a back-office mobile app and for deeper analytics than the current reporting gives, and several would rather loyalty and gift cards were fully native than routed through DataCandy. Older reviews mention connectivity trouble between the iPad and the payment terminal, which more recent ones suggest has improved. Rated 4.5 out of 5 across 121 Capterra reviews as of August 2026, with ease of use at 4.5 and customer service at 4.4, it is well liked by the operators it fits and simply not aimed at the ones it does not.</p>",
+  "foundedYear": 2016,
+  "headquarters": "Montreal, Canada",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "CA",
+    "US"
+  ],
+  "pricingModel": [
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "Software is $80 a month for one POS station on Starter and $150 a month on Standard, which covers up to three stations, three kitchen displays and three Rovers plus online ordering, loyalty and gift cards. Enterprise is a custom quote for franchises. Hardware is bought outright from $1,000 per station, typically $1,500 to $2,000. Card processing is billed separately by whichever partner you sign with, so the rate is not MYR's to quote.",
+  "fees": {
+    "onlineCardRate": "Set by your processor",
+    "inPersonCardRate": "Set by your processor",
+    "monthlyFee": "$80 to $150 per month",
+    "setupFee": "Hardware from $1,000",
+    "chargebackFee": "Set by your processor",
+    "monthlyMinimum": "None on the software plan",
+    "refundPolicy": "Refunds are issued through the integrated terminal and settled by your processor"
+  },
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay"
+  ],
+  "integrations": [
+    "pos-hardware",
+    "hosted-checkout"
+  ],
+  "currencies": "CAD and USD, priced per location across Canada and the United States",
+  "features": [
+    "reporting-dashboard"
+  ],
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "restaurants",
+    "retail-pos",
+    "small-business"
+  ],
+  "bestFor": [
+    "Quick-service restaurants",
+    "Coffee shops and bubble tea",
+    "Takeaway and drive-thru",
+    "Multi-location franchises"
+  ],
+  "industries": [
+    "Quick-service restaurants",
+    "Coffee shops",
+    "Bakeries and delis",
+    "Food trucks"
+  ],
+  "pros": [
+    "Publishes its software pricing, which most restaurant POS vendors will not: $80 a month for one station, $150 for up to three with kitchen displays and Rovers, and no surcharge for integrating the payment terminal",
+    "Built specifically for the quick-service line, with a kitchen display system, Rover handhelds for line-busting, drive-thru and QR ordering, and native Uber Eats, DoorDash, Grubhub, Skip and Ritual integrations that drop delivery orders into the same queue instead of a rack of tablets",
+    "Rated 4.5 out of 5 across 121 Capterra reviews as of August 2026, with ease of use at 4.5 and customer service at 4.4, plus bilingual support and built-in Revenu Quebec SRM and WEB-MEV compliance for Quebec operators"
+  ],
+  "cons": [
+    "MYR does not process payments. Card rates, chargeback fees and payout timing all come from the partner you sign with, usually TD Merchant Solutions, Payroc, Square or Moneris, so the real cost of taking a card is nowhere on MYR's price list and has to be negotiated separately",
+    "iPad only, with no Android option, no self-service kiosk mode on the customer-facing display, thin table management and no back-office mobile app, which is the complaint Capterra reviewers repeat most often",
+    "Hardware is a real upfront cost and cannot be rented: $1,000 to $2,000 per station, with onboarding running up to three weeks. Contract length and any early termination fee are not published, and loyalty and gift cards lean on DataCandy rather than being fully native"
+  ],
+  "editorScore": 4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "MYR POS Review | Pricing, Fees and Features",
+    "metaDescription": "MYR POS starts at 80 dollars a month for quick-service restaurants, with hardware from 1,000 dollars. Card rates come from TD, Payroc, Square or Moneris.",
+    "keywords": [
+      "myr pos review",
+      "myr pos pricing",
+      "myr pos cost",
+      "quick service restaurant pos",
+      "myr pos payment processing",
+      "koomi pos"
+    ],
+    "focusKeyword": "myr pos review"
+  },
+  "faqs": [
+    {
+      "question": "How much does MYR POS cost?",
+      "answer": "Software is $80 a month on Starter, which covers one POS station, and $150 a month on Standard, which covers up to three POS stations, three kitchen displays and three Rover handhelds and adds MYR Online ordering, digital loyalty, gift cards and the third-party delivery integrations. Enterprise pricing for franchises and multi-location groups is quoted individually. Hardware is a separate purchase rather than a rental, starting at $1,000 on Starter and $1,900 on Standard, with a full station typically running $1,500 to $2,000. Card processing is billed by your merchant services partner, not by MYR, so budget for that on top."
+    },
+    {
+      "question": "Does MYR POS process payments itself?",
+      "answer": "No. MYR is the point-of-sale software and the terminal integration; the merchant account sits with a separate provider. In Canada that is commonly TD Merchant Solutions, which has its TD Desk and Move 5000 terminals integrated for in-store payments and its Online Mart product behind MYR Online ordering. Payroc, Square and Moneris are the other partners named in MYR's material and in third-party reviews. MYR charges no fee for connecting the terminal to the till and says its partners are held to competitive quick-service rates, but the discount rate, the per-transaction fee, the chargeback fee and the payout schedule are all set by that partner. Negotiate them separately from the software quote."
+    },
+    {
+      "question": "What hardware does MYR POS run on?",
+      "answer": "iPads, and only iPads. There is no Android build. A full setup adds a customer-facing display, an Epson TM-M30 thermal receipt printer, a cash drawer, a Socket Mobile Bluetooth barcode scanner and the payment terminal supplied by your processor. Rover, the handheld ordering app, and the kitchen display system also run on iPads, which is why Standard counts POS stations, kitchen displays and Rovers as three separate allowances of three. Hardware is bought outright, from $1,000 on Starter and $1,900 on Standard, though financing and leasing partners are available."
+    },
+    {
+      "question": "Is MYR POS good for full-service restaurants?",
+      "answer": "No, and it does not claim to be. MYR is built for lineups, takeaway and on-the-go orders, so table management is thin and there is no coursing or floor-plan depth of the kind a full-service dining room needs. The customer-facing display promotes add-ons but is not a self-service kiosk. If you run counter service, a drive-thru, a coffee shop or a delivery-heavy takeaway operation, that narrowness is the point and it is why the interface trains staff in minutes. If you run a dining room with servers and tabs, look at a full-service POS instead."
+    },
+    {
+      "question": "How do merchants rate MYR POS?",
+      "answer": "It holds 4.5 out of 5 across 121 verified Capterra reviews as of August 2026, with ease of use at 4.5 and customer service at 4.4. The recurring praise is speed of staff training, straightforward menu and price changes, reliable multi-location reporting and support that answers quickly, including outside business hours. The recurring criticism is the absence of a back-office mobile app, reporting that stops short of deeper analytics, and loyalty and gift card features that route through DataCandy rather than being fully native. Older reviews mention connectivity problems between the iPad and the payment terminal, which more recent feedback suggests has improved."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "reviewsPage": {
+    "heading": "MYR POS reviews",
+    "intro": "MYR POS is rated 4.5 out of 5 on Capterra across 121 verified reviews, and quick-service operators are consistent about why: staff learn it in minutes, delivery orders arrive in one queue, and support answers. They are just as consistent about the limits. Below is what the review record says, and where it disagrees with the sales page.",
+    "seo": {
+      "metaTitle": "MYR POS Reviews | Ratings from Quick-Service Operators",
+      "metaDescription": "What quick-service operators say about MYR POS. Rated 4.5 out of 5 across 121 Capterra reviews, praised for ease of use and flagged for iPad-only limits.",
+      "keywords": [
+        "myr pos reviews",
+        "myr pos ratings",
+        "myr pos complaints",
+        "myr pos user reviews"
+      ],
+      "focusKeyword": "myr pos reviews"
+    },
+    "blocks": [
+      {
+        "type": "richtext",
+        "id": "myr-pos-reviews-record",
+        "data": {
+          "html": "<h2>What the third-party review record shows</h2><p>No merchant has published a review of MYR POS on this site yet, so the summary below is drawn from public review platforms rather than from our own submissions. As of August 2026, MYR POS holds <strong>4.5 out of 5 across 121 verified reviews on Capterra</strong>, with ease of use scored at 4.5 and customer service at 4.4. It is also listed on GetApp and Software Advice, which share Capterra's review pool, so those scores are not independent confirmation.</p><p>The rating is high, but the sample is worth reading in context. MYR sells to one narrow segment, quick-service restaurants, and reviewers are overwhelmingly from that segment. A 4.5 from operators the product was designed for is not evidence that it would suit a dining room with servers and tabs, and the reviews that come closest to criticism are usually from someone who wanted it to be a general-purpose POS.</p>"
+        }
+      },
+      {
+        "type": "prosCons",
+        "id": "myr-pos-reviews-themes",
+        "data": {
+          "title": "Themes across public reviews",
+          "pros": [
+            "Staff learn the front end in minutes, which reviewers tie directly to lower training cost and faster service during a rush",
+            "Menu edits and price changes are simple enough to make mid-shift without calling support",
+            "Delivery orders from Uber Eats, DoorDash, Grubhub, Skip and Ritual land in one queue instead of on separate tablets",
+            "Support is described as fast, knowledgeable and often available outside business hours, in both English and French",
+            "Multi-location and franchise reporting is called out by operators running several sites",
+            "Priced below the better-known restaurant POS platforms for comparable in-store functionality"
+          ],
+          "cons": [
+            "No back-office mobile app, so owners cannot check numbers from a phone. This is the single most repeated request",
+            "Reporting covers the basics but stops short of the deeper analytics larger operators want",
+            "Loyalty and gift cards route through DataCandy rather than being fully native, which reviewers experience as an extra bill",
+            "Limited customization, and the iPad-only requirement removes hardware choice entirely",
+            "The customer-facing display is not a self-service kiosk, which surprises operators expecting one",
+            "Older reviews report connectivity trouble between the iPad and the payment terminal. Recent reviews suggest this has improved",
+            "Onboarding is described by some reviewers as slower and rougher than expected, against a stated timeline of up to three weeks"
+          ]
+        }
+      },
+      {
+        "type": "richtext",
+        "id": "myr-pos-reviews-payments-note",
+        "data": {
+          "html": "<h2>One thing reviews will not tell you</h2><p>Review scores for MYR say nothing about what you will pay to accept a card. MYR is the point-of-sale layer and the terminal integration; the merchant account sits with a separate partner, usually TD Merchant Solutions, Payroc, Square or Moneris. Two restaurants can both rate MYR five stars while paying materially different processing rates, because the rate was never MYR's to set.</p><p>If you are evaluating MYR, treat it as two decisions. Judge the software on the review record above, then get the processing quote in writing from the partner and compare it against the rates on this site the same way you would any other merchant account. At quick-service ticket sizes, the per-transaction fee usually costs more than the percentage does.</p>"
+        }
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Are these MYR POS reviews verified?",
+        "answer": "The scores quoted on this page come from Capterra, which verifies reviewers before publishing, and were current as of August 2026. They are not reviews submitted to this site. Any review you see in the list above is one a merchant submitted here and our moderators approved, and each is rated on pricing, support, ease of use, features and reliability. If you run payments through MYR POS, your review would carry more weight than an aggregate score, because it would say which processor you signed with and what you actually pay."
+      },
+      {
+        "question": "What do MYR POS reviewers complain about most?",
+        "answer": "The absence of a back-office mobile app is the most repeated request across public reviews, followed by reporting that stops short of deeper analytics, and loyalty and gift card features routed through DataCandy instead of being native. Structural limits draw steady comment too: iPad only with no Android option, a customer-facing display that is not a self-service kiosk, and thin table management. Older reviews mention the iPad losing connection to the payment terminal, which more recent feedback suggests has improved."
+      },
+      {
+        "question": "Do MYR POS reviews cover payment processing?",
+        "answer": "Rarely, and that is a gap worth knowing about. MYR does not process payments, so a review of MYR is a review of the software and the hardware, not of the card rate. Merchants sign separately with a partner such as TD Merchant Solutions, Payroc, Square or Moneris, and their experience of pricing, chargebacks and payout timing belongs to that provider. When you read a MYR review that praises or criticises payments, check which processor the reviewer is actually on."
+      },
+      {
+        "question": "Is MYR POS worth it for a single-location restaurant?",
+        "answer": "The review record suggests yes if you are quick-service and the Starter plan covers you. At $80 a month for one station, plus hardware from $1,000, the software cost is low against comparable restaurant platforms, and the ease-of-use scores are the reason single-site operators give for switching. The caution is that Starter excludes the online ordering, loyalty and gift card modules and the third-party delivery integrations, which sit on Standard at $150 a month. If delivery apps are a meaningful share of your orders, price Standard rather than Starter."
+      }
+    ]
+  },
+  "logoDomain": "myr.io",
+  "logoSource": "https://framerusercontent.com/images/8p5F74h804NDeuT0MU9GKDGyH4.png",
+  "sources": [
+    "https://www.myr.io/",
+    "https://www.myr.io/pricing",
+    "https://www.myr.io/features",
+    "https://www.myr.io/hardware",
+    "https://www.myr.io/integrations",
+    "https://www.myr.io/single-location",
+    "https://www.myr.io/about-us",
+    "https://www.myr.io/en/press-releases/master-your-rush-pos-formerly-koomi-and-td-merchant-solutions-now-provide-an-integrated-payment-processing-solution-for-restaurants/",
+    "https://payroc.com/payroc-presents-myr-pos-solution-for-quick-service-restaurants/",
+    "https://www.posusa.com/myr-pos-review/",
+    "https://www.capterra.com/p/174862/myr-pos/reviews/"
+  ]
+}

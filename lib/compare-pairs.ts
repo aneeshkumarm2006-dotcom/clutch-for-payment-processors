@@ -126,6 +126,13 @@ export const POPULAR_COMPARE_PAIRS: readonly (readonly [string, string])[] = [
   // are argued against.
   ["stripe", "nowpayments"], // accepting crypto instead of, or alongside, cards
   ["stripe", "revenuecat"], // in-app purchase billing vs web checkout
+
+  // Restaurant POS. Same "argued against the default" case as the two above:
+  // Square for Restaurants is what a counter-service operator shortlists MYR
+  // against, and Square is also one of MYR's own terminal partners, so the page
+  // has to separate the POS decision from the processing decision. MYR's true
+  // rivals (Toast, Clover, Lightspeed) are not listed here at all.
+  ["square", "myr-pos"],
 ];
 
 /** The `-vs-` delimiter joining the two slugs in a pretty compare URL. */
