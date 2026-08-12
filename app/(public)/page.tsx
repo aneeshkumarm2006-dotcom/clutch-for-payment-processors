@@ -400,27 +400,45 @@ export default async function HomePage() {
   );
 }
 
-/** Eyebrow + heading + optional "see all" link. Both link fields must be set to render it. */
+/**
+ * Eyebrow + heading + optional intro paragraph + optional "see all" link. Both
+ * link fields must be set to render the link.
+ *
+ * The intro sits under the heading rather than beside it: it's a full sentence
+ * or two, and the "see all" link stays pinned to the heading row so it doesn't
+ * drift half a paragraph away from the H2 it belongs to.
+ */
 function SectionHeading({
   section,
 }: {
-  section: { eyebrow: string; title: string; actionLabel: string; actionHref: string };
+  section: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    actionLabel: string;
+    actionHref: string;
+  };
 }) {
   const showAction = Boolean(section.actionLabel && section.actionHref);
   return (
-    <div className="flex flex-wrap items-end justify-between gap-3">
-      <div>
-        {section.eyebrow && <p className="text-label uppercase text-ink-500">{section.eyebrow}</p>}
-        <h2 className="mt-2 text-h1 tracking-tighter2 text-foreground">{section.title}</h2>
+    <div>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          {section.eyebrow && <p className="text-label uppercase text-ink-500">{section.eyebrow}</p>}
+          <h2 className="mt-2 text-h1 tracking-tighter2 text-foreground">{section.title}</h2>
+        </div>
+        {showAction && (
+          <Link
+            href={section.actionHref}
+            className="inline-flex items-center gap-1 text-small font-medium text-accent hover:underline"
+          >
+            {section.actionLabel}
+            <ArrowRight className="size-4" aria-hidden />
+          </Link>
+        )}
       </div>
-      {showAction && (
-        <Link
-          href={section.actionHref}
-          className="inline-flex items-center gap-1 text-small font-medium text-accent hover:underline"
-        >
-          {section.actionLabel}
-          <ArrowRight className="size-4" aria-hidden />
-        </Link>
+      {section.description && (
+        <p className="mt-3 max-w-3xl text-body text-muted-foreground">{section.description}</p>
       )}
     </div>
   );

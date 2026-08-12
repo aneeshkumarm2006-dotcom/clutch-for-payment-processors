@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { HOMEPAGE_DEFAULTS, HOME_SECTION_LABELS, type HomeSectionKey } from "@/lib/homepage";
 import { HOME_ICON_KEYS, HOME_ICON_LABELS, homeIcon } from "@/lib/home-icons";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import {
@@ -59,6 +60,39 @@ export function PlaceholderField({
           <FormLabel>{label}</FormLabel>
           <FormControl>
             <Input type={type} placeholder={placeholder} {...field} value={field.value ?? ""} />
+          </FormControl>
+          {description && <FormDescription>{description}</FormDescription>}
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
+}
+
+/** `PlaceholderField` for prose. Same "blank inherits the default" contract. */
+export function PlaceholderTextarea({
+  name,
+  label,
+  placeholder,
+  description,
+  rows = 2,
+}: {
+  name: string;
+  label: string;
+  placeholder?: string;
+  description?: string;
+  rows?: number;
+}) {
+  const { control } = useFormContext();
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>{label}</FormLabel>
+          <FormControl>
+            <Textarea rows={rows} placeholder={placeholder} {...field} value={field.value ?? ""} />
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
@@ -170,7 +204,14 @@ export function SectionHeadingFields({
   limitDescription,
 }: {
   name: HomeSectionKey;
-  defaults: { eyebrow: string; title: string; actionLabel: string; actionHref: string; limit: number };
+  defaults: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    actionLabel: string;
+    actionHref: string;
+    limit: number;
+  };
   /** Omit to hide the count input (sections with a fixed item set). */
   limitLabel?: string;
   limitDescription?: string;
@@ -181,6 +222,12 @@ export function SectionHeadingFields({
         <PlaceholderField name={`${name}.eyebrow`} label="Eyebrow" placeholder={defaults.eyebrow} />
         <PlaceholderField name={`${name}.title`} label="Heading" placeholder={defaults.title} />
       </div>
+      <PlaceholderTextarea
+        name={`${name}.description`}
+        label="Intro paragraph"
+        placeholder={defaults.description || "None"}
+        description="Sits under the heading. This is the section's readable body copy, so keep the search terms it should rank for in here rather than stretching the heading. Blank hides it."
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <PlaceholderField
           name={`${name}.actionLabel`}

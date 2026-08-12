@@ -48,6 +48,8 @@ export interface IHomeSection {
   enabled?: boolean;
   eyebrow?: string;
   title?: string;
+  /** Standfirst paragraph under the H2 — the section's SEO body copy. */
+  description?: string;
   actionLabel?: string;
   actionHref?: string;
   /** How many cards the section pulls. Ignored by sections that show a fixed set. */
@@ -156,6 +158,7 @@ const homeSectionFields = {
   enabled: { type: Boolean },
   eyebrow: { type: String, trim: true },
   title: { type: String, trim: true },
+  description: { type: String, trim: true },
   actionLabel: { type: String, trim: true },
   actionHref: { type: String, trim: true },
   limit: { type: Number, min: 0, max: 24 },
@@ -235,7 +238,10 @@ const SiteSettingsSchema = new Schema<ISiteSettings>(
     homepageHeroSubtitle: {
       type: String,
       required: true,
-      default: "Compare fees, features, and verified merchant reviews.",
+      default:
+        "Compare fees, features, verified merchant reviews, and leading payment processing " +
+        "platforms, all in one independent directory to help you choose the right merchant " +
+        "services provider for your business.",
     },
     featuredCategorySlugs: { type: [String], default: [] },
     homepage: { type: HomepageSchema, default: () => ({}) },

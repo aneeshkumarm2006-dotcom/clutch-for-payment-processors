@@ -1162,8 +1162,9 @@ async function seedSettings(): Promise<void> {
         siteName: "Payment Processor Guide",
         homepageHeroTitle: "Payment processing guide: find the right processor",
         homepageHeroSubtitle:
-          "Compare payment processors, merchant services providers, and credit card processing " +
-          "companies on real fees, payout speed, and verified merchant reviews.",
+          "Compare fees, features, verified merchant reviews, and leading payment processing " +
+          "platforms, all in one independent directory to help you choose the right merchant " +
+          "services provider for your business.",
         featuredCategorySlugs: ["ecommerce", "retail-pos", "subscriptions", "high-risk", "international", "small-business"],
         // Real address on the live domain. The old value was
         // "hello@paymentprocessorguide.test": `.test` is a reserved TLD that can

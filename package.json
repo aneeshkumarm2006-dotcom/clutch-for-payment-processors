@@ -15,6 +15,7 @@
     "seed": "tsx scripts/seed.ts",
     "seed:seo": "tsx scripts/seed-seo.ts",
     "seed:doc-content": "tsx scripts/seed-doc-content.ts",
+    "apply:homepage-copy": "tsx scripts/apply-homepage-seo-copy.ts",
     "migrate:blocks": "tsx scripts/migrate-blocks.ts"
   },
   "dependencies": {

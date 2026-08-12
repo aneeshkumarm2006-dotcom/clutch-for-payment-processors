@@ -7,6 +7,7 @@ import { randomUUID } from "node:crypto";
 import mongoose from "mongoose";
 import { connectToDatabase } from "@/lib/db";
 import { Category, PageSeo, Processor } from "@/models";
+import { HOMEPAGE_FAQS } from "./data/homepage-faqs";
 
 /**
  * scripts/seed-seo.ts — apply the keyword-mapped SEO plan (meta titles,
@@ -77,28 +78,9 @@ const PAGES: { pageKey: string; title: string; path: string; seo: SeoBlock }[] =
         "credit card processing services",
         "business payment solutions",
       ],
-      faqs: [
-        {
-          question: "What is a payment processing guide and why do I need one?",
-          answer:
-            "It's an independent resource that breaks down fees, features, and processor options so you can compare merchant services without reading ten different pricing pages.",
-        },
-        {
-          question: "How do I compare credit card processing services before choosing one?",
-          answer:
-            "Look at the online rate, monthly fee, payout speed, and support for your sales channel, then check verified merchant reviews for real-world experience.",
-        },
-        {
-          question: "What should I look for in a merchant services provider?",
-          answer:
-            "Transparent pricing, no long lock-in, payment methods your customers actually use, and a payment processing platform that integrates with the tools you already run.",
-        },
-        {
-          question: "Is Payment Processor Guide free to use?",
-          answer:
-            "Yes, browsing, filtering, and comparing processors is free for merchants. We're funded by sponsored placements and affiliate links, which never affect ratings.",
-        },
-      ],
+      // Shared with `apply-homepage-seo-copy.ts`, which writes the same list to an
+      // already-seeded database. Edit them in scripts/data/homepage-faqs.ts.
+      faqs: HOMEPAGE_FAQS,
     },
   },
   {

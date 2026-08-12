@@ -4,6 +4,7 @@ loadEnv();
 import mongoose from "mongoose";
 import { connectForScript } from "./db";
 import { BlogPost, Processor, SiteSettings } from "@/models";
+import { HOMEPAGE_DEFAULTS } from "@/lib/homepage";
 
 /**
  * Fix the on-page slots behind Semrush's "content not optimized" on six URLs.
@@ -121,11 +122,15 @@ const BLOG_FIXES: BlogFix[] = [
   },
 ];
 
-/** Homepage hero. The H1 and the lede under it. */
-const HERO_TITLE = "Payment processing guide: find the right processor";
-const HERO_SUBTITLE =
-  "Compare payment processors, merchant services providers, and credit card processing " +
-  "companies on real fees, payout speed, and verified merchant reviews.";
+/**
+ * Homepage hero. The H1 and the lede under it.
+ *
+ * Read from `HOMEPAGE_DEFAULTS` rather than copied: this script and the built-in
+ * default are the same two strings, and when they were spelled out twice a later
+ * copy change to one of them made re-running this script silently revert it.
+ */
+const HERO_TITLE = HOMEPAGE_DEFAULTS.hero.title;
+const HERO_SUBTITLE = HOMEPAGE_DEFAULTS.hero.subtitle;
 
 async function main() {
   await connectForScript();

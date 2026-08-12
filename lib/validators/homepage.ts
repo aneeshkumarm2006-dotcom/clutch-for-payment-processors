@@ -49,6 +49,7 @@ const sectionBase = (maxLimit: number) =>
     enabled: z.boolean(),
     eyebrow: optionalText(120),
     title: optionalText(200),
+    description: optionalText(400),
     actionLabel: optionalText(80),
     actionHref: linkHref,
     limit: limit(maxLimit),

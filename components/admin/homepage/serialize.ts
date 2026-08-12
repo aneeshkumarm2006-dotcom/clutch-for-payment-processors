@@ -29,6 +29,7 @@ export interface HomeSectionFormValues {
   enabled: boolean;
   eyebrow: string;
   title: string;
+  description: string;
   actionLabel: string;
   actionHref: string;
   /** Kept as a string — an empty number input yields NaN, which RHF can't round-trip. */
@@ -90,6 +91,7 @@ function sectionValues(
     enabled: resolvedEnabled,
     eyebrow: str(s.eyebrow),
     title: str(s.title),
+    description: str(s.description),
     actionLabel: str(s.actionLabel),
     actionHref: str(s.actionHref),
     limit: num(s.limit),
@@ -164,6 +166,7 @@ const sectionPayload = (v: HomeSectionFormValues) => ({
   enabled: v.enabled,
   eyebrow: v.eyebrow,
   title: v.title,
+  description: v.description,
   actionLabel: v.actionLabel,
   actionHref: v.actionHref,
   limit: v.limit,

@@ -57,6 +57,24 @@ test("blank strings inherit the default; `false` is preserved, not coerced", () 
   assert.equal(r.featured.title, "Featured processors");
 });
 
+test("section intros survive a settings doc written before the field existed", () => {
+  // The intro paragraphs are the sections' only body copy. A document saved by
+  // the old form has no `description` key at all, and must still render them.
+  const r = resolveHomepage(settings({ categories: { title: "" }, compare: {} }));
+  for (const key of ["categories", "featured", "compare"] as const) {
+    assert.equal(r[key].description, HOMEPAGE_DEFAULTS[key].description);
+    assert.ok(r[key].description.length > 0, `${key} should ship an intro paragraph`);
+  }
+});
+
+test("a stored intro overrides the default, and a blank one restores it", () => {
+  assert.equal(resolveHomepage(settings({ featured: { description: "Mine." } })).featured.description, "Mine.");
+  assert.equal(
+    resolveHomepage(settings({ featured: { description: "  " } })).featured.description,
+    HOMEPAGE_DEFAULTS.featured.description,
+  );
+});
+
 test("an emptied steps list stays empty; a missing one falls back", () => {
   assert.equal(resolveHomepage(settings({ howItWorks: { steps: [] } })).howItWorks.steps.length, 0);
   assert.equal(resolveHomepage(settings({ howItWorks: {} })).howItWorks.steps.length, 3);

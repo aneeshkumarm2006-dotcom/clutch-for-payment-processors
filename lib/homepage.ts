@@ -56,7 +56,15 @@ export interface ResolvedCtaCard {
 export interface ResolvedSection {
   enabled: boolean;
   eyebrow: string;
+  /** The section's H2. Keep it short — the keyword-carrying prose goes in `description`. */
   title: string;
+  /**
+   * Standfirst paragraph under the H2. This is the section's SEO body copy: the
+   * H2s are deliberately two or three words, so without this the page below the
+   * hero is almost entirely card labels and has nothing for a crawler to read.
+   * Blank renders no paragraph at all.
+   */
+  description: string;
   actionLabel: string;
   actionHref: string;
   limit: number;
@@ -100,8 +108,9 @@ export const HOMEPAGE_DEFAULTS: ResolvedHomepage = {
     eyebrow: "",
     title: "Payment processing guide: find the right processor",
     subtitle:
-      "Compare payment processors, merchant services providers, and credit card processing " +
-      "companies on real fees, payout speed, and verified merchant reviews.",
+      "Compare fees, features, verified merchant reviews, and leading payment processing " +
+      "platforms, all in one independent directory to help you choose the right merchant " +
+      "services provider for your business.",
     searchEnabled: true,
     searchPlaceholder: "Search by name, e.g. Stripe, ACH, high-risk…",
     primaryCtaEnabled: true,
@@ -118,6 +127,9 @@ export const HOMEPAGE_DEFAULTS: ResolvedHomepage = {
     enabled: true,
     eyebrow: "Browse by need",
     title: "Popular categories",
+    description:
+      "Browse payment processing solutions by business type, industry, and payment needs " +
+      "to quickly compare the right payment processor for your business.",
     actionLabel: "All categories",
     actionHref: "/processors",
     limit: 8,
@@ -126,6 +138,9 @@ export const HOMEPAGE_DEFAULTS: ResolvedHomepage = {
     enabled: true,
     eyebrow: "Editor & merchant picks",
     title: "Featured processors",
+    description:
+      "Compare leading payment processors based on pricing, features, payout speed, " +
+      "integrations, and verified merchant reviews.",
     actionLabel: "View all processors",
     actionHref: "/processors",
     limit: 6,
@@ -134,6 +149,7 @@ export const HOMEPAGE_DEFAULTS: ResolvedHomepage = {
     enabled: true,
     eyebrow: "How it works",
     title: "From shortlist to decision in minutes",
+    description: "",
     actionLabel: "",
     actionHref: "",
     limit: 0,
@@ -146,7 +162,9 @@ export const HOMEPAGE_DEFAULTS: ResolvedHomepage = {
       {
         icon: "compare",
         title: "Compare",
-        body: "Put 2 to 4 processors side by side on pricing, features, and verified merchant reviews.",
+        body:
+          "Compare up to four payment processors side by side based on pricing, features, " +
+          "integrations, payout speed, and verified merchant reviews.",
       },
       {
         icon: "check",
@@ -159,6 +177,9 @@ export const HOMEPAGE_DEFAULTS: ResolvedHomepage = {
     enabled: true,
     eyebrow: "Side by side",
     title: "Compare popular processors",
+    description:
+      "Compare popular payment processors based on pricing, features, supported payment " +
+      "methods, and merchant reviews to find the right solution for your business.",
     actionLabel: "Open compare",
     actionHref: "/compare",
     // Pairs shown, not processors pulled — the page fetches 2× this many.
@@ -168,6 +189,7 @@ export const HOMEPAGE_DEFAULTS: ResolvedHomepage = {
     enabled: true,
     eyebrow: "Guides & comparisons",
     title: "From the blog",
+    description: "",
     actionLabel: "All articles",
     actionHref: "/blog",
     limit: 3,
@@ -221,6 +243,7 @@ function section(
     enabled: bool(s.enabled, fallback.enabled),
     eyebrow: text(s.eyebrow, fallback.eyebrow),
     title: text(s.title, fallback.title),
+    description: text(s.description, fallback.description),
     actionLabel: text(s.actionLabel, fallback.actionLabel),
     actionHref: text(s.actionHref, fallback.actionHref),
     limit: count(s.limit, fallback.limit, maxLimit),
