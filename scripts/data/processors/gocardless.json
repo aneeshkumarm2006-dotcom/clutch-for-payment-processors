@@ -1,0 +1,140 @@
+{
+  "name": "GoCardless",
+  "slug": "gocardless",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1786641669/logos/gocardless-logo-2658a566.webp",
+  "website": "https://gocardless.com",
+  "tagline": "Bank payment specialist collecting Direct Debit and open banking payments in 30+ countries, with capped per-transaction fees and no monthly cost.",
+  "shortDescription": "London-based bank payment network used by over 100,000 businesses to collect recurring payments by Direct Debit instead of cards. UK collections start at 1% + 20p capped at 4 pounds, US ACH at 0.5% + 5 cents capped at 5 dollars, with no setup or monthly fees.",
+  "longDescription": "<p>GoCardless was founded in London in 2011 and has grown into the default way for subscription businesses, membership organisations and invoice-based firms to collect bank-to-bank payments. It processes no cards at all: collections run over Direct Debit schemes including Bacs in the UK, SEPA in the Eurozone, ACH in the US, PAD in Canada, BECS in Australia and New Zealand, Autogiro in Sweden and Betalingsservice in Denmark, plus PayTo in Australia and one-off open banking payments through Instant Bank Pay. In December 2025 the Dutch payment provider Mollie agreed to acquire GoCardless for 1.05 billion euros, with the deal expected to close in mid-2026.</p><h3>Pricing and how it works</h3><p>There are no setup or monthly fees on the Standard, Advanced and Pro tiers; the tiers differ by rate and bundled features rather than subscription cost. UK domestic collections cost 1% + 20p capped at 4 pounds on Standard, rising to 1.4% + 20p capped at 5.60 on Pro. US ACH costs 0.5% + 5 cents capped at 5 dollars on Standard. International collections roughly double the domestic rate, and UK Direct Debit adds 0.3% to the portion of a transaction above 2,000 pounds. The Advanced and Pro tiers bundle Success+, which automatically retries failed payments and recovers up to 70% of them, and Protect+ fraud screening. Bacs payouts land two working days after the charge date, and a first collection takes about five business days end to end.</p><h3>Who it is for</h3><p>GoCardless is built for businesses collecting recurring or invoiced revenue: SaaS with annual contracts, gyms and clubs, accountants, utilities and anyone tired of card fees and expiring cards. Its 350+ integrations with Xero, QuickBooks, Sage, Chargebee and similar platforms make reconciliation largely automatic. It is not a fit as a sole processor for ecommerce checkout, since it cannot take cards, and businesses needing instant settlement should look elsewhere: bank debit is deliberate, not fast.</p>",
+  "foundedYear": 2011,
+  "headquarters": "London, United Kingdom",
+  "companySize": "251-1000",
+  "supportedRegions": [
+    "UK",
+    "EU",
+    "US",
+    "CA",
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "custom-quote"
+  ],
+  "pricingSummary": "No setup or monthly fees on any tier. UK domestic Direct Debit costs 1% + 20p capped at 4 pounds on Standard, US ACH costs 0.5% + 5 cents capped at 5 dollars, and SEPA costs 1% + 0.20 euros capped at 2 euros. International collections cost roughly double, and custom pricing starts at about 1 million pounds of annual revenue.",
+  "fees": {
+    "onlineCardRate": "No card payments",
+    "achRate": "0.5% + $0.05 capped at $5",
+    "internationalRate": "2% + 20p in the UK, 1.5% + $0.05 in the US, per international collection",
+    "monthlyFee": "None",
+    "setupFee": "None",
+    "chargebackFee": "USD 5 per chargeback beyond 15 a month in the US, not published in the UK and EU",
+    "monthlyMinimum": "None",
+    "earlyTerminationFee": "None, monthly rolling",
+    "refundPolicy": "USD 0.50 per refund in the US"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": true,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "ach",
+    "sepa"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "payment-links",
+    "woocommerce",
+    "invoicing"
+  ],
+  "currencies": "8 collection currencies: GBP, EUR, USD, CAD, AUD, NZD, SEK and DKK, with FX handled through a Wise partnership",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "N/A",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "small-business",
+    "international",
+    "developers"
+  ],
+  "bestFor": [
+    "Recurring billing",
+    "Invoice collection",
+    "Memberships and clubs",
+    "SaaS with annual contracts"
+  ],
+  "industries": [
+    "SaaS",
+    "Accounting and professional services",
+    "Fitness and membership",
+    "Utilities",
+    "Education"
+  ],
+  "pros": [
+    "Much cheaper than cards for recurring and high-value payments, with fees capped per transaction and no setup or monthly cost",
+    "Success+ automatically retries failed payments and recovers up to 70% of them, and bank debit avoids card-expiry churn entirely",
+    "350+ integrations including Xero, QuickBooks, Sage and Chargebee, plus a well-documented developer API"
+  ],
+  "cons": [
+    "No card acceptance at all, so it cannot be the only processor behind an ecommerce checkout",
+    "Direct Debit is slow: a first collection takes around five business days and Bacs payouts arrive two working days after the charge",
+    "Weak Trustpilot record around 2.4, dominated by complaints about account suspensions during anti-money-laundering reviews and slow email-only support"
+  ],
+  "editorScore": 4.3,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "GoCardless Review | Pricing, Fees and Features",
+    "metaDescription": "GoCardless collects Direct Debit and open banking payments with capped fees, from 1 percent plus 20p in the UK. See rates, payout timing and who it suits.",
+    "keywords": [
+      "gocardless review",
+      "gocardless pricing",
+      "gocardless fees",
+      "gocardless vs stripe",
+      "direct debit provider"
+    ],
+    "focusKeyword": "gocardless review"
+  },
+  "faqs": [
+    {
+      "question": "How much does GoCardless cost?",
+      "answer": "There are no setup or monthly fees. UK domestic Direct Debit costs 1% + 20p capped at 4 pounds per transaction on the Standard tier, US ACH costs 0.5% + 5 cents capped at 5 dollars, and SEPA costs 1% + 0.20 euros capped at 2 euros. International collections cost roughly double the domestic rate, and UK transactions above 2,000 pounds attract an extra 0.3% on the excess. Businesses above about 1 million pounds in annual revenue can negotiate custom pricing."
+    },
+    {
+      "question": "Does GoCardless accept card payments?",
+      "answer": "No. GoCardless is bank-payment only: it collects through Direct Debit schemes such as Bacs, SEPA, ACH, PAD, BECS, Autogiro and Betalingsservice, plus PayTo in Australia and one-off open banking payments via Instant Bank Pay. Businesses that also need card checkout pair it with a card processor and use GoCardless for recurring and invoice collection."
+    },
+    {
+      "question": "How long do GoCardless payments take?",
+      "answer": "Bank debit is slower than cards by design. A first UK collection takes around five business days from mandate creation to charge, and payouts arrive two working days after the charge date. Instant Bank Pay payments authorised before 11 AM UK time arrive the same day. Weekly, monthly or daily payout schedules are configurable."
+    },
+    {
+      "question": "Is GoCardless being acquired?",
+      "answer": "Yes. Mollie, the Dutch payment service provider, signed an agreement in December 2025 to acquire GoCardless for 1.05 billion euros, creating a combined group serving more than 350,000 businesses. The deal was expected to close in mid-2026 pending regulatory approval, and GoCardless continues to operate under its own brand in the meantime."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "gocardless.com",
+  "logoSource": "https://gocardless.com/content-platform/icons/icon-512x512.png",
+  "sources": [
+    "https://gocardless.com/pricing/",
+    "https://gocardless.com/en-us/pricing/",
+    "https://gocardless.com/en-eu/pricing/",
+    "https://gocardless.com/integrations/",
+    "https://gocardless.com/solutions/instant-bank-pay",
+    "https://gocardless.com/legal/payment-timings",
+    "https://support.gocardless.com/hc/en-us/articles/17144912254108-Schemes-and-Requirements",
+    "https://www.mollie.com/news/mollie-to-acquire-gocardless",
+    "https://www.g2.com/products/gocardless/reviews",
+    "https://en.wikipedia.org/wiki/GoCardless"
+  ]
+}

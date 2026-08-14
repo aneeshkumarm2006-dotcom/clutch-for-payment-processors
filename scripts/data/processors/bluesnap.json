@@ -1,0 +1,157 @@
+{
+  "name": "BlueSnap",
+  "slug": "bluesnap",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1786641678/logos/bluesnap-logo-49ea288f.webp",
+  "website": "https://www.bluesnap.com",
+  "tagline": "Global payment orchestration with local acquiring in 50 countries, published regional fee schedules and intelligent routing with failover.",
+  "shortDescription": "Waltham-based orchestration platform, now part of Payroc, that routes payments through local acquiring in 50 countries with 100+ payment types and currencies. US-issued cards cost 2.9% + 30 cents on the published schedule, with cross-border cards at 4.40% + 30 cents.",
+  "longDescription": "<p>BlueSnap started life in 2001 as Plimus, rebranded in 2011, and was acquired by Payroc in October 2025, operating since as BlueSnap powered by Payroc. From Waltham, Massachusetts it runs a global payment orchestration platform: one integration reaching local card acquiring in 50 countries, more than 100 payment types and currencies, intelligent payment routing between acquirers, and automatic failover that retries a failed authorization with a secondary bank.</p><h3>Pricing and how it works</h3><p>Unusually for an orchestrator, BlueSnap publishes complete regional fee schedules as documents linked from its pricing page. On the US schedule, cards issued in the US cost 2.9% + 30 cents while cards issued abroad cost 4.40% + 30 cents, the premium following the card's issuing country rather than the merchant's location. Direct debit costs 0.50% + 30 cents, and local methods are priced individually. The add-on fees add up: fraud screening from 5 cents per transaction, 3-D Secure at 5 cents, the subscription engine at 0.70% of recurring value, marketplace split payments at 0.25%, manually keyed cards at an extra 0.50%, chargebacks at 25 dollars, and a 75 dollar Platform Access Fee in any month where sales fall below 5,000 dollars, waived for the first six months. Contracts are month-to-month with no early termination fee, and payouts run daily, landing two business days after settlement. Larger merchants negotiate interchange-plus or volume rates.</p><h3>Who it is for</h3><p>BlueSnap suits mid-size ecommerce and B2B businesses selling into multiple regions that want one contract instead of acquirer-by-acquirer setups, plus accounts receivable automation, Level 2 and 3 data support and ERP integrations with NetSuite, SAP, Chargebee and Zuora. Very small merchants trip over the monthly minimum, high-risk businesses are not the target, and merchants should model the add-on fees carefully, since the headline 2.9% understates the realistic total cost.</p>",
+  "foundedYear": 2001,
+  "headquarters": "Waltham, Massachusetts, United States",
+  "companySize": "251-1000",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "UK",
+    "EU",
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "interchange-plus",
+    "custom-quote"
+  ],
+  "pricingSummary": "The published US schedule prices US-issued cards at 2.9% + $0.30 and cards issued abroad at 4.40% + $0.30, with direct debit at 0.50% + $0.30. Add-ons are priced individually, and a $75 Platform Access Fee applies in months with under $5,000 in sales, waived for the first six months.",
+  "fees": {
+    "onlineCardRate": "2.9% + $0.30",
+    "keyedInRate": "Card rate plus 0.50% for manually entered transactions",
+    "internationalRate": "4.40% + $0.30 for cards issued outside the US",
+    "achRate": "0.50% + $0.30",
+    "monthlyFee": "$0 above $5,000 sales",
+    "setupFee": "None for standard onboarding",
+    "chargebackFee": "USD 25 per chargeback, USD 15 for direct debit reversals",
+    "monthlyMinimum": "USD 75 Platform Access Fee in months below USD 5,000 in sales, waived for the first 6 months",
+    "earlyTerminationFee": "None, month-to-month"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": false,
+  "payoutTime": "2-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "ach",
+    "sepa",
+    "bnpl",
+    "wallets",
+    "wire"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "mobile-sdk",
+    "virtual-terminal",
+    "invoicing",
+    "shopify",
+    "woocommerce",
+    "magento",
+    "bigcommerce"
+  ],
+  "currencies": "100+ currencies with local acquiring in 50 countries and acceptance from 200+ regions",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "marketplace-split",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "international",
+    "marketplaces",
+    "subscriptions"
+  ],
+  "bestFor": [
+    "Multi-region ecommerce",
+    "B2B and AR automation",
+    "Platforms and marketplaces",
+    "Subscription commerce"
+  ],
+  "industries": [
+    "Online retail",
+    "B2B software",
+    "Digital goods",
+    "Marketplaces"
+  ],
+  "pros": [
+    "One integration reaches local acquiring in 50 countries and 100+ payment types and currencies, with routing and automatic acquirer failover",
+    "Rare pricing transparency for an orchestrator, with full regional fee schedules published, month-to-month terms, no early termination fee and daily payouts",
+    "Built for B2B: accounts receivable automation, Level 2 and 3 card data, and ERP and billing integrations with NetSuite, SAP, Chargebee and Zuora"
+  ],
+  "cons": [
+    "Heavy a-la-carte fee stack: cross-border cards at 4.40% + 30 cents plus per-feature charges for fraud, 3-D Secure, subscriptions and failover that compound the headline rate",
+    "Weak consumer-facing reputation on Trustpilot with complaints about account management, holds and customer service",
+    "The 75 dollar monthly Platform Access Fee under 5,000 dollars in sales makes it a poor fit for very small merchants, and reserves can be applied after risk review"
+  ],
+  "editorScore": 3.9,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "BlueSnap Review | Pricing, Fees and Features",
+    "metaDescription": "BlueSnap charges 2.9 percent plus 30 cents on US-issued cards with local acquiring in 50 countries. See the full fee schedule, add-on costs and who it suits.",
+    "keywords": [
+      "bluesnap review",
+      "bluesnap pricing",
+      "bluesnap fees",
+      "bluesnap vs stripe",
+      "payment orchestration"
+    ],
+    "focusKeyword": "bluesnap review"
+  },
+  "faqs": [
+    {
+      "question": "How much does BlueSnap cost?",
+      "answer": "The published US schedule prices US-issued cards at 2.9% + 30 cents and cards issued outside the US at 4.40% + 30 cents, with direct debit at 0.50% + 30 cents. Add-ons are individually priced: fraud screening from 5 cents per transaction, 3-D Secure at 5 cents, the subscription engine at 0.70% of recurring value, split payments at 0.25% and keyed entry at an extra 0.50%. Higher-volume merchants negotiate interchange-plus or volume discounts."
+    },
+    {
+      "question": "Does BlueSnap have a monthly fee?",
+      "answer": "Only for small accounts. A 75 dollar Platform Access Fee applies in any month where sales fall below 5,000 dollars, and it is waived for the first six months after signing. Above that threshold there is no standard monthly fee, contracts run month-to-month and there is no early termination fee."
+    },
+    {
+      "question": "How fast does BlueSnap pay out?",
+      "answer": "Payouts run daily, with funds arriving two business days after settlement. An ACH transfer costs 50 cents and a wire costs 20 dollars on the US schedule, and FX fees apply when the presentment currency differs from the settlement currency."
+    },
+    {
+      "question": "Who owns BlueSnap?",
+      "answer": "Payroc, a US acquirer, signed a definitive agreement in July 2025 and completed the acquisition on October 9, 2025. BlueSnap continues to operate under its own brand as BlueSnap powered by Payroc, with the deal adding Payroc's acquiring capabilities behind BlueSnap's orchestration and accounts receivable products."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "bluesnap.com",
+  "logoSource": "https://www.bluesnap.com/wp-content/uploads/2019/01/favicon_Artboard-3-200x200.jpg",
+  "sources": [
+    "https://www.bluesnap.com/pricing/",
+    "https://www.bluesnap.com/wp-content/uploads/2024/10/SCH1.US_.USD_.V23.pdf",
+    "https://www.bluesnap.com/platform/global-payment-orchestration/",
+    "https://www.bluesnap.com/payment-methods/",
+    "https://www.bluesnap.com/integrations/",
+    "https://www.bluesnap.com/partners/",
+    "https://www.businesswire.com/news/home/20251009842648/en/Payroc-Completes-Acquisition-of-BlueSnap",
+    "https://www.g2.com/products/bluesnap/reviews",
+    "https://www.trustpilot.com/review/home.bluesnap.com"
+  ]
+}

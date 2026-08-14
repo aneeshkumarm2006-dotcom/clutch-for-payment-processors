@@ -1,0 +1,147 @@
+{
+  "name": "Paddle",
+  "slug": "paddle",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1786641671/logos/paddle-logo-27feef54.webp",
+  "website": "https://www.paddle.com",
+  "tagline": "Merchant of record for software companies: one 5% + $0.50 fee covers payments, global sales tax, billing, fraud and chargeback liability.",
+  "shortDescription": "London-based merchant of record for SaaS, consumer software and games. Paddle is the legal seller, so it registers, collects and remits sales tax and VAT worldwide and carries chargeback liability. Pay-as-you-go pricing is 5% + $0.50 per transaction with no monthly fee.",
+  "longDescription": "<p>Paddle was founded in London in 2012 and serves more than 10,000 software businesses as a merchant of record. That means Paddle, not the merchant, is the legal seller: its name appears on the customer's card statement, it registers for and remits sales tax and VAT around the world (112 million dollars remitted in the last year), it carries PCI compliance in its Level 1 vault, and it absorbs refund and chargeback liability. Merchants integrate once and skip tax registrations in dozens of jurisdictions.</p><h3>Pricing and how it works</h3><p>Pay-as-you-go pricing is 5% + 50 cents per checkout transaction, all-inclusive, with no monthly, setup or migration fees. That single fee bundles payment processing, global tax compliance, subscription billing, fraud protection, chargeback prevention, dunning and 24/7 support. Custom pricing exists for large-scale businesses and is required for products under 10 dollars or invoicing workflows. Chargebacks cost 15 dollars on cards and 20 dollars on PayPal, refunded if Paddle wins the dispute. The headline rate is well above a bare processor's 2.9% + 30 cents, so the deal only makes sense if the tax and billing bundle replaces real work. Payouts are monthly: the balance converts on the 1st and is paid between the 2nd and the 15th in USD, EUR, GBP, AUD or CAD, with a 100 dollar minimum.</p><h3>Who it is for</h3><p>Paddle fits B2B and consumer software, SaaS and games businesses selling globally that would otherwise burn engineering and accounting time on tax registrations, invoicing rules and billing infrastructure. Its checkout takes 18 payment methods, including Pix, UPI, iDEAL, BLIK and Korean local cards, across 33 pricing currencies. It is the wrong fit for physical goods, human services, marketplaces and every high-risk vertical, all of which are prohibited, and for businesses that need weekly cash flow rather than a monthly payout cycle.</p>",
+  "foundedYear": 2012,
+  "headquarters": "London, United Kingdom",
+  "companySize": "251-1000",
+  "supportedRegions": [
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "custom-quote"
+  ],
+  "pricingSummary": "Pay-as-you-go is 5% + $0.50 per transaction, all-inclusive: payment processing, global sales tax and VAT remittance, subscription billing, fraud, dunning and support. No monthly, setup or migration fees. Custom pricing applies to high volume and to products under $10.",
+  "fees": {
+    "onlineCardRate": "5% + $0.50",
+    "internationalRate": "Included, same all-in rate worldwide",
+    "monthlyFee": "None",
+    "setupFee": "None",
+    "chargebackFee": "USD 15 per card chargeback, USD 20 on PayPal, returned if the dispute is won",
+    "monthlyMinimum": "None",
+    "earlyTerminationFee": "None",
+    "refundPolicy": "Full or partial refunds from the dashboard, card refunds land in 3 to 5 working days, processing fee is retained"
+  },
+  "contractType": "no-contract",
+  "freeTrial": true,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "ach",
+    "sepa",
+    "upi",
+    "wallets",
+    "wire"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "payment-links",
+    "invoicing"
+  ],
+  "currencies": "33 pricing currencies with payouts in USD, EUR, GBP, AUD and CAD",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "chargeback-protection",
+    "reporting-dashboard",
+    "developer-friendly",
+    "24-7-support"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "ecommerce",
+    "international",
+    "developers"
+  ],
+  "bestFor": [
+    "SaaS",
+    "Consumer software",
+    "Game developers",
+    "Global digital sales"
+  ],
+  "industries": [
+    "B2B SaaS",
+    "Consumer software",
+    "Games",
+    "Digital products"
+  ],
+  "pros": [
+    "True merchant of record: Paddle registers, collects and remits sales tax and VAT worldwide and carries chargeback, refund and PCI liability",
+    "All-inclusive flat pricing of 5% + $0.50 with no monthly or setup fees replaces a whole billing, tax and dunning stack",
+    "Deep global coverage on one contract: 18 payment methods including Pix, UPI, iDEAL, BLIK and Korean local cards, in 33 pricing currencies"
+  ],
+  "cons": [
+    "Monthly-only payouts with net terms mean revenue can sit with Paddle for two to six weeks, with a 100 dollar minimum threshold",
+    "Strict digital-only vetting: physical goods, services, marketplaces, gambling, adult, crypto and financial products are all prohibited, and onboarding reviews can be slow",
+    "The 5% + $0.50 headline is expensive for pure processing, refunds retain the processing fee, and sub-10-dollar products need custom pricing"
+  ],
+  "editorScore": 4.3,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Paddle Review | Pricing, Fees and Features",
+    "metaDescription": "Paddle charges 5 percent plus 50 cents per sale as a merchant of record, covering global sales tax, billing and chargebacks. See fees, payouts and who it suits.",
+    "keywords": [
+      "paddle review",
+      "paddle pricing",
+      "paddle fees",
+      "paddle vs stripe",
+      "merchant of record"
+    ],
+    "focusKeyword": "paddle review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Paddle cost?",
+      "answer": "Pay-as-you-go pricing is 5% + $0.50 per checkout transaction with no monthly, setup or migration fees. The single fee bundles payment processing, global sales tax and VAT compliance, subscription billing, fraud protection, chargeback prevention, dunning and support. Rapidly scaling businesses can negotiate custom rates, and custom pricing is required for products under 10 dollars or invoicing workflows."
+    },
+    {
+      "question": "What does merchant of record actually cover?",
+      "answer": "Paddle is the legal seller of every transaction. It registers for, collects and remits sales tax and VAT in jurisdictions worldwide, carries PCI compliance, absorbs refund and chargeback liability, and its name appears on the customer's card statement. The merchant ships one integration instead of managing tax and payment compliance in dozens of countries."
+    },
+    {
+      "question": "How fast does Paddle pay out?",
+      "answer": "Monthly. The balance converts to a payout on the 1st of the month and is sent between the 2nd and the 15th, arriving up to three further working days later, via wire transfer or Payoneer in USD, EUR, GBP, AUD or CAD. The minimum payout threshold is 100 dollars, and balances below it roll to the next month."
+    },
+    {
+      "question": "Who cannot use Paddle?",
+      "answer": "Paddle only accepts software, SaaS, digital products and games, after account and domain verification. Prohibited categories include physical products, standalone human services such as consulting, marketplaces with third-party sellers, gambling, adult content, financial services, crypto exchanges and license resales. High-risk merchants and anyone selling physical goods need a different provider."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "paddle.com",
+  "logoSource": "https://paddle.com/icon4.png",
+  "sources": [
+    "https://www.paddle.com/pricing",
+    "https://www.paddle.com/about",
+    "https://www.paddle.com/blog/what-is-merchant-of-record",
+    "https://www.paddle.com/help/manage/get-paid/when-and-how-do-i-get-paid",
+    "https://www.paddle.com/help/manage/risk-prevention/understanding-chargebacks-with-paddle",
+    "https://www.paddle.com/help/start/intro-to-paddle/what-am-i-not-allowed-to-sell-on-paddle",
+    "https://developer.paddle.com/concepts/payment-methods/overview",
+    "https://developer.paddle.com/concepts/sell/supported-currencies/",
+    "https://www.g2.com/products/paddle/reviews"
+  ]
+}

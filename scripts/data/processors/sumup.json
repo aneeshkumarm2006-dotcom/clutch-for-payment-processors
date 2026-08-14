@@ -1,0 +1,144 @@
+{
+  "name": "SumUp",
+  "slug": "sumup",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1786641675/logos/sumup-logo-0c2e5f70.webp",
+  "website": "https://www.sumup.com",
+  "tagline": "Card readers and payments for over 4 million small businesses in 36 markets, with no monthly fees on the standard plan.",
+  "shortDescription": "London-based small-business payment provider known for cheap card readers and flat pay-as-you-go pricing. US in-person payments cost 2.6% + 10 cents and UK payments 1.69%, with no monthly fee, no minimums and no lock-in on the standard tier.",
+  "longDescription": "<p>SumUp was founded in 2012 in London and now serves more than 4 million merchants across 36 markets with over 3,000 employees. Its core product is simple: an affordable card reader, a flat transaction rate and no monthly fees. Since then it has added POS plans, a free business account, invoices, payment links, an online store and Tap to Pay on the merchant's own phone.</p><h3>Pricing and how it works</h3><p>US pricing is 2.6% + 10 cents in person, 2.9% + 15 cents for paid invoices and 3.5% + 15 cents for online and keyed transactions, with no monthly fee on the standard tier. UK pricing is 1.69% in person and 2.5% online pay-as-you-go, and a 19 pound per month Payments Plus plan drops domestic in-person cards to 0.99%, which pays for itself above roughly 3,000 pounds of monthly card volume. Hardware is cheap: readers start at 25 pounds plus VAT in the UK and the US Solo bundle costs 129 dollars, with no rental fees and a 30-day money-back guarantee. SumUp charges no fee for disputes, cash transactions or refunds. Payouts reach a bank in one to two business days, or by 7am the next day including weekends into the free SumUp Business Account in the UK. The main caveats are the expensive US card-not-present rate, a 12-month contract on the US POS software plans, and per-market feature differences.</p><h3>Who it is for</h3><p>SumUp is built for micro and small in-person sellers: market traders, cafes, salons, trades and mobile businesses that want to take cards without fixed costs or contracts. A real developer platform with APIs, hosted checkout and SDKs exists, which is unusual at this price point, but online-heavy sellers will find the card-not-present rates and thin ecommerce integrations limiting next to a dedicated gateway, and high-risk businesses are not accepted.</p>",
+  "foundedYear": 2012,
+  "headquarters": "London, United Kingdom",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "US",
+    "UK",
+    "EU",
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "subscription"
+  ],
+  "pricingSummary": "US pay-as-you-go is 2.6% + 10 cents in person and 3.5% + 15 cents online or keyed, with no monthly fee. UK pricing is 1.69% in person and 2.5% online, and the 19 pound Payments Plus plan cuts domestic in-person cards to 0.99%. Custom pricing starts around 10,000 pounds of monthly volume.",
+  "fees": {
+    "onlineCardRate": "3.5% + $0.15 US, 2.5% UK",
+    "inPersonCardRate": "2.6% + $0.10 in the US, 1.69% in the UK, 0.99% on the UK Payments Plus plan",
+    "keyedInRate": "3.5% + $0.15 in the US",
+    "monthlyFee": "$0 standard",
+    "setupFee": "None",
+    "chargebackFee": "None, SumUp does not charge an additional dispute fee",
+    "monthlyMinimum": "None",
+    "earlyTerminationFee": "None on pay-as-you-go, US POS software plans carry a 12-month contract"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "next-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "mobile-sdk",
+    "virtual-terminal",
+    "payment-links",
+    "invoicing",
+    "pos-hardware",
+    "woocommerce",
+    "wix"
+  ],
+  "currencies": "Settles in the local currency of each of its 36 markets",
+  "features": [
+    "tap-to-pay",
+    "tokenization",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "retail-pos",
+    "small-business",
+    "restaurants"
+  ],
+  "bestFor": [
+    "Mobile and market sellers",
+    "Cafes and salons",
+    "Trades",
+    "First card reader"
+  ],
+  "industries": [
+    "Food and drink",
+    "Retail",
+    "Beauty and wellness",
+    "Trades and services"
+  ],
+  "pros": [
+    "Low transparent flat pricing with zero monthly, setup or minimum fees on the standard tier, and readers from 25 pounds plus VAT or 129 dollars",
+    "Next-day payouts by 7am including weekends and holidays into the free SumUp Business Account in the UK",
+    "36 markets and more than 4 million merchants, plus a developer platform with APIs, hosted checkout and mobile SDKs that you won't get from most readers this cheap"
+  ],
+  "cons": [
+    "Expensive card-not-present processing in the US at 3.5% + 15 cents for online and keyed transactions",
+    "Recurring complaints about account verification holds and slow support responses despite a strong overall Trustpilot score",
+    "Features vary by market, the US POS software plans need a 12-month contract, and ecommerce depth is thin next to dedicated gateways"
+  ],
+  "editorScore": 4.4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "SumUp Review | Pricing, Fees and Features",
+    "metaDescription": "SumUp charges 2.6 percent plus 10 cents in person in the US and 1.69 percent in the UK, with no monthly fees. See reader prices, payouts and who it suits.",
+    "keywords": [
+      "sumup review",
+      "sumup pricing",
+      "sumup fees",
+      "sumup card reader",
+      "sumup vs square"
+    ],
+    "focusKeyword": "sumup review"
+  },
+  "faqs": [
+    {
+      "question": "How much does SumUp cost?",
+      "answer": "US standard pricing is 2.6% + 10 cents in person, 2.9% + 15 cents for paid invoices and 3.5% + 15 cents for online or manually keyed payments, with no monthly fee. UK pricing is 1.69% in person and 2.5% online on pay-as-you-go, and the 19 pound per month Payments Plus plan lowers domestic in-person cards to 0.99%. There are no setup fees, minimums or dispute fees."
+    },
+    {
+      "question": "How much is SumUp hardware?",
+      "answer": "UK readers start at 25 pounds plus VAT for the Solo Lite, with the Solo at 79 pounds and a full Terminal at 135 pounds, and Tap to Pay on a phone costs nothing. The US Solo bundle with charging cradle is 129 dollars. There are no hardware rental fees and paid hardware carries a 30-day money-back guarantee."
+    },
+    {
+      "question": "How fast does SumUp pay out?",
+      "answer": "Payouts reach an external bank account in one to two business days. UK merchants using the free SumUp Business Account are paid by 7am the next day, including weekends and public holidays, which is faster than most small-business processors."
+    },
+    {
+      "question": "Is SumUp good for online businesses?",
+      "answer": "It works, but it is not the strength. The US online and keyed rate of 3.5% + 15 cents is high, and while SumUp offers an online store, payment links, invoices and a developer API with WooCommerce and Wix support, there are no official Shopify, Magento or BigCommerce plugins. Online-heavy sellers usually do better with a dedicated gateway and keep SumUp for in-person sales."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "sumup.com",
+  "logoSource": "https://static.sumup.com/favicons/favicon.svg",
+  "sources": [
+    "https://www.sumup.com/en-us/credit-card-processing-fees/",
+    "https://www.sumup.com/en-gb/pricing/",
+    "https://www.sumup.com/en-gb/card-readers/",
+    "https://www.sumup.com/en-us/solo-innovative-affordable/",
+    "https://www.sumup.com/en-us/tap-to-pay/",
+    "https://www.sumup.com/en-us/about/",
+    "https://developer.sumup.com/",
+    "https://www.nerdwallet.com/business/software/learn/sumup",
+    "https://www.trustpilot.com/review/sumup.com"
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "name": "Paystack",
+  "slug": "paystack",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1786641680/logos/paystack-logo-b8be930d.webp",
+  "website": "https://paystack.com",
+  "tagline": "Stripe-owned African payment platform serving 200,000+ businesses in Nigeria, Ghana, Kenya, South Africa and Cote d'Ivoire.",
+  "shortDescription": "Lagos-based payment platform, a Stripe company since 2020, covering cards, bank transfer, USSD, mobile money and Apple Pay across five African markets. Nigerian local transactions cost 1.5% + NGN 100, hard-capped at NGN 2,000, with no setup or monthly fees.",
+  "longDescription": "<p>Paystack was founded in Lagos in 2015 by Shola Akinlade and Ezra Olubi, became the first Nigerian company through Y Combinator, and was acquired by Stripe in October 2020 for a reported 200 million dollars, the largest startup acquisition out of Nigeria at the time. Today it serves more than 200,000 businesses with merchant onboarding live in Nigeria, Ghana, Kenya, South Africa and Cote d'Ivoire, with Egypt and Rwanda in early access. It routes each market's real payment mix: cards, bank transfer, USSD, Visa QR and virtual accounts in Nigeria, M-PESA in Kenya, MTN and Orange mobile money in Ghana and Cote d'Ivoire, Capitec Pay and EFT in South Africa, plus Apple Pay.</p><h3>Pricing and how it works</h3><p>Pricing is pure pay-per-transaction with zero integration and zero maintenance fees. Nigerian local transactions cost 1.5% + NGN 100, with the NGN 100 waived under NGN 2,500 and total fees hard-capped at NGN 2,000, so a 10 million naira payment still costs at most NGN 2,000. International cards in Nigeria cost 3.9% + NGN 100. Ghana charges a flat 1.95%, Kenya 1.5% on M-PESA and 2.9% on local cards, and South Africa 2.9% + 1 rand plus VAT. Settlement is automatic and free: next working day in Nigeria and Ghana, two working days in Kenya and South Africa. Paystack charges no penalty for accepting a chargeback, though escalating a dispute to card-network arbitration carries the networks' own fees. In Nigeria it also sells card terminals, virtual accounts and identity verification APIs.</p><h3>Who it is for</h3><p>Paystack is the default choice for businesses in its five live markets that want reliable local acceptance with developer-grade APIs and 60+ platform integrations including Shopify, WooCommerce, Wix and BigCommerce. It cannot onboard merchants outside Africa, features vary noticeably between markets, and payout-delay complaints during compliance reviews are the main recurring criticism.</p>",
+  "foundedYear": 2015,
+  "headquarters": "Lagos, Nigeria",
+  "companySize": "251-1000",
+  "supportedRegions": [
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate"
+  ],
+  "pricingSummary": "Nigerian local transactions cost 1.5% + NGN 100, waived under NGN 2,500 and capped at NGN 2,000 per transaction; international cards cost 3.9% + NGN 100. Ghana is a flat 1.95%, Kenya 1.5% for M-PESA and 2.9% for local cards, South Africa 2.9% + ZAR 1 plus VAT. No setup or monthly fees in any market.",
+  "fees": {
+    "onlineCardRate": "1.5% + NGN 100, capped",
+    "internationalRate": "3.9% + NGN 100 in Nigeria, 3.8% in Kenya, 3.1% + ZAR 1 in South Africa",
+    "inPersonCardRate": "0.5% capped at NGN 1,000 on Paystack Terminal in Nigeria",
+    "monthlyFee": "None",
+    "setupFee": "None",
+    "chargebackFee": "No Paystack penalty for accepted chargebacks, card-network arbitration fees apply only if escalated",
+    "monthlyMinimum": "None",
+    "earlyTerminationFee": "None"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "next-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "apple-pay",
+    "ach",
+    "netbanking",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "mobile-sdk",
+    "virtual-terminal",
+    "payment-links",
+    "invoicing",
+    "pos-hardware",
+    "shopify",
+    "woocommerce",
+    "bigcommerce",
+    "wix"
+  ],
+  "currencies": "Settles in NGN, GHS, KES or USD, ZAR and XOF depending on market, with optional USD settlement in Nigeria and Kenya",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "marketplace-split",
+    "reporting-dashboard",
+    "developer-friendly",
+    "24-7-support"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "international",
+    "ecommerce",
+    "small-business",
+    "developers"
+  ],
+  "bestFor": [
+    "African ecommerce",
+    "Mobile money acceptance",
+    "Developer integrations",
+    "Recurring billing in Africa"
+  ],
+  "industries": [
+    "Online retail",
+    "Fintech",
+    "Education",
+    "Licensed betting",
+    "Media and creators"
+  ],
+  "pros": [
+    "Covers each market's local rails, USSD, bank transfer and Visa QR in Nigeria, M-PESA in Kenya, mobile money in Ghana and Cote d'Ivoire, with automatic routing that keeps success rates high",
+    "Cheap transparent local pricing with a hard fee cap in Nigeria of 1.5% + NGN 100 capped at NGN 2,000, and zero setup or monthly fees everywhere",
+    "APIs, SDKs and 60+ integrations including Shopify, WooCommerce, Wix and BigCommerce, with Stripe behind the engineering"
+  ],
+  "cons": [
+    "Merchant signup is limited to businesses based in Nigeria, Ghana, Kenya, South Africa and Cote d'Ivoire, with Egypt and Rwanda still in early access",
+    "Payout holds and delays during compliance reviews are the dominant complaint theme in customer reviews",
+    "Feature fragmentation across markets: terminals, virtual accounts, USSD and identity verification are Nigeria-only, and payout timing varies from one to two working days"
+  ],
+  "editorScore": 4.4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Paystack Review | Pricing, Fees and Features",
+    "metaDescription": "Paystack charges 1.5 percent plus NGN 100 on Nigerian transactions, capped at NGN 2,000, with no monthly fees. See rates in all five markets and who it suits.",
+    "keywords": [
+      "paystack review",
+      "paystack pricing",
+      "paystack fees",
+      "paystack vs flutterwave",
+      "nigeria payment gateway"
+    ],
+    "focusKeyword": "paystack review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Paystack cost?",
+      "answer": "There are no setup or monthly fees in any market. Nigerian local transactions cost 1.5% + NGN 100, with the NGN 100 waived under NGN 2,500 and fees hard-capped at NGN 2,000 per transaction; international cards cost 3.9% + NGN 100. Ghana charges a flat 1.95%, Kenya charges 1.5% on M-PESA and 2.9% on local cards, and South Africa charges 2.9% + 1 rand plus 15% VAT on fees."
+    },
+    {
+      "question": "Which countries can use Paystack?",
+      "answer": "Merchant signup is live for businesses registered in Nigeria, Ghana, Kenya, South Africa and Cote d'Ivoire, with Egypt and Rwanda in early access. Businesses based in the US, UK, Europe or Asia cannot open a Paystack account, though merchants in the live markets can accept international cards from customers worldwide."
+    },
+    {
+      "question": "How fast does Paystack pay out?",
+      "answer": "Settlement is automatic and free: next working day in Nigeria and Ghana, and two working days in Kenya and South Africa. Nigerian merchants can optionally settle international transactions in US dollars through a domiciliary account pilot, and Kenyan merchants can charge and settle international cards in either KES or USD."
+    },
+    {
+      "question": "Who owns Paystack?",
+      "answer": "Stripe acquired Paystack in October 2020 for a reported 200 million dollars and it continues to operate as a Stripe company under its own brand. It marked ten years in January 2026 and remains headquartered in Lagos with offices across Africa, the US and Dubai."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "paystack.com",
+  "logoSource": "https://www.google.com/s2/favicons?sz=128&domain=paystack.com",
+  "sources": [
+    "https://paystack.com/pricing",
+    "https://paystack.com/gh/pricing",
+    "https://paystack.com/ke/pricing",
+    "https://paystack.com/za/pricing",
+    "https://paystack.com/ci/pricing",
+    "https://paystack.com/integrations",
+    "https://paystack.com/security",
+    "https://support.paystack.com/en/articles/2125698",
+    "https://techcrunch.com/2020/10/15/stripe-acquires-nigerias-paystack-for-200m-to-expand-into-the-african-continent",
+    "https://en.wikipedia.org/wiki/Paystack"
+  ]
+}

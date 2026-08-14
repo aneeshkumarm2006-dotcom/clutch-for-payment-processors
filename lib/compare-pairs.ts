@@ -120,10 +120,9 @@ export const POPULAR_COMPARE_PAIRS: readonly (readonly [string, string])[] = [
   ["adyen", "windcave"], // enterprise omnichannel with own acquiring
 
   // Specialists whose nearest published rival is Stripe rather than each other.
-  // Their true head-to-heads are Coinbase Commerce and Paddle, both of which are
-  // seeded unpublished, and a pair naming an unpublished slug renders a 404.
-  // "X vs Stripe" is the real search for both anyway: Stripe is the default these
-  // are argued against.
+  // (Coinbase Commerce, NOWPayments' true head-to-head, is seeded unpublished,
+  // and a pair naming an unpublished slug renders a 404.) "X vs Stripe" is the
+  // real search for both anyway: Stripe is the default these are argued against.
   ["stripe", "nowpayments"], // accepting crypto instead of, or alongside, cards
   ["stripe", "revenuecat"], // in-app purchase billing vs web checkout
 
@@ -133,6 +132,40 @@ export const POPULAR_COMPARE_PAIRS: readonly (readonly [string, string])[] = [
   // has to separate the POS decision from the processing decision. MYR's true
   // rivals (Toast, Clover, Lightspeed) are not listed here at all.
   ["square", "myr-pos"],
+
+  // --- 2026-08-13 listing batch (Checkout.com, Worldpay, GoCardless, Paddle,
+  // Chargebee, SumUp, Airwallex, BlueSnap, Paystack, BitPay) -----------------
+  // Same selection rule: only pairs a merchant genuinely cross-shops, left slug
+  // is the more-searched side.
+
+  // Enterprise acquirers argued against each other and against the default.
+  ["stripe", "checkout-com"],
+  ["adyen", "checkout-com"], // the classic enterprise RFP shortlist
+  ["stripe", "worldpay"],
+  ["adyen", "worldpay"],
+
+  // Bank debit vs the card default: the recurring-revenue cost comparison.
+  ["stripe", "gocardless"],
+
+  // Merchant of record. Paddle was an unpublished stub until this batch; it is
+  // the name Polar and Dodo are actually argued against.
+  ["stripe", "paddle"],
+  ["paddle", "polar-payments"],
+  ["paddle", "dodo-payments"],
+
+  // Subscription billing: Chargebee enters the existing billing cluster.
+  ["chargebee", "maxio"],
+  ["chargebee", "billsby"],
+
+  // SMB card readers: the head-to-head every market-stall seller searches.
+  ["square", "sumup"],
+
+  // Cross-border and orchestration, argued against the default.
+  ["stripe", "airwallex"],
+  ["stripe", "bluesnap"],
+  ["stripe", "paystack"], // Stripe owns Paystack, still a real search
+  // Crypto acceptance: the direct published head-to-head.
+  ["bitpay", "nowpayments"],
 ];
 
 /** The `-vs-` delimiter joining the two slugs in a pretty compare URL. */

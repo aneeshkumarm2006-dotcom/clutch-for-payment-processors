@@ -1,0 +1,158 @@
+{
+  "name": "Worldpay",
+  "slug": "worldpay",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1786641668/logos/worldpay-logo-ce5d0200.webp",
+  "website": "https://www.worldpay.com",
+  "tagline": "Global enterprise acquirer processing 55 billion transactions a year across 174 countries, now owned by Global Payments.",
+  "shortDescription": "One of the largest merchant acquirers in the world, handling roughly 2.3 trillion dollars annually across 174 countries and 138 currencies. Pricing is a negotiated custom quote in the US; UK merchants get indicative calculator pricing with 24-hour settlement.",
+  "longDescription": "<p>Worldpay traces its lineage to 1971 in Cincinnati, merged with the UK's Worldpay Group as Vantiv in 2018, and has changed hands twice since: FIS bought it in 2019, private equity firm GTCR took majority control in 2024, and Global Payments completed a 24.25 billion dollar acquisition of the whole business in January 2026. It processes over 55 billion transactions a year across 174 countries and 138 currencies, and sells everything from countertop card readers to full enterprise acquiring.</p><h3>Pricing and how it works</h3><p>Worldpay publishes no US rate card. American merchants negotiate a custom quote, typically interchange-plus for small business, and the monthly fees, PCI fees and any early termination fee all depend on the signed agreement. UK merchants get an indicative online quote instead: the calculator shows a per-transaction authorisation fee of 4.5p, a 20 pound monthly terminal rental, a 5 pound monthly PCI service fee, a 15 pound minimum monthly service charge and 20 pound chargebacks, with settlement in 24 hours. A UK pay-as-you-go ecommerce plan with no contract is also sold, reported by reviewers at 1.3% + 20p per consumer card transaction. US funding is fast: next-day is standard, with same-day funding and a push-to-card option that lands in about 30 minutes.</p><h3>Who it is for</h3><p>Worldpay fits established, higher-volume and multi-country businesses, platforms using its PayFac stack, and regulated verticals such as travel, gaming and crypto that many acquirers avoid. Micro-merchants who want transparent flat-rate pricing will find the negotiated contracts, monthly minimums and legacy terminal terms harder work than a Square or SumUp style provider, and the Global Payments takeover means products and branding are likely to keep shifting.</p>",
+  "foundedYear": 1971,
+  "headquarters": "Cincinnati, Ohio, United States",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "UK",
+    "EU",
+    "Global"
+  ],
+  "pricingModel": [
+    "interchange-plus",
+    "custom-quote"
+  ],
+  "pricingSummary": "US pricing is a negotiated custom quote, typically interchange-plus for small businesses. The UK calculator shows indicative pricing of a 4.5p authorisation fee per transaction with a 20 pound monthly terminal fee, 5 pound PCI fee and 15 pound monthly minimum.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "inPersonCardRate": "Custom quote, UK terminal plans from 20 GBP per month plus authorisation fees",
+    "internationalRate": "Negotiated per contract across 138 currencies",
+    "monthlyFee": "Negotiated",
+    "setupFee": "Not published",
+    "chargebackFee": "GBP 20 in the UK, negotiated in the US",
+    "pciFee": "GBP 5 per month in the UK, varies by US contract",
+    "monthlyMinimum": "GBP 15 per month in the UK, varies by US contract",
+    "earlyTerminationFee": "None on UK pay-as-you-go ecommerce, applies to fixed-term agreements"
+  },
+  "freeTrial": false,
+  "payoutTime": "next-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "ach",
+    "sepa",
+    "bnpl",
+    "wallets",
+    "wire"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "mobile-sdk",
+    "virtual-terminal",
+    "payment-links",
+    "pos-hardware",
+    "woocommerce",
+    "magento",
+    "bigcommerce"
+  ],
+  "currencies": "138 currencies across 174 countries",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "marketplace-split",
+    "reporting-dashboard",
+    "chargeback-protection",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "retail-pos",
+    "international",
+    "marketplaces"
+  ],
+  "bestFor": [
+    "Enterprise acquiring",
+    "Multi-country retailers",
+    "Platforms and PayFacs",
+    "Regulated verticals"
+  ],
+  "industries": [
+    "Retail",
+    "Travel",
+    "Gaming",
+    "Software platforms",
+    "Financial services"
+  ],
+  "pros": [
+    "Scale few acquirers match: 55 billion transactions a year across 174 countries and 138 currencies",
+    "Fast US funding options, with next-day standard, same-day funding and a 30-minute push-to-card option",
+    "Takes on regulated verticals such as travel, gaming and crypto, and runs a PayFac stack for software platforms that embed payments"
+  ],
+  "cons": [
+    "No published US rate card, so rates, monthly fees and termination terms are all negotiated and hard to comparison-shop",
+    "Recurring complaints of fund holds, difficulty cancelling, mid-contract rate increases and long support hold times",
+    "UK terminal plans historically carried 18-month terms with exit fees, and monthly minimums plus PCI fees add up for micro-merchants"
+  ],
+  "editorScore": 3.9,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Worldpay Review | Pricing, Fees and Features",
+    "metaDescription": "Worldpay processes 55 billion transactions a year in 174 countries, with negotiated US pricing and 24-hour UK settlement. See fees, contracts and who it suits.",
+    "keywords": [
+      "worldpay review",
+      "worldpay pricing",
+      "worldpay fees",
+      "worldpay vs stripe",
+      "worldpay merchant services"
+    ],
+    "focusKeyword": "worldpay review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Worldpay cost?",
+      "answer": "Worldpay does not publish a US rate card: pricing is a negotiated custom quote, typically interchange-plus for small businesses. In the UK its online calculator shows indicative pricing of a 4.5p authorisation fee per transaction, a 20 pound monthly terminal rental, a 5 pound monthly PCI service fee, a 15 pound minimum monthly service charge and 20 pound chargeback fees. A UK pay-as-you-go ecommerce plan reported at 1.3% + 20p per consumer card transaction is available with no contract."
+    },
+    {
+      "question": "Who owns Worldpay now?",
+      "answer": "Global Payments completed its acquisition of Worldpay on January 12, 2026 in a 24.25 billion dollar cash and stock deal, buying out FIS and private equity firm GTCR. Worldpay had previously been part of FIS from 2019 and majority-owned by GTCR from 2024. Expect continued product and branding migration under Global Payments."
+    },
+    {
+      "question": "How fast does Worldpay pay out?",
+      "answer": "UK merchants settle in 24 hours on the indicative pricing plan. In the US, next-day funding is standard with a 7 PM Eastern cut-off, and merchants can opt into same-day funding or FastAccess push-to-card payouts that arrive in roughly 30 minutes."
+    },
+    {
+      "question": "Does Worldpay lock merchants into contracts?",
+      "answer": "It depends on the product. The UK pay-as-you-go ecommerce plan has no contract and no exit fees, but UK terminal plans have historically run on 18-month terms, and US merchant agreements are negotiated and have carried early termination fees. Read the term sheet carefully before signing, especially for hardware bundles."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "worldpay.com",
+  "logoSource": "https://www.google.com/s2/favicons?sz=128&domain=worldpay.com",
+  "sources": [
+    "https://www.worldpay.com/",
+    "https://go.worldpay.com/pricing",
+    "https://www.worldpay.com/en/small-business",
+    "https://www.prnewswire.com/news-releases/gtcr-completes-sale-of-worldpay-to-global-payments-302658108.html",
+    "https://docs.worldpay.com/support/dynamicpayoutdailyops",
+    "https://platforms.worldpay.com/",
+    "https://resource-center.worldpayforplatforms.com/wp4p/platform-security-and-compliance",
+    "https://www.nerdwallet.com/reviews/small-business/worldpay",
+    "https://www.merchantsavvy.co.uk/payment-processors/worldpay-review-fees/",
+    "https://startups.co.uk/payment-processing/worldpay/"
+  ]
+}

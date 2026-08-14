@@ -1,0 +1,140 @@
+{
+  "name": "BitPay",
+  "slug": "bitpay",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1786641681/logos/bitpay-logo-0ab648ec.webp",
+  "website": "https://bitpay.com",
+  "tagline": "Longest-running major crypto payment processor: accept 100+ cryptocurrencies, settle in fiat daily, with no chargebacks.",
+  "shortDescription": "Atlanta-based crypto payment processor operating since 2011. Merchants accept Bitcoin, Ethereum, stablecoins and 100+ other coins while BitPay locks the exchange rate at invoice time and settles fiat to the bank daily. Fees run 1% to 2% + 25 cents by volume.",
+  "longDescription": "<p>BitPay was founded in 2011 in Atlanta and is the longest-operating major cryptocurrency payment processor, with rare regulatory footing for the niche: an NMLS money-transmitter registration and a New York BitLicense. Merchants accept more than 100 cryptocurrencies including Bitcoin, Ethereum, XRP, Dogecoin and the major stablecoins, while customers pay from any wallet. The exchange rate locks when the invoice is created and BitPay converts instantly, so the merchant never holds crypto or takes volatility risk unless they choose crypto or stablecoin settlement.</p><h3>Pricing and how it works</h3><p>Fees are tiered by monthly paid-invoice volume: 2% + 25 cents below 500,000 dollars a month, 1.5% + 25 cents to 999,999 dollars, and 1% + 25 cents at a million dollars and above, with higher rates for high-risk industries. There is no monthly or setup fee, and because blockchain payments are push transactions there are no chargebacks at all. Buyers pay a separate network cost fee on top of the invoice. Settlement is calculated every business day, with fiat arriving in about one to two business days across eight currencies including USD, EUR and GBP, in 37 countries by bank transfer; crypto and stablecoin settlement reach 200+ countries. Refunds are possible but clunky: the merchant covers the network fee on a refund and the buyer's original network cost is not returned.</p><h3>Who it is for</h3><p>BitPay fits ecommerce, luxury goods, electronics, travel and precious metals sellers that want a no-chargeback payment rail for international customers, added alongside card processing rather than replacing it. Plugins cover Shopify, WooCommerce, Magento 2, BigCommerce, Wix and WHMCS, plus email billing and a retail app. Onboarding involves real KYB scrutiny, some verticals such as cannabis, weapons and MLM are prohibited, and demand is inherently niche: it is an additional payment option, not a primary processor.</p>",
+  "foundedYear": 2011,
+  "headquarters": "Atlanta, Georgia, United States",
+  "companySize": "51-250",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "UK",
+    "EU",
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "tiered"
+  ],
+  "pricingSummary": "Processing is tiered by monthly volume: 2% + $0.25 under $500,000, 1.5% + $0.25 to $999,999 and 1% + $0.25 from $1 million, with no monthly or setup fees. Buyers pay a separate network cost fee, and high-risk industries pay elevated rates.",
+  "fees": {
+    "onlineCardRate": "No card payments",
+    "internationalRate": "Same crypto rate worldwide, crypto settlement available in 200+ countries",
+    "monthlyFee": "None",
+    "setupFee": "None",
+    "chargebackFee": "None, blockchain payments cannot be charged back",
+    "monthlyMinimum": "None",
+    "earlyTerminationFee": "None",
+    "refundPolicy": "Merchant-initiated refunds deduct the blockchain network fee, and the buyer's original network cost fee is not returned"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "2-day",
+  "paymentMethods": [
+    "crypto"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "payment-links",
+    "invoicing",
+    "shopify",
+    "woocommerce",
+    "magento",
+    "bigcommerce",
+    "wix"
+  ],
+  "currencies": "Accepts 100+ cryptocurrencies, settles in 8 fiat currencies including USD, EUR and GBP across 37 countries, or in 15 cryptos and stablecoins worldwide",
+  "features": [
+    "multi-currency",
+    "chargeback-protection",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "N/A",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "international",
+    "developers"
+  ],
+  "bestFor": [
+    "Crypto checkout",
+    "International sales",
+    "High-ticket goods",
+    "No-chargeback payments"
+  ],
+  "industries": [
+    "Ecommerce",
+    "Luxury goods",
+    "Electronics",
+    "Travel",
+    "Precious metals"
+  ],
+  "pros": [
+    "Operating since 2011 with an NMLS registration and a New York BitLicense, licensing few crypto processors hold",
+    "The rate locks at invoice time and fiat settles to the bank in one to two business days, so merchants never hold crypto or take price risk",
+    "No chargebacks and no monthly or setup fees, with 1% to 2% + 25 cents undercutting typical card processing, plus a broad plugin catalog"
+  ],
+  "cons": [
+    "Crypto-only with no card fallback, so it works as an additional payment rail rather than a primary processor",
+    "Strict KYB onboarding, and accounts can be flagged or held for compliance review, the dominant complaint in consumer reviews",
+    "Refund experience is clunky: the merchant eats the network fee on refunds and the buyer's original network cost is never returned"
+  ],
+  "editorScore": 4.0,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "BitPay Review | Pricing, Fees and Features",
+    "metaDescription": "BitPay processes crypto payments from 1 to 2 percent plus 25 cents with daily fiat settlement and no chargebacks. See fees, coins, payouts and who it suits.",
+    "keywords": [
+      "bitpay review",
+      "bitpay pricing",
+      "bitpay fees",
+      "accept bitcoin payments",
+      "crypto payment processor"
+    ],
+    "focusKeyword": "bitpay review"
+  },
+  "faqs": [
+    {
+      "question": "How much does BitPay cost?",
+      "answer": "Fees are tiered by monthly paid-invoice volume: 2% + 25 cents per transaction under 500,000 dollars a month, 1.5% + 25 cents between 500,000 and 999,999 dollars, and 1% + 25 cents at a million dollars and above. There are no monthly or setup fees and no chargeback fees. Buyers additionally pay a network cost fee that covers blockchain miner fees, and high-risk industries pay elevated rates."
+    },
+    {
+      "question": "How does BitPay protect merchants from crypto volatility?",
+      "answer": "The exchange rate is locked the moment an invoice is created, and BitPay converts the payment instantly. Merchants receive the full fiat value regardless of what the coin does afterwards, with settlement calculated every business day and funds arriving in about one to two business days in USD, EUR, GBP or five other fiat currencies. Merchants who prefer can settle in 15 cryptocurrencies or stablecoins instead."
+    },
+    {
+      "question": "Can BitPay payments be charged back?",
+      "answer": "No. Blockchain payments are push transactions and cannot be reversed by the buyer's bank, so the entire card chargeback mechanism does not exist. That makes BitPay attractive for high-ticket and international sales. Refunds remain possible, but they are merchant-initiated, and the blockchain network fee comes out of the refund."
+    },
+    {
+      "question": "Who should use BitPay?",
+      "answer": "Ecommerce and high-ticket merchants such as luxury goods, electronics, travel and precious metals sellers that want a no-chargeback option for crypto-holding customers, especially internationally. It suits businesses adding crypto alongside card processing. Merchants in prohibited verticals such as cannabis, weapons, MLM and derivatives cannot use it, and every account goes through KYB verification."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "bitpay.com",
+  "logoSource": "https://framerusercontent.com/images/2iIIkkV5Qoskq2dfhwja8G8rFW0.png",
+  "sources": [
+    "https://www.bitpay.com/pricing",
+    "https://www.bitpay.com/blog/bitpay-pricing-update",
+    "https://bitpay.com/about",
+    "https://www.bitpay.com/online-payments",
+    "https://developer.bitpay.com/docs/settlement",
+    "https://developer.bitpay.com/docs/plugins",
+    "https://support.bitpay.com/hc/en-us/articles/360000123366",
+    "https://support.bitpay.com/hc/en-us/articles/115003105543",
+    "https://www.bitpay.com/resources/bitpay-supports-100-cryptocurrencies-for-merchants",
+    "https://en.wikipedia.org/wiki/BitPay"
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "name": "Checkout.com",
+  "slug": "checkout-com",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1786641665/logos/checkout-com-logo-18a5ad6f.webp",
+  "website": "https://www.checkout.com",
+  "tagline": "Enterprise acquirer with direct licenses across the UK, EEA, US, APAC and MENAP, custom Interchange++ pricing and same-day settlement.",
+  "shortDescription": "London-based global acquirer for mid-market and enterprise online businesses. Pricing is a custom Interchange++ or flat-rate quote with no setup or account maintenance fees, and fraud tooling is included rather than sold as an add-on.",
+  "longDescription": "<p>Checkout.com is a London-headquartered payment service provider founded in 2012 by Guillaume Pousaz. Unlike gateway resellers, it holds its own acquiring licenses across the UK, the EEA, the US, APAC and MENAP, and processes in 57 domestic markets, which lifts authorization rates by keeping transactions on local rails. The company employs well over 1,000 people across 19 offices and serves large online brands, fintechs, marketplaces and regulated verticals.</p><h3>Pricing and how it works</h3><p>Checkout.com publishes no rate card. Every merchant receives a tailored quote, either fully flat-rate based on business profile and risk category, or Interchange++ with card scheme and processor costs passed through transparently. The company states there are no setup fees, no account maintenance fees and no surprise fees, and registered charities process free. Fraud Detection Pro is included rather than priced as an add-on. Settlement supports 20 currencies and can run as fast as same-day, with two intraday payouts inside banking hours. The trade-off is that onboarding is sales-led: third-party reviewers consistently report that Checkout.com engages best with merchants processing roughly 1 million dollars a month or more, and at least one documented case involved a monthly processing minimum in the contract.</p><h3>Who it is for</h3><p>Checkout.com suits established online businesses with international volume that want direct local acquiring, Interchange++ transparency and marketplace payout tooling through its Platforms product. It also onboards licensed high-risk verticals such as iGaming, forex and crypto businesses after enhanced due diligence. It is the wrong fit for small merchants who want self-serve signup with published flat rates, and for anyone selling in person, since there is no POS or card-present product.</p>",
+  "foundedYear": 2012,
+  "headquarters": "London, United Kingdom",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "UK",
+    "EU",
+    "US",
+    "Global"
+  ],
+  "pricingModel": [
+    "interchange-plus",
+    "flat-rate",
+    "custom-quote"
+  ],
+  "pricingSummary": "No published rates: every merchant gets a custom Interchange++ or flat-rate quote based on profile and risk category. Checkout.com states there are no setup, account maintenance or surprise fees, and registered charities process free of charge.",
+  "fees": {
+    "onlineCardRate": "Custom quote",
+    "internationalRate": "Custom quote, local acquiring in 57 domestic markets reduces cross-border cost",
+    "achRate": "ACH and SEPA Direct Debit supported, rates quoted per merchant",
+    "monthlyFee": "None",
+    "setupFee": "None",
+    "chargebackFee": "Scheme and dispute costs passed through at cost on Interchange++ contracts",
+    "monthlyMinimum": "Not published, negotiated volume commitments are common in practice",
+    "earlyTerminationFee": "Not published, set per negotiated agreement"
+  },
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "ach",
+    "sepa",
+    "bnpl",
+    "wallets",
+    "wire"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "mobile-sdk",
+    "payment-links",
+    "shopify",
+    "woocommerce",
+    "magento"
+  ],
+  "currencies": "150+ processing currencies with settlement in 20 currencies",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "marketplace-split",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": true,
+  "categorySlugs": [
+    "ecommerce",
+    "international",
+    "marketplaces",
+    "high-risk",
+    "developers"
+  ],
+  "bestFor": [
+    "Enterprise ecommerce",
+    "International sellers",
+    "Marketplaces",
+    "Licensed high-risk verticals"
+  ],
+  "industries": [
+    "Online retail",
+    "Fintech",
+    "Travel",
+    "iGaming",
+    "Digital content"
+  ],
+  "pros": [
+    "Direct acquiring licenses in the UK, EEA, US, APAC and MENAP with 57 domestic processing markets, so authorizations stay on local rails",
+    "Transparent Interchange++ contracts with no setup or account maintenance fees, and Fraud Detection Pro included at no extra charge",
+    "150+ processing currencies, 20 settlement currencies and same-day settlement with two intraday payouts available"
+  ],
+  "cons": [
+    "No published pricing at all, so cost cannot be estimated without going through a sales cycle",
+    "Effectively enterprise-only: reviewers report the company engages best above roughly 1 million dollars in monthly volume, and contracts can carry processing minimums",
+    "Online-only with no POS product, and new or higher-risk accounts can be subject to rolling reserves"
+  ],
+  "editorScore": 4.2,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Checkout.com Review | Pricing, Fees and Features",
+    "metaDescription": "Checkout.com quotes custom interchange-plus pricing with no setup or monthly account fees. See how its direct global acquiring, settlement speed and enterprise focus compare.",
+    "keywords": [
+      "checkout.com review",
+      "checkout.com pricing",
+      "checkout.com fees",
+      "checkout.com vs stripe",
+      "checkout.com vs adyen"
+    ],
+    "focusKeyword": "checkout.com review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Checkout.com cost?",
+      "answer": "Checkout.com does not publish rates. Every merchant is quoted individually, either a flat rate based on business profile and risk category or an Interchange++ contract where card scheme and processor costs are passed through at cost. Checkout.com says there are no setup, maintenance or surprise fees, and registered charities process free of charge."
+    },
+    {
+      "question": "Is Checkout.com suitable for small businesses?",
+      "answer": "Generally not. There is no self-serve signup and no published pricing, and third-party reviewers consistently report that Checkout.com engages best with merchants processing roughly 1 million dollars a month or more. Smaller online businesses are usually better served by a self-serve provider such as Stripe or Mollie until their volume justifies enterprise negotiation."
+    },
+    {
+      "question": "How fast does Checkout.com pay out?",
+      "answer": "Settlement timing depends on region and currency, ranging from minutes to a few days. Checkout.com supports same-day T+0 settlement with two intraday payouts inside banking hours, and settles in 20 currencies. Established UK merchants typically see next-working-day settlement."
+    },
+    {
+      "question": "Does Checkout.com accept high-risk merchants?",
+      "answer": "Selectively, yes. Restricted categories such as licensed gambling and gaming, forex and crypto businesses can onboard after enhanced due diligence, and some betting activity requires prior written consent. Unlicensed operators in those verticals are not accepted, and new or higher-risk accounts may carry rolling reserves."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "checkout.com",
+  "logoSource": "https://cdn.prod.website-files.com/64db80a5e88c6b1723ff760b/652d4e6c02966c743d614ba5_Webclip.png",
+  "sources": [
+    "https://www.checkout.com/pricing",
+    "https://www.checkout.com/solutions/international-coverage",
+    "https://www.checkout.com/payment-methods",
+    "https://support.checkout.com/hc/en-us/articles/14323919011090-Receive-payments-with-Checkout-com",
+    "https://www.checkout.com/legal/unregulated-platform-aup",
+    "https://www.checkout.com/docs/business-operations/ensure-regulatory-compliance/pci-compliance",
+    "https://apps.shopify.com/checkout-com-onsite-payments",
+    "https://www.businessexpert.co.uk/payment-processing/checkout-com-review/",
+    "https://costbench.com/software/payment-processing/checkout-com/",
+    "https://www.g2.com/products/checkout-com/reviews"
+  ]
+}

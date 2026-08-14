@@ -1,0 +1,139 @@
+{
+  "name": "Chargebee",
+  "slug": "chargebee",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1786641673/logos/chargebee-logo-3b26dc18.webp",
+  "website": "https://www.chargebee.com",
+  "tagline": "Subscription billing and revenue management platform that sits on top of 40+ payment gateways, from a free pay-as-you-go tier.",
+  "shortDescription": "Billing layer for subscription and usage-based businesses. Chargebee is not a processor: it orchestrates Stripe, Adyen, Braintree, GoCardless and 40+ other gateways while handling plans, dunning, invoicing and revenue recognition. Pay-as-you-go costs 0.80% of billing.",
+  "longDescription": "<p>Chargebee was founded in 2011 in Chennai and is now a remote-first company of over 1,000 people headquartered in San Francisco, serving more than 6,500 businesses in 227 countries and territories. One thing it is not is a processor: Chargebee never touches the money. It is a billing and revenue management layer that connects to more than 40 payment gateways across 150+ countries, including Stripe, Adyen, Braintree, Checkout.com, BlueSnap, GoCardless, Mollie and Razorpay, and drives them with plans, trials, coupons, proration, dunning and invoicing logic.</p><h3>Pricing and how it works</h3><p>As of 2026 Chargebee prices its billing platform on usage. The pay-as-you-go plan has no platform fee and charges 0.80% of monthly billing value; a committed plan costs 99 dollars a month plus 0.65% of billing; and Enterprise Plus is custom-priced on an annual commitment. Historically the Starter tier was free until 250,000 dollars of cumulative billing with a 0.75% overage, and the 599 dollar Performance tier included 100,000 dollars of monthly billing, a structure still referenced in older reviews. Revenue recognition, CPQ and the retention product are all priced separately. Because Chargebee holds no funds, payout timing and underwriting are entirely the connected gateway's business, and its percentage stacks on top of whatever that gateway charges.</p><h3>Who it is for</h3><p>Chargebee suits SaaS, subscription and usage-billed businesses that have outgrown a gateway's native billing but do not want to build their own: it adds dunning that chases failed renewals, syncs with NetSuite, Xero, QuickBooks and Salesforce, and routes 100+ currencies across several gateways at once. It makes no sense for businesses without recurring revenue, and merchants still need their own gateway account and merchant agreement, since Chargebee solves billing, not acceptance.</p>",
+  "foundedYear": 2011,
+  "headquarters": "San Francisco, California, United States",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "Global"
+  ],
+  "pricingModel": [
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "Pay-as-you-go costs 0.80% of monthly billing value with no platform fee. The committed plan is $99 per month plus 0.65% of billing, and Enterprise Plus is custom-priced on an annual commitment. Gateway processing fees are separate and additional.",
+  "fees": {
+    "onlineCardRate": "Gateway fees separate",
+    "monthlyFee": "$0 to $99 + overage",
+    "setupFee": "None published",
+    "monthlyMinimum": "None on pay-as-you-go",
+    "earlyTerminationFee": "None on pay-as-you-go, annual commitment applies to Enterprise Plus"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": true,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "ach",
+    "sepa",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "payment-links",
+    "invoicing"
+  ],
+  "currencies": "100+ billing currencies with multi-gateway routing by currency",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "3d-secure",
+    "tokenization",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "developers",
+    "international"
+  ],
+  "bestFor": [
+    "SaaS billing",
+    "Usage-based pricing",
+    "Dunning and revenue recovery",
+    "Multi-gateway setups"
+  ],
+  "industries": [
+    "B2B SaaS",
+    "Consumer subscriptions",
+    "AI and developer tools",
+    "Media and publishing"
+  ],
+  "pros": [
+    "Covers the subscription mechanics plain gateways lack: mid-cycle plan changes, proration, trials, coupons and dunning that recovers failed renewals",
+    "Gateway-agnostic across 40+ gateways in 150+ countries and 100+ currencies, with routing and backup payment methods to avoid processor lock-in",
+    "Finance teams can close the books through its NetSuite, Xero, QuickBooks, Salesforce and Avalara integrations, and it is a PCI DSS Level 1 v4.0 service provider"
+  ],
+  "cons": [
+    "The percentage-of-billing fee stacks on top of gateway processing fees, and RevRec, CPQ and retention are all separately priced add-ons",
+    "It is not a processor: merchants still need their own gateway contract, underwriting and settlement relationship",
+    "Implementation costs are not published and its customer service rating trails its feature ratings on review platforms"
+  ],
+  "editorScore": 4.3,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Chargebee Review | Pricing, Fees and Features",
+    "metaDescription": "Chargebee bills 0.80 percent of revenue pay-as-you-go, or 99 dollars monthly plus 0.65 percent, on top of your gateway. See plans, gateways and who it suits.",
+    "keywords": [
+      "chargebee review",
+      "chargebee pricing",
+      "chargebee fees",
+      "chargebee vs recurly",
+      "subscription billing software"
+    ],
+    "focusKeyword": "chargebee review"
+  },
+  "faqs": [
+    {
+      "question": "Is Chargebee a payment processor?",
+      "answer": "No. Chargebee is a subscription billing and revenue management platform that sits on top of more than 40 payment gateways, including Stripe, Adyen, Braintree, Checkout.com, GoCardless, PayPal and Razorpay. The gateway moves the money and settles funds; Chargebee manages plans, invoices, dunning and revenue reporting around it, so merchants still need their own gateway account."
+    },
+    {
+      "question": "How much does Chargebee cost?",
+      "answer": "The 2026 usage-based model charges 0.80% of monthly billing value on the pay-as-you-go plan with no platform fee, or 99 dollars a month plus 0.65% of billing on the committed plan, with Enterprise Plus custom-priced. Gateway processing fees are separate. Revenue recognition, CPQ and the retention product are priced individually on request."
+    },
+    {
+      "question": "Which payment methods can Chargebee bill?",
+      "answer": "Whatever the connected gateways support: cards, ACH, SEPA and other direct debit schemes, PayPal and wallets such as Apple Pay and Google Pay. Chargebee adds a backup payment method feature that automatically retries a stored alternative when the primary method fails, and it can route different currencies through different gateways."
+    },
+    {
+      "question": "Who is Chargebee best for?",
+      "answer": "SaaS and subscription businesses, including usage-billed AI and developer tools, that need billing logic a gateway does not provide: mid-cycle plan changes, dunning, consolidated invoicing, revenue recognition and finance integrations with NetSuite, Xero, QuickBooks and Salesforce. Businesses without recurring revenue, or those looking for a merchant account, are outside its scope."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "chargebee.com",
+  "logoSource": "https://chargebee.com/static/resources/brand/apple-touch-icon.png",
+  "sources": [
+    "https://www.chargebee.com/pricing/",
+    "https://www.chargebee.com/payment-gateways/",
+    "https://www.chargebee.com/integrations/",
+    "https://www.chargebee.com/localized-subscriptions-payments/",
+    "https://www.chargebee.com/recurring-payments/multicurrency/",
+    "https://www.chargebee.com/security/pci/",
+    "https://www.chargebee.com/company/",
+    "https://www.swell.is/content/chargebee-pricing",
+    "https://www.g2.com/products/chargebee/reviews",
+    "https://www.capterra.com/p/131433/Chargebee/"
+  ]
+}

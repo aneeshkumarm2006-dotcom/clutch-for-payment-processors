@@ -1,0 +1,150 @@
+{
+  "name": "Airwallex",
+  "slug": "airwallex",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1786641676/logos/airwallex-logo-de276a37.webp",
+  "website": "https://www.airwallex.com",
+  "tagline": "Global payments and business accounts with FX at 0.5 to 1 percent over interbank and free local payouts to 120+ countries.",
+  "shortDescription": "Global financial platform combining payment acceptance with multi-currency business accounts, card issuing and transfers. US domestic cards cost 2.80% + 30 cents, UK domestic cards 1.30% + 20p, and FX runs at 0.5% to 1% above interbank with settlement in the customer's currency.",
+  "longDescription": "<p>Airwallex was founded in Melbourne in 2015 and now runs dual headquarters in Singapore and San Francisco, employing around 2,000 people across 27 offices. It holds roughly 80 licenses and permits, serves about 200,000 businesses, and processes more than 235 billion dollars in annualized volume. The product is broader than a processor: payment acceptance sits alongside global business accounts in 20+ currencies, free local transfers to 120+ countries, corporate card issuing, expense management and embedded finance APIs.</p><h3>Pricing and how it works</h3><p>Plans are tiered, with a free entry tier in the US and fee-waivable tiers elsewhere: the UK Explore plan is 19 pounds a month, waived with 10,000 pounds in monthly deposits or balance. Card acceptance is priced per market: US domestic cards cost 2.80% + 30 cents and international cards 4.30% + 30 cents, while UK domestic cards cost 1.30% + 20p, EEA cards 2.40% + 20p and international cards 3.15% + 20p. The money movement is the draw: currency conversion at 0.5% above interbank for major currencies and 1% for the rest, like-for-like settlement so a euro sale can stay in euros instead of being force-converted, and free local-rail payouts to 120+ countries with 92% of transfers arriving same day. A billing product for subscriptions costs 0.50% per transaction.</p><h3>Who it is for</h3><p>Airwallex fits businesses that sell or spend across borders: exporters, marketplaces sourcing globally, SaaS billing in multiple currencies and companies tired of bank FX margins. For a purely domestic US seller the 2.80% + 30 cents rate is above Stripe-class pricing with little upside. High-risk verticals are not accepted, in-person payments are still rolling out market by market, and balances are safeguarded e-money rather than insured deposits.</p>",
+  "foundedYear": 2015,
+  "headquarters": "Singapore and San Francisco, United States",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "US",
+    "UK",
+    "EU",
+    "CA",
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "US card acceptance costs 2.80% + $0.30 domestic and 4.30% + $0.30 international; UK domestic cards cost 1.30% + 20p. FX conversion is 0.5% above interbank for major currencies and 1% for others, local transfers to 120+ countries are free, and SWIFT transfers cost 15 to 25 dollars.",
+  "fees": {
+    "onlineCardRate": "2.80% + $0.30 US",
+    "internationalRate": "4.30% + $0.30 in the US, 3.15% + 20p in the UK",
+    "monthlyFee": "$0 US Explore plan",
+    "setupFee": "None",
+    "chargebackFee": "Charged per regional fee schedule, not published as a single figure",
+    "monthlyMinimum": "None",
+    "earlyTerminationFee": "None, no long-term contract"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "bnpl",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "payment-links",
+    "mobile-sdk",
+    "shopify",
+    "woocommerce",
+    "magento"
+  ],
+  "currencies": "Accept in 180+ countries with 160+ local payment methods, hold balances in 20+ currencies, settle like-for-like without forced conversion",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "3d-secure",
+    "tokenization",
+    "marketplace-split",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "international",
+    "ecommerce",
+    "developers"
+  ],
+  "bestFor": [
+    "Cross-border sellers",
+    "Multi-currency treasury",
+    "Global payouts",
+    "Embedded finance"
+  ],
+  "industries": [
+    "Ecommerce",
+    "SaaS",
+    "Marketplaces",
+    "Import and export",
+    "Travel"
+  ],
+  "pros": [
+    "Transparent FX at 0.5% to 1% above interbank plus like-for-like settlement, so cross-border sellers avoid forced-conversion losses",
+    "Acceptance, multi-currency accounts, card issuing, expense management and embedded finance APIs in one account, with free local payouts to 120+ countries and 92% of transfers arriving the same day",
+    "No contract, no setup fee, a free US entry tier, and plugins for Shopify, WooCommerce and Magento"
+  ],
+  "cons": [
+    "Poor value for purely domestic US sellers at 2.80% + 30 cents, since the product's edge is cross-border",
+    "Onboarding and KYB checks generate more account-freeze and verification complaints than domestic-only rivals, and there is no US phone support",
+    "No high-risk acceptance, in-person POS is still rolling out in most markets, and balances are safeguarded e-money rather than insured deposits"
+  ],
+  "editorScore": 4.3,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "seo": {
+    "metaTitle": "Airwallex Review | Pricing, Fees and Features",
+    "metaDescription": "Airwallex charges 2.80 percent plus 30 cents on US domestic cards and 0.5 to 1 percent above interbank on FX. See rates, accounts, payouts and who it suits.",
+    "keywords": [
+      "airwallex review",
+      "airwallex pricing",
+      "airwallex fees",
+      "airwallex vs wise",
+      "airwallex vs stripe"
+    ],
+    "focusKeyword": "airwallex review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Airwallex cost?",
+      "answer": "Pricing differs sharply by market of registration. US merchants pay 2.80% + 30 cents on domestic cards and 4.30% + 30 cents on international cards on a free Explore plan. UK merchants pay 1.30% + 20p domestic, 2.40% + 20p for EEA cards and 3.15% + 20p international, with a 19 pound monthly fee waived by deposit or balance thresholds. FX conversion costs 0.5% above interbank for major currencies and 1% for others."
+    },
+    {
+      "question": "Is Airwallex a bank?",
+      "answer": "No. Airwallex is a licensed financial platform holding roughly 80 licenses and permits worldwide, and customer balances are safeguarded e-money rather than insured bank deposits. It provides business accounts in 20+ currencies, payment acceptance, card issuing, expense management and transfers, but not lending or deposit insurance."
+    },
+    {
+      "question": "How do Airwallex payouts and settlement work?",
+      "answer": "Acceptance settles into a multi-currency wallet, like-for-like, so funds can stay in the currency the customer paid in rather than being force-converted. Local-rail transfers to 120+ countries are free and 92% of global transfers arrive the same day; SWIFT transfers cost about 15 to 25 dollars. Settlement timing varies by payment method and any reserve terms on the account."
+    },
+    {
+      "question": "Who should not use Airwallex?",
+      "answer": "Purely domestic US sellers, who can process cheaper elsewhere and would not use the FX features, and high-risk merchants: adult content, unlicensed gambling and unlicensed financial services are prohibited, while crypto, marketplaces and travel face extra checks. Businesses needing mature in-person POS everywhere should also wait, as terminals and Tap to Pay are still rolling out by market."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "airwallex.com",
+  "logoSource": "https://www.google.com/s2/favicons?sz=128&domain=airwallex.com",
+  "sources": [
+    "https://www.airwallex.com/us/pricing",
+    "https://www.airwallex.com/uk/pricing",
+    "https://www.airwallex.com/au/pricing",
+    "https://www.airwallex.com/us/payments",
+    "https://www.airwallex.com/us/business-account",
+    "https://www.airwallex.com/global/newsroom/awx-raises-usd330m-series-g-at-usd8b-valuation-establishes-sf-as-dual-global-hq",
+    "https://help.airwallex.com/hc/en-gb/articles/4410623274905-Unsupported-Industries",
+    "https://security.airwallex.com/",
+    "https://en.wikipedia.org/wiki/Airwallex",
+    "https://www.merchantmaverick.com/reviews/airwallex-review/"
+  ]
+}
