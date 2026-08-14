@@ -91,23 +91,69 @@
     "Digital content"
   ],
   "pros": [
-    "Direct acquiring licenses in the UK, EEA, US, APAC and MENAP with 57 domestic processing markets, so authorizations stay on local rails",
-    "Transparent Interchange++ contracts with no setup or account maintenance fees, and Fraud Detection Pro included at no extra charge",
-    "150+ processing currencies, 20 settlement currencies and same-day settlement with two intraday payouts available"
+    "Built for international payment processing",
+    "Strong focus on larger merchants",
+    "Supports multiple payment methods",
+    "Flexible payment infrastructure"
   ],
   "cons": [
-    "No published pricing at all, so cost cannot be estimated without going through a sales cycle",
-    "Effectively enterprise-only: reviewers report the company engages best above roughly 1 million dollars in monthly volume, and contracts can carry processing minimums",
-    "Online-only with no POS product, and new or higher-risk accounts can be subject to rolling reserves"
+    "Pricing is not as straightforward as some SMB processors",
+    "May be more platform than a small business needs",
+    "Businesses may need to go through a sales-led onboarding process"
   ],
   "editorScore": 4.2,
   "listingTier": "free",
   "isVerified": false,
   "isSponsored": false,
   "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "checkout-com-intro",
+      "data": {
+        "html": "<p>If your business processes payments across multiple countries, Checkout.com is likely to come up as an alternative to providers such as Stripe and Adyen. But the important question isn't simply whether Checkout.com supports online payments, it's whether its pricing, payment coverage, integrations, and account requirements make sense for your business.</p><p>This Checkout.com review looks at the platform from a merchant's perspective, including pricing, payment processing, supported payment methods, integrations, and the types of businesses it is best suited for.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "checkout-com-pricing",
+      "data": {
+        "html": "<h2>Checkout.com Pricing and Fees</h2><p>Checkout.com does not use the kind of simple public pricing model that some small-business payment processors advertise. Pricing can depend on factors such as transaction volume, business model, payment methods, markets served, and the commercial agreement with the merchant.</p><p>For businesses processing significant payment volume, this can make a customized pricing arrangement more relevant than comparing a single advertised percentage.</p><p>What to look at before signing up:</p><ul><li>Processing rates</li><li>Interchange and card-network costs</li><li>Cross-border fees</li><li>Currency conversion costs</li><li>Chargeback fees</li><li>Settlement terms</li><li>Contract requirements</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "checkout-com-best-for",
+      "data": {
+        "html": "<h2>Who Is Checkout.com Best For?</h2><p>Checkout.com is primarily worth considering for established, high-volume and international businesses rather than a small business looking for the simplest possible payment setup.</p><p>It can make more sense when a company needs to accept payments across multiple markets and wants a payment infrastructure that can support international growth.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "checkout-com-features",
+      "data": {
+        "html": "<h2>Checkout.com Features</h2><p>Key areas to evaluate include:</p><ul><li>Online card payments</li><li>Alternative payment methods</li><li>International payment processing</li><li>Fraud and risk management</li><li>Payment APIs</li><li>Reporting and reconciliation</li><li>Developer integrations</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "checkout-com-vs-stripe",
+      "data": {
+        "html": "<h2>Checkout.com vs Stripe</h2><p>If you are comparing Checkout.com and Stripe, the right choice depends heavily on business size, geographic coverage, pricing, and how much control your development team needs over the payment experience.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "checkout-com-verdict",
+      "data": {
+        "html": "<h2>Is Checkout.com Right for Your Business?</h2><p>Checkout.com is more compelling when payment volume and international coverage are important. For a small business that simply wants to start accepting cards quickly, a simpler provider may be easier.</p>"
+      }
+    }
+  ],
   "seo": {
     "metaTitle": "Checkout.com Review | Pricing, Fees and Features",
-    "metaDescription": "Checkout.com quotes custom interchange-plus pricing with no setup or monthly account fees. See how its direct global acquiring, settlement speed and enterprise focus compare.",
+    "metaDescription": "Checkout.com Review covering pricing, fees, payment methods, integrations, and key features to help businesses decide if it fits their needs.",
+    "h1": "Checkout.com Review",
     "keywords": [
       "checkout.com review",
       "checkout.com pricing",

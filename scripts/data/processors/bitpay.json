@@ -85,14 +85,59 @@
     "Strict KYB onboarding, and accounts can be flagged or held for compliance review, the dominant complaint in consumer reviews",
     "Refund experience is clunky: the merchant eats the network fee on refunds and the buyer's original network cost is never returned"
   ],
-  "editorScore": 4.0,
+  "editorScore": 4,
   "listingTier": "free",
   "isVerified": false,
   "isSponsored": false,
   "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "bitpay-intro",
+      "data": {
+        "html": "<p>Accepting cryptocurrency directly can create a problem for merchants: customers may want to pay in crypto, but the business may not want to hold cryptocurrency itself.</p><p>BitPay is designed to help merchants accept supported cryptocurrency payments while providing settlement options that can reduce some of that complexity.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "bitpay-how-it-works",
+      "data": {
+        "html": "<h2>How BitPay Crypto Payments Work</h2><p>The basic process is different from a normal card transaction.</p><p>A customer selects a supported cryptocurrency payment option, completes the payment, and the merchant receives settlement according to the BitPay account and payment configuration.</p><p>For businesses, the important question is what happens between the customer's crypto payment and the funds ultimately received by the merchant.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "bitpay-pricing-settlement",
+      "data": {
+        "html": "<h2>BitPay Pricing and Settlement Fees</h2><p>When evaluating BitPay, consider the complete cost rather than only the processing percentage.</p><p>Look at:</p><ul><li>Processing fees</li><li>Settlement fees</li><li>Currency conversion</li><li>Refund costs</li><li>Withdrawal or transfer costs</li><li>Supported settlement currencies</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "bitpay-best-for",
+      "data": {
+        "html": "<h2>Who Is BitPay Best For?</h2><p>BitPay is most relevant to businesses that have a genuine reason to accept cryptocurrency payments, such as:</p><ul><li>Online businesses with crypto customers</li><li>Technology companies</li><li>International merchants</li><li>Businesses targeting crypto users</li><li>Merchants wanting crypto payment options without directly managing every part of the crypto transaction</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "bitpay-convert-to-cash",
+      "data": {
+        "html": "<h2>Does BitPay Convert Crypto to Cash?</h2><p>One of the key considerations for a merchant is whether cryptocurrency received from customers can be settled into a supported fiat currency rather than leaving the business exposed to crypto price movements.</p><p>Check the current settlement currencies and eligibility available to your business.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "bitpay-safety",
+      "data": {
+        "html": "<h2>Is BitPay Safe?</h2><p>Merchants should evaluate security controls, account protection, payment confirmation, refund procedures, settlement practices, and the risks associated with cryptocurrency payments before integrating any crypto payment provider.</p>"
+      }
+    }
+  ],
   "seo": {
-    "metaTitle": "BitPay Review | Pricing, Fees and Features",
-    "metaDescription": "BitPay processes crypto payments from 1 to 2 percent plus 25 cents with daily fiat settlement and no chargebacks. See fees, coins, payouts and who it suits.",
+    "metaTitle": "BitPay Review | Crypto Payment Pricing and Fees",
+    "metaDescription": "BitPay Review covering crypto payment fees, Bitcoin payments, settlement options, refunds, and features for merchants accepting cryptocurrency.",
+    "h1": "BitPay Review",
     "keywords": [
       "bitpay review",
       "bitpay pricing",

@@ -100,9 +100,54 @@
   "isVerified": false,
   "isSponsored": false,
   "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "airwallex-intro",
+      "data": {
+        "html": "<p>Airwallex is aimed at businesses that operate across borders rather than businesses that only need a basic card terminal.</p><p>If you receive money in different currencies, pay international suppliers, sell internationally, or operate an eCommerce business across multiple markets, the foreign-exchange side of payment processing can become just as important as the card-processing fee.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "airwallex-multi-currency",
+      "data": {
+        "html": "<h2>Airwallex Multi-Currency Accounts</h2><p>Airwallex allows eligible businesses to manage multiple currencies through its global financial infrastructure.</p><p>For an international business, this can reduce some of the friction involved in receiving and moving money between currencies.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "airwallex-pricing-fx",
+      "data": {
+        "html": "<h2>Airwallex Pricing and FX Fees</h2><p>Don't compare Airwallex only against payment processors' transaction rates.</p><p>For international businesses, calculate:</p><p><strong>payment fees + FX costs + transfer costs + account costs</strong></p><p>That gives you a much better picture of the actual cost.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "airwallex-best-for",
+      "data": {
+        "html": "<h2>Who Is Airwallex Best For?</h2><p>Airwallex is particularly relevant to:</p><ul><li>Cross-border eCommerce</li><li>International businesses</li><li>SaaS companies</li><li>Online marketplaces</li><li>Import/export businesses</li><li>Companies paying international suppliers</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "airwallex-vs-wise",
+      "data": {
+        "html": "<h2>Airwallex vs Wise</h2><p>Wise can be attractive for straightforward international money transfers, while Airwallex is positioned more broadly around business payments and financial infrastructure.</p><p>The right choice depends on whether you need simple currency movement or a broader business payment platform.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "airwallex-us-availability",
+      "data": {
+        "html": "<h2>Is Airwallex Available in the US?</h2><p>Availability and supported products can depend on the business's location and eligibility, so US businesses should check the current Airwallex offering before opening an account.</p>"
+      }
+    }
+  ],
   "seo": {
-    "metaTitle": "Airwallex Review | Pricing, Fees and Features",
-    "metaDescription": "Airwallex charges 2.80 percent plus 30 cents on US domestic cards and 0.5 to 1 percent above interbank on FX. See rates, accounts, payouts and who it suits.",
+    "metaTitle": "Airwallex Review | Global Payments, FX and Fees",
+    "metaDescription": "Airwallex Review covering multi-currency accounts, international payments, FX fees, cards, and features for cross-border businesses.",
+    "h1": "Airwallex Review",
     "keywords": [
       "airwallex review",
       "airwallex pricing",

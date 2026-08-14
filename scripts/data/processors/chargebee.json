@@ -89,9 +89,54 @@
   "isVerified": false,
   "isSponsored": false,
   "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "chargebee-intro",
+      "data": {
+        "html": "<p>Chargebee is often compared with payment processors, but that comparison can be misleading. Chargebee is primarily a subscription billing and revenue management platform, rather than a payment processor itself.</p><p>That distinction matters when you're deciding whether Chargebee is something you actually need.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "chargebee-what-is",
+      "data": {
+        "html": "<h2>What Is Chargebee?</h2><p>Chargebee helps businesses manage recurring billing, subscriptions, invoices, customer plans, and revenue-related processes.</p><p>It can connect with payment processors such as Stripe and other payment infrastructure rather than replacing every part of the payment stack.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "chargebee-pricing",
+      "data": {
+        "html": "<h2>Chargebee Pricing Plans</h2><p>When evaluating Chargebee, look beyond the starting plan and consider:</p><ul><li>Monthly subscription cost</li><li>Revenue or billing limits</li><li>Transaction-related costs</li><li>Features available at each level</li><li>Number of customers</li><li>Advanced revenue features</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "chargebee-vs-gateway",
+      "data": {
+        "html": "<h2>Chargebee vs a Payment Gateway</h2><p>Chargebee and Stripe don't necessarily solve the same problem.</p><p>A payment gateway or processor handles payment transactions. Chargebee sits more around the billing and subscription-management layer.</p><p>For some businesses, using both makes more sense than choosing one over the other.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "chargebee-features",
+      "data": {
+        "html": "<h2>Chargebee Features</h2><p>Important features include:</p><ul><li>Subscription management</li><li>Recurring billing</li><li>Dunning</li><li>Usage-based billing</li><li>Invoicing</li><li>Revenue recognition</li><li>Customer management</li><li>Payment integrations</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "chargebee-worth-it",
+      "data": {
+        "html": "<h2>Is Chargebee Worth It?</h2><p>Chargebee makes more sense when subscription complexity is becoming difficult to manage manually. A simple business with only a few recurring products may not need the same level of billing infrastructure.</p>"
+      }
+    }
+  ],
   "seo": {
-    "metaTitle": "Chargebee Review | Pricing, Fees and Features",
-    "metaDescription": "Chargebee bills 0.80 percent of revenue pay-as-you-go, or 99 dollars monthly plus 0.65 percent, on top of your gateway. See plans, gateways and who it suits.",
+    "metaTitle": "Chargebee Review | Subscription Billing Pricing and Features",
+    "metaDescription": "Chargebee Review covering subscription billing, pricing, dunning, revenue recognition, integrations, and features for recurring-revenue businesses.",
+    "h1": "Chargebee Review",
     "keywords": [
       "chargebee review",
       "chargebee pricing",

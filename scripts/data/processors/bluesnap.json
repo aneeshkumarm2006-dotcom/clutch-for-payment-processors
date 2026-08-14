@@ -108,9 +108,54 @@
   "isVerified": false,
   "isSponsored": false,
   "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "bluesnap-intro",
+      "data": {
+        "html": "<p>BlueSnap is designed around online businesses that need more than a basic payment gateway. Its offering combines payment acceptance with global acquiring and tools aimed at businesses handling international payments, subscriptions, and marketplace transactions.</p><p>For merchants considering BlueSnap, the key question is whether those additional capabilities justify the complexity and cost.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "bluesnap-pricing",
+      "data": {
+        "html": "<h2>BlueSnap Pricing and Fees</h2><p>BlueSnap pricing can vary depending on the business, transaction volume, payment methods, markets, and commercial agreement.</p><p>Before signing up, ask for the complete fee structure rather than comparing only the headline processing rate.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "bluesnap-marketplaces",
+      "data": {
+        "html": "<h2>BlueSnap for Marketplaces and Subscriptions</h2><p>BlueSnap can be relevant to businesses that need payment infrastructure for:</p><ul><li>Subscription businesses</li><li>Online marketplaces</li><li>International eCommerce</li><li>Recurring payments</li><li>Multiple payment methods</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "bluesnap-features",
+      "data": {
+        "html": "<h2>BlueSnap Payment Features</h2><p>Areas worth evaluating include:</p><ul><li>Global payment acceptance</li><li>Payment processing</li><li>Fraud prevention</li><li>Subscription billing</li><li>Marketplace payments</li><li>Reporting</li><li>Payment integrations</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "bluesnap-gateway-or-processor",
+      "data": {
+        "html": "<h2>Is BlueSnap a Gateway or a Processor?</h2><p>This is an important distinction when comparing payment providers. BlueSnap's offering covers more than simply connecting a website to a payment network, so businesses should evaluate the complete processing and acquiring setup.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "bluesnap-vs-stripe",
+      "data": {
+        "html": "<h2>BlueSnap vs Stripe</h2><p>Stripe may be easier for developers and businesses looking for a highly recognizable online payment platform. BlueSnap can become more interesting when global acquiring and specialized payment requirements are important.</p>"
+      }
+    }
+  ],
   "seo": {
-    "metaTitle": "BlueSnap Review | Pricing, Fees and Features",
-    "metaDescription": "BlueSnap charges 2.9 percent plus 30 cents on US-issued cards with local acquiring in 50 countries. See the full fee schedule, add-on costs and who it suits.",
+    "metaTitle": "BlueSnap Review | Pricing, Fees and Payment Features",
+    "metaDescription": "BlueSnap Review covering payment processing, global acquiring, subscription billing, pricing, and features for online businesses.",
+    "h1": "BlueSnap Review",
     "keywords": [
       "bluesnap review",
       "bluesnap pricing",

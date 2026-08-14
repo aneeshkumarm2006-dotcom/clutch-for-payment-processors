@@ -100,9 +100,54 @@
   "isVerified": false,
   "isSponsored": false,
   "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "paystack-intro",
+      "data": {
+        "html": "<p>For businesses operating in Africa, choosing a payment processor often comes down to more than card acceptance. Local payment methods, currencies, payouts, business onboarding, and the countries supported by the provider can all affect whether a platform works in practice.</p><p>Paystack is built around payments for businesses in African markets and is particularly relevant to startups, online businesses, and merchants selling locally or across supported markets.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "paystack-pricing-by-country",
+      "data": {
+        "html": "<h2>Paystack Pricing by Country</h2><p>Paystack pricing is not necessarily identical across every market.</p><p>When comparing costs, check the pricing applicable to your specific country and payment method.</p><p>Important costs can include:</p><ul><li>Card transaction fees</li><li>Bank payment fees</li><li>International payment fees</li><li>Currency conversion</li><li>Payout-related costs</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "paystack-countries-currencies",
+      "data": {
+        "html": "<h2>Paystack Supported Countries and Currencies</h2><p>Country availability should be one of the first things an international business checks.</p><p>A processor can have excellent features but still be unsuitable if your business location, customers, or preferred settlement currency isn't supported.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "paystack-best-for",
+      "data": {
+        "html": "<h2>Who Is Paystack Best For?</h2><p>Paystack is particularly relevant to:</p><ul><li>African startups</li><li>eCommerce businesses</li><li>SaaS companies</li><li>Online service businesses</li><li>Businesses collecting digital payments</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "paystack-stripe-ownership",
+      "data": {
+        "html": "<h2>Is Paystack Owned by Stripe?</h2><p>Stripe acquired Paystack, but Paystack continues to operate as a payment technology platform focused on African markets.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "paystack-payout-times",
+      "data": {
+        "html": "<h2>Paystack Payout Times</h2><p>Payout timing depends on the market, payment method, account setup, and applicable settlement rules. Businesses should confirm the current settlement schedule for their specific country.</p>"
+      }
+    }
+  ],
   "seo": {
-    "metaTitle": "Paystack Review | Pricing, Fees and Features",
-    "metaDescription": "Paystack charges 1.5 percent plus NGN 100 on Nigerian transactions, capped at NGN 2,000, with no monthly fees. See rates in all five markets and who it suits.",
+    "metaTitle": "Paystack Review | Pricing, Fees and Payment Options",
+    "metaDescription": "Paystack Review covering pricing, transaction fees, payment methods, supported countries, payouts, and features for African businesses.",
+    "h1": "Paystack Review",
     "keywords": [
       "paystack review",
       "paystack pricing",

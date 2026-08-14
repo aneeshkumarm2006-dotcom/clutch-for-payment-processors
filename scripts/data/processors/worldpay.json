@@ -108,9 +108,54 @@
   "isVerified": false,
   "isSponsored": false,
   "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "worldpay-intro",
+      "data": {
+        "html": "<p>Worldpay is one of the established names in payment processing, but choosing an established processor doesn't automatically mean it is the right fit for your business.</p><p>The biggest questions for merchants are usually pricing, contract terms, payment hardware, support, and how easily the processor fits into their existing setup. This Worldpay review looks at those areas so you can compare Worldpay with alternatives before signing a contract.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "worldpay-pricing",
+      "data": {
+        "html": "<h2>Worldpay Pricing and Fees</h2><p>Worldpay pricing can vary depending on the merchant agreement, business type, transaction volume, payment methods, and processing arrangement.</p><p>Don't look only at the advertised processing rate. Ask for the complete fee schedule and check for:</p><ul><li>Monthly or account fees</li><li>Transaction fees</li><li>Payment gateway fees</li><li>Chargeback fees</li><li>PCI-related fees</li><li>Hardware costs</li><li>Early termination fees</li><li>Contract length</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "worldpay-pos-hardware",
+      "data": {
+        "html": "<h2>Worldpay POS Hardware</h2><p>For businesses accepting payments in person, POS equipment can be an important part of the decision.</p><p>Consider the total cost of the hardware, whether it works with your existing POS system, how payments are processed, and what happens if equipment needs to be replaced.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "worldpay-small-business",
+      "data": {
+        "html": "<h2>Is Worldpay Good for Small Business?</h2><p>Worldpay can work for small and established businesses, but smaller merchants should pay particular attention to contract terms and the total cost of processing.</p><p>A low quoted rate isn't necessarily the cheapest option once account, equipment, and contractual fees are included.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "worldpay-vs-square-stripe",
+      "data": {
+        "html": "<h2>Worldpay vs Square vs Stripe</h2><p>Square is generally attractive to businesses looking for simplicity, while Stripe is heavily focused on online and developer-led payments. Worldpay can be worth considering when a merchant wants a more traditional payment-processing relationship and broader payment infrastructure.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "worldpay-cancel",
+      "data": {
+        "html": "<h2>How to Cancel a Worldpay Contract</h2><p>Before cancelling, check your merchant agreement for the notice period, early termination provisions, equipment obligations, and any outstanding fees.</p>"
+      }
+    }
+  ],
   "seo": {
-    "metaTitle": "Worldpay Review | Pricing, Fees and Features",
-    "metaDescription": "Worldpay processes 55 billion transactions a year in 174 countries, with negotiated US pricing and 24-hour UK settlement. See fees, contracts and who it suits.",
+    "metaTitle": "Worldpay Review | Pricing, Fees and POS Options",
+    "metaDescription": "Worldpay Review covering payment processing fees, POS options, contracts, hardware, and features for businesses comparing payment processors.",
+    "h1": "Worldpay Review",
     "keywords": [
       "worldpay review",
       "worldpay pricing",

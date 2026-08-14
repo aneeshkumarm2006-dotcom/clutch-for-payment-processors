@@ -98,9 +98,54 @@
   "isVerified": false,
   "isSponsored": false,
   "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "paddle-intro",
+      "data": {
+        "html": "<p>Paddle is different from a standard payment processor because its Merchant of Record model can take responsibility for parts of the payment, tax, and compliance process on behalf of eligible software businesses.</p><p>For SaaS companies selling internationally, that distinction can be more important than simply comparing payment-processing rates.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "paddle-merchant-of-record",
+      "data": {
+        "html": "<h2>What Is a Merchant of Record?</h2><p>A Merchant of Record is a company that can handle the transaction as the seller of record and take responsibility for certain payment, tax, and compliance obligations.</p><p>For a SaaS company selling in multiple countries, this can reduce some of the operational work involved in managing international sales.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "paddle-pricing",
+      "data": {
+        "html": "<h2>Paddle Pricing and Fees</h2><p>Paddle's pricing should be evaluated as the cost of using a broader Merchant of Record service rather than comparing it directly with a basic card-processing fee.</p><p>Consider:</p><ul><li>Transaction fees</li><li>Fixed fees</li><li>Currency conversion</li><li>Refund handling</li><li>Tax handling</li><li>Chargebacks</li><li>Payout terms</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "paddle-tax-compliance",
+      "data": {
+        "html": "<h2>Paddle Tax and Compliance</h2><p>One of Paddle's major selling points for software companies is reducing the administrative burden associated with international sales tax and VAT.</p><p>This can be particularly valuable for companies selling digital products in multiple countries.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "paddle-saas",
+      "data": {
+        "html": "<h2>Is Paddle Good for SaaS?</h2><p>Paddle is particularly relevant to:</p><ul><li>SaaS companies</li><li>Software businesses</li><li>Digital products</li><li>Subscription software</li><li>Companies selling internationally</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "paddle-vs-stripe",
+      "data": {
+        "html": "<h2>Paddle vs Stripe</h2><p>Stripe gives businesses significant control over their own payment infrastructure. Paddle's Merchant of Record model can be attractive when a company would rather outsource more of the tax and compliance workload.</p>"
+      }
+    }
+  ],
   "seo": {
-    "metaTitle": "Paddle Review | Pricing, Fees and Features",
-    "metaDescription": "Paddle charges 5 percent plus 50 cents per sale as a merchant of record, covering global sales tax, billing and chargebacks. See fees, payouts and who it suits.",
+    "metaTitle": "Paddle Review | Merchant of Record Pricing and Fees",
+    "metaDescription": "Paddle Review covering Merchant of Record fees, payment processing, global tax handling, payouts, and features for SaaS businesses.",
+    "h1": "Paddle Review",
     "keywords": [
       "paddle review",
       "paddle pricing",

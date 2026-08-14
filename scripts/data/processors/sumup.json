@@ -95,9 +95,54 @@
   "isVerified": false,
   "isSponsored": false,
   "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "sumup-intro",
+      "data": {
+        "html": "<p>For a small business, choosing a payment processor doesn't have to mean signing up for a complicated merchant-services contract.</p><p>SumUp focuses heavily on simple card acceptance through its card readers and payment tools. This makes it worth considering for businesses that want to start taking card payments without investing heavily in a traditional POS system.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "sumup-reader-pricing",
+      "data": {
+        "html": "<h2>SumUp Card Reader Pricing</h2><p>The cost of SumUp depends on the card reader or payment setup you choose. When comparing models, consider more than the upfront hardware price.</p><p>Look at:</p><ul><li>Card reader cost</li><li>Transaction fees</li><li>POS functionality</li><li>Connectivity</li><li>Payout timing</li><li>Optional software features</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "sumup-transaction-fees",
+      "data": {
+        "html": "<h2>SumUp Transaction Fees</h2><p>Transaction fees are one of the most important things to check before choosing SumUp.</p><p>Your actual cost depends on the type of payment, transaction method, location, and applicable pricing plan.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "sumup-best-for",
+      "data": {
+        "html": "<h2>Who Is SumUp Best For?</h2><p>SumUp can be a good fit for:</p><ul><li>Small retailers</li><li>Market vendors</li><li>Mobile businesses</li><li>Freelancers</li><li>Service businesses</li><li>Businesses that take payments on the go</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "sumup-vs-square",
+      "data": {
+        "html": "<h2>SumUp vs Square</h2><p>Both target businesses looking for relatively simple payment acceptance.</p><p>Compare the two based on:</p><ul><li>Card reader cost</li><li>Processing fees</li><li>POS features</li><li>Software</li><li>Payouts</li><li>Hardware options</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "sumup-is-it-free",
+      "data": {
+        "html": "<h2>Is SumUp Free to Use?</h2><p>The important distinction is between having no monthly subscription requirement and having no payment-processing costs. Merchants should check the current transaction and optional-service fees before signing up.</p>"
+      }
+    }
+  ],
   "seo": {
-    "metaTitle": "SumUp Review | Pricing, Fees and Features",
-    "metaDescription": "SumUp charges 2.6 percent plus 10 cents in person in the US and 1.69 percent in the UK, with no monthly fees. See reader prices, payouts and who it suits.",
+    "metaTitle": "SumUp Review | Card Reader Pricing and Transaction Fees",
+    "metaDescription": "SumUp Review covering card reader costs, transaction fees, POS features, payouts, and how SumUp compares with Square for small businesses.",
+    "h1": "SumUp Review",
     "keywords": [
       "sumup review",
       "sumup pricing",

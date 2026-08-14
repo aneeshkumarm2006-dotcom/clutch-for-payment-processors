@@ -90,9 +90,54 @@
   "isVerified": false,
   "isSponsored": false,
   "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "gocardless-intro",
+      "data": {
+        "html": "<p>GoCardless takes a different approach from traditional card-focused payment processors. Its core strength is collecting payments directly from customers' bank accounts through methods such as Direct Debit and ACH.</p><p>That makes it particularly interesting for businesses with recurring invoices, memberships, subscriptions, or regular customer payments.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "gocardless-how-it-works",
+      "data": {
+        "html": "<h2>How GoCardless Works</h2><p>Instead of asking customers to enter card details for every payment, GoCardless allows businesses to collect payments from a customer's bank account using supported bank-debit schemes.</p><p>This can be useful when payments repeat regularly and the business wants a more predictable collection process.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "gocardless-pricing",
+      "data": {
+        "html": "<h2>GoCardless Pricing</h2><p>Your costs can depend on the payment method, country, plan, transaction volume, and other account-specific factors.</p><p>When comparing GoCardless with card processors, look at the total collection cost, not just the advertised transaction fee.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "gocardless-recurring",
+      "data": {
+        "html": "<h2>Best for Subscription and Recurring Billing</h2><p>GoCardless can be particularly useful for:</p><ul><li>SaaS businesses</li><li>Membership businesses</li><li>Subscription companies</li><li>Professional services</li><li>Utilities</li><li>Recurring invoices</li><li>B2B businesses</li></ul>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "gocardless-vs-stripe-ach",
+      "data": {
+        "html": "<h2>GoCardless vs Stripe ACH</h2><p>Stripe offers ACH alongside a much broader payment platform. GoCardless is more specialized around bank payments and recurring collections.</p><p>The better option depends on whether bank-debit collection is your main requirement or one payment method among many.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "gocardless-safety",
+      "data": {
+        "html": "<h2>Is GoCardless Safe?</h2><p>Businesses should evaluate authorization controls, customer authentication, fraud protection, dispute handling, and the applicable bank-debit rules in their market before choosing a provider.</p>"
+      }
+    }
+  ],
   "seo": {
-    "metaTitle": "GoCardless Review | Pricing, Fees and Features",
-    "metaDescription": "GoCardless collects Direct Debit and open banking payments with capped fees, from 1 percent plus 20p in the UK. See rates, payout timing and who it suits.",
+    "metaTitle": "GoCardless Review | ACH and Direct Debit Pricing",
+    "metaDescription": "GoCardless Review covering ACH, Direct Debit, pricing, recurring payments, fees, and features for businesses collecting recurring payments.",
+    "h1": "GoCardless Review",
     "keywords": [
       "gocardless review",
       "gocardless pricing",
