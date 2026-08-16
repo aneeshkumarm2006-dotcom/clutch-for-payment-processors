@@ -4,7 +4,7 @@ import { submissionInput } from "@/lib/validators";
 import { ApiError, getAdminSession, handleApiError, json, requireAdmin } from "@/lib/api";
 import { clientIp, isBot, rateLimit } from "@/lib/rate-limit";
 import { toAdminSubmissionData } from "@/lib/serialize";
-import { sendNotification } from "@/lib/email";
+import { notifyRecipients, sendNotification } from "@/lib/email";
 import { getOrCreateSiteSettings } from "@/lib/settings";
 
 /**
@@ -66,8 +66,10 @@ async function notifyNewSubmission(sub: {
   description?: string;
 }) {
   try {
-    const to = process.env.LEADS_NOTIFY_EMAIL || (await getOrCreateSiteSettings()).contactEmail;
-    if (!to) return;
+    // Env list wins; only hit the DB for the fallback when it isn't configured.
+    let to = notifyRecipients();
+    if (to.length === 0) to = notifyRecipients((await getOrCreateSiteSettings()).contactEmail);
+    if (to.length === 0) return;
 
     const lines = [
       `New "get listed" submission for ${sub.processorName}.`,

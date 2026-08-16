@@ -4,7 +4,7 @@ import { leadInput } from "@/lib/validators";
 import { ApiError, getAdminSession, handleApiError, json, requireAdmin } from "@/lib/api";
 import { clientIp, isBot, rateLimit } from "@/lib/rate-limit";
 import { toAdminLeadData } from "@/lib/serialize";
-import { sendNotification } from "@/lib/email";
+import { notifyRecipients, sendNotification } from "@/lib/email";
 import { getOrCreateSiteSettings } from "@/lib/settings";
 import { humanizeEnum } from "@/lib/labels";
 
@@ -88,12 +88,20 @@ async function notifyNewLead(lead: {
   processorName?: string;
 }) {
   try {
-    const to = process.env.LEADS_NOTIFY_EMAIL || (await getOrCreateSiteSettings()).contactEmail;
-    if (!to) return;
+    // Env list wins; only hit the DB for the fallback when it isn't configured.
+    let to = notifyRecipients();
+    if (to.length === 0) to = notifyRecipients((await getOrCreateSiteSettings()).contactEmail);
+    if (to.length === 0) return;
+
+    const isContact = lead.source === "contact";
 
     const lines = [
       `New lead from ${lead.name} (${lead.email}).`,
-      lead.processorName ? `Processor: ${lead.processorName}` : "Type: Get matched (no specific processor)",
+      lead.processorName
+        ? `Processor: ${lead.processorName}`
+        : isContact
+          ? "Type: Contact form enquiry"
+          : "Type: Get matched (no specific processor)",
       lead.businessName ? `Business: ${lead.businessName}` : "",
       lead.monthlyVolume ? `Monthly volume: ${lead.monthlyVolume}` : "",
       `Source: ${humanizeEnum(lead.source)}`,
@@ -104,7 +112,9 @@ async function notifyNewLead(lead: {
       to,
       subject: lead.processorName
         ? `New quote request: ${lead.processorName}`
-        : "New “get matched” lead",
+        : isContact
+          ? `New contact enquiry from ${lead.name}`
+          : "New “get matched” lead",
       text: lines.join("\n"),
       replyTo: lead.email,
     });

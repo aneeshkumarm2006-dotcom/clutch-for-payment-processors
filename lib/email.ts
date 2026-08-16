@@ -1,29 +1,61 @@
-import { Resend } from "resend";
+import nodemailer, { type Transporter } from "nodemailer";
 
 /**
  * Email notifications (PRD §9.10 / §12 — "→ email notify (optional)").
  *
- * Resend is OPTIONAL: when `RESEND_API_KEY` is unset (the default in dev and any
- * deploy that hasn't configured it), every send is a no-op that resolves cleanly.
- * Callers must never let a notification failure break the request that triggered
- * it — leads/submissions are persisted first, then we notify best-effort.
+ * Sent straight from our own mailbox over SMTP (Gmail / Google Workspace by
+ * default) using an app password — no third-party sending service. Configure
+ * `SMTP_USER` + `SMTP_PASS`; when either is missing every send is a no-op that
+ * resolves cleanly, which is the default in dev and on any deploy that hasn't
+ * set them. Callers must never let a notification failure break the request that
+ * triggered it — leads/submissions are persisted first, then we notify
+ * best-effort.
+ *
+ * Gmail rewrites the From header to the authenticated account unless the address
+ * is a verified "send mail as" alias, so keep `EMAIL_FROM` on `SMTP_USER`.
  */
 
-const FROM = process.env.EMAIL_FROM || "Payment Processor Guide <onboarding@resend.dev>";
+const SMTP_HOST = process.env.SMTP_HOST || "smtp.gmail.com";
+const SMTP_PORT = Number(process.env.SMTP_PORT || 465);
+const SMTP_USER = process.env.SMTP_USER || "";
+const SMTP_PASS = process.env.SMTP_PASS || "";
 
-function getClient(): Resend | null {
-  const key = process.env.RESEND_API_KEY;
-  if (!key) return null;
-  return new Resend(key);
+const FROM = process.env.EMAIL_FROM || (SMTP_USER ? `Payment Processor Guide <${SMTP_USER}>` : "");
+
+/** Reused across invocations so a warm lambda doesn't reconnect per send. */
+let transporter: Transporter | null = null;
+
+function getTransport(): Transporter | null {
+  if (!SMTP_USER || !SMTP_PASS) return null;
+  if (!transporter) {
+    transporter = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port: SMTP_PORT,
+      secure: SMTP_PORT === 465, // 465 = implicit TLS; 587 upgrades via STARTTLS
+      auth: { user: SMTP_USER, pass: SMTP_PASS },
+    });
+  }
+  return transporter;
 }
 
-/** True when notifications are configured (a key + a destination address). */
+/** True when notifications are configured (SMTP credentials present). */
 export function emailConfigured(): boolean {
-  return Boolean(process.env.RESEND_API_KEY);
+  return Boolean(SMTP_USER && SMTP_PASS);
+}
+
+/**
+ * Who gets lead/submission notifications. `LEADS_NOTIFY_EMAIL` takes a
+ * comma-separated list so several owners can be copied on one send; when it is
+ * unset we fall back to the single `SiteSettings.contactEmail`.
+ */
+export function notifyRecipients(fallback?: string): string[] {
+  const raw = process.env.LEADS_NOTIFY_EMAIL?.trim() || fallback || "";
+  return [...new Set(raw.split(",").map((addr) => addr.trim()).filter(Boolean))];
 }
 
 interface NotifyArgs {
-  to: string;
+  /** One address or several. */
+  to: string | string[];
   subject: string;
   /** Plain-text body; rendered as a simple paragraph block. */
   text: string;
@@ -35,8 +67,9 @@ interface NotifyArgs {
  * Never throws — failures are logged and swallowed.
  */
 export async function sendNotification({ to, subject, text, replyTo }: NotifyArgs): Promise<boolean> {
-  const client = getClient();
-  if (!client || !to) return false;
+  const transport = getTransport();
+  const recipients = (Array.isArray(to) ? to : [to]).map((a) => a.trim()).filter(Boolean);
+  if (!transport || !FROM || recipients.length === 0) return false;
 
   try {
     const html = `<div style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:14px;line-height:1.6;color:#1a1a1a">${text
@@ -44,9 +77,9 @@ export async function sendNotification({ to, subject, text, replyTo }: NotifyArg
       .map((line) => (line.trim() ? `<p style="margin:0 0 8px">${escapeHtml(line)}</p>` : "<br/>"))
       .join("")}</div>`;
 
-    await client.emails.send({
+    await transport.sendMail({
       from: FROM,
-      to,
+      to: recipients,
       subject,
       text,
       html,

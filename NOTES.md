@@ -319,10 +319,18 @@
 - **`/compare` and `/search` are `noindex, follow`.** Both are query-param-driven
   with combinatorial URLs; the canonical points at the bare path. Pretty compare
   routes (`/compare/stripe-vs-paypal`) are Phase 2 (PRD §9.4).
-- **`lib/email.ts`** — optional Resend notifications. No-op (resolves cleanly,
-  never throws) when `RESEND_API_KEY` is unset; leads/submissions persist first,
-  then notify best-effort. Recipient = `LEADS_NOTIFY_EMAIL` → `SiteSettings.contactEmail`.
-  Added `EMAIL_FROM` + `LEADS_NOTIFY_EMAIL` to `.env.example`.
+- **`lib/email.ts`** — optional notifications, sent over SMTP from our own mailbox
+  via nodemailer (Resend was dropped; no third-party sending service). No-op
+  (resolves cleanly, never throws) when `SMTP_USER`/`SMTP_PASS` are unset;
+  leads/submissions persist first, then notify best-effort. Defaults to Gmail
+  (`smtp.gmail.com:465`, implicit TLS) with a Google **App Password** — the normal
+  account password is rejected. `EMAIL_FROM` must match `SMTP_USER` or a verified
+  "send mail as" alias, otherwise Gmail silently rewrites the From header.
+  Recipients = `notifyRecipients()`: `LEADS_NOTIFY_EMAIL` (comma-separated, so both
+  owners get copied) → `SiteSettings.contactEmail`; the DB fallback is only read
+  when the env var is empty. The transporter is module-level so a warm lambda
+  reuses the connection. Notifications are admin-only — the person who submitted
+  never receives anything.
 - **`POST /api/leads` + `POST /api/submissions` reuse the M4 anti-spam primitives**
   (`lib/rate-limit.ts`): the `companyWebsite` honeypot (tripped → silent fake 201,
   nothing persisted) + a 5/min per-IP limiter; admins (logged-in) bypass the limit.
