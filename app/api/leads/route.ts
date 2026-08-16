@@ -17,6 +17,8 @@ import { humanizeEnum } from "@/lib/labels";
  *   GET   ADMIN inbox (newest first), with the processor name populated.
  */
 export const dynamic = "force-dynamic";
+/** Room for the SMTP round-trip on top of the Mongo write (Hobby default is 10s). */
+export const maxDuration = 30;
 
 export async function GET() {
   try {
@@ -60,12 +62,17 @@ export async function POST(req: Request) {
 
     const created = await Lead.create({ ...data, status: "new" });
 
-    // Best-effort notification — failures must not break the submission.
-    void notifyNewLead({
+    // Awaited, not fire-and-forget: on Vercel the function is frozen as soon as
+    // the response is returned, which killed the SMTP handshake mid-flight and
+    // lost the mail. `notifyNewLead` swallows its own errors, so awaiting it
+    // still cannot fail the submission — only add a second or two.
+    await notifyNewLead({
       name: data.name,
       email: data.email,
       businessName: data.businessName,
+      phone: data.phone,
       monthlyVolume: data.monthlyVolume,
+      businessType: data.businessType,
       message: data.message,
       source: data.source,
       processorName,
@@ -77,12 +84,20 @@ export async function POST(req: Request) {
   }
 }
 
-/** Fire-and-forget admin notification for a new lead. */
+/**
+ * Admin notification for a new lead — every source, not just the contact form.
+ * `POST /api/leads` is the only place a Lead is created (the contact page, the
+ * profile "get a quote" dialog and "get matched" all post here), so notifying
+ * from this one call site covers everything that reaches /admin/leads. Mirrors
+ * whatever was captured, since the optional fields differ per source.
+ */
 async function notifyNewLead(lead: {
   name: string;
   email: string;
   businessName?: string;
+  phone?: string;
   monthlyVolume?: string;
+  businessType?: string;
   message?: string;
   source: string;
   processorName?: string;
@@ -103,7 +118,11 @@ async function notifyNewLead(lead: {
           ? "Type: Contact form enquiry"
           : "Type: Get matched (no specific processor)",
       lead.businessName ? `Business: ${lead.businessName}` : "",
+      lead.phone ? `Phone: ${lead.phone}` : "",
+      // MONTHLY_VOLUMES are already display strings ("$10k-$50k") — humanizing
+      // one would split it on the hyphen and mangle it.
       lead.monthlyVolume ? `Monthly volume: ${lead.monthlyVolume}` : "",
+      lead.businessType ? `Business type: ${lead.businessType}` : "",
       `Source: ${humanizeEnum(lead.source)}`,
       lead.message ? `\nMessage:\n${lead.message}` : "",
     ].filter(Boolean);

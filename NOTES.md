@@ -331,6 +331,23 @@
   when the env var is empty. The transporter is module-level so a warm lambda
   reuses the connection. Notifications are admin-only — the person who submitted
   never receives anything.
+- **Notifications are `await`ed, never `void`ed.** The original fire-and-forget
+  `void notifyNewLead(...)` worked in dev and silently dropped every mail on
+  Vercel: a serverless function is frozen the instant the response is returned,
+  killing the SMTP handshake mid-flight. Both POSTs now await the notify helper
+  (which swallows its own errors, so it still can't fail a submission) and carry
+  `maxDuration = 30` for the extra round-trip. SMTP timeouts are bounded in
+  `lib/email.ts` so blocked egress fails fast rather than burning the budget.
+- **Every public capture notifies the owners.** `POST /api/leads` is the single
+  `Lead.create` in the codebase — contact form, profile "get a quote" and "get
+  matched" all post there — so one notify call covers all of /admin/leads; the
+  body adapts to whichever optional fields that source captured. `POST
+  /api/submissions` covers "get listed", and a public `POST /api/reviews` now
+  pings the moderation queue (an admin's own `admin-entry` review does not).
+- **`GET /api/admin/email-test`** (admin session required) reports which SMTP env
+  vars landed and runs `transporter.verify()` without sending; `POST` sends a real
+  test. Because delivery failures are swallowed by design, this is the only way to
+  tell a misconfigured deploy from a working one.
 - **`POST /api/leads` + `POST /api/submissions` reuse the M4 anti-spam primitives**
   (`lib/rate-limit.ts`): the `companyWebsite` honeypot (tripped → silent fake 201,
   nothing persisted) + a 5/min per-IP limiter; admins (logged-in) bypass the limit.

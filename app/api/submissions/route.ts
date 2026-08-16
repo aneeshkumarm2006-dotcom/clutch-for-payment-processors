@@ -15,6 +15,8 @@ import { getOrCreateSiteSettings } from "@/lib/settings";
  *   GET   ADMIN inbox (newest first).
  */
 export const dynamic = "force-dynamic";
+/** Room for the SMTP round-trip on top of the Mongo write (Hobby default is 10s). */
+export const maxDuration = 30;
 
 export async function GET() {
   try {
@@ -48,8 +50,10 @@ export async function POST(req: Request) {
     const data = submissionInput.parse(raw);
     const created = await Submission.create({ ...data, status: "new" });
 
-    // Best-effort notification — never block the submission.
-    void notifyNewSubmission(data);
+    // Awaited, not fire-and-forget — a serverless function is frozen once the
+    // response is returned, which kills an in-flight SMTP handshake.
+    // `notifyNewSubmission` swallows its own errors, so this can't fail the POST.
+    await notifyNewSubmission(data);
 
     return json({ ok: true, id: String(created._id) }, 201);
   } catch (err) {

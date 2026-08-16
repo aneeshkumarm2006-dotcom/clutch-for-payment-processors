@@ -6,6 +6,8 @@ import { logAudit } from "@/lib/audit";
 import { getApprovedReviews, type ReviewSort } from "@/lib/public-data";
 import { clientIp, isBot, rateLimit } from "@/lib/rate-limit";
 import { recomputeProcessorRatings } from "@/lib/ratings";
+import { notifyRecipients, sendNotification } from "@/lib/email";
+import { getOrCreateSiteSettings } from "@/lib/settings";
 
 /**
  * /api/reviews (PRD §9.6 / §10.5 / TODO §4.1–4.3).
@@ -16,9 +18,13 @@ import { recomputeProcessorRatings } from "@/lib/ratings";
  *   POST  PUBLIC submission (honeypot + IP rate-limited) → status `pending`,
  *         source `web-form`; NEVER shown immediately. Admins instead create an
  *         `admin-entry` review that is approved on the spot (seeding/import) and
- *         triggers a ratings recompute.
+ *         triggers a ratings recompute. A public submission emails the owners
+ *         (best-effort) so it doesn't sit in the moderation queue unnoticed; an
+ *         admin's own entry doesn't, since they're already looking at it.
  */
 export const dynamic = "force-dynamic";
+/** Room for the SMTP round-trip on the public-submission path. */
+export const maxDuration = 30;
 
 const OBJECT_ID = /^[0-9a-fA-F]{24}$/;
 const SORTS: ReviewSort[] = ["newest", "highest", "most-helpful"];
@@ -95,12 +101,22 @@ export async function POST(req: Request) {
 
     // Public submission — forced pending + web-form; not shown until approved.
     const data = reviewInput.parse(raw);
-    await ensureProcessorExists(data.processor);
+    const processorName = await ensureProcessorExists(data.processor);
     const created = await Review.create({
       ...data,
       status: "pending",
       source: "web-form",
       isVerified: false,
+    });
+
+    await notifyNewReview({
+      processorName,
+      reviewerName: data.reviewerName,
+      reviewerEmail: data.reviewerEmail,
+      overallRating: data.overallRating,
+      title: data.title,
+      body: data.body,
+      companyName: data.companyName,
     });
 
     return json({ ok: true, id: String(created._id), status: "pending" }, 201);
@@ -109,8 +125,49 @@ export async function POST(req: Request) {
   }
 }
 
-/** Reject reviews aimed at a non-existent processor with a clean 404. */
-async function ensureProcessorExists(id: string) {
-  const exists = await Processor.exists({ _id: id });
-  if (!exists) throw new ApiError(404, "That processor could not be found.");
+/** Reject reviews aimed at a non-existent processor with a clean 404; returns its name. */
+async function ensureProcessorExists(id: string): Promise<string> {
+  const proc = await Processor.findById(id).select("name").lean();
+  if (!proc) throw new ApiError(404, "That processor could not be found.");
+  return proc.name;
+}
+
+/**
+ * Admin notification for a public review. It lands in /admin/reviews as
+ * `pending` and stays invisible on the site until someone approves it, so
+ * without a nudge a review can sit unmoderated for days. Same best-effort
+ * contract as leads: awaited (a frozen lambda drops an unawaited send) but it
+ * swallows its own errors, so it can never fail the submission.
+ */
+async function notifyNewReview(review: {
+  processorName: string;
+  reviewerName: string;
+  reviewerEmail: string;
+  overallRating: number;
+  title: string;
+  body: string;
+  companyName?: string;
+}) {
+  try {
+    let to = notifyRecipients();
+    if (to.length === 0) to = notifyRecipients((await getOrCreateSiteSettings()).contactEmail);
+    if (to.length === 0) return;
+
+    const lines = [
+      `New ${review.overallRating}-star review of ${review.processorName}, awaiting moderation.`,
+      `From: ${review.reviewerName} (${review.reviewerEmail})`,
+      review.companyName ? `Company: ${review.companyName}` : "",
+      `\n${review.title}\n${review.body}`,
+      `\nApprove or reject it in /admin/reviews.`,
+    ].filter(Boolean);
+
+    await sendNotification({
+      to,
+      subject: `New review pending: ${review.processorName} (${review.overallRating}★)`,
+      text: lines.join("\n"),
+      replyTo: review.reviewerEmail,
+    });
+  } catch {
+    /* swallow — notification is best-effort */
+  }
 }
