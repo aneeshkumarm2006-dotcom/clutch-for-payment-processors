@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, GitCompare } from "lucide-react";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
+import { Blocks } from "@/components/public/Blocks";
 import { ProcessorCard } from "@/components/public/ProcessorCard";
 import { LeadDialog } from "@/components/public/LeadDialog";
 import { JsonLd } from "@/components/public/JsonLd";
@@ -12,7 +13,9 @@ import {
   getProcessorBySlug,
   getPublishedProcessorOptions,
 } from "@/lib/public-data";
-import { buildMetadata, breadcrumbJsonLd, itemListJsonLd, faqJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, itemListJsonLd, faqJsonLd } from "@/lib/seo";
+import { getPageSeoByPath, pageSeoMetadata } from "@/lib/page-seo";
+import { toBlocks, toFaqs } from "@/lib/serialize";
 import { compareHref } from "@/lib/compare-pairs";
 
 /**
@@ -20,6 +23,14 @@ import { compareHref } from "@/lib/compare-pairs";
  * high-intent "best {X} alternatives" query, distinct from the "{X} review"
  * profile page. SSG/ISR + generateStaticParams over every published processor;
  * reuses `getAlternatives` (the same related-processor logic as the profile).
+ *
+ * Everything below is generated from the processor record, which is what makes
+ * all 50-odd of these pages exist at once — and also what makes them read alike.
+ * A page that earns real editorial investment (a "which alternative for which
+ * need" breakdown, a switching-cost section, its own meta and FAQs) gets a
+ * PageSeo record at the same path, which layers on top. Same mechanism as
+ * `/payment-processors/[facet]`: deepening one page is content work in the
+ * admin, not an edit to this file.
  */
 export const revalidate = 1800;
 export const dynamicParams = true;
@@ -36,7 +47,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const p = await getProcessorBySlug(params.slug);
   if (!p) return { title: "Alternatives not found" };
-  return buildMetadata({
+  return pageSeoMetadata({
     /*
       `absoluteTitle` keeps the layout's brand suffix off. With it, the three
       longest brand names on the site ("Durango Merchant Services" and friends)
@@ -49,6 +60,7 @@ export async function generateMetadata({
     // site ("Durango Merchant Services", 25 chars) at 150 characters.
     description: `Alternatives to ${p.name}, compared on fees, payment methods, features, and verified merchant reviews so you can find a better fit.`,
     path: `/alternatives/${p.slug}`,
+    byPath: true,
     image: p.logo,
   });
 }
@@ -77,13 +89,21 @@ export default async function AlternativesPage({ params }: { params: { slug: str
   const p = await getProcessorBySlug(params.slug);
   if (!p) notFound();
 
-  const [alternatives, allProcessors] = await Promise.all([
+  const basePath = `/alternatives/${p.slug}`;
+  const [alternatives, allProcessors, page] = await Promise.all([
     getAlternatives(p, 8),
     getPublishedProcessorOptions(),
+    getPageSeoByPath(basePath),
   ]);
   const primaryCategory = p.categories[0];
-  const basePath = `/alternatives/${p.slug}`;
-  const faqs = buildFaqs(p.name, alternatives[0]?.name);
+
+  const blocks = toBlocks(page?.blocks);
+  const hasFaqBlock = Boolean(blocks?.some((b) => b.type === "faq"));
+  // An editor's FAQs REPLACE the generated ones rather than joining them. The
+  // generated set is three questions phrased around whatever `getAlternatives`
+  // returned; appending an editor's to that is how a page ends up answering
+  // "what is the best alternative to X" twice, in two different voices.
+  const faqs = toFaqs(page?.faqs) ?? buildFaqs(p.name, alternatives[0]?.name);
 
   // Real, per-processor reasons: the profile's own "cons" double as switch drivers.
   const reasons =
@@ -109,7 +129,8 @@ export default async function AlternativesPage({ params }: { params: { slug: str
             { name: "Alternatives", path: basePath },
           ]),
           itemListJsonLd(alternatives.map((a) => ({ name: a.name, path: `/processor/${a.slug}` }))),
-          faqJsonLd(faqs),
+          // The FAQ block emits its own FAQPage; two on one URL is invalid.
+          ...(hasFaqBlock ? [] : [faqJsonLd(faqs)]),
         ]}
       />
 
@@ -177,17 +198,24 @@ export default async function AlternativesPage({ params }: { params: { slug: str
         </div>
       </section>
 
-      <section className="mt-14 max-w-prose">
-        <h2 className="text-h2 tracking-tighter2 text-foreground">{p.name} alternatives: common questions</h2>
-        <dl className="mt-6 divide-y divide-ink-150 dark:divide-ink-800">
-          {faqs.map((f) => (
-            <div key={f.question} className="py-5">
-              <dt className="text-h4 text-foreground">{f.question}</dt>
-              <dd className="mt-2 text-body text-muted-foreground">{f.answer}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      {/* Editorial slot: long-form copy sits below the shortlist it explains. */}
+      <Blocks blocks={blocks} className="mt-14" />
+
+      {!hasFaqBlock && faqs.length > 0 && (
+        <section className="mt-14 max-w-prose">
+          <h2 className="text-h2 tracking-tighter2 text-foreground">
+            {p.name} alternatives: common questions
+          </h2>
+          <dl className="mt-6 divide-y divide-ink-150 dark:divide-ink-800">
+            {faqs.map((f) => (
+              <div key={f.question} className="py-5">
+                <dt className="text-h4 text-foreground">{f.question}</dt>
+                <dd className="mt-2 text-body text-muted-foreground">{f.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       {/*
         Sibling alternatives guides.

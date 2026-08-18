@@ -3,11 +3,26 @@ import { loadEnv } from "./loadEnv";
 // Populate process.env from .env.local BEFORE anything reads it.
 loadEnv();
 
-import { createHash } from "node:crypto";
 import mongoose from "mongoose";
 import { connectToDatabase } from "@/lib/db";
-import { Category, PageSeo, Processor, SiteSettings } from "@/models";
-import { blocksSchema, seoSchema, faqsSchema, pageSeoCreate } from "@/lib/validators";
+import { Category, Processor, SiteSettings } from "@/models";
+import {
+  DRY_RUN,
+  checkFaqs,
+  comparison,
+  cta,
+  guide,
+  log,
+  mergeKeywords,
+  prepareBlocks,
+  richtext,
+  seoSet,
+  upsertLanding,
+  upsertPageSeoRoute,
+  type BlockSpec,
+  type LandingSpec,
+  type SeoSpec,
+} from "./content-kit";
 
 /**
  * scripts/seed-doc-content.ts — the editorial content plan (Google Doc, 9 tabs)
@@ -34,176 +49,10 @@ import { blocksSchema, seoSchema, faqsSchema, pageSeoCreate } from "@/lib/valida
  * 2. Block ids must be STABLE across runs. They are the React key, and a random
  *    id per run would churn the document on every reseed and defeat idempotency.
  *    `blockId()` derives one from the page + block position instead.
- */
-
-const DRY_RUN = process.argv.includes("--dry-run");
-
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-/**
- * A stable, readable block id. `randomUUID()` (what seed-seo uses) would give
- * every block a new key on every run, so a reseed would look like "all content
- * replaced" to anything diffing the document.
- */
-const blockId = (scope: string, index: number): string =>
-  `seed-${createHash("sha1").update(`${scope}:${index}`).digest("hex").slice(0, 12)}`;
-
-interface GuideSection {
-  heading: string;
-  /** Safe HTML: `<p>`, `<ul>`, `<ol>`, `<li>`, `<strong>`, `<a>`. Sanitized on write. */
-  body: string;
-}
-
-interface BlockSpec {
-  type: string;
-  data: Record<string, unknown>;
-}
-
-/** A Capterra-style buyers guide block — the doc's "Tab 1..6" structure. */
-const guide = (opts: {
-  title: string;
-  intro?: string;
-  layout?: "tabs" | "stacked";
-  keyTakeaways?: string[];
-  sections: GuideSection[];
-}): BlockSpec => ({
-  type: "buyersGuide",
-  data: {
-    title: opts.title,
-    ...(opts.intro ? { intro: opts.intro } : {}),
-    layout: opts.layout ?? "stacked",
-    showToc: true,
-    keyTakeaways: opts.keyTakeaways ?? [],
-    sections: opts.sections,
-  },
-});
-
-const richtext = (html: string): BlockSpec => ({ type: "richtext", data: { html } });
-
-const comparison = (opts: {
-  title: string;
-  headers: string[];
-  rows: { name: string; cells: string[] }[];
-}): BlockSpec => ({
-  type: "comparison",
-  data: { title: opts.title, headers: opts.headers, rows: opts.rows },
-});
-
-const cta = (opts: {
-  heading: string;
-  body: string;
-  buttonLabel: string;
-  buttonUrl: string;
-}): BlockSpec => ({ type: "cta", data: opts });
-
-/**
- * Tags this script is allowed to write.
  *
- * `lib/sanitize-html.ts` is the real sanitizer, but it imports `server-only` and
- * so cannot run under tsx — which is why `seed-seo.ts` notes that its writes
- * bypass it. Rather than shipping unchecked HTML on that precedent, every string
- * here is checked against an allowlist before it reaches Mongo. The copy is
- * hand-authored, so anything outside this set is a typo, not an attack, and
- * failing the run is the right response to it.
+ * The block builders, the HTML allowlist, the zod validation and the two PageSeo
+ * writers live in `./content-kit`, shared with `seed-lowkd-content.ts`.
  */
-const ALLOWED_TAGS = new Set([
-  "p",
-  "ul",
-  "ol",
-  "li",
-  "strong",
-  "em",
-  "a",
-  "h2",
-  "h3",
-  "h4",
-  "br",
-]);
-
-function assertSafeHtml(scope: string, html: string) {
-  for (const match of html.matchAll(/<\/?([a-zA-Z][a-zA-Z0-9]*)\b/g)) {
-    const tag = match[1] ?? "";
-    if (!ALLOWED_TAGS.has(tag.toLowerCase())) {
-      throw new Error(`Disallowed tag <${tag}> in "${scope}". Allowed: ${[...ALLOWED_TAGS].join(", ")}`);
-    }
-  }
-  if (/\son[a-z]+\s*=/i.test(html) || /javascript:/i.test(html)) {
-    throw new Error(`Inline handler or javascript: URL in "${scope}"`);
-  }
-}
-
-/** Walk a block's HTML-bearing fields: `richtext.html`, guide `intro` + section bodies. */
-function checkBlockHtml(scope: string, block: BlockSpec) {
-  const d = block.data;
-  if (typeof d.html === "string") assertSafeHtml(scope, d.html);
-  if (typeof d.intro === "string") assertSafeHtml(scope, d.intro);
-  if (Array.isArray(d.sections)) {
-    for (const s of d.sections as GuideSection[]) assertSafeHtml(scope, s.body);
-  }
-}
-
-/**
- * Validate through the same zod schema the admin form runs on save. A block this
- * script could write but the UI would reject is a trap for whoever opens the
- * page next.
- */
-function prepareBlocks(scope: string, specs: BlockSpec[]) {
-  for (const spec of specs) checkBlockHtml(scope, spec);
-  const withIds = specs.map((b, i) => ({ ...b, id: blockId(scope, i) }));
-  const parsed = blocksSchema.safeParse(withIds);
-  if (!parsed.success) {
-    throw new Error(
-      `Invalid blocks for "${scope}": ${JSON.stringify(parsed.error.flatten(), null, 2)}`,
-    );
-  }
-  return parsed.data;
-}
-
-interface SeoSpec {
-  metaTitle?: string;
-  metaDescription?: string;
-  keywords?: string[];
-  focusKeyword?: string;
-  /** Site-relative path. Retires this URL with a 308. */
-  redirectTo?: string;
-  /** hreflang: shared key naming the variant set, plus this variant's BCP 47 tag. */
-  localeGroup?: string;
-  locale?: string;
-}
-
-/** Flatten an SEO spec into dotted `$set` paths, so untouched SEO fields survive. */
-function seoSet(scope: string, spec: SeoSpec): Record<string, unknown> {
-  const parsed = seoSchema.safeParse(spec);
-  if (!parsed.success) {
-    throw new Error(`Invalid SEO for "${scope}": ${JSON.stringify(parsed.error.flatten())}`);
-  }
-  const out: Record<string, unknown> = {};
-  for (const [key, value] of Object.entries(parsed.data)) {
-    if (value !== undefined) out[`seo.${key}`] = value;
-  }
-  return out;
-}
-
-function checkFaqs(scope: string, faqs: { question: string; answer: string }[]) {
-  const parsed = faqsSchema.safeParse(faqs);
-  if (!parsed.success) {
-    throw new Error(`Invalid FAQs for "${scope}": ${JSON.stringify(parsed.error.flatten())}`);
-  }
-  return parsed.data;
-}
-
-/** Union of existing + new keywords, capped at the schema's limit of 20. */
-const mergeKeywords = (existing: unknown, added: string[]): string[] =>
-  Array.from(
-    new Set([...(Array.isArray(existing) ? existing.map(String) : []), ...added]),
-  ).slice(0, 20);
-
-const log = (msg: string) => {
-  // eslint-disable-next-line no-console
-  console.log(msg);
-};
 
 // ═══════════════════════════════════════════════════════════════════════════
 // Doc tab 1 — Homepage extra sections  →  PageSeo "home" blocks
@@ -1177,18 +1026,6 @@ const US_FAQS = [
   },
 ];
 
-interface LandingSpec {
-  pageKey: string;
-  path: string;
-  /** Admin label and breadcrumb leaf. */
-  title: string;
-  heading: string;
-  subheading: string;
-  seo: SeoSpec;
-  faqs: { question: string; answer: string }[];
-  blocks: BlockSpec[];
-}
-
 const CA_LANDING: LandingSpec = {
   pageKey: "ecommerce-pos-reviews-canada",
   path: "/ecommerce-pos-reviews-canada",
@@ -1370,85 +1207,6 @@ const US_LANDING: LandingSpec = {
 // ---------------------------------------------------------------------------
 // Writers
 // ---------------------------------------------------------------------------
-
-async function upsertPageSeoRoute(opts: {
-  pageKey: string;
-  title: string;
-  path: string;
-  seo?: SeoSpec;
-  faqs?: { question: string; answer: string }[];
-  blocks?: BlockSpec[];
-  /** Merge into whatever keywords the record already carries instead of replacing. */
-  mergeKeywordsInto?: boolean;
-}) {
-  const existing = await PageSeo.findOne({ pageKey: opts.pageKey }).lean();
-
-  const seoSpec: SeoSpec = { ...opts.seo };
-  if (opts.mergeKeywordsInto && seoSpec.keywords) {
-    seoSpec.keywords = mergeKeywords(existing?.seo?.keywords, seoSpec.keywords);
-  }
-
-  const set: Record<string, unknown> = {
-    path: opts.path,
-    kind: "route",
-    ...(opts.seo ? seoSet(opts.pageKey, seoSpec) : {}),
-    ...(opts.faqs ? { faqs: checkFaqs(opts.pageKey, opts.faqs) } : {}),
-    ...(opts.blocks ? { blocks: prepareBlocks(opts.pageKey, opts.blocks) } : {}),
-  };
-
-  if (DRY_RUN) {
-    log(
-      `  [dry-run] PageSeo ${opts.pageKey} (${opts.path}) ${existing ? "update" : "insert"}: ${Object.keys(set).join(", ")}`,
-    );
-    return;
-  }
-
-  await PageSeo.updateOne(
-    { pageKey: opts.pageKey },
-    // `title` is the admin's own label for the record, so it is set once at
-    // creation and never rewritten by a reseed.
-    { $set: set, $setOnInsert: { title: opts.title, isPublished: true } },
-    { upsert: true },
-  );
-  log(`  ${existing ? "updated" : "created"} PageSeo ${opts.pageKey} (${opts.path})`);
-}
-
-async function upsertLanding(spec: LandingSpec) {
-  // Validate the identity half through the same schema the admin's create form
-  // uses, so a path this script writes is one the UI would also accept.
-  const identity = pageSeoCreate.parse({
-    title: spec.title,
-    path: spec.path,
-    heading: spec.heading,
-    subheading: spec.subheading,
-    isPublished: true,
-  });
-
-  const set: Record<string, unknown> = {
-    title: identity.title,
-    path: identity.path,
-    pageKey: identity.pageKey,
-    kind: "landing",
-    heading: identity.heading,
-    subheading: identity.subheading,
-    isPublished: true,
-    ...seoSet(spec.pageKey, spec.seo),
-    faqs: checkFaqs(spec.pageKey, spec.faqs),
-    blocks: prepareBlocks(spec.pageKey, spec.blocks),
-  };
-
-  const existing = await PageSeo.findOne({ pageKey: identity.pageKey }).lean();
-
-  if (DRY_RUN) {
-    log(
-      `  [dry-run] landing ${identity.path} ${existing ? "update" : "insert"}: ${(set.blocks as unknown[]).length} blocks, ${spec.faqs.length} FAQs`,
-    );
-    return;
-  }
-
-  await PageSeo.updateOne({ pageKey: identity.pageKey }, { $set: set }, { upsert: true });
-  log(`  ${existing ? "updated" : "created"} landing page ${identity.path}`);
-}
 
 async function updateCategory(
   slug: string,
