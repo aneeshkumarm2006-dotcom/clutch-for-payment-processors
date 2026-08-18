@@ -572,12 +572,20 @@ async function main() {
     blocks: SQUARE_ALTERNATIVES_BLOCKS,
   });
 
-  log("\nBraintree reviews");
-  await updateProcessorReviewsPage("braintree", {
-    seo: BRAINTREE_REVIEWS_SEO,
-    faqs: BRAINTREE_REVIEWS_FAQS,
-    blocks: BRAINTREE_REVIEWS_BLOCKS,
-  });
+  /**
+   * Braintree's reviews page is NO LONGER WRITTEN HERE.
+   *
+   * Ownership moved to `scripts/data/review-pages/braintree.json` and
+   * `npm run seed:review-pages` on 2026-08-19, when every published processor got a
+   * full reviews page on that system. Two scripts writing the same
+   * `reviewsPage.blocks` is a silent race: whichever ran last won, and running this
+   * one would replace a four-block page carrying sourced third-party quotes with the
+   * single block defined above.
+   *
+   * The `BRAINTREE_REVIEWS_*` constants are kept rather than deleted so the doc this
+   * script records stays readable and the copy is recoverable if the decision is
+   * reversed. Nothing calls them now.
+   */
 
   log("\nInterchange-plus");
   await upsertPageSeoRoute({

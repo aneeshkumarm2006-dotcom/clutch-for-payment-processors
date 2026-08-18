@@ -1,0 +1,101 @@
+{
+  "slug": "paypal",
+  "name": "PayPal",
+  "heading": "PayPal reviews",
+  "intro": "PayPal has one of the widest review splits in payments. Business reviewers on G2 rate it around 4.4 out of 5. Trustpilot has it at about 1.5 across nearly 37,000 reviews, and the Better Business Bureau at 1.1, with more than 28,000 complaints logged over three years. Almost all of that gap is one subject: accounts limited and funds held, which has also been the subject of class-action litigation.",
+  "seo": {
+    "metaTitle": "PayPal Reviews: 4.4 on G2, 1.5 on Trustpilot",
+    "metaDescription": "PayPal rates 4.4 on G2 but 1.5 on Trustpilot across 37,000 reviews and 1.1 on the BBB. The account limitation and held funds complaints behind the gap.",
+    "keywords": [
+      "paypal reviews",
+      "paypal ratings",
+      "paypal complaints",
+      "paypal account limited",
+      "paypal funds on hold"
+    ],
+    "focusKeyword": "paypal reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these PayPal reviews verified?",
+      "answer": "The figures on this page come from G2, Capterra, Trustpilot and the Better Business Bureau and were current as of August 2026. G2 and Capterra verify reviewers before publishing. Trustpilot is open and the BBB publishes complaints alongside reviews, which is part of why both run so low. None of these are reviews submitted to this site. Anything in the list above is a review a merchant wrote here and our moderators approved, rated on pricing, support, ease of use, features and reliability. Our own score is computed from those approved reviews only, never borrowed from a platform."
+    },
+    {
+      "question": "Why is PayPal rated 4.4 by businesses and 1.5 by consumers?",
+      "answer": "Because they are two different products sharing a brand. On G2 and Capterra the reviewer is a business evaluating checkout conversion, and PayPal genuinely delivers there: shoppers recognise the button and buy. On Trustpilot and the BBB the reviewer is usually someone whose account was limited or whose money was held, and that population includes both consumers and small sellers. A near three-star gap between the two is not two contradictory opinions about one thing. It is a good payment button attached to a risk operation that many people have had a bad experience with, and you will be exposed to both."
+    },
+    {
+      "question": "What do PayPal reviewers complain about most?",
+      "answer": "Account limitation and held funds, overwhelmingly. Reviewers describe accounts limited or deactivated with no clear reason, balances held for extended periods, and requests for documentation that do not resolve the hold once submitted. The practice has been the subject of consolidated class-action litigation alleging that PayPal froze accounts and held merchant funds for long periods without adequate notice or due process, covering a class period running from roughly 2019 to 2024. Second is support: reviewers consistently report being unable to reach anyone able to reverse a decision. Third is the dispute process, which sellers describe as weighted toward the buyer."
+    },
+    {
+      "question": "Should you use PayPal as your main processor?",
+      "answer": "Most merchants are better off treating it as an additional checkout option rather than as the account that holds their working capital. The business case for offering PayPal is strong and well evidenced: recognition lifts conversion, particularly on cross-border sales and with older shoppers, and Venmo comes with it in the US. The case against depending on it is the review record above. Add the button, and settle to a bank account you control quickly rather than accumulating a balance inside PayPal. If you want the PayPal and Venmo methods with a processor relationship somewhere else, <a href=\"/processor/braintree\">Braintree</a> is PayPal-owned and offers both through a conventional gateway integration."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, PayPal sits at roughly 4.4 out of 5 on G2 from business reviewers, against about 1.5 across nearly 37,000 Trustpilot reviews and 1.1 on the Better Business Bureau, where more than 28,000 complaints have been logged over a three-year window alongside about 1,700 reviews. Capterra lands in the middle. The sample sizes on the negative side are large enough that selection bias explains the direction but not the magnitude.</p><p>Sort the reviews by subject and they stop contradicting each other. Reviews about checkout, conversion and getting paid by an international customer are positive and numerous. Reviews about what happens when PayPal's risk system takes an interest in you are the opposite, and there are tens of thousands of them.</p><p>This is not only a review-site phenomenon. Consolidated class-action litigation has alleged that PayPal froze accounts and held funds for extended periods without adequate notice, with a class period running from roughly 2019 through 2024 and the effect falling hardest on small businesses and individual sellers. Whatever its outcome, the existence of a case built on the same facts the reviews describe is worth more than any star rating here.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Buyer recognition lifts checkout conversion, and reviewers selling cross-border cite it as the single reason they keep the button",
+        "Venmo comes bundled in the US, which reaches a younger customer base most processors cannot offer",
+        "Setup is immediate with no application, so a new seller can take a card the day they launch",
+        "Reviewers describe the invoicing and payment-request tools as good enough to bill clients without other software",
+        "Coverage of currencies and countries is broader than most processors offer without a local entity",
+        "The buyer protection that sellers dislike is also why hesitant customers complete a purchase at all"
+      ],
+      "cons": [
+        "Account limitation and deactivation with no clear reason is the dominant complaint across every consumer-facing platform",
+        "Held balances are described as lasting weeks or months, with submitted documentation failing to release them",
+        "Class-action litigation has alleged extended fund freezes without adequate notice or due process for merchants",
+        "Reviewers report being unable to reach anyone with authority to reverse a limitation decision",
+        "Sellers describe the dispute process as weighted toward the buyer, including on delivered and tracked orders",
+        "Standard rates are high against a dedicated merchant account, and higher again on cross-border and currency conversion",
+        "Funds accumulating inside PayPal rather than in your own bank are exposed to any limitation decision"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The reviews will not tell you your own risk of being limited, because it depends on things a rating cannot see: your category, your dispute rate, how fast your volume grows, and whether what you sell matches what you told PayPal you sell. Most merchants are never limited. The ones who are describe an experience with no proportionate remedy, and there are enough of them to have supported years of litigation. Both facts are true at once.</p><p>The practical conclusion is about where your money sits rather than whether to use PayPal at all. Offer it, because the conversion case is real and well documented. Then sweep the balance to your own bank on a short cycle, keep documentation ready before you are asked for it, and make sure a limitation would be an inconvenience rather than a shutdown. A merchant account underwritten in your own name, such as <a href=\"/processor/helcim\">Helcim</a> or <a href=\"/processor/stax\">Stax</a>, gives you a relationship to escalate through, which is precisely what these reviews say PayPal does not.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/www.paypal.com",
+    "https://www.bbb.org/us/ca/san-jose/profile/payment-processing-services/paypal-inc-1216-210387/complaints",
+    "https://www.capterra.com/p/207944/PayPal/reviews/",
+    "https://www.cardpaymentoptions.com/credit-card-processors/paypal-reviews/",
+    "https://checkthat.ai/brands/paypal/reviews"
+  ],
+  "quotesNote": "Three seller accounts, chosen because they are merchants rather than shoppers, which most of PayPal's negative pool is not. Each describes the same sequence the class-action litigation alleges: a limitation, then a balance held.",
+  "quotes": [
+    {
+      "text": "About 2 years ago Paypal decided to limit my account, I tried to resolve the issue with no success. About a year ago they decided to close my account and they will send me an email with directions to refund my balance within 180 days.",
+      "source": "ConsumerAffairs",
+      "sourceUrl": "https://www.consumeraffairs.com/online/paypal-us.html",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "a seller"
+    },
+    {
+      "text": "switched to a personal account from a business account based on the customer support advice to resolve account transaction challenges, shortly after, my business account was frozen",
+      "source": "ConsumerAffairs",
+      "sourceUrl": "https://www.consumeraffairs.com/online/paypal-us.html",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "a seller"
+    },
+    {
+      "text": "PayPal after review permanently limited my account.",
+      "source": "Card Payment Options",
+      "sourceUrl": "https://www.cardpaymentoptions.com/credit-card-processors/paypal-reviews/",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "a seller whose account had been hacked"
+    }
+  ]
+}

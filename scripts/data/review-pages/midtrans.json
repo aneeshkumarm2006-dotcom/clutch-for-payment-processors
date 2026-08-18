@@ -1,0 +1,133 @@
+{
+  "slug": "midtrans",
+  "name": "Midtrans",
+  "heading": "Midtrans reviews",
+  "intro": "Midtrans is part of GoTo Financial, the group behind Gojek and Tokopedia, and it is the only Indonesian gateway with exclusive GoPay acceptance. Its review record is the most extreme on this site: 334 reviews on its Google listing averaging 3.0, made up of 160 five-star and 159 one-star ratings with just 15 in between. That is not a middling service. It is two completely different experiences filed under one name.",
+  "seo": {
+    "metaTitle": "Midtrans Reviews: 160 Five-Star, 159 One-Star",
+    "metaDescription": "Midtrans averages 3.0 from 334 Google reviews, split almost evenly between five-star and one-star. What each half is actually about.",
+    "keywords": [
+      "midtrans reviews",
+      "midtrans complaints",
+      "midtrans settlement",
+      "midtrans gopay",
+      "midtrans payment gateway"
+    ],
+    "focusKeyword": "midtrans reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Midtrans reviews verified?",
+      "answer": "They are published third-party reviews rather than reviews submitted to this site. The main venue is unusual for this industry: Midtrans has no listing on Capterra, G2, Trustpilot or GetApp, so its Google business profile has become the de facto review site, carrying 334 reviews at 3.0 stars when checked on 19 August 2026. Indonesian merchants also use Media Konsumen, a consumer complaint letters site, to escalate cases publicly. One caveat applies throughout: Google auto-translates Indonesian reviews, and roughly three in five of the review bodies on that profile are machine translations. None of those are quoted on this page, because a Google translation is not the reviewer's own words, so the excerpts below come only from the natively English minority. No merchant has published a review here yet."
+    },
+    {
+      "question": "Why is Midtrans rated 160 five-star and 159 one-star?",
+      "answer": "Because the two halves are describing different stages of the relationship, and almost nobody has a middling experience. Only 15 of 334 reviews sit between the extremes. The five-star half is dominated by developers and merchants talking about integration: Snap checkout dropping in without building a payment UI, virtual account numbers generating quickly, the breadth of local payment methods. That is a verdict on the product, delivered in the first weeks of using it. The one-star half is almost entirely about onboarding and money: verification loops that run for months, accounts that flip to under review, funds held, and support that does not answer. That is a verdict on the operations, delivered later and usually by someone whose payouts have stopped. Both groups are describing Midtrans accurately. They are just not describing the same part of it."
+    },
+    {
+      "question": "Why do Indonesian merchants choose Midtrans?",
+      "answer": "Mostly for coverage they cannot get elsewhere. Midtrans is the only gateway with exclusive GoPay acceptance, and it supports QRIS natively for OVO, ShopeePay, DANA and LinkAja, plus bank virtual accounts, cards and PayLater, across more than 25 local methods. In a market where a large share of consumers pay from a wallet rather than a card, that coverage decides conversion. It settles directly to Indonesian bank accounts in rupiah and charges no subscription fee. Being part of GoTo Financial, the group behind Gojek and Tokopedia, is what makes the GoPay relationship possible."
+    },
+    {
+      "question": "What do Midtrans merchants complain about most?",
+      "answer": "Held funds and onboarding, in that order, and the complaints are strikingly consistent. Merchants describe accounts that were active and verified suddenly moving to under review, with withdrawals blocked while the review runs. One reports being told the money would arrive tomorrow for three weeks before asking customers to cancel their payments and pay another way. Another reports a hold quoted at 180 days over a single declined transaction. Onboarding is the other theme: verification that stretches past a month, document requests that arrive in waves rather than in one list, and at least one merchant calling it the longest gateway approval they have endured. Support is the aggravating factor in nearly every case, with chat queues quoted in seconds that run to hours, and replies measured in weeks. Note the asymmetry: none of these complaints are about the technology, and none of the praise is about the operations."
+    },
+    {
+      "question": "How should you evaluate Midtrans?",
+      "answer": "Accept that the coverage case is strong and interrogate the settlement case, because that is where the complaints are. Ask what triggers a settlement hold, how long holds typically last, what documentation releases one, and what the support commitment is when a payout does not arrive. Ask about the settlement cycle in normal operation and whether it differs by payment method, since wallet and virtual account flows do not always clear on the same schedule as cards. If a single payout cycle is your entire cash flow, run a second gateway alongside so one hold cannot stop you trading, and price international card volume separately against <a href=\"/processor/stripe\">Stripe</a>."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Midtrans has no listing on Capterra, G2, Trustpilot or GetApp, which is unusual for a gateway of its size and means the normal software-directory picture simply does not exist. What has filled the gap is its Google business profile in South Jakarta, which merchants use as a review site rather than to rate an office. As of 19 August 2026 it holds 334 reviews at 3.0 stars.</p><p>That 3.0 is the least informative number on this page. The distribution behind it is 160 five-star, 10 four-star, 2 three-star, 3 two-star and 159 one-star. Roughly 95 percent of reviewers went to one extreme or the other, and the average lands in the middle only because the two halves cancel out. No merchant has ever had the experience that 3.0 describes.</p><p>Read the halves separately and each is coherent. The five-star reviews are about building things: Snap checkout integrating without having to build a payment interface, virtual account numbers generated quickly and reliably, more than 25 local payment methods, regular feature additions. Several are explicitly from developers. The one-star reviews are about money and access: verification that runs for a month and a half, verified accounts flipped back to under review, funds blocked for weeks, one merchant quoted a 180-day hold after a single declined transaction, and terminations delivered without notice or reason. Support sits underneath most of them, with chat waits quoted at seconds and lasting hours, and email replies taking weeks. Indonesian merchants also escalate to Media Konsumen, a public complaint-letters site, where the withheld funds pattern repeats across several years.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "What the two halves of the review record say",
+      "pros": [
+        "The only gateway with exclusive GoPay acceptance, which in Indonesia is a conversion advantage no competitor can match",
+        "Snap checkout is repeatedly praised by developers for removing the need to build a payment interface at all",
+        "Native QRIS support covering OVO, ShopeePay, DANA and LinkAja, so wallet customers pay without leaving checkout",
+        "More than 25 local payment methods including bank virtual accounts, cards and PayLater",
+        "Reviewers describe virtual account number generation as fast and rarely buggy, which is the daily mechanic of Indonesian e-commerce",
+        "Settles directly to Indonesian bank accounts in rupiah, avoiding cross-border conversion on domestic sales",
+        "No subscription fee, so cost scales with transactions rather than being a fixed monthly commitment",
+        "Backing from GoTo Financial gives it institutional weight and the Gojek and Tokopedia relationships behind it"
+      ],
+      "cons": [
+        "159 of 334 Google reviews are one star, and held funds are the single most common reason given",
+        "Merchants report verified accounts being flipped back to under review, with withdrawals blocked while it runs",
+        "One merchant reports being quoted a 180-day hold over a single declined transaction, another three weeks of blocked customer payments",
+        "Onboarding and verification are reported to run past a month, with document requests arriving in waves rather than as one list",
+        "Support is the aggravating factor in most complaints, with chat waits quoted in seconds running to hours and email replies taking weeks",
+        "Terminations are reported as arriving without notice or stated reason, leaving merchants unable to take payments",
+        "Bank Indonesia regulation means Midtrans processes IDR only, so billing a US customer in dollars requires converting first and carrying the currency risk yourself",
+        "Google auto-translates most reviews on the profile, so the record is harder to read than the headline number suggests",
+        "Coverage is built around Indonesia, so it is one provider in a regional stack rather than a global option"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>A near-perfect split between five and one star usually means a review pool has been manipulated. Here it probably does not, and the reason is worth understanding, because it changes what you should do with the information. The two halves are written by populations who encounter Midtrans at different moments. Developers meet it at integration, when Snap works and virtual accounts generate in milliseconds, and they write a five-star review about a product. Merchants meet it again at settlement, sometimes months later, when an account goes under review and the money stops, and they write a one-star review about a company. The product praise and the operational complaints are not in conflict. They are sequential.</p><p>The structural reason behind the holds is not a secret, and it is not unique to Midtrans. As a licensed Indonesian payment gateway it operates under Bank Indonesia rules and carries the fraud and money-laundering obligations that come with them, so it can and does freeze balances while it verifies. What reviewers consistently object to is not that reviews happen but that they arrive without explanation, without a timeline, and without a person to speak to. That is a service design choice rather than a regulatory requirement, and it is the specific thing to test before you commit.</p><p>So build your diligence around the failure mode the one-star half describes, because the five-star half cannot warn you about it. Ask what triggers an account review, what the maximum hold period is and whether 180 days is really on the table, what happens to funds already collected from customers during a review, what the escalation path is beyond chat, and what notice you get before termination. Get the settlement timetable per payment rail in writing rather than as a general promise. And because Midtrans settles only in rupiah, keep a second gateway integrated if you sell internationally, which is exactly what several of the unhappiest reviewers ended up doing under pressure.</p>"
+    }
+  ],
+  "sources": [
+    "https://maps.google.com/?cid=10463953938011559209",
+    "https://mediakonsumen.com/2024/10/01/surat-pembaca/dana-saya-masih-tertahan-di-midtrans",
+    "https://mediakonsumen.com/2021/05/03/surat-pembaca/tidak-dapat-payout-serta-belum-ada-penyelesaian-dari-midtrans",
+    "https://mediakonsumen.com/2020/12/30/surat-pembaca/saldo-penjualan-midtrans-tidak-bisa-ditarik-ke-rekening",
+    "https://wordpress.org/support/plugin/midtrans-woocommerce/reviews/",
+    "https://midtrans.com/"
+  ],
+  "quotesNote": "All six come from the 334-review Google business profile, which is the main third-party venue because Midtrans has no Capterra, G2, Trustpilot or GetApp listing. Three are five star and three are one star, which reflects a pool split 160 to 159 between those two ratings. One limitation to declare: Google machine-translates the Indonesian reviews, and roughly three in five of the review bodies on the profile are translations, which are excluded here because a translation is not the reviewer's own words. These excerpts therefore come from the natively English minority, which skews toward developers and international merchants.",
+  "quotes": [
+    {
+      "text": "Snap is very easy to integrate. Save me a lots of money from building the UI",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=10463953938011559209",
+      "date": "posted about a year ago",
+      "rating": 5,
+      "attribution": "a developer integrating Snap checkout"
+    },
+    {
+      "text": "As a small business owner in Jakarta, I've been using Midtrans for our online payment processing, and I couldn't be happier! Their platform is incredibly user-friendly, making it easy to integrate payments into our e-commerce site.",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=10463953938011559209",
+      "date": "posted about a year ago",
+      "rating": 5,
+      "attribution": "a small business owner in Jakarta"
+    },
+    {
+      "text": "Very satisfied using midtrans. It rarely has a bug and have a quick response time to generate VA number",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=10463953938011559209",
+      "date": "posted about a year ago",
+      "rating": 5,
+      "attribution": "a merchant using bank virtual accounts"
+    },
+    {
+      "text": "Extremely disappointing customer service. The system stated that the estimated wait time for a chat representative was 29 seconds, but after waiting for over an hour, no one ever connected.",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=10463953938011559209",
+      "date": "posted about a year ago",
+      "rating": 1
+    },
+    {
+      "text": "After waiting 3 weeks with my funds blocked (which are payments made by my customers), I had to ask my customers to cancel their Midtrans payments and go through other systems",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=10463953938011559209",
+      "date": "posted about a year ago",
+      "rating": 1,
+      "attribution": "a merchant whose payouts were held"
+    },
+    {
+      "text": "they terminated without any reason. They didn't even give time to find another solution, we had already used Midtrans for couple of months. then terminated, all our users cannot make payments anymore.",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=10463953938011559209",
+      "date": "posted about two years ago",
+      "rating": 1,
+      "attribution": "a merchant whose account was closed"
+    }
+  ]
+}

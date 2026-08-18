@@ -16,6 +16,7 @@
     "seed:seo": "tsx scripts/seed-seo.ts",
     "seed:doc-content": "tsx scripts/seed-doc-content.ts",
     "seed:lowkd-content": "tsx scripts/seed-lowkd-content.ts",
+  "seed:review-pages": "tsx scripts/seed-review-pages.ts",
     "apply:homepage-copy": "tsx scripts/apply-homepage-seo-copy.ts",
     "migrate:blocks": "tsx scripts/migrate-blocks.ts"
   },

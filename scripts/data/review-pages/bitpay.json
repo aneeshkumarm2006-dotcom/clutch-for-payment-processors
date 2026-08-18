@@ -1,0 +1,91 @@
+{
+  "slug": "bitpay",
+  "name": "BitPay",
+  "heading": "BitPay reviews",
+  "intro": "BitPay holds about 1.2 out of 5 across roughly 291 Trustpilot reviews, while Capterra and Software Advice put it near 4.4. That is not a contradiction. Trustpilot is dominated by wallet users who could not access their own funds; the higher scores come from merchants who care about settlement to a bank account and a plugin that works. Read them separately or you will draw the wrong conclusion.",
+  "seo": {
+    "metaTitle": "BitPay Reviews: 1.2 From Wallet Users, 4.4 From Merchants",
+    "metaDescription": "BitPay rates 1.2 on Trustpilot but near 4.4 on Capterra. Why wallet and merchant reviewers disagree, plus the underpayment and verification complaints.",
+    "keywords": [
+      "bitpay reviews",
+      "bitpay complaints",
+      "bitpay merchant reviews",
+      "bitpay account locked",
+      "bitpay underpayment"
+    ],
+    "focusKeyword": "bitpay reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these BitPay reviews verified?",
+      "answer": "The figures come from Trustpilot, Capterra and Software Advice and were current as of August 2026, read alongside independent assessments from Card Payment Options and specialist crypto payment reviewers. Capterra and Software Advice verify reviewers and share a review pool, so they are closer to one source than two. Trustpilot does not verify, and its BitPay pool is heavily weighted toward wallet and app users rather than merchants. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed score."
+    },
+    {
+      "question": "Are BitPay's bad reviews from merchants or from wallet users?",
+      "answer": "Mostly wallet users, and the distinction matters if you are evaluating BitPay as a way to accept crypto. BitPay runs two products under one name: a merchant payment service and a consumer wallet and card. The one-star reviews overwhelmingly describe locked wallet accounts, verification that would not complete, and being unable to reach support about funds the reviewer could not access. Those are serious complaints about the consumer side. The merchant-side reviewers on Capterra rate it well, and what they value is that crypto payments settle to a bank account in normal currency and that the e-commerce plugins work without custom development."
+    },
+    {
+      "question": "What do BitPay reviewers complain about most?",
+      "answer": "Verification delays first, on both sides of the product, followed by unresponsive support and locked accounts. On the merchant side specifically, the recurring themes are unclear fees, refunds, and underpayments. Underpayment is worth understanding because it is not a bug: if a customer sends slightly less crypto than the invoice asked for, perhaps because they paid a network fee out of the same balance, the payment lands short and needs manual resolution. Reviewers describe those cases as slow to sort out. Refunds are similarly awkward, because the price moves between the sale and the refund."
+    },
+    {
+      "question": "Is BitPay worth using to accept crypto?",
+      "answer": "It depends on whether you want crypto exposure or just crypto customers. BitPay's merchant proposition is that it takes the volatility away: the customer pays in crypto, you receive normal currency in your bank account, and BitPay carries the price risk in between. Merchants who want that rate it well. If you want to hold the crypto itself, or if you sell in a category where a meaningful share of orders will need refunding, the review record suggests the operational friction is real. Compare against <a href=\"/processor/nowpayments\">NOWPayments</a> on settlement options and refund handling specifically."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, BitPay sits at roughly 1.2 out of 5 across about 291 Trustpilot reviews, with the overwhelming majority citing customer support, locked accounts and inability to access funds. Capterra and Software Advice, which share a review pool, aggregate nearer 4.4. BitPay has operated since 2011 and is one of the longest-running crypto payment processors, so this is not a thin or new record.</p><p>The split is explained by product rather than by disagreement. BitPay sells a merchant payment service and a consumer wallet and prepaid card. Almost all the one-star reviews are about the wallet: verification that stalled, an account locked, funds the reviewer could not withdraw, and support that did not resolve it. The merchant reviewers are rating something else entirely, and they value two specific things: settlement into a bank account in conventional currency, and plugins that drop into an existing store.</p><p>Where the merchant record does turn critical, it concentrates on fees being unclear and on two crypto-native operational problems, refunds and underpayments, both of which reviewers describe as slow to resolve.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Crypto payments settle into a bank account in conventional currency, so merchants take no price exposure between sale and settlement",
+        "E-commerce plugins for the major platforms mean reviewers integrated without custom development",
+        "Operating since 2011, which for a crypto payments company is unusual longevity and a real due-diligence point",
+        "Merchant reviewers on Capterra and Software Advice rate it around 4.4, and the sentiment there is 90 percent positive on breadth of features",
+        "Accepting crypto without holding crypto removes the accounting and treasury work most finance teams object to",
+        "Invoicing and payment request tools cover businesses billing internationally without card rails"
+      ],
+      "cons": [
+        "Verification delays are a consistent complaint across both the merchant and wallet products",
+        "Support is described as unresponsive, and reviewers with locked accounts say they could not reach anyone able to help",
+        "Locked accounts and inability to access funds dominate the 291 Trustpilot reviews at 1.2 out of 5",
+        "Underpayments, where a customer sends slightly less than invoiced, need manual resolution and reviewers say it is slow",
+        "Refunds are operationally awkward because the exchange rate moves between the original sale and the refund",
+        "Fee surprises come up repeatedly, with reviewers saying the cost was not clear in advance",
+        "The shared brand means your customers may find the wallet's one-star reviews when researching your checkout"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The 1.2 is real but it is largely not about the product you would be buying. That said, do not discard it entirely, for two reasons. The support organisation is shared, so the unresponsiveness wallet users describe is the same operation you will reach when an underpayment needs sorting out. And your customers do not know the difference: a shopper who searches BitPay before paying will find those reviews, which is your conversion problem regardless of who wrote them.</p><p>The merchant-specific thing to plan for is the pair of operations that have no equivalent on card rails. Decide in advance what you will do about an underpaid invoice and how you will handle a refund when the price has moved, because both will happen and the review record says neither resolves quickly through support. If crypto is a small share of your revenue, that friction may be acceptable. If you expect it to be significant, get BitPay's written policy on both before you launch rather than discovering it during a dispute.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/bitpay.com",
+    "https://www.cardpaymentoptions.com/credit-card-processors/bitpay-review/",
+    "https://www.rfp.wiki/crypto/payments-commerce/crypto-payment-processors/bitpay",
+    "https://bittrust.org/bitpay/",
+    "https://paybis.com/blog/bitpay-reviews-2026-honest-assessment/"
+  ],
+  "quotesNote": "Both come from BitPay's Trustpilot page, which sits at 1.2 out of 5 across roughly 291 reviews. As the page above explains, that pool is dominated by wallet and app users rather than merchants, so read these as evidence about the shared support operation rather than about the merchant product.",
+  "quotes": [
+    {
+      "text": "Their support team does not read your emails, it's an Ai bot sending copy/paste responses.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/bitpay.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "Lost 40 bucks money because of archived invoice and then I contact with their support and they decide to ban my account",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/bitpay.com",
+      "date": "2026",
+      "rating": 1
+    }
+  ]
+}

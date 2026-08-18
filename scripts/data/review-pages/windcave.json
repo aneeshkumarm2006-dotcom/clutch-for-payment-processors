@@ -1,0 +1,104 @@
+{
+  "slug": "windcave",
+  "name": "Windcave",
+  "heading": "Windcave reviews",
+  "intro": "Windcave has run since 1999 out of New Zealand and now operates across more than 40 countries, so the infrastructure is not in question. The public review pools are tiny and the complaints in them are unusually specific: 48-month contracts, early termination penalties around 1,500 dollars, renewals applied without warning, and emails that reviewers say went months without a reply.",
+  "seo": {
+    "metaTitle": "Windcave Reviews: 48-Month Terms, Slow Replies",
+    "metaDescription": "Windcave reviewers report 48-month contracts, roughly $1,500 termination fees, renewals without warning and months-long email delays. What to check first.",
+    "keywords": [
+      "windcave reviews",
+      "windcave complaints",
+      "windcave contract",
+      "windcave termination fee",
+      "windcave payment gateway"
+    ],
+    "focusKeyword": "windcave reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Windcave reviews verified?",
+      "answer": "The complaints summarised here come from Trustpilot and TrustFinance, neither of which verifies that a reviewer was a customer, current as of August 2026. The pools are very small: TrustFinance shows a score of 46 out of 100 from four reviews, which is not a rating in any meaningful sense. So treat the specific allegations as worth checking rather than as established fact, and treat the aggregate scores as noise. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty."
+    },
+    {
+      "question": "How long is a Windcave contract?",
+      "answer": "Reviewers report 48 months, which is long by any standard in this industry and considerably longer than the month-to-month terms several providers on this site offer. The same reviewers describe early termination penalties around 1,500 dollars, and renewals applied without warning or notification. If those terms are what you are offered, the practical effect is that a bad decision compounds for four years and costs to escape. This is the single thing to establish in writing before signing, because it is the source of almost every complaint in the record."
+    },
+    {
+      "question": "What do Windcave reviewers complain about most?",
+      "answer": "Support latency and contract terms, and they compound each other. One reviewer describes the company as a nightmare to deal with, frequently taking months to reply to emails and then invoicing for the many-month period it took to get the contract cancelled. Contract renewal without notification and high termination fees relative to competitors come up alongside that. Separately, reviewers criticise payment processing failures and strict retry policies, meaning transactions that failed and were not retried in a way that recovered the sale. The volume of complaints is low, but the specificity is high."
+    },
+    {
+      "question": "Is Windcave worth considering?",
+      "answer": "The platform credentials are real: trading since 1999, over 40 countries, a large team, and integrations across the major e-commerce platforms including Shopify and Adobe Commerce. It is genuinely capable, particularly for New Zealand and Australian merchants wanting EFTPOS and online under one provider. What you should not do is sign without pinning down the term. Get the contract length, the renewal mechanism and the exact termination fee in writing, and compare against a month-to-month alternative such as <a href=\"/processor/stripe\">Stripe</a> or <a href=\"/processor/mollie\">Mollie</a> so you know what the four-year commitment is buying you."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Windcave was founded in New Zealand in 1999 and now operates across more than 40 countries with a team of over 400. It has published integrations for Shopify and Adobe Commerce, and works across online, retail and unattended payment environments including EFTPOS terminals. On infrastructure and longevity there is nothing to criticise.</p><p>The review record is a different matter, mostly because there is so little of it. TrustFinance shows a score of 46 out of 100 across four reviews, which is too small to mean anything statistically, and the Trustpilot presence is similarly thin. ScamAdviser rates the domain as legitimate, which addresses a question nobody serious was asking.</p><p>What the few reviews lack in volume they make up in specificity, and the allegations are consistent enough to be worth acting on. Reviewers report 48-month contract terms, early termination penalties around 1,500 dollars, and contract renewals applied without warning. One describes taking many months to get a cancellation processed and being invoiced for that entire period. Separately, reviewers criticise payment processing failures and strict retry policies that did not recover failed transactions.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Trading since 1999, which is a long operating history for a payment gateway and a genuine stability signal",
+        "Coverage across more than 40 countries with a team of over 400, so this is not a small operation",
+        "Online, retail and unattended payment environments under one provider, including EFTPOS terminals",
+        "Published integrations for Shopify and Adobe Commerce, so common stacks do not need custom work",
+        "Strong fit for New Zealand and Australian merchants wanting card-present and online from the same provider",
+        "The company publishes a documented merchant feedback process, which not every provider bothers with"
+      ],
+      "cons": [
+        "Reviewers report 48-month contract terms, far longer than the month-to-month alternatives available elsewhere",
+        "Early termination penalties around 1,500 dollars, described as high compared with competitors",
+        "Contract renewals reported as applied without warning or notification",
+        "One reviewer describes emails going months without reply, then being invoiced for the cancellation period",
+        "Payment processing failures and strict retry policies criticised for not recovering failed transactions",
+        "The public review pools are tiny, at four reviews on one platform, so nothing here can be benchmarked",
+        "Rates are not published, so cost cannot be compared before a sales conversation"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>Four reviews cannot tell you what Windcave is like to work with, and it would be wrong to treat a 46 out of 100 built on that as a warning. What the complaints do give you is a list of specific, checkable contract terms, and that is more actionable than any score. A 48-month term with a 1,500 dollar exit fee and automatic renewal is either what you will be offered or it is not, and one question answers it.</p><p>So ask that question first and in writing. Contract length, renewal mechanism, notice period to cancel, exact termination fee, and how a cancellation request is processed and confirmed. Every complaint in this record traces back to one of those five items. If the answers are reasonable, the longevity and the multi-channel coverage are real advantages and the thin review pool should not put you off. If the answers match what reviewers describe, you are being asked to commit for four years to a provider whose slowest reported reply took months, and you should price that risk accordingly.</p>"
+    }
+  ],
+  "sources": [
+    "https://nz.trustpilot.com/review/www.windcave.com",
+    "https://www.trustfinance.com/companies/windcave",
+    "https://www.windcave.com/about",
+    "https://www.paymentsreview.com/resources/directory/windcave/"
+  ],
+  "quotesNote": "Four excerpts from Windcave's Trustpilot page. The pool is very small, so these are not a sample, but they are strikingly consistent: every one describes the contract and billing rather than the payment technology, which is where this page tells you to look.",
+  "quotes": [
+    {
+      "text": "Windcave have been a nightmare to deal with, frequently taking months to reply to emails and then having the gall to invoice us for the period of many months it has taken us to cancel our contract.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/www.windcave.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "They also renewed the contract for several years with no warning or notification.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/www.windcave.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "I tried to cancel a long standard contract with them and they pulled out paperwork dated back to 2014 and forced me to continue paying despite not requiring the service any more.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/www.windcave.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "To make things worse after the contract expired they continued to direct debit me and to this day they are continuing to direct debit me despite my many emails to ask them to stop taking my money.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/www.windcave.com",
+      "date": "2026",
+      "rating": 1
+    }
+  ]
+}

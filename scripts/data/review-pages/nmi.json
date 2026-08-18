@@ -1,0 +1,110 @@
+{
+  "slug": "nmi",
+  "name": "NMI",
+  "heading": "NMI reviews",
+  "intro": "NMI has very few merchant reviews, and the reason is structural rather than a sign of obscurity. It sells a white-label gateway to ISOs, banks, payment facilitators and software companies, who resell it under their own brand. Plenty of merchants process through NMI without knowing the name. That makes the usual review question the wrong one to ask here.",
+  "seo": {
+    "metaTitle": "NMI Reviews: A Gateway You May Not Know You Use",
+    "metaDescription": "NMI is a white-label gateway sold through ISOs and software partners, so merchant reviews are scarce. What the record shows and what to ask your reseller.",
+    "keywords": [
+      "nmi reviews",
+      "nmi gateway reviews",
+      "nmi complaints",
+      "network merchants reviews",
+      "nmi payment gateway"
+    ],
+    "focusKeyword": "nmi reviews"
+  },
+  "faqs": [
+    {
+      "question": "Why are there so few NMI reviews?",
+      "answer": "Because NMI does not sell to merchants. Founded in 2000 as Network Merchants, it provides a white-label gateway to channel partners: independent sales organisations, banks, payment facilitators and software companies who put their own branding on it and sell it onward. A merchant using it may see their ISO's name on the login screen and never encounter NMI at all. So a thin review record here is evidence about the distribution model rather than about quality, and the reviews that do exist come mostly from partners and resellers rather than from end merchants."
+    },
+    {
+      "question": "What does the review record actually show?",
+      "answer": "Two very small pools pointing in opposite directions. On Capterra, NMI averages about 4.7 out of 5 across six reviews, and those reviewers are merchants describing day to day tools: invoicing, payment links, refunds, custom carts. On the Better Business Bureau it averages 1 out of 5, and NMI carries an F rating on both of its BBB profiles for failing to respond to complaints, four unanswered against one profile and five against the other. Neither pool is large enough to be a verdict, and the split is the useful part: people who go to a software directory rate the software, while people who go to the BBB are there about billing and support. Reviewers on TrustRadius and specialist payments sites commend the integration capability, and public complaint threads concern billing, dispute handling and partner relationships rather than the gateway itself."
+    },
+    {
+      "question": "What do NMI's partners and resellers complain about?",
+      "answer": "The most concrete complaint on record comes from resellers rather than merchants: several report being charged a 100 dollar monthly inactivity fee without having agreed to it, debited from a bank account set up years earlier and with no notification beforehand. That is worth knowing if you are a partner rather than a merchant. Beyond that, the pattern is billing disputes and partner relationship friction. Because pricing and support reach the merchant through a reseller, the same gateway produces very different experiences depending on who sold it, which is the recurring structural criticism."
+    },
+    {
+      "question": "How should you evaluate NMI as a merchant?",
+      "answer": "Evaluate your reseller, not NMI. The gateway technology is well regarded and largely uncontroversial; what varies is the markup, the support and the contract, all of which come from whoever sold it to you. So ask who you are contracting with, what the monthly gateway fee and per-transaction fee are in writing, whether there is an inactivity or minimum fee, who answers the phone at 6pm when a transaction fails, and what happens to your gateway if you change processors. If you want a gateway relationship you hold directly, <a href=\"/processor/authorize-net\">Authorize.net</a> and <a href=\"/processor/fluidpay\">Fluid Pay</a> are the comparisons to run."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, NMI has no substantial merchant review pool on any major platform, and this page will not invent one. What exists is two tiny pools that disagree completely. Capterra averages about 4.7 out of 5 from six reviews. The Better Business Bureau averages 1 out of 5 from four reviews spread across two separate NMI profiles, both of which carry an F rating for failure to respond to complaints, four unanswered on one and five on the other. Neither profile is BBB accredited.</p><p>Those two numbers are not really in conflict. They are answering different questions. The Capterra reviewers are merchants using the virtual terminal, describing invoicing, refunds and payment links, which is software they touch daily. The BBB reviewers are people in a billing dispute, including a reseller charged a 100 dollar fee against an account they had not used in nearly four years. Four reviews is not a rating, and neither is six, so treat both as anecdotes with a link attached rather than as a score.</p><p>That thin record is a direct consequence of how NMI is sold. It supplies a white-label gateway to ISOs, banks, payment facilitators and SaaS companies, who brand it as their own. The merchant signs with the reseller, pays the reseller and calls the reseller. There is no consumer-facing relationship to review, which is why a company processing significant volume has a quieter review page than a card reader sold to market traders. Where sentiment turns critical it lands on pricing transparency and support, both of which are set by the partner rather than by NMI.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "What the review record and public material suggest",
+      "pros": [
+        "Reviewers describe integration as straightforward, and the gateway is a long-established integration target after more than two decades in operation",
+        "Capterra reviewers rate the merchant-facing tools highly, naming invoicing, payment links, refunds and custom carts as easy to navigate",
+        "Complaints concern billing and partner relationships rather than the gateway failing, which is the better problem to have",
+        "White-label flexibility means an ISO or software company can put payments in its own product without building a gateway",
+        "Broad support for terminals, virtual terminals, recurring billing and multiple processors behind one integration",
+        "Because it is processor-agnostic, a merchant can change acquirer without rebuilding the payment integration"
+      ],
+      "cons": [
+        "There is effectively no merchant review pool, so you cannot benchmark the merchant experience the way you can elsewhere",
+        "Both Better Business Bureau profiles carry an F rating, in each case for failing to respond to complaints filed there",
+        "BBB reviewers average 1 out of 5, and those complaints are about billing and the tone of support rather than about the technology",
+        "Pricing and support reach you through a reseller, so transparency and service quality vary widely by partner",
+        "A reseller reports a 100 dollar fee taken against an account unused for nearly four years, and a refund refused",
+        "Merchants often do not know they are on NMI, which makes it hard to research before signing",
+        "As a gateway only, it does not include the merchant account, so you are managing two relationships"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The absence of reviews here is genuinely informative once you understand the model, and it points at a different question. Your experience of NMI will be almost entirely determined by the partner who resold it, because they set your price, your contract and your first line of support. Two merchants on identical NMI gateways can pay very different monthly fees and get very different answers when something breaks. No review of NMI can capture that, and no review of NMI should be expected to.</p><p>The F ratings need a note on how to read them, because they are easy to weigh wrongly in both directions. The BBB letter grade is driven heavily by whether a company answers complaints filed there rather than by whether the product works, and a partner-only business has little reason to staff a channel its merchants do not use. That explains the grade without excusing it. Nine complaints and no responses is still a company choosing not to reply in public, and if you are a partner rather than a merchant, that is the channel you would be relying on.</p><p>So do the research on the reseller instead. Find out who holds your contract, get the full fee schedule in writing including any inactivity or minimum charge, and ask specifically what happens to the gateway and your stored card tokens if you move to a different processor later. That last question matters more than it sounds: a processor-agnostic gateway is only portable if your contract and your tokens travel with you, and that is a commercial term rather than a technical fact.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.capterra.co.uk/software/167283/nmi",
+    "https://www.bbb.org/us/il/schaumburg/profile/software-consultants/nmi-0654-90004162/customer-reviews",
+    "https://www.bbb.org/us/il/schaumburg/profile/payment-processing-services/nmi-partners-inc-0654-1000031490/customer-reviews",
+    "https://www.getapp.com/finance-accounting-software/a/nmi-payments/",
+    "https://www.trustradius.com/products/nmi-payment-gateway/reviews",
+    "https://paymentreview.com/reviews/nmi/",
+    "https://merchantalternatives.com/reviews/nmi/",
+    "https://hostmerchantservices.com/articles/nmi-payment-gateway-review/"
+  ],
+  "quotesNote": "Four excerpts from two venues that disagree, presented as a contrast rather than a consensus. The first two come from Capterra, where six reviews average about 4.7 and the reviewers are merchants rating the virtual terminal. Capterra splits a review into separate pros and cons fields, so those two are quoted from those fields rather than from continuous prose. The last two come from the Better Business Bureau, where four reviews across two NMI profiles average 1 out of 5 and every one is a billing or support dispute. Ten reviews in total is not a rating, and one venue collects software opinions while the other collects grievances.",
+  "quotes": [
+    {
+      "text": "They make it really easy to invoice our clients as opposed to other processors we've used in the past.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.co.uk/software/167283/nmi",
+      "date": "2 January 2025",
+      "rating": 5,
+      "attribution": "a reviewer in consumer services, on what works"
+    },
+    {
+      "text": "the complexity of integration with demanding systems, which becomes complex and sometimes requires someone with technical knowledge",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.co.uk/software/167283/nmi",
+      "date": "17 July 2025",
+      "rating": 4,
+      "attribution": "a reviewer in accounting, on drawbacks"
+    },
+    {
+      "text": "Very deceitful company even toward the people selling their products. Terrible business practices and could care less that they take advantage of people",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/il/schaumburg/profile/software-consultants/nmi-0654-90004162/customer-reviews",
+      "date": "26 April 2024",
+      "rating": 1
+    },
+    {
+      "text": "They talk to you like you're dumber then a bag of rocks, they have zero initiative to help you through a situation when you call.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/il/schaumburg/profile/payment-processing-services/nmi-partners-inc-0654-1000031490/customer-reviews",
+      "date": "5 November 2024",
+      "rating": 1
+    }
+  ]
+}

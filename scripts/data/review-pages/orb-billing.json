@@ -1,0 +1,89 @@
+{
+  "slug": "orb-billing",
+  "name": "Orb",
+  "heading": "Orb reviews",
+  "intro": "Orb has no meaningful public review record yet. There is a G2 listing with a small number of positive reviews and very little else, which is normal for a billing platform selling to a few hundred engineering-led companies rather than to a mass market. That absence is worth stating plainly rather than dressing up, and there is a second thing about Orb that matters more than any score: it does not process payments.",
+  "seo": {
+    "metaTitle": "Orb Reviews: A Thin Record and Why That Matters",
+    "metaDescription": "Orb has only a handful of public reviews, and it is a usage-based billing layer rather than a payment processor. What to evaluate instead of a rating.",
+    "keywords": [
+      "orb reviews",
+      "orb billing reviews",
+      "withorb reviews",
+      "orb usage based billing",
+      "orb vs metronome"
+    ],
+    "focusKeyword": "orb reviews"
+  },
+  "faqs": [
+    {
+      "question": "Why are there so few Orb reviews?",
+      "answer": "Because of who buys it and how. Orb sells usage-based billing to engineering and finance teams at companies with metered pricing, on custom contracts with no public price list. That is a small number of deals a year compared with a product a sole trader can sign up for with a card, and enterprise buyers on annual contracts rarely post public reviews. A thin review record here is evidence about the sales model, not about quality. It does mean you cannot lean on an aggregate score, and you should ask for reference customers with a pricing model close to yours instead."
+    },
+    {
+      "question": "Does Orb process payments?",
+      "answer": "No. This is the most important thing on the page. Orb meters usage, calculates what each customer owes and produces the invoice; the actual charging happens through a payment provider you connect, commonly Stripe. So your card rates, your payout timing, your chargeback exposure and your risk of being offboarded all belong to that processor and not to Orb. If you found Orb while comparing card rates, it is not in that comparison at all. It sits above it, and you will still need a processor underneath."
+    },
+    {
+      "question": "What do the Orb reviews that exist actually say?",
+      "answer": "The recurring points on G2 are support responsiveness, including help with feature requests, and that complex or unusual usage-based pricing models can be represented without custom engineering. One reviewer in software describes redeploying senior engineers off billing work onto the product, which is the specific outcome the product is sold on. Orb's own material emphasises a raw event architecture, meaning it stores the underlying usage events rather than pre-aggregated counters, which is what allows a pricing change to be applied to historical usage. Treat all of this as directional: the sample is too small to be a verdict."
+    },
+    {
+      "question": "How should you evaluate Orb without a review record?",
+      "answer": "Test it against your own billing edge cases rather than reading scores. Take your three most awkward invoices from the last quarter, the ones finance had to correct by hand, and ask Orb to model them. Then ask the questions a rating would never answer: how a mid-cycle plan change is prorated, whether historical usage can be rebilled after a pricing change, what happens to invoices when a metering event arrives late, how credits and commitments are tracked, and how billings-based pricing scales as your revenue grows. Ask for two reference customers whose pricing resembles yours, and run the comparison against <a href=\"/processor/metronome-billing\">Metronome</a> and <a href=\"/processor/maxio\">Maxio</a> in parallel."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Very little, and pretending otherwise would be the wrong service to anyone reading this. As of August 2026 Orb has a G2 listing carrying a small number of reviews and no substantial presence on Capterra, Trustpilot or Gartner Peer Insights. There is no rating here with enough volume behind it to quote as a figure, so this page does not quote one.</p><p>That is a predictable consequence of the business. Orb sells usage-based billing on custom contracts to companies with metered pricing models, mostly infrastructure, AI and developer-tools companies. Deal counts are low, buyers are technical, and nobody posts to Trustpilot after signing an annual contract. Compare it with the tens of thousands of reviews a card reader accumulates and the difference is about distribution, not about product quality.</p><p>The reviews that do exist are consistent on two points: support that engages with feature requests rather than deflecting them, and the ability to model complicated pricing without writing custom billing code. Both are what you would want to hear. Neither is a large enough sample to rely on.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "What the small review pool and public material suggest",
+      "pros": [
+        "Reviewers describe support that engages with feature requests directly rather than routing them into a backlog",
+        "Complex and unusual usage-based pricing can be represented in configuration instead of custom billing code",
+        "The event-level architecture stores raw usage rather than pre-aggregated counters, so a pricing change can be applied to historical usage",
+        "One reviewer describes moving senior engineers off billing maintenance and back onto the product, which is the outcome it is sold on",
+        "Integration and initial configuration are described as straightforward by the reviewers who mention them"
+      ],
+      "cons": [
+        "The public review record is too thin to support any rating, so you cannot benchmark it the way you can an established vendor",
+        "Pricing is custom only, with no published rates, so you cannot estimate cost before a sales conversation",
+        "Pricing is metered on total billings, meaning the cost scales with your revenue rather than with your usage of Orb",
+        "It does not process payments, so it adds a layer above your processor rather than replacing one",
+        "A young vendor on a custom contract carries continuity risk that an aggregate score would not reveal",
+        "Reviews come from technical buyers, so there is little signal on how finance and revenue teams find it day to day"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>No review score answers the question that decides this purchase, which is whether Orb can express your pricing model correctly, including the parts your current system gets wrong. Billing platforms fail on specifics rather than in general: proration on a mid-cycle downgrade, a metering event that arrives three days late, a customer with a committed spend and overage tiers, a credit that has to expire. Those are the cases to put in front of a sales engineer, and a 4.8 from eleven reviewers tells you nothing about any of them.</p><p>The other thing to hold onto is that Orb is not an alternative to a processor. You will still sign with one, and that contract is where your card rates, your reserve and your offboarding risk live. Read the reviews for whichever processor Orb will charge through, usually <a href=\"/processor/stripe\">Stripe</a>, as carefully as you read anything here, because that is the relationship that can freeze your revenue. Orb decides what the invoice says. Someone else decides whether the money arrives.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.g2.com/products/orb/reviews?qs=pros-and-cons",
+    "https://www.withorb.com/",
+    "https://www.stigg.io/blog-posts/usage-based-billing-software",
+    "https://blog.alguna.com/usage-based-billing-software/"
+  ],
+  "quotesNote": "Two excerpts from Orb's G2 page, which as the page above explains carries too few reviews to support a rating. They are quoted because two attributable voices are better than none, not because they settle anything, and both describe the same outcome Orb is sold on: engineering time returned to the product.",
+  "quotes": [
+    {
+      "text": "Leveraging Orb to help with our billing and pricing allowed us to redirect our top engineers to focus on other critical aspects of our product.",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/orb/reviews",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a software company"
+    },
+    {
+      "text": "The Orb team is fantastic. They respond quickly to feature requests and support questions.",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/orb/reviews",
+      "date": "2026",
+      "rating": 5
+    }
+  ]
+}

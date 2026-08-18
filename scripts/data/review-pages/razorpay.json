@@ -1,0 +1,117 @@
+{
+  "slug": "razorpay",
+  "name": "Razorpay",
+  "heading": "Razorpay reviews",
+  "intro": "Razorpay is rated around 4.3 out of 5 across roughly 150 G2 reviews, where merchants describe one-day integration and settlements that arrive on schedule. Trustpilot runs far lower, near 1.4 in the largest sample. The dividing line is sharp and repeatable: the product is well liked right up until an account gets flagged, at which point merchants describe funds held for 120 days and no phone number to call.",
+  "seo": {
+    "metaTitle": "Razorpay Reviews: 4.3 on G2, Far Lower Elsewhere",
+    "metaDescription": "Razorpay rates 4.3 on G2 for its API and settlements but far lower elsewhere over 120-day fund holds, disabled accounts and ticket-only support.",
+    "keywords": [
+      "razorpay reviews",
+      "razorpay complaints",
+      "razorpay settlement hold",
+      "razorpay account disabled",
+      "razorpay ratings"
+    ],
+    "focusKeyword": "razorpay reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Razorpay reviews verified?",
+      "answer": "The figures come from G2, which verifies reviewers before publishing, and Trustpilot, which does not, and were current as of August 2026. Be careful with the Trustpilot number specifically: sources disagree on it, with the larger sample around 1.4 across roughly 437 reviews while other snapshots report much higher, and its pool mixes merchants with consumers who met Razorpay only as a checkout on someone else's site. That is why this page leans on the pattern rather than the decimal. None of these are reviews submitted to this site, and our own score is computed only from reviews merchants publish here and our moderators approve."
+    },
+    {
+      "question": "Why is Razorpay rated so well by developers and so badly elsewhere?",
+      "answer": "Because the two groups are rating different stages of the relationship. On G2, merchants are describing integration and steady-state operation, and on that Razorpay is genuinely strong: clean APIs, integration in about a day, over 100 payment methods, high transaction success rates and settlements arriving on time. The low scores come from merchants whose account was flagged or disabled, plus consumers chasing a refund from a seller. Almost nobody writes a five-star review about a dispute, and almost nobody writes a one-star review about a smooth API. Both pools are honest and neither is complete."
+    },
+    {
+      "question": "What do Razorpay reviewers complain about most?",
+      "answer": "Fund holds and account disabling, by a wide margin. Merchants report accounts permanently disabled without a specific reason given, and funds held for 120 days. Several describe raising tickets over long periods and being given different documentation requirements each time, with substantial sums sitting with Razorpay throughout. Second is support access: there is no customer service phone number, so merchants raise dashboard tickets and describe replies as slow and template-driven with no callbacks. Third is chargeback handling, which reviewers call opaque and cumbersome and say does not resolve disputes fairly."
+    },
+    {
+      "question": "How should you protect yourself if you use Razorpay?",
+      "answer": "Assume a hold is possible and make it survivable rather than fatal. Complete every KYC and documentation step before you scale volume rather than after, because the reports of shifting requirements mostly come from merchants supplying documents under pressure. Keep your business description and your actual catalogue consistent, since a mismatch is a common trigger. Do not let a large balance accumulate inside the gateway; settle to your own bank on the shortest cycle available. And if a single settlement cycle is your entire cash flow, run a second gateway such as <a href=\"/processor/easebuzz\">Easebuzz</a> or <a href=\"/processor/payu\">PayU</a> alongside so one hold cannot stop your business."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Razorpay sits at roughly 4.2 to 4.3 out of 5 across about 150 G2 reviews. Trustpilot is much lower, with the largest sample around 1.4 across roughly 437 reviews, though snapshots disagree and its pool is heavily consumer rather than merchant. Indian fintech directories that collect merchant feedback separately land between the two. Given how far the sources diverge, the individual figures are worth less here than the pattern they all agree on.</p><p>That pattern is one of the widest splits in Indian payments. The developer experience is rated as among the country's best: clean APIs, integration in about a day, more than 100 payment methods, and G2 reviewers specifically citing high transaction success rates and settlements that always arrive on time.</p><p>Then there is the other half. Merchants describe accounts permanently disabled with no specific reason, funds held for 120 days, dashboard tickets answered with templates, no phone number, and chargeback handling they describe as opaque. The technology wins the praise. The risk operation drives all the anger.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Reviewers describe integrating in about a day, and rate the API and documentation among the best available in India",
+        "Over 100 payment methods including UPI, cards, netbanking and wallets, without negotiating each separately",
+        "G2 reviewers report high transaction success rates, which directly affects revenue on Indian mobile networks",
+        "Settlements arrive on schedule for merchants whose accounts are not flagged, and reviewers call this out specifically",
+        "The dashboard, reporting and the surrounding products cover what a growing business needs without extra tooling",
+        "Pricing is published rather than negotiated, which reviewers coming from bank gateways describe as a relief"
+      ],
+      "cons": [
+        "Merchants report accounts permanently disabled with no specific reason given, which is the most serious complaint here",
+        "Funds held for 120 days is reported repeatedly, and for many businesses that is longer than they can survive",
+        "There is no customer service phone number, so every escalation goes through dashboard tickets",
+        "Support replies are described as slow and template-driven, with merchants given different documentation requirements each time",
+        "Chargeback handling is called opaque and cumbersome, and reviewers say disputes are not resolved fairly",
+        "The gap between the developer experience and the dispute experience means positive reviews predict very little about a bad month"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>Nothing in a 4.3 average tells you your odds of being flagged, and that is the only outcome here that could close your business. The variables are your category, your refund and chargeback rate, how fast your volume grows, and whether your registered business details match what you actually sell. Most merchants never trigger a review. The ones who do describe a 120-day hold and a ticket queue, and there are enough of them across independent sources to treat as a real characteristic rather than as bad luck.</p><p>So read the G2 score as an accurate description of the good case and plan for the bad one anyway. Settle to your own bank frequently, keep documentation ready before anyone asks, and hold a second gateway in reserve if your cash flow cannot absorb a stalled settlement cycle. That is cheap insurance against the one failure mode this review record establishes clearly.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/razorpay.com",
+    "https://thefinrate.com/razorpay-reviews-and-feedback/",
+    "https://www.xflowpay.com/blog/razorpay-review",
+    "https://apps.shopify.com/reviews/1779962"
+  ],
+  "quotesNote": "Five from Razorpay's Trustpilot page and one from G2, chosen to show the split this page describes. The G2 voice is the steady-state merchant; the Trustpilot ones are merchants whose settlements stopped.",
+  "quotes": [
+    {
+      "text": "Razorpay took a drastic step by disabling our account and holding our funds for 120 days, which has significantly impacted our business operations and cash flow.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/razorpay.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "Our merchant account was suddenly permanently disabled citing a vague 'violation of Terms of Service,' but no specific reason, clause, or evidence was ever provided.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/razorpay.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "They will hold your payments till you give them documents. And when you give the documents they will want more documents.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/razorpay.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "My settlement has be held since 1 year. Despite of multiple emails, they dont respond.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/razorpay.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "93%+ success rate for me means more money reaching bank account every month",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/razorpay/reviews",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "settlement is always on time",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/razorpay/reviews",
+      "date": "2026",
+      "rating": 5
+    }
+  ]
+}

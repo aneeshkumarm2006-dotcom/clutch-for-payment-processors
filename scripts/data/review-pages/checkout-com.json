@@ -1,0 +1,105 @@
+{
+  "slug": "checkout-com",
+  "name": "Checkout.com",
+  "heading": "Checkout.com reviews",
+  "intro": "Checkout.com holds about 4.6 out of 5 across roughly 70 verified G2 reviews, which is among the strongest ratings of any enterprise payment provider. The sample is small and it is not random: those reviewers are large B2B and e-commerce merchants with account managers. Smaller merchants describe a different company, and support is where the two accounts diverge hardest.",
+  "seo": {
+    "metaTitle": "Checkout.com Reviews: 4.6 on G2, Tiered Support",
+    "metaDescription": "Checkout.com rates 4.6 across 70 G2 reviews from enterprise merchants. Why smaller accounts report far worse support, and where the sweet spot actually sits.",
+    "keywords": [
+      "checkout.com reviews",
+      "checkout com ratings",
+      "checkout.com complaints",
+      "checkout.com support",
+      "checkout.com pricing"
+    ],
+    "focusKeyword": "checkout.com reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Checkout.com reviews verified?",
+      "answer": "The figures come from G2, which verifies reviewers before publishing, and were current as of August 2026, read alongside independent assessments from Card Payment Options and Payment Review. The G2 pool is around 70 reviews, which is small: it is enough to establish a direction and not enough to be a verdict, and it skews toward merchants large enough to have been asked for a review. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed rating."
+    },
+    {
+      "question": "Why do small and large merchants rate Checkout.com so differently?",
+      "answer": "Because support is effectively tiered and the reviews reflect that directly. Enterprise accounts have dedicated account managers, and G2 reviewers at that level describe support as quick to respond and cooperative. Smaller merchants have email, and they report it as hard to reach, slow to resolve disputes and inconsistent between agents. Customer support is simultaneously among the most praised and the most criticised aspects of the company in third-party reviews, and the variable separating those accounts is which tier you are on rather than luck. Analysts put the sweet spot somewhere around 10 to 50 million euros in annual processing, which is a useful way of reading who the good reviews are from."
+    },
+    {
+      "question": "What do Checkout.com reviewers complain about most?",
+      "answer": "Account activation, first: reviewers describe onboarding taking longer than expected and stalling without clear explanation, which for a company that underwrites properly is partly by design but is poorly communicated. Second, reaching support by email, particularly for merchants without an account manager. Third, fund holds, with the same pattern of limited visibility into why. Fourth, cost for small merchants, where pricing is negotiated and reviewers report fees becoming opaque at the contract level. Some reviewers also note a narrower catalogue of payment methods than Adyen or Stripe offer, and missing features competitors ship."
+    },
+    {
+      "question": "Where does Checkout.com fit against Stripe and Adyen?",
+      "answer": "Between them, and that positioning is the most useful thing in the review record. <a href=\"/processor/stripe\">Stripe</a> gives you instant self-serve signup and no relationship; <a href=\"/processor/adyen\">Adyen</a> gives you a relationship, a contract and a monthly minimum built for very large merchants. Checkout.com sits in the middle: underwritten and contracted like an acquirer, with a developer experience closer to Stripe's, and reviewers describe it as the option when you have outgrown self-serve but are not yet Adyen's customer. Below that band the reviews turn negative on cost and support, and above it Adyen's method coverage is broader."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Checkout.com averages about 4.6 out of 5 across roughly 70 verified G2 reviews, which in at least one competitive database is the highest rating among enterprise payment service providers. The number is genuinely good and the sample is genuinely small, so treat it as a strong signal from a narrow group rather than as a settled fact.</p><p>What those reviewers praise is specific: international payments that behave predictably, a clean API and dashboard, real-time analytics, and fraud tooling they actually use. Reviewers handling cross-border volume describe authorisation performance as the reason they moved. Independent analysts position the product between Stripe's simplicity and Adyen's enterprise scope, with the strongest fit somewhere around 10 to 50 million euros of annual processing.</p><p>The criticism divides by account size rather than by topic, which is unusual and worth taking seriously. Enterprise reviewers with account managers rate support well. Smaller merchants rate it badly, and support is described as one of the company's most consistently criticised areas in third-party reviews. Both are describing the same company and different service levels.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Reviewers handling international payments describe processing as smooth and reliable, and cite authorisation performance as the reason they switched",
+        "The API and dashboard are rated close to Stripe's for developer experience, which is rare among acquirers",
+        "Real-time analytics and reporting depth that reviewers say replaced internal tooling they had built",
+        "Fraud protection is described as usable and configurable rather than a black box",
+        "Enterprise accounts get a named account manager, and those reviewers rate support as quick and cooperative",
+        "Underwritten as an acquirer rather than an aggregator, so reviewers do not report the sudden offboarding that dominates aggregator reviews"
+      ],
+      "cons": [
+        "Support quality depends heavily on your tier, and merchants without an account manager describe email support as slow and inconsistent",
+        "Account activation is reported as slow and stalling without clear explanation, which delays launches",
+        "Fund holds happen, with limited visibility into the reason, and reviewers report difficulty getting them resolved",
+        "Pricing is negotiated rather than published, and reviewers say fees become opaque at the contract level",
+        "Cost is a common complaint from small merchants, who are outside the band the product is built for",
+        "The catalogue of supported payment methods is narrower than Adyen's or Stripe's",
+        "The G2 pool is only around 70 reviews, so the 4.6 rests on a thin sample"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>A 4.6 from 70 enterprise reviewers does not predict your experience unless you are one of them. The clearest finding in this review record is not the score, it is that service quality tracks account size, so the question to answer before signing is which tier you will be on and what support that actually entitles you to. Ask whether you get a named account manager, what the response commitment is in writing, and what happens if a payout is held on a Friday. Reviewers without those answers are the ones writing the negative reviews.</p><p>The other thing to check yourself is method coverage against your actual markets, because this is where reviewers say Checkout.com trails its larger competitor. Take your top five countries by revenue, list the payment methods that matter in each, and confirm each one is supported rather than on a roadmap. That takes an hour and settles a question no aggregate rating touches. If the list comes back short and your volume justifies it, <a href=\"/processor/adyen\">Adyen</a> is the comparison to run; if your volume is well below the band described here, the negative reviews are the ones describing you.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.g2.com/products/checkout-com/reviews?qs=pros-and-cons",
+    "https://www.cardpaymentoptions.com/credit-card-processors/checkout-com/",
+    "https://paymentreview.com/reviews/checkoutcom/",
+    "https://thebossmagazine.com/post/6-popular-adyen-alternatives-according-to-reviews/"
+  ],
+  "quotesNote": "Four excerpts, and the order is the point: the first two are enterprise G2 reviewers with account managers, the last two are merchants without one. Same company, same support organisation, opposite experience, which is the tiering this page describes.",
+  "quotes": [
+    {
+      "text": "the support team is always quick to respond and very cooperative",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/checkout-com/reviews?qs=pros-and-cons",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "responsive and knowledgeable, which makes problem resolution smooth and efficient",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/checkout-com/reviews?qs=pros-and-cons",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "poor support and the cancellation of a merchant account of one of our markets without prior notice",
+      "source": "Payment Review",
+      "sourceUrl": "https://paymentreview.com/reviews/checkoutcom/",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "inadequate support as a CKO customer during forced migrations from V1 to V2 and now from V2 to V3",
+      "source": "Payment Review",
+      "sourceUrl": "https://paymentreview.com/reviews/checkoutcom/",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "a merchant reporting emails taking several days for a reply"
+    }
+  ]
+}

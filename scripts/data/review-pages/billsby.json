@@ -1,0 +1,109 @@
+{
+  "slug": "billsby",
+  "name": "Billsby",
+  "heading": "Billsby reviews",
+  "intro": "Billsby holds about 4.8 out of 5 across roughly 484 G2 reviews, which is a large sample and a very high score. One detail shapes how to read it: 99.4 percent of those reviews come from the small-business segment. So this is strong evidence that small businesses find it easy, and almost no evidence about how it behaves at scale.",
+  "seo": {
+    "metaTitle": "Billsby Reviews: 4.8 From 484 Small Businesses",
+    "metaDescription": "Billsby rates 4.8 across 484 G2 reviews, but 99.4% are small businesses. Strong evidence it is easy to implement, little evidence about how it scales.",
+    "keywords": [
+      "billsby reviews",
+      "billsby complaints",
+      "billsby ratings",
+      "billsby pricing",
+      "billsby subscription billing"
+    ],
+    "focusKeyword": "billsby reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Billsby reviews verified?",
+      "answer": "The figures come from G2 and Capterra, both of which verify reviewers before publishing, current as of August 2026. The G2 pool is roughly 484 reviews at 4.8, which is a genuinely large sample for a subscription billing tool of this size. The composition is the thing to notice rather than the number: 99.4 percent of reviews come from the small-business segment, so the sample is large but narrow. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty."
+    },
+    {
+      "question": "Does Billsby process payments?",
+      "answer": "No. Billsby manages subscriptions, plans, invoicing and dunning, and charges customers through a payment gateway you connect. Your card rates, payout schedule, chargeback exposure and risk of being offboarded all belong to that processor rather than to Billsby. So it sits above your processor rather than replacing one, and the processor remains a separate decision with its own review record worth reading. If you arrived here comparing card rates, Billsby is not part of that comparison."
+    },
+    {
+      "question": "Why is the 4.8 rating so uniformly positive?",
+      "answer": "Partly because the product genuinely suits its audience, and partly because of who is reviewing. Reviewers consistently praise the same specific things: quick setup, an interface they found easy without training, competitive pricing, built-in dunning, and support described as personal and attentive, which a small vendor can deliver in a way a large one cannot. Criticism is close to absent in that pool, with several reviewers saying explicitly that they have no complaints at all, though Capterra's much smaller pool does carry one and two-star reviews about support. When a score is this high and this uniform across a narrow segment, read it as a strong signal about fit for that segment rather than as a verdict on the product in general."
+    },
+    {
+      "question": "Is Billsby suitable for a larger business?",
+      "answer": "The review record cannot tell you, and that is the honest answer. With 99.4 percent of reviewers in the small-business segment, there is almost no published experience of Billsby running complex pricing at mid-market or enterprise scale. One reviewer notes that features such as coupon codes were not initially available, which is a normal state for a smaller product still filling gaps. If your pricing involves committed spend, overage tiers, usage-based metering or revenue recognition for an audit, test those specific cases before committing and compare against <a href=\"/processor/chargebee\">Chargebee</a> and <a href=\"/processor/maxio\">Maxio</a>, whose review pools include larger companies."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Billsby holds about 4.8 out of 5 across roughly 484 verified G2 reviews, with Capterra reviewers reaching similar conclusions. That is one of the highest scores in this directory on a sample large enough to be taken seriously, and the praise is specific rather than vague, which makes it more credible.</p><p>Reviewers name the same handful of things repeatedly: it suits subscription models without configuration gymnastics, it was easy to implement, the pricing is competitive, dunning is built in rather than bolted on, and support is described as strong with personal attention. Several reviewers state outright that they have no complaints, though Capterra's smaller pool is not so uniform. The criticism that does exist is mild, with one reviewer noting that features such as coupon codes were not available initially while adding that the team takes feedback seriously.</p><p>The composition of the pool is what a careful reader should weigh most. Around 99.4 percent of G2 reviews come from the small-business segment. That is an unusually narrow distribution, and it means the 4.8 is a well-evidenced statement about one kind of customer rather than a general verdict. Nothing here tells you how Billsby handles complexity it has not been asked to handle.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Roughly 484 verified G2 reviews at 4.8 is a large sample and a genuinely high score",
+        "Reviewers describe implementation as quick, with setup measured in hours rather than as a project",
+        "The interface is repeatedly called easy to use without training, which small teams cite as decisive",
+        "Dunning and retry handling are built in, so failed payments are chased without extra tooling",
+        "Support is described as personal and attentive, which is a real advantage of a smaller vendor",
+        "Pricing is described as competitive against larger subscription billing platforms",
+        "Processor-agnostic, so you can change payment provider without rebuilding billing logic"
+      ],
+      "cons": [
+        "About 99.4 percent of reviews come from small businesses, so the sample says little about scaling",
+        "Capterra's smaller pool of 17 reviews carries one and two-star complaints about support going unanswered and a known fault left unresolved, which the 484-review G2 pool does not show",
+        "Feature gaps have existed, with one reviewer noting coupon codes were not initially available",
+        "There is little published experience of complex pricing such as committed spend or usage-based metering",
+        "Revenue recognition and audit-grade reporting are not what reviewers discuss, so treat them as untested here",
+        "It does not process payments, so it adds a layer above your processor rather than replacing one",
+        "A smaller vendor carries more continuity risk than an established platform"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>A 4.8 with almost no criticism is worth interrogating rather than simply enjoying. It is not a reason for suspicion: a focused product sold to small businesses that finds its fit will genuinely collect reviews like this, and the specificity of the praise supports that reading. But a review pool with no complaints in it cannot help you find the product's edges, and every billing platform has edges. That work falls to you.</p><p>So test the cases the reviewers never had. Take your three most awkward invoices from last quarter, the ones someone fixed by hand, and make Billsby produce them: a mid-cycle plan change with proration, a credit that expires, a customer on committed spend with overage. Ask what reporting your finance team gets without building it, and whether revenue recognition output would survive an audit. If those all pass, the 484 reviewers are telling you something reliable. If they do not, the 4.8 is describing a simpler business than yours and a larger platform is the right comparison.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.g2.com/products/billsby/reviews",
+    "https://www.capterra.com/p/192675/Billsby/reviews/",
+    "https://www.capterra.com/p/192675/Billsby/",
+    "https://cloudratings.com/subscription-management-software/"
+  ],
+  "quotesNote": "Four from Capterra, where Billsby averages 4.6 across 17 reviews. Two are five star and two are one and two star, and that matters: the G2 pool of 484 is almost free of criticism, while this much smaller pool is not. Read the negative pair as the thing 484 enthusiastic reviews were hiding.",
+  "quotes": [
+    {
+      "text": "The customer service has gotten horrible. No one is ever online to respond to issues.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/192675/billsby",
+      "date": "2026",
+      "rating": 2,
+      "attribution": "a consumer services business"
+    },
+    {
+      "text": "They acknowledge that it is working incorrectly, but offer no solutions on how to resolve it.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/192675/billsby",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "an entertainment business"
+    },
+    {
+      "text": "The pricing structure is by far the best in the market...Customer service was also a surprise. They are super friendly.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/192675/billsby",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "an internet business"
+    },
+    {
+      "text": "Their service includes all of the essential supporting activities...I like that it is a comprehensive service with a simple pricing structure.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/192675/billsby",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a software company"
+    }
+  ]
+}

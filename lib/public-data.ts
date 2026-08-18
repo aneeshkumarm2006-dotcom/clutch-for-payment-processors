@@ -3,6 +3,7 @@ import { connectToDatabase } from "@/lib/db";
 import { BlogPost, Category, Processor, Review, type ISiteSettings } from "@/models";
 import { POPULAR_COMPARE_PAIRS, comparePairToParam } from "@/lib/compare-pairs";
 import { buildMentionFilter } from "@/lib/top-mentions";
+import { hasReviewContent, REVIEW_CONTENT_SELECT } from "@/lib/reviews-indexability";
 import {
   toBlogCardData,
   toBlogPostData,
@@ -682,9 +683,10 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     await connectToDatabase();
     const [processors, categories, posts] = await Promise.all([
       Processor.find({ isPublished: true, ...indexableFilter })
-        // `ratingCount` is not a sitemap field — it decides whether the reviews
-        // page is worth listing at all (see below).
-        .select("slug updatedAt ratingCount")
+        // Beyond `slug`/`updatedAt`: the fields `hasReviewContent` needs. None of
+        // them are sitemap fields; they decide whether the reviews page is worth
+        // listing at all (see below).
+        .select(`slug updatedAt ${REVIEW_CONTENT_SELECT}`)
         .lean(),
       Category.find({ isPublished: true, ...indexableFilter }).select("slug updatedAt").lean(),
       BlogPost.find({ ...publishedFilter(), ...indexableFilter }).select("slug updatedAt").lean(),
@@ -708,19 +710,29 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     });
 
     /**
-     * `/processor/<slug>/reviews` — listed only once the processor actually HAS
-     * approved reviews.
+     * `/processor/<slug>/reviews` — listed only once the page has something on it
+     * that exists nowhere else: approved reviews, or an editor's own sections.
      *
      * The route itself renders for every published processor (it is linked from
      * the profile, and a zero-review page is a legitimate destination for the
-     * "write a review" CTA), but a review page with no reviews on it is thin
-     * content. Advertising it in the sitemap asks Google to crawl and index a page
-     * whose whole reason to exist hasn't happened yet — so the page noindexes
-     * itself in that state and the sitemap agrees with it. The two rules must stay
-     * in step; see `hasReviewContent` in the reviews route.
+     * "write a review" CTA), but a reviews page with nothing on it is thin content.
+     * Advertising it in the sitemap asks Google to crawl and index a page whose
+     * whole reason to exist hasn't happened yet, so the page noindexes itself in
+     * that state and the sitemap agrees with it.
+     *
+     * Both sides now call `hasReviewContent` rather than re-implementing it. The
+     * version here used to test `ratingCount` alone, which disagreed with the
+     * route the moment a processor got a written reviews page before its first
+     * merchant review.
      */
     const reviewEntries: SitemapEntry[] = processors
-      .filter((p) => Number(p.ratingCount ?? 0) > 0)
+      .filter((p) =>
+        hasReviewContent(
+          Number(p.ratingCount ?? 0),
+          p.reviewsPage?.blocks,
+          p.reviewsPage?.faqs,
+        ),
+      )
       .map((p) => ({
         path: `/processor/${String(p.slug)}/reviews`,
         lastModified: toDate(p.updatedAt),

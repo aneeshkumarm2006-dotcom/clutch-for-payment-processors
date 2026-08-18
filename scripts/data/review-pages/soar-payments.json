@@ -1,0 +1,97 @@
+{
+  "slug": "soar-payments",
+  "name": "Soar Payments",
+  "heading": "Soar Payments reviews",
+  "intro": "Soar Payments has a clean record and a very small review pool. It has been Better Business Bureau accredited since 2018 with an A+ rating and zero complaints in the past three years, alongside about 4.5 out of 5 from 17 Google reviews and a handful on Trustpilot and Facebook. In high-risk processing, an absence of complaints is worth more than a star rating, but 17 reviews is not a verdict.",
+  "seo": {
+    "metaTitle": "Soar Payments Reviews: Clean Record, Tiny Sample",
+    "metaDescription": "Soar Payments has an A+ BBB rating with zero complaints in three years, but only a few dozen public reviews. What high-risk merchants should verify instead.",
+    "keywords": [
+      "soar payments reviews",
+      "soarpay reviews",
+      "soar payments complaints",
+      "soar payments high risk",
+      "is soarpay legit"
+    ],
+    "focusKeyword": "soar payments reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Soar Payments reviews verified?",
+      "answer": "The figures come from the Better Business Bureau, Google, Trustpilot, Facebook and independent merchant-services reviewers including Merchant Maverick and Card Payment Options, current as of August 2026. Be careful with the sample sizes, because they are small: around 17 Google reviews, a Trustpilot pool in single figures, and roughly 15 on Facebook. Reviews collected on a company's own Facebook page or via its own review invitations also skew positive by construction. None of these are reviews submitted to this site, and no merchant has published one here yet."
+    },
+    {
+      "question": "Is a clean complaint record meaningful for a high-risk processor?",
+      "answer": "More meaningful than a star rating, yes. The high-risk segment has a lot of providers that appear, sign merchants on poor terms and disappear, so Better Business Bureau accreditation since 2018 with zero complaints closed in three years, no class-action litigation and no FTC complaints is genuinely reassuring. It is evidence about conduct over time, which small review pools cannot provide. What it does not do is tell you what your account will cost or who will hold your money, and those are the questions that decide a high-risk placement."
+    },
+    {
+      "question": "What do the negative Soar Payments reviews say?",
+      "answer": "There is very little to report, which is itself the finding. One negative review describes unauthorised charges and excessive chargeback fees, and independent reviewers reading it concluded it appeared to stem from a misunderstanding of the merchant's own risk exposure rather than from misconduct. Separately, some merchants report unexpected account holds or closures. That is worth knowing but it is not specific to Soar: holds are routine across high-risk processing because the underwriting standards behind these accounts are tighter and the monitoring is more active. If you are high risk, plan for a hold at any provider in this category."
+    },
+    {
+      "question": "What should you check before signing with Soar Payments?",
+      "answer": "The things a small review pool cannot tell you. Ask which acquiring bank or backend processor you will be placed with, because that is who sets your real terms. Then get the full schedule in writing: discount rate and per-transaction fee, monthly minimum, statement and PCI fees, the chargeback fee, the reserve percentage and how long it is held, the funding delay, and the early termination fee. The one negative review on record concerns chargeback fees, so pin that number down specifically. Quote it alongside <a href=\"/processor/paymentcloud\">PaymentCloud</a> and <a href=\"/processor/durango-merchant-services\">Durango Merchant Services</a> so you have something to compare against."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Soar Payments has been Better Business Bureau accredited since 2018 with an A+ rating and zero complaints closed in the preceding three years. Independent investigation found no class-action lawsuits and no FTC complaints against it. Public review volume is small: roughly 4.5 out of 5 across about 17 Google reviews, a Trustpilot pool of around four reviews averaging 3.5, and about 15 five-star reviews on Facebook with nothing negative.</p><p>Independent merchant-services reviewers are positive, and the strengths they name are consistent: fast approval, responsive support, pricing described as transparent, and sound security practices. For a high-risk specialist those are the right things to be good at, and the absence of a complaint file over several years supports the picture.</p><p>It has to be said plainly that these samples are too small to carry statistical weight. Seventeen reviews and four reviews are anecdotes, not ratings, and some of the pools are on channels the company controls. The complaint record is the durable evidence here. The star ratings are decoration on top of it.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Zero Better Business Bureau complaints closed in three years, with accreditation since 2018 and an A+ rating",
+        "No class-action litigation and no FTC complaints found, which in high-risk processing is a meaningful negative result",
+        "Approval is described as fast, which matters when you have already been declined elsewhere",
+        "Reviewers consistently name support responsiveness as a strength rather than an afterthought",
+        "Pricing is described as transparent by independent reviewers, unusual in a segment where rates are always negotiated",
+        "Serves high-risk categories that mainstream aggregators decline outright"
+      ],
+      "cons": [
+        "The public review pool is tiny, so there is very little merchant evidence to weigh either way",
+        "Some review channels are ones the company controls or solicits through, which skews the sentiment positive",
+        "Merchants report unexpected account holds and closures, which is common across high-risk but still disruptive",
+        "One negative review concerns unauthorised charges and chargeback fees the merchant found excessive",
+        "Rates are quoted rather than published, so you cannot compare before entering a sales conversation",
+        "As a placement specialist rather than an acquirer, the terms that govern your account come from a backend processor"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>With a pool this small, the honest read is that reviews are the wrong instrument. What you have is a multi-year absence of complaints, litigation and regulatory action, which is a real signal in a segment where the bad actors leave paper trails quickly. What you do not have is any statistical picture of the merchant experience, and no amount of reading 17 Google reviews will produce one.</p><p>So shift the evaluation to documents. In high-risk placement the numbers that hurt are the reserve, the funding delay and the chargeback fee, and none of them appear in a review. Get all three in writing along with which backend you are being placed with, then ask what happens to your reserve if you leave and how long after termination it is released. The single complaint on file here concerns chargeback fees, which is the most predictable place for a high-risk merchant to be surprised, so make that the question you press hardest on.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.merchantmaverick.com/reviews/soar-payments-review/",
+    "https://www.cardpaymentoptions.com/credit-card-processors/soar-payments/",
+    "https://www.trustpilot.com/review/www.soarpay.com",
+    "https://thefinrate.com/is-soarpay-a-scam-an-investigative-report/",
+    "https://tailoredpay.com/blog/soar-payments-review/"
+  ],
+  "quotesNote": "Three excerpts with mixed provenance, and the difference matters. The first is from Trustpilot, an independent platform where Soar's pool is only three or four reviews. The other two are from the company's own review page, meaning Soar chose to publish them. Treat vendor-selected quotes as marketing that happens to be true rather than as evidence.",
+  "quotes": [
+    {
+      "text": "After repeated issues with other payment processors, Soar Payments has been an absolute godsend.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/www.soarpay.com",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "Great place to go for high risk merchant services! I love the consistent communication and how each day during the approval process I was updated on the status of my application.",
+      "source": "Soar Payments' own reviews page",
+      "sourceUrl": "https://www.soarpay.com/reviews/",
+      "date": "2026",
+      "attribution": "a merchant, quoted by the vendor"
+    },
+    {
+      "text": "Amazing, responsive, extremely professional and informative through the application process",
+      "source": "Soar Payments' own reviews page",
+      "sourceUrl": "https://www.soarpay.com/reviews/",
+      "date": "2026",
+      "attribution": "a merchant, quoted by the vendor"
+    }
+  ]
+}

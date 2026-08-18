@@ -1,0 +1,104 @@
+{
+  "slug": "nowpayments",
+  "name": "NOWPayments",
+  "heading": "NOWPayments reviews",
+  "intro": "NOWPayments sits somewhere between 3.7 and 4.5 out of 5 on Trustpilot depending on which snapshot you read, which is unusually good for a crypto payment processor. Merchants like the breadth, over 300 coins accepted without the customer leaving the page. The complaint worth reading is narrower and more instructive: an unannounced payout API change that broke merchants' reconciliation.",
+  "seo": {
+    "metaTitle": "NOWPayments Reviews: 300 Coins, One API Surprise",
+    "metaDescription": "NOWPayments rates between 3.7 and 4.5 on Trustpilot for accepting 300+ coins, with complaints about an unannounced payout API change breaking reconciliation.",
+    "keywords": [
+      "nowpayments reviews",
+      "nowpayments complaints",
+      "nowpayments ratings",
+      "nowpayments api",
+      "is nowpayments safe"
+    ],
+    "focusKeyword": "nowpayments reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these NOWPayments reviews verified?",
+      "answer": "The figures come from Trustpilot, which does not verify reviewers, plus specialist crypto payment reviewers and Traders Union, current as of August 2026. The Trustpilot figure moves noticeably between sources, reported at 4.5, 4.4 and 3.7 in different snapshots, which is why this page gives a range rather than a decimal. That volatility usually means a modest total review count where a handful of new reviews shifts the average. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty."
+    },
+    {
+      "question": "What do NOWPayments reviewers praise most?",
+      "answer": "Coverage and simplicity. Merchants highlight being able to accept payments in more than 300 cryptocurrencies without the customer leaving the web app, which is a much wider catalogue than most crypto processors support and matters if your buyers hold something other than the top few coins. Onboarding and the support team are described as smooth by most reviewers, and several describe it as an easy tool for taking payment in digital coins safely. For a segment where a lot of providers are either thin or short-lived, generally positive sentiment across a few dozen reviews is a reasonable signal."
+    },
+    {
+      "question": "What do NOWPayments reviewers complain about?",
+      "answer": "The most substantive complaint is specific and worth more than a star rating: merchants report that the payout API changed after 30 June with no announcement, removing a field they relied on for reconciliation and breaking their automation. That is an integration risk rather than a service failure, and it tells you something about change management that no average captures. A second, smaller complaint is a user interface issue where customers saw the word DONATION rather than payment, which is exactly the kind of detail that costs conversion. Some reviewers warn merchants off over poor support experiences, against a majority who found support helpful."
+    },
+    {
+      "question": "What should you check before integrating NOWPayments?",
+      "answer": "Given the complaint on record, ask directly about API change policy: whether there is a versioned API, how much notice breaking changes get, and whether there is a changelog or a deprecation window you can rely on. That one question addresses the only serious issue in this review record. Then cover the crypto-specific operations that catch merchants out everywhere in this category: what happens when a customer underpays an invoice, how refunds work when the exchange rate has moved, and whether you settle in crypto or convert to conventional currency. Compare against <a href=\"/processor/bitpay\">BitPay</a>, which converts and settles to a bank account by default."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, NOWPayments carries a Trustpilot rating reported variously at 4.5, 4.4 and 3.7 out of 5 depending on the source and the snapshot date, across a pool that appears to number in the dozens rather than the hundreds. Traders Union rates it 4.8. The spread between sources is the most useful thing about those numbers: it tells you the sample is small enough that the average is not stable, so treat any single figure with caution.</p><p>The sentiment underneath is mostly positive. Merchants describe accepting more than 300 cryptocurrencies without the customer leaving the web app, and call out onboarding and the support team as smooth. Several describe it simply as an easy and safe way to take payment in digital coins. A minority warn other merchants off on the basis of poor support experiences, which is a real split rather than a rounding error at this sample size.</p><p>The single most instructive complaint is not about sentiment at all. Merchants report the payout API changing after 30 June with no announcement, removing a field they had been using for reconciliation and breaking their automation. Separately, a merchant reports customers being shown the word DONATION rather than payment in the interface.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "More than 300 cryptocurrencies accepted, a far wider catalogue than most crypto processors support",
+        "Customers pay without leaving the merchant's web app, which reviewers say helps completion",
+        "Onboarding is described as quick, with no lengthy underwriting of the kind card processing requires",
+        "Support and the onboarding team draw positive comment from the majority of reviewers",
+        "Sentiment across specialist crypto reviewers is broadly favourable, which is not universal in this segment",
+        "Settlement options let you choose between holding crypto and converting, rather than forcing one model"
+      ],
+      "cons": [
+        "The payout API reportedly changed with no announcement, removing a reconciliation field and breaking merchant automation",
+        "Trustpilot figures vary widely between snapshots, which means the review pool is too small for a stable average",
+        "A minority of reviewers actively warn merchants off, citing poor support experiences",
+        "One merchant reports customers being shown DONATION instead of payment in the checkout interface",
+        "Crypto-native operations such as underpayment and refunds at a moved exchange rate remain awkward, as with every provider here",
+        "Customer service is described as lacking by some reviewers even while others call it helpful, so experience appears inconsistent"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The API complaint deserves more weight than its single mention suggests, because of what it implies rather than what it cost. A payment provider that removes a field from a payout API without announcing it is telling you how it thinks about integration stability, and the merchants affected only found out when their reconciliation stopped matching. No star rating captures that risk, and for anyone automating accounting against this API it is the most important thing on this page. Ask about versioning and deprecation notice before you build.</p><p>The other gap is the one every crypto processor shares and none of them advertise. Card rails have settled conventions for a partial payment or a refund; crypto does not. A customer who pays the network fee out of the same balance sends slightly less than you invoiced, and a refund issued a week later is worth a different amount than the sale. Decide your policy on both before you launch, in writing, because the review record across this whole category shows that support queues are where those cases go to sit.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/nowpayments.io",
+    "https://tradersunion.com/reviews/nowpayments-io/",
+    "https://banksforcrypto.com/payment-processors/nowpayments/",
+    "https://sharkprocessing.com/nowpayments-overview/"
+  ],
+  "quotesNote": "Four from NOWPayments' Trustpilot page. Three are the support praise that drives its score and the fourth is the API change described above, quoted in full because it names the exact field that was removed, which is what makes it checkable rather than a grievance.",
+  "quotes": [
+    {
+      "text": "NOWPayments changed their payout API after June 30 with no announcement, removing the unique_external_id field we rely on to reconcile payouts.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/nowpayments.io",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "We've been using NOWPayments for about two years now, integrating it into our clients' platforms",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/nowpayments.io",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "an integrator describing support as top-notch"
+    },
+    {
+      "text": "The support team was very helpful and patient in resolving my issue with 2FA for mass payouts. They provided clear instructions and followed up until the problem was solved.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/nowpayments.io",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "Very robust and sound service, live support 24/7 and clear documentation for developers",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/nowpayments.io",
+      "date": "2026",
+      "rating": 5
+    }
+  ]
+}

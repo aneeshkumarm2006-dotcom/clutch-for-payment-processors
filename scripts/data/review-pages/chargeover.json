@@ -1,0 +1,100 @@
+{
+  "slug": "chargeover",
+  "name": "ChargeOver",
+  "heading": "ChargeOver reviews",
+  "intro": "ChargeOver rates 4.7 out of 5 on both Capterra and G2, across about 72 and 67 reviews respectively, with ease of use and support both scoring around 9.5 out of 10. The complaints are few and unusually practical, and one of them will matter to a lot of buyers: the QuickBooks sync runs one way, so changes made in QuickBooks do not appear here.",
+  "seo": {
+    "metaTitle": "ChargeOver Reviews: 4.7, and a One-Way QuickBooks Sync",
+    "metaDescription": "ChargeOver rates 4.7 on Capterra and G2 for ease of use and support, with complaints about one-way QuickBooks sync, mobile access and API setup.",
+    "keywords": [
+      "chargeover reviews",
+      "chargeover complaints",
+      "chargeover ratings",
+      "chargeover quickbooks",
+      "chargeover recurring billing"
+    ],
+    "focusKeyword": "chargeover reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these ChargeOver reviews verified?",
+      "answer": "The figures come from Capterra and G2, both of which verify reviewers before publishing, current as of August 2026, with a supporting listing on GetApp. The pools are moderate at roughly 72 and 67 reviews, which is enough to be meaningful without being definitive, and the two platforms agreeing on 4.7 independently is a better signal than either figure alone. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed score."
+    },
+    {
+      "question": "Does ChargeOver process payments?",
+      "answer": "No. ChargeOver handles recurring billing, invoicing and dunning, then charges customers through a payment gateway you connect. Your card rates, payout schedule, chargeback exposure and offboarding risk all belong to that processor rather than to ChargeOver. So it sits above your processor rather than replacing one, and the processor is a separate decision with its own review record worth reading. If you came here comparing card rates, ChargeOver is not part of that comparison."
+    },
+    {
+      "question": "What is the QuickBooks sync problem reviewers mention?",
+      "answer": "It runs in one direction. Reviewers report that changes made in QuickBooks do not appear in ChargeOver, so they end up making the same edit twice, once in each system. For a small finance team that is a recurring tax on every customer or pricing change, and it is the kind of thing that does not show up in a demo because a demo starts from a clean state. If QuickBooks is your accounting system of record and your team edits customers or items there routinely, ask specifically which fields sync, in which direction, and on what schedule before you commit."
+    },
+    {
+      "question": "What else do ChargeOver reviewers complain about?",
+      "answer": "Mobile access, first: reviewers describe it as poor, and at least one calls it a deal breaker, so if you need to manage billing from a phone this is worth testing early. Second, the API is described as harder to connect to than expected, which matters if your plan involves custom integration rather than the prebuilt connectors. Third, there is no free version, which reviewers with minimal recurring billing needs cite as a reason to look elsewhere. None of these are severe, and notably absent from the record are the billing errors and support failures that plague larger platforms in this category."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, ChargeOver holds 4.7 out of 5 across about 72 Capterra reviews and 4.7 across roughly 67 on G2. Two independent verified pools landing on the same figure is a stronger signal than one larger pool would be, and the sub-scores are specific: ease of use around 9.5 out of 10, customer support around 9.5, and billing automation around 9.1.</p><p>The praise concentrates on what a small finance team actually needs. Reviewers describe recurring billing that runs without supervision, an interface they did not need training for, and support that resolves things rather than deflecting them. For a product in a category where the dominant complaint is usually support quality, a 9.5 on that axis is the most notable number here.</p><p>The criticism is short and practical. Mobile accessibility is described as poor, with at least one reviewer calling it a deal breaker. The QuickBooks integration syncs one way, so changes made in QuickBooks do not appear in ChargeOver and reviewers make them twice. Connecting to the API is harder than anticipated. And there is no free version, which reviewers with light billing needs cite as a reason to look elsewhere.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Two independent verified review pools both land on 4.7, which is better evidence than a single higher score",
+        "Ease of use scores around 9.5 out of 10, and reviewers report not needing training to run it",
+        "Customer support scores around 9.5, which is the opposite of the usual complaint in this category",
+        "Billing automation rated around 9.1, with reviewers describing recurring invoicing that runs unattended",
+        "Dunning and retry handling are included rather than requiring extra tooling",
+        "The record is notably free of the billing errors and support failures that appear in reviews of larger platforms",
+        "Processor-agnostic, so changing payment provider does not mean rebuilding your billing"
+      ],
+      "cons": [
+        "The QuickBooks sync is one way, so changes made in QuickBooks do not reach ChargeOver and get entered twice",
+        "Mobile accessibility is described as poor, and one reviewer calls it a deal breaker",
+        "Connecting to the API is reported as harder than anticipated, which affects custom integration plans",
+        "There is no free version, so businesses with minimal recurring billing pay from the start",
+        "Review pools of around 70 are moderate, so the 4.7 is encouraging rather than conclusive",
+        "It does not process payments, so it adds a layer above your processor rather than replacing one"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The one-way QuickBooks sync deserves more attention than its single mention suggests, because of how it fails rather than how often. It does not break anything or throw an error. It quietly leaves two systems disagreeing, and someone notices weeks later when an invoice goes out with an old address or a retired price. That class of problem never appears in a demo and rarely appears in a review, because the reviewer has usually absorbed it as normal work by the time they write.</p><p>So make integration direction an explicit question rather than an assumption. Ask which objects sync, which direction each one flows, how often, and what happens on a conflict. Then test it with a real change made in QuickBooks rather than in ChargeOver. Beyond that the record here is genuinely good, and the two things reviewers rate highest, ease of use and support, are the two that decide whether a small team keeps using a billing tool or quietly goes back to spreadsheets. Compare against <a href=\"/processor/billsby\">Billsby</a> and <a href=\"/processor/chargebee\">Chargebee</a> if your pricing model is more complex than straightforward recurring invoices.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.capterra.com/p/141294/ChargeOver/reviews/",
+    "https://www.g2.com/sellers/chargeover",
+    "https://www.getapp.com/finance-accounting-software/a/chargeover-recurring-billing/",
+    "https://www.capterra.com/p/141294/ChargeOver/"
+  ],
+  "quotesNote": "Four from Capterra, where ChargeOver averages 4.7 across 86 reviews, a larger pool than the 72 quoted above. All four are positive, which is what that pool is; the QuickBooks and mobile complaints described on this page come from the same reviewers' criticism sections rather than from separate negative reviews.",
+  "quotes": [
+    {
+      "text": "ChargeOver is incredible easy to use, and it integrates seamlessly with my existing tech stack.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/141294/chargeover",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a software company"
+    },
+    {
+      "text": "User friendly and easy to set up automated billing",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/141294/chargeover",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "an education management business"
+    },
+    {
+      "text": "Very good in use, Very simple easy understandable.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/141294/chargeover",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a software company"
+    }
+  ]
+}

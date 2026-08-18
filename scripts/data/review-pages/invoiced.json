@@ -1,0 +1,100 @@
+{
+  "slug": "invoiced",
+  "name": "Invoiced",
+  "heading": "Invoiced reviews",
+  "intro": "Invoiced holds about 4.5 out of 5 across more than 405 verified G2 reviews, with 77 percent of reviewers giving five stars, and it has been ranked the top accounts receivable solution by G2. The negative reviews describe something the average cannot show: support that deteriorated over time, unclear pricing, and at least one account cancelled without warning.",
+  "seo": {
+    "metaTitle": "Invoiced Reviews: 4.5 Average, Declining Support",
+    "metaDescription": "Invoiced rates 4.5 across 405+ G2 reviews and ranks first for AR automation, but recent reviews describe declining support, unclear pricing and cancellations.",
+    "keywords": [
+      "invoiced reviews",
+      "invoiced complaints",
+      "invoiced ratings",
+      "invoiced pricing",
+      "invoiced accounts receivable"
+    ],
+    "focusKeyword": "invoiced reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Invoiced reviews verified?",
+      "answer": "The figures come from G2 and Capterra, both of which verify reviewers before publishing, current as of August 2026. The G2 pool of more than 405 reviews is large and the 4.5 is well evidenced. One structural caution applies to any large accumulated pool: it averages years of experience, so if service quality has changed recently the score will lag behind reality. That matters here because deteriorating support is one of the specific complaints. None of these are reviews submitted to this site, and no merchant has published one here yet."
+    },
+    {
+      "question": "Does Invoiced process payments?",
+      "answer": "No. Invoiced automates accounts receivable: invoicing, collections, dunning, payment portals and cash application, then takes payment through a gateway or processor you connect. Your card rates, ACH terms, payout timing and chargeback exposure belong to that provider rather than to Invoiced. So it sits above your processor rather than replacing one, and the processor remains a separate decision with its own review record. If you arrived here comparing card rates, Invoiced is not in that comparison."
+    },
+    {
+      "question": "What do Invoiced reviewers complain about most?",
+      "answer": "The serious complaints cluster around the relationship rather than the software: support described as having deteriorated over time, pricing described as unclear, communication described as broken, and at least one account cancelled without warning with operations disrupted as a result. Lack of transparency runs through all of them. The smaller irritations are ordinary product gaps: no offline capability, no confirmation shown when a refund is issued, and limited customisation of invoice PDFs. That last one sounds trivial until you remember the PDF is what your customers actually see."
+    },
+    {
+      "question": "Should the declining-support complaints change your decision?",
+      "answer": "They should change what you verify rather than whether you look. A 4.5 built from 405 reviews collected over years is a weighted average of the whole history, so a recent decline can be real and still invisible in the headline. Sort the reviews by date and read the most recent ones rather than the top ones. Then get the commercial terms in writing, since unclear pricing is one of the named complaints: the full fee schedule, what triggers a price change, the contract term, notice periods on both sides, and what happens to your data and your open receivables if the account ends. The cancellation complaint makes that last question the important one."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Invoiced holds about 4.5 out of 5 across more than 405 verified G2 reviews, with roughly 77 percent of reviewers awarding five stars, and G2 has ranked it the leading accounts receivable solution. Capterra rates it first in both ease of use and value. That is a strong record on a large sample, and the positive themes are consistent: accurate forecasting, receivables management that got measurably more efficient, ease of use, and a platform reviewers describe as highly customisable, with support that has built custom features for them.</p><p>The negative reviews describe a different company, and they are specific enough to take seriously. Support is described as having deteriorated over time. Pricing is described as unclear and communication as broken, with lack of transparency named directly. Most seriously, there is at least one account cancelled without warning, with the reviewer's operations disrupted as a result.</p><p>Smaller gripes fill out the record: no offline working, no confirmation shown when a refund is issued, and limited customisation of invoice PDFs. Those are ordinary product limitations rather than warnings, though the PDF one is worth noting because that document is what your own customers receive.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "More than 405 verified G2 reviews at 4.5, with 77 percent awarding five stars, is a large and credible sample",
+        "Ranked the leading accounts receivable solution by G2 and first for ease of use and value by Capterra",
+        "Reviewers report receivables management becoming measurably more efficient rather than just more automated",
+        "Forecasting is described as accurate, which is the output finance teams actually use",
+        "The platform is described as highly customisable, with support implementing custom features on request",
+        "Collections, dunning and customer payment portals arrive together rather than as separate tools",
+        "Processor-agnostic, so you can change payment provider without rebuilding your receivables process"
+      ],
+      "cons": [
+        "Support is described as having deteriorated over time, which a years-long average score will hide",
+        "Pricing is described as unclear and communication as broken, with lack of transparency named directly",
+        "At least one reviewer reports their account cancelled without warning and operations disrupted",
+        "Invoice PDF customisation is limited, and that document is what your customers see",
+        "There is no offline capability, so the platform is unusable without a connection",
+        "No confirmation is shown when a refund is issued, which leaves finance staff unsure whether it went through",
+        "It does not process payments, so it adds a layer above your processor rather than replacing one"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>This page is a good illustration of why a headline average can mislead even when it is honestly calculated. A 4.5 from 405 reviews gathered over several years weights an early, well-supported period equally with a recent one, so a genuine decline in service shows up as a handful of low reviews rather than as a falling score. Since deteriorating support is exactly what the negative reviewers describe, the fix is simple: sort by most recent and read those instead of the highest rated. If the recent reviews look like the old ones, the 4.5 is trustworthy. If they do not, you have found something the average cannot tell you.</p><p>The other thing to settle before signing is what happens if the relationship ends, because one reviewer reports an account cancelled without warning. For an accounts receivable platform that is more serious than it would be elsewhere: your open invoices, your customer payment portals and your collections history all live inside it. Ask what notice you get, how you export your data, and what happens to invoices already issued through the portal. Then get the pricing schedule in writing, since unclear pricing is the other named complaint. Compare against <a href=\"/processor/bluesnap\">BlueSnap</a>, which bundles receivables automation with acquiring, if consolidating those is an option for you.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.capterra.com/p/139131/Invoiced/reviews/",
+    "https://quickreceivable.com/reviews/invoiced",
+    "https://www.serchen.com/company/invoiced",
+    "https://www.g2.com/categories/accounts-receivable"
+  ],
+  "quotesNote": "Three from G2, where Invoiced averages 4.5 across more than 405 reviews with 77 percent at five stars. The first two are that majority. The third is the complaint this page warns about, and note it comes from a ten-year customer, which is why a years-long average cannot show it.",
+  "quotes": [
+    {
+      "text": "Invoiced cut our average days to pay by 7 days within the first quarter.",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/invoiced/reviews",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a mid-market VP of finance"
+    },
+    {
+      "text": "After using Invoiced for a while now, I really appreciate the quick customer support. You can chat instantly with them or email/call and they respond quickly.",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/invoiced/reviews",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "deteriorating support, inconsistent pricing across accounts, and an abrupt account cancellation",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/invoiced/reviews",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "a customer of ten years"
+    }
+  ]
+}

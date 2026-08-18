@@ -1,0 +1,96 @@
+{
+  "slug": "banquest",
+  "name": "Banquest Payment Systems",
+  "heading": "Banquest Payment Systems reviews",
+  "intro": "Banquest has almost no independent review record. TrustFinance lists it with zero user ratings, it is not Better Business Bureau accredited, and the company itself has published a blog post about receiving a single one-star Google review. That is the whole public picture, and it is too thin to support any conclusion in either direction.",
+  "seo": {
+    "metaTitle": "Banquest Reviews: Almost No Independent Record",
+    "metaDescription": "Banquest Payment Systems has essentially no third-party review data and is not BBB accredited. What to verify before signing, with nothing to benchmark against.",
+    "keywords": [
+      "banquest reviews",
+      "banquest payment systems reviews",
+      "banquest complaints",
+      "banquest ratings",
+      "is banquest legit"
+    ],
+    "focusKeyword": "banquest reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Banquest reviews verified?",
+      "answer": "There is essentially nothing to verify, which is the finding. As of August 2026, TrustFinance lists Banquest Payment Systems with zero user reviews and a score of zero, meaning no data rather than a bad result. The company is not Better Business Bureau accredited, though it has a BBB profile. Glassdoor carries a single employee review, which says nothing about the merchant experience. The remaining public material is the company's own website and testimonials it selected. None of these are reviews submitted to this site, and no merchant has published one here yet."
+    },
+    {
+      "question": "Does a zero TrustScore mean Banquest is bad?",
+      "answer": "No, and reading it that way would be a mistake worth avoiding. A score of zero across zero reviews is the absence of information, not a negative verdict, and directory scores of that kind are frequently just an empty profile. Similarly, not being BBB accredited is not a black mark: accreditation is a paid membership rather than a rating, and plenty of legitimate processors do not buy it. What you genuinely cannot do with this record is benchmark Banquest against anyone, and that is the practical problem."
+    },
+    {
+      "question": "Who does Banquest serve?",
+      "answer": "The company describes itself as focusing on mid-sized to large businesses processing high volume and large-ticket transactions, and it has been operating for roughly nine years from Lakewood, New Jersey. Large-ticket processing is a genuine specialism: interchange behaves differently on a 40,000 dollar transaction than on a 40 dollar one, and a provider set up for it can price meaningfully better than a general-purpose processor. That also explains the thin review record, since a book of mid-market and large merchants generates far fewer public reviews than a card reader sold to sole traders."
+    },
+    {
+      "question": "How should you evaluate Banquest with no reviews to read?",
+      "answer": "Entirely on documents and references, because there is no substitute available. The company states that the rate quoted is the rate you pay, with no hidden charges, fine print or surprise fees, so get exactly that in writing: discount rate and per-transaction fee, monthly minimum, statement and PCI fees, chargeback fee, contract length, renewal terms and any early termination fee. Ask for two reference customers processing similar volume and ticket size to yours. Then hold the quote against <a href=\"/processor/helcim\">Helcim</a> and <a href=\"/processor/dharma-merchant-services\">Dharma Merchant Services</a>, which publish their interchange-plus markups and give you a real benchmark."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Almost nothing, and inventing more than that would be the wrong service to anyone reading this page. As of August 2026, TrustFinance lists Banquest Payment Systems with zero user reviews and a score of zero. The company has a Better Business Bureau profile but is not accredited. Glassdoor carries one employee review. The company has itself published a blog post about receiving a single one-star Google review, which is the most candid piece of public evidence available and also the smallest imaginable sample.</p><p>What can be established: Banquest is based in Lakewood, New Jersey, has been operating for roughly nine years, and describes its focus as mid-sized to large businesses processing high volume and large-ticket transactions. It states that the rate quoted is the rate you pay, with no hidden charges, fine print or surprise fees, and publishes selected merchant testimonials.</p><p>None of that is third-party evidence, and it should not be read as such. The one structural inference worth drawing is that a provider selling to mid-market and large merchants on negotiated terms will always have a quieter review page than one selling readers to sole traders, so the absence here is at least partly explained by the business model rather than by anything a merchant experienced.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "What the record and company material suggest",
+      "pros": [
+        "Roughly nine years of operation, which is longer than many resellers in this segment last",
+        "A stated specialism in high-volume and large-ticket processing, where interchange handling genuinely differs from small-ticket retail",
+        "The company commits publicly to the quoted rate being the rate paid, with no hidden or surprise fees",
+        "A thin review record is consistent with selling to mid-market and large merchants rather than with poor service",
+        "The company has publicly acknowledged and written about a negative review rather than ignoring it"
+      ],
+      "cons": [
+        "There is no independent review pool at all, so nothing about the merchant experience can be benchmarked",
+        "Not Better Business Bureau accredited, so that route to a comparative rating is unavailable",
+        "The only public sentiment is a single one-star Google review the company itself disclosed",
+        "All pricing and service claims originate with the vendor and are uncorroborated",
+        "Rates are quoted rather than published, so no comparison is possible before a sales conversation",
+        "Without reviews, references and the signed contract are your only real diligence tools"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The discipline this page calls for is refusing to read an empty file as either good or bad news. Zero reviews and no accreditation tell you nothing about whether Banquest is a good processor. Equally, a page of company testimonials tells you nothing either, because the vendor picked them. Anyone presenting either as evidence is filling a gap with confidence rather than information.</p><p>Since large-ticket processing is the stated specialism, make that the substance of your diligence. On a 40,000 dollar transaction, the difference between good and mediocre interchange handling is measured in hundreds of dollars per sale, which dwarfs any monthly fee. Ask how large tickets are qualified, whether Level 2 and Level 3 data is captured where applicable, what the per-transaction cap is if any, and what happens to a single unusually large sale in terms of holds or review. Then get two references processing at your ticket size. With no reviews to lean on, those answers are your entire picture.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.bbb.org/us/nj/lakewood/profile/payment-processing-services/banquest-payment-systems-corporation-0221-90152739",
+    "https://www.trustfinance.com/companies/banquest-payment-systems",
+    "https://banquest.com/about/",
+    "https://banquest.com/we-got-a-bad-review/",
+    "https://www.glassdoor.com/Reviews/Banquest-Payment-Systems-Reviews-E2909519.htm"
+  ],
+  "quotesNote": "These are the only verbatim merchant reviews that exist publicly for Banquest, and they come from its iOS app listing: 5.0 from just six ratings, all dated 2017. Six reviews from nine years ago is not a rating and they describe the mobile app rather than the merchant account, so treat them as a sign of life rather than as evidence about what Banquest is like to process with today.",
+  "quotes": [
+    {
+      "text": "This company and app make it so easy to accept credit cards payments. My business has grown 22% since working with banquest!",
+      "source": "Apple App Store",
+      "sourceUrl": "https://apps.apple.com/us/app/banquest/id1240992710",
+      "date": "10 July 2017",
+      "rating": 5
+    },
+    {
+      "text": "Cool app! I can process transactions on the go! Banquest is always looking for new ways to help their customers!",
+      "source": "Apple App Store",
+      "sourceUrl": "https://apps.apple.com/us/app/banquest/id1240992710",
+      "date": "11 August 2017",
+      "rating": 5
+    },
+    {
+      "text": "Banquest App is easy to use and perfect for processing payments on the go!",
+      "source": "Apple App Store",
+      "sourceUrl": "https://apps.apple.com/us/app/banquest/id1240992710",
+      "date": "9 July 2017",
+      "rating": 5
+    }
+  ]
+}

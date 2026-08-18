@@ -1,0 +1,99 @@
+{
+  "slug": "paddle",
+  "name": "Paddle",
+  "heading": "Paddle reviews",
+  "intro": "Across G2, Capterra, Trustpilot and Gartner Peer Insights, Paddle averages around 4.2 out of 5 from roughly 11,000 reviews, with G2 nearer 4.5 and Trustpilot at 4.1. One sub-score breaks the pattern: Capterra rates its customer service about 2.6. Reviewers love not having to file sales tax in 40 jurisdictions, and they are consistent that getting a reply can take days.",
+  "seo": {
+    "metaTitle": "Paddle Reviews: 4.2 Average, 2.6 on Support",
+    "metaDescription": "Paddle averages 4.2 across about 11,000 reviews but scores 2.6 for support on Capterra. What SaaS founders praise, plus the approval and reply-time complaints.",
+    "keywords": [
+      "paddle reviews",
+      "paddle ratings",
+      "paddle complaints",
+      "paddle merchant of record",
+      "paddle vs stripe"
+    ],
+    "focusKeyword": "paddle reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Paddle reviews verified?",
+      "answer": "The figures on this page come from G2, Capterra, Trustpilot and Gartner Peer Insights and were current as of August 2026. G2, Capterra and Gartner verify reviewers before publishing; Trustpilot is open. None of these are reviews submitted to this site, and no merchant has published one here for Paddle yet, which is why the list above is empty rather than showing a borrowed average. If you sell through Paddle, a review here that names your product category, your blended effective rate and how a refund dispute went would be more useful to another founder than an aggregate."
+    },
+    {
+      "question": "Why does Paddle score 4.5 on G2 but 2.6 for support on Capterra?",
+      "answer": "Because they are measuring different things. The high overall scores are reviewers rating the outcome: Paddle becomes the seller of record, so global sales tax, VAT registration and remittance stop being your problem, and for a small SaaS team that is worth a lot. The low support sub-score is reviewers rating the process of getting help, where reply times of two to three days come up repeatedly. Responsiveness is, unusually, both the most praised and the most criticised theme in the same review pool, which usually means it depends heavily on which plan tier and account manager you land on."
+    },
+    {
+      "question": "What do Paddle reviewers complain about most?",
+      "answer": "Approval, first. Reviewers describe being rejected after a week in onboarding for not having three months of prior processing history, a requirement they say was not published anywhere before they applied. For a company launching its first product that is a hard stop, and it is the complaint that generates the angriest reviews. Second is support latency, with two to three day replies on a platform that holds your payments. Third is billing edge cases: reviewers report subscription renewal failures and higher involuntary churn than they expected, which on a usage or seat-based product shows up directly in revenue."
+    },
+    {
+      "question": "What does merchant of record actually mean for your business?",
+      "answer": "Paddle is the legal seller to your customer, not just the processor. That is the whole product and it cuts both ways. It means Paddle registers for and remits sales tax, VAT and GST worldwide, handles the invoices, and fights chargebacks as the merchant on the statement, which removes work no small team wants. It also means Paddle owns the payment relationship: the card details are Paddle's, the customer's receipt says Paddle, and moving to another provider later means re-collecting payment details from your entire subscriber base rather than porting tokens. The blended cost also runs well above a plain gateway rate, so comparing Paddle against 2.9 percent plus 30 cents is comparing two different services."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Paddle sits at roughly 4.5 to 4.6 out of 5 on G2 and 4.1 on Trustpilot, with an average near 4.2 across about 11,000 reviews when G2, Capterra, Trustpilot and Gartner Peer Insights are pooled. That is a large and healthy sample by the standards of this category. The outlier is Capterra's customer service sub-score at around 2.6, which is low enough to be a finding rather than noise.</p><p>Read the reviews and the split resolves cleanly. The high scores are about what Paddle removes: sales tax registration across dozens of jurisdictions, invoicing, dunning, and the need for your own merchant account at all. Founders selling software internationally describe it as the thing that let them skip hiring a finance person.</p><p>The low scores cluster in two places, and both are about access rather than capability. Getting approved in the first place, and getting a human to answer once you are in. Neither shows up in the headline number.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Paddle registers and remits sales tax, VAT and GST as the seller of record, which reviewers name as the single reason they chose it",
+        "Reviewers with no merchant account and no finance team describe going from nothing to selling internationally in days",
+        "Checkout, invoicing, dunning and subscription management arrive as one product instead of four integrations to maintain",
+        "Chargebacks are Paddle's to fight, because Paddle is the merchant on the customer's statement",
+        "Reviewers describe onboarding and initial setup as smooth once approved, with usable documentation",
+        "Currency and local payment method coverage is broad enough that reviewers stopped losing non-US customers at checkout"
+      ],
+      "cons": [
+        "Approval requirements are not published: reviewers report rejection after a week for lacking three months of prior processing history",
+        "Support replies commonly take two to three days, and Capterra's customer service sub-score sits near 2.6 as a result",
+        "Reviewers report subscription renewal failures and higher involuntary churn than they saw on their previous setup",
+        "The blended cost is materially above a plain gateway rate, and the tax and compliance work is what you are paying for",
+        "Paddle owns the payment relationship, so leaving means re-collecting card details from every existing subscriber",
+        "Refund and pricing policy decisions sit with Paddle as the seller of record, not with you",
+        "New companies with no processing history are frequently the ones turned down, which is the opposite of who needs it most"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The reviews are written almost entirely by people who got approved. Everyone rejected in onboarding for lacking processing history left without an account to review, so they show up as a handful of angry one-stars rather than as the sizeable population they probably are. If you are pre-revenue, treat the 4.2 as describing a club you may not be admitted to, and confirm eligibility before you build the integration.</p><p>The other thing an average hides is the exit. Because Paddle is the merchant of record, your subscribers' payment credentials belong to Paddle, and migrating away means asking every customer to re-enter a card. That is a churn event, and no reviewer mentions it because reviewers are people who stayed. Weigh it now rather than later. If you want the tax handling with a smaller commitment, <a href=\"/processor/polar-payments\">Polar</a> and <a href=\"/processor/dodo-payments\">Dodo Payments</a> run the same merchant-of-record model for developer products, and a plain gateway such as <a href=\"/processor/stripe\">Stripe</a> plus a tax service keeps the customer relationship yours at the cost of doing the filing.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.g2.com/products/paddle/reviews?qs=pros-and-cons",
+    "https://www.capterra.com/p/173382/Paddle/reviews/",
+    "https://checkthat.ai/brands/paddle/reviews",
+    "https://freemius.com/blog/paddle-vs-stripe/",
+    "https://usagetracking.com/posts/review-paddle.html"
+  ],
+  "quotesNote": "Three excerpts from G2 and Product Hunt, all describing the same rejection: no prior processing history. They are quoted at length because the specifics matter, and note that every reviewer who was rejected never became a customer, so this complaint is structurally under-represented in the 4.2 average.",
+  "quotes": [
+    {
+      "text": "Despite having everything in order, registered company, GDPR-compliant policies, DPA, clear refund terms, instant digital delivery, they rejected my application for not having prior payment processing history. They don't disclose this requirement anywhere, so I wasted over a week in their approval process before being told I never qualified.",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/paddle/reviews?qs=pros-and-cons",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "a B2B SaaS founder"
+    },
+    {
+      "text": "Undisclosed approval requirements that make it impossible for new businesses to get approved. You can't get processing history without a processor, and they won't be your processor without history. Classic catch-22 that wastes founders' time.",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/paddle/reviews?qs=pros-and-cons",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "I spent a week going through their verification process, fixing my refund policy within 14 minutes of their request, answering a detailed questionnaire, only to be rejected at the end because I'm a new business without processing history.",
+      "source": "Product Hunt",
+      "sourceUrl": "https://www.producthunt.com/products/paddle/reviews",
+      "date": "2026",
+      "rating": 1
+    }
+  ]
+}

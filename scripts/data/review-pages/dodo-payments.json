@@ -1,0 +1,107 @@
+{
+  "slug": "dodo-payments",
+  "name": "Dodo Payments",
+  "heading": "Dodo Payments reviews",
+  "intro": "Dodo Payments advertises 4 percent plus 40 cents as a merchant of record, but the surcharges stack: 1.5 percent for international and 0.5 percent for subscriptions, which puts a typical global SaaS subscription nearer 6.5 percent. The serious complaints are about frozen accounts, including one merchant reporting funds held for 180 days after more than 15,000 dollars in sales.",
+  "seo": {
+    "metaTitle": "Dodo Payments Reviews: 4% That Becomes 6.5%",
+    "metaDescription": "Dodo Payments advertises 4% + 40c but surcharges push a global SaaS subscription near 6.5%. Merchants also report frozen shops and 180-day fund holds.",
+    "keywords": [
+      "dodo payments reviews",
+      "dodo payments complaints",
+      "dodo payments fees",
+      "dodo payments frozen",
+      "dodo payments merchant of record"
+    ],
+    "focusKeyword": "dodo payments reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Dodo Payments reviews verified?",
+      "answer": "Only partly, and the provenance matters here. There are verified reviews on AppSumo, and the rest of the detailed public analysis comes from a mix of software review sites and competing merchant-of-record platforms writing comparison content. Dodo launched in 2023, so there is no long verified pool on G2 or Capterra yet. The fee figures below are consistent across independent sources and checkable against Dodo's own pricing, so they are usable even where the framing is competitive. None of these are reviews submitted to this site, and no merchant has published one here yet."
+    },
+    {
+      "question": "What does Dodo Payments actually cost?",
+      "answer": "More than the headline, and the gap is the most important thing on this page. The Standard plan advertises 4 percent plus 40 cents per transaction. On top of that, reviewers report 1.5 percent added for international transactions and 0.5 percent for subscriptions, which for a typical global SaaS subscriber lands the real rate somewhere near 6.5 percent. Then there are the extras: around 3 percent more for PayPal, 1 dollar per refund, 30 dollars per dispute, and a 5 dollar fee on payouts under 1,000 dollars. If your customers are international and you sell subscriptions, which is the exact profile Dodo markets to, you should assume the higher number rather than the advertised one."
+    },
+    {
+      "question": "What do the serious Dodo Payments complaints say?",
+      "answer": "Two accounts stand out and both concern account termination. One merchant reports that after more than 90 orders and charges exceeding 15,000 dollars, their shop was frozen and funds held for 180 days. Another reports their stores being closed with no assistance offered. Dodo's position is that it follows strict compliance and risk guidelines and that funds are held only when a case goes through compliance review triggered by risk indicators. Both things can be true: a young merchant of record carrying the underwriting risk for thousands of small sellers will offboard some of them, and a 180-day hold is the standard chargeback exposure window rather than an arbitrary penalty."
+    },
+    {
+      "question": "Should you use Dodo Payments?",
+      "answer": "It is a reasonable option for an early-stage digital product where the tax handling is worth more than the rate, and a poor one if your margins are thin or a fund hold would end your business. Work out your real rate including the international and subscription surcharges, then compare it against <a href=\"/processor/paddle\">Paddle</a> and <a href=\"/processor/polar-payments\">Polar</a> on the same profile. Whatever you choose, do not accumulate a large balance inside any merchant of record: withdraw on the shortest cycle available, keeping in mind the 5 dollar fee on payouts under 1,000 dollars, and keep your product description matching what you actually sell."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Dodo Payments was founded in 2023 and operates as a merchant of record across more than 190 countries, aimed at indie developers and AI startups who want to sell globally without handling VAT, GST and sales tax registration themselves. As of August 2026 the review record is young: some verified reviews on AppSumo, coverage on software review sites, and a set of detailed analyses published by competing merchant-of-record platforms.</p><p>On features, sources agree. The APIs and SDKs are well documented, integration is quick, and setup is fast enough that early-stage sellers can be live in a day. As a merchant of record it takes on the tax registration and remittance work, which is the reason to use this category of product at all.</p><p>Two things dominate the criticism. The first is fee stacking: a 4 percent plus 40 cents headline becomes closer to 6.5 percent once the 1.5 percent international and 0.5 percent subscription surcharges apply, with roughly 3 percent more for PayPal, 1 dollar per refund, 30 dollars per dispute and 5 dollars on payouts under 1,000 dollars. The second is account termination. One merchant reports a shop frozen and funds held 180 days after over 15,000 dollars in charges across more than 90 orders; another reports stores closed with no assistance. Dodo says holds occur only through compliance review driven by risk indicators.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Merchant of record status means sales tax, VAT and GST registration and remittance are handled for you across 190 plus countries",
+        "APIs and SDKs are described as well documented, with integration quick enough for a solo developer",
+        "Setup is fast, so an early-stage product can be selling internationally within a day",
+        "Aimed squarely at indie developers and AI startups, a segment larger providers often decline",
+        "Verified reviews exist on AppSumo, which is more than several competitors in this category can show",
+        "Supports subscriptions and one-time digital product sales without separate integrations"
+      ],
+      "cons": [
+        "The advertised 4 percent plus 40 cents becomes nearer 6.5 percent once international and subscription surcharges apply",
+        "PayPal adds roughly 3 percent more, which is a large penalty on a payment method many buyers prefer",
+        "A 30 dollar dispute fee and 1 dollar refund fee make a high-refund product expensive to run here",
+        "Payouts under 1,000 dollars carry a 5 dollar fee, which penalises exactly the small seller it markets to",
+        "One merchant reports a frozen shop and funds held for 180 days after more than 15,000 dollars in sales",
+        "Another reports stores closed with no assistance provided",
+        "Founded in 2023, so it has a short operating history and no long verified review pool",
+        "Much of the detailed public analysis is written by competing merchant-of-record platforms"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>Read the pricing complaints as arithmetic rather than as opinion, because that is what they are. The surcharges are published and they compound in exactly the case Dodo markets to: an international customer paying for a subscription. If that describes your business, your rate is not 4 percent and never was, and the honest comparison against other merchants of record has to use the stacked number. Competitors wrote most of these reviews and they are still right about this.</p><p>The termination complaints need a different kind of care. A merchant of record is the seller of record for thousands of small sellers, which means it carries their chargeback and fraud risk on its own licences, and it will offboard accounts to protect that. A 180-day hold is the standard exposure window rather than a punishment. That does not make it survivable for you. So treat any merchant of record as a payment rail rather than a bank: withdraw frequently, keep your product description accurate and matching what you sell, and never let a balance build up that you could not afford to lose access to for six months.</p>"
+    }
+  ],
+  "sources": [
+    "https://research.com/software/reviews/dodo-payments-review",
+    "https://appsumo.com/products/dodo-payments/reviews/",
+    "https://fungies.io/dodo-payments-review-2026/",
+    "https://www.creem.io/blog/dodo-payments-review-hidden-fees-2026",
+    "https://trusteroo.com/brands/dodopayments-com"
+  ],
+  "quotesNote": "Four excerpts, two from Trustpilot and two from AppSumo, split deliberately down the middle. The AppSumo reviewers had a clean onboarding and the Trustpilot ones were approved and then blocked, which is the range you should expect from a young merchant of record carrying its own underwriting risk.",
+  "quotes": [
+    {
+      "text": "They review our website, let us operate for one week, and then block us without any warning. The money gets locked for 120 days, and they don't even guarantee they'll release it afterward.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/dodopayments.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "first approved my SaaS - I have the email confirmation - and then suddenly put my account on hold without any clear explanation",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/dodopayments.com",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "a SaaS founder who added that support took days to reply"
+    },
+    {
+      "text": "I see some other reviews mentioning delays or verification issues, but my experience has been flawless. Onboarding: I was able to get approved and toggle to 'Live Mode' almost immediately.",
+      "source": "AppSumo",
+      "sourceUrl": "https://appsumo.com/products/dodo-payments/reviews/",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "Working well so far. I'm able to add subscription products and receive payouts without issues. The support was great initially.",
+      "source": "AppSumo",
+      "sourceUrl": "https://appsumo.com/products/dodo-payments/reviews/",
+      "date": "2026",
+      "rating": 4
+    }
+  ]
+}

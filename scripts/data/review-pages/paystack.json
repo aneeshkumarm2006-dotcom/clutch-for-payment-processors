@@ -1,0 +1,98 @@
+{
+  "slug": "paystack",
+  "name": "Paystack",
+  "heading": "Paystack reviews",
+  "intro": "Paystack processes for a large share of Nigerian online commerce, and its Trustpilot page is brutal: around 1.6 out of 5 across roughly 240 reviews, with about 72 percent of them at one star. Developer reviews on G2 and Capterra are far warmer about the API. The complaints are not about the integration. They are about settlement, and about refunds issued to customers without the merchant being asked.",
+  "seo": {
+    "metaTitle": "Paystack Reviews: 1.6 on Trustpilot, 72% One Star",
+    "metaDescription": "Paystack rates about 1.6 on Trustpilot with 72% one-star reviews over held settlements and merchant-side refunds, while developers rate the API highly.",
+    "keywords": [
+      "paystack reviews",
+      "paystack ratings",
+      "paystack complaints",
+      "paystack settlement delay",
+      "is paystack reliable"
+    ],
+    "focusKeyword": "paystack reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Paystack reviews verified?",
+      "answer": "The figures on this page come from Trustpilot, G2 and Capterra and were current as of August 2026. Trustpilot is open, so anyone can post, and its Paystack page mixes merchants with consumers who met Paystack only as the checkout on someone else's website. G2 and Capterra verify reviewers before publishing. None of these are reviews submitted to this site, and no merchant has published one here for Paystack yet, which is why the list above is empty. If you run settlements through Paystack, a review here naming your settlement cycle and your dispute experience would be more useful to another merchant than any of these averages."
+    },
+    {
+      "question": "Why is Paystack's Trustpilot score so low if so many businesses use it?",
+      "answer": "Partly because of who writes there. Roughly 240 reviews is a very small pool against Paystack's merchant base, and the people motivated to find a review site are usually the ones with money stuck. That is worth discounting for, but not away: 72 percent one-star is extreme even for a platform with that selection bias, and the complaints are specific and repetitive rather than vague. When the same two failure modes, held settlements and unilateral refunds, dominate hundreds of reviews, the pattern is telling you something real about how disputes are handled, even if it is not telling you the average merchant's experience."
+    },
+    {
+      "question": "What do Paystack reviewers complain about most?",
+      "answer": "Held settlements first. Merchants describe transactions completing successfully while the payout stays pending, sometimes for weeks, with no clear reason given in the dashboard and support responses that restate policy. Second, and more unusual, is refunds: numerous reviewers say Paystack refunded customers directly, sometimes in large amounts, without consulting the merchant or asking for evidence, which leaves the merchant having already shipped goods. Third is onboarding and verification, where G2 reviewers describe long delays activating business accounts. Support responsiveness runs through all three."
+    },
+    {
+      "question": "Does being owned by Stripe change how Paystack handles accounts?",
+      "answer": "It is relevant context rather than a direct answer. Stripe acquired Paystack in 2020 and Paystack continues to operate under its own brand across Nigeria, Ghana, South Africa and Kenya. The risk posture reviewers describe, instant onboarding followed by holds when patterns look wrong, matches Stripe's own model, and the complaint profile is recognisably similar. What differs is the local context: settlement runs through Nigerian banking rails, so payout timing depends on more than Paystack's decisioning, and disputes involve consumer protection expectations that differ from the US. If you are choosing a processor for African markets, compare candidates on settlement terms and dispute policy specifically rather than on API quality, because the API is not where merchants get hurt here."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Paystack sits at roughly 1.6 to 1.7 out of 5 on Trustpilot across somewhere between 195 and 240 reviews depending on which country page you open, with about 72 percent at one star. On PissedConsumer it is around 2.0 across 27 reviews. G2 and Capterra are a different story, with mixed but broadly positive sentiment focused on the developer experience and the dashboard.</p><p>Two things about that spread are worth holding onto. The review pools are small in absolute terms, so no single figure here should be read as a verdict on a platform handling a large share of Nigerian online payments. And the two sets of reviewers are answering different questions: the software directories attract people describing an integration, and Trustpilot attracts people describing what happened to their money.</p><p>The complaint themes are consistent enough across independent sources to treat as established, which matters more than the exact decimal. Held payouts and merchant-side refunds come up again and again, in the same words, from unconnected reviewers.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "The API and documentation are the most praised part of the product, and developers describe getting a Nigerian checkout live in a day",
+        "Local payment methods that international processors do not support properly, including bank transfer, USSD and Verve cards, work out of the box",
+        "The hosted checkout converts well on Nigerian mobile networks, which reviewers contrast with foreign gateways timing out",
+        "Pricing is published and predictable, which reviewers coming from bank-negotiated merchant accounts call out as a relief",
+        "The dashboard's reporting is good enough for small teams to reconcile without building anything"
+      ],
+      "cons": [
+        "Held settlements are the dominant complaint: transactions succeed, payouts stay pending, and the dashboard gives no usable reason",
+        "Reviewers repeatedly describe Paystack refunding customers directly without consulting the merchant or requesting evidence first",
+        "Support is email and ticket based, and reviewers with money held say replies restate policy rather than resolving the case",
+        "Business account verification and activation can stall for weeks, which G2 reviewers flag as a launch risk",
+        "There is no escalation path a merchant can use to reach someone empowered to release funds",
+        "Chargeback and dispute handling is described as weighted toward the cardholder by default"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>Almost every review here rates either the integration or a dispute, and nothing in between. What is missing is the ordinary case: the merchant who has settled on time every week for two years and never had a reason to write about it. That merchant is the majority, statistically, and is entirely absent from a 240-review sample dominated by one-star complaints. So do not read 1.6 as your expected experience.</p><p>What you should take from it is where the risk sits. If your business will ever have a disputed order, a delivery delay or a spike in refunds, the reviews are consistent that this is where Paystack becomes difficult and that there is no phone route out. Price that in. Ask, in writing before you launch, what triggers a settlement hold, how long holds last, and whether Paystack can refund your customer without your approval. If a large share of your revenue depends on a single payout cycle, run a second processor alongside so one hold cannot stop your business.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/paystack.com",
+    "https://www.g2.com/products/paystack/reviews",
+    "https://www.capterra.com/p/235568/Paystack/reviews/",
+    "https://brands.ng/read-this-paystack-review-before-using-the-app/"
+  ],
+  "quotesNote": "Paystack's Shopify app carries a single review, a three-star one from 2023, so this is one merchant's experience rather than a sample. It is included because it is a verifiable merchant voice about the integration, and note that it does not touch the settlement complaints that dominate Trustpilot.",
+  "quotes": [
+    {
+      "text": "The app does the essentials of processing a payment.",
+      "source": "Shopify App Store",
+      "sourceUrl": "https://apps.shopify.com/paystack/reviews",
+      "date": "July 2023",
+      "rating": 3,
+      "attribution": "a Shopify merchant"
+    },
+    {
+      "text": "One missing part is that the Shopify Order number is not referenced in the PayStack system whatsoever.",
+      "source": "Shopify App Store",
+      "sourceUrl": "https://apps.shopify.com/paystack/reviews",
+      "date": "July 2023",
+      "rating": 3,
+      "attribution": "a Shopify merchant"
+    },
+    {
+      "text": "If you use the Shopify dashboard, you'll be fine, but if you are using API's, you are going to have to do extra work to match the order and payment.",
+      "source": "Shopify App Store",
+      "sourceUrl": "https://apps.shopify.com/paystack/reviews",
+      "date": "July 2023",
+      "rating": 3,
+      "attribution": "a Shopify merchant"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "slug": "sumup",
+  "name": "SumUp",
+  "heading": "SumUp reviews",
+  "intro": "SumUp holds around 4.1 out of 5 on Trustpilot across more than 36,000 reviews, one of the largest review pools of any processor in this directory. Most of it is market traders and small shops rating a cheap card reader that worked. The one-star end is a narrower and more serious story: accounts closed after signup, and verification holding funds on a trading day.",
+  "seo": {
+    "metaTitle": "SumUp Reviews: 4.1 Across 36,000 Trustpilot Ratings",
+    "metaDescription": "SumUp rates 4.1 on Trustpilot across 36,000+ reviews. Why the score reflects the card reader more than the merchant account, and the account closure complaints.",
+    "keywords": [
+      "sumup reviews",
+      "sumup ratings",
+      "sumup complaints",
+      "sumup account closed",
+      "sumup card reader review"
+    ],
+    "focusKeyword": "sumup reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these SumUp reviews verified?",
+      "answer": "The figures on this page come from Trustpilot and were current as of August 2026, cross-read against independent write-ups from Merchant Maverick, Wise and UK small-business reviewers. Trustpilot is an open platform, and SumUp actively invites reviews through it, which is part of why the volume is so high. None of these are reviews submitted to this site, and no merchant has published one here for SumUp yet, which is why the list above is empty. A review here naming your monthly volume and your effective rate would be more use to another trader than a 36,000-review average."
+    },
+    {
+      "question": "Why is SumUp's score higher than most processors on Trustpilot?",
+      "answer": "Because most of its reviewers are rating a purchase rather than a merchant account. SumUp sells a cheap reader to sole traders, market stalls and mobile businesses, and the reader arrives, pairs with a phone and takes a card for a flat fee with no monthly charge. That experience is genuinely good and generates a lot of five-star reviews. Compare that with a processor whose reviewers are e-commerce businesses writing after a chargeback dispute, and the populations are not comparable. Earlier snapshots put SumUp closer to 3.1, so the current figure also reflects a rating that has climbed as volume grew."
+    },
+    {
+      "question": "What do SumUp reviewers complain about most?",
+      "answer": "Account closure or refusal after signup is the most serious and most repeated complaint: merchants sign up, start taking payments, and are then told the account cannot continue, sometimes with a balance still held. Second is support, where reviewers describe difficulty reaching a person, disputes taking weeks, and no escalation path when something goes wrong. Third is verification timing, which is specific to how this product is used: a trader who cannot get verified on the morning of a market has lost the day's sales, and several reviews are exactly that. Reader connectivity on weak mobile signal is a smaller recurring theme."
+    },
+    {
+      "question": "Is SumUp suitable for an online business?",
+      "answer": "It can take online payments, but the review record suggests that is not where it is strongest and not who is reviewing it. The reviewers who are happiest are in-person: stalls, cafes, mobile trades, pop-ups, anyone who needs to accept a card without a monthly commitment. E-commerce sellers have more processors competing for them and mostly better tooling to choose from, and the flat rate that looks cheap on a five pound coffee is not competitive on higher-value online baskets. If you are mainly online, read the reviews for <a href=\"/processor/stripe\">Stripe</a> or <a href=\"/processor/mollie\">Mollie</a> alongside these rather than instead of them."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, SumUp carries roughly 4.1 out of 5 across more than 36,000 Trustpilot reviews, with the exact figure varying by country page. That is an enormous sample, and it is worth being precise about what it measures. The overwhelming majority of those reviews are from sole traders and small in-person businesses describing a reader that arrived quickly, paired with a phone and took a card with no monthly fee attached. Snapshots from a few years ago put the score nearer 3.1, so this is a rating that has improved as the reviewer base widened.</p><p>Independent reviewers who assess it as a merchant account rather than as a gadget, including Merchant Maverick and the UK small-business press, are more measured. They rate it well for micro-merchants and low volume, and they flag the same two things the one-star reviews do: support depth and the risk of the account being closed after you have started relying on it.</p><p>So read the 4.1 as a strong verdict on the hardware and the signup, and read the tail separately, because the tail is where the money is at stake.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "No monthly fee and no contract, which reviewers running seasonal or occasional trade name as the reason they picked it over a terminal lease",
+        "The reader is cheap enough to buy outright, and reviewers describe unboxing to first payment in under half an hour",
+        "One flat percentage per transaction, so reviewers can predict their cost without reading an interchange statement",
+        "Payouts arrive on a next-business-day cycle, which reviewers with tight cash flow mention specifically",
+        "Reviewers running market stalls and mobile trades say it works on a phone hotspot without a separate terminal or till",
+        "The free invoicing and simple online store are described as good enough for a trader who does not want a website"
+      ],
+      "cons": [
+        "Account closure or refusal to continue processing after signup is the most serious repeated complaint, sometimes with a balance held",
+        "Reaching a human is difficult, and reviewers say disputes take weeks with no route to escalate",
+        "Verification can stall at the worst moment, and reviewers describe losing a day's trade at an event because of it",
+        "Reader connectivity is fragile on weak mobile signal, which matters at busy outdoor markets",
+        "The flat rate is competitive on small in-person tickets and stops being competitive as volume or basket size grows",
+        "There is no interchange-plus option, so a growing merchant has no path to a better rate without switching provider"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>A 36,000-review average built from reader purchases tells you very little about what happens when your account is questioned. SumUp is the acquirer here, not a reseller, so a decision to stop processing for you is its own and there is no bank behind it to appeal to. The one-star reviews are the only place that outcome appears, and they are a rounding error against the volume of people happily rating a card reader. Weight them by severity, not by count.</p><p>The practical read: SumUp is a good fit for exactly the merchant who dominates its reviews, which is low volume, in person, no monthly commitment. If your trade depends on taking cards on a specific day, do the verification well ahead and keep a backup way to get paid, because the reviews are clear that verification timing is the failure that costs real money. If your volume is growing past a few thousand a month, price an interchange-plus provider such as <a href=\"/processor/helcim\">Helcim</a> against the flat rate, since that is the point where the flat rate stops being the cheap option.</p>"
+    }
+  ],
+  "sources": [
+    "https://uk.trustpilot.com/review/sumup.com",
+    "https://www.trustpilot.com/review/sumup.com",
+    "https://wise.com/us/blog/sumup-review",
+    "https://www.joinstored.com/blogs/sumup-review-a-comprehensive-analysis-of-the-payment-solution-for-small-businesses",
+    "https://smartmoneypeople.com/sumup-reviews/product/card-reader"
+  ],
+  "quotesNote": "Four excerpts from SumUp's Trustpilot pages. They are deliberately drawn from the account-closure tail rather than the reader-purchase majority, because that tail is where the money is at stake and it is invisible in a 4.1 average built largely from hardware reviews.",
+  "quotes": [
+    {
+      "text": "Closed account with no explanation! Withheld my funds for six weeks",
+      "source": "Trustpilot",
+      "sourceUrl": "https://uk.trustpilot.com/review/sumup.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "Shortly after receiving legitimate customer payments for completed services, SumUp suddenly froze my account and later terminated it without clear reasoning",
+      "source": "Trustpilot",
+      "sourceUrl": "https://uk.trustpilot.com/review/sumup.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "I still have no idea why you closed my account?",
+      "source": "Trustpilot",
+      "sourceUrl": "https://uk.trustpilot.com/review/sumup.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "Can be fragile with their connection to take card payments at busy events or certain areas where the signal is low",
+      "source": "Trustpilot",
+      "sourceUrl": "https://uk.trustpilot.com/review/sumup.com",
+      "date": "2026",
+      "attribution": "a trader describing the card reader"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "slug": "stax",
+  "name": "Stax",
+  "heading": "Stax reviews",
+  "intro": "Stax scores 4.9 out of 5 on G2 and about 4.0 across roughly 900 Trustpilot reviews, but only 3.3 on Capterra. The Better Business Bureau gives it an A+ rating and logs 66 complaints in 36 months. The spread tracks one thing: Stax charges a monthly membership instead of a markup, which is a good deal above a volume threshold and a bad one below it.",
+  "seo": {
+    "metaTitle": "Stax Reviews: 4.9 on G2, 3.3 on Capterra",
+    "metaDescription": "Stax rates 4.9 on G2 but 3.3 on Capterra. Why its subscription pricing splits reviewers, and the hidden fee and support complaints behind the low scores.",
+    "keywords": [
+      "stax reviews",
+      "stax payments reviews",
+      "stax complaints",
+      "stax pricing",
+      "fattmerchant reviews"
+    ],
+    "focusKeyword": "stax reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Stax reviews verified?",
+      "answer": "The figures on this page come from G2, Capterra, Trustpilot and the Better Business Bureau and were current as of August 2026, read alongside independent assessments from Merchant Maverick, CardFellow and Card Payment Options. G2 and Capterra verify reviewers before publishing. None are reviews submitted to this site. Anything in the list above is a review a merchant wrote here and our moderators approved, and our own score is computed only from those. Note that Stax was called Fattmerchant until 2020, so older reviews appear under that name and some describe a materially different product."
+    },
+    {
+      "question": "Why does Stax score 4.9 on G2 and 3.3 on Capterra?",
+      "answer": "Because the pricing model has a break-even point and the two pools sit on opposite sides of it. Stax charges a monthly membership, starting around 99 dollars, and passes interchange through at zero markup. Above roughly 10,000 dollars a month in volume that is genuinely cheaper than a percentage markup, and those merchants rate it very highly. Below it you are paying a fixed fee that a flat-rate processor would not charge you, and the same product looks like a bad deal. The independent reviewers say the same thing more plainly: Merchant Maverick calls the monthly fees ill-suited to businesses processing under 10,000 dollars a month."
+    },
+    {
+      "question": "What do Stax reviewers complain about most?",
+      "answer": "Unexpected fees, which is worth pausing on because Stax is sold on pricing transparency. Reviewers describe charges they had not been told about appearing alongside the membership fee, and it is the most frequent substantive complaint. Customer service is second, and independent reviewers note that complaints have grown more frequent over time rather than less. The Better Business Bureau logging 66 complaints in a 36-month window against 24 reviews is consistent with that: the complaint channel is busier than the review channel, which usually means unresolved billing disputes."
+    },
+    {
+      "question": "Is Stax worth it for a small business?",
+      "answer": "Probably not, and this is the clearest volume threshold of any processor in this directory. The membership fee starts around 99 dollars a month and you pay it whether you process 2,000 dollars or 200,000. At 5,000 dollars a month, a flat-rate provider taking 2.9 percent costs you roughly 145 dollars, so the membership plus interchange leaves you little or no better off and you have added a fixed cost. Somewhere above 10,000 dollars a month the arithmetic turns decisively in Stax's favour and keeps improving. Run your own numbers from a real statement rather than trusting either score, and compare against <a href=\"/processor/helcim\">Helcim</a>, which gives interchange-plus with no monthly fee at any volume."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Stax holds around 4.9 out of 5 on G2, about 4.0 across roughly 900 Trustpilot reviews, and 3.3 on Capterra. The Better Business Bureau gives the company an A+ rating and 4.1 out of 5 across 24 reviews, while also recording 66 complaints in the preceding 36 months. Independent merchant-services reviewers place it as a good fit for midsize and larger businesses, particularly in e-commerce, and a poor fit below about 10,000 dollars a month in volume.</p><p>The single fact that organises all of this is the pricing model. Stax charges a monthly membership and passes interchange through with no markup, which is the opposite of how most of this industry prices. That design has a hard break-even point, and a review from either side of it is accurate and useless to someone on the other side.</p><p>The complaint that does not fit the pattern, and therefore matters most, is unexpected fees. A processor whose entire proposition is that you can see your costs should not be generating that complaint, and independent reviewers note it has become more frequent rather than less.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Interchange passes through at zero markup, so reviewers above the volume threshold report materially lower effective rates",
+        "The membership fee is fixed, which means your processing cost stops rising as your volume grows",
+        "Reviewers can calculate their own effective rate from a statement, which is the point of the model and rare in this industry",
+        "The dashboard and reporting are rated well, particularly by e-commerce reviewers consolidating several sales channels",
+        "A Better Business Bureau A+ rating and roughly 900 Trustpilot reviews averaging around 4.0 give the positive sentiment real weight",
+        "Reviewers describe onboarding as straightforward compared with traditional merchant account underwriting"
+      ],
+      "cons": [
+        "Unexpected fees are the most frequent complaint, which is a serious charge against a provider selling transparency",
+        "Customer service complaints recur, and independent reviewers report them growing more common over time",
+        "The membership fee starting around 99 dollars a month makes it a bad deal below roughly 10,000 dollars in monthly volume",
+        "66 Better Business Bureau complaints in 36 months against only 24 reviews suggests billing disputes going unresolved",
+        "Capterra's 3.3 average is low enough that the positive scores elsewhere should not be read on their own",
+        "Older reviews are filed under the Fattmerchant name and describe a product that has since changed"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>No review score can tell you whether subscription pricing is right for you, because the answer is arithmetic rather than opinion. Take a real monthly statement, add the membership fee to your interchange cost, and compare it against what a flat-rate provider would have charged on the same volume. If the answer is close, the fixed fee is a risk rather than a saving, because a slow month costs you the same as a busy one. If the answer is decisively in Stax's favour, the 3.3 on Capterra is describing merchants who are not you.</p><p>The complaint worth taking seriously regardless of your volume is the fee one. Ask for the complete schedule in writing before you sign, and specifically for anything billed outside the membership: gateway fees, PCI fees, statement fees, chargeback fees, early termination, and what happens to the membership if you pause trading. A transparent pricing model is only transparent if the list is complete, and the review record suggests merchants have found items on their statements that were not on the list they were shown.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.merchantmaverick.com/reviews/fattmerchant-review/",
+    "https://www.cardfellow.com/credit-card-processors/fattmerchant",
+    "https://www.bbb.org/us/fl/orlando/profile/credit-card-merchant-services/stax-payments-0733-90317259/complaints",
+    "https://www.cardpaymentoptions.com/credit-card-processors/stax-payments-reviews/",
+    "https://fitsmallbusiness.com/fattmerchant-review/"
+  ],
+  "quotesNote": "Every one of the eleven reviews on Stax's Better Business Bureau profile carries one star, so these are the complaint channel speaking rather than the wider record, where G2 reviewers average 4.9.",
+  "quotes": [
+    {
+      "text": "Predatory dispute handling, conflicting instructions from support, and immediate collections notice.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/fl/orlando/profile/credit-card-merchant-services/stax-payments-0733-90317259/customer-reviews",
+      "date": "14 July 2026",
+      "rating": 1
+    },
+    {
+      "text": "This is theft, plain and simple. And this is far far away from being transparent.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/fl/orlando/profile/credit-card-merchant-services/stax-payments-0733-90317259/customer-reviews",
+      "date": "23 July 2024",
+      "rating": 1
+    },
+    {
+      "text": "Horrible company, no customer service and you cannot get help from anyone at the company.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/fl/orlando/profile/credit-card-merchant-services/stax-payments-0733-90317259/customer-reviews",
+      "date": "7 March 2024",
+      "rating": 1
+    }
+  ]
+}

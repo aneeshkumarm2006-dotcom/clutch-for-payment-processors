@@ -1,0 +1,101 @@
+{
+  "slug": "forte-payments",
+  "name": "CSG Forte",
+  "heading": "CSG Forte reviews",
+  "intro": "CSG Forte started life in 1998 as ACH Direct, became Forte Payment Solutions in 2013 and was acquired by CSG International in 2018. Most merchants who review it are satisfied, and support is the most praised element. The complaints that matter concentrate on one thing: funds held, with reviewers citing a 90-day hold policy the company stands behind.",
+  "seo": {
+    "metaTitle": "CSG Forte Reviews: ACH Holds and a 90-Day Policy",
+    "metaDescription": "CSG Forte reviews praise support but flag fund holds up to three weeks and a 90-day hold policy. Why ACH return risk explains it, and what to ask first.",
+    "keywords": [
+      "csg forte reviews",
+      "forte payments reviews",
+      "csg forte complaints",
+      "forte ach processing",
+      "csg forte hold policy"
+    ],
+    "focusKeyword": "csg forte reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these CSG Forte reviews verified?",
+      "answer": "The assessments here come from Gartner Peer Insights, Capterra, GetApp, Software Advice, Trustpilot and the Better Business Bureau, current as of August 2026. Gartner and Capterra verify reviewers before publishing. Note that the company has traded under three names, ACH Direct, Forte Payment Solutions and now CSG Forte, so older reviews appear under earlier branding and some predate the 2018 CSG acquisition. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty."
+    },
+    {
+      "question": "What do CSG Forte reviewers complain about most?",
+      "answer": "Funds being held. One merchant describes a hold lasting up to three weeks with inconsistent communication from different representatives, and reports CSG standing by a 90-day hold policy. A separate and more serious complaint alleges an ACH processing application was submitted without clear communication or consent, that credit card processing was then denied, and that funds were withdrawn for services never used. The Better Business Bureau record also shows the company failing to respond to at least one complaint filed against it, which is worth weighing alongside the generally positive support sentiment elsewhere."
+    },
+    {
+      "question": "Why would a processor hold funds for 90 days?",
+      "answer": "Because ACH is not a card, and this is the context that makes the policy comprehensible even if it is still inconvenient. CSG Forte began as an ACH processor and bank debit remains central to what it does. An ACH transaction can be returned well after it appears to have settled, for insufficient funds, an unauthorised debit claim or a closed account, and the return window is far longer than a card authorisation reversal. A processor carrying that risk holds a portion of funds against it. That does not excuse poor communication about a hold, which is the actual complaint, but it does explain why the number is 90 days rather than three."
+    },
+    {
+      "question": "Who is CSG Forte a good fit for?",
+      "answer": "Businesses whose payments are mostly bank debit rather than cards: recurring billing, utilities, government and municipal payments, insurance, property management, anywhere invoices are paid by e-check on a schedule. Reviewers in those categories rate it well, and the ACH heritage shows in the product depth. It is a weaker fit if cards are your main volume, because you would be buying an ACH specialist for a card job. If you want bank debit with a different structure, <a href=\"/processor/gocardless\">GoCardless</a> handles the same instrument internationally, and <a href=\"/processor/paytrace\">PayTrace</a> is the closer comparison for card-led B2B."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, CSG Forte carries listings on Gartner Peer Insights, Capterra, GetApp, Software Advice and Trustpilot, with sentiment that independent reviewers describe as mixed but tilting satisfied. The most consistent praise is for support: reviewers describe it as fast, friendly and professional, resolving issues quickly, with a minority reporting the opposite and saying they struggled to reach or communicate with anyone useful.</p><p>The product itself is broad for its niche, covering card and debit acceptance, ACH and e-check processing, recurring billing and fraud tooling. The ACH lineage is not incidental: the company was founded in 1998 as ACH Direct, rebranded to Forte Payment Solutions in 2013 and was acquired by CSG International in 2018, and bank debit remains what it is built around.</p><p>The complaints are few in number but specific in substance, and they concentrate on money rather than on features. Funds held for up to three weeks with inconsistent explanations, a 90-day hold policy the company defends, an allegation that an ACH application was submitted without clear consent while fees were charged for unused services, and a Better Business Bureau file showing at least one complaint the company did not answer.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Support is the most praised element, with reviewers describing it as fast, friendly and effective at actually resolving issues",
+        "ACH and e-check processing depth reflecting 25 years of building around bank debit rather than bolting it on",
+        "Recurring billing suits the categories it serves best: utilities, government, insurance, property management and subscriptions",
+        "Cards, ACH, recurring billing and fraud tooling arrive as one platform rather than separate vendors",
+        "Backing from CSG International since 2018 gives it more institutional stability than an independent processor",
+        "Coverage on Gartner Peer Insights as well as the small-business review sites, which suggests genuine mid-market adoption"
+      ],
+      "cons": [
+        "Fund holds are the dominant complaint, with one merchant reporting three weeks and the company citing a 90-day policy",
+        "Communication during a hold is described as inconsistent, with different representatives giving different answers",
+        "One complaint alleges an ACH application was submitted without clear consent and fees charged for services never used",
+        "The Better Business Bureau record shows the company failing to respond to at least one complaint",
+        "A minority of reviewers report difficulty reaching or communicating with customer service at all",
+        "Three brand changes across its history mean older reviews may describe a materially different company",
+        "It is an ACH specialist first, so card-led merchants are buying it for the wrong strength"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The hold complaints need separating into two things, because only one of them is a criticism you can act on. That ACH carries a long return window is a fact about the instrument: a debit can come back weeks after it looked settled, so any processor handling bank debit holds funds against that risk. A 90-day policy is aggressive but it is not arbitrary. What the reviewers are actually complaining about is not being told clearly, and getting different answers from different representatives while their money sat there. That is a communication failure, and it is fixable in your contract rather than in your expectations.</p><p>So ask the questions the reviews imply. What is the standard hold or reserve on ACH volume, what triggers an increase, how long after a transaction is the money genuinely yours, and who do you contact when a payout does not arrive. Get the answers in writing. Then read your application carefully before signing, given the allegation on file about an ACH application submitted without clear consent, and confirm exactly which services you are being enrolled in and billed for.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.gartner.com/reviews/market/digital-commerce-payment-vendors/vendor/csg/product/csg-forte",
+    "https://www.capterra.com/p/135920/Forte-Payment-Systems/reviews/",
+    "https://www.bbb.org/us/tx/fort-worth/profile/payment-processing-services/csg-forte-payments-inc-0825-1000215908/complaints",
+    "https://www.trustpilot.com/review/forte.net",
+    "https://www.getapp.com/finance-accounting-software/a/forte/reviews/"
+  ],
+  "quotesNote": "All five reviews on CSG Forte's Better Business Bureau profile carry one star, and read them closely: these are consumers paying a bill through Forte, not merchants using it. That is exactly what you would expect from a processor whose customers are utilities, insurers and government, and it means the BBB file tells you about the payer experience rather than the merchant one.",
+  "quotes": [
+    {
+      "text": "Forte Payment is charging my bank account even after numerous attempts to get them to stop.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/tx/fort-worth/profile/payment-processing-services/csg-forte-payments-inc-0825-1000215908/customer-reviews",
+      "date": "11 April 2024",
+      "rating": 1,
+      "attribution": "a consumer paying a bill through Forte"
+    },
+    {
+      "text": "AFTER the payment was successfully processed, there was a price breakdown with almost a $55 fee added by this processor.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/tx/fort-worth/profile/payment-processing-services/csg-forte-payments-inc-0825-1000215908/customer-reviews",
+      "date": "31 December 2023",
+      "rating": 1,
+      "attribution": "a consumer paying a bill through Forte"
+    },
+    {
+      "text": "I made a payment to Spectrum thru ACH. The FULL PAYMENT came out of my account on 1/6.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/tx/fort-worth/profile/payment-processing-services/csg-forte-payments-inc-0825-1000215908/customer-reviews",
+      "date": "16 January 2026",
+      "rating": 1,
+      "attribution": "a consumer paying a cable bill"
+    }
+  ]
+}

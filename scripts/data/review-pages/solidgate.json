@@ -1,0 +1,90 @@
+{
+  "slug": "solidgate",
+  "name": "Solidgate",
+  "heading": "Solidgate reviews",
+  "intro": "Solidgate scores about 4.8 out of 5 on G2, but from only eight reviews, and roughly 4.3 across sixteen when G2, Capterra and Software Advice are pooled. Those are anecdotes rather than ratings. What is more persuasive than the score is the pattern inside it: reviewers describing multi-year use and recommending it unprompted, which is harder to manufacture than a number.",
+  "seo": {
+    "metaTitle": "Solidgate Reviews: 4.8 From Only Eight Reviewers",
+    "metaDescription": "Solidgate rates 4.8 on G2 but from just eight reviews. What subscription merchants praise about its orchestration and fraud tools, and the setup complexity.",
+    "keywords": [
+      "solidgate reviews",
+      "solidgate complaints",
+      "solidgate ratings",
+      "solidgate orchestration",
+      "solidgate subscription payments"
+    ],
+    "focusKeyword": "solidgate reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Solidgate reviews verified?",
+      "answer": "The figures come from G2, Capterra, Software Advice and GetApp, current as of August 2026. G2 and Capterra verify reviewers before publishing, and Capterra shares a review pool with Software Advice, so counting both overstates the independent evidence. The samples are very small: around eight on G2 and roughly sixteen pooled. That is not enough to support a rating, so read the specifics of what reviewers say rather than the average. None of these are reviews submitted to this site, and no merchant has published one here yet."
+    },
+    {
+      "question": "What do Solidgate reviewers praise most?",
+      "answer": "Three things, consistently. First, that orchestration and acquiring come together: reviewers get access to over 150 payment methods and routing between them under one relationship, rather than integrating an orchestration layer on top of separate acquirers. Second, support described as advisory rather than reactive, with reviewers saying the team actively works on improving their conversion rather than only answering tickets. Third, and repeatedly, the antifraud and chargeback management tooling, which subscription merchants in particular call out as among the best they have used. Reviewers also mention local payment methods making a real difference to growth in Latin America and Asia."
+    },
+    {
+      "question": "What do Solidgate reviewers complain about?",
+      "answer": "Setup complexity is the concentrated criticism. Reviewers describe implementation as more involved than they expected, which is a normal cost of a platform that does orchestration and acquiring rather than one simple checkout integration, but it is still work you should plan for. The second complaint is reporting: the dashboard is described as needing better custom reporting options, specifically for tracking subscription data. For a product whose strongest fit is subscription businesses, that is a pointed gap, and it is the kind of thing that pushes finance teams back into spreadsheets."
+    },
+    {
+      "question": "Who is Solidgate a good fit for?",
+      "answer": "Subscription and e-commerce businesses selling across several regions, especially those where recurring billing and involuntary churn are the numbers that matter. The reviewers who are happiest are running subscriptions internationally and value two things Solidgate is built around: routing a transaction to whichever acquirer will approve it, and fraud and chargeback tooling that keeps a subscription book healthy. If you sell in one market with one currency and simple one-off payments, you would be buying complexity you do not need. Compare against <a href=\"/processor/checkout-com\">Checkout.com</a> for a single-acquirer alternative and <a href=\"/processor/ebanx\">EBANX</a> if Latin America dominates your volume."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Solidgate holds about 4.8 out of 5 on G2 from around eight reviews, and roughly 4.3 across about sixteen reviews when G2, Capterra and Software Advice are pooled. It is worth being blunt that these numbers carry almost no statistical weight. One additional review either way would move them visibly.</p><p>What is more useful is the content and the shape of the reviews. Merchants describe multi-year use rather than first impressions, and they recommend it actively, with word of mouth among subscription and e-commerce merchants noted as a pattern. The specifics are consistent: orchestration and acquiring in one platform across more than 150 payment methods, support that behaves advisory rather than reactive and works on conversion, and antifraud and chargeback tooling repeatedly described as best in class for subscription businesses. One reviewer notes processing reliability with hardly any downtime, and local payment methods mattering for growth in Latin America and Asia.</p><p>The criticism clusters tightly on setup complexity, and secondarily on the dashboard needing better custom reporting for subscription data. There is no complaint pattern here about holds, closures or hidden fees, which distinguishes it from most of this directory, though with sixteen reviews an absence of complaints is weak evidence rather than strong.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Orchestration and acquiring arrive together, so routing across 150 plus payment methods does not need a separate layer",
+        "Antifraud and chargeback tooling is repeatedly called best in class by subscription merchants, who care about it most",
+        "Support is described as advisory, with the team actively working on conversion rather than only closing tickets",
+        "Local payment methods in Latin America and Asia that reviewers credit with real revenue growth",
+        "Reviewers report high processing reliability with very little downtime",
+        "Reviews show multi-year usage and unprompted recommendation, which is more meaningful than the star average",
+        "No pattern of hold, closure or hidden-fee complaints, unlike most providers in this directory"
+      ],
+      "cons": [
+        "The review pool is tiny, at roughly eight on G2 and sixteen pooled, so no rating here is reliable",
+        "Setup complexity is the concentrated criticism, and implementation is more involved than a simple checkout integration",
+        "The dashboard needs better custom reporting, specifically for subscription data tracking",
+        "Capterra and Software Advice share a pool, so the pooled sixteen overstates the independent evidence",
+        "Pricing is negotiated rather than published, so you cannot estimate cost before a sales conversation",
+        "Overkill for a single-market business taking simple one-off payments in one currency"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>With sixteen reviews, the honest position is that reviews cannot carry this decision and something else has to. For an orchestration platform the substitute is measurable: authorisation rate. The entire case for routing between acquirers is that more of your transactions get approved, and that is a number you can test rather than a claim you have to trust. Ask for approval rates by market and by payment method for merchants with a profile like yours, and ask whether a trial or parallel run is possible on a slice of your traffic.</p><p>The other thing to press on, given the one clear complaint, is the reporting gap. If you run subscriptions, your finance team will need retry outcomes, involuntary churn, recovery rates and cohort revenue, and reviewers say the custom reporting is not there yet. Get a demo using your own data shape and decide whether you can live with exporting. And budget properly for setup: the complexity complaint is consistent enough that treating implementation as a project rather than an afternoon is the right assumption.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.rfp.wiki/payments-fraud/payment-orchestrators/solidgate",
+    "https://www.capterra.com/p/275753/Solidgate/",
+    "https://www.getapp.co.uk/software/2062236/solidgate",
+    "https://www.softwareadvice.co.uk/software/372023/solidgate"
+  ],
+  "quotesNote": "Two excerpts from Solidgate's G2 page. The pool behind them is only about eight reviews, so treat these as two voices rather than a sample, and note they both describe the same thing: support that behaves like a conversion consultant rather than a ticket queue.",
+  "quotes": [
+    {
+      "text": "They really think about success of your payments sometimes even more than our in-house team.",
+      "source": "G2",
+      "sourceUrl": "https://g2.com/products/solidgate/reviews",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "super proactive and quick to help, often giving tips to optimize things even further",
+      "source": "G2",
+      "sourceUrl": "https://g2.com/products/solidgate/reviews",
+      "date": "2026",
+      "rating": 5
+    }
+  ]
+}

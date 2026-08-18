@@ -1,0 +1,93 @@
+{
+  "slug": "maxio",
+  "name": "Maxio",
+  "heading": "Maxio reviews",
+  "intro": "Maxio holds about 4.3 out of 5 across roughly 829 G2 reviews, a large and credible sample. It was formed by merging SaaSOptics and Chargify, and the reviews show the seams: Advanced Billing is the former Chargify, Maxio Core is the former SaaSOptics, and the knowledge base still mixes documentation for both with no way to filter between them.",
+  "seo": {
+    "metaTitle": "Maxio Reviews: 4.3 on G2, Two Products Stitched",
+    "metaDescription": "Maxio rates 4.3 across 829 G2 reviews, with complaints about account manager churn, paid support hours and long onboarding after the SaaSOptics merger.",
+    "keywords": [
+      "maxio reviews",
+      "maxio complaints",
+      "maxio ratings",
+      "maxio chargify",
+      "maxio pricing"
+    ],
+    "focusKeyword": "maxio reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Maxio reviews verified?",
+      "answer": "The figures come from G2, which verifies reviewers before publishing, and TrustRadius, current as of August 2026. The G2 pool of roughly 829 reviews is large enough that the 4.3 is a genuinely robust figure. One thing to watch while reading: the product was assembled from SaaSOptics and Chargify, so older reviews may describe either predecessor rather than the combined platform. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty."
+    },
+    {
+      "question": "Does Maxio process payments?",
+      "answer": "No, and it matters if you found it while comparing card rates. Maxio is a subscription billing and financial operations platform: it handles plans, invoicing, revenue recognition, reporting and metrics, then charges customers through a payment gateway you connect. Your card rates, payout timing, chargeback exposure and offboarding risk all belong to that processor. So Maxio sits above your processor rather than replacing one, and the processor is a separate decision with its own review record that you should read too."
+    },
+    {
+      "question": "What do Maxio reviewers complain about most?",
+      "answer": "Customer service and account management, and the specifics are unusually pointed. One reviewer describes having four different account managers across three years with next to no communication between changes, and slow response times are a general theme. Implementation is second: reviewers say the process was not smooth and that consultants lacked sufficient knowledge of the system. Third is that support is partly a paid product, with configuration help sold as bulk support hours, which reviewers say can turn an hour of work into an expense over a thousand dollars. General slowness in day-to-day operation comes up repeatedly too."
+    },
+    {
+      "question": "How long does Maxio take to implement?",
+      "answer": "Longer than you will be told, judging by the reviews. Setting up billing is described as taking considerable time, and some small companies report onboarding processes that ran over ten months. Reviewers also report the billing API causing problems and, more seriously, usage-based billing products producing incorrect invoices every month. If your pricing is usage-based rather than simple per-seat subscription, treat that as the thing to test hardest before signing, because incorrect invoices are not a configuration inconvenience, they are a revenue and trust problem with your own customers."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Maxio holds about 4.3 out of 5 across roughly 829 reviews on G2, with additional coverage on TrustRadius. That is a large sample and a solid score, and it places Maxio marginally behind <a href=\"/processor/chargebee\">Chargebee</a> in the same category. The core capability is not what reviewers dispute.</p><p>What they do dispute is everything around it, and the complaints are consistent enough to read as structural rather than anecdotal. Account management churn comes up repeatedly, with one reviewer citing four account managers in three years and almost no communication. Response times are slow. Implementation is described as rough, with consultants who did not know the system well enough, and configuration help sold as bulk support hours that reviewers say can make a one-hour task cost over a thousand dollars.</p><p>The merger shows through in ways that are hard to dismiss. Maxio is two products, Advanced Billing from Chargify and Maxio Core from SaaSOptics, and the knowledge base still contains material for both with no way to filter between them, which reviewers name specifically as making self-service support difficult. Some small companies report onboarding that ran beyond ten months, and reviewers on usage-based pricing report incorrect invoices every month.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Roughly 829 G2 reviews at 4.3 is one of the larger and more reliable samples in subscription billing",
+        "Billing and financial operations in one platform, so revenue recognition and metrics sit next to invoicing rather than in a separate tool",
+        "Reviewers value the reporting and SaaS metrics, which is what the SaaSOptics half was built for",
+        "Handles complex subscription structures that simpler tools cannot express",
+        "Processor-agnostic, so you can change payment provider without rebuilding your billing logic",
+        "Broad enough to replace several separate finance tools for a growing SaaS business"
+      ],
+      "cons": [
+        "Account manager churn is the sharpest complaint, with one reviewer reporting four managers in three years and little communication",
+        "Support response times are slow, and configuration help is sold as bulk paid hours rather than included",
+        "Reviewers say a task that should take an hour can cost over a thousand dollars in purchased support time",
+        "Implementation is described as rough, with consultants lacking sufficient product knowledge",
+        "Onboarding has run over ten months for some small companies, which is a long time to be paying for unused software",
+        "The knowledge base mixes SaaSOptics and Chargify documentation with no filter, making self-service difficult",
+        "Reviewers on usage-based pricing report incorrect invoices every month, and the billing API causing issues",
+        "The platform is described as generally slow to operate day to day"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>A 4.3 from 829 reviewers establishes that Maxio does the job. What it hides is that the cost of getting there is not only the licence fee. Between paid support hours for configuration, implementation consultants reviewers found underprepared, and onboarding that has run past ten months for some small companies, the real number is licence plus services plus your own team's time. Ask for the implementation quote and the support-hours pricing in writing alongside the subscription, because reviewers are consistently surprised by that second half.</p><p>The other thing to test rather than trust is usage-based billing specifically. Reviewers on per-seat or flat subscription pricing are largely content; reviewers on usage-based models report monthly invoice errors. If your pricing is metered, take your three most awkward invoices from last quarter and make Maxio produce them correctly before you commit. If it cannot, a purpose-built usage platform such as <a href=\"/processor/metronome-billing\">Metronome</a> or <a href=\"/processor/orb-billing\">Orb</a> is the comparison to run, and the 4.3 here is describing customers whose pricing is simpler than yours.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.g2.com/products/maxio-formerly-saasoptics-and-chargify/reviews",
+    "https://www.g2.com/products/maxio-formerly-saasoptics-and-chargify/reviews?qs=pros-and-cons",
+    "https://www.trustradius.com/products/maxio/reviews",
+    "https://www.g2.com/products/maxio-formerly-saasoptics-and-chargify/pricing"
+  ],
+  "quotesNote": "This is a single four-star review from SourceForge, written by a free-trial user, so it is one voice rather than evidence. It is included because it is individually attributable; the account management and implementation complaints described above come from the much larger G2 pool.",
+  "quotes": [
+    {
+      "text": "User friendly interface. Easily setup and works smoothly. Helps in tracking payments, subscription plans and invoices.",
+      "source": "SourceForge",
+      "sourceUrl": "https://sourceforge.net/software/product/Maxio/",
+      "date": "August 2026",
+      "rating": 4,
+      "attribution": "a marketing manager at a 100 to 499 person company, on a free trial"
+    },
+    {
+      "text": "Maxio helps in managing revenue and billing. Increases productivity of our company.",
+      "source": "SourceForge",
+      "sourceUrl": "https://sourceforge.net/software/product/Maxio/",
+      "date": "August 2026",
+      "rating": 4,
+      "attribution": "the same reviewer, listing pros"
+    }
+  ]
+}

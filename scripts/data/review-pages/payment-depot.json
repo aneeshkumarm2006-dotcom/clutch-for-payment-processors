@@ -1,0 +1,83 @@
+{
+  "slug": "payment-depot",
+  "name": "Payment Depot",
+  "heading": "Payment Depot reviews",
+  "intro": "Payment Depot earned a strong reputation on a simple idea: pay a flat monthly membership, get wholesale interchange with no percentage markup. It holds an A+ Better Business Bureau rating with few formal complaints. There is a catch that most reviews you will find do not mention: it no longer prices that way, and it is now part of Stax.",
+  "seo": {
+    "metaTitle": "Payment Depot Reviews: For a Product That Changed",
+    "metaDescription": "Payment Depot has an A+ BBB rating, but most reviews describe the old membership pricing it has replaced. What changed after the Stax acquisition.",
+    "keywords": [
+      "payment depot reviews",
+      "payment depot complaints",
+      "payment depot pricing",
+      "payment depot stax",
+      "payment depot membership"
+    ],
+    "focusKeyword": "payment depot reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Payment Depot reviews verified?",
+      "answer": "The assessments here come from the Better Business Bureau, Trustpilot and independent merchant-services reviewers including Merchant Maverick, Card Payment Options, NerdWallet and Fit Small Business, current as of August 2026. One caution matters more than usual here: a large share of the positive reviews you will find were written about the membership pricing model Payment Depot has since replaced, so check the date on anything you read. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty."
+    },
+    {
+      "question": "Does Payment Depot still use membership pricing?",
+      "answer": "No, and this is the single most important thing to know before reading its reviews. The model that made its reputation was a flat monthly fee plus a small per-transaction fee on top of raw interchange, with no percentage markup, which is why it was often described as the Costco of card processing. Published figures from that era were around 79 dollars a month plus 15 cents a transaction plus interchange, with no setup fee and no early termination fee. Payment Depot has moved to customised interchange-plus pricing instead. That is still a transparent model, but it is quoted per merchant rather than published, so the price certainty that earned the good reviews is gone."
+    },
+    {
+      "question": "What do Payment Depot reviewers complain about most?",
+      "answer": "Unanticipated fees, and the pattern is recent rather than historical. Reviewers describe PCI charges and miscellaneous package fees appearing that they had not been told about, which is notable for a provider whose whole pitch was cost predictability. The more specific complaint concerns the acquisition: long-standing customers report being moved onto Stax-managed billing and then seeing new or higher monthly charges, including annual fees in some cases. Formal complaint volume with the Better Business Bureau remains low and the A+ rating stands, so this is a drift in the billing experience rather than a collapse in conduct."
+    },
+    {
+      "question": "Should you still consider Payment Depot?",
+      "answer": "Yes, but price it as a current quote rather than on its reputation. The underlying interchange-plus structure is sound and independent reviewers still recommend it for qualifying businesses. What you cannot do any more is read the published membership price and know what you will pay, so get the complete schedule in writing: the monthly fee, the per-transaction fee, the markup over interchange, the PCI fee and what triggers it, any annual fee, the chargeback fee, and whether billing is administered by Payment Depot or by <a href=\"/processor/stax\">Stax</a>. Then compare it against <a href=\"/processor/helcim\">Helcim</a>, which publishes its markup and charges no monthly fee, and against Stax directly, since you may effectively be buying that anyway."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Payment Depot holds an A+ Better Business Bureau rating with very few formal complaints, and independent reviewers including Merchant Maverick, NerdWallet and Fit Small Business continue to recommend it for businesses that fit. That is a good record and it is not in dispute.</p><p>The problem with the review record is that it is largely historical. Payment Depot built its reputation on membership pricing: a flat monthly fee plus a small per-transaction fee on top of raw interchange, with no percentage markup, published openly. Around 79 dollars a month plus 15 cents a transaction, no setup fee and no early termination fee, is the structure most of the enthusiastic reviews are describing. The company has since moved to customised interchange-plus pricing, quoted per merchant rather than published.</p><p>The newer complaints track that change. Reviewers report PCI charges and package fees they had not been told about, and long-standing customers describe being migrated onto Stax-managed billing after the acquisition and seeing new or higher monthly charges, annual fees included. Nothing here suggests bad conduct. It does mean a five-star review from three years ago is describing a different offer than the one you will be quoted.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "An A+ Better Business Bureau rating with very few formal complaints, which is a genuinely good record for this industry",
+        "Independent reviewers including Merchant Maverick, NerdWallet and Fit Small Business still recommend it for qualifying businesses",
+        "Interchange-plus pricing means your cost is separable and auditable rather than bundled into a tiered rate",
+        "The historical model carried no setup fee and no early termination fee, and reviewers confirmed leaving was not penalised",
+        "Backing from Stax gives it more product and infrastructure behind it than an independent reseller would have",
+        "Reviewers describe reaching helpful humans, which is the recurring praise across the whole review history"
+      ],
+      "cons": [
+        "The membership pricing that earned most of the good reviews has been replaced by quoted interchange-plus, so the price certainty is gone",
+        "Most positive reviews you will find describe the old model, which makes the review record systematically out of date",
+        "Recent complaints centre on unanticipated PCI charges and miscellaneous package fees",
+        "Long-standing customers report being moved to Stax-managed billing and seeing new or higher monthly charges, including annual fees",
+        "A monthly fee structure still means low-volume merchants pay for months they barely use",
+        "Because rates are now quoted rather than published, you cannot compare before entering a sales conversation"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>This is the clearest case on the site of a review record aging badly. Payment Depot's reputation rests on a published price you could check in thirty seconds, and that price is no longer published. Every glowing review about predictable costs is accurate about a product you cannot buy. That does not make the company worse, but it does make the reviews close to useless for the only question that matters, which is what you will actually pay.</p><p>Treat the A+ rating as evidence about conduct and the old reviews as history. Then get a current quote in writing and read it line by line, paying attention to the two things recent reviewers were surprised by: the PCI fee and what triggers it, and any annual charge. Ask directly who administers your billing, because if the answer is Stax then you should be comparing against Stax's own terms rather than against Payment Depot's reputation.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.merchantmaverick.com/reviews/payment-depot-review/",
+    "https://www.cardpaymentoptions.com/credit-card-processors/payment-depot/",
+    "https://www.trustpilot.com/review/paymentdepot.com",
+    "https://merchantalternatives.com/reviews/payment-depot/",
+    "https://www.comparisun.com/credit-card-processing/reviews/payment-depot/"
+  ],
+  "quotesNote": "This is one Trustpilot review, from a pool of roughly 1,259 averaging 3.2 out of 5. It is quoted because it describes precisely the drift this page is about: a good starting price that did not stay put.",
+  "quotes": [
+    {
+      "text": "They start the service at low price and good customer service but then they keep increasing the price and no one responds to email or anything. They also keep coming up with reasons to charge more. Without notice they increase the per transaction price and monthly billing fees.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/paymentdepot.com",
+      "date": "2026",
+      "rating": 1
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "slug": "paytrace",
+  "name": "PayTrace",
+  "heading": "PayTrace reviews",
+  "intro": "PayTrace has a tiny review pool, around 4.3 out of 5 from eight G2 reviews, and a Better Business Bureau file showing two complaints it did not answer. Neither number should decide anything. What decides it is whether your invoices are paid by corporate and purchasing cards, because automatic Level 3 capture is the entire reason this product exists.",
+  "seo": {
+    "metaTitle": "PayTrace Reviews: 4.3 From Eight, Level 3 Is the Point",
+    "metaDescription": "PayTrace has only eight G2 reviews at 4.3 and two unanswered BBB complaints. Why automatic Level 3 capture matters more than the rating for B2B merchants.",
+    "keywords": [
+      "paytrace reviews",
+      "paytrace complaints",
+      "paytrace level 3",
+      "paytrace b2b gateway",
+      "paytrace ratings"
+    ],
+    "focusKeyword": "paytrace reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these PayTrace reviews verified?",
+      "answer": "The figures come from G2, which verifies reviewers before publishing, plus GetApp and the Better Business Bureau, current as of August 2026. The G2 pool is around eight reviews, which is too small to be a rating in any meaningful sense: one more strong or weak opinion would move it noticeably. Treat the 4.3 as a favourable anecdote. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed score."
+    },
+    {
+      "question": "What is Level 3 processing and why does it dominate PayTrace reviews?",
+      "answer": "Because for the merchants PayTrace serves it is worth more than the gateway fee several times over. When a business pays you with a corporate, purchasing or government card, the card networks offer reduced interchange rates if you submit extra data with the transaction: line items, tax amounts, purchase order numbers and similar. That is Level 2 and Level 3 data. Submitting it correctly can cut the interchange on a large invoice significantly, and PayTrace was among the first gateways to capture it automatically rather than making you enter fields by hand. On mid four-figure and five-figure invoices that saving is the whole business case."
+    },
+    {
+      "question": "What do PayTrace reviewers complain about?",
+      "answer": "Very little in the reviews themselves, where support is described as friendly and on top of tickets, with the client support team based in the Pacific Northwest and readily reachable. The more substantial mark against it is on the Better Business Bureau record, which shows the company failing to respond to two complaints filed against it. That matters less for what the complaints alleged than for the non-response: a company that leaves complaints unanswered is telling you something about how an unresolved dispute will go. Weigh it against the positive support sentiment rather than instead of it."
+    },
+    {
+      "question": "Is PayTrace wrong for a consumer-facing business?",
+      "answer": "Yes, and unusually clearly so. PayTrace is built for accounts receivable ledgers dominated by commercial-card payments on substantial invoices, with ERP integration and interchange optimisation as the core value. If you run B2C e-commerce taking personal credit cards, none of that applies: consumer cards do not qualify for Level 3 rates, so the feature you would be paying for cannot do anything for you, and you would be better served by a mainstream gateway. Independent reviewers say this directly rather than hedging it, and it is the most useful sentence in the whole review record."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, PayTrace holds about 4.3 out of 5 across roughly eight G2 reviews, with a small GetApp presence and a Better Business Bureau profile recording two complaints the company failed to respond to. Eight reviews is not a sample and this page will not treat it as one. What the reviews do agree on is support: the client team is based in the Pacific Northwest, reviewers describe it as friendly and on top of tickets, and reachability comes up as a strength.</p><p>The substance of the review record is about fit rather than satisfaction, and it is unusually specific. PayTrace is described as genuinely good at business-to-business commercial-card processing, with automatic Level 3 capture and ERP integration, and it was among the first gateways to automate Level 3 submission. Independent reviewers say it is the right tool where an accounts receivable ledger is dominated by purchasing-card and corporate-card payments on mid four-figure to mid five-figure invoices, and the wrong tool for consumer-facing e-commerce taking personal cards.</p><p>That is a narrower recommendation than most processors get, and it is more useful than a star rating. It tells you the product is a specialist instrument rather than a general one.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Automatic Level 3 data capture, which can materially reduce interchange on corporate and purchasing card payments",
+        "Interchange optimisation that qualifies business and government transactions for reduced Level 2 and Level 3 rates",
+        "One of the first gateways to automate Level 3 submission rather than requiring manual data entry per transaction",
+        "ERP integration, which matters when invoices originate in an accounting system rather than at a checkout",
+        "Support is based in the Pacific Northwest and reviewers describe it as friendly, reachable and responsive on tickets",
+        "Well matched to businesses whose invoices run into four and five figures, where interchange savings are large in absolute terms"
+      ],
+      "cons": [
+        "The G2 pool is only around eight reviews, so there is almost no merchant evidence to weigh",
+        "The Better Business Bureau record shows two complaints the company did not respond to",
+        "It is the wrong product for consumer-facing e-commerce, since personal cards cannot qualify for Level 3 rates",
+        "The value depends entirely on your card mix, so a business with few commercial-card payments gains nothing",
+        "As a gateway it does not include the merchant account, so you are managing two relationships",
+        "Level 3 savings require your data to be complete and correct, which puts a burden on your invoicing system"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>With eight reviews there is nothing to learn from the rating, so the evaluation has to be arithmetic instead. Pull a quarter of your transactions and work out what share came from commercial, purchasing or government cards rather than consumer cards. That percentage is your answer. If it is high and your average invoice is large, the interchange difference between Level 1 and Level 3 qualification will dwarf any gateway fee, and PayTrace is built for exactly you. If it is low, no amount of Level 3 automation helps and you are buying a specialist tool for a job it cannot do.</p><p>The one thing worth weighing beyond the arithmetic is the unanswered complaints. Reviewers praise support and the Better Business Bureau shows two complaints left without a response, and both can be true: routine tickets handled well, escalated disputes handled badly. Since you would be trusting this gateway with B2B invoices of significant value, ask up front who handles a dispute, what the escalation path is, and how a chargeback on a five-figure invoice gets worked. Then compare against <a href=\"/processor/nmi\">NMI</a> and <a href=\"/processor/authorize-net\">Authorize.net</a> on Level 3 support specifically rather than on general reputation.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.g2.com/products/paytrace/reviews?qs=pros-and-cons",
+    "https://www.bbb.org/us/wa/spokane-valley/profile/point-of-sale-systems/paytrace-llc-1296-1000143449/complaints",
+    "https://paytrace-net.com/reviews/",
+    "https://www.getapp.co.uk/software/2071806/paytrace"
+  ],
+  "quotesNote": "Three from GetApp, where PayTrace averages 4.6 across 15 reviews, a slightly larger pool than the eight on G2. Two are positive and one is not, and the harsh one is included unedited because a 15-review pool with a one-star in it tells you more than a rounded average does.",
+  "quotes": [
+    {
+      "text": "The support has been responsive to our needs and the pace of work has facilitated the customization of our systems",
+      "source": "GetApp",
+      "sourceUrl": "https://www.getapp.co.uk/software/2071806/paytrace",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a hospital and health care business"
+    },
+    {
+      "text": "I like how easy it is to use, and I can use it from my cell phone and if you need help it is easy to get help",
+      "source": "GetApp",
+      "sourceUrl": "https://www.getapp.co.uk/software/2071806/paytrace",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a consumer goods business"
+    },
+    {
+      "text": "horrible service wont call back or help",
+      "source": "GetApp",
+      "sourceUrl": "https://www.getapp.co.uk/software/2071806/paytrace",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "an alternative medicine business"
+    }
+  ]
+}

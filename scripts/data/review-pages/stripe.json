@@ -1,0 +1,107 @@
+{
+  "slug": "stripe",
+  "name": "Stripe",
+  "heading": "Stripe reviews",
+  "intro": "Stripe is one of the few processors where the review platforms flatly contradict each other. It sits at 4.6 out of 5 across roughly 3,350 Capterra reviews and 4.4 across about 1,250 on G2, while Trustpilot has it under 2 out of 5 across more than 15,000. Both numbers are real. They measure different populations asking different questions, and the gap between them is the most useful thing on this page.",
+  "seo": {
+    "metaTitle": "Stripe Reviews: 4.6 on Capterra, Under 2 on Trustpilot",
+    "metaDescription": "Stripe rates 4.6 on Capterra and under 2 on Trustpilot. Why the scores split, what developers praise, and the account freeze complaints behind the low ones.",
+    "keywords": [
+      "stripe reviews",
+      "stripe ratings",
+      "stripe complaints",
+      "stripe account frozen",
+      "is stripe safe"
+    ],
+    "focusKeyword": "stripe reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Stripe reviews verified?",
+      "answer": "The platform scores quoted on this page come from Capterra, G2, Software Advice and Trustpilot, and were current as of August 2026. Capterra and G2 verify reviewers before publishing. Trustpilot is open, so its pool includes people who never held a Stripe account and consumers who met Stripe only as a name on a card statement. None of those are reviews submitted to this site. Anything in the list above is a review a merchant wrote here and our moderators approved, rated on pricing, support, ease of use, features and reliability. Ratings on this site are recomputed from approved reviews only, so a processor with none shows no score rather than a borrowed one."
+    },
+    {
+      "question": "Why is Stripe rated 4.6 on Capterra and under 2 on Trustpilot?",
+      "answer": "Because the two sites collect from different people at different moments. Capterra, G2 and Software Advice are software directories, and their reviewers are usually developers or finance staff evaluating an integration, often prompted to review while things are going well. Trustpilot is a general consumer platform that people find by searching for a company they have a problem with, so its Stripe page fills up with account closures and held balances. Note also that Capterra, GetApp and Software Advice share one review pool, so quoting all three is not three independent confirmations. Read the high scores as a verdict on the product and the low ones as a verdict on what happens when an account goes wrong."
+    },
+    {
+      "question": "What do Stripe reviewers complain about most?",
+      "answer": "Three things, in this order. Sudden account suspension or termination, usually with the balance held afterward: Stripe's terms let it close an account and keep the remaining funds for 90 to 180 days to cover incoming chargebacks, and merchants describe holds running past that window. No route to a human: support is documentation, email and chat, and reviewers who had money frozen consistently say they could not reach anyone able to make a decision. Pricing at volume: 2.9 percent plus 30 cents is competitive at small scale and expensive once you are processing steadily, and Billing, Radar and Tax are each billed on top of it."
+    },
+    {
+      "question": "Do Stripe reviews tell you whether your account will be frozen?",
+      "answer": "No, and this is the main limit of any aggregate score here. Whether Stripe keeps you depends on your business model rather than on your opinion of the dashboard. The patterns that draw holds are consistent: high chargeback or dispute rates, selling far in advance of delivery, subscription models with heavy refund activity, restricted or regulated categories, a sudden jump in volume, and a business description at signup that does not match what you actually sell. If any of those describe you, a 4.6 average tells you nothing worth knowing, and you should be reading offboarding accounts from merchants in your own category instead."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Stripe holds about 4.6 out of 5 across roughly 3,350 verified reviews on Capterra, 4.4 across about 1,250 on G2, and 4.7 across roughly 2,960 on Software Advice. Capterra, GetApp and Software Advice draw on a shared review pool, so those are closer to one data point than three. Trustpilot runs the other way, at under 2 out of 5 across more than 15,000 reviews, and the exact figure moves between roughly 1.6 and 2.8 depending on which country page and which Stripe domain you land on, which is a good reason not to quote a single decimal from it.</p><p>The split is not noise. Software directories collect from people who chose the tool and are describing an integration. Trustpilot collects from people who went looking for somewhere to complain. Almost every positive review is about building on Stripe, and almost every negative one is about what happened when Stripe stopped working with them.</p><p>Read across all of them, the developer-facing praise is consistent enough to treat as settled: the API and the documentation are why technical teams pick Stripe and why they stay. The criticism is just as consistent, and it is not about the product at all.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Reviewers put the documentation ahead of every other processor's, and describe getting a test payment through in an afternoon rather than a procurement cycle",
+        "No application to wait on. You can open an account and take a live card the same day, which is why solo founders and agencies default to it",
+        "The client libraries, webhooks and test mode are described as predictable, so integrations survive upgrades instead of breaking on them",
+        "One integration covers cards, wallets, bank debits and dozens of local methods, which reviewers selling across borders cite as the reason they consolidated",
+        "The dashboard's reporting and reconciliation are good enough that finance teams stop exporting to spreadsheets",
+        "Radar catches enough fraud that reviewers who trialled standalone tools went back to leaving it switched on"
+      ],
+      "cons": [
+        "Account suspension and termination is the single most repeated complaint, and it usually arrives without warning and with the balance held",
+        "Stripe's terms allow it to keep a closed account's remaining funds for 90 to 180 days against future chargebacks, and reviewers report holds that ran longer",
+        "There is no phone number to a decision maker. Reviewers with frozen funds describe scripted chat replies and email threads that restate policy",
+        "At 2.9 percent plus 30 cents with no published volume discount, the cost stops being competitive once you are processing steadily each month",
+        "Billing, Radar, Tax and Connect are each priced on top, so the headline rate understates what a subscription business actually pays",
+        "Radar false positives are a recurring theme: legitimate orders declined, with little visibility into why",
+        "High-risk and regulated categories are frequently onboarded and then offboarded later, which is worse for a merchant than being declined up front"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>No aggregate score predicts the outcome that matters most with Stripe, which is whether it keeps your account. Stripe onboards instantly and underwrites afterward, so the risk assessment other processors run before you launch happens here once you already depend on it. That is the mechanism behind almost every angry review, and it is invisible in a 4.6 average because the merchants it happened to are on a different website complaining.</p><p>If you sell anything delivered far in future, a subscription with heavy refunds, or anything in a regulated category, weigh that structure rather than the star rating. A processor that underwrites you up front, such as <a href=\"/processor/adyen\">Adyen</a> at enterprise volume, trades signup speed for knowing you will still be processing in six months. <a href=\"/processor/checkout-com\">Checkout.com</a> is the closer comparison if you want Stripe's developer experience with a contract and a named account manager behind it. If your business is low-risk retail or straightforward SaaS, the high scores are the ones that describe you.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.capterra.com/p/123889/Stripe/reviews/",
+    "https://www.g2.com/sellers/stripe",
+    "https://www.trustpilot.com/review/stripe.com",
+    "https://www.cardpaymentoptions.com/credit-card-processors/stripe/",
+    "https://www.nerdwallet.com/business/software/reviews/stripe-payments",
+    "https://www.bbb.org/us/ca/south-san-francisco/profile/payment-processing-services/stripe-inc-1116-437157/complaints"
+  ],
+  "quotesNote": "All four are one-star merchant reviews from the Better Business Bureau, where Stripe averages 1.03 across 195 reviews while holding A+ accreditation. That is the complaint channel, not the whole record: Capterra's roughly 3,350 reviewers average 4.6.",
+  "quotes": [
+    {
+      "text": "Stripe has held $56,000 of my company's funds since May 21, 2026 7 weeks with no payout.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ca/south-san-francisco/profile/payment-processing-services/stripe-inc-1116-437157/customer-reviews",
+      "date": "10 July 2026",
+      "rating": 1
+    },
+    {
+      "text": "My account has been stuck in a monthly review loop for two months.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ca/south-san-francisco/profile/payment-processing-services/stripe-inc-1116-437157/customer-reviews",
+      "date": "7 August 2026",
+      "rating": 1
+    },
+    {
+      "text": "they closed my account and locked the funds since 4 months without probable cause.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ca/south-san-francisco/profile/payment-processing-services/stripe-inc-1116-437157/customer-reviews",
+      "date": "15 July 2026",
+      "rating": 1
+    },
+    {
+      "text": "They have stolen customers' funds. I run an appliance repair company.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ca/south-san-francisco/profile/payment-processing-services/stripe-inc-1116-437157/customer-reviews",
+      "date": "28 July 2026",
+      "rating": 1,
+      "attribution": "an appliance repair company"
+    }
+  ]
+}

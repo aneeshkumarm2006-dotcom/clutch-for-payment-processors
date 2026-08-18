@@ -1,0 +1,91 @@
+{
+  "slug": "revenuecat",
+  "name": "RevenueCat",
+  "heading": "RevenueCat reviews",
+  "intro": "RevenueCat is rated about 4.8 out of 5 across roughly 211 verified G2 reviews, which is among the highest scores on this site. Developers rate the SDKs and the paywall tooling highly. The dissent is concentrated and loud: pricing is a percentage of the revenue you process, which reviewers on low-margin apps describe as taking a permanent cut of their profit.",
+  "seo": {
+    "metaTitle": "RevenueCat Reviews: 4.8 on G2, 1% of Your Revenue",
+    "metaDescription": "RevenueCat rates 4.8 across 211 G2 reviews for its SDKs and paywalls, but reviewers object to revenue-based pricing. It also does not process payments.",
+    "keywords": [
+      "revenuecat reviews",
+      "revenuecat complaints",
+      "revenuecat pricing",
+      "revenuecat ratings",
+      "revenuecat alternatives"
+    ],
+    "focusKeyword": "revenuecat reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these RevenueCat reviews verified?",
+      "answer": "The figures come from G2, which verifies reviewers before publishing, plus Capterra and Software Advice, current as of August 2026. The G2 pool of about 211 reviews at 4.8 is a solid sample and a genuinely high score. One thing to keep in mind while reading it: RevenueCat sells to mobile developers, and developer tools with good SDKs tend to attract enthusiastic reviews from the people who integrated them, which is a different perspective from the finance team paying the bill. None of these are reviews submitted to this site, and no merchant has published one here yet."
+    },
+    {
+      "question": "Does RevenueCat process payments?",
+      "answer": "No, and on a payment processor directory this is the most important line on the page. In-app purchases on iOS and Android are processed by Apple and Google, who take their own commission and control the payment entirely. RevenueCat sits on top of that: it manages entitlements, receipt validation, subscription state across platforms, paywalls and analytics. So there are no card rates to compare here, no payout schedule of RevenueCat's own, and no risk of RevenueCat freezing your funds, because it never holds them. If you are shopping for card processing, this is not in that comparison."
+    },
+    {
+      "question": "What do RevenueCat reviewers complain about most?",
+      "answer": "Pricing, by a wide margin, and specifically its shape rather than its level. Reviewers describe being charged a percentage of the revenue processed, free up to 2,500 dollars of monthly tracked revenue and then 1 percent of everything above it, with no seat licences, per-transaction fees or enterprise minimums. Reviewers characterise that 1 percent as a cut of their revenue continuing indefinitely. On an app with healthy margins that is easy to absorb. On a moderate or low-margin app, reviewers say it eats a meaningful share of profit, and the objection is that the fee scales with your success rather than with your use of the product. A smaller set of complaints covers documentation described as scattered, API inconsistency, two periods of downtime, and support one reviewer called unacceptable."
+    },
+    {
+      "question": "When is RevenueCat worth paying a revenue percentage for?",
+      "answer": "When the alternative is building and maintaining it yourself, which is a larger job than it looks. Receipt validation, entitlement state across iOS, Android and web, restoring purchases, handling grace periods, refunds and billing retries, and keeping up with Apple and Google's changes is work that never finishes. Reviewers who are happy are the ones who priced that engineering time against the fee and found the fee cheaper. Reviewers who are unhappy are usually on thin margins where any revenue-based fee hurts. Model the fee at two or three times your current revenue before committing, because that is where the complaints come from."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, RevenueCat holds about 4.8 out of 5 across roughly 211 verified G2 reviews, with supporting listings on Capterra and Software Advice. That is a high score on a decent sample, and the praise is specific enough to be credible rather than promotional.</p><p>What developers rate highly is the SDKs, which reviewers say materially shortened the work of shipping in-app purchases, and the tooling built around them: integrated paywalls with a usable interface, pricing experiments, localisation, and a customer support view for handling subscriber issues. Several reviewers describe it as covering the whole purchase funnel rather than one step of it, and technical support gets named positively more often than not.</p><p>Then there is the pricing objection, which is worth quoting accurately because it is the dominant criticism. Reviewers describe a charge based on revenue processed, in the region of one percent, and object to it continuing for as long as they use the product. On low-margin apps they say it consumes a substantial share of profit. Buyers also note limited pricing transparency, and that highly customised subscription workflows are not well supported.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "The SDKs are the most praised element, and reviewers say they cut the time to ship in-app purchases substantially",
+        "Integrated paywalls with a usable interface, so pricing screens stop being a native development project",
+        "Pricing experiments and localisation are built in, which reviewers use to test price points without app releases",
+        "The customer view for handling subscriber problems is called out as saving support time",
+        "Subscription state is unified across iOS, Android and web, which is the part teams most often get wrong themselves",
+        "4.8 across roughly 211 verified reviews is one of the strongest ratings on this site",
+        "It never holds your money, since Apple and Google process the payments, so there is no fund-freeze risk"
+      ],
+      "cons": [
+        "Pricing is a percentage of revenue processed, around one percent, and reviewers describe it as a permanent cut of profit",
+        "On moderate or low-margin apps that percentage is the difference between viable and not, according to reviewers",
+        "The fee scales with your success rather than with your usage, which is the specific objection reviewers raise",
+        "Pricing transparency is described as limited, so buyers struggle to model cost before committing",
+        "Highly customised subscription workflows are reported as poorly supported",
+        "Documentation is described by some reviewers as scattered and the API as inconsistent",
+        "Two periods of downtime are on the record, and at least one reviewer described support as unacceptable"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The 4.8 and the pricing complaints are not in tension, they are two groups doing different sums. Developers rate the product on how much work it removed, and by that measure it is excellent. Founders rate it on what it costs at scale, and a percentage of revenue that never converts to a flat fee looks very different in year three than in month one. Both are right about their own question. Work out which question is yours by modelling the fee against your projected revenue rather than your current revenue, because every angry review in this pool is from someone who grew.</p><p>The other thing worth being clear about is the boundary. RevenueCat is not a payment processor and does not compete with anything else in this directory on rates: Apple and Google take their commission and control the transaction, and RevenueCat manages what happens around it. If you also sell subscriptions on the web, that side does need a processor, and that is where <a href=\"/processor/stripe\">Stripe</a> or a merchant of record like <a href=\"/processor/paddle\">Paddle</a> becomes the decision. Read those reviews for the money questions, and these ones for the engineering ones.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.g2.com/sellers/revenuecat",
+    "https://www.g2.com/products/revenuecat/reviews?qs=pros-and-cons",
+    "https://www.capterra.com/p/212540/RevenueCat/",
+    "https://www.softwareadvice.com/saas-management/revenuecat-profile/"
+  ],
+  "quotesNote": "Both come from G2, where RevenueCat averages 4.8 across roughly 211 reviews. The first is the enthusiasm that produces that score and the second is the objection that runs underneath it, and they are frequently the same reviewer's two halves.",
+  "quotes": [
+    {
+      "text": "the sdks are very good and really sped up the development of the inAppPurchase feature in our mobile app",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/sellers/revenuecat",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "It's very expensive - because you're charged based on revenue processed, it can wind up eating a huge percentage of your profits for apps with moderate or low margins. It's tough to make a business work when Apple or Google takes 15-30% and RevenueCat takes another significant cut off the top.",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/sellers/revenuecat",
+      "date": "2026",
+      "rating": 2
+    }
+  ]
+}

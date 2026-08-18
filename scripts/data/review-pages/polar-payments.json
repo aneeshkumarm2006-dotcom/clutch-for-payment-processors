@@ -1,0 +1,116 @@
+{
+  "slug": "polar-payments",
+  "name": "Polar",
+  "heading": "Polar reviews",
+  "intro": "Polar built a following among indie developers on a flat 4 percent plus 40 cents merchant-of-record rate. In May 2026 the free tier moved to 5 percent plus 50 cents, with existing organisations grandfathered onto the old rate unless they change plan. The more useful thing to know is that its two public review pools disagree violently: developers on Product Hunt rate it 5.0, while Trustpilot sits near the bottom of its scale on complaints about closed accounts and blocked payouts.",
+  "seo": {
+    "metaTitle": "Polar Reviews: 5.0 on One Site, 2.1 on Another",
+    "metaDescription": "Polar rates 5.0 on Product Hunt and about 2.1 on Trustpilot, where complaints cluster on closed accounts and blocked payouts. What that split means.",
+    "keywords": [
+      "polar reviews",
+      "polar.sh reviews",
+      "polar payments pricing",
+      "polar merchant of record",
+      "polar vs paddle"
+    ],
+    "focusKeyword": "polar reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Polar reviews verified?",
+      "answer": "They are published reviews from third parties rather than reviews submitted to this site, and they are worth reading with the venue in mind because the venues disagree completely. Product Hunt shows 5.0 across 40 reviews and AlternativeTo has one five-star review, both populated largely by developers who arrived through Polar's own launches. Trustpilot, observed on 19 August 2026, carries 15 reviews and a TrustScore reported at about 2.1, with the large majority at one star and complaints clustering on sudden account closure, stalled identity verification and blocked payouts. Trustpilot blocks automated access, so the individual review text there could not be pulled and none of it is quoted on this page. Separately, most of the long-form Polar reviews on the open web are published by competing merchant-of-record platforms, so their conclusions are informed but interested. No merchant has published a review here yet."
+    },
+    {
+      "question": "What exactly changed about Polar's pricing?",
+      "answer": "The headline rate that made its reputation is gone for new sellers. Polar marketed itself as the developer-first merchant of record at a flat 4 percent plus 40 cents per transaction. On 27 May 2026 that became a four-tier structure, with the free Starter plan at 5 percent plus 50 cents, a 25 percent increase on both components. Paid tiers buy the rate back down: Pro at 20 dollars a month gives 3.8 percent plus 40 cents, Growth at 100 dollars a month gives 3.6 percent plus 35 cents, and Scale at 400 dollars a month gives 3.4 percent plus 30 cents. Organisations created before that date keep the old Early Member rate indefinitely, which is why the change caused little public outcry, but there is a catch worth knowing: upgrading to a paid plan retires the Early Member rate permanently, so downgrading later lands you on 5 percent plus 50 cents rather than back where you started."
+    },
+    {
+      "question": "What do developers actually like about Polar?",
+      "answer": "Two things that have nothing to do with the rate. It is fully open source, which for a payments layer is unusual and means you can read what it does rather than trusting a description, and it became an official GitHub funding partner in 2024. Second, the entitlements automation: subscriptions, one-time purchases and usage-based billing come with automated delivery of licence keys, GitHub repository access, Discord roles and file downloads. For someone selling a developer tool or a template, that is the actual work removed. Notable users include Tailwind Labs and Midday, which is a meaningful signal at this size."
+    },
+    {
+      "question": "Is Polar still worth it after the rate change?",
+      "answer": "It depends on your revenue and on doing arithmetic rather than reading reviews. Work out your monthly volume, then compare the free tier at 5 percent plus 50 cents against each paid tier including its monthly fee, and against <a href=\"/processor/paddle\">Paddle</a> and <a href=\"/processor/dodo-payments\">Dodo Payments</a> on the same volume. At low revenue the monthly tiers cannot pay for themselves and the free tier is expensive, which is the squeeze the competitor reviews are pointing at. At higher revenue Scale gets you to 3.4 percent plus 30 cents, which is competitive. The open-source nature and the entitlements automation are the reasons to accept a rate that is no longer the cheapest."
+    },
+    {
+      "question": "How seriously should you take the Trustpilot complaints?",
+      "answer": "Seriously enough to ask about them, and not so seriously that you treat 15 reviews as a verdict. The complaints describe account closure without a clear reason, verification that stalls, and withdrawals denied while funds sit in the account. That pattern is not unique to Polar: it is the standard failure mode of any merchant of record, because the platform is the legal seller and therefore carries the risk for everything sold through it, so it can and does offboard sellers to protect itself. What makes it worth weighing here is that the money at stake is your revenue, held by them. Ask what triggers a review of your account, how long verification takes, what the payout schedule is, and what happens to a balance held when an account is closed. Polar publishes documentation on account reviews, which is more than many competitors do, so read it before you integrate."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Two pools that could not disagree more, which is the single most useful thing to know about Polar's reputation. On Product Hunt it holds 5.0 across 40 reviews. On Trustpilot, observed 19 August 2026, it carries 15 reviews and a TrustScore reported at about 2.1, with the large majority at one star. AlternativeTo has exactly one review, five stars. None of these pools is big enough to be a rating on its own, and the split between them is more informative than any of the numbers.</p><p>The split is not random, because the two venues collect from different people at different moments. Product Hunt and Hacker News collect from developers at the point of integration, when the API is clean, onboarding took minutes and nothing has gone wrong yet. Trustpilot collects from sellers after something went wrong, and the complaints there cluster tightly on three things: accounts closed without a clear reason, identity verification that stalls, and payouts blocked while a balance sits in the account. Trustpilot blocks automated access, so no individual review text from it could be verified and none is quoted on this page.</p><p>What nobody disputes is the product. Polar launched in 2023 as an open-source billing platform for developers, acting as merchant of record so that payment processing, tax compliance and digital product delivery are handled for you. It became an official GitHub funding partner in 2024, it supports subscriptions, one-time purchases and usage-based billing, and it automates entitlements including licence keys, GitHub repository access, Discord roles and file downloads. Tailwind Labs and Midday are among its users. Separately, most long-form Polar reviews on the open web are published by rival merchant-of-record platforms, so their pricing arithmetic is checkable but their conclusions are not disinterested.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "What the two review pools suggest",
+      "pros": [
+        "Fully open source, so you can read exactly what the billing layer does rather than trusting a description",
+        "Merchant of record, meaning sales tax, VAT and GST registration and remittance are handled for you",
+        "Onboarding is fast enough that one developer reports being approved within minutes of verifying identity, against days elsewhere",
+        "Automated entitlements deliver licence keys, GitHub repository access, Discord roles and file downloads on purchase",
+        "Supports subscriptions, one-time purchases and usage-based billing in one platform",
+        "An official GitHub funding partner since 2024, with Tailwind Labs and Midday among its users",
+        "Organisations created before 27 May 2026 keep the old 4 percent plus 40 cents Early Member rate indefinitely",
+        "Paid tiers at 100 and 400 dollars a month reach 3.6 and 3.4 percent, competitive against other merchants of record"
+      ],
+      "cons": [
+        "Trustpilot reviewers report accounts closed without a clear reason, stalled verification and blocked payouts, and the score there sits near the bottom of the scale",
+        "The two public pools are irreconcilable, 5.0 on Product Hunt against about 2.1 on Trustpilot, so neither can be taken as the record",
+        "Every pool is tiny, 40 reviews at the largest and 15 at the most critical, so none of them settles anything",
+        "The free tier rate rose from 4 percent plus 40 cents to 5 percent plus 50 cents in May 2026, up 25 percent on both components",
+        "Upgrading to a paid plan permanently retires the grandfathered Early Member rate, so a later downgrade costs more than the original rate",
+        "At low revenue the monthly tiers cannot pay for themselves, so small sellers face the least attractive rate",
+        "As merchant of record, Polar owns the customer payment relationship, so leaving means re-collecting payment details",
+        "Launched in 2023, so it has a shorter operating history than the alternatives it competes with"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The honest reading of a 5.0 and a 2.1 sitting side by side is not that one is fake. It is that they measure different stages of the same relationship. Integration reviews are written in week one, when the API is clean and onboarding took minutes. Payout complaints are written in month six, by the small proportion of sellers whose accounts were reviewed or closed. A developer forum will always over-represent the first group and a complaints platform will always over-represent the second, and neither population is lying about what happened to them.</p><p>The structural point behind the complaints applies to every merchant of record, not just this one. Polar is the legal seller to your customer, which is exactly what lets it handle your tax obligations, and it therefore carries the liability for everything sold through it. A platform in that position will offboard sellers it considers risky and will hold funds while it decides, because the alternative is wearing the chargebacks and the tax exposure itself. That is a design consequence rather than a customer service failing, and you would find versions of it at Paddle and Lemon Squeezy too. The reviewer whose payout is frozen is not describing an aberration; they are describing the model working as intended, from the wrong end of it.</p><p>So the questions worth asking before you integrate are about the edges rather than the rate. What triggers an account review, how long does verification take, what is the payout schedule, and what happens to a held balance if the account is closed. Then do the arithmetic the competitor blogs want to do for you: take your actual monthly volume and compare the free tier against each paid tier including its monthly fee, and against <a href=\"/processor/paddle\">Paddle</a> and <a href=\"/processor/dodo-payments\">Dodo Payments</a>. And note the one cost that appears on no pricing page: because Polar holds the customer payment relationship, migrating away later means asking every subscriber to re-enter a card, which is a churn event.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/polar.sh",
+    "https://www.producthunt.com/products/polar-6/reviews",
+    "https://alternativeto.net/software/polar-sh/reviews/",
+    "https://news.ycombinator.com/item?id=48738624",
+    "https://polar.sh/blog/introducing-polar-plans",
+    "https://polar.sh/docs/merchant-of-record/account-reviews",
+    "https://fungies.io/polar-sh-review-2026/",
+    "https://dodopayments.com/blogs/polar-sh-review",
+    "https://www.rebounce.dev/blog/polar-payments-review"
+  ],
+  "quotesNote": "A deliberate disclosure before you read these: all four are positive, and that is a limitation of what could be verified rather than a picture of the record. They come from Hacker News, AlternativeTo and Product Hunt, which collect from developers at the point of integration. The most critical venue, Trustpilot, holds 15 reviews with the large majority at one star, and it blocks automated access, so not one word of it could be quoted here. Two of the four below are from the same Hacker News post by one developer, who says plainly that he had not yet put real volume through Polar.",
+  "quotes": [
+    {
+      "text": "I should also note that the 'review' period on Lemon Squeezy took like 4 days until I got the rejection, whereas Polar.sh approved me with 2 minutes of submitting and verifying my identity.",
+      "source": "Hacker News",
+      "sourceUrl": "https://news.ycombinator.com/item?id=48738624",
+      "date": "2026",
+      "attribution": "a solo developer selling a one-time-purchase macOS app"
+    },
+    {
+      "text": "Onboarding and developer experience have been great so far, though I'll be honest, I haven't pushed real volume through it yet, so I can't speak to payouts or support-under-pressure.",
+      "source": "Hacker News",
+      "sourceUrl": "https://news.ycombinator.com/item?id=48738624",
+      "date": "2026",
+      "attribution": "the same developer, on the limits of his own review"
+    },
+    {
+      "text": "Great alternative to Stripe. The fees are a bit higher, but they do the taxes for you, so if you need to make sales that trigger state taxes in other places, it's worth it.",
+      "source": "AlternativeTo",
+      "sourceUrl": "https://alternativeto.net/software/polar-sh/reviews/",
+      "date": "29 December 2025",
+      "rating": 5
+    },
+    {
+      "text": "Polar is the merchant of record, which for a solo founder in India means global sales tax is Polar's problem, not mine.",
+      "source": "Product Hunt",
+      "sourceUrl": "https://www.producthunt.com/products/polar-6/reviews",
+      "date": "2026",
+      "attribution": "a solo SaaS founder in India"
+    }
+  ]
+}

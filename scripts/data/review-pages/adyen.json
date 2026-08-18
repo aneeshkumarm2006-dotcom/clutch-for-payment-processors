@@ -1,0 +1,97 @@
+{
+  "slug": "adyen",
+  "name": "Adyen",
+  "heading": "Adyen reviews",
+  "intro": "Adyen's reviews split almost perfectly by company size. Enterprise reviewers rate it highly, around 4.6 out of 5 on Capterra's small pool, for global coverage and omnichannel payments running on one platform. Pooled across G2, Capterra, GetApp and Trustpilot the blended figure falls to roughly 3.2 across about 458 reviews, and the reason is not the technology. It is a monthly invoice minimum and an onboarding process built for large merchants.",
+  "seo": {
+    "metaTitle": "Adyen Reviews: 4.6 From Enterprise, 3.2 Blended",
+    "metaDescription": "Adyen rates 4.6 with enterprise reviewers but 3.2 blended across 458 reviews. The monthly minimum, onboarding timeline and pricing opacity behind the gap.",
+    "keywords": [
+      "adyen reviews",
+      "adyen ratings",
+      "adyen complaints",
+      "adyen monthly minimum",
+      "adyen pricing"
+    ],
+    "focusKeyword": "adyen reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Adyen reviews verified?",
+      "answer": "The figures on this page come from G2, Capterra, GetApp and Trustpilot and were current as of August 2026. G2 and Capterra verify reviewers before publishing. Be careful with the numbers on any single one of them: Capterra's Adyen pool is small, in the region of 17 reviews, which is far too few to treat as a verdict on a company processing at Adyen's scale. None of these are reviews submitted to this site. Anything in the list above is a review a merchant wrote here and our moderators approved, and our own score is computed only from those."
+    },
+    {
+      "question": "Why do enterprise and small business reviewers rate Adyen so differently?",
+      "answer": "Because Adyen is priced and sold for one of them. Reviewers at large merchants describe a single platform handling in-store, online and in-app payments across dozens of countries with local acquiring, and they rate that highly because very few providers can do it. Smaller reviewers hit a different product: a monthly invoice minimum around 1,000 euros, a sales-led onboarding process that can run four to eight weeks for anything considered higher risk, and pricing that is quoted rather than published. None of that is a defect at enterprise scale. All of it is disqualifying below a certain volume, and the blended 3.2 is mostly the sound of merchants discovering which side of the line they are on."
+    },
+    {
+      "question": "What do Adyen reviewers complain about most?",
+      "answer": "Commercial minimums first. The monthly invoice minimum means a low-volume merchant pays it whether or not they process enough to earn it, and it is the single most cited friction in the lower-tier segments. Second, onboarding: reviewers describe a sales-led process with underwriting that takes weeks rather than the minutes an aggregator takes, and four to eight weeks comes up for accounts flagged as higher risk. Third, pricing opacity, since rates are negotiated rather than listed, so you cannot estimate your cost before entering a sales conversation. Support responsiveness is a recurring complaint specifically among smaller accounts."
+    },
+    {
+      "question": "Is Adyen worth it below enterprise volume?",
+      "answer": "Usually not, and the reviews are a reasonable guide to where the line sits. If a roughly 1,000 euro monthly minimum is a meaningful share of what you would pay in processing fees anyway, you are subsidising capability you are not using, and the interchange-plus pricing that makes Adyen cheap at scale cannot recover that for you. The case flips when you have real volume across several countries and channels, because consolidating onto one platform with local acquiring genuinely reduces cost and reconciliation work. Below that, <a href=\"/processor/stripe\">Stripe</a> or <a href=\"/processor/checkout-com\">Checkout.com</a> will give you comparable coverage without a floor."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Capterra reviewers rate Adyen about 4.6 out of 5, though across only around 17 reviews. Pooled across G2, Capterra, GetApp and Trustpilot the blended average is closer to 3.2 out of 5 from roughly 458 reviews. Both figures describe Adyen accurately; they just sample different customers. The small, high-scoring pools are enterprise reviewers, and the larger blended pool includes the mid-market and small merchants who tried to buy it.</p><p>What enterprise reviewers consistently praise is specific and hard to fake: one platform covering in-store, online and in-app, over 250 payment methods, local acquiring in the markets they sell in, reliability at volume, and fraud tooling with real depth. Reviewers describe operational visibility across channels that they could not get from a stack of separate providers.</p><p>The complaints cluster just as tightly, and they are commercial rather than technical. Monthly minimums, sales-led onboarding, and rates you cannot see until someone quotes them. Support responsiveness appears mainly in reviews from smaller accounts, which is what you would expect from a company whose account management is sized for large merchants.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "One platform covers in-store, online and in-app payments, and reviewers describe retiring several separate providers to consolidate onto it",
+        "Local acquiring across a large number of markets, which reviewers say lifted authorisation rates against a single cross-border acquirer",
+        "More than 250 payment methods available without negotiating a contract per method",
+        "Reviewers at scale rate reliability and uptime highly, which is the attribute they care about most",
+        "Fraud and risk tooling is described as genuinely deep rather than a checkbox, with control over the rules",
+        "Interchange-plus pricing means large merchants can see and reduce their real cost per transaction"
+      ],
+      "cons": [
+        "A monthly invoice minimum in the region of 1,000 euros, which is the most cited reason smaller merchants walk away",
+        "Onboarding is sales-led and slow, running four to eight weeks for accounts treated as higher risk",
+        "Rates are quoted rather than published, so you cannot price the account before a sales conversation",
+        "Support responsiveness is a recurring complaint from smaller accounts that do not have dedicated account management",
+        "Risk decisions and account holds are described as painful edge cases when they happen",
+        "The platform assumes engineering resource, so there is no realistic path to going live without developers"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The blended 3.2 is close to meaningless as a quality signal, and it is worth understanding why before you use it. It averages enterprise merchants describing a platform that does something almost no competitor can with small merchants describing a price floor they could not clear. Those are not two opinions about the same experience. If you are evaluating Adyen, the only reviews that predict anything about your outcome are the ones from merchants at roughly your volume and channel mix, and there are not many of those in any single pool.</p><p>The second thing no rating captures is that Adyen is an acquirer, not an aggregator. It underwrites you before you launch, which is why onboarding takes weeks and also why you do not get the sudden hold that dominates reviews of <a href=\"/processor/stripe\">Stripe</a> and <a href=\"/processor/square\">Square</a>. That trade is the actual decision here. Slow, negotiated and expensive at the bottom end, in exchange for a relationship and a contract rather than an automated risk decision. Work out your total annual card cost first, then ask whether the minimum is a rounding error or a real expense, because that one number decides this more than any review does.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.capterra.com.sg/reviews/165680/adyen",
+    "https://www.trustpilot.com/review/adyen.com",
+    "https://www.rfp.wiki/payments-fraud/payment-gateways/adyen",
+    "https://firstsales.io/brand-review/adyen/",
+    "https://thebossmagazine.com/post/6-popular-adyen-alternatives-according-to-reviews/"
+  ],
+  "quotesNote": "Adyen's Trustpilot pool is small, only about eight pages, and these are short excerpts rather than whole reviews. They are quoted because the split between them is the point: the same support organisation reads very differently depending on the size of the account describing it.",
+  "quotes": [
+    {
+      "text": "insanely bad support and documentation",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/adyen.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "trapped in an awful environment",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/adyen.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "exceptional customer support",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/adyen.com",
+      "date": "2026",
+      "rating": 5
+    }
+  ]
+}

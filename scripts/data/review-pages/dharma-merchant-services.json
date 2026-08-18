@@ -1,0 +1,105 @@
+{
+  "slug": "dharma-merchant-services",
+  "name": "Dharma Merchant Services",
+  "heading": "Dharma Merchant Services reviews",
+  "intro": "Dharma has the quietest complaint record of any processor in this directory: an A+ Better Business Bureau rating with one complaint closed in three years and none in the last twelve months. Independent reviewers use words about it they use about almost nobody else in this industry, which mostly comes down to publishing its rates and then charging them. The catch is a volume floor.",
+  "seo": {
+    "metaTitle": "Dharma Merchant Services Reviews: One BBB Complaint",
+    "metaDescription": "Dharma has an A+ BBB rating with one complaint in three years, published interchange-plus rates and nonprofit discounts. Why it needs $10K monthly volume.",
+    "keywords": [
+      "dharma merchant services reviews",
+      "dharma merchant services complaints",
+      "dharma interchange plus",
+      "dharma nonprofit rates",
+      "dharma payments review"
+    ],
+    "focusKeyword": "dharma merchant services reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Dharma Merchant Services reviews verified?",
+      "answer": "The assessments here come from the Better Business Bureau, Yelp, Trustpilot and independent merchant-services reviewers including Merchant Maverick, CardFellow, Card Payment Options and Fit Small Business, current as of August 2026. Dharma is a small company, so its public review volume is modest and no single pool is large enough to quote a headline figure from. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed score."
+    },
+    {
+      "question": "Why does Dharma have so few complaints?",
+      "answer": "Because it removes the thing almost every complaint in this industry is actually about. Dharma publishes its interchange-plus rates on its public website, meaning a fixed markup on top of the card networks' interchange and assessment costs rather than a bundled tiered or flat rate. There is nothing to discover on a later statement, because you could read the markup before you applied. The complaint volume across this industry is dominated by pricing surprises and cancellation disputes, and a provider that publishes its markup and does not lock you in has removed most of the surface those complaints arise from."
+    },
+    {
+      "question": "What are Dharma's nonprofit rates?",
+      "answer": "Nonprofits pay 20 dollars a month rather than the 25 dollars most account types pay, and get discounted markups: in the region of 0.20 percent plus 10 cents above interchange for storefront transactions and 0.30 percent plus 15 cents above interchange for virtual or keyed transactions. Those are among the lowest published interchange-plus markups available anywhere, and the nonprofit focus is deliberate rather than marketing. Dharma has built its business around small independent merchants and nonprofit organisations, which is also why its review record is small: it is not chasing volume."
+    },
+    {
+      "question": "Is Dharma worth it for a small business?",
+      "answer": "Only above a volume threshold, and the independent reviewers are consistent about where it sits. Businesses processing under about 10,000 dollars a month will generally do better elsewhere, because the 25 dollar monthly fee plus the interchange-plus structure does not beat a flat-rate provider at low volume. That is the same arithmetic as <a href=\"/processor/stax\">Stax</a> but with a much lower floor. Above roughly 10,000 dollars a month the published markup is hard to beat. If your volume is genuinely small or seasonal, <a href=\"/processor/helcim\">Helcim</a> gives you interchange-plus with no monthly fee at all, which is the better structure below the threshold."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Dharma's record is unusual in this directory for being almost empty of complaints rather than empty of reviews. As of August 2026 it holds an A+ rating with the Better Business Bureau, with one complaint closed in the preceding three years and none recorded in the last twelve months. Yelp sentiment is positive and the Trustpilot presence is small. For a payments company, one complaint in three years is a genuinely striking number.</p><p>The independent merchant-services press is unusually direct about it. Merchant Maverick, CardFellow, Card Payment Options and Fit Small Business all rate it highly for honesty and transparency, and they say so in language they do not use about the rest of this industry. The specifics behind that are checkable rather than atmospheric: rates published on the public website, interchange-plus pricing for every account, and no long-term contract to escape from.</p><p>Where reviewers do add a caution, it is about fit rather than conduct. Dharma is built for small independent merchants and nonprofits, and businesses processing under roughly 10,000 dollars a month are told plainly that another provider will suit them better.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Rates are published on the public website, so you can price the account before speaking to anyone",
+        "Interchange-plus pricing on every account with some of the lowest published markups available",
+        "One Better Business Bureau complaint in three years and none in the last twelve months, which is exceptional for this industry",
+        "Nonprofits pay a lower monthly fee and discounted markups, around 0.20 percent plus 10 cents above interchange in store",
+        "Independent reviewers consistently describe it as honest and transparent, which is not a common finding here",
+        "No long-term contract, so the cancellation disputes that dominate complaints elsewhere have nothing to attach to",
+        "Deliberately built for small independent merchants and nonprofits rather than treating them as leftover volume"
+      ],
+      "cons": [
+        "A 25 dollar monthly fee for most account types means low-volume merchants pay for months they barely use",
+        "Businesses under roughly 10,000 dollars a month in volume are better served by a flat-rate or no-monthly-fee provider",
+        "The public review pool is small, so the positive sentiment rests on fewer data points than a large competitor's",
+        "United States only, so it is not a candidate if you need to process through a non-US entity",
+        "As a small company it does not offer the breadth of hardware, ecosystem and add-on products the large aggregators do",
+        "Interchange-plus statements take more reading than a flat rate, which some merchants find harder rather than clearer"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>A near-empty complaint record is strong evidence about conduct and almost no evidence about fit. Dharma is not being praised for doing something clever; it is being praised for publishing its markup and charging it, which is a low bar the rest of the industry keeps failing. That tells you what kind of relationship you will have. It does not tell you whether the arithmetic works for you.</p><p>So do the arithmetic, because it is the only real question here. Take a recent statement, add the monthly fee to interchange plus Dharma's published markup, and compare against what you are paying now. Below about 10,000 dollars a month the fixed fee will usually eat the saving, and the honest answer is to go elsewhere. Above it, the published markup is competitive with anything on this site and you can verify that before you apply rather than after, which is the whole point of a provider that publishes its rates.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.merchantmaverick.com/reviews/dharma-merchant-services-review/",
+    "https://www.cardfellow.com/blog/dharma-merchant-services-review",
+    "https://www.cardpaymentoptions.com/credit-card-processors/dharma-merchant-services/",
+    "https://fitsmallbusiness.com/dharma-merchant-services-review/",
+    "https://www.trustpilot.com/review/dharmamerchantservices.com"
+  ],
+  "quotesNote": "Four excerpts from Dharma's Trustpilot page, which averages 4.8 across 119 reviews. They are uniformly positive because the pool is: what is notable is not the enthusiasm but what it is about, which is fees being spelled out and a human answering, rather than a discount.",
+  "quotes": [
+    {
+      "text": "Dharma has great, US based support - anytime you need it. The people who work for them know the answers and are very polite. The cost of the credit card machine was much less with them, and their fees are completely spelled out - with no grey areas.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/dharmamerchantservices.com",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "We've only been with Dharma for a couple of weeks but, in that short time, the customer support has been top-notch. We asked a bunch of questions before signing up and they answered all questions promptly, courteously, and comprehensively.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/dharmamerchantservices.com",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "Dharma has been great over the last few years. I am very pleased with their customer service on the very few occasions I had to use them.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/dharmamerchantservices.com",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "Finding Dharma Merchant Services and building a partnership with them was the best decision we made.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/dharmamerchantservices.com",
+      "date": "2026",
+      "rating": 5
+    }
+  ]
+}

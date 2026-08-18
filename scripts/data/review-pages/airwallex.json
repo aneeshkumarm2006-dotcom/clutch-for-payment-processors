@@ -1,0 +1,92 @@
+{
+  "slug": "airwallex",
+  "name": "Airwallex",
+  "heading": "Airwallex reviews",
+  "intro": "Airwallex sits at roughly 3.1 out of 5 across about 2,500 Trustpilot reviews and around 4.3 to 4.5 on G2 from a much smaller pool of about 50. The complaint that produces the gap is specific and repeated across every platform: funds held or accounts frozen during compliance review, with little communication while it runs.",
+  "seo": {
+    "metaTitle": "Airwallex Reviews: 3.1 on Trustpilot, 4.3 on G2",
+    "metaDescription": "Airwallex rates 3.1 across 2,500 Trustpilot reviews and 4.3 on G2. The compliance holds, slow resolution and pricing change complaints behind the gap.",
+    "keywords": [
+      "airwallex reviews",
+      "airwallex complaints",
+      "airwallex account frozen",
+      "airwallex ratings",
+      "airwallex business account"
+    ],
+    "focusKeyword": "airwallex reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Airwallex reviews verified?",
+      "answer": "The figures come from Trustpilot and G2 and were current as of August 2026, read alongside independent assessments from Merchant Maverick, Statrys and Finder. G2 verifies reviewers before publishing; Trustpilot does not. The two samples differ enormously in size, roughly 2,500 against about 50, so the G2 figure should be treated as a signal from a small group rather than as a counterweight. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed rating."
+    },
+    {
+      "question": "Why is Airwallex rated 3.1 on Trustpilot and 4.3 on G2?",
+      "answer": "Sample size and selection explain most of it. G2's pool is around 50 reviewers, mostly businesses describing the product they chose and use, and the tone there is positive. Trustpilot's pool is around 2,500 and includes anyone with a grievance, which for a company offering business accounts and cards as well as payments means a much broader population. The direction of both is consistent with the independent write-ups, which describe sentiment as mixed but skewing positive on the product itself. What neither score conveys is that the negative reviews concentrate on one failure mode rather than spreading across many."
+    },
+    {
+      "question": "What do Airwallex reviewers complain about most?",
+      "answer": "Account suspensions and holds on funds, and this is not an isolated theme. It recurs across G2, Trustpilot and Capterra: businesses report money held or the account frozen during compliance checks, sometimes for extended periods, with limited communication while the review is open. Second is slow issue resolution generally, which is the same complaint viewed from the support side. Third is pricing changes that reviewers say were not clearly communicated in advance. For a product that functions as both a payment processor and a business account, a freeze is more disruptive than it would be at a pure gateway, because it can catch your operating balance too."
+    },
+    {
+      "question": "What should you do differently if you use Airwallex?",
+      "answer": "Do not let it hold both your payment flow and your working capital at the same time. The single most useful precaution given this review record is to keep your operating balance in a bank account Airwallex does not control, and sweep out of the platform on a short cycle rather than accumulating there. Complete every compliance and verification step before you scale volume, since holds are consistently described as arising from compliance review rather than from disputes. And keep your stated business activity matching what you actually do, because a mismatch is what usually opens a review in the first place."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Airwallex sits at roughly 3.1 out of 5 across about 2,504 Trustpilot reviews, having been nearer 3.4 across around 1,700 at an earlier snapshot, and at roughly 4.3 to 4.5 on G2 from a pool of about 40 to 50 reviews. Independent reviewers including Merchant Maverick, Statrys and Finder describe overall sentiment as mixed but skewing positive on the product, and they flag the same weakness the low reviews do.</p><p>The strength of the product is not really in dispute. Reviewers value multi-currency accounts with local details in several countries, foreign exchange at rates that beat a traditional bank, cards, and payment acceptance under one platform. For a business selling across borders, consolidating those functions is the reason to be here at all.</p><p>The weakness is one thing and it appears on every platform: compliance holds. Businesses report funds held or accounts frozen while a review runs, occasionally for extended periods, and consistently describe the communication during that window as inadequate. Slow issue resolution and poorly communicated pricing changes fill out the rest of the negative record.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Multi-currency accounts with local details in several countries, which reviewers say removed the need for foreign banking relationships",
+        "Foreign exchange rates reviewers describe as materially better than their bank offered, which is the most cited financial benefit",
+        "Payment acceptance, business accounts, cards and expense management in one platform rather than four vendors",
+        "G2 reviewers rate the dashboard and the API well, and describe integration as straightforward",
+        "Coverage across Asia Pacific in particular is stronger than most Western providers offer",
+        "Reviewers moving from a traditional business bank describe onboarding as fast by comparison"
+      ],
+      "cons": [
+        "Account suspensions and funds held during compliance review is the dominant complaint and recurs on every platform",
+        "Account freezing accounts for roughly 60 to 70 percent of Airwallex's one-star Trustpilot reviews, so it is the complaint rather than one of several",
+        "Communication during a hold is described as limited, so businesses do not know how long they are waiting",
+        "Issue resolution is slow generally, which is the same problem seen from the support queue",
+        "Pricing changes that reviewers say were not clearly communicated before taking effect",
+        "Because the platform holds your operating balance as well as your payment flow, a freeze can hit both at once",
+        "The 4.3 on G2 rests on around 50 reviews, so it is far weaker evidence than the 3.1 across 2,500"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The important thing about Airwallex is not the score, it is the concentration. A 3.1 spread evenly across many small annoyances would describe a mediocre product. A 3.1 driven almost entirely by compliance holds describes a good product with one serious failure mode, which is a different purchase decision and a manageable one if you plan for it. Read the negative reviews for the mechanism rather than the sentiment.</p><p>What no rating shows is the compounding risk of holding your payments and your bank balance in the same place. At a pure gateway a freeze stops incoming settlements; here it can also reach the money you were going to pay suppliers with. That is the specific reason to keep an external operating account and sweep to it regularly, and it is worth doing from day one rather than after a review opens. If you want the cross-border acceptance without the account layer, <a href=\"/processor/stripe\">Stripe</a> and <a href=\"/processor/checkout-com\">Checkout.com</a> are the comparisons that keep those functions separate.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/airwallex.com",
+    "https://www.merchantmaverick.com/reviews/airwallex-review/",
+    "https://statrys.com/reviews/airwallex-business-account",
+    "https://www.finder.com/business-banking/airwallex-business-account",
+    "https://www.xflowpay.com/blog/airwallex-review"
+  ],
+  "quotesNote": "Both come from Airwallex's Trustpilot page, reported at 3.5 out of 5 across more than 2,400 reviews as of mid-2026. Account freezing accounts for roughly 60 to 70 percent of the one-star reviews, so these two are representative of that tail rather than cherry-picked from it.",
+  "quotes": [
+    {
+      "text": "Airwallex first asked us to justify a few transactions...Immediately after submitting everything, our account was blocked and all funds were frozen",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/airwallex.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "wait until further notice",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/airwallex.com",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "a merchant quoting the only answer received while frozen for over two weeks"
+    }
+  ]
+}

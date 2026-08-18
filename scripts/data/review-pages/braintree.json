@@ -1,0 +1,104 @@
+{
+  "slug": "braintree",
+  "name": "Braintree",
+  "heading": "Braintree reviews",
+  "intro": "Braintree is PayPal-owned, and the reviews keep returning to what that means in practice. Developers rate the API and the fact that cards, PayPal and Venmo arrive through one integration. Then they describe trying to reach support and being routed to PayPal, where nobody handles Braintree merchant processing. Waits of weeks, and in one case seven months, are on the record.",
+  "seo": {
+    "metaTitle": "Braintree Reviews: One API, and PayPal's Support Desk",
+    "metaDescription": "Braintree reviews praise the API and native PayPal and Venmo support, then describe email-only support routed to PayPal, with waits of weeks.",
+    "keywords": [
+      "braintree reviews",
+      "braintree complaints",
+      "braintree support",
+      "braintree vs stripe",
+      "braintree paypal"
+    ],
+    "focusKeyword": "braintree reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Braintree reviews verified?",
+      "answer": "The assessments here come from G2, Trustpilot, PissedConsumer and independent merchant-services reviewers including Merchant Maverick and Payment Review, current as of August 2026. G2 verifies reviewers before publishing; Trustpilot and PissedConsumer do not. None of these are reviews submitted to this site. Anything in the list above is a review a merchant wrote here and our moderators approved, rated on pricing, support, ease of use, features and reliability, and our own score is computed from those only."
+    },
+    {
+      "question": "What do Braintree reviewers complain about most?",
+      "answer": "Support, by a very wide margin, and the specific complaint is structural rather than a matter of slow replies. Braintree offers email and ticket support only, and reviewers report that calling gets them PayPal, where staff do not handle Braintree merchant processing. So there is no phone route to anyone who can act. Reviewers describe waiting days or weeks on urgent payment problems, and one describes seven months on a single case. Second, and familiar from the rest of this directory, accounts frozen or restricted without warning with funds held for weeks."
+    },
+    {
+      "question": "Why would you choose Braintree over Stripe?",
+      "answer": "One reason, and it is a good one if it applies to you: PayPal and Venmo are native rather than bolted on, so a single integration covers cards, PayPal and Venmo without a second contract or a second checkout flow. In the United States, Venmo access reaches a customer base most processors cannot offer. If a meaningful share of your buyers prefer paying that way, that is worth real money in conversion. If they do not, you are taking on PayPal's support structure for a benefit you will not use, and <a href=\"/processor/stripe\">Stripe</a> has the better documentation and the larger developer community."
+    },
+    {
+      "question": "Is Braintree suitable for a business without developers?",
+      "answer": "No, and it does not pretend otherwise. Braintree is API-first and expects engineering resource, which is why reviewers who like it are technical teams building custom checkout, subscriptions or marketplace flows. A small business wanting a hosted checkout and a phone number to call is the worst possible fit here, because it needs exactly the two things this review record says are weakest: hand-holding and reachable support. Read the support complaints as disqualifying if that describes you rather than as something you will work around."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Braintree sits inside the PayPal group, and its review record splits along that seam. On G2 and among independent reviewers the product is well regarded: an API-first gateway with strong documentation, native support for cards, PayPal and Venmo through one integration, and the vault and subscription tooling a developer building custom checkout wants. Merchant Maverick and Payment Review both rate the technology favourably.</p><p>The criticism is almost entirely about support, and it is unusually blunt. Braintree provides email and ticket support only, and multiple reviewers report waiting days or weeks for a response to an urgent payment problem. What makes it worse than a slow queue is the routing: reviewers describe calling and reaching PayPal, whose staff do not handle Braintree merchant processing, so there is no phone path to a person who can act on the account.</p><p>The second theme is the one that recurs across every aggregator in this directory. Merchants report accounts frozen or restricted without warning, with funds held for weeks. Braintree is underwritten through PayPal, so the risk posture reviewers describe is recognisably PayPal's.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Cards, PayPal and Venmo through a single integration, which no independent gateway can offer",
+        "Venmo access in the United States reaches a younger customer base most processors cannot serve",
+        "The API and documentation are rated well by developers building custom checkout and subscription flows",
+        "The card vault and recurring billing tooling are included rather than sold as separate products",
+        "Marketplace and split-payment support is mature, which is why platforms choose it",
+        "Backed by PayPal's scale, so the underlying processing infrastructure is not in question"
+      ],
+      "cons": [
+        "Support is email and ticket only, and reviewers report days or weeks of waiting on urgent payment issues",
+        "Calling reaches PayPal, whose staff do not handle Braintree merchant processing, so there is no phone escalation",
+        "One reviewer describes waiting over seven months on a single straightforward case",
+        "Accounts frozen or restricted without warning, with funds held for weeks, which is PayPal's risk posture",
+        "It expects developers, so there is no realistic path to launch without engineering resource",
+        "Reviewers describe tech support as slower and less responsive than the general queue, which is the wrong way round"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The support complaints are not really about response times, and reading them that way understates the problem. A slow queue is an inconvenience. A support structure where the phone number belongs to a different company that does not handle your product is a design decision, and it means the severity of your problem has no bearing on how fast it gets solved. Weigh that against how urgent payment failures are in your business rather than against how bad other companies' support is.</p><p>What the reviews cannot tell you is whether the Venmo and PayPal integration is worth it for your customers specifically, and that is the only real reason to be here. Look at your own checkout data or run a test: if a meaningful share of buyers reach for PayPal when offered, Braintree consolidates that into one integration and the trade may be worth making. If they do not, you are accepting the weakest support record in this directory for a feature you will not use, and a standalone gateway plus a PayPal button gets you closer to the same place with a provider you can reach.</p>"
+    }
+  ],
+  "quotesNote": "All four are one-star reviews, from G2, Trustpilot and PissedConsumer, and they are all about the same thing. That concentration is the finding: nobody in the negative pool is complaining about the technology.",
+  "quotes": [
+    {
+      "text": "Beware - the worst nonexistent customer service in the history of credit card processors. Just try getting a live customer service person on the phone. Every call goes to paypal and they have no Braintree merchant processing customer service reps.",
+      "source": "PissedConsumer",
+      "sourceUrl": "https://braintree.pissedconsumer.com/review.html",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "We were waiting over 7 months and sent multiple emails with requests to handle a straightforward case. Now we have another one related to adding a merchant account, 3 weeks passed, we sent multiple emails in the meantime, still ZERO answers.",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/braintree-direct/reviews",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "Nothing - terrible company with ZERO customer service. Simply put, if you have a problem, there is no one to talk to.",
+      "source": "G2",
+      "sourceUrl": "https://www.g2.com/products/braintree-direct/reviews",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "Customer support is terrible, tech support is even more unresponsive and slower.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/braintreepayments.com",
+      "date": "2026",
+      "rating": 1
+    }
+  ],
+  "sources": [
+    "https://www.g2.com/products/braintree-direct/reviews",
+    "https://braintree.pissedconsumer.com/review.html",
+    "https://www.trustpilot.com/review/braintreepayments.com",
+    "https://www.merchantmaverick.com/reviews/braintree-payment-solutions-review/",
+    "https://paymentreview.com/reviews/braintree/"
+  ]
+}

@@ -16,6 +16,7 @@ import {
 } from "../../components/admin/processors/serialize";
 import { buildStructuredData } from "../../lib/engine";
 import { absoluteUrl } from "../../lib/seo";
+import { hasReviewContent, REVIEW_CONTENT_SELECT } from "../../lib/reviews-indexability";
 
 /**
  * The per-processor reviews page (`/processor/<slug>/reviews`).
@@ -254,4 +255,41 @@ test("the reviews page's FAQs feed its own FAQPage, and a block supersedes them"
     ((faqNodes[0] as { mainEntity: { name: string }[] }).mainEntity[0] as { name: string }).name,
     "From the block",
   );
+});
+
+// ---------------------------------------------------------------------------
+// Indexability: the route and the sitemap must answer identically
+// ---------------------------------------------------------------------------
+
+/**
+ * The bug these pin: the route counted blocks and FAQs as content, the sitemap
+ * counted only `ratingCount`. A processor with a written reviews page and no
+ * merchant submissions yet was therefore indexable but never listed.
+ *
+ * Both sides now call `hasReviewContent`, so the cases below are the contract.
+ */
+test("an empty reviews page is not worth indexing", () => {
+  assert.equal(hasReviewContent(0, [], []), false);
+  assert.equal(hasReviewContent(0, undefined, undefined), false);
+  assert.equal(hasReviewContent(0, null, null), false);
+});
+
+test("editorial sections alone make the page indexable, with no reviews on it", () => {
+  assert.equal(hasReviewContent(0, [{ type: "richtext" }], []), true);
+  assert.equal(hasReviewContent(0, [], [{ question: "q", answer: "a" }]), true);
+});
+
+test("approved reviews alone make the page indexable, with no editorial", () => {
+  assert.equal(hasReviewContent(4, [], []), true);
+  assert.equal(hasReviewContent(1, undefined, undefined), true);
+});
+
+test("the sitemap projection covers every field the rule reads", () => {
+  // `getSitemapEntries` evaluates the rule against a projected document. A field
+  // the rule reads but the projection omits arrives as `undefined`, and the rule
+  // then answers "no content" for every processor without erroring.
+  const selected = new Set(REVIEW_CONTENT_SELECT.split(/\s+/));
+  assert.ok(selected.has("ratingCount"));
+  assert.ok(selected.has("reviewsPage.blocks"));
+  assert.ok(selected.has("reviewsPage.faqs"));
 });

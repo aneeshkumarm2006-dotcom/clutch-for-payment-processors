@@ -1,0 +1,106 @@
+{
+  "slug": "payu",
+  "name": "PayU",
+  "heading": "PayU reviews",
+  "intro": "PayU's public review scores are among the lowest in this directory: roughly 1.2 out of 5 on the Indian Trustpilot profile, 1.1 on the Polish one, and 1.4 across about 451 PissedConsumer reviews with only around 20 percent likely to recommend it. Before you read that as a verdict on the gateway, look at who is writing. A large share of it is shoppers chasing a refund from a seller, not merchants rating a processor.",
+  "seo": {
+    "metaTitle": "PayU Reviews: 1.2 on Trustpilot, and Who Wrote Them",
+    "metaDescription": "PayU scores 1.2 on Trustpilot India and 1.4 on PissedConsumer, but most reviewers are shoppers, not merchants. What the merchant-side complaints actually say.",
+    "keywords": [
+      "payu reviews",
+      "payu complaints",
+      "payu settlement delay",
+      "payu merchant reviews",
+      "payu ratings"
+    ],
+    "focusKeyword": "payu reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these PayU reviews verified?",
+      "answer": "The figures come from Trustpilot and PissedConsumer and were current as of August 2026. Neither verifies that a reviewer was a PayU merchant, and that matters more here than for most processors on this site: PayU appears at checkout on thousands of Indian websites, so consumers who had a problem with a seller find PayU's review page and post there. Read every low score with that in mind. None of these are reviews submitted to this site. Anything in the list above is a review a merchant wrote here and our moderators approved, and our own score is computed only from those."
+    },
+    {
+      "question": "Are PayU's low ratings from merchants or from shoppers?",
+      "answer": "Mostly shoppers, and separating the two is the single most useful thing you can do with this review record. The recurring consumer complaints are refunds not received, money deducted on a failed transaction, and PayU responding to a dispute by telling the buyer to contact the merchant, who then does not reply. Those are real complaints and they say something about PayU's dispute handling, but they are not a rating of the gateway as a merchant tool. The merchant-side complaints are a smaller and more specific set: settlements held, support tickets unanswered, and KYC verification that reviewers say never completes despite every step being submitted."
+    },
+    {
+      "question": "What do PayU merchants complain about most?",
+      "answer": "Settlement holds first, with merchants reporting that PayU holds their settlements and does not answer support tickets while it does. Second, KYC and account verification, where reviewers describe completing every step and never being verified, which blocks the account before it earns anything. Third, support responsiveness and dispute resolution generally, which is the theme both merchants and consumers agree on. What you should not conclude from the consumer complaints about fraudulent sellers is that PayU treats merchants harshly. If anything they suggest the opposite, which is its own risk if you sell in a category where buyer trust matters."
+    },
+    {
+      "question": "Should the low scores rule PayU out?",
+      "answer": "Not on their own, but they should change what you ask about. PayU is a large, established processor operating across India, Central and Eastern Europe and Latin America, and it handles substantial volume for businesses that are not writing reviews. What the review record does establish is that the dispute and support experience is weak on both sides of the transaction. So ask specifically: what triggers a settlement hold, how long one lasts, how long KYC verification takes and what happens if it stalls, and who you contact when it does. Then compare against <a href=\"/processor/razorpay\">Razorpay</a> and <a href=\"/processor/easebuzz\">Easebuzz</a> on those answers rather than on star ratings."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, the Indian Trustpilot profile for PayU sits at roughly 1.2 out of 5 across about 45 reviews, the Polish profile at around 1.1 across a similar volume, and the older PayUmoney consumer wallet profile at about 1.3. PissedConsumer records roughly 1.4 across about 451 reviews, with around 20 percent of reviewers saying they would recommend it. Those are low numbers by any standard.</p><p>They are also, in large part, not merchant reviews. PayU is the checkout on a great many Indian websites, which means consumers who never chose PayU and never had an account with it arrive at its review pages looking for someone to complain to. The dominant consumer themes are refunds not received, money deducted on failed transactions, and disputes closed by being told to contact the seller. Some reviewers go further and say PayU continues serving merchants who collect payment without fulfilling orders.</p><p>Filter to merchants and the complaint set narrows and sharpens: settlements held with support tickets going unanswered, and KYC verification that reviewers say never completed despite submitting every document. Those are the two findings a business evaluating PayU should actually weigh.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Established coverage across India, Central and Eastern Europe and Latin America under one brand, which few competitors match",
+        "Local payment method support in each market, including the Indian methods international gateways handle poorly",
+        "Merchants report the checkout itself converting well on Indian mobile connections",
+        "Recognisable at checkout in its core markets, which reduces buyer hesitation on unfamiliar storefronts",
+        "Substantial processing volume and years of operation, so the platform itself is not in question"
+      ],
+      "cons": [
+        "Merchants report settlements held while support tickets go unanswered, which is the most serious merchant-side complaint",
+        "KYC verification is described as stalling indefinitely despite every step being completed, blocking accounts before they trade",
+        "Dispute resolution is weak on both sides: consumers are told to contact the seller and merchants cannot reach a decision maker",
+        "Consumer complaints about refunds not received and money deducted on failed transactions are numerous and consistent",
+        "Reviewers allege PayU keeps processing for sellers who collect payment without fulfilling orders, which damages buyer trust at checkout",
+        "Public scores are so low across every platform that they will be found by anyone researching your checkout provider"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>These scores cannot be read the way you would read a software rating, because the reviewer population is wrong for the question. A processor whose brand appears at checkout inherits every angry buyer of every merchant it serves, and a 1.2 built that way is not comparable to a 1.2 earned from merchants rating a tool they chose. That is a genuine reason to discount the number. It is not a reason to discount the two merchant complaints underneath it, which are specific, repeated and about money.</p><p>There is also a second-order risk here that no rating captures and that cuts against PayU rather than for it. If a shopper searches your checkout provider before buying and finds pages of one-star reviews about undelivered orders, that is your conversion problem now, whatever the cause. Weigh that alongside the settlement and verification questions, and get the answers in writing before you launch rather than discovering them through a ticket queue.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/payu.in",
+    "https://www.trustpilot.com/review/payu.pl",
+    "https://payu-india.pissedconsumer.com/review.html",
+    "https://thefinrate.com/payu-reviews-and-feedback/"
+  ],
+  "quotesNote": "All four come from PissedConsumer, where PayU India averages 1.4 across roughly 454 reviews. Read who is speaking: these are shoppers who paid through PayU at someone else's checkout, not merchants using it. That is exactly the distinction this page is about, and it is why the low scores should not be read as a merchant verdict.",
+  "quotes": [
+    {
+      "text": "payment got successful in the merchant's account...but till now no chargeback/refund has reflected in my account.",
+      "source": "PissedConsumer",
+      "sourceUrl": "https://payu-india.pissedconsumer.com/review.html",
+      "date": "8 April 2026",
+      "rating": 1,
+      "attribution": "a shopper, not a merchant"
+    },
+    {
+      "text": "I make a payment with the help of payu, but not recieved another side, already deducted from my account",
+      "source": "PissedConsumer",
+      "sourceUrl": "https://payu-india.pissedconsumer.com/review.html",
+      "date": "10 July 2026",
+      "rating": 1,
+      "attribution": "a shopper, not a merchant"
+    },
+    {
+      "text": "Payment link appears to have expired, and therefore I was unable to complete the process",
+      "source": "PissedConsumer",
+      "sourceUrl": "https://payu-india.pissedconsumer.com/review.html",
+      "date": "31 March 2026",
+      "rating": 1,
+      "attribution": "a shopper, not a merchant"
+    },
+    {
+      "text": "My payment is done my order is unsuccessful",
+      "source": "PissedConsumer",
+      "sourceUrl": "https://payu-india.pissedconsumer.com/review.html",
+      "date": "5 June 2026",
+      "rating": 1,
+      "attribution": "a shopper, not a merchant"
+    }
+  ]
+}

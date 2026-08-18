@@ -1,0 +1,84 @@
+{
+  "slug": "fluidpay",
+  "name": "Fluid Pay",
+  "heading": "Fluid Pay reviews",
+  "intro": "Fluid Pay has essentially no merchant reviews, and for once the reason is stated openly by the company itself: it does not board merchants directly, has no direct sales team aimed at them, and says it does not plan to have one. It sells a gateway to ISOs, agents and software vendors who resell it under their own brand. So the usual review question does not apply here.",
+  "seo": {
+    "metaTitle": "Fluid Pay Reviews: A Gateway You Cannot Buy Direct",
+    "metaDescription": "Fluid Pay sells only through ISO and ISV partners, so merchant reviews barely exist. What the record shows and why you should evaluate your reseller instead.",
+    "keywords": [
+      "fluid pay reviews",
+      "fluidpay reviews",
+      "fluid pay gateway",
+      "fluid pay complaints",
+      "fluid pay iso partner"
+    ],
+    "focusKeyword": "fluid pay reviews"
+  },
+  "faqs": [
+    {
+      "question": "Why are there no Fluid Pay merchant reviews?",
+      "answer": "Because merchants cannot buy it directly. Fluid Pay works exclusively through approved ISO, agent and ISV partners, provides the infrastructure and APIs, and lets those partners own the merchant relationship. It has no direct sales team aimed at merchants and states that it has no plans for one. A merchant using the gateway may only ever see their reseller's branding. So the absence of reviews on G2, Capterra or Trustpilot is a fact about distribution rather than about quality, and there is no merchant pool to consult even if you wanted one."
+    },
+    {
+      "question": "What can you actually verify about Fluid Pay?",
+      "answer": "The compliance and product facts, which are checkable and matter more here than sentiment. It carries PCI DSS Level 1 certification, the highest tier, with annual audits, quarterly scans and segmentation reviews. It is a REST-based gateway serving card-present, e-commerce and recurring merchants from small business to enterprise, with more than twenty products on one API and one dashboard: virtual terminal, recurring billing, a card vault, surcharging, fraud controls, EMV support and white-label options. Those are concrete claims you can hold a reseller to rather than opinions you have to trust."
+    },
+    {
+      "question": "Does the Payment Gateway Company of the Year award mean anything?",
+      "answer": "Treat it as marketing rather than as evidence. Fluid Pay was named Payment Gateway Company of the Year 2026 by CIO Review, and industry publication awards of that kind are generally editorial or promotional rather than the result of independent testing against competitors. It is not a reason to discount the company, and it is not a substitute for the merchant reviews that do not exist. If you want a signal about how it performs in the channel, ask a prospective reseller how long they have been on the platform and why they chose it over the alternatives."
+    },
+    {
+      "question": "How should you evaluate Fluid Pay as a merchant?",
+      "answer": "Evaluate the reseller, because they set everything you experience. Fluid Pay supplies the technology; your price, your contract and your first line of support come from the ISO, agent or software vendor selling it to you. So ask who holds your contract, what the monthly gateway fee and per-transaction fee are in writing, whether there is a minimum or inactivity charge, who answers at 6pm when a transaction fails, and what happens to your gateway and your stored card tokens if you change processors. Compare against <a href=\"/processor/nmi\">NMI</a>, which uses the same channel model, and <a href=\"/processor/authorize-net\">Authorize.net</a>, which you can contract with directly."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Almost nothing, and the company is unusually straightforward about why. Fluid Pay is a partner-only payment gateway: it works through approved ISO, agent and ISV partners, does not board merchants directly, has no direct sales team aimed at merchants and states it does not intend to build one. Partners own the merchant relationship and can white-label the platform, so a merchant may never see the Fluid Pay name at all. As of August 2026 there is no meaningful merchant review pool on any of the major platforms, and listings on aggregator directories carry little volume behind them.</p><p>What can be established is product and compliance rather than sentiment. Fluid Pay is a REST-based gateway covering card-present, e-commerce and recurring payments from small business through enterprise, with more than twenty products on a single API and dashboard, including a virtual terminal, recurring billing, a card vault, surcharging, fraud controls, EMV and private-label options. It holds PCI DSS Level 1 certification with annual audits, quarterly scans and segmentation reviews.</p><p>It was also named Payment Gateway Company of the Year 2026 by CIO Review. That is an industry publication award rather than an independent comparative test, and it should be read as such: not meaningless, but not evidence of anything a merchant can rely on.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "What the record and public material suggest",
+      "pros": [
+        "PCI DSS Level 1 certification with annual audits, quarterly scans and segmentation reviews, which is the highest tier",
+        "More than twenty products on one API and one dashboard, so a reseller is not stitching together separate systems",
+        "A REST-based modern API, which matters for ISVs embedding payments in their own software",
+        "Covers card-present, e-commerce and recurring payments across business sizes rather than specialising narrowly",
+        "White-label options let a software company or ISO present payments as their own product",
+        "Surcharging, vaulting and fraud controls are included rather than sold as separate add-ons"
+      ],
+      "cons": [
+        "There is no merchant review pool at all, so the merchant experience cannot be benchmarked in any way",
+        "You cannot buy it directly, so your price, contract and support all come from a reseller you must evaluate separately",
+        "Merchants often will not know they are on Fluid Pay, which makes researching it before signing difficult",
+        "The main third-party recognition is an industry publication award rather than independent comparative testing",
+        "As a gateway only, it does not include the merchant account, so you are managing two relationships",
+        "No published pricing, since pricing is set by whichever partner resells it to you",
+        "The one public merchant review raises customer service professionalism and unresolved problems with pending transactions"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>This is the cleanest example on the site of a review record that cannot answer the question people bring to it. Fluid Pay has deliberately built a business with no direct merchant relationship, so asking what merchants think of Fluid Pay is close to asking what drivers think of an engine manufacturer whose name is not on the car. The technology and the compliance posture are verifiable. The experience is entirely determined by the reseller.</p><p>So redirect the diligence. Get the name of the entity your contract is with, the full fee schedule in writing including any minimum or inactivity charge, and a clear answer on support hours and escalation. Then ask the question that catches merchants out with any resold gateway: if you change processors later, does the gateway come with you, and do your stored card tokens transfer? A processor-agnostic gateway is only portable if your contract and your tokens are, and that is a commercial term rather than a technical property.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.fluidpay.com/",
+    "https://www.fluidpay.com/become-a-partner",
+    "https://sourceforge.net/software/product/Fluid-Pay/",
+    "https://www.cioreview.com/fluid-pay-2026",
+    "https://allaypay.com/blog/processing/top-payment-gateways-review-nmi-authorize-net-and-fluidpay/"
+  ],
+  "quotesNote": "This is the only verbatim merchant review that exists publicly for Fluid Pay: a single SourceForge review from a manager with one to two years of use. That is what a partner-only gateway's review record looks like. The same reviewer also raised customer service and unresolved pending-transaction problems, summarised in the drawbacks above rather than quoted, because only this sentence was reproduced verbatim.",
+  "quotes": [
+    {
+      "text": "You don't need a credit card to do a return. The system will automatically credit the card used at purchase.",
+      "source": "SourceForge",
+      "sourceUrl": "https://sourceforge.net/software/product/Fluid-Pay/",
+      "date": "2026",
+      "attribution": "a manager with one to two years of use"
+    }
+  ]
+}

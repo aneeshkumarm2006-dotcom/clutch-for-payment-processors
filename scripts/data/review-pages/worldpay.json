@@ -1,0 +1,85 @@
+{
+  "slug": "worldpay",
+  "name": "Worldpay",
+  "heading": "Worldpay reviews",
+  "intro": "Worldpay averages about 4.6 out of 5 across roughly 8,100 Trustpilot reviews, and 29 percent of those reviews are one star. That is not a 4.6 experience with some noise around it. It is two separate experiences averaged together, and which one you get depends mostly on whether you ever try to leave.",
+  "seo": {
+    "metaTitle": "Worldpay Reviews: 4.6 Average, 29% One Star",
+    "metaDescription": "Worldpay averages 4.6 on Trustpilot but 29% of reviews are one star. The contract auto-renewal, termination fees and cancellation complaints behind the split.",
+    "keywords": [
+      "worldpay reviews",
+      "worldpay complaints",
+      "worldpay cancellation fee",
+      "worldpay contract",
+      "worldpay early termination"
+    ],
+    "focusKeyword": "worldpay reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Worldpay reviews verified?",
+      "answer": "The figures on this page come from Trustpilot and the Better Business Bureau and were current as of August 2026, read alongside independent merchant-services reviewers including Card Payment Options and Website Planet. Trustpilot is an open platform and Worldpay collects reviews through it, which is part of why the volume and the average are both high. None of these are reviews submitted to this site, and no merchant has published one here for Worldpay yet, which is why the list above is empty rather than showing a borrowed score."
+    },
+    {
+      "question": "How can Worldpay average 4.6 when a third of reviews are one star?",
+      "answer": "Because the distribution is bimodal rather than clustered around the mean. About 64 percent of reviewers give five stars and about 29 percent give one, with very little in between: 4 percent at four stars, 1 percent at three. An average of 4.6 is arithmetically correct and describes almost nobody's actual experience. Read the two peaks separately. The five-star peak is largely merchants rating a salesperson, an install or a working terminal. The one-star peak is merchants rating billing, cancellation and fund holds. You are likely to experience both, in that order."
+    },
+    {
+      "question": "What do Worldpay reviewers complain about most?",
+      "answer": "Cancellation, first and most consistently: contracts that auto-renew, and early termination fees charged to merchants trying to leave. The published figure is up to 295 dollars, but reviewers report being billed more, including 495 dollars after years of service. Second, billing: rate increases applied mid-contract and fees that were not disclosed at signup. Third, fund holds arriving without warning. Fourth, support hold times, which reviewers describe as running from fifteen minutes to two hours. The Better Business Bureau gives the company an A+ rating while its review section carries no positive reviews at all, which captures the gap neatly."
+    },
+    {
+      "question": "What should you check before signing a Worldpay contract?",
+      "answer": "Get the contract term, the auto-renewal clause and the early termination fee in writing, and get them as numbers rather than as a range. Reviewers report a gap between the published termination fee and what they were actually billed, and the auto-renewal is what turns a three-year decision into an indefinite one. Then ask what triggers a rate change mid-term and whether you must be notified before one applies, because mid-contract increases are a recurring complaint. If you would rather not have that conversation at all, <a href=\"/processor/helcim\">Helcim</a> and <a href=\"/processor/dharma-merchant-services\">Dharma Merchant Services</a> both operate without long-term contracts or termination fees."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Worldpay carries an average of roughly 4.6 out of 5 across about 8,086 Trustpilot reviews. The distribution is what matters: approximately 64 percent five star, 4 percent four star, 1 percent three star, 2 percent two star and 29 percent one star. A rating shaped like that is telling you there are two populations, not one. Smaller review sites reflect the unhappy population almost exclusively, with SmartCustomer showing 1.0 out of 5 across 60 reviewers. The Better Business Bureau holds an A+ rating for the business while carrying no positive reviews in its review section.</p><p>Independent merchant-services reviewers have documented the same themes for years, and they are unusually consistent: fund holds without warning, difficulty cancelling and stopping billing, rate increases applied mid-contract, fees not disclosed at signup, and long support hold times.</p><p>Worldpay is a legitimate, very large acquirer and a great many merchants process through it without incident. That is the five-star peak and it is real. The one-star peak is equally real and it is concentrated at the end of the relationship rather than the start, which is precisely when a review score is least useful to someone deciding whether to sign.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "One of the largest acquirers in the world, and reviewers running high volume rate the underlying processing as reliable",
+        "Coverage spans in-person, online and omnichannel with hardware, gateway and reporting from a single provider",
+        "Reviewers describe responsive, knowledgeable salespeople and smooth initial installation",
+        "Negotiated interchange-plus pricing is available at volume, and reviewers at scale report competitive effective rates",
+        "Breadth of payment methods, currencies and international coverage that smaller providers cannot match",
+        "A Better Business Bureau A+ rating and roughly 8,000 Trustpilot reviews at a 4.6 average give the positive experience real weight"
+      ],
+      "cons": [
+        "Cancellation is the dominant complaint: contracts auto-renew and merchants report termination fees charged years into the relationship",
+        "The published early termination fee is up to 295 dollars, but reviewers report being billed 495 dollars",
+        "Rate increases applied mid-contract, which reviewers say arrived without a conversation",
+        "Fees not disclosed at signup appearing on later statements, a recurring theme across independent reviewers",
+        "Fund holds arriving without warning, with the same escalation difficulty reported elsewhere in this industry",
+        "Support hold times reported between fifteen minutes and two hours",
+        "29 percent of Trustpilot reviewers give one star, so the headline average understates how badly it can go",
+        "Worldpay agreed a 15 million dollar settlement of claims brought by small-business merchants over allegedly hidden and excessive fees"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>Averages are the wrong statistic for Worldpay and the right one is already public. With 64 percent at five stars and 29 percent at one, your realistic expectation is not 4.6 out of 5, it is roughly a two-in-three chance of a good experience and a one-in-three chance of a bad one. Anyone quoting you the 4.6 without the distribution is giving you a number that describes a merchant who does not exist.</p><p>The other thing the reviews structurally cannot show you is timing. Almost all the five-star reviews are written near the beginning, when a salesperson has been helpful and the terminal works. Almost all the one-star reviews are written at the end, about billing and cancellation. That means the review record is systematically optimistic about a relationship you are about to enter and pessimistic about one you are about to leave. Read the contract rather than the reviews, and specifically the termination and renewal clauses, because that is where the one-star peak comes from.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/worldpay.com",
+    "https://www.cardpaymentoptions.com/credit-card-processors/worldpay/",
+    "https://www.bbb.org/us/fl/jacksonville/profile/credit-card-merchant-services/worldpay-0403-235991722/complaints",
+    "https://www.websiteplanet.com/credit-card-processing/worldpay/",
+    "https://www.smartcustomer.com/reviews/worldpay.com"
+  ],
+  "quotesNote": "From Worldpay's Trustpilot page, which carries roughly 8,100 reviews averaging 4.6 with 29 percent at one star. This excerpt is from that one-star third, and it names the specific mismatch the complaint file keeps returning to.",
+  "quotes": [
+    {
+      "text": "hidden 3 year contracts but will promote that you can cancel anytime",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/worldpay.com",
+      "date": "2026",
+      "rating": 1
+    }
+  ]
+}

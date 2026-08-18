@@ -1,0 +1,104 @@
+{
+  "slug": "myr-pos",
+  "name": "MYR POS",
+  "heading": "MYR POS reviews",
+  "intro": "MYR POS is rated 4.5 out of 5 on Capterra across 121 verified reviews, and quick-service operators are consistent about why: staff learn it in minutes, delivery orders arrive in one queue, and support answers. They are just as consistent about the limits. Below is what the review record says, and where it disagrees with the sales page.",
+  "seo": {
+    "metaTitle": "MYR POS Reviews | Ratings from Quick-Service Operators",
+    "metaDescription": "What quick-service operators say about MYR POS. Rated 4.5 out of 5 across 121 Capterra reviews, praised for ease of use and flagged for iPad-only limits.",
+    "keywords": [
+      "myr pos reviews",
+      "myr pos ratings",
+      "myr pos complaints",
+      "myr pos user reviews"
+    ],
+    "focusKeyword": "myr pos reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these MYR POS reviews verified?",
+      "answer": "The scores quoted on this page come from Capterra, which verifies reviewers before publishing, and were current as of August 2026. They are not reviews submitted to this site. Any review you see in the list above is one a merchant submitted here and our moderators approved, and each is rated on pricing, support, ease of use, features and reliability. If you run payments through MYR POS, your review would carry more weight than an aggregate score, because it would say which processor you signed with and what you actually pay."
+    },
+    {
+      "question": "What do MYR POS reviewers complain about most?",
+      "answer": "The absence of a back-office mobile app is the most repeated request across public reviews, followed by reporting that stops short of deeper analytics, and loyalty and gift card features routed through DataCandy instead of being native. Structural limits draw steady comment too: iPad only with no Android option, a customer-facing display that is not a self-service kiosk, and thin table management. Older reviews mention the iPad losing connection to the payment terminal, which more recent feedback suggests has improved."
+    },
+    {
+      "question": "Do MYR POS reviews cover payment processing?",
+      "answer": "Rarely, and that is a gap worth knowing about. MYR does not process payments, so a review of MYR is a review of the software and the hardware, not of the card rate. Merchants sign separately with a partner such as TD Merchant Solutions, Payroc, Square or Moneris, and their experience of pricing, chargebacks and payout timing belongs to that provider. When you read a MYR review that praises or criticises payments, check which processor the reviewer is actually on."
+    },
+    {
+      "question": "Is MYR POS worth it for a single-location restaurant?",
+      "answer": "The review record suggests yes if you are quick-service and the Starter plan covers you. At $80 a month for one station, plus hardware from $1,000, the software cost is low against comparable restaurant platforms, and the ease-of-use scores are the reason single-site operators give for switching. The caution is that Starter excludes the online ordering, loyalty and gift card modules and the third-party delivery integrations, which sit on Standard at $150 a month. If delivery apps are a meaningful share of your orders, price Standard rather than Starter."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>No merchant has published a review of MYR POS on this site yet, so the summary below is drawn from public review platforms rather than from our own submissions. As of August 2026, MYR POS holds <strong>4.5 out of 5 across 121 verified reviews on Capterra</strong>, with ease of use scored at 4.5 and customer service at 4.4. It is also listed on GetApp and Software Advice, which share Capterra's review pool, so those scores are not independent confirmation.</p><p>The rating is high, but the sample is worth reading in context. MYR sells to one narrow segment, quick-service restaurants, and reviewers are overwhelmingly from that segment. A 4.5 from operators the product was designed for is not evidence that it would suit a dining room with servers and tabs, and the reviews that come closest to criticism are usually from someone who wanted it to be a general-purpose POS.</p>"
+    },
+    {
+      "type": "prosCons",
+      "pros": [
+        "Staff learn the front end in minutes, which reviewers tie directly to lower training cost and faster service during a rush",
+        "Menu edits and price changes are simple enough to make mid-shift without calling support",
+        "Delivery orders from Uber Eats, DoorDash, Grubhub, Skip and Ritual land in one queue instead of on separate tablets",
+        "Support is described as fast, knowledgeable and often available outside business hours, in both English and French",
+        "Multi-location and franchise reporting is called out by operators running several sites",
+        "Priced below the better-known restaurant POS platforms for comparable in-store functionality"
+      ],
+      "cons": [
+        "No back-office mobile app, so owners cannot check numbers from a phone. This is the single most repeated request",
+        "Reporting covers the basics but stops short of the deeper analytics larger operators want",
+        "Loyalty and gift cards route through DataCandy rather than being fully native, which reviewers experience as an extra bill",
+        "Limited customization, and the iPad-only requirement removes hardware choice entirely",
+        "The customer-facing display is not a self-service kiosk, which surprises operators expecting one",
+        "Older reviews report connectivity trouble between the iPad and the payment terminal. Recent reviews suggest this has improved",
+        "Onboarding is described by some reviewers as slower and rougher than expected, against a stated timeline of up to three weeks"
+      ],
+      "title": "Themes across public reviews"
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>One thing reviews will not tell you</h2><p>Review scores for MYR say nothing about what you will pay to accept a card. MYR is the point-of-sale layer and the terminal integration; the merchant account sits with a separate partner, usually TD Merchant Solutions, Payroc, Square or Moneris. Two restaurants can both rate MYR five stars while paying materially different processing rates, because the rate was never MYR's to set.</p><p>If you are evaluating MYR, treat it as two decisions. Judge the software on the review record above, then get the processing quote in writing from the partner and compare it against the rates on this site the same way you would any other merchant account. At quick-service ticket sizes, the per-transaction fee usually costs more than the percentage does.</p>"
+    }
+  ],
+  "quotesNote": "Four excerpts from MYR POS's Capterra page, which averages 4.5 across 121 verified reviews. All four are from the positive majority, which is what that score is made of, and none of them mention card processing, because MYR does not set your card rate.",
+  "quotes": [
+    {
+      "text": "The integration with delivery platforms and the simplicity of the back-end systems were the reasons why we switched.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.com/p/174862/myr-pos/reviews/",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a restaurant owner"
+    },
+    {
+      "text": "We've had a few issues, and every time the MYR team has been responsive and informative.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.com/p/174862/myr-pos/reviews/",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a restaurant president"
+    },
+    {
+      "text": "it's been smooth, reliable, and incredibly easy for their teams to use",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.com/p/174862/myr-pos/reviews/",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a reviewer describing their own clients' experience"
+    },
+    {
+      "text": "Now that MYR has partnered with DataCandy, we are looking forward to the collaboration.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.com/p/174862/myr-pos/reviews/",
+      "date": "2026",
+      "rating": 4
+    }
+  ],
+  "sources": [
+    "https://www.capterra.com/p/174862/myr-pos/reviews/",
+    "https://www.posusa.com/myr-pos-review/"
+  ]
+}

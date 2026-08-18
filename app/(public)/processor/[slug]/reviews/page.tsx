@@ -12,6 +12,7 @@ import {
   REVIEWS_FULL_PAGE_SIZE,
 } from "@/lib/public-data";
 import { buildMetadata } from "@/lib/seo";
+import { hasReviewContent } from "@/lib/reviews-indexability";
 import { applySeoRedirect } from "@/lib/seo-redirect";
 import { buildStructuredData } from "@/lib/engine";
 import { toEngineContext } from "@/lib/engine/context";
@@ -85,17 +86,6 @@ function defaultCopy(name: string, count: number) {
         ? `What merchants say about ${name} after running payments through it, rated on pricing, support, ease of use, features, and reliability.`
         : `No merchant has reviewed ${name} yet. If you process payments with them, yours would be the first.`,
   };
-}
-
-/**
- * Is there enough here to be worth indexing?
- *
- * Reviews OR an editor's own sections. Kept as one named rule because the sitemap
- * has to agree with it: listing a URL that answers `noindex` is a contradiction
- * Search Console reports as an error.
- */
-function hasReviewContent(count: number, blocks?: unknown[], faqs?: unknown[]): boolean {
-  return count > 0 || Boolean(blocks?.length) || Boolean(faqs?.length);
 }
 
 export async function generateMetadata({

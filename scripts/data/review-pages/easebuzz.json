@@ -1,0 +1,106 @@
+{
+  "slug": "easebuzz",
+  "name": "Easebuzz",
+  "heading": "Easebuzz reviews",
+  "intro": "Easebuzz holds final authorisation from the Reserve Bank of India as an online payment aggregator and is certified PCI-DSS Level 1, which in the Indian market is a meaningful distinction rather than a badge. Merchants describe a gateway that works and support that answers. The recurring complaint is settlement speed, and it is the one thing competitors consistently beat it on.",
+  "seo": {
+    "metaTitle": "Easebuzz Reviews: RBI Licensed, Slower Settlement",
+    "metaDescription": "Easebuzz holds RBI payment aggregator authorisation and PCI-DSS Level 1, with merchants praising support and split payments but flagging slower settlement.",
+    "keywords": [
+      "easebuzz reviews",
+      "easebuzz complaints",
+      "easebuzz settlement",
+      "easebuzz payment gateway",
+      "easebuzz ratings"
+    ],
+    "focusKeyword": "easebuzz reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Easebuzz reviews verified?",
+      "answer": "The assessments here come from Techjockey, Trustpilot, G2, Slashdot, Indian payment directories and consumer complaint boards, current as of August 2026. Techjockey and G2 verify reviewers; Trustpilot and the complaint boards do not. No single pool is large enough to quote a headline rating from, so this page reports what reviewers consistently say rather than an average. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed score."
+    },
+    {
+      "question": "Why does RBI authorisation matter for an Indian payment gateway?",
+      "answer": "Because many gateways operate on in-principle approval rather than final authorisation, and the difference is not cosmetic. Easebuzz has received final authorisation from the Reserve Bank of India to operate as an online payment aggregator under the Payment and Settlement Systems Act, 2007, and it is certified PCI-DSS Level 1, the highest level of payment security certification. For a merchant choosing where to route revenue, a fully authorised aggregator carries less regulatory risk than one whose licence is still provisional, and that is worth more than a star rating."
+    },
+    {
+      "question": "What do Easebuzz merchants complain about most?",
+      "answer": "Settlement timing, first and most consistently. Settlement generally completes within a few business days, with instant options available depending on volume and contract, but merchants say it is slower than competitors and some report delays beyond what they expected, compounded by support not responding quickly enough during them. Second, fees on certain payment methods are described as high, so your effective cost depends heavily on your payment mix. Third, international payment support is limited, which rules it out as a single provider if a meaningful share of your revenue comes from outside India."
+    },
+    {
+      "question": "What is the split payment feature merchants praise?",
+      "answer": "It settles a single collected payment across multiple sub-merchants automatically, which is the specific reason marketplace and platform businesses choose Easebuzz. If you take one payment from a customer and owe portions of it to several sellers, service providers or franchise locations, doing that manually is reconciliation work that scales badly. Reviewers running that model call it out by name as the feature that made the difference. If you are a single-seller business it is irrelevant, and you would be choosing Easebuzz on regulatory standing and support instead."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026 Easebuzz has coverage across Techjockey, G2, Trustpilot, Slashdot and Indian payment directories, with no single pool large enough to produce a reliable headline figure. The sentiment is broadly positive on the product and specific on the weaknesses, which makes it more useful than a score would be.</p><p>Two credentials underpin the positive assessments. Easebuzz has final authorisation from the Reserve Bank of India as an online payment aggregator under the Payment and Settlement Systems Act, 2007, and it is certified PCI-DSS Level 1. Its support structure is also unusually well documented: email, chatbot, WhatsApp, phone and IVR, with complaints ticketed in Salesforce against 24 hour response commitments and defined escalation tiers across support, fraud, chargeback and legal teams. Merchants describe the gateway as working consistently and the support team as helpful and responsive, and marketplace operators single out the split payment feature that settles one collected payment across multiple sub-merchants.</p><p>The complaints are narrow and repeated. Settlement is slower than competitors, generally completing within a few business days with instant options available by volume and contract. Some merchants report delays beyond that alongside support that did not respond quickly enough. Fees on certain payment methods are called high, and international payment support is limited.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Final Reserve Bank of India authorisation as an online payment aggregator, not merely in-principle approval",
+        "PCI-DSS Level 1 certification, the highest level of payment security certification available",
+        "Split payments settle one collected payment across multiple sub-merchants, which marketplace operators name as decisive",
+        "Support reachable by email, chatbot, WhatsApp, phone and IVR, with 24 hour response commitments and defined escalation tiers",
+        "Complaints are ticketed in a CRM with resolution timelines rather than handled informally",
+        "Merchants describe the gateway as running consistently without frequent issues",
+        "No maintenance overhead beyond transaction commissions, which reviewers on tight margins mention specifically"
+      ],
+      "cons": [
+        "Settlement is slower than competitors, which is the most consistent complaint across every source",
+        "Some merchants report delays beyond the stated few business days, with support slow to respond during them",
+        "Fees on certain payment methods are described as high, so your effective cost depends heavily on payment mix",
+        "International payment support is limited, ruling it out as a sole provider for cross-border revenue",
+        "Instant settlement is conditional on volume and contract terms rather than standard",
+        "No large verified review pool, so the merchant experience cannot be benchmarked precisely"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>Settlement speed is the complaint here, and it is worth separating the part that is Easebuzz from the part that is Indian payment infrastructure. Aggregators settle through the banking system on a cycle, and an RBI-authorised aggregator operates under nodal account rules that govern how quickly merchant funds can move. Some of the slowness is structural. What the reviews establish is that Easebuzz is slower than its direct competitors under the same rules, which is a genuine comparative finding, and that communication during a delay is where merchants lose patience.</p><p>So make settlement the question you negotiate rather than the one you discover. Ask what your standard cycle will be, what volume or contract terms unlock instant settlement, what the cost of that is, and who you contact when a settlement does not land. Then price your own payment mix from the per-method rates, since that is where the high-fee complaint comes from, and compare it against <a href=\"/processor/razorpay\">Razorpay</a> and <a href=\"/processor/payu\">PayU</a> on both settlement terms and per-method cost rather than on general reputation.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.techjockey.com/reviews/easebuzz",
+    "https://www.trustpilot.com/review/easebuzz.in",
+    "https://paymentgateways.org/gateway/easebuzz",
+    "https://slashdot.org/software/p/Easebuzz/",
+    "https://easebuzz.in/grievance"
+  ],
+  "quotesNote": "Three from Techjockey, which verifies reviewers, and one from an Indian consumer complaints board. The split is representative: the product works, and settlement timing is the thing merchants raise.",
+  "quotes": [
+    {
+      "text": "Payments are processed very quickly. The system is simple and straightforward.",
+      "source": "Techjockey",
+      "sourceUrl": "https://www.techjockey.com/reviews/easebuzz",
+      "date": "6 August 2024",
+      "rating": 5
+    },
+    {
+      "text": "Customer service is very helpful and quick to respond. It easily connects with other systems and tools.",
+      "source": "Techjockey",
+      "sourceUrl": "https://www.techjockey.com/reviews/easebuzz",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "Settlements of the funds can be delayed. However, this does not happen often, but it is a bit of concern.",
+      "source": "Techjockey",
+      "sourceUrl": "https://www.techjockey.com/reviews/easebuzz",
+      "date": "10 July 2024",
+      "rating": 4
+    },
+    {
+      "text": "we have not received the settlement at the end of the month...When we asked to the support they told us as the merchant is live on 24th of the month you will receive it in next month.",
+      "source": "ConsumerComplaints.in",
+      "sourceUrl": "https://www.consumercomplaints.in/bycompany/easebuzz-a504039.html",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "a partner who had referred a merchant"
+    }
+  ]
+}

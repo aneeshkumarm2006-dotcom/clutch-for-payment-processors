@@ -1,0 +1,128 @@
+{
+  "slug": "easy-pay-direct",
+  "name": "Easy Pay Direct",
+  "heading": "Easy Pay Direct reviews",
+  "intro": "Easy Pay Direct has a stronger review record than most high-risk providers: 4.7 from 87 Google reviews, and an A plus Better Business Bureau rating. The feature reviewers keep returning to is load balancing, meaning volume spread across multiple merchant accounts so one account being interrupted does not stop you taking payments. The complaints are narrow and specific, and several point at the backend processor rather than at Easy Pay Direct itself.",
+  "seo": {
+    "metaTitle": "Easy Pay Direct Reviews: Load Balancing Is the Point",
+    "metaDescription": "Easy Pay Direct holds an A+ BBB rating with few complaints. Its load balancing across multiple merchant accounts is what reviewers actually praise, and why.",
+    "keywords": [
+      "easy pay direct reviews",
+      "easy pay direct complaints",
+      "easy pay direct load balancing",
+      "easy pay direct high risk",
+      "easy pay direct gateway"
+    ],
+    "focusKeyword": "easy pay direct reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Easy Pay Direct reviews verified?",
+      "answer": "They are published third-party reviews rather than reviews submitted to this site. The largest independent pool is Easy Pay Direct's Google listing in Austin, which held 87 reviews at 4.7 stars when checked on 19 August 2026, distributed as 78 five-star, 3 four-star and 6 one-star with nothing in between. It also holds an A plus Better Business Bureau rating, though it is no longer an accredited business. One caveat worth applying to the positive half: a large share of the five-star reviews are addressed to a named account manager rather than to the company, which is characteristic of a relationship-led sales operation and tells you more about individual reps than about the platform. No merchant has published a review here yet."
+    },
+    {
+      "question": "What is load balancing and why does it matter so much?",
+      "answer": "It is the reason to consider Easy Pay Direct at all. The company runs its own gateway, which can distribute your transaction volume across several merchant accounts at once rather than routing everything through one. If a single account is interrupted, whether by a hold, a review or a processor decision, transactions keep going through the others. Read almost any other reviews page on this site and the dominant complaint is a hold or closure stopping a business dead. Load balancing is the structural mitigation for exactly that, and it is why reviewers in high-risk categories cite it specifically rather than talking about rates."
+    },
+    {
+      "question": "What do the negative Easy Pay Direct reviews say?",
+      "answer": "Six of the 87 Google reviews are one star, and they cluster on two things rather than on pricing. The first is support going silent: one merchant describes being locked out for weeks with emails unanswered and calls not returned, and says they were still chasing months later. The second is the application itself, with one applicant reporting a month and a half of waiting before being declined, on grounds including having no online presence when they say they did, and being left with two hard credit inquiries for the trouble. That last detail is worth carrying into any application here: ask whether underwriting involves a hard credit pull before you submit. What is notably absent is the pricing-surprise complaint that dominates the reseller side of this industry, and reviewers specifically praise honesty in the company's advertising, which is not a compliment this segment usually earns."
+    },
+    {
+      "question": "Who is Easy Pay Direct built for?",
+      "answer": "Merchants in categories that mainstream processors decline or offboard: supplements, coaching and information products, CBD, digital products and high-ticket sales. If that describes you, the load balancing is not a nice extra, it is insurance against the failure mode most likely to end your business, and it is worth paying for. If you are low-risk retail or straightforward SaaS, you are buying complexity you do not need and a conventional provider will be cheaper and simpler. Quote it against <a href=\"/processor/paymentcloud\">PaymentCloud</a> and <a href=\"/processor/durango-merchant-services\">Durango Merchant Services</a> on reserve, funding delay and chargeback fee."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of 19 August 2026, Easy Pay Direct's Google listing carries 87 reviews at 4.7 stars, broken down as 78 five-star, 3 four-star and 6 one-star with nothing at two or three. It also holds an A plus rating with the Better Business Bureau, though it is no longer an accredited business. For a high-risk provider that is an unusually clean record, and independent reviewers say so.</p><p>Two patterns in the positive reviews are worth naming before you weigh them. First, a large share are addressed to a specific account manager by name rather than to the company, praising responsiveness and advocacy. That is genuine feedback, but it describes a relationship-led sales operation rather than a platform, and account managers move on. Second, several reviewers volunteer that setup took a week or two and frame that as reasonable for a dedicated merchant account rather than as a complaint, which is a fair expectation to carry in.</p><p>The most revealing detail sits inside a five-star review. More than one reviewer names Maverick Payments as the processor behind the account, and one of them spends an otherwise glowing review asking the company to stop using it. That reframes some of the negative feedback: Easy Pay Direct runs its own gateway and its own service layer, but the merchant account behind it is somebody else's, and a merchant locked out or waiting on an approval may be stuck behind a bank and a processor that Easy Pay Direct does not control either. The one-star reviews cluster on exactly that territory: support going quiet during a lockout, and a long application that ended in a decline.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across 87 Google reviews and the wider record",
+      "pros": [
+        "4.7 from 87 Google reviews, with 78 of them at five star, which is a genuinely strong record for high-risk",
+        "Load balancing across multiple merchant accounts, so one account being held does not stop you taking payments",
+        "A proprietary gateway rather than a resold one, which is what makes the multi-account routing possible",
+        "An A plus Better Business Bureau rating with a notably clean complaint record for a high-risk provider",
+        "Reviewers repeatedly describe reps who chase problems on their behalf, including out of hours",
+        "Merchants declined or dropped elsewhere describe being taken on, including hemp, supplements and coaching",
+        "Reviewers praise honesty in advertising, which is a rare compliment in this segment",
+        "Several reviewers describe relationships running three to four years, which is longer than most pools capture"
+      ],
+      "cons": [
+        "Six one-star reviews describe support going silent, including one merchant locked out for weeks with emails and calls unanswered",
+        "One applicant reports a month and a half of waiting, a decline on grounds they dispute, and two hard credit inquiries left behind",
+        "Reviewers name Maverick Payments as the processor behind the accounts, and one asks the company to stop using it",
+        "A large share of five-star reviews praise a named account manager rather than the platform, so your experience may hinge on who you get",
+        "Account closures and fund holds still appear in reviews, so load balancing mitigates the risk rather than removing it",
+        "Setup is commonly described as taking a week or two, which is slower than an aggregator",
+        "No longer a Better Business Bureau accredited business, though the A plus rating stands",
+        "Running several merchant accounts adds reconciliation work you would not have with one"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>Load balancing sounds like a technical feature and is really a business continuity decision, so it deserves examining rather than accepting. Distributing volume across several accounts means several underwriting relationships, several sets of terms and several statements to reconcile, and it only protects you if the accounts are with genuinely separate acquirers rather than several accounts behind one. Ask how many accounts you would have, with which acquirers, and what happens to routing if one is closed rather than merely paused. That is the question the reviews imply and none of them answer.</p><p>The reviews that name Maverick Payments point at the same structural issue from another direction. Easy Pay Direct sells the gateway, the routing and the service, but it is not the acquirer, so the parts of your experience that hurt most when they go wrong, the underwriting decision, the hold, the closure, are decided somewhere you have no relationship. That is why an operation this well reviewed still generates complaints about lockouts and slow approvals. Ask which acquirer sits behind each account and what Easy Pay Direct can actually do when that acquirer says no.</p><p>The other thing to hold onto is that the negative reviews still describe holds and closures. A provider designed around surviving them has not abolished them, and approval friction is reported here too. So treat load balancing as reducing the severity of the worst outcome rather than its likelihood. Get the reserve, the funding delay and the chargeback fee in writing for each account, ask whether the application involves a hard credit pull, and confirm what notice you would get before an account is closed, because that is the number that decides whether the redundancy actually has time to work.</p>"
+    }
+  ],
+  "sources": [
+    "https://maps.google.com/?cid=15379220206733082739",
+    "https://www.merchantmaverick.com/reviews/easy-pay-direct-review/",
+    "https://www.cardpaymentoptions.com/credit-card-processors/easy-pay-direct/",
+    "https://merchantalternatives.com/reviews/easy-pay-direct/",
+    "https://sharkprocessing.com/easy-pay-direct-review/"
+  ],
+  "quotesNote": "All six come from Easy Pay Direct's Google listing, which holds 87 reviews at 4.7 stars, and they are weighted to match: four from the 78 five-star and four-star reviews, two from the six one-star ones. The positive excerpts were chosen because they name a specific industry or a checkable detail rather than thanking a rep by name, which most of that half does. One of them is a five-star review criticising the processor behind the account, which is included because it explains more about the complaints than the complaints do.",
+  "quotes": [
+    {
+      "text": "After months of struggling to find a good payment processor for our farm-based hemp business, Easy Pay Direct came to the rescue! Start-up was a little bumpy, but EPD worked with us to make everything work well.",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=15379220206733082739",
+      "date": "posted about 11 months ago",
+      "rating": 4,
+      "attribution": "a farm-based hemp business"
+    },
+    {
+      "text": "They've been amazing for us since day 1. Even when other payment processors treated us like we had leprosy.",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=15379220206733082739",
+      "date": "posted about a year ago",
+      "rating": 5,
+      "attribution": "a merchant declined elsewhere"
+    },
+    {
+      "text": "It may take a week or two to get setup with them, at least in my case, but you have to understand you are signing up to get a dedicated merchant account and something like that takes time but it is worth it.",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=15379220206733082739",
+      "date": "posted about two years ago",
+      "rating": 5,
+      "attribution": "a merchant of three to four years, on setup time"
+    },
+    {
+      "text": "I love your team and your company but please disconnect from Maverick Payment, all of your customers are begging you.",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=15379220206733082739",
+      "date": "posted about a year ago",
+      "rating": 5,
+      "attribution": "a five-star reviewer, on the processor behind the account"
+    },
+    {
+      "text": "The customer support is just terrible. I've been locked out for weeks now. They do not respond to emails and they do not return phone calls.",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=15379220206733082739",
+      "date": "edited about two months before 19 August 2026",
+      "rating": 1,
+      "attribution": "a merchant locked out of their account"
+    },
+    {
+      "text": "To make matters worse, I got hit with two hard credit inquiries for this nonsense. That's a direct hit to my credit score for absolutely no reason.",
+      "source": "Google reviews",
+      "sourceUrl": "https://maps.google.com/?cid=15379220206733082739",
+      "date": "posted about a year ago",
+      "rating": 1,
+      "attribution": "an applicant declined after six weeks"
+    }
+  ]
+}

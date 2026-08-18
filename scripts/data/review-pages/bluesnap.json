@@ -1,0 +1,111 @@
+{
+  "slug": "bluesnap",
+  "name": "BlueSnap",
+  "heading": "BlueSnap reviews",
+  "intro": "BlueSnap averages around 4.0 out of 5 across roughly 301 reviews pooled from G2, Capterra, Trustpilot and Software Advice, with G2 alone at about 4.1 from 106 reviews and Capterra sentiment running 90 percent positive. Reviewers rate the cross-border authorisation rates and the amount bundled into one contract. The complaints are narrower: reserves, payout resolution, and a verification process that turns away newer businesses.",
+  "seo": {
+    "metaTitle": "BlueSnap Reviews: 4.0 Average, Reserve Disputes",
+    "metaDescription": "BlueSnap averages 4.0 across 301 reviews for cross-border authorisation and bundled features, with complaints about reserves, payouts and strict verification.",
+    "keywords": [
+      "bluesnap reviews",
+      "bluesnap complaints",
+      "bluesnap ratings",
+      "bluesnap reserve",
+      "bluesnap payouts"
+    ],
+    "focusKeyword": "bluesnap reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these BlueSnap reviews verified?",
+      "answer": "The figures come from G2, Capterra, Trustpilot and Software Advice and were current as of August 2026. G2 and Capterra verify reviewers before publishing; Trustpilot does not. Note that Capterra and Software Advice share a review pool, so counting both overstates how much independent evidence there is. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed rating. A review here naming your card mix and your reserve terms would be more useful than the aggregate."
+    },
+    {
+      "question": "What do BlueSnap reviewers praise most?",
+      "answer": "Two things, consistently. First, the global acquiring footprint and the cross-border authorisation rates that come with it: reviewers selling internationally report more approved transactions than they got routing everything through a single domestic acquirer, and that shows up directly in revenue rather than in fees. Second, breadth under one contract, meaning gateway, fraud tooling, invoicing and accounts receivable automation without assembling four vendors. Support also scores well, with 24 hour multilingual coverage and named account managers for higher-volume accounts, and G2 and Capterra reviewers specifically praise responsiveness during technical onboarding."
+    },
+    {
+      "question": "What do BlueSnap reviewers complain about most?",
+      "answer": "Reserve disputes and slow payout resolution, which appear mainly in the Trustpilot pool. A reserve is money the acquirer holds back against future chargebacks, and reviewers describe disagreeing about the amount and struggling to get a payout question resolved quickly. Second, the self-service knowledge base is thinner than larger competitors offer, so answers that should be self-serve require contacting support. Third, contract structure: pricing is described as competitive but the arrangement can feel complex for a smaller merchant. Verification is also strict enough that newer businesses are frequently turned away."
+    },
+    {
+      "question": "Is BlueSnap a good fit for a new business?",
+      "answer": "Often not, and the reviews are fairly clear about it. BlueSnap underwrites properly and is described as strict about verification, which means a business with no trading history is a likely decline. That is the same trade every real acquirer makes and it has an upside: you are far less exposed to the sudden offboarding that dominates reviews of aggregators, because the risk assessment happened before you launched rather than after. If you are pre-revenue, expect this to be a difficult application and consider starting with an aggregator, then moving here once you have volume and cross-border sales worth optimising."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, BlueSnap carries about 4.0 out of 5 across roughly 301 reviews pooled from G2, Capterra, Trustpilot and Software Advice. G2 alone sits at around 4.1 from 106 reviews, and Capterra sentiment runs about 90 percent positive with nothing recorded as negative across its 29 reviews. That is a healthy record for a mid-market acquirer, and the sample is large enough to be worth something without being large enough to be definitive.</p><p>The praise is specific and commercially meaningful. Reviewers consistently cite the global acquiring footprint and the high cross-border authorisation rates that come with it, which is the single strongest argument for using a multi-acquirer platform at all. They also value how much arrives under one contract: gateway, fraud tooling, invoicing and accounts receivable automation. Support scores well too, with 24 hour multilingual coverage and named account managers at higher volumes.</p><p>The criticism sits almost entirely in the Trustpilot pool and concerns money rather than technology: reserve disputes and slow payout resolution. A thinner self-service knowledge base and a contract structure that smaller merchants find complex fill out the rest.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Reviewers report higher cross-border authorisation rates than routing international sales through one domestic acquirer",
+        "Global acquiring footprint means local processing in multiple markets under a single contract",
+        "Gateway, fraud tooling, invoicing and receivables automation are bundled rather than sold as four subscriptions",
+        "24 hour multilingual support, with named account managers for higher-volume accounts",
+        "G2 and Capterra reviewers specifically praise responsiveness during technical onboarding",
+        "Pricing is described as competitive against comparable mid-market acquirers",
+        "Because it underwrites properly, reviewers do not report the sudden account closures common with aggregators",
+        "Reviewers report multiple currency payouts consolidated into one, which cut their banking fees"
+      ],
+      "cons": [
+        "Reserve disputes are the most serious complaint, with reviewers disagreeing about how much is held back and for how long",
+        "One reviewer reports 7,000 dollars reserved with no alert or explanation and no agreement to release it, against monthly revenue of only 15,000",
+        "Slow payout resolution comes up alongside the reserve complaints, and both appear mainly on Trustpilot",
+        "The self-service knowledge base is thinner than larger competitors, so routine answers need a support ticket",
+        "Verification is strict and newer businesses are frequently turned away, which rules it out pre-revenue",
+        "Contract structure is described as complex for smaller merchants, which makes the competitive pricing harder to verify",
+        "Capterra's pool is only 29 reviews and shares a source with Software Advice, so the positive sentiment rests on less than it appears",
+        "Chargeback dispute management is described as deficient, with no case management to track outcomes"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The reserve complaints deserve more weight than their volume suggests, because a reserve is the one term that can be economically painful while everything else looks fine. It is a percentage of your revenue held back for a set period against future chargebacks, and it is negotiated per merchant based on your category and history. No review can tell you what yours will be, and a reviewer rating BlueSnap five stars may have no reserve at all while you are quoted ten percent held for six months.</p><p>So make it the first question rather than the last. Ask for the reserve percentage, the hold period, whether it is rolling or fixed, and what would cause it to increase, all in writing before you sign. Then ask what the payout schedule is and who you contact when one is late, since slow payout resolution is the complaint that travels with the reserve one. If cross-border authorisation is your reason for being here, also get the list of markets where BlueSnap acquires locally and check it against your actual revenue by country, the same way you would with <a href=\"/processor/checkout-com\">Checkout.com</a> or <a href=\"/processor/ebanx\">EBANX</a>.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.g2.com/products/bluesnap-accounts-receivable-automation/reviews",
+    "https://www.capterra.com/p/169980/BlueSnap/reviews/",
+    "https://www.rfp.wiki/payments-fraud/payment-orchestrators/bluesnap",
+    "https://bluesnap.pissedconsumer.com/review.html"
+  ],
+  "quotesNote": "Four from Capterra's regional site, where BlueSnap averages 4.5 across 29 reviews. The first three are the majority view and the fourth is the reserve and offboarding risk this page warns about, from a merchant who had been paying for two and a half years.",
+  "quotes": [
+    {
+      "text": "After 2.5 years of processing with them and paying each fee without fail, we got cut with less than a days notice.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/169980/bluesnap",
+      "date": "2026",
+      "rating": 3,
+      "attribution": "a software company"
+    },
+    {
+      "text": "BlueSnap offers quick API integration so I had no trouble integrating BlueSnap with my SaaS Business.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/169980/bluesnap",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a marketing and advertising business"
+    },
+    {
+      "text": "Bluesnap is very easy to use and customize. The interface is extremely user-friendly.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/169980/bluesnap",
+      "date": "2026",
+      "rating": 5,
+      "attribution": "a software company"
+    },
+    {
+      "text": "The product integrates well with mobile payments systems and E-commerce.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.ae/reviews/169980/bluesnap",
+      "date": "2026",
+      "rating": 4,
+      "attribution": "a travel and tourism business"
+    }
+  ]
+}

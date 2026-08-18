@@ -1,0 +1,104 @@
+{
+  "slug": "authorize-net",
+  "name": "Authorize.net",
+  "heading": "Authorize.net reviews",
+  "intro": "Authorize.net has been running since 1996 and is owned by Visa, and its reviews read like it: few people love it, almost nobody says it broke. Complaint volume is low to moderate and concentrates on support and billing rather than on reliability. The thing most reviews fail to make clear is that your experience depends less on Authorize.net than on whoever sold it to you.",
+  "seo": {
+    "metaTitle": "Authorize.net Reviews: Gateway Fees and Reseller Risk",
+    "metaDescription": "Authorize.net reviews rate reliability and integrations well, with complaints about support and billing. Why your reseller sets the price you actually pay.",
+    "keywords": [
+      "authorize.net reviews",
+      "authorize net ratings",
+      "authorize.net complaints",
+      "authorize.net fees",
+      "authorize.net gateway"
+    ],
+    "focusKeyword": "authorize.net reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Authorize.net reviews verified?",
+      "answer": "The assessments here come from Software Advice, the Better Business Bureau and independent merchant-services reviewers including Merchant Maverick, Card Payment Options and Fit Small Business, current as of August 2026. None are reviews submitted to this site. Anything in the list above is a review a merchant wrote here and our moderators approved, and our own score is computed only from those rather than borrowed from a platform. One caution about reading any Authorize.net review pool: reviewers rarely say who resold the gateway to them, and that omission hides most of the variation between their experiences."
+    },
+    {
+      "question": "Why are Authorize.net reviews so inconsistent about price and support?",
+      "answer": "Because most merchants do not buy it from Authorize.net. It is a gateway, and it is very commonly resold by a merchant services provider who bundles it into their own pricing and provides the first line of support. So one reviewer pays the published 25 dollars a month and talks to Authorize.net, another pays whatever their ISO decided to charge and talks to that ISO. Both write a review titled Authorize.net. When you see wildly different accounts of cost and service quality for the same product, the reseller is usually the variable, not the gateway."
+    },
+    {
+      "question": "What do Authorize.net reviewers complain about most?",
+      "answer": "Customer support is the leading theme, along with reseller training, meaning merchants reaching someone who could not answer a gateway question because they worked for the reseller rather than for Authorize.net. Billing and account management issues are second: unexpected charges and difficulty getting an account changed or closed. Complaint volume overall is low to moderate rather than severe, which for a payments product with thirty years of history is a reasonable outcome. What you do not see much of is the complaint that dominates aggregator reviews: sudden fund holds and account terminations."
+    },
+    {
+      "question": "Is Authorize.net's all-in-one plan good value?",
+      "answer": "Only at modest volume. The gateway-only plan is 25 dollars a month plus per-transaction fees and assumes you bring your own merchant account. The all-in-one plan bundles the gateway with processing for 25 dollars a month plus 2.9 percent and 30 cents per transaction, which is a flat rate and therefore expensive once you are processing steadily. Merchant Maverick makes the same point: the flat pricing on the bundle does not suit a high-volume business. If your volume is real, keep the gateway and put an interchange-plus merchant account behind it, such as <a href=\"/processor/helcim\">Helcim</a> or <a href=\"/processor/stax\">Stax</a>."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Authorize.net occupies an unusual position in this directory: it is old, it is owned by Visa, and its review record is largely uneventful. Independent reviewers rate it as one of the stronger payment gateways available and recommend it for e-commerce, with Merchant Maverick and Fit Small Business both landing there. Merchants who review it tend to cite the security features and how easily it integrates with other systems, which is what you would expect from a product that has been an integration target since 1996.</p><p>Complaint volume as of August 2026 is described as low to moderate, and the substance concentrates on customer support, reseller training, and account or billing administration. That is a materially different complaint profile from the newer aggregators, where the dominant theme is held funds and closed accounts. Longevity buys some things.</p><p>What the reviews do not do is settle the pricing question, and that is not really the reviewers' fault. Because the gateway is so widely resold, no two reviewers are necessarily describing the same commercial arrangement.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Nearly every shopping cart, billing platform and accounting tool already integrates with it, so reviewers rarely have to build anything custom",
+        "Reviewers cite the fraud detection suite and security posture as the reason their bank or auditor was satisfied",
+        "Thirty years of operation and Visa ownership, which reviewers running established businesses treat as a stability argument",
+        "The gateway can sit in front of a merchant account of your choosing, so you are not locked into one processor's rates",
+        "Recurring billing and the virtual terminal are included rather than sold as add-ons",
+        "Sudden account holds and terminations are largely absent from the review record, unlike aggregator alternatives"
+      ],
+      "cons": [
+        "Customer support is the leading complaint, and reseller staff frequently cannot answer gateway questions",
+        "Billing and account administration problems come up repeatedly, including unexpected charges and difficulty closing an account",
+        "The all-in-one flat rate of 2.9 percent plus 30 cents is expensive for a high-volume business",
+        "Because the gateway is usually resold, what you pay depends on your ISO's markup rather than on the published price",
+        "The interface and reporting are dated compared with newer gateways, and reviewers describe it as functional rather than pleasant",
+        "There is a monthly fee regardless of volume, so a low-volume or seasonal merchant pays for months they barely use"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The most consequential fact about buying Authorize.net does not appear in its reviews: you are probably buying it from someone else. A merchant services provider resells the gateway, sets your monthly fee and per-transaction cost, and answers the phone when something breaks. That is why the review pool contains both merchants paying the published rate and merchants paying considerably more, and both describing support that ranged from fine to useless. Before you weigh any of it, find out who your gateway contract is actually with.</p><p>Which makes the practical checklist short. Ask whether you are contracting with Authorize.net directly or through a reseller, what the gateway fee and per-transaction fee are in writing, and who you call when a transaction fails at 6pm. Then price the processing separately from the gateway, because the two are separable here and that is the main advantage of using a standalone gateway at all. If you would rather not manage two relationships, <a href=\"/processor/nmi\">NMI</a> is the closest comparison for gateway-only, and a full-service provider bundles both at the cost of flexibility.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.merchantmaverick.com/reviews/authorize-net-review/",
+    "https://www.cardpaymentoptions.com/credit-card-processors/authorize-net-review/",
+    "https://www.bbb.org/us/ut/american-fork/profile/credit-card-processing-services/authorizenet-1166-2009493/complaints",
+    "https://fitsmallbusiness.com/authorize-net-review/",
+    "https://www.softwareadvice.com/online-payment/authorize-net-profile/"
+  ],
+  "quotesNote": "All four are one-star reviews from the Better Business Bureau, where Authorize.net averages 1.31 across only 13 reviews and is not accredited. A pool that small is the complaint channel rather than a rating, and note that fund holds belong to the all-in-one plan, since the gateway alone does not touch your money.",
+  "quotes": [
+    {
+      "text": "Support is terrible, has no idea what their own systems are doing.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ut/american-fork/profile/credit-card-processing-services/authorizenet-1166-2009493/customer-reviews",
+      "date": "30 June 2026",
+      "rating": 1
+    },
+    {
+      "text": "they closed my account and are holding THOUSANDS of dollars for 90 day MINIMUM",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ut/american-fork/profile/credit-card-processing-services/authorizenet-1166-2009493/customer-reviews",
+      "date": "14 April 2026",
+      "rating": 1
+    },
+    {
+      "text": "They're good at authorizing transactions but would blame it on someone else like the processor when the money doesn't get to the seller account.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ut/american-fork/profile/credit-card-processing-services/authorizenet-1166-2009493/customer-reviews",
+      "date": "12 February 2024",
+      "rating": 1
+    },
+    {
+      "text": "This company should be ashamed of itself and it's predatory business practices.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ut/american-fork/profile/credit-card-processing-services/authorizenet-1166-2009493/customer-reviews",
+      "date": "2 July 2024",
+      "rating": 1
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "slug": "mollie",
+  "name": "Mollie",
+  "heading": "Mollie reviews",
+  "intro": "Mollie is rated around 4.6 out of 5 across more than 9,000 Trustpilot reviews, which is high for a payment provider and backed by a large enough sample to take seriously. Reviewers are consistent about why: it integrates quickly, it supports the local European payment methods that matter, and support answers. The complaints are equally consistent and they are almost all about waiting, for a payout or for a verification.",
+  "seo": {
+    "metaTitle": "Mollie Reviews: 4.6 on Trustpilot, Payout Delays",
+    "metaDescription": "Mollie rates 4.6 across 9,000+ Trustpilot reviews for easy integration and support, with complaints about payout timing and slow account verification.",
+    "keywords": [
+      "mollie reviews",
+      "mollie ratings",
+      "mollie complaints",
+      "mollie payout delay",
+      "mollie payment provider"
+    ],
+    "focusKeyword": "mollie reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Mollie reviews verified?",
+      "answer": "The figures on this page come from Trustpilot and were current as of August 2026, read alongside independent European merchant-services write-ups. Trustpilot is an open platform, and Mollie actively collects reviews through it, which contributes to both the volume and the high average. None of these are reviews submitted to this site, and no merchant has published one here for Mollie yet, which is why the list above is empty rather than showing a borrowed score. A review here naming your country, your payment mix and your actual payout cycle would be more useful to another merchant than the aggregate."
+    },
+    {
+      "question": "Why is Mollie rated higher than most payment providers?",
+      "answer": "Two reasons that hold up under scrutiny. First, pricing: Mollie charges per transaction with no monthly fee and publishes the rates per payment method, so reviewers know what iDEAL, Bancontact or a card costs before they sign up. Second, local coverage: for a Dutch, Belgian or German merchant the methods customers actually want are supported natively, which is not true of most international processors selling into Europe. Reviewers who moved from a bank contract or from a global gateway describe both as a step up. The high score is a verdict on fit for European sellers rather than a claim to be the best processor anywhere."
+    },
+    {
+      "question": "What do Mollie reviewers complain about most?",
+      "answer": "Payout timing, first and most concretely. Merchants report card funds taking noticeably longer to become available than they expected, with some describing waits of two to three weeks, and Klarna settlements taking considerably longer again. New accounts appear to be affected most, which suggests an initial hold period rather than a permanent schedule, but reviewers say it was not clearly explained upfront. Second is account verification, which reviewers describe as slow and occasionally stalling a launch. Third, and connected, is communication during those waits: reviewers say the delay itself was tolerable and the silence around it was not."
+    },
+    {
+      "question": "Is Mollie a good fit for a business outside Europe?",
+      "answer": "Probably not, and the reviews reflect who it is built for. Mollie's strength is European local payment methods and European merchant onboarding, so the reviewers rating it 4.6 are largely Dutch, Belgian, German, French and UK businesses selling to European customers. If you are selling primarily into North America or Asia, most of what makes Mollie good does not apply to you and the payment methods you need are better served elsewhere. For selling into Europe from outside it, or for global coverage under one contract, <a href=\"/processor/adyen\">Adyen</a> and <a href=\"/processor/checkout-com\">Checkout.com</a> are the closer comparisons."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Mollie holds roughly 4.6 out of 5 across more than 9,000 Trustpilot reviews. That combination of a high score and a large sample is uncommon in payments, where most providers with volume in the thousands sit far lower, and it is the single strongest thing in Mollie's favour. Independent European reviewers reach broadly the same conclusion, rating it well for small and mid-sized merchants selling within Europe.</p><p>The praise concentrates on three specific things rather than on general satisfaction: integration that took hours rather than weeks, support that replied usefully, and local payment method coverage including iDEAL, Bancontact, SEPA and the buy-now-pay-later options European shoppers expect. Pricing per transaction with no monthly commitment comes up repeatedly from merchants who had been on a bank contract.</p><p>Against that, the negative reviews are unusually uniform. They are not about the product failing. They are about money arriving later than expected and verification taking longer than promised, with poor communication during both.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Integration is described as quick and well documented, with reviewers going live in hours rather than through a project",
+        "Local European methods including iDEAL, Bancontact and SEPA are native, which reviewers say fixed conversion losses on foreign gateways",
+        "Per-transaction pricing with no monthly fee, published per payment method, so reviewers could work out their cost before signing up",
+        "Support is repeatedly described as responsive and able to resolve a question rather than deflect it",
+        "The dashboard and reporting are rated as clear enough for a small team to reconcile without extra tooling",
+        "Buy-now-pay-later options are available without separate contracts with each provider"
+      ],
+      "cons": [
+        "Payout timing is the dominant complaint, with reviewers reporting card funds taking two to three weeks to become available",
+        "Klarna settlements are reported as taking substantially longer again, which reviewers say was not made clear in advance",
+        "Account verification can be slow and has stalled launches, which is the complaint most likely to affect a new merchant",
+        "Communication during holds and verification is described as inadequate, and reviewers rate the silence worse than the wait",
+        "Some reviewers report accounts blocked with limited explanation, though in smaller numbers than the payout complaints",
+        "The product is built around European selling, so its advantages narrow sharply outside that market"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The payout complaints need reading carefully rather than at face value. A new merchant account almost always has a longer initial settlement period while the provider builds a risk picture, and much of the two-to-three-week reporting appears to come from exactly that phase rather than from an established account's steady schedule. What the reviews do establish is that merchants were surprised by it, which is a disclosure problem rather than a settlement problem. Ask for your payout schedule in writing, including the initial period and what shortens it, before you launch.</p><p>The other thing an aggregate cannot tell you is how the payment mix changes your economics. Mollie charges per method, so a business taking mostly iDEAL pays very differently from one taking mostly international cards, and two merchants can both rate it five stars while paying rates that are not comparable. Price your own mix from the published per-method rates rather than reading anyone's verdict on cost. If you also need card acquiring outside Europe, run <a href=\"/processor/stripe\">Stripe</a> against it on the non-European share specifically.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/mollie.com",
+    "https://noda.live/articles/mollie-review",
+    "https://www.heropay.eu/en/blog/mollie-review",
+    "https://www.mollie.com/growth/mollie-experience"
+  ],
+  "quotesNote": "Four excerpts from Mollie's Trustpilot page, which averages 4.6 across more than 9,000 reviews. Three describe the payout problem this page is about and one describes the ordinary good case, which is roughly the ratio the negative reviews sit in against that average.",
+  "quotes": [
+    {
+      "text": "Status updates are delayed, payout calculations are unclear and communication around SEPA processing feels intentionally vague. As a merchant you are left guessing where your money is and when it will actually arrive.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/mollie.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "I signed up with the expectation that payouts would be received within around 5 to 7 business days. Now I'm being told that it may take up to 50 days for my payments to be settled.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/mollie.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "Our experience with Mollie has been extremely disappointing.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/mollie.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "I've tried many different payment solutions, but after switching to Mollie, I finally found one that just works. The setup is smooth, the interface is clean, and the overall experience has been excellent.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/mollie.com",
+      "date": "2026",
+      "rating": 5
+    }
+  ]
+}

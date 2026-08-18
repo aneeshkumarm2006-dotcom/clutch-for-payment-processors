@@ -1,0 +1,106 @@
+{
+  "slug": "merchant-one",
+  "name": "Merchant One",
+  "heading": "Merchant One reviews",
+  "intro": "Merchant One has been Better Business Bureau accredited since 2010 and holds an A+ rating, and it has also had 52 complaints closed with the BBB in the past three years. The complaints are unusually consistent in what they allege: being told there was no contract and no cancellation fee, and then being charged one.",
+  "seo": {
+    "metaTitle": "Merchant One Reviews: 52 BBB Complaints in 3 Years",
+    "metaDescription": "Merchant One holds a BBB A+ rating alongside 52 complaints in three years alleging undisclosed fees and cancellation charges after being told there were none.",
+    "keywords": [
+      "merchant one reviews",
+      "merchant one complaints",
+      "merchant one cancellation fee",
+      "merchant one contract",
+      "merchant one fees"
+    ],
+    "focusKeyword": "merchant one reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Merchant One reviews verified?",
+      "answer": "The figures come from the Better Business Bureau, Trustpilot and independent merchant-services reviewers including CardFellow, Card Payment Options, Forbes Advisor and Merchant Alternatives, current as of August 2026. Read the Trustpilot and BBB records together rather than separately: Trustpilot sentiment is more positive while the BBB complaint file is substantial, and that split is itself informative. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed score."
+    },
+    {
+      "question": "How can Merchant One have an A+ rating and 52 complaints?",
+      "answer": "Because a Better Business Bureau rating measures how a company responds to complaints, not how many it receives. Accreditation since 2010 and a record of engaging with and closing complaints will sustain an A+ even at high volume. So read the two facts as answering different questions: the A+ says Merchant One answers its complaints, and the 52 closed in three years says there is a steady supply of them. For a company of its size that volume is high, and what it alleges is consistent enough to be a pattern rather than a scattering of unhappy customers."
+    },
+    {
+      "question": "What do Merchant One reviewers complain about most?",
+      "answer": "Cancellation terms that did not match the sales conversation, and this is the dominant allegation. Reviewers say they were told there was no contract and no cancellation fee, then were charged to leave. Better Business Bureau reviewers describe three-year contracts with termination fees of up to 750 dollars, though the company's position is that mandatory three-year terms are historical and contracts are now fully cancellable. Beyond that: undisclosed and high fees, unauthorised debits, held funds, unclear contract terms at setup, and sales practices reviewers describe as misleading."
+    },
+    {
+      "question": "What should you get in writing before signing with Merchant One?",
+      "answer": "Everything the complaints are about, and get it on the contract rather than in an email. Specifically: the contract length, whether it auto-renews, the exact early termination fee as a number, and confirmation in the document itself that there is none if that is what you were told. Then the full fee schedule: discount rate and per-transaction fee, monthly minimum, statement, PCI and gateway fees, chargeback fee, and any annual charge. Verbal assurances are precisely what the 52 complaints are about, so treat anything not in the signed document as not agreed. If you would rather avoid the conversation, <a href=\"/processor/helcim\">Helcim</a> and <a href=\"/processor/dharma-merchant-services\">Dharma Merchant Services</a> publish their rates and operate without long-term contracts."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Merchant One has been Better Business Bureau accredited since 2010 with an A+ rating, and has had 52 complaints closed with the BBB in the preceding three years. Trustpilot sentiment is more positive than that file suggests. Independent merchant-services reviewers, including CardFellow, Card Payment Options and Merchant Alternatives, are broadly critical, with one summarising the online reaction as a company whose sales tactics leave merchants feeling misled.</p><p>What makes the complaint file worth taking seriously is how specific and repetitive it is. The allegations are not vague dissatisfaction. They describe being told there was no contract and no cancellation fee and then being charged to cancel, with BBB reviewers citing three-year terms and termination fees up to 750 dollars. Merchant One's position is that mandatory three-year contracts are historical and that contracts are now fully cancellable, and both things can be true: the terms may have changed while the complaints from the earlier era are still on file.</p><p>The remaining themes are the standard reseller set, and they are consistent across sources: undisclosed fees, high fees, unauthorised debits, held funds, and contract terms that were unclear at the point of setup.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Better Business Bureau accredited since 2010 with an A+ rating, which reflects a record of engaging with and closing complaints",
+        "Approves merchants that stricter underwriters decline, which is why some reviewers ended up here after being turned down",
+        "Trustpilot sentiment is more positive than the complaint file implies, so the negative record is not the whole picture",
+        "Reviewers describe responsive salespeople and quick account setup at the start of the relationship",
+        "The company states that mandatory three-year contracts are no longer required and contracts are now cancellable",
+        "Covers card present, e-commerce and keyed transactions with hardware and gateway from one provider"
+      ],
+      "cons": [
+        "52 Better Business Bureau complaints closed in three years, which is high volume for a company of this size",
+        "The dominant allegation is being told there was no contract or cancellation fee and then being charged to cancel",
+        "BBB reviewers cite three-year contracts with early termination fees of up to 750 dollars",
+        "Undisclosed and high fees appear across every independent source that covers the company",
+        "Reviewers allege unauthorised debits and held funds, which are the most serious complaints in the file",
+        "Contract terms are described as unclear at the point of account setup, which is when they matter most",
+        "Independent reviewers describe the sales approach as misleading, and they are unusually blunt about it"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The gap between an A+ rating and 52 complaints is the whole story here, and it is not a contradiction to resolve so much as a distinction to understand. The rating grades responsiveness. The complaint file describes what merchants are responding to. A company can be genuinely diligent about closing complaints and still generate them at a rate that should make you read your contract twice.</p><p>The other thing worth noting is that reviews cannot tell you which version of the contract you will be offered. If mandatory three-year terms really are historical, then the worst complaints on file describe terms you will not be given, and you should not judge a current quote by them. But that is exactly why the fix is documentary rather than reputational: ask for the contract, read the termination clause, and confirm in the signed document that there is no early termination fee if that is what you were promised. Every complaint in this file would have been prevented by that one step.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.bbb.org/us/wi/milwaukee/profile/credit-card-processing-services/merchant-one-inc-0694-1000058754/complaints",
+    "https://www.cardfellow.com/blog/merchant-one-review",
+    "https://www.cardpaymentoptions.com/credit-card-processors/merchant-one-review/",
+    "https://www.forbes.com/advisor/business/software/merchant-one-review/",
+    "https://merchantalternatives.com/reviews/merchant-one/"
+  ],
+  "quotesNote": "All four are one-star reviews from the Better Business Bureau, the same channel that logged 52 complaints in three years. Trustpilot sentiment is more positive, so treat these as the complaint end of the record rather than the average experience.",
+  "quotes": [
+    {
+      "text": "Merchant One has essentially stolen $1000 from my small business.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/wi/milwaukee/profile/credit-card-processing-services/merchant-one-inc-0694-1000058754/customer-reviews",
+      "date": "26 May 2026",
+      "rating": 1,
+      "attribution": "a small business"
+    },
+    {
+      "text": "my funds have been on hold now for over another week although Im told daily they will be deposited within 24 hours.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/wi/milwaukee/profile/credit-card-processing-services/merchant-one-inc-0694-1000058754/customer-reviews",
+      "date": "7 August 2026",
+      "rating": 1
+    },
+    {
+      "text": "Thousands of dollars in legitimate business revenue were suddenly withheld with no written notice.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/wi/milwaukee/profile/credit-card-processing-services/merchant-one-inc-0694-1000058754/customer-reviews",
+      "date": "2 February 2026",
+      "rating": 1
+    },
+    {
+      "text": "The website says you can do that without penalty...which is a lie.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/wi/milwaukee/profile/credit-card-processing-services/merchant-one-inc-0694-1000058754/customer-reviews",
+      "date": "30 April 2026",
+      "rating": 1
+    }
+  ]
+}

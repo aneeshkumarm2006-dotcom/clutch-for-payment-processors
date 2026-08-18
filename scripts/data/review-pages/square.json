@@ -1,0 +1,99 @@
+{
+  "slug": "square",
+  "name": "Square",
+  "heading": "Square reviews",
+  "intro": "Square is rated 4.7 out of 5 across nearly 3,000 Capterra reviews, 4.5 on G2 and 4.3 across about 5,740 on Trustpilot. On the Better Business Bureau it sits at 1.06. That is not a typo and it is not noise: the two sets of reviewers are describing different halves of the same product, and the dividing line is whether Square has ever held your money.",
+  "seo": {
+    "metaTitle": "Square Reviews: 4.7 on Capterra, 1.06 on the BBB",
+    "metaDescription": "Square rates 4.7 on Capterra and 1.06 on the BBB. Why the split, the fund-hold complaints behind it, and the 90-day limit on phone support.",
+    "keywords": [
+      "square reviews",
+      "square ratings",
+      "square complaints",
+      "square account frozen",
+      "square funds on hold"
+    ],
+    "focusKeyword": "square reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Square reviews verified?",
+      "answer": "The figures on this page come from Capterra, G2, Trustpilot and the Better Business Bureau and were current as of August 2026. Capterra and G2 verify reviewers before publishing. Trustpilot is open, and the BBB publishes complaints alongside reviews, which is part of why its score is so much lower. None of these are reviews submitted to this site. Anything in the list above is a review a merchant wrote here and our moderators approved, rated on pricing, support, ease of use, features and reliability, and our own score is recomputed from those only rather than borrowed from a platform."
+    },
+    {
+      "question": "Why is Square rated 4.7 on Capterra and 1.06 on the BBB?",
+      "answer": "Because people arrive at the two sites for opposite reasons. Capterra and G2 are software directories where reviewers are describing a point-of-sale system they chose and use daily, and on that question Square genuinely is excellent. The Better Business Bureau exists to file complaints, so its Square page is almost entirely merchants whose funds were held or whose account was closed. Both ratings are accurate about what they measure. Neither is the whole picture, and quoting only one of them is how most Square reviews you will read online go wrong."
+    },
+    {
+      "question": "What do Square reviewers complain about most?",
+      "answer": "Fund holds, by a wide margin, and they are the most frequent complaint in the negative reviews on G2 and Capterra as well as on the BBB. Square's automated risk system reacts to a sudden jump in volume, an unusually large single transaction or an odd refund pattern by holding the deposit, and merchants report holds lasting days to weeks with no clear reason given. Second is support: phone support is available only for the first 90 days after you open the account, so the merchants most likely to need a human, the ones with a hold in month eight, are the ones who cannot get one. Third is cost at volume, where the flat rate stops being competitive."
+    },
+    {
+      "question": "Can you reach Square by phone if your funds are held?",
+      "answer": "Generally not, and this is the specific mechanism behind most of the anger in the low reviews. Square provides phone support during the first 90 days after account creation. After that, account issues including withheld funds and suspensions go through messaging and email, where reviewers describe multi-week response times, inconsistent answers between agents and no route to anyone empowered to release a deposit. If your business cannot survive a two-week gap in deposits, treat that as the deciding fact about Square rather than as a footnote, and keep a second way to take payment ready before you need it."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Square holds about 4.7 out of 5 across nearly 3,000 Capterra reviews, 4.5 across more than 160 on G2, and 4.3 across roughly 5,740 on Trustpilot. The Better Business Bureau has it at 1.06 out of 5 with a heavy complaint volume behind it. Local news investigations have covered individual merchants waiting on held deposits, which is unusual for a payments company and tells you something about how the complaints escalate when messaging fails.</p><p>The pattern is consistent once you sort reviews by what they are about. Reviews of the product, meaning the register, the reader, the reporting, the ecosystem of add-ons, are strongly positive and there are thousands of them. Reviews of the account relationship, meaning risk decisions, holds, closures and support access, are strongly negative. Very few reviewers have experience of both, because most merchants never trigger a hold.</p><p>Independent reviewers who assess Square as a merchant account rather than as a point-of-sale system, including Merchant Maverick and Card Payment Options, have flagged the same hold-and-support pattern for years. It is a known characteristic of the aggregator model rather than a recent slip.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Signup takes minutes with no application or underwriting wait, which is why reviewers running a first business default to it",
+        "The free point-of-sale software is good enough that reviewers running cafes and salons describe it as the reason they stayed",
+        "Hardware, payments, reporting, invoicing, payroll and appointments come from one vendor, so reviewers stop integrating separate tools",
+        "Flat published pricing with no monthly fee, which reviewers with irregular or seasonal volume name as the deciding factor",
+        "Next-business-day deposits as standard, with same-day available, and reviewers say the schedule is reliable when nothing is flagged",
+        "Reviewers consistently rate the reporting and the item library as better than what their previous terminal provider offered"
+      ],
+      "cons": [
+        "Fund holds are the most frequent complaint across every platform, triggered automatically by volume spikes, large tickets or refund patterns",
+        "Phone support ends 90 days after signup, so account emergencies later on go through messaging with multi-week replies",
+        "Reviewers describe inconsistent answers between support agents and no escalation path to anyone able to release a deposit",
+        "Account closures happen with little warning for business types Square decides it will not serve, after the merchant has already built on it",
+        "The flat rate is competitive at low volume and expensive once you are processing steadily, with no interchange-plus option",
+        "Reviewers report that a single large transaction is enough to trigger a review, which penalises exactly the sale you wanted most"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>Square is a payment aggregator, which means you are processing under its master merchant account rather than one underwritten in your name. That is why signup takes five minutes, and it is also why a hold can arrive without the conversation a dedicated merchant account would have had at underwriting. The trade is real and it is not disclosed in a star rating: you get instant access, and Square retains the right to reassess you at any point, with automated systems making the first call.</p><p>So the useful question is not whether Square is good, because a few thousand reviewers have settled that. It is whether your business can absorb a two-week deposit gap in the month it happens. If it cannot, either keep a second processor live or use a provider that underwrites you before you start. <a href=\"/processor/helcim\">Helcim</a> and <a href=\"/processor/dharma-merchant-services\">Dharma Merchant Services</a> both issue a dedicated merchant account with interchange-plus pricing, which costs you an application and gives you a relationship to appeal to when something is flagged.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.capterra.com/p/170278/Square-Payments-Processing/reviews/",
+    "https://www.g2.com/products/square-payments/reviews",
+    "https://www.trustpilot.com/review/squareup.com/us",
+    "https://www.bbb.org/us/ca/oakland/profile/credit-card-merchant-services/square-inc-1116-370609/complaints",
+    "https://www.cardpaymentoptions.com/credit-card-processors/square-review/",
+    "https://fitsmallbusiness.com/square-payments-review/",
+    "https://www.wate.com/investigations/trouble-with-square/"
+  ],
+  "quotesNote": "All three are one-star reviews from the Better Business Bureau, which is a complaint channel, so they show the unhappy tail rather than the whole record. Capterra's roughly 3,000 reviewers average 4.7.",
+  "quotes": [
+    {
+      "text": "Square just canceled my account and refused to provide any explanation.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ca/oakland/profile/credit-card-merchant-services/square-inc-1116-370609/customer-reviews",
+      "date": "12 August 2026",
+      "rating": 1
+    },
+    {
+      "text": "Deactivated me for no reason after 10 years with no recourse or ability to appeal.",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ca/oakland/profile/credit-card-merchant-services/square-inc-1116-370609/customer-reviews",
+      "date": "11 August 2026",
+      "rating": 1
+    },
+    {
+      "text": "Squares handling of my 75-year-old fathers account has been completely unacceptable",
+      "source": "Better Business Bureau",
+      "sourceUrl": "https://www.bbb.org/us/ca/oakland/profile/credit-card-merchant-services/square-inc-1116-370609/customer-reviews",
+      "date": "13 August 2026",
+      "rating": 1
+    }
+  ]
+}

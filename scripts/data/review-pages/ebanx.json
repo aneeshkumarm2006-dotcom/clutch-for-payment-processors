@@ -1,0 +1,89 @@
+{
+  "slug": "ebanx",
+  "name": "EBANX",
+  "heading": "EBANX reviews",
+  "intro": "EBANX has almost no merchant review record, and the little that exists is misleading. Its Trustpilot page sits around 2.8 out of 5 on a small pool, and the complaints there are largely from consumers chasing refunds from businesses that happen to bill through EBANX. That is a common problem for payment providers whose name appears on a statement, and it means the score answers a question you are not asking.",
+  "seo": {
+    "metaTitle": "EBANX Reviews: Thin Merchant Record, 2.8 Trustpilot",
+    "metaDescription": "EBANX has little merchant review data, and its 2.8 Trustpilot score is mostly consumer refund complaints. What to evaluate for Latin American payments instead.",
+    "keywords": [
+      "ebanx reviews",
+      "ebanx complaints",
+      "ebanx ratings",
+      "ebanx latin america",
+      "ebanx settlement"
+    ],
+    "focusKeyword": "ebanx reviews"
+  },
+  "faqs": [
+    {
+      "question": "Why are there so few EBANX merchant reviews?",
+      "answer": "Because of who buys it and how. EBANX sells cross-border payment processing for Latin America to companies expanding into the region, on negotiated contracts rather than self-serve signup. That is a modest number of deals a year compared with a product a small business can sign up for with a card, and enterprise buyers on annual contracts rarely post public reviews. So a thin review record here is evidence about the sales model, not about quality. What it does mean is that you cannot lean on an aggregate score and should ask for reference customers in your own vertical instead."
+    },
+    {
+      "question": "Is EBANX's 2.8 Trustpilot rating a merchant rating?",
+      "answer": "Mostly not, and this is the important caveat on this page. EBANX processes payments for international companies selling into Latin America, so its name appears on consumers' card and bank statements. Shoppers who cannot get a refund from the merchant they bought from find EBANX's review page and post there. One representative complaint in that pool concerns a trial subscription cancelled before it ended with the refund not arriving, which is a dispute with the seller rather than a judgement on EBANX as a processor. Treat the score as consumer dispute-handling feedback, which is genuinely relevant, but not as a merchant rating."
+    },
+    {
+      "question": "What does EBANX actually offer that a global processor does not?",
+      "answer": "Local coverage that international card processors handle badly. Latin American commerce runs substantially on methods that are not cards: Pix in Brazil, boleto bancário, OXXO in Mexico, local instalment plans on domestic cards. EBANX supports those, and it states that it handles processing in-house rather than routing through regional partners or aggregators, which it credits for lower latency and higher approval rates. It also offers multi-currency settlement and consolidated remittance, so you can receive funds in your chosen currency without working through each country's exchange controls yourself. Those are the reasons to consider it, and none of them appear in a star rating."
+    },
+    {
+      "question": "How should you evaluate EBANX without a review record?",
+      "answer": "Test it against your own numbers rather than reading scores. Ask for authorisation rates by country and by payment method for merchants in your vertical, because approval rate is where a local acquirer earns its fee and it is measurable. Then ask about settlement: which currencies, on what schedule, what the conversion spread is, and whether any funds are held. Ask what happens to a consumer refund request and who handles it, since that is what the Trustpilot pool is complaining about. Get two reference customers selling what you sell. Run all of it against <a href=\"/processor/checkout-com\">Checkout.com</a> and <a href=\"/processor/stripe\">Stripe</a> on the Latin American share of your revenue specifically."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>Not much, and it would be dishonest to dress it up. As of August 2026 EBANX has a Trustpilot page rated around 2.8 out of 5 on a small pool, listings on GetApp and SourceForge with little review volume behind them, and a G2 presence that is similarly thin. There is no sample here large enough to quote as a merchant verdict, so this page does not pretend otherwise.</p><p>The reviews that do exist need reading carefully, because most of them are not from merchants. EBANX appears on consumers' statements when they buy from an international company selling into Latin America, so its review pages collect shoppers who could not get a refund from the seller. A representative example concerns a cancelled trial subscription where the promised refund did not arrive, which is a complaint about the merchant with EBANX standing in as the visible name.</p><p>What can be established comes from the company's own material and from specialist coverage rather than from reviewers: local payment method coverage across Latin America, processing handled in-house rather than through regional partners, and settlement in multiple currencies with consolidated remittance. Those claims are checkable in a sales conversation, which is where you should check them.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "What the record and public material suggest",
+      "pros": [
+        "Local Latin American payment methods including Pix, boleto and OXXO, which international card processors support poorly or not at all",
+        "Processing is handled in-house rather than routed through regional partners, which the company credits for lower latency and better approval rates",
+        "Multi-currency settlement and consolidated remittance, so you receive funds in your chosen currency without managing exchange controls per country",
+        "A single control panel across multiple countries rather than a separate provider relationship in each market",
+        "Local instalment plans on domestic cards, which are a normal purchase expectation in Brazil and Mexico rather than a nice-to-have"
+      ],
+      "cons": [
+        "There is effectively no merchant review pool, so you cannot benchmark the merchant experience against competitors",
+        "The Trustpilot score of about 2.8 is dominated by consumer refund complaints rather than merchant feedback",
+        "Consumer dispute handling is the one thing the reviews do address, and they address it critically",
+        "Pricing is negotiated with no published rates, so you cannot estimate cost before a sales conversation",
+        "Because EBANX appears on your customers' statements, its review pages become part of your own checkout reputation",
+        "Coverage is regional by design, so it is one provider in a stack rather than a global replacement"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>The number that decides this purchase is not a rating, it is your authorisation rate by country. A local acquirer in Latin America earns its fee by getting more transactions approved than a cross-border card processor does, and the difference can be large enough to dwarf any rate comparison. Ask for those figures per country and per method for merchants in your vertical, and treat vague answers as an answer. Nothing in a review pool touches this, and it is the whole reason to use a regional specialist.</p><p>The second thing worth planning for is the reputational side effect the reviews do reveal. Your customers will see EBANX on their statements, and some will search it before or after paying. If the top result is a page of one-star refund complaints, that becomes your problem regardless of who caused it. Ask specifically how consumer refund requests reach you, how quickly they are actioned, and what EBANX tells a shopper who contacts them directly. That is a real operational question dressed up as a review-score curiosity.</p>"
+    }
+  ],
+  "sources": [
+    "https://uk.trustpilot.com/review/www.ebanx.com",
+    "https://www.g2.com/products/ebanx/reviews",
+    "https://www.getapp.com/finance-accounting-software/a/ebanx/",
+    "https://sourceforge.net/software/product/EBANX/",
+    "https://insights.ebanx.com/en/resources/payments-explained/payment-processing/"
+  ],
+  "quotesNote": "Two merchant excerpts from Capterra, which are the closest thing to first-hand merchant feedback available for EBANX. One names the concrete reason to use it and the other names a real limitation, which between them are worth more than the consumer-heavy Trustpilot score.",
+  "quotes": [
+    {
+      "text": "Using EBANX meant we could offer payment by instalments which is important for the Brazilian market.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.com/p/178524/Online-Payments-in-Latin-America/",
+      "date": "2026",
+      "rating": 5
+    },
+    {
+      "text": "With EBANX, we can collect B2B payments from Brazilian credit cards. There are near to none possibilities to see or edit payment settings via the browser. We are being referred to a 'magical' API that would solve all our problems, but we are not confident and unwilling to invest the time.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.com/p/178524/Online-Payments-in-Latin-America/",
+      "date": "2026",
+      "rating": 3
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "slug": "gocardless",
+  "name": "GoCardless",
+  "heading": "GoCardless reviews",
+  "intro": "GoCardless sits at roughly 2.5 out of 5 on Trustpilot, while G2 and Capterra reviewers are broadly positive about the same product. The gap is almost entirely one complaint: accounts suspended during compliance review, with email as the only way to ask about it. Reviewers who never hit a hold describe recurring collection that runs itself for years.",
+  "seo": {
+    "metaTitle": "GoCardless Reviews: Direct Debit Holds and 2.5 Stars",
+    "metaDescription": "GoCardless rates about 2.5 on Trustpilot over compliance suspensions and email-only support, while G2 reviewers rate the recurring collection highly.",
+    "keywords": [
+      "gocardless reviews",
+      "gocardless ratings",
+      "gocardless complaints",
+      "gocardless account suspended",
+      "gocardless direct debit"
+    ],
+    "focusKeyword": "gocardless reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these GoCardless reviews verified?",
+      "answer": "The figures on this page come from Trustpilot, G2 and Capterra and were current as of August 2026. G2 and Capterra verify reviewers before publishing. Trustpilot is open, and its GoCardless page mixes merchants with payers who met GoCardless only as the name on a Direct Debit line in their bank statement, which is worth knowing before you weigh the score. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed rating."
+    },
+    {
+      "question": "Why do the compliance suspension complaints dominate the reviews?",
+      "answer": "Because of how badly they land when they happen. GoCardless is a regulated payments institution collecting directly from payers' bank accounts, so it runs anti-money-laundering checks that can pause an account mid-collection. Reviewers describe collections stopping, funds held, and no phone number to escalate on, only email. For a business whose entire monthly revenue arrives through one Direct Debit run, a week of that is existential, and it produces a one-star review even from a merchant who was fine for two years beforehand. The frequency in the reviews reflects severity as much as it reflects how often it occurs."
+    },
+    {
+      "question": "What do GoCardless reviewers complain about most?",
+      "answer": "Account suspensions during compliance review, first and loudest, made worse by email-only support while the hold is active. Second, cost on small payments: the per-transaction fee is a much larger share of a five pound collection than a fifty pound one, and Capterra reviewers say they left over exactly that. Third, settlement timing: bank debit takes days to clear rather than the next-day funding people expect from cards, and reviewers who arrived from card processing consistently describe this as slow. Reporting depth is a smaller but steady complaint."
+    },
+    {
+      "question": "Is GoCardless a card processor?",
+      "answer": "No, and several reviews make more sense once you know that. GoCardless collects by bank debit, meaning Direct Debit in the UK, SEPA in Europe, ACH in the US and BECS in Australia. There is no card, so there are no expiring cards and no card-network chargebacks, which is why reviewers with subscription businesses talk about failed-payment rates dropping. In exchange, the rails are slower by design and the payer keeps a reclaim right: under the UK Direct Debit Guarantee a payer can dispute an amount and have it returned. If you need instant authorisation at a checkout, this is the wrong instrument, and no review score will fix that."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, GoCardless carries roughly 2.5 out of 5 on Trustpilot, with the low scores dominated by account suspension and held-funds accounts. G2 and Capterra tell a different story, with reviewers there rating the recurring collection, the integrations and the reduction in failed payments positively while flagging fees on low-value transactions and thinner reporting than they wanted.</p><p>That divergence is structural rather than contradictory. Software directories collect from finance and operations staff describing a working setup. Trustpilot collects from whoever went looking for somewhere to complain, and for a bank debit provider that pool includes consumers who saw an unfamiliar name on their statement and assumed the worst.</p><p>The one theme that appears on every platform, in every register, is support. Nobody praises it. Reviewers who are happy say support was not needed; reviewers who are not say email was the only channel and the replies restated policy. On a product that can pause your revenue collection, that is the risk worth weighing.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Failed payments drop sharply against card subscriptions, because bank mandates do not expire or get reissued the way cards do",
+        "Reviewers describe setting up a recurring collection once and having it run for years without administrative attention",
+        "The API and the integrations into Xero, QuickBooks, Zuora and the major billing platforms are described as straightforward to wire up",
+        "Mandate setup is handled for the payer, so merchants stop chasing paper Direct Debit forms",
+        "Multi-country collection under one account covers Direct Debit, SEPA, ACH and BECS without separate banking relationships",
+        "Pricing is published and capped per transaction, which reviewers moving from bank-negotiated Direct Debit contracts call out as simpler"
+      ],
+      "cons": [
+        "Account suspension during anti-money-laundering review is the most persistent complaint, and it stops collections while it runs",
+        "Support is email first with no phone escalation, which reviewers with held funds describe as the worst part of the experience",
+        "The per-transaction fee is disproportionate on small collections, and Capterra reviewers name it as their reason for leaving",
+        "Settlement is slower than card processing by several days, which catches out merchants who did not expect the bank debit cycle",
+        "Reporting and reconciliation are described as adequate rather than good, with reviewers exporting to spreadsheets to fill gaps",
+        "Payers retain a reclaim right on Direct Debit, so a collection is not final in the way a captured card payment is"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>A large share of the negative reviews are really about the instrument rather than the company. Bank debit clears in days, not seconds, and in the UK the Direct Debit Guarantee gives the payer an open-ended right to reclaim. A reviewer who arrived expecting card behaviour will rate that as a defect. It is not one, it is the trade you accepted in return for payments that do not fail when a card expires. Separate those complaints out before you weigh the score.</p><p>What remains after you do is the real finding, and it is worth taking seriously: compliance holds happen, they stop your collection run, and email is your only route. Before you route your recurring revenue through here, ask what triggers a review, how long one typically takes, and whether collections continue while it is open. If a single monthly Direct Debit run is your whole cash flow, keep a card fallback such as <a href=\"/processor/stripe\">Stripe</a> for the accounts you cannot afford to miss, or a second ACH provider like <a href=\"/processor/forte-payments\">CSG Forte</a> in the US.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.g2.com/products/gocardless/reviews?qs=pros-and-cons",
+    "https://capterra.com/p/156081/GoCardless/reviews/",
+    "https://au.trustpilot.com/review/gocardless.com",
+    "https://www.businessexpert.co.uk/payment-processing/gocardless-review/",
+    "https://www.mobiletransaction.org/gocardless-review/"
+  ],
+  "quotesNote": "Five excerpts from GoCardless's Trustpilot page, which sits near 2.5 out of 5. All are from the suspension and verification complaints that drive that score, and the last one states the structural problem more plainly than any summary could.",
+  "quotes": [
+    {
+      "text": "I set up an account with gocardless, for it to only be closed a week later with no explanation at all. The email sent out was their typical generic email, I tried to call the relevant department and I was told they can only be reached by email",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/gocardless.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "If your account is suspended on a Thursday and your VAT payment clears on Friday, there is no one to call",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/gocardless.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "After freezing our account once last year without any valid justification, they have now abruptly closed it again",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/gocardless.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "Their 'Account Verification Team' provides no reasoning, no appeal process, and no access to support beyond automated responses",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/gocardless.com",
+      "date": "2026",
+      "rating": 1
+    },
+    {
+      "text": "They demanded excessive documents, cited UK and Canadian laws instead of U.S. rules, then forced me to get an attorney letter just to approve my account",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/gocardless.com",
+      "date": "2026",
+      "rating": 1,
+      "attribution": "a US business"
+    }
+  ]
+}
