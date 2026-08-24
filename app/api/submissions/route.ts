@@ -2,7 +2,7 @@ import { connectToDatabase } from "@/lib/db";
 import { Submission } from "@/models";
 import { submissionInput } from "@/lib/validators";
 import { ApiError, getAdminSession, handleApiError, json, requireAdmin } from "@/lib/api";
-import { clientIp, isBot, rateLimit } from "@/lib/rate-limit";
+import { decoyId, guardSubmission } from "@/lib/spam/guard";
 import { toAdminSubmissionData } from "@/lib/serialize";
 import { notifyRecipients, sendNotification } from "@/lib/email";
 import { getOrCreateSiteSettings } from "@/lib/settings";
@@ -33,27 +33,39 @@ export async function POST(req: Request) {
   try {
     const raw = (await req.json()) as Record<string, unknown>;
 
-    // Honeypot: accept silently, never persist.
-    if (isBot(raw)) {
-      return json({ ok: true }, 201);
-    }
-
+    // One call covers the honeypot, both rate limits, Turnstile, the duplicate
+    // window and the content classifier. Note that the classifier is FORM-AWARE:
+    // this page exists so vendors can pitch us, so seller-framed language is the
+    // legitimate use here and is not scored (link-building pitches still are).
     const session = await getAdminSession();
-    if (!session?.user) {
-      const limit = rateLimit(`submissions:${clientIp(req)}`, 5, 60_000);
-      if (!limit.ok) {
-        throw new ApiError(429, "You're sending requests too fast. Please try again in a minute.");
-      }
+    const guard = await guardSubmission({
+      form: "submission",
+      req,
+      raw,
+      isAdmin: !!session?.user,
+    });
+
+    // Rejected: already copied to the 30-day bin. Same 201 a real submission
+    // gets, so the bot sees success and doesn't adapt.
+    if (guard.blocked) {
+      return json({ ok: true, id: decoyId() }, 201);
     }
 
     await connectToDatabase();
     const data = submissionInput.parse(raw);
-    const created = await Submission.create({ ...data, status: "new" });
+    const created = await Submission.create({
+      ...data,
+      status: "new",
+      ...(guard.meta ? { spam: guard.meta } : {}),
+    });
 
     // Awaited, not fire-and-forget — a serverless function is frozen once the
     // response is returned, which kills an in-flight SMTP handshake.
     // `notifyNewSubmission` swallows its own errors, so this can't fail the POST.
-    await notifyNewSubmission(data);
+    // Quarantined rows are stored and visible under Spam, but never emailed.
+    if (guard.notify) {
+      await notifyNewSubmission(data);
+    }
 
     return json({ ok: true, id: String(created._id) }, 201);
   } catch (err) {

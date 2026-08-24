@@ -4,7 +4,7 @@ import { reviewInput, reviewAdminInput } from "@/lib/validators";
 import { ApiError, getAdminSession, handleApiError, json } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
 import { getApprovedReviews, type ReviewSort } from "@/lib/public-data";
-import { clientIp, isBot, rateLimit } from "@/lib/rate-limit";
+import { decoyId, guardSubmission } from "@/lib/spam/guard";
 import { recomputeProcessorRatings } from "@/lib/ratings";
 import { notifyRecipients, sendNotification } from "@/lib/email";
 import { getOrCreateSiteSettings } from "@/lib/settings";
@@ -62,20 +62,17 @@ export async function POST(req: Request) {
   try {
     const raw = (await req.json()) as Record<string, unknown>;
 
-    // Honeypot: accept silently (don't reveal the trap) but never persist.
-    if (isBot(raw)) {
-      return json({ ok: true, status: "pending" }, 201);
-    }
-
     const session = await getAdminSession();
     const isAdmin = !!session?.user;
 
-    // Public submitters are rate-limited per IP (PRD §11). Admins are trusted.
-    if (!isAdmin) {
-      const limit = rateLimit(`reviews:${clientIp(req)}`, 5, 60_000);
-      if (!limit.ok) {
-        throw new ApiError(429, "You're submitting too fast. Please try again in a minute.");
-      }
+    // One call covers the honeypot, both rate limits, Turnstile, the duplicate
+    // window and the content classifier. Admins are trusted and skip all of it.
+    const guard = await guardSubmission({ form: "review", req, raw, isAdmin });
+
+    // Rejected: already copied to the 30-day bin. Same shape a real submission
+    // gets back, so the bot sees success and doesn't adapt.
+    if (guard.blocked) {
+      return json({ ok: true, id: decoyId(), status: "pending" }, 201);
     }
 
     await connectToDatabase();
@@ -107,17 +104,22 @@ export async function POST(req: Request) {
       status: "pending",
       source: "web-form",
       isVerified: false,
+      ...(guard.meta ? { spam: guard.meta } : {}),
     });
 
-    await notifyNewReview({
-      processorName,
-      reviewerName: data.reviewerName,
-      reviewerEmail: data.reviewerEmail,
-      overallRating: data.overallRating,
-      title: data.title,
-      body: data.body,
-      companyName: data.companyName,
-    });
+    // A quarantined review is stored as `pending` like any other — it simply
+    // never emails the moderators and is filed under Spam in the admin.
+    if (guard.notify) {
+      await notifyNewReview({
+        processorName,
+        reviewerName: data.reviewerName,
+        reviewerEmail: data.reviewerEmail,
+        overallRating: data.overallRating,
+        title: data.title,
+        body: data.body,
+        companyName: data.companyName,
+      });
+    }
 
     return json({ ok: true, id: String(created._id), status: "pending" }, 201);
   } catch (err) {

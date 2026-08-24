@@ -8,6 +8,7 @@ import { submissionInput } from "@/lib/validators";
 import { humanizeEnum } from "@/lib/labels";
 import { trackEvent } from "@/lib/analytics";
 import { HONEYPOT_FIELD } from "@/lib/rate-limit";
+import { useSpamGuard } from "@/components/public/useSpamGuard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -60,6 +61,8 @@ export function SubmissionForm() {
 
   const [submitting, setSubmitting] = React.useState(false);
   const [done, setDone] = React.useState(false);
+  // Browser render stamp + Turnstile (inert until the keys are set).
+  const spamGuard = useSpamGuard();
 
   const onSubmit = handleSubmit(async (values) => {
     const payload = {
@@ -85,7 +88,11 @@ export function SubmissionForm() {
       const res = await fetch("/api/submissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...parsed.data, [HONEYPOT_FIELD]: values[HONEYPOT_FIELD] }),
+        body: JSON.stringify({
+          ...parsed.data,
+          [HONEYPOT_FIELD]: values[HONEYPOT_FIELD],
+          ...spamGuard.fields(),
+        }),
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => ({}))) as { error?: string };
@@ -95,6 +102,8 @@ export function SubmissionForm() {
       setDone(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
+      // Turnstile tokens are single-use: a retry with the same one always fails.
+      spamGuard.reset();
       setError("root", {
         type: "manual",
         message: err instanceof Error ? err.message : "Something went wrong.",
@@ -168,6 +177,8 @@ export function SubmissionForm() {
           {...register("description")}
         />
       </SubField>
+
+      <spamGuard.Widget />
 
       <Button type="submit" variant="accent" disabled={submitting}>
         {submitting && <Loader2 className="size-4 animate-spin" />}

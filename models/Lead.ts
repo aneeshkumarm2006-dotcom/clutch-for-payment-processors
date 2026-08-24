@@ -1,5 +1,6 @@
 import { Schema, model, models, type Model, type Types } from "mongoose";
 import { LEAD_STATUSES, MONTHLY_VOLUMES, type LeadStatus, type MonthlyVolume } from "@/lib/enums";
+import { SpamMetaSchema, type ISpamMeta } from "./spamMeta";
 
 /**
  * Lead (PRD §8.4) — "Get a quote / Get matched" capture, plus the contact form
@@ -17,6 +18,11 @@ export interface ILead {
   message?: string;
   status: LeadStatus;
   source: string;
+  /**
+   * Classifier verdict. Absent on rows written before spam filtering existed
+   * and on anything an admin created by hand.
+   */
+  spam?: ISpamMeta;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -33,11 +39,14 @@ const LeadSchema = new Schema<ILead>(
     message: { type: String },
     status: { type: String, enum: LEAD_STATUSES, default: "new" },
     source: { type: String, required: true, trim: true },
+    spam: { type: SpamMetaSchema, required: false },
   },
   { timestamps: true },
 );
 
 // --- Indexes ---
+// Quarantined rows are filtered out of the default inbox on every load.
+LeadSchema.index({ "spam.verdict": 1, createdAt: -1 });
 LeadSchema.index({ status: 1, createdAt: -1 });
 LeadSchema.index({ processor: 1 });
 

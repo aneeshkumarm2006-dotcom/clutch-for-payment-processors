@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { leadInput } from "@/lib/validators";
 import { HONEYPOT_FIELD } from "@/lib/rate-limit";
+import { useSpamGuard } from "@/components/public/useSpamGuard";
 import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,6 +30,8 @@ const blankToUndef = (v: string) => (v.trim() === "" ? undefined : v.trim());
 export function ContactForm() {
   const [submitting, setSubmitting] = React.useState(false);
   const [done, setDone] = React.useState(false);
+  // Browser render stamp + Turnstile (inert until the keys are set).
+  const spamGuard = useSpamGuard();
   const {
     register,
     handleSubmit,
@@ -68,7 +71,11 @@ export function ContactForm() {
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...parsed.data, [HONEYPOT_FIELD]: values[HONEYPOT_FIELD] }),
+        body: JSON.stringify({
+          ...parsed.data,
+          [HONEYPOT_FIELD]: values[HONEYPOT_FIELD],
+          ...spamGuard.fields(),
+        }),
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => ({}))) as { error?: string };
@@ -77,6 +84,8 @@ export function ContactForm() {
       trackEvent("lead_submit", { source: "contact" });
       setDone(true);
     } catch (err) {
+      // Turnstile tokens are single-use: a retry with the same one always fails.
+      spamGuard.reset();
       setError("root", {
         type: "manual",
         message: err instanceof Error ? err.message : "Something went wrong.",
@@ -141,6 +150,8 @@ export function ContactForm() {
           {...register("message")}
         />
       </Field>
+
+      <spamGuard.Widget />
 
       <Button type="submit" variant="accent" disabled={submitting}>
         {submitting && <Loader2 className="size-4 animate-spin" />}

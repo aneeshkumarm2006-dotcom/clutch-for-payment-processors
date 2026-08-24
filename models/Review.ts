@@ -1,4 +1,5 @@
 import { Schema, model, models, type Model, type Types } from "mongoose";
+import { SpamMetaSchema, type ISpamMeta } from "./spamMeta";
 import {
   MONTHLY_VOLUMES,
   REVIEW_COMPANY_SIZES,
@@ -42,6 +43,11 @@ export interface IReview {
   status: ReviewStatus;
   isVerified: boolean;
   rejectionReason?: string;
+  /**
+   * Classifier verdict. Absent on admin-entered and imported reviews, which
+   * never pass through the public filter.
+   */
+  spam?: ISpamMeta;
   helpfulCount: number;
   source: ReviewSource;
   createdAt: Date;
@@ -79,6 +85,7 @@ const ReviewSchema = new Schema<IReview>(
     status: { type: String, enum: REVIEW_STATUSES, default: "pending" },
     isVerified: { type: Boolean, default: false },
     rejectionReason: { type: String, trim: true },
+    spam: { type: SpamMetaSchema, required: false },
     helpfulCount: { type: Number, default: 0, min: 0 },
     source: { type: String, enum: REVIEW_SOURCES, default: "web-form" },
   },
@@ -87,6 +94,7 @@ const ReviewSchema = new Schema<IReview>(
 
 // --- Indexes ---
 // Primary access pattern: approved reviews for a processor, newest first.
+ReviewSchema.index({ "spam.verdict": 1, createdAt: -1 });
 ReviewSchema.index({ processor: 1, status: 1, createdAt: -1 });
 ReviewSchema.index({ status: 1, createdAt: -1 });
 

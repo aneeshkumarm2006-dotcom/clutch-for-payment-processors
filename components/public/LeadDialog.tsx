@@ -8,6 +8,7 @@ import { leadInput } from "@/lib/validators";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 import { HONEYPOT_FIELD } from "@/lib/rate-limit";
+import { useSpamGuard } from "@/components/public/useSpamGuard";
 import { Button, buttonVariants, type ButtonProps } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -80,6 +81,8 @@ export function LeadDialog({
 
   const [open, setOpen] = React.useState(false);
   const [submitting, setSubmitting] = React.useState(false);
+  // Browser render stamp + Turnstile (inert until the keys are set).
+  const spamGuard = useSpamGuard();
   const [done, setDone] = React.useState(false);
 
   const {
@@ -134,7 +137,11 @@ export function LeadDialog({
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...parsed.data, [HONEYPOT_FIELD]: values[HONEYPOT_FIELD] }),
+        body: JSON.stringify({
+          ...parsed.data,
+          [HONEYPOT_FIELD]: values[HONEYPOT_FIELD],
+          ...spamGuard.fields(),
+        }),
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => ({}))) as { error?: string };
@@ -143,6 +150,8 @@ export function LeadDialog({
       trackEvent("lead_submit", { processor: processorId ?? "", source: resolvedSource });
       setDone(true);
     } catch (err) {
+      // Turnstile tokens are single-use: a retry with the same one always fails.
+      spamGuard.reset();
       setError("root", {
         type: "manual",
         message: err instanceof Error ? err.message : "Something went wrong.",
@@ -291,6 +300,8 @@ export function LeadDialog({
                   {...register("message")}
                 />
               </LeadField>
+
+              <spamGuard.Widget />
 
               <Button type="submit" variant="accent" className="w-full" disabled={submitting}>
                 {submitting && <Loader2 className="size-4 animate-spin" />}

@@ -8,6 +8,14 @@ export { Category, type ICategory } from "./Category";
 export { Review, type IReview } from "./Review";
 export { Lead, type ILead } from "./Lead";
 export { Submission, type ISubmission } from "./Submission";
+export {
+  BlockedSubmission,
+  BLOCKED_FORMS,
+  type IBlockedSubmission,
+  type BlockedForm,
+} from "./BlockedSubmission";
+export { SubmissionFingerprint, type ISubmissionFingerprint } from "./SubmissionFingerprint";
+export { SpamMetaSchema, type ISpamMeta } from "./spamMeta";
 export { BlogPost, type IBlogPost } from "./BlogPost";
 export {
   Media,

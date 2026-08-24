@@ -898,3 +898,123 @@ the fix is applied site-wide rather than to the flagged pages only.
   `rel="sponsored noopener"`. No change.
 - **`/write-review/*` and `/compare?ids=` "blocked from crawling"** are the intended
   `noindex` behaviour, not a defect.
+
+---
+
+## Spam protection on the public forms
+
+Every public POST — `/api/leads` (contact, get-a-quote, get-matched, home hero),
+`/api/submissions` (get listed), `/api/reviews` (write a review) — now runs
+through one shared guard before anything is persisted.
+
+### What replaced what
+
+The old arrangement was a `companyWebsite` honeypot plus a 5/min per-IP limiter,
+and the honeypot was **a hard reject with nothing behind it**: a tripped form got
+a fake `201` and the submission was discarded, unrecoverably. A password manager
+filling that field silently destroyed a real enquiry and nobody could ever find
+out. That is the specific hole this work closes.
+
+### Three verdicts
+
+| Verdict | Stored? | Emailed? | Where it shows |
+|---|---|---|---|
+| `allow` | yes | yes | the normal inbox |
+| `quarantine` | yes, flagged | **no** | `/admin/spam` → Spam |
+| `reject` | in the bin only | no | `/admin/spam` → Blocked |
+
+A rejection **always** lands in `BlockedSubmission` (30-day TTL) and can be
+restored into its real collection through the normal validator. If that bin write
+fails, the verdict is **downgraded to quarantine** rather than dropped — hard
+rejection is conditional on the bin existing, because a filter with no bin is one
+bad rule away from destroying a customer.
+
+Rejected callers get the SAME success status a real submission gets, so the bot
+sees success and neither retries nor adapts.
+
+### Where the code lives
+
+- `lib/spam/classify.ts` — the rules. Pure, no I/O, form-aware.
+- `lib/spam/fields.ts` — which field of which form means what. Shared by the live
+  guard and the backfill so the two cannot disagree about the same row.
+- `lib/spam/fingerprint.ts` — 24h duplicate hash over the human-written fields,
+  **excluding the email** (floods replay one payload across harvested addresses).
+- `lib/spam/guard.ts` — the I/O half: rate limits, dedup, Turnstile, the bin.
+- `lib/spam/turnstile.ts` — env-var-only captcha, the one check that does not
+  fail open.
+- `components/public/useSpamGuard.tsx` — render stamp + widget, used by all four
+  forms.
+
+### Rules deliberately NOT written
+
+Each of these looks reasonable and eats real leads:
+
+1. **No rule scores a bare dollar figure.** Real enquiries say "our budget is $8k
+   a month" constantly. Only retail boilerplate counts, and one phrase alone
+   scores below the quarantine line.
+2. **No rule scores a link to the sender's own site.** Any host echoing their
+   email domain, their company name, or a URL the form asked for is discounted to
+   zero. A single genuinely foreign link scores 2, below the quarantine line of 3.
+3. **No vowel-ratio gibberish test.** It calls "partnership" and "projects"
+   keyboard mash. Runs of 6+ consecutive consonants are used instead — English
+   tops out at 5 ("strengths").
+
+Two local deviations from the playbook, both because of who this site sells to:
+
+- **Off-platform handles (WhatsApp/Telegram) are weighted 2, not 3.** Cross-border
+  merchants in India, Nigeria and the Gulf genuinely do say "reach me on
+  WhatsApp". It tips other signals over without quarantining on its own.
+- **`agency-pitch` patterns are suppressed on `/for-processors`.** Vendors
+  pitching us is the entire purpose of that page. Link-building and guest-post
+  pitches are still scored there, because those are not a processor listing under
+  any reading.
+
+### Rate limiting
+
+`rateLimit` is unchanged (5/min per IP) and joined by a per-**neighbourhood**
+limit — /24 for IPv4, /48 for IPv6 — at 40/hour. A per-address cap is free to
+evade with a rented subnet; capping the neighbourhood is what makes rotation cost
+money. Both still share the in-memory `Map` caveat above: per-instance,
+best-effort, and a shared store is the production upgrade.
+
+### Turnstile
+
+Inert until `TURNSTILE_SECRET_KEY` exists. The site key is served from
+`/api/spam/config` rather than page markup, so switching it on needs no code edit
+and no regeneration of any DB-rendered page. Appearance is `interaction-only`.
+
+**This site sends no Content-Security-Policy at all** (`next.config.mjs` sets only
+`X-Robots-Tag`; middleware sets none), so there is nothing to add
+`https://challenges.cloudflare.com` to. If a CSP is ever introduced, it must
+allow that host in `script-src`, `connect-src` and `frame-src`, or the widget is
+silently blocked and every submission fails verification with no visible cause.
+
+### One footgun worth knowing about
+
+`OWN_HOSTS` in `lib/spam/classify.ts` drives both the internal-sender whitelist
+and the "our own domain was mail-merged into the body" signal. The live domain is
+**paymentprocessingguide.com** (processING, not processOR) — the two read almost
+identically and the first draft of this work had the wrong one, which silently
+disables both rules. The guard widens the list at runtime with whatever
+`NEXT_PUBLIC_SITE_URL` points at, so a preview deployment still recognises
+itself.
+
+### Backfill
+
+`npm run spam:backfill` — dry run by default, `--apply` to write, `--verbose` to
+print message text. It never deletes, never hard-rejects (a stored row can only
+be capped to `quarantine`), and skips any row a human has already cleared. The
+browser-proof rules are switched off for that pass, since those rows predate the
+render stamp.
+
+### Tests
+
+`tests/spam/classify.test.ts`, wired into the aggregator. Two blocks, and the
+GENUINE block matters more: **a future rule that breaks a case in it is wrong,
+however much junk it catches.**
+
+The SPAM block is built from catalogued shapes, not from this site's own history:
+when the filter was written the database held 14 leads (10 seed fixtures, 4
+internal tests), 6 submissions (all seed fixtures) and 40 reviews (all
+`source: "import"`). There had been no real public spam to learn from. As real
+spam arrives, paste it in verbatim.

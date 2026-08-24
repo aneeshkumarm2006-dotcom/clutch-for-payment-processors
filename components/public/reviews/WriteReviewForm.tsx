@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/select";
 import { StarRatingInput } from "@/components/public/StarRatingInput";
 import { HONEYPOT_FIELD } from "@/lib/rate-limit";
+import { useSpamGuard } from "@/components/public/useSpamGuard";
 
 const SUB_RATING_LABELS: Record<(typeof SUB_RATING_KEYS)[number], string> = {
   easeOfUse: "Ease of use",
@@ -88,6 +89,8 @@ export function WriteReviewForm({
   } = form;
 
   const [submitting, setSubmitting] = React.useState(false);
+  // Browser render stamp + Turnstile (inert until the keys are set).
+  const spamGuard = useSpamGuard();
   const [done, setDone] = React.useState(false);
 
   const onSubmit = handleSubmit(async (values) => {
@@ -125,8 +128,12 @@ export function WriteReviewForm({
       const res = await fetch("/api/reviews", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        // Include the honeypot field so the server can inspect it.
-        body: JSON.stringify({ ...parsed.data, [HONEYPOT_FIELD]: values[HONEYPOT_FIELD] }),
+        // Honeypot + render stamp + Turnstile token, for the server to inspect.
+        body: JSON.stringify({
+          ...parsed.data,
+          [HONEYPOT_FIELD]: values[HONEYPOT_FIELD],
+          ...spamGuard.fields(),
+        }),
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => ({}))) as { error?: string };
@@ -135,6 +142,8 @@ export function WriteReviewForm({
       setDone(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
+      // Turnstile tokens are single-use: a retry with the same one always fails.
+      spamGuard.reset();
       setError("root", {
         type: "manual",
         message: err instanceof Error ? err.message : "Something went wrong.",
@@ -290,6 +299,8 @@ export function WriteReviewForm({
           >
             Cancel
           </Link>
+          <spamGuard.Widget />
+
           <Button type="submit" variant="accent" disabled={submitting}>
             {submitting && <Loader2 className="size-4 animate-spin" />}
             Submit review

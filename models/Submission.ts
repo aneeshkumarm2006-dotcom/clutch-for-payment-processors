@@ -5,6 +5,7 @@ import {
   type ListingTier,
   type SubmissionStatus,
 } from "@/lib/enums";
+import { SpamMetaSchema, type ISpamMeta } from "./spamMeta";
 
 /**
  * Submission (PRD §8.5) — "For Processors / get-listed" requests. On approval an
@@ -19,6 +20,11 @@ export interface ISubmission {
   requestedTier?: ListingTier;
   status: SubmissionStatus;
   notes?: string;
+  /**
+   * Classifier verdict. Absent on rows written before spam filtering existed
+   * and on anything an admin created by hand.
+   */
+  spam?: ISpamMeta;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -33,11 +39,13 @@ const SubmissionSchema = new Schema<ISubmission>(
     requestedTier: { type: String, enum: LISTING_TIERS },
     status: { type: String, enum: SUBMISSION_STATUSES, default: "new" },
     notes: { type: String },
+    spam: { type: SpamMetaSchema, required: false },
   },
   { timestamps: true },
 );
 
 // --- Indexes ---
+SubmissionSchema.index({ "spam.verdict": 1, createdAt: -1 });
 SubmissionSchema.index({ status: 1, createdAt: -1 });
 
 export const Submission: Model<ISubmission> =

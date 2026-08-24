@@ -69,3 +69,49 @@ export function isBot(body: Record<string, unknown>): boolean {
   const v = body[HONEYPOT_FIELD];
   return typeof v === "string" && v.trim().length > 0;
 }
+
+/**
+ * Collapse an IP to its network neighbourhood: /24 for IPv4, /48 for IPv6.
+ *
+ * A per-address cap is free to evade — a rented /24 supplies 256 "different"
+ * IPs for pennies, and one rotating subnet is exactly what a flood looks like
+ * from the inside. Capping the neighbourhood is what makes rotation cost money.
+ *
+ * Returns `null` for an address we could not parse, so the caller can skip the
+ * neighbourhood check rather than lump every unknown caller into one bucket and
+ * throttle real people behind an unusual proxy.
+ */
+export function networkKey(ip: string): string | null {
+  const addr = ip.trim().toLowerCase();
+  if (!addr || addr === "unknown") return null;
+
+  // IPv4 (also the ::ffff:1.2.3.4 form some proxies emit) → /24.
+  const v4 = addr.startsWith("::ffff:") ? addr.slice(7) : addr;
+  const v4Parts = v4.split(".");
+  if (v4Parts.length === 4 && v4Parts.every((p) => /^\d{1,3}$/.test(p) && Number(p) <= 255)) {
+    return `${v4Parts[0]}.${v4Parts[1]}.${v4Parts[2]}.0/24`;
+  }
+
+  // IPv6 → /48, i.e. the first three hextets. Expand a single "::" run first.
+  if (addr.includes(":")) {
+    const [head = "", tail = ""] = addr.split("::");
+    const headParts = head.split(":").filter(Boolean);
+    const tailParts = tail.split(":").filter(Boolean);
+    const missing = 8 - headParts.length - tailParts.length;
+    const full = addr.includes("::")
+      ? [...headParts, ...Array(Math.max(0, missing)).fill("0"), ...tailParts]
+      : addr.split(":");
+    if (full.length !== 8) return null;
+    return `${full[0]}:${full[1]}:${full[2]}::/48`;
+  }
+
+  return null;
+}
+
+/**
+ * The neighbourhood limit: deliberately a much longer window than the per-IP
+ * one. A single visitor sending five enquiries in a minute is impatient; forty
+ * from one /24 in an hour is a rented subnet.
+ */
+export const NETWORK_LIMIT = 40;
+export const NETWORK_WINDOW_MS = 60 * 60 * 1000;

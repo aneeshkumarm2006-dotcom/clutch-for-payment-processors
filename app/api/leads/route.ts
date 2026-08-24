@@ -2,7 +2,7 @@ import { connectToDatabase } from "@/lib/db";
 import { Lead, Processor } from "@/models";
 import { leadInput } from "@/lib/validators";
 import { ApiError, getAdminSession, handleApiError, json, requireAdmin } from "@/lib/api";
-import { clientIp, isBot, rateLimit } from "@/lib/rate-limit";
+import { decoyId, guardSubmission } from "@/lib/spam/guard";
 import { toAdminLeadData } from "@/lib/serialize";
 import { notifyRecipients, sendNotification } from "@/lib/email";
 import { getOrCreateSiteSettings } from "@/lib/settings";
@@ -35,18 +35,15 @@ export async function POST(req: Request) {
   try {
     const raw = (await req.json()) as Record<string, unknown>;
 
-    // Honeypot: accept silently (don't reveal the trap), never persist.
-    if (isBot(raw)) {
-      return json({ ok: true }, 201);
-    }
-
-    // Public submitters are rate-limited per IP; admins are trusted.
+    // One call covers the honeypot, both rate limits, Turnstile, the duplicate
+    // window and the content classifier. Admins are trusted and skip all of it.
     const session = await getAdminSession();
-    if (!session?.user) {
-      const limit = rateLimit(`leads:${clientIp(req)}`, 5, 60_000);
-      if (!limit.ok) {
-        throw new ApiError(429, "You're sending requests too fast. Please try again in a minute.");
-      }
+    const guard = await guardSubmission({ form: "lead", req, raw, isAdmin: !!session?.user });
+
+    // Rejected: already copied to the 30-day bin. Answer with the SAME 201 a
+    // real submission gets, so the bot sees success and doesn't adapt.
+    if (guard.blocked) {
+      return json({ ok: true, id: decoyId() }, 201);
     }
 
     await connectToDatabase();
@@ -60,23 +57,32 @@ export async function POST(req: Request) {
       processorName = proc.name;
     }
 
-    const created = await Lead.create({ ...data, status: "new" });
+    const created = await Lead.create({
+      ...data,
+      status: "new",
+      ...(guard.meta ? { spam: guard.meta } : {}),
+    });
 
     // Awaited, not fire-and-forget: on Vercel the function is frozen as soon as
     // the response is returned, which killed the SMTP handshake mid-flight and
     // lost the mail. `notifyNewLead` swallows its own errors, so awaiting it
     // still cannot fail the submission — only add a second or two.
-    await notifyNewLead({
-      name: data.name,
-      email: data.email,
-      businessName: data.businessName,
-      phone: data.phone,
-      monthlyVolume: data.monthlyVolume,
-      businessType: data.businessType,
-      message: data.message,
-      source: data.source,
-      processorName,
-    });
+    //
+    // Quarantined leads are stored and visible in the admin's Spam view but are
+    // NOT emailed: notifying on quarantine would defeat the point of having it.
+    if (guard.notify) {
+      await notifyNewLead({
+        name: data.name,
+        email: data.email,
+        businessName: data.businessName,
+        phone: data.phone,
+        monthlyVolume: data.monthlyVolume,
+        businessType: data.businessType,
+        message: data.message,
+        source: data.source,
+        processorName,
+      });
+    }
 
     return json({ ok: true, id: String(created._id) }, 201);
   } catch (err) {

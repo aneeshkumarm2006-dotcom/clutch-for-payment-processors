@@ -7,3 +7,4 @@ import "./analyticshub/index.test";
 import "./compare/compare-pairs.test";
 import "./homepage/homepage.test";
 import "./reviews/reviews-page.test";
+import "./spam/classify.test";
