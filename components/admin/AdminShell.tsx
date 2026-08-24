@@ -6,6 +6,7 @@ import { signOut } from "next-auth/react";
 import {
   CreditCard,
   FileText,
+  FileSpreadsheet,
   FolderTree,
   Home,
   Inbox,
@@ -52,6 +53,7 @@ const NAV: NavItem[] = [
   { label: "Categories", href: "/admin/categories", icon: FolderTree },
   { label: "Reviews", href: "/admin/reviews", icon: Star },
   { label: "Leads", href: "/admin/leads", icon: Inbox },
+  { label: "Fee sheet", href: "/admin/offer-signups", icon: FileSpreadsheet },
   { label: "Submissions", href: "/admin/submissions", icon: FileText },
   { label: "Spam", href: "/admin/spam", icon: ShieldAlert },
   { label: "Blog", href: "/admin/blog", icon: Newspaper },

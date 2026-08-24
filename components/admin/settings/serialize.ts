@@ -7,6 +7,7 @@ export interface SettingsFormValues {
   homepageHeroSubtitle: string;
   featuredCategorySlugs: string[];
   contactEmail: string;
+  feeSheetUrl: string;
   socialLinks: { twitter: string; linkedin: string; facebook: string; instagram: string };
   footerText: string;
   defaultSeo: { metaTitle: string; metaDescription: string; ogImage: string };
@@ -21,6 +22,7 @@ interface LeanSettings {
   homepageHeroSubtitle?: string;
   featuredCategorySlugs?: string[];
   contactEmail?: string;
+  feeSheetUrl?: string;
   socialLinks?: { twitter?: string; linkedin?: string; facebook?: string; instagram?: string };
   footerText?: string;
   defaultSeo?: { metaTitle?: string; metaDescription?: string; ogImage?: string };
@@ -39,6 +41,7 @@ export function toSettingsFormValues(doc: LeanSettings): SettingsFormValues {
       ? (doc.featuredCategorySlugs as string[])
       : [],
     contactEmail: str(doc.contactEmail),
+    feeSheetUrl: str(doc.feeSheetUrl),
     socialLinks: {
       twitter: str(doc.socialLinks?.twitter),
       linkedin: str(doc.socialLinks?.linkedin),
@@ -65,6 +68,7 @@ export function toSettingsPayload(values: SettingsFormValues): Record<string, un
     homepageHeroSubtitle: values.homepageHeroSubtitle,
     featuredCategorySlugs: values.featuredCategorySlugs,
     contactEmail: values.contactEmail,
+    feeSheetUrl: blankToUndef(values.feeSheetUrl),
     socialLinks: {
       twitter: blankToUndef(values.socialLinks.twitter),
       linkedin: blankToUndef(values.socialLinks.linkedin),

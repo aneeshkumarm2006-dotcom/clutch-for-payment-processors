@@ -6,6 +6,7 @@ export * from "./processor";
 export * from "./category";
 export * from "./review";
 export * from "./lead";
+export * from "./offerSignup";
 export * from "./submission";
 export * from "./blogPost";
 export * from "./seoPost";

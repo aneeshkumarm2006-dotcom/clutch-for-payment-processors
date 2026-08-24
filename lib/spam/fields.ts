@@ -1,4 +1,4 @@
-import { LISTING_TIERS, MONTHLY_VOLUMES, REVIEW_COMPANY_SIZES } from "@/lib/enums";
+import { LISTING_TIERS, MONTHLY_VOLUMES, OFFER_VOLUMES, REVIEW_COMPANY_SIZES } from "@/lib/enums";
 import type { SpamInput } from "./classify";
 import type { SpamFormKind } from "./types";
 
@@ -37,6 +37,27 @@ export const FORM_SPECS: Record<SpamFormKind, FormSpec> = {
     selfNameFields: ["businessName"],
     enums: { monthlyVolume: MONTHLY_VOLUMES },
     fingerprintFields: ["name", "businessName", "message"],
+  },
+  /**
+   * The fee-sheet slide-in: an email, and optionally one dropdown answer.
+   *
+   * `text` is empty because the form has NO free-text field, so every
+   * content rule the classifier owns has nothing to read and scores zero. What
+   * still protects it is everything that doesn't need prose — the honeypot, the
+   * render stamp, both rate limits, Turnstile, and the impossible-value check on
+   * the one enum.
+   *
+   * `fingerprintFields` is empty for the same reason, and that is correct rather
+   * than a gap: the hash deliberately excludes the email (see fingerprint.ts),
+   * which would leave nothing to hash, and `fingerprintPayload` already returns
+   * null below 24 characters. Duplicate ADDRESSES are handled where they belong
+   * — a unique index on the collection, which upserts instead of inserting.
+   */
+  offer: {
+    text: [],
+    emailField: "email",
+    enums: { volume: OFFER_VOLUMES },
+    fingerprintFields: [],
   },
   submission: {
     text: ["processorName", "contactName", "description"],

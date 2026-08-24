@@ -3,6 +3,7 @@ import { Footer } from "@/components/public/Footer";
 import { JsonLd } from "@/components/public/JsonLd";
 import { CompareProvider } from "@/components/public/compare/CompareContext";
 import { CompareBar } from "@/components/public/compare/CompareBar";
+import { OfferSlideIn } from "@/components/public/OfferSlideIn";
 import { PageSearchProvider } from "@/components/public/PageSearchContext";
 import { getPublishedCategories } from "@/lib/public-data";
 import { getLandingPageLinks } from "@/lib/page-seo";
@@ -51,6 +52,11 @@ export default async function PublicLayout({ children }: { children: React.React
         </div>
       </PageSearchProvider>
       <CompareBar />
+      {/* Mounted site-wide but arms itself only on comparison pages and blog
+          posts (see config/offer-slidein.ts). It lives inside CompareProvider
+          on purpose: it reads the compare tray so the two never fight over the
+          bottom edge of the screen. */}
+      <OfferSlideIn />
     </CompareProvider>
   );
 }

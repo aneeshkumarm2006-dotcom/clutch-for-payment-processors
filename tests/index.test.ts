@@ -6,5 +6,6 @@
 import "./analyticshub/index.test";
 import "./compare/compare-pairs.test";
 import "./homepage/homepage.test";
+import "./offer/offer-slidein.test";
 import "./reviews/reviews-page.test";
 import "./spam/classify.test";

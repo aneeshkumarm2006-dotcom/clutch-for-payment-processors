@@ -1018,3 +1018,89 @@ when the filter was written the database held 14 leads (10 seed fixtures, 4
 internal tests), 6 submissions (all seed fixtures) and 40 reviews (all
 `source: "import"`). There had been no real public spam to learn from. As real
 spam arrives, paste it in verbatim.
+
+## Fee-sheet slide-in (content offer + `OfferSignup`)
+
+A scroll-triggered, non-modal slide-in on comparison pages and blog posts,
+offering the processor fee comparison sheet for an email plus an optional volume
+bucket. Bottom-right card on desktop, bottom sheet on mobile, once per 21 days.
+
+### Why it is not a `Lead`
+
+The obvious move was `source: "fee-sheet"` on the existing Lead pipeline, which
+already has the guard, the notification, the inbox and the CSV. It was rejected:
+
+- `Lead.name` is **required**, and this form has no name field. Reusing it means
+  fabricating a name for every row.
+- The Leads inbox is a sales queue — sorted and searched by name, per-processor,
+  `new → contacted → closed`, and its CSV is a hand-off to a person who will call
+  someone. A mailing list arriving at ten times the volume buries the quote
+  requests inside a week.
+- The offer needs a **three-bucket** volume answer, not `MONTHLY_VOLUMES`' five.
+  Every extra option on a three-second ask costs conversions, and widening the
+  shared enum would put an overlapping `$50k+` bucket on the review form and the
+  quote dialog, where it does not belong.
+
+So: `models/OfferSignup.ts`, its own admin page, and a unique `(offer, email)`
+index. `offer` is a key rather than prose so a second magnet later shares the
+collection and gains a filter tab instead of a migration.
+
+### Repeat signups upsert, they do not duplicate
+
+Same address twice means "send it again", not a second subscriber. The route
+upserts on `(offer, email)` and `$inc`s `submissions`. `status` is deliberately
+**not** reset on a repeat: an operator who already marked the row contacted
+should not have it jump back into New because the visitor lost the email.
+
+### Spam: a form with nothing to read
+
+`offer` is a fourth `SpamFormKind`, with `text: []` — the form has no free-text
+field at all, so every content rule in the classifier scores zero. What still
+protects it is everything that does not need prose: the honeypot, the render
+stamp, both rate limits, Turnstile, and the impossible-value check on the one
+enum. `fingerprintFields` is empty for the same reason and that is correct, not a
+gap: the duplicate hash excludes the email by design, so there would be nothing
+left to hash. Duplicate **addresses** are handled by the unique index instead.
+
+This is why the widget **mounts at page load and only becomes visible at 60%**.
+`useSpamGuard` stamps on mount, and a submission under three seconds after the
+stamp scores 4 — straight to quarantine, never emailed. The form is one field.
+Lazy-mounting it at the trigger, the obvious optimisation, would put every fast
+typist in the spam bin.
+
+### No operator notification, on purpose
+
+Unlike `/api/leads` and `/api/submissions`, a signup here emails **nobody on the
+team**. A download is not an enquiry: nobody has to answer it, and at lead-magnet
+volume a mail per signup trains people to filter the very address that also
+carries real quote requests. The list is read in `/admin/offer-signups`.
+
+### Delivery, and the promise the widget makes
+
+`SiteSettings.feeSheetUrl` holds the link. With it set, the sheet is emailed to
+the visitor automatically on a clean verdict and the row records whether that
+send actually succeeded. With it blank, capture still works, the confirmation
+says a human will send it, and `/admin/offer-signups` carries a banner saying so
+— an offer that takes an address and delivers nothing is worse than no offer.
+Quarantined signups are never auto-mailed.
+
+### Frequency, and the two-step trigger
+
+Cooldown is spent on **impression**, not dismissal: "once per 21 days" has to
+mean once seen, or a visitor who ignores it meets it again on the next page. A
+visitor who converted is left alone for a year instead — they have the sheet.
+
+The trigger is two steps (`armedFor` then `mountedFor`) because `CompareBar`
+owns the same bottom edge on `/compare*`. Crossing 60% with the compare tray open
+**defers** the offer rather than consuming it, and it lands when the tray clears.
+Both are scoped to a pathname rather than being booleans: the component survives
+client-side navigation, and a stale boolean is read by effects one render before
+any reset can clear it — which showed the panel at the top of the next page and
+spent a cooldown nobody earned.
+
+### Where the knobs are
+
+`config/offer-slidein.ts` — copy, 60% threshold, pixel floor, delays, both
+cooldowns, and the route matcher. Deliberately no admin UI: a site-wide
+interruption is a design decision, not a setting, and nobody has yet asked to
+change it twice. Tests: `tests/offer/offer-slidein.test.ts`.

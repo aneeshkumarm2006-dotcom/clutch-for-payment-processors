@@ -10,6 +10,7 @@ export const siteSettingsInput = z.object({
   homepageHeroSubtitle: z.string().trim().min(1, "Hero subtitle is required"),
   featuredCategorySlugs: z.array(z.string().trim()).default([]),
   contactEmail: z.string().trim().email("Enter a valid email"),
+  feeSheetUrl: optionalUrl,
   socialLinks: z
     .object({
       twitter: optionalUrl,

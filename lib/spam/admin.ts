@@ -1,4 +1,4 @@
-import { BlockedSubmission, Lead, Review, Submission } from "@/models";
+import { BlockedSubmission, Lead, OfferSignup, Review, Submission } from "@/models";
 import type { SpamFormKind } from "./types";
 
 /**
@@ -35,6 +35,7 @@ interface SpamCollection {
 /** Model lookup shared by every spam write path, so the mapping lives in one place. */
 export const MODEL_BY_FORM: Record<SpamFormKind, SpamCollection> = {
   lead: Lead as unknown as SpamCollection,
+  offer: OfferSignup as unknown as SpamCollection,
   submission: Submission as unknown as SpamCollection,
   review: Review as unknown as SpamCollection,
 };
@@ -70,6 +71,16 @@ function describe(form: SpamFormKind, d: Record<string, unknown>) {
       preview: s(d.message) ?? s(d.businessName) ?? "(no message)",
     };
   }
+  if (form === "offer") {
+    // No name and no message to show: the address IS the submission. The volume
+    // bucket and the page it converted on are the only other facts there are,
+    // and both are what an operator needs to judge whether it looks real.
+    return {
+      who: s(d.email) ?? "Unknown",
+      email: s(d.email),
+      preview: [s(d.volume), s(d.pagePath)].filter(Boolean).join(" · ") || "(fee sheet signup)",
+    };
+  }
   if (form === "submission") {
     return {
       who: s(d.processorName) ?? "Unknown",
@@ -92,7 +103,7 @@ function describe(form: SpamFormKind, d: Record<string, unknown>) {
  */
 export async function listQuarantined(): Promise<SpamRowData[]> {
   const query = { "spam.verdict": "quarantine", "spam.clearedAt": { $exists: false } };
-  const forms: SpamFormKind[] = ["lead", "submission", "review"];
+  const forms: SpamFormKind[] = ["lead", "offer", "submission", "review"];
   const rows: SpamRowData[] = [];
 
   for (const form of forms) {

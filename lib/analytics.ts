@@ -18,7 +18,10 @@ export type AnalyticsEvent =
   | "search_suggestion_select"
   | "write_review_cta"
   | "lead_submit"
-  | "submission_submit";
+  | "submission_submit"
+  | "offer_view"
+  | "offer_dismiss"
+  | "offer_submit";
 
 type AnalyticsProps = Record<string, string | number | boolean>;
 

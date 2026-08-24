@@ -25,7 +25,7 @@ export type SpamVerdict = "allow" | "quarantine" | "reject";
  * is the legitimate use there and must not be scored. On the contact and quote
  * forms the same sentence is an agency pitch.
  */
-export type SpamFormKind = "lead" | "submission" | "review";
+export type SpamFormKind = "lead" | "offer" | "submission" | "review";
 
 export type SpamCategory =
   | "honeypot"

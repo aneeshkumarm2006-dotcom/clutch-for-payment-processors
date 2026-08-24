@@ -158,6 +158,49 @@ export const LEAD_STATUSES = ["new", "contacted", "closed"] as const;
 export type LeadStatus = (typeof LEAD_STATUSES)[number];
 
 // ---------------------------------------------------------------------------
+// Offer signup (fee-sheet slide-in)
+// ---------------------------------------------------------------------------
+/**
+ * Volume buckets for the fee-sheet slide-in. DELIBERATELY NOT `MONTHLY_VOLUMES`.
+ *
+ * The five-bucket list is what a quote form asks once someone is already
+ * invested; this is a three-second ask attached to a download, and every extra
+ * option costs conversions. Three coarse buckets are also all the segmentation
+ * the offer actually needs: below $10k is self-serve, $50k+ is worth a call.
+ *
+ * Keep the strings display-ready and in the same house style as MONTHLY_VOLUMES
+ * ("<$10k", not "under-10k") — they are rendered verbatim in the dropdown, the
+ * admin table, the notification email and the CSV export.
+ */
+/**
+ * The only content offer in play today.
+ *
+ * Lives HERE rather than on the model because the slide-in's config is imported
+ * by a client component: anything it reaches into ends up in the browser bundle,
+ * and `@/models/*` pulls in mongoose. This module is pure by design.
+ */
+export const FEE_SHEET_OFFER = "fee-comparison-sheet";
+
+export const OFFER_VOLUMES = ["<$10k", "$10k-$50k", "$50k+"] as const;
+export type OfferVolume = (typeof OFFER_VOLUMES)[number];
+
+/**
+ * Operator workflow on a captured signup. Mirrors the Leads inbox vocabulary so
+ * the two admin tables behave the same way, minus "closed" — a mailing-list row
+ * is archived, not won or lost.
+ */
+export const OFFER_SIGNUP_STATUSES = ["new", "contacted", "archived"] as const;
+export type OfferSignupStatus = (typeof OFFER_SIGNUP_STATUSES)[number];
+
+/**
+ * Which family of page the signup converted on. Coarse on purpose: the exact
+ * URL is stored alongside in `pagePath`, and this is the axis you group by when
+ * asking "does the magnet work better on comparisons or on posts?".
+ */
+export const OFFER_PAGE_TYPES = ["compare", "alternatives", "blog", "other"] as const;
+export type OfferPageType = (typeof OFFER_PAGE_TYPES)[number];
+
+// ---------------------------------------------------------------------------
 // Submission (PRD §8.5)
 // ---------------------------------------------------------------------------
 export const SUBMISSION_STATUSES = ["new", "reviewing", "approved", "rejected"] as const;

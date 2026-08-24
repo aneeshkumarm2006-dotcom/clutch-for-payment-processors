@@ -111,6 +111,15 @@ export interface ISiteSettings {
   featuredCategorySlugs: string[];
   homepage?: IHomepage;
   contactEmail: string;
+  /**
+   * Where the fee comparison sheet actually lives (a hosted PDF / Sheets link).
+   *
+   * Set it and the slide-in's confirmation email delivers the link automatically.
+   * Leave it blank and capture still works — the visitor is told a human will
+   * send it, and /admin/offer-signups says so loudly. A lead magnet that takes
+   * an address and delivers nothing is worse than no lead magnet.
+   */
+  feeSheetUrl?: string;
   socialLinks: ISocialLinks;
   footerText?: string;
   defaultSeo: ISeo;
@@ -246,6 +255,7 @@ const SiteSettingsSchema = new Schema<ISiteSettings>(
     featuredCategorySlugs: { type: [String], default: [] },
     homepage: { type: HomepageSchema, default: () => ({}) },
     contactEmail: { type: String, required: true, default: "hello@paymentprocessorguide.test", trim: true },
+    feeSheetUrl: { type: String, trim: true },
     socialLinks: { type: SocialLinksSchema, default: () => ({}) },
     footerText: { type: String },
     defaultSeo: { type: SeoSchema, default: () => ({}) },

@@ -17,7 +17,7 @@ import { Schema, model, models, type Model } from "mongoose";
  */
 
 /** Which public form produced it. Mirrors `SpamFormKind`. */
-export const BLOCKED_FORMS = ["lead", "submission", "review"] as const;
+export const BLOCKED_FORMS = ["lead", "offer", "submission", "review"] as const;
 export type BlockedForm = (typeof BLOCKED_FORMS)[number];
 
 export interface IBlockedSubmission {

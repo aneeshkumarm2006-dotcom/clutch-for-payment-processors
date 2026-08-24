@@ -1,6 +1,6 @@
 import { connectToDatabase } from "@/lib/db";
-import { BlockedSubmission, Lead, Review, Submission } from "@/models";
-import { leadInput, reviewInput, submissionInput } from "@/lib/validators";
+import { BlockedSubmission, Lead, OfferSignup, Review, Submission } from "@/models";
+import { leadInput, offerSignupInput, reviewInput, submissionInput } from "@/lib/validators";
 import { ApiError, handleApiError, json, requireAdmin } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
 
@@ -49,6 +49,20 @@ export async function POST(_req: Request, { params }: { params: { id: string } }
       const data = leadInput.parse(payload);
       const created = await Lead.create({ ...data, status: "new", spam });
       entityLabel = created.name;
+    } else if (row.form === "offer") {
+      const data = offerSignupInput.parse(payload);
+      const { offer, email, ...rest } = data;
+      // Upsert, not create: the address may have signed up legitimately in the
+      // meantime, and the unique (offer, email) index would reject a plain
+      // insert — turning "this was real" into a 500 the operator can't act on.
+      await OfferSignup.updateOne(
+        { offer, email },
+        // `offer`/`email` are seeded from the filter on insert — repeating them in
+        // $setOnInsert is a path conflict, not a belt-and-braces.
+        { $set: { ...rest, spam }, $setOnInsert: { status: "new", delivered: false, submissions: 1 } },
+        { upsert: true },
+      );
+      entityLabel = email;
     } else if (row.form === "submission") {
       const data = submissionInput.parse(payload);
       const created = await Submission.create({ ...data, status: "new", spam });

@@ -35,6 +35,7 @@ import {
 
 const FORM_LABEL: Record<string, string> = {
   lead: "Lead",
+  offer: "Fee sheet",
   submission: "Get listed",
   review: "Review",
 };

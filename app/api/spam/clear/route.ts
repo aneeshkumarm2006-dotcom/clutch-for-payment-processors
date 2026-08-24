@@ -19,7 +19,7 @@ import { MODEL_BY_FORM } from "@/lib/spam/admin";
 export const dynamic = "force-dynamic";
 
 const body = z.object({
-  form: z.enum(["lead", "submission", "review"]),
+  form: z.enum(["lead", "offer", "submission", "review"]),
   id: z.string().regex(/^[0-9a-fA-F]{24}$/, "Invalid id"),
 });
 

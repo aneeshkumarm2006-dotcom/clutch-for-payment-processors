@@ -7,6 +7,12 @@ export { Processor, type IProcessor, type IProcessorFees } from "./Processor";
 export { Category, type ICategory } from "./Category";
 export { Review, type IReview } from "./Review";
 export { Lead, type ILead } from "./Lead";
+export {
+  OfferSignup,
+  FEE_SHEET_OFFER,
+  type IOfferSignup,
+  type IOfferUtm,
+} from "./OfferSignup";
 export { Submission, type ISubmission } from "./Submission";
 export {
   BlockedSubmission,

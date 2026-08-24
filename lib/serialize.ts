@@ -11,6 +11,9 @@ import type {
   LeadStatus,
   ListingTier,
   MonthlyVolume,
+  OfferPageType,
+  OfferSignupStatus,
+  OfferVolume,
   SubmissionStatus,
   PaymentMethod,
   PayoutTime,
@@ -503,6 +506,49 @@ export function toAdminLeadData(doc: Lean): AdminLeadData {
     source: String(doc.source ?? "website"),
     processorId,
     processorName,
+    createdAt: iso(doc.createdAt),
+  };
+}
+
+export interface AdminOfferSignupData {
+  id: string;
+  email: string;
+  volume?: OfferVolume;
+  offer: string;
+  status: OfferSignupStatus;
+  pagePath?: string;
+  pageType?: OfferPageType;
+  referrer?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  delivered: boolean;
+  deliveredAt?: string;
+  deliveryError?: string;
+  submissions: number;
+  createdAt: string;
+}
+
+export function toAdminOfferSignupData(doc: Lean): AdminOfferSignupData {
+  const utm = (doc.utm ?? {}) as Record<string, unknown>;
+  return {
+    id: String(doc._id),
+    email: String(doc.email ?? ""),
+    volume: doc.volume as OfferVolume | undefined,
+    offer: String(doc.offer ?? "fee-comparison-sheet"),
+    status: (doc.status as OfferSignupStatus) ?? "new",
+    pagePath: str(doc.pagePath),
+    pageType: doc.pageType as OfferPageType | undefined,
+    referrer: str(doc.referrer),
+    utmSource: str(utm.source),
+    utmMedium: str(utm.medium),
+    utmCampaign: str(utm.campaign),
+    delivered: Boolean(doc.delivered),
+    // `isoOrUndef`, not `iso`: the latter defaults to now for a missing value,
+    // which would read as "delivered just now" on a row never sent at all.
+    deliveredAt: isoOrUndef(doc.deliveredAt),
+    deliveryError: str(doc.deliveryError),
+    submissions: Number(doc.submissions ?? 1),
     createdAt: iso(doc.createdAt),
   };
 }

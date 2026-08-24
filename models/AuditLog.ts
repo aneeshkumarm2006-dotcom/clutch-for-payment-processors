@@ -23,6 +23,7 @@ export type AuditEntity =
   | "settings"
   | "blog"
   | "lead"
+  | "offer"
   | "submission";
 
 export interface IAuditLog {

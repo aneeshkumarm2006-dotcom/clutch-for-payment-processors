@@ -139,6 +139,13 @@ export function SettingsForm({ defaultValues }: { defaultValues: SettingsFormVal
             type="email"
             placeholder="hello@paymentprocessorguide.com"
           />
+          <TextField
+            name="feeSheetUrl"
+            label="Fee comparison sheet URL"
+            type="url"
+            placeholder="https://…"
+            description="The link emailed to everyone who signs up through the fee-sheet slide-in. Set it and delivery is automatic; leave it blank and capture still works, but each person has to be sent the sheet by hand."
+          />
           <div className="grid gap-5 sm:grid-cols-2">
             <TextField name="socialLinks.twitter" label="Twitter / X" type="url" placeholder="https://x.com/…" />
             <TextField name="socialLinks.linkedin" label="LinkedIn" type="url" placeholder="https://linkedin.com/…" />
