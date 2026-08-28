@@ -1,0 +1,165 @@
+{
+  "name": "Clover",
+  "slug": "clover",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1787852965/logos/clover-logo-075affe8.webp",
+  "website": "https://www.clover.com",
+  "tagline": "Fiserv-owned POS sold direct and through banks and ISOs, at 2.6% + $0.10 in person on Starter and 2.3% + $0.10 on the Retail and Restaurant Growth plans.",
+  "shortDescription": "Clover is Fiserv's small-business POS line: Compact, Mini, Flex and Station Duo hardware on tiered software plans. Clover.com quotes 2.6% + $0.10 in person on Starter, 2.3% + $0.10 on the Retail Growth and Restaurant Growth plans and 3.5% + $0.10 keyed.",
+  "longDescription": "<p>Clover is the point-of-sale line Fiserv sells to small and mid-sized merchants. It began as an independent Sunnyvale startup in 2010, was bought by First Data at the end of 2012, and came under Fiserv when the two merged in 2019. The hardware range runs from the Compact countertop terminal with a 3.6 inch screen through the Mini, the Flex handheld, the Station Solo and the dual-screen Station Duo. Software is sold in plans named by vertical: Starter, Essentials, Retail Growth, Restaurant Growth and Services Growth. Unlike most merchant services brands, Clover reaches merchants two ways, directly from Fiserv at the prices on Clover.com and through banks and independent sales organizations that write their own rate cards.</p><h3>Pricing and how it works</h3><p>Clover publishes bundle pricing per business type. Retail starts at <strong>$16 a month for 36 months, or $349 outright</strong>, for a Compact terminal on the Starter plan at 2.6% + $0.10 on tapped, swiped and inserted cards and 3.5% + $0.10 keyed. A Station Duo on Retail Growth is $180 a month for 36 months, or $1,899 plus $84.95 a month, and drops the card-present rate to <strong>2.3% + $0.10</strong>. Full-service restaurants start at $179 a month for 36 months, or $1,799 plus $89.95 a month, and the top restaurant bundle is $354 a month or $4,447 plus $129.85 a month. Professional services can run software only, at $0, $29.95 or $84.95 a month. Rapid Deposit, which moves card takings to the bank within minutes of a sale, costs 1.75% of each transfer, deducted from your next standard deposit. The terms matter more than the rate. Clover's own hardware promotion footnote says the offer requires a three-year merchant processing agreement and that hardware rental is subject to early termination fees, and Merchant Maverick reports a 36 or 48 month software contract when you buy direct, with an early termination fee equal to the balance remaining on it.</p><h3>Who it is for</h3><p>Clover suits a counter-service restaurant, a shop or an appointment-based service business that wants one box handling orders, inventory, staff and card payments, and that expects to keep the same system for the length of the contract. The App Market, which Merchant Maverick counts at over 450 apps, covers what the base plans leave out. Three things should stop you. First, if you shop rates: the published 2.3% to 2.6% is a floor rather than a price, because the bank or ISO selling you the account sets the real one. Reseller hardware prices move in both directions too. Dharma Merchant Services lists the Station Duo at $2,099 against Clover.com's $1,899 and the Compact at $299 against $349. Second, if you might switch processors: CardFellow reports that a Clover bought through one processor cannot be reprogrammed for another, so the hardware is stranded the day you leave and the replacement is bought again from scratch. Third, if you want month-to-month billing: the standard term is three years or more, and leaving early is priced at whatever is left on the paper. A merchant who wants one published price, one company on the agreement and no term should buy a flat-rate system instead.</p>",
+  "foundedYear": 2010,
+  "headquarters": "Sunnyvale, CA, United States",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "UK",
+    "EU"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "Clover.com quotes 2.6% + $0.10 in person on the Starter plan and 2.3% + $0.10 on the Retail Growth and Restaurant Growth plans, with keyed and online cards at 3.5% + $0.10. Bundles run from $16 a month for 36 months for a Compact terminal up to $354 a month for the top restaurant system, and software-only plans are $0, $29.95 or $84.95 a month.",
+  "fees": {
+    "onlineCardRate": "3.5% + $0.10",
+    "inPersonCardRate": "2.6% + $0.10, or 2.3% + $0.10 on Retail Growth and Restaurant Growth",
+    "keyedInRate": "3.5% + $0.10",
+    "monthlyFee": "$0 to $89.95 per software plan",
+    "earlyTerminationFee": "Balance remaining on the contract"
+  },
+  "contractType": "long-term",
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "virtual-terminal",
+    "invoicing",
+    "pos-hardware"
+  ],
+  "currencies": "USD in the United States. Clover runs separate country platforms for Canada, Europe and Latin America, each with its own service plans, rather than multi-currency settlement on one account.",
+  "features": [
+    "recurring-billing",
+    "reporting-dashboard",
+    "tap-to-pay",
+    "24-7-support",
+    "developer-friendly"
+  ],
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "retail-pos",
+    "restaurants",
+    "small-business"
+  ],
+  "bestFor": [
+    "Counter-service restaurants",
+    "Retail shops",
+    "Appointment-based services",
+    "One vendor for POS and processing"
+  ],
+  "industries": [
+    "Restaurants",
+    "Retail",
+    "Bars and cafes",
+    "Personal services",
+    "Home and field services"
+  ],
+  "pros": [
+    "Publishes complete system prices online instead of quoting them: $16 a month for 36 months or $349 for a Compact terminal on Starter, $180 a month or $1,899 plus $84.95 a month for a Station Duo on Retail Growth",
+    "Card-present pricing drops to 2.3% + $0.10 on the Retail Growth and Restaurant Growth plans, and every full-service restaurant bundle carries that rate rather than the 2.6% Starter rate",
+    "One vendor covers hardware, POS software, online ordering, invoicing, gift cards and staff management, plus an App Market that Merchant Maverick counts at over 450 apps",
+    "Rapid Deposit puts card takings in the bank within minutes of a sale for a published 1.75% of the amount transferred, deducted from the next standard deposit"
+  ],
+  "cons": [
+    "Clover's own hardware promotion terms require a three-year merchant processing agreement, and Merchant Maverick reports a 36 or 48 month software contract with an early termination fee equal to whatever is left on it",
+    "Clover software runs only on Clover hardware, and CardFellow reports that a device bought through one processor cannot be reprogrammed for another, so switching processors means buying the equipment again",
+    "The same system is sold by Fiserv and by many banks and ISOs on their own rate cards, so 2.3% to 2.6% is a floor rather than a price: Dharma Merchant Services lists the Station Duo at $2,099 where Clover.com lists $1,899, and the Compact at $299 where Clover.com lists $349",
+    "Support is split across your merchant services provider, Clover itself and each App Market developer, and Merchant Maverick notes long wait times on the 24/7 phone line"
+  ],
+  "editorScore": 3.4,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "clover-hardware-costs",
+      "data": {
+        "html": "<h2>What Clover hardware costs</h2><p>Clover software runs only on Clover hardware, so the device price is part of the decision rather than an accessory to it. Bought outright from Clover.com, a Flex handheld is $749. Merchant Maverick's list puts the Go card reader at $49, the Mini at $849, the Station Solo at $1,799 and the Station Duo at $1,899, with the Flex and Flex Pocket between $699 and $749 depending on model.</p><p>Clover also runs a standing promotion: a 36 month device rental at one cent a month for the Compact, Flex or Flex Pocket. The qualifying conditions sit in the footnote on the same page. The Compact deal needs $100,000 in annual processing volume and a three-year merchant processing agreement. The Flex deal needs $200,000. Both add that hardware rental is subject to early termination fees, and both are limited to businesses that have not held a First Data Merchant Services account during 2026.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "clover-resellers",
+      "data": {
+        "html": "<h2>Buying Clover direct or through a reseller</h2><p>Clover is the small-business POS where one product reaches you through two entirely different commercial channels. Fiserv sells it at the prices on Clover.com. Banks and independent sales organizations also sell it, each setting its own rate, its own monthly fees and its own term. The box on the counter is identical either way.</p><p>Dharma Merchant Services, one of the resellers Merchant Maverick rates highly, lists the Station Duo at $2,099 where Clover.com lists $1,899, and the Compact at $299 where Clover.com lists $349. Hardware prices move in both directions; rate cards and contract lengths vary more. Merchant Maverick's advice here is blunt: do not lease hardware from a Clover reseller, because the monthly payments add up to more than the devices are worth.</p><p>Two questions settle most of it before you sign. Who is the merchant services provider named on the agreement, and what is the term and the early termination fee? Neither answer is on Clover.com, because neither is Clover's to give.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "clover-vs-square",
+      "data": {
+        "html": "<h2>Clover vs Square</h2><p>On headline rate the two are close. Clover charges 2.6% + $0.10 on tapped, swiped and inserted cards on its Starter plan and 2.3% + $0.10 on the Retail Growth and Restaurant Growth plans, with keyed cards at 3.5% + $0.10. Square publishes 2.6% + $0.15 in person on its free plan, dropping to 2.5% and 2.4% on the paid tiers, and 3.3% + $0.30 online.</p><p>The difference is structural. Square has one price list, one company on the agreement and a free software tier. Clover has a price list on Clover.com plus whatever the bank or ISO in front of you decides to charge, and its own promotions require a three-year processing agreement. Square is the simpler purchase and the cheaper exit. Clover has the wider hardware range and an App Market at over 450 apps by Merchant Maverick's count.</p>"
+      }
+    }
+  ],
+  "seo": {
+    "metaTitle": "Clover POS Review | Pricing, Fees and Contracts",
+    "metaDescription": "Clover charges 2.6 percent plus 10 cents in person, 2.3 percent on Retail and Restaurant Growth and 3.5 percent keyed. Contracts run 36 to 48 months.",
+    "keywords": [
+      "clover review",
+      "clover pos pricing",
+      "clover fees",
+      "clover vs square",
+      "clover pos contract"
+    ],
+    "focusKeyword": "clover review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Clover cost?",
+      "answer": "It depends on the bundle. Clover.com prices a Compact terminal on the Starter plan at $16 a month for 36 months or $349 outright, a Station Duo on Retail Growth at $180 a month for 36 months or $1,899 plus $84.95 a month, and the top full-service restaurant system at $354 a month or $4,447 plus $129.85 a month. Software-only plans for professional services are $0, $29.95 or $84.95 a month. Processing is 2.6% + $0.10 card present on Starter and 2.3% + $0.10 on the Retail Growth and Restaurant Growth plans, with keyed and online cards at 3.5% + $0.10. Buying through a bank or ISO instead of Clover.com changes all of it."
+    },
+    {
+      "question": "Does Clover require a contract?",
+      "answer": "Yes. Clover's own hardware promotion footnote says the offer requires a three-year merchant processing agreement and that hardware rental is subject to early termination fees. Merchant Maverick reports a 36 or 48 month software contract when you buy direct, with an early termination fee equal to the balance remaining on the term. Resellers write their own paper, so some sell shorter terms and a few sell month to month. The length of your commitment is set by whoever signs you up, not by Clover."
+    },
+    {
+      "question": "Is Clover good for high-risk merchants?",
+      "answer": "No. Clover accounts are underwritten by Fiserv or by the bank or independent sales organization reselling the system, and the product is built for ordinary retail, restaurant and appointment-based businesses. Clover does not publish a high-risk program or offshore acquiring, so merchants in restricted categories need a specialist acquirer instead. There is a second reason to look elsewhere. Because a Clover device cannot be reprogrammed for a different processor, a merchant who gets repriced or offboarded mid-term is left holding hardware that only works for the processor that just dropped them."
+    },
+    {
+      "question": "How long do Clover payouts take?",
+      "answer": "Clover does not publish a single funding schedule, because settlement is set by the merchant services provider on the account rather than by the POS. Its own help center describes standard deposits as taking a few days to reach your bank. Rapid Deposit is the paid alternative: Clover charges 1.75% of each transfer, deducted from your next standard deposit, and the funds land within minutes of a card sale. That 1.75% appears on every plan tier of the retail pricing page. If deposit timing matters to your cash flow, get the schedule in writing from whoever is selling you the account."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "clover.com",
+  "logoSource": "https://cloverstatic.com/content/icons/web/favicons/apple-touch-icon.png",
+  "sources": [
+    "https://www.clover.com/pricing/retail",
+    "https://www.clover.com/pricing/restaurant",
+    "https://www.clover.com/pricing/professional-services",
+    "https://www.clover.com/deals/flex/",
+    "https://www.clover.com/en-US/help/rapid-deposit-faqs",
+    "https://docs.clover.com/dev/docs/understand-merchant-service-plans",
+    "https://en.wikipedia.org/wiki/Clover_Network",
+    "https://www.merchantmaverick.com/reviews/clover-pos-system-review/",
+    "https://www.merchantmaverick.com/clover-pos-cost/",
+    "https://www.cardfellow.com/blog/buy-clover-pos-system/",
+    "https://dharmamerchantservices.com/services/point-of-sale/clover-point-sale/",
+    "https://squareup.com/us/en/pricing"
+  ]
+}

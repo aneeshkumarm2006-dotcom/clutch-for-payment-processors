@@ -129,8 +129,10 @@ export const POPULAR_COMPARE_PAIRS: readonly (readonly [string, string])[] = [
   // Restaurant POS. Same "argued against the default" case as the two above:
   // Square for Restaurants is what a counter-service operator shortlists MYR
   // against, and Square is also one of MYR's own terminal partners, so the page
-  // has to separate the POS decision from the processing decision. MYR's true
-  // rivals (Toast, Clover, Lightspeed) are not listed here at all.
+  // has to separate the POS decision from the processing decision. Two of MYR's
+  // true rivals, Toast and Clover, were unlisted when this was written and are
+  // paired against it in the 2026-08-27 batch below. Lightspeed still has no
+  // profile.
   ["square", "myr-pos"],
 
   // --- 2026-08-13 listing batch (Checkout.com, Worldpay, GoCardless, Paddle,
@@ -166,6 +168,46 @@ export const POPULAR_COMPARE_PAIRS: readonly (readonly [string, string])[] = [
   ["stripe", "paystack"], // Stripe owns Paystack, still a real search
   // Crypto acceptance: the direct published head-to-head.
   ["bitpay", "nowpayments"],
+
+  // --- 2026-08-27 listing batch (Clover, Toast, Elavon, Recurly, Lemon
+  // Squeezy) ----------------------------------------------------------------
+  // Three of these pairs are not a judgement call: `keyword-page-map.csv` already
+  // carries "elavon vs square", "chargebee vs recurly" and "polar vs lemon
+  // squeezy", each assigned to the counterparty's profile because the other side
+  // had no page to point at. Those three now get a real target. NOTE the slug
+  // order on them: the rest of this file puts the more-searched brand on the
+  // left, but here the mapped query IS the evidence, and the `[pair]` route
+  // renders the slugs verbatim as both the H1 and the meta title ("Compare A vs
+  // B: Fees and Features"). Matching the phrase people actually type beats the
+  // tiebreaker heuristic, so Elavon sits left of Square despite Square
+  // outranking it.
+  //
+  // "clover vs square" is the fourth mapped keyword and is deliberately NOT here.
+  // A published `landing` PageSeo already owns `/clover-vs-square` with that
+  // exact focus keyword, and it is indexable. Adding the pair would put two
+  // indexable pages on one query, which is the cannibalisation this list is
+  // supposed to avoid. If that landing page is ever retired, add
+  // `["clover", "square"]` back.
+
+  // Restaurant and retail POS. The three-way every operator shortlists, and the
+  // gap the MYR comment above flagged.
+  ["toast", "square"],
+  ["toast", "clover"], // the two biggest restaurant POS names, both Android, both locked hardware
+  ["toast", "myr-pos"],
+
+  // A bank-owned acquirer against the flat-rate default. The whole comparison is
+  // quote-and-contract versus one published price.
+  ["elavon", "square"], // mapped keyword
+
+  // Subscription billing: Recurly joins the existing cluster. Both pairs are
+  // billing layers that sit ON a processor, never acquirers themselves.
+  ["chargebee", "recurly"], // mapped keyword
+  ["maxio", "recurly"],
+
+  // Merchant of record. Lemon Squeezy is Stripe-owned and steering sellers to
+  // Stripe Managed Payments, which is exactly what makes these two live searches.
+  ["paddle", "lemon-squeezy"],
+  ["polar-payments", "lemon-squeezy"], // mapped keyword
 ];
 
 /** The `-vs-` delimiter joining the two slugs in a pretty compare URL. */

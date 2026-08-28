@@ -1,0 +1,111 @@
+{
+  "slug": "recurly",
+  "name": "Recurly",
+  "heading": "Recurly reviews",
+  "intro": "Recurly rates 4.6 out of 5 on Capterra across 62 reviews, and 4.1 out of 5 across 24 reviews of Recurly Commerce, its Shopify app. Those two numbers are measuring two different things. Recurly bought the Shopify app Prive in May 2025, and the low ratings on the app listing are Prive merchants describing what came after. On the billing platform itself the durable complaint is the invoice, not the uptime.",
+  "seo": {
+    "metaTitle": "Recurly Reviews: 4.6 on Capterra, Billing Surprises",
+    "metaDescription": "Recurly rates 4.6 on Capterra over 62 reviews. The recurring complaint is cost: overage invoices and per-transaction fees reviewers did not expect.",
+    "keywords": [
+      "recurly reviews",
+      "recurly ratings",
+      "recurly complaints",
+      "recurly commerce reviews",
+      "recurly overage fees"
+    ],
+    "focusKeyword": "recurly reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Recurly reviews verified?",
+      "answer": "The figures on this page come from Capterra, Software Advice, the Shopify App Store and Trustpilot, and were current as of August 2026. Capterra and Software Advice verify reviewers and share a corpus, which is why both show 4.6 out of 5 across the same 62 reviews. The Shopify App Store only accepts reviews from merchants who installed the app. Trustpilot lists four reviews of recurly.com in total, all of them at one or two stars, which is far too few to mean anything and is not counted here. None of these were submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed rating."
+    },
+    {
+      "question": "Why is Recurly's Shopify app rated lower than the billing platform?",
+      "answer": "Because it is a different product with a different history. Recurly acquired Prive, a Shopify-first subscription app, in May 2025 and relaunched it as Recurly Commerce. Merchants who had chosen Prive rated it highly before the deal, and the one and two star reviews that arrived afterwards describe support going quiet and migrations stalling rather than anything about billing software. Eighty three percent of that listing's reviews are still five star. If you are evaluating the billing platform for a digital subscription business, the Shopify reviews are about a product you would not be buying."
+    },
+    {
+      "question": "What do Recurly reviewers complain about most?",
+      "answer": "Cost, and specifically the shape of it. The loudest complaint on Software Advice describes a hidden transaction limit and per-transaction fees pushing a bill 40% above what was agreed, from a customer who felt misled. Reporting comes second, with Software Advice reviewers naming limited customisation and trouble handling billing exceptions. Third is the dashboard logging people out after five to fifteen minutes of inactivity, a small thing that irritates anyone in the tool all day. Reliability barely appears. Reviewers who dislike the pricing still describe the platform as stable."
+    },
+    {
+      "question": "Do reviewers say Recurly's failed payment recovery works?",
+      "answer": "Yes, and it is the feature named most often as the reason people stay. Capterra reviewers single out automated dunning and the card updater for cutting involuntary churn, and one Shopify reviewer names intelligent retries as the reason their subscription business grew after switching. Recurly's own published figures are a 49% annual dunning recovery rate and 72% of at-risk subscribers saved, which are vendor numbers rather than audited ones. What the reviews confirm is direction rather than magnitude: the recovery tooling is the part of Recurly that people say earned its fee."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, Recurly carries 4.6 out of 5 on Capterra across 62 reviews, with ease of use at 4.5, customer service at 4.6, value for money at 4.4 and functionality at 4.4 on the Software Advice view of the same corpus. Seventy one percent of those reviews are five star and three percent are one star. That is a well-liked product, and the sub-scores say where the softness is: value for money and functionality sit below service.</p><p>The Shopify App Store listing for Recurly Commerce is a separate record, at 4.1 out of 5 across 24 reviews. Trustpilot has four reviews of recurly.com, which is not a sample. No G2 figure appears on this page because the count could not be confirmed against G2 directly.</p><p>On Capterra and Software Advice the same two things recur. Praised: dunning, retries and the card updater, plus support that answers. Criticised: what the bill turned out to be, and getting data out of the reporting screens in the shape you needed it.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Customer service is the highest sub-score on Capterra at 4.6 out of 5, and reviewers describe reaching a person who knew the product",
+        "Dunning, intelligent retries and the card updater are the features named most often as the reason involuntary churn fell",
+        "Reviewers describe Recurly as the reason they stopped building billing in-house, one saying it gives them all they need to run a SaaS business without putting too much development into billing",
+        "Flexible plan configuration is a repeated theme, with reviewers describing monthly, annual and prepaid billing set up side by side in the same account",
+        "Nobody complains about uptime on the billing platform. Software Advice reviewers who object to the price still call it the most reliable solution for managing recurring bills",
+        "Eighty three percent of the 24 Shopify App Store reviews for Recurly Commerce are five star, most crediting hands-on setup help"
+      ],
+      "cons": [
+        "Overage invoices nobody saw coming are the loudest complaint, with one Software Advice reviewer reporting a hidden transaction limit and per-transaction fees pushing the bill 40% over what was agreed",
+        "Reporting customisation is the second theme, with Software Advice reviewers naming limited report options and difficulty handling billing edge cases and exceptions",
+        "The dashboard logs people out after five to fifteen minutes of inactivity and forces periodic password changes, which reviewers who work in it all day raise by name",
+        "Help documentation reads as written for developers rather than daily users, and non-admin reviewers say they are restricted from data they need to support customers, including viewing add-on products",
+        "Both negative reviews on the Shopify listing come from Prive-era merchants: the one star, from a merchant of over three years, says Recurly ignored Prive customers after the acquisition, and the two star, written eight days after the deal was announced, describes migration triggers still failing at six weeks",
+        "Migrating an existing subscriber base is where reviews turn negative fastest, including a Shopify reviewer still chasing platform triggers six weeks in"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>Two products share this name in the reviews, and averaging them describes neither. The 62 Capterra reviews are the core billing platform, written by digital media, SaaS and consumer subscription companies who wired Recurly to a gateway they already had. The Shopify listing is Recurly Commerce, the app Recurly bought as Prive in May 2025, and its low ratings are a post-acquisition support story. Read them apart or you will draw the wrong conclusion about both.</p><p>The second thing to separate is what Recurly charges from what your payments cost. Recurly is not the processor of record. Card rates, interchange, chargebacks, reserves and payout timing stay with Stripe, Adyen, Braintree or whoever settles your money, so a review complaining about declines or funding speed is usually about the gateway underneath. What Recurly does charge is a platform fee plus a percentage of billing volume on top of all that, which is why cost is the complaint that never goes away and why the overage stories deserve a slow read. The Software Advice complaint names a transaction limit nobody was shown, so get that number in writing before signing.</p><p>If the percentage is the sticking point, <a href=\"/processor/chargebee\">Chargebee</a> starts at $0 a month plus 0.80% of invoicing volume against Recurly's $249 plus 0.9%. And note that <a href=\"/processor/stripe\">Stripe</a> and <a href=\"/processor/braintree\">Braintree</a>, two of the 18 gateways on Recurly's own supported list, ship subscription tooling of their own, so the honest question is whether Recurly's recovery engine earns its percentage on top of a processor you are already paying.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.capterra.com/p/122700/Recurly-Subscription-Billing/reviews/",
+    "https://www.softwareadvice.com/accounting/recurly-profile/reviews/",
+    "https://apps.shopify.com/recurly-commerce/reviews",
+    "https://www.trustpilot.com/review/www.recurly.com",
+    "https://recurly.com/press/recurly-acquires-prive-and-redfast-to-accelerate-the-future-of-subscription-growth/",
+    "https://recurly.com/pricing/",
+    "https://recurly.com/product/churn-management/",
+    "https://www.chargebee.com/pricing/"
+  ],
+  "quotesNote": "The four excerpts below come from the Shopify App Store listing for Recurly Commerce, the app Recurly acquired as Prive in May 2025, which only accepts reviews from merchants who installed it and therefore skews toward Prive's original customer base and toward the Shopify product rather than Recurly's core billing platform.",
+  "quotes": [
+    {
+      "text": "Recurly Commerce has been a great fit for our subscription business. It's much more reliable and flexible than the platform we used prior.",
+      "source": "Shopify App Store",
+      "sourceUrl": "https://apps.shopify.com/recurly-commerce/reviews",
+      "date": "August 2026",
+      "rating": 5,
+      "attribution": "an audio hardware brand"
+    },
+    {
+      "text": "Recurly acquired Prive and completely ruined it. I don't understand the purpose of the acquisition if they just completely ignore Prive customers until they leave.",
+      "source": "Shopify App Store",
+      "sourceUrl": "https://apps.shopify.com/recurly-commerce/reviews",
+      "date": "January 2026",
+      "rating": 1,
+      "attribution": "a Shopify merchant of over three years"
+    },
+    {
+      "text": "If you have a large subscription base to migrate, I would be cautious to use this app. I still have unresolved issues of their platform not triggering properly even after 6 weeks later, which they are still working to resolve.",
+      "source": "Shopify App Store",
+      "sourceUrl": "https://apps.shopify.com/recurly-commerce/reviews",
+      "date": "May 2025",
+      "rating": 2,
+      "attribution": "a farm goods retailer"
+    },
+    {
+      "text": "The Recurly team is great to work with! They know how to balance both tactical and strategic conversations. We've had a few bumps in the past couple months, but they do come back with root issues and future preventions.",
+      "source": "Shopify App Store",
+      "sourceUrl": "https://apps.shopify.com/recurly-commerce/reviews",
+      "date": "December 2025",
+      "rating": 5,
+      "attribution": "a consumer goods brand"
+    }
+  ]
+}

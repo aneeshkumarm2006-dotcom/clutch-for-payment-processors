@@ -1,0 +1,187 @@
+{
+  "name": "Lemon Squeezy",
+  "slug": "lemon-squeezy",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1787852971/logos/lemon-squeezy-logo-8c378fd8.webp",
+  "website": "https://www.lemonsqueezy.com",
+  "tagline": "Merchant of record for digital products at 5% + 50 cents a sale, owned by Stripe since 2024 and now steering sellers to Stripe Managed Payments.",
+  "shortDescription": "Lemon Squeezy sells your software, courses and downloads as merchant of record and handles VAT, GST and US sales tax. The fee is 5% + $0.50, plus 1.5% outside the US and 0.5% on subscriptions. Stripe bought it in July 2024 and its changelog has been quiet since August 2025.",
+  "longDescription": "<p>Lemon Squeezy is a merchant of record for digital products. It sells your software, courses, ebooks and design assets to the end customer under its own name, collects the tax, and pays you the balance. It was built in Utah by JR Farr, Gilbert Pellegrom and Orman Clark, and its About page dates the founding to 2019 and counts 15,000+ merchants and 25,000+ listed products. TechCrunch reported the public launch in 2021 and a team of 13 when <strong>Stripe acquired the company in July 2024</strong>. The product still runs and still takes new signups, but the terms of service now name the counterparty as Sold through Link, LLC, formerly Lemon Squeezy LLC, and the public changelog has had no entry since 18 August 2025.</p><h3>Pricing and how it works</h3><p>The headline is <strong>5% + $0.50 per transaction</strong>, with no monthly charge, no setup fee and no contract. Surcharges stack on top of it. Transactions outside the US add 1.5%, PayPal adds 1.5%, and subscription payments add 0.5%, so a recurring charge to a European customer costs 7% + $0.50. Payments recovered through abandoned cart emails add 5% and affiliate referrals add 3%. Lemon Squeezy quotes custom pricing for high volume sellers and for anyone whose products cost under $10, where 50 cents is already a tenth of the price. Money moves on a fixed calendar rather than a rolling one. Payouts are created on the 1st and the 15th, net sales are held for 13 days, and the money is released on the 14th and the 28th, then takes one to five days to reach the bank. There is a $50 minimum, and anything under it rolls into the next cycle. Stripe bank payouts are free in the US and cost 1% elsewhere, while PayPal payouts cost $0.50 in the US and 3% capped at $30 outside it. Refunds come out of your next payout less the platform fee, and a chargeback adds a $15 dispute fee. All 130 display currencies are converted and charged in USD at mid-market rates, and payouts are made in USD.</p><h3>Who it is for</h3><p>This fits a solo developer or a small software company selling a paid app, a plugin, a template pack or a SaaS subscription into a dozen countries, who would rather hand off VAT registration than learn it. License keys are issued on purchase and can be deactivated or reissued through the dashboard or the license API, download links are signed and throttled instead of public URLs, and there is a REST API, webhooks, Lemon.js and an official Laravel package. Bank payouts reach 119 listed countries and PayPal payouts reach 200 or more, against the 38 business locations Stripe Managed Payments accepts sellers from. It is the wrong choice for physical goods, services of any kind including consulting and design work, crypto and NFT products, adult content, dating, job boards, marketplaces and resale-rights ebooks, all of which the prohibited products list names. It is a poor fit if you need money quickly, because the earliest a sale can reach your bank is 13 days plus the payout cycle. And it is a bet on a product whose owner has told its users to plan on moving: in January 2026 CEO JR Farr wrote that the goal is to give Lemon Squeezy users an easy way to migrate to Stripe Managed Payments, without naming a date for the Lemon Squeezy platform itself.</p>",
+  "foundedYear": 2019,
+  "headquarters": "Salt Lake City, UT, United States",
+  "companySize": "1-50",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "EU",
+    "UK",
+    "IN",
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "custom-quote"
+  ],
+  "pricingSummary": "Lemon Squeezy charges 5% + $0.50 per transaction with no monthly or setup fee, then adds 1.5% outside the US, 1.5% on PayPal and 0.5% on subscriptions. Payouts are created on the 1st and 15th, held 13 days, released on the 14th and 28th, and carry a $50 minimum.",
+  "fees": {
+    "onlineCardRate": "5% + $0.50",
+    "internationalRate": "5% + $0.50 plus 1.5% outside the US",
+    "monthlyFee": "None",
+    "setupFee": "None",
+    "chargebackFee": "$15 dispute fee",
+    "monthlyMinimum": "None",
+    "earlyTerminationFee": "None, no contract",
+    "refundPolicy": "You set the policy, but Lemon Squeezy can refund within 60 days"
+  },
+  "contractType": "no-contract",
+  "freeTrial": false,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "paypal",
+    "apple-pay",
+    "google-pay",
+    "ach",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "payment-links"
+  ],
+  "currencies": "Prices display in 130 currencies, but every transaction is charged in USD at mid-market rates and all payouts are made in USD",
+  "features": [
+    "recurring-billing",
+    "fraud-protection",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "ecommerce",
+    "developers"
+  ],
+  "bestFor": [
+    "Indie software sellers",
+    "SaaS with global VAT exposure",
+    "License key delivery",
+    "Digital downloads"
+  ],
+  "industries": [
+    "SaaS",
+    "Software",
+    "Digital products",
+    "Design assets",
+    "Online courses"
+  ],
+  "pros": [
+    "The 5% + $0.50 platform fee buys out the tax problem entirely, because Lemon Squeezy is the legal seller and registers, collects and remits VAT, GST and US sales tax rather than leaving you to watch thresholds market by market",
+    "License key issuing, deactivation and reissue is built in, keys can be tied to subscription status, and download links are signed and throttled, so a solo software seller does not have to build fulfilment",
+    "No monthly fee, no setup fee and no contract, with custom pricing available for high volume sellers and for products priced under $10 where the 50 cent component bites hardest",
+    "Bank payouts reach 119 listed countries and PayPal payouts reach 200 or more, against the 38 business locations Stripe Managed Payments currently accepts sellers from"
+  ],
+  "cons": [
+    "The public changelog has had no entry since 18 August 2025, and in a January 2026 post the CEO named the tradeoffs of the acquisition himself: slower support responses and less frequent product updates",
+    "Trustpilot shows 1.2 out of 5 across 173 reviews as of August 2026, dominated by store applications rejected without a stated reason after one to four weeks of document collection, and by payouts left pending",
+    "Payouts run on a fixed twice monthly calendar with a 13 day hold and a $50 minimum, so a sale made on the 4th is not released until the 28th and then takes one to five days to land",
+    "Stripe is pointing merchants at Stripe Managed Payments, which charges 3.5% on top of standard Stripe processing fees, and no end date has been published for the Lemon Squeezy platform itself"
+  ],
+  "editorScore": 2.6,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "lemon-squeezy-stripe-status",
+      "data": {
+        "html": "<h2>Where Lemon Squeezy stands after the Stripe acquisition</h2><p>Stripe announced the deal on 26 July 2024. TechCrunch reported that the team was 13 people, that the company had passed $1 million in annual recurring revenue nine months after its 2021 public launch, and that it had turned down a $50 million Series A term sheet.</p><p>What has happened since is documented, but not on a cadence anyone would call active. The newest changelog entry is 18 August 2025, when checkout localization shipped in 34 languages. On 28 January 2026 CEO JR Farr published an update that opened by owning the silence and named the cost of it plainly: slower support responses and less frequent product updates. The same post said where the engineering had gone, which is Stripe Managed Payments, Stripe's own merchant of record product, and that the goal is to give Lemon Squeezy users an easy way to migrate to it.</p><p>The signup flow reflects that. Registering now opens on a step headed Tell us about your business, which says the answers will be used to recommend the best path for your business. New accounts are still being accepted, and no shutdown date has been published for the Lemon Squeezy platform.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "lemon-squeezy-merchant-of-record",
+      "data": {
+        "html": "<h2>What merchant of record actually changes</h2><p>Lemon Squeezy is the legal seller on every order. Your customer's card statement carries Lemon Squeezy rather than your business, and the indirect tax liability sits with Lemon Squeezy in every jurisdiction where the sale is taxable. That is the reason to pay 5% instead of a card processor's rate: you are buying out registration, filing and audit exposure, not just card acceptance.</p><p>It also means some decisions stop being yours. You set your own refund policy, but Lemon Squeezy reserves the right to issue a refund within 60 days of purchase at its own discretion to head off a chargeback. Chargebacks are handled on your behalf, and the refunded amount less the platform fee, plus a $15 dispute fee, comes out of your next payout. Lemon Squeezy states that a store with too many chargebacks may be suspended.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "lemon-squeezy-software-delivery",
+      "data": {
+        "html": "<h2>Software delivery and license keys</h2><p>Delivery is why software sellers chose Lemon Squeezy over a plain checkout. License keys are generated on purchase and can be deactivated or reissued from the dashboard or through the license API, and keys can be tied to subscription status so a lapsed subscription invalidates the key. Files are served through signed, throttled download links rather than public URLs.</p><p>Around that sit usage-based billing, a self-service customer portal, pay what you want pricing, lead magnets, discount codes, an affiliate platform, abandoned cart and dunning recovery, and an email marketing tool that is free up to 500 subscribers. Checkout can be a hosted page, a shared link, or an overlay dropped onto your own site with Lemon.js. Subscriptions are narrower than one-off sales on payment methods: cards, Apple Pay, Google Pay and PayPal only, while one-off purchases can also take Alipay, WeChat Pay, Cash App Pay and bank debits.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "lemon-squeezy-fee-comparison",
+      "data": {
+        "html": "<h2>How the fee compares</h2><p>Paddle publishes the same headline number, 5% + 50 cents per checkout transaction, with no international or subscription surcharge listed on its pricing page. Lemon Squeezy's surcharges make the real comparison less clean: a subscription renewal from a customer outside the US costs 7% + $0.50 here.</p><p>Stripe Managed Payments, the product Lemon Squeezy merchants are being pointed at, is priced as an add-on rather than an all-in rate. Stripe charges 3.5% per successful Managed Payments transaction, calculated on the full amount including any indirect tax, and that sits on top of standard Stripe processing fees rather than replacing them. It covers indirect tax compliance in more than 80 countries, but it accepts sellers in only 38 business locations, it is digital products only, and it does not work with Connect platforms or marketplaces. Sellers in the 119 countries on Lemon Squeezy's bank payout list who fall outside those 38 have nowhere obvious to migrate to.</p>"
+      }
+    }
+  ],
+  "seo": {
+    "metaTitle": "Lemon Squeezy Review | Fees, Payouts and Status",
+    "metaDescription": "Lemon Squeezy charges 5 percent plus 50 cents as merchant of record, pays out twice a month on a 50 dollar minimum, and is folding into Stripe.",
+    "keywords": [
+      "lemon squeezy review",
+      "lemon squeezy pricing",
+      "lemon squeezy fees",
+      "lemon squeezy stripe acquisition",
+      "lemon squeezy payouts"
+    ],
+    "focusKeyword": "lemon squeezy review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Lemon Squeezy cost?",
+      "answer": "The platform fee is 5% + $0.50 per transaction, with no monthly fee, no setup fee and no contract. Surcharges stack on top: 1.5% for transactions outside the US, 1.5% for PayPal, and 0.5% for subscription payments, so a recurring charge to a European customer runs 7% + $0.50. Payments recovered by abandoned cart email add 5% and affiliate referrals add 3%. Payout fees are separate: Stripe bank payouts are free in the US and 1% elsewhere, while PayPal payouts cost $0.50 in the US and 3% capped at $30 outside it. A chargeback adds a $15 dispute fee. Lemon Squeezy quotes custom pricing for high volume sellers and for products priced under $10."
+    },
+    {
+      "question": "Is Lemon Squeezy shutting down now that Stripe owns it?",
+      "answer": "No shutdown has been announced, but nobody should read that as a commitment. Stripe acquired Lemon Squeezy in July 2024. The platform is still live, still takes new signups and still runs its own dashboard and API. What has changed is the direction of travel: in a post dated 28 January 2026, CEO JR Farr wrote that the team is building Stripe Managed Payments and that the goal is to give Lemon Squeezy users an easy way to migrate to it. He also acknowledged slower support responses and less frequent product updates since the acquisition. The public changelog has had no entry since 18 August 2025. Treat Lemon Squeezy as a working product with an unstated end date rather than a platform you build a decade on."
+    },
+    {
+      "question": "How long do Lemon Squeezy payouts take?",
+      "answer": "Longer than most processors, because the schedule is fixed rather than rolling. Payouts are created on the 1st and the 15th of each month and cover all sales since the last one. Net sales are held for 13 days before becoming available, so those payouts are released on the 14th and the 28th, then take one to five days to appear in the bank. Lemon Squeezy's own example: a sale made on the 4th is included in the payout created on the 15th and paid out on the 28th. There is a $50 minimum threshold, and anything below it stays pending and rolls into the next cycle. Bank payouts are made in USD and converted at the mid-market rate if you choose another currency."
+    },
+    {
+      "question": "What can you not sell on Lemon Squeezy?",
+      "answer": "Quite a lot, and the list is worth reading before you build a store. Lemon Squeezy prohibits physical goods of any kind, services of any kind including marketing, design, web development and consulting, adult content, crypto and NFT related products, dating sites, job boards, IPTV, marketplaces where you resell other people's products, private label rights and master resell rights products, counterfeit goods, spyware and parental control apps, and regulated categories including CBD, gambling, weapons, pharmaceuticals, lending and debt relief. Acceptable products are digital goods fulfilled through the platform: software and SaaS, ebooks, PDFs, design assets, photos, audio and video. Selling something on the prohibited list risks the store being placed in review or suspended without notice."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "lemonsqueezy.com",
+  "logoSource": "https://cdn.prod.website-files.com/6347244ba8d63489ba51c08e/6358e75cbf1bca262b2b2edc_webclip.jpg",
+  "sources": [
+    "https://www.lemonsqueezy.com/pricing",
+    "https://auth.lemonsqueezy.com/signup/business-intent",
+    "https://docs.lemonsqueezy.com/help/getting-started/fees",
+    "https://docs.lemonsqueezy.com/help/getting-started/getting-paid",
+    "https://docs.lemonsqueezy.com/help/getting-started/supported-countries",
+    "https://docs.lemonsqueezy.com/help/getting-started/prohibited-products",
+    "https://docs.lemonsqueezy.com/help/checkout/payment-methods",
+    "https://docs.lemonsqueezy.com/help/payments/merchant-of-record",
+    "https://docs.lemonsqueezy.com/help/payments/refunds-chargebacks",
+    "https://docs.lemonsqueezy.com/help/payments/currencies",
+    "https://docs.lemonsqueezy.com/help/licensing/license-keys-subscriptions",
+    "https://www.lemonsqueezy.com/blog/laravel-lemon-squeezy",
+    "https://www.lemonsqueezy.com/blog/2026-update",
+    "https://www.lemonsqueezy.com/changelog",
+    "https://www.lemonsqueezy.com/about",
+    "https://www.lemonsqueezy.com/terms",
+    "https://techcrunch.com/2024/07/26/stripe-acquires-payment-processing-startup-lemon-squeezy/",
+    "https://docs.stripe.com/managed-payments",
+    "https://docs.stripe.com/payments/managed-payments/eligibility",
+    "https://support.stripe.com/questions/managed-payments-pricing",
+    "https://www.paddle.com/pricing",
+    "https://www.trustpilot.com/review/lemonsqueezy.com"
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "name": "Recurly",
+  "slug": "recurly",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1787852970/logos/recurly-logo-e1ab87b0.webp",
+  "website": "https://recurly.com",
+  "tagline": "Subscription billing and revenue recovery platform that runs on top of 18 payment gateways, from $249 a month plus 0.9% of billing volume.",
+  "shortDescription": "Recurly is billing software, not a merchant account. It sits on Stripe, Adyen, Braintree, PayPal Complete or Worldpay and you keep paying your processor separately. Starter costs $249 a month plus 0.9% of billing volume above the first $40,000 billed each month.",
+  "longDescription": "<p>Recurly is subscription billing software, not a merchant account. It sits between your product and a payment gateway you already hold, handling plans, trials, proration, coupons, invoicing, tax and failed-payment retries, while Stripe, Adyen, Braintree, PayPal Complete, Worldpay or one of the 18 gateways on its supported list moves the money. Founded in 2009, majority-owned by private equity firm Accel-KKR since 2020, and headquartered in Austin with offices in Broomfield, Medellin and London per its 2025 press releases, though its own company page still lists San Francisco, Recurly reports a $16 billion annual transaction run rate and more than 100 million active subscribers for brands including Paramount+, Twitch, Sling, Alaska Airlines, FabFitFun and Sprout Social. In May 2025 it bought the churn-prediction tool Redfast and the Shopify subscription app Prive, relaunching Prive as Recurly Commerce.</p><h3>Pricing and how it works</h3><p>Two plans are published. <strong>Starter</strong> is $249 a month plus 0.9% of billing volume, with the first $40,000 of billings each month included at no volume charge, and it comes with a 90 day free trial, one dunning campaign, 10+ payment methods and 20+ payment gateways. <strong>All-Access</strong> is billed annually at a percentage of billing volume Recurly advertises as low as under 1%, with the rate improving as volume rises, and requires $1 million in billing volume to qualify; it adds multiple dunning campaigns, multicurrency, single sign-on, custom reporting and payments orchestration across multiple gateways. Two add-ons are priced apart from the platform: Engage from $1,600 a month and RevRec from $850 a month, both billed annually. Recurly's FAQ says there is no setup fee, that Starter is month to month, and that its higher plans carry a minimum 12 month commitment. Implementation is optional, and the same FAQ says many merchants do it themselves rather than buy Professional Services, which are billed separately.</p><p>The cost Recurly does not charge is the one that decides the total. Because it is not the processor of record, interchange, card rates, chargeback fees, reserves and settlement all stay with your gateway, and Recurly's percentage sits on top of them. A Starter account billing $200,000 a month pays Recurly about $1,689 before its processor takes a cent. Tax is either Recurly's own calculation, which the FAQ describes as basic tax rate calculations, or your own Avalara AvaTax Pro or Vertex account wired in for global regions and advanced tax reporting. Payout timing is your gateway's business, not Recurly's.</p><h3>Who it is for</h3><p>Recurly suits established subscription businesses in digital media, streaming, publishing, consumer apps and SaaS that have outgrown a gateway's own billing tools and whose biggest leak is declined renewals. That is where the product is strongest: Recurly reports a 49% annual dunning recovery rate, 72% of at-risk subscribers saved, a 96% annual renewal invoice paid rate and $1.7 billion in recovered revenue across its customer base, worked through intelligent retries, account updater, expired card management and backup payment methods. It is a poor fit for early-stage companies, where $249 a month plus a percentage is real money before there is revenue and Chargebee's entry plan starts at $0 plus 0.80% of invoicing volume. It is also a poor fit if multi-gateway routing is the thing you are buying, because Recurly's own documentation says custom gateway routing is not included in Starter or Pro. And it is no use at all to a high-risk merchant, who needs an acquirer willing to underwrite the business before a billing layer means anything.</p>",
+  "foundedYear": 2009,
+  "headquarters": "Austin, TX, United States",
+  "companySize": "251-1000",
+  "supportedRegions": [
+    "US",
+    "UK",
+    "EU",
+    "Global"
+  ],
+  "pricingModel": [
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "Starter costs $249 a month plus 0.9% of billing volume, with the first $40,000 of billings each month included at no volume charge. All-Access is billed annually at a percentage of billing volume Recurly advertises as low as under 1%, needs $1 million in billing volume to qualify, and gateway processing fees are separate on every plan.",
+  "fees": {
+    "onlineCardRate": "Set by your gateway, not by Recurly",
+    "achRate": "Set by your gateway. ACH runs on Adyen, GoCardless, Stripe, Worldpay or Check Commerce",
+    "monthlyFee": "$249 on Starter, plus 0.9% of billings above $40,000",
+    "setupFee": "None, per Recurly's FAQ",
+    "chargebackFee": "Charged by your gateway or acquirer, not by Recurly",
+    "monthlyMinimum": "None on Starter. All-Access requires $1M in billing volume",
+    "earlyTerminationFee": "None on Starter, which is month to month. Recurly's FAQ puts a 12 month minimum on its Professional and Elite plans"
+  },
+  "contractType": "month-to-month",
+  "freeTrial": true,
+  "payoutTime": "varies",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "ach",
+    "sepa",
+    "bnpl",
+    "upi",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "drop-in-ui",
+    "invoicing",
+    "shopify"
+  ],
+  "currencies": "Cards in 140+ currencies, with the methods and currencies you can actually use set by the gateway you connect",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "3d-secure",
+    "tokenization",
+    "reporting-dashboard",
+    "developer-friendly"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "subscriptions",
+    "developers",
+    "ecommerce"
+  ],
+  "bestFor": [
+    "Digital media and streaming",
+    "Consumer subscription apps",
+    "Failed payment recovery",
+    "Enterprise subscription billing"
+  ],
+  "industries": [
+    "Digital media",
+    "Streaming",
+    "SaaS",
+    "Publishing",
+    "Consumer subscriptions"
+  ],
+  "pros": [
+    "Publishes real entry pricing at $249 a month plus 0.9% of billing volume with the first $40,000 of monthly billings included at no volume charge, plus a 90 day free trial, so you can model the platform cost before talking to sales",
+    "Revenue recovery is the strongest part of the product: Recurly reports a 49% annual dunning recovery rate, 72% of at-risk subscribers saved and $1.7 billion recovered across its customer base",
+    "Gateway agnostic across 18 supported gateways including Stripe, Adyen, Braintree, Checkout.com, Cybersource, PayPal Complete, Nuvei, Worldpay and GoCardless, so changing processor does not mean rebuilding billing",
+    "Capterra reviewers rate it 4.6 out of 5 across 62 reviews, with customer service its highest sub-score at 4.6 and reviewers describing chat answers 'within seconds'"
+  ],
+  "cons": [
+    "You pay Recurly on top of your processor. The 0.9% sits above whatever Stripe, Adyen or Braintree charge, so a Starter account billing $200,000 a month owes Recurly about $1,689 before a single card fee",
+    "Payments orchestration is not in the entry plan. Recurly's documentation says custom gateway routing is not included in Starter or Pro, so the multi-gateway pitch in practice means the All-Access tier",
+    "All-Access is billed annually and needs $1 million in billing volume to qualify, and Recurly's FAQ says its higher plans require a minimum 12 month commitment",
+    "Reviewers report bills they did not expect. A Software Advice reviewer describes a hidden transaction limit and per-transaction fees pushing the cost 40% above what was agreed"
+  ],
+  "editorScore": 4.1,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "recurly-not-a-processor",
+      "data": {
+        "html": "<h2>What Recurly does not do</h2><p>Recurly does not underwrite you, does not hold your funds and does not set your card rates. Every other fact about it follows from that. You need a gateway or merchant account of your own first. Recurly then instructs the charge through it, stores the payment credential, retries the declines and produces the invoice and the tax line.</p><p>The practical consequence is two bills. One from Recurly, at $249 a month plus 0.9% of billing volume on Starter. One from your gateway, at whatever card rate you negotiated. Comparing Recurly against Stripe or Adyen on price compares two things that stack, not two things that compete.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "recurly-gateways",
+      "data": {
+        "html": "<h2>The gateway list, and what depends on it</h2><p>Recurly's pricing page says 20+ payment gateways. Its documentation lists 18: Adyen, Amazon Pay V2, Authorize.net, Braintree, Chase Paymentech Orbital, Check Commerce, Checkout.com, Commerce Hub by Fiserv, Cybersource, Ebanx, FreedomPay, GoCardless, Nuvei, PayPal Complete, Stripe, TSYS, Worldpay US eCommerce and Worldpay Global e-commerce.</p><p>Which payment methods you can accept then depends on which of those you chose, not on Recurly. ACH runs on Adyen, GoCardless, Stripe, Worldpay or Check Commerce. SEPA Direct Debit on Adyen, Stripe, GoCardless or Worldpay. Klarna arrives through Stripe. Venmo only through Braintree. Pix Automatico and UPI AutoPay only through Ebanx. Cards work in 140+ currencies across the card-capable gateways. Check the method you need against the gateway you have before assuming Recurly covers it.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "recurly-revenue-recovery",
+      "data": {
+        "html": "<h2>Revenue recovery is the actual product</h2><p>Recurly reports a 49% annual dunning recovery rate, 72% of at-risk subscribers saved, a 96% annual renewal invoice paid rate and $1.7 billion in recovered revenue across its customer base. The recovered revenue dashboard splits results by method, so you can see what came from intelligent retries, what came from account updater, what came from expired card management and what came from a backup payment method on file.</p><p>Run the arithmetic before you buy. If involuntary churn costs you a few thousand dollars a month, none of this covers the platform fee. If you bill hundreds of thousands of consumer subscriptions and a percentage point of failed renewals is six figures a year, this is the line that pays for everything else in the contract.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "recurly-vs-chargebee",
+      "data": {
+        "html": "<h2>Recurly vs Chargebee</h2><p>The two get compared constantly because they do the same job: billing on top of a gateway you bring. The difference is where you start paying. Chargebee's Flow plan begins at $0 a month plus 0.80% of invoicing volume, with a $99 a month plus 0.65% option that breaks even around $66,000 in monthly volume. Recurly starts at $249 a month plus 0.9% above a $40,000 monthly allowance.</p><p>At $40,000 of monthly billings Recurly costs $249 and Chargebee costs $320, so at the entry point Recurly is actually cheaper. The lines cross at about $84,000 a month, and above that Recurly's 0.9% pulls ahead of Chargebee's 0.65% commit rate and keeps widening: at $500,000 a month Recurly is around $4,389 and Chargebee around $3,349. What actually separates them is what each is built around: Recurly leans on subscriber retention and failed-payment recovery for consumer subscription volume, Chargebee leans on B2B SaaS quoting, entitlements and revenue recognition.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "recurly-commerce-shopify",
+      "data": {
+        "html": "<h2>Recurly Commerce is a different product</h2><p>In May 2025 Recurly bought Redfast, a churn-prediction and in-product messaging tool, and Prive, a Shopify-first subscription app, and relaunched Prive as Recurly Commerce. It manages physical goods subscriptions inside Shopify. It is not the billing platform this page is about, and it is not what the Capterra rating of 4.6 out of 5 across 62 reviews measures.</p><p>This matters when you read reviews. Search results mix the two, and complaints written by Shopify merchants who were Prive customers before the acquisition get read as complaints about Recurly's billing engine. They are not the same software or the same support team.</p>"
+      }
+    }
+  ],
+  "seo": {
+    "metaTitle": "Recurly Review | Subscription Billing Pricing and Fees",
+    "metaDescription": "Recurly is subscription billing layered on your gateway. Starter costs 249 dollars a month plus 0.9 percent of billings above 40,000, processor fees extra.",
+    "keywords": [
+      "recurly review",
+      "recurly pricing",
+      "recurly fees",
+      "chargebee vs recurly",
+      "recurly subscription billing"
+    ],
+    "focusKeyword": "recurly review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Recurly cost?",
+      "answer": "Recurly publishes two plans. Starter is $249 a month plus 0.9% of billing volume, with the first $40,000 of billings each month included at no volume charge, and it carries a 90 day free trial. All-Access is billed annually at a percentage of billing volume Recurly advertises as low as under 1%, and needs $1 million in billing volume to qualify. Two add-ons are priced separately: Engage from $1,600 a month and RevRec from $850 a month, both billed annually. Recurly's FAQ says there is no setup fee. None of that includes card processing, which your gateway bills on top, so a Starter account billing $200,000 a month pays Recurly about $1,689 before its processor takes anything."
+    },
+    {
+      "question": "Is Recurly a payment processor?",
+      "answer": "No, and the distinction decides what you pay. Recurly is billing software that connects to a gateway you hold an account with. Its documentation lists 18 supported gateways including Stripe, Adyen, Braintree, Checkout.com, Cybersource, PayPal Complete, Nuvei, Worldpay and GoCardless, and the money moves through whichever one you connect. Underwriting, interchange, chargeback fees, reserves and payout timing are that gateway's business. Recurly handles plans, trials, proration, coupons, invoicing, tax and failed-payment retries. It is PCI DSS Level 1 compliant and listed on the Visa Global Registry of Service Providers, and cardholder data is sent to Recurly rather than through your own servers."
+    },
+    {
+      "question": "Does Recurly require a contract?",
+      "answer": "Starter does not. Recurly's FAQ says Starter is a month to month service you can cancel at any time, and that there is no setup fee. The same FAQ says its higher plans require a minimum 12 month commitment, and the All-Access tier on the current pricing page is billed annually with a $1 million billing volume minimum to qualify. Professional Services for implementation are quoted and billed separately, though Recurly says many merchants implement without them. If you sign an annual deal, pin down what counts as billing volume and what happens when you cross the included threshold, because overage is the most common billing complaint in public reviews."
+    },
+    {
+      "question": "How long do Recurly payouts take?",
+      "answer": "Recurly never holds your money, so it does not set payout timing. Settlement runs through whichever gateway you connected, and the funding schedule is the one that gateway or acquirer gives you, which differs across Stripe, Adyen, Braintree and Worldpay and can differ between two accounts on the same gateway. Recurly's part stops at instructing the charge, retrying it if it fails and recording the invoice. Chargebacks and reserves work the same way. If funding speed matters to your cash flow, negotiate it with your processor, because swapping billing platforms will not change it."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "recurly.com",
+  "logoSource": "https://recurly.com/favicon.ico",
+  "sources": [
+    "https://recurly.com/pricing/",
+    "https://recurly.com/faqs/",
+    "https://recurly.com/company/",
+    "https://recurly.com/security/",
+    "https://recurly.com/product/churn-management/",
+    "https://recurly.com/press/recurly-acquires-prive-and-redfast-to-accelerate-the-future-of-subscription-growth/",
+    "https://docs.recurly.com/recurly-subscriptions/docs/payment-gateways-1",
+    "https://docs.recurly.com/recurly-subscriptions/docs/payment-methods",
+    "https://recurly.com/blog/recurly-secures-majority-equity-investment-from-accel-kkr/",
+    "https://docs.recurly.com/docs/custom-gateway-routing-configuration",
+    "https://www.capterra.com/p/122700/Recurly-Subscription-Billing/reviews/",
+    "https://www.chargebee.com/pricing/"
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "name": "Toast",
+  "slug": "toast",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1787852967/logos/toast-logo-ca192123.webp",
+  "website": "https://pos.toasttab.com",
+  "tagline": "Restaurant and food retail Android POS and payment facilitator running about 180,000 locations, with a $0 plan that costs 3.09% + $0.15 a card sale.",
+  "shortDescription": "Toast (NYSE: TOST) sells restaurant POS hardware, payments, payroll and lending as one stack across roughly 180,000 locations. The $0 Starter Kit charges 3.09% + $0.15 per card sale on a 2 year agreement; buying hardware outright and paying $69 a month drops that to 2.49%.",
+  "longDescription": "<p>Toast is a restaurant technology company founded in Boston in 2012 and listed on the New York Stock Exchange as TOST since September 2021. For the quarter ending 30 June 2026 it reported roughly 180,000 locations, $60.7 billion in gross payment volume and $2.4 billion in annualised recurring run rate. It sells into food service and the retail attached to it: table service, quick service, cafes, bars, food trucks, bottle shops and butcher shops, and since 2026 hotel groups including BWH Hotels. The point of sale runs on Android hardware Toast designs itself, and payroll, scheduling, kitchen displays, kiosks, online ordering, loyalty, xtraCHEF invoice automation and a lending arm all hang off the same account. Its own pricing FAQ says Toast \"is not a payment card processor, but it is a payment facilitator that partners with processors to offer card processing services.\"</p><h3>Pricing and how it works</h3><p>There are two ways to pay and they move the same money in opposite directions. <strong>Pay-as-you-Go</strong> is the $0 Starter Kit: no upfront hardware cost, no monthly software fee, and a card rate of 3.09% + $0.15. Add online ordering and the DoorDash, Uber Eats and Grubhub integrations and the rate becomes 3.39% + $0.15. Add gift cards, loyalty, SMS and email marketing, websites and catering on top and it becomes 3.69% + $0.15. Nothing on that plan is billed monthly, so the modules are paid for in basis points. <strong>Traditional</strong> pricing reverses it: buy the hardware outright, pay $69 a month per location on the Point of Sale plan, and the card rate drops to 2.49%. Build Your Own is a custom quote, and a POS plus payroll bundle for new restaurants is advertised at $69 a month plus $9 per employee, down from a list price of $90. Hardware prices come straight off Toast's own configurator: a 14 inch Flex terminal with counter stand is $749 plus $50 a month, a Toast Go 3 handheld $599 plus $50 a month, a receipt printer $329, a kitchen printer $339, a Toast Tap reader $149. Chargebacks cost $15 apiece and Toast bills that whether you win the dispute or lose it. Card deposits land the next business day when the batch closes before 9:30pm Eastern, and two business days later when it closes after that or falls to the 4am automatic batch. The Starter Kit checkout carries one line worth reading twice: \"Subscription to Toast software with a 2 year agreement.\"</p><h3>Who it is for</h3><p>Toast fits restaurants that want one vendor for the whole operation and will trade flexibility to get it. If you run table service with a kitchen display, handhelds on the floor, a kiosk at the door, online ordering and payroll, the case is strong, and 24/7/365 support is bundled into every subscription rather than sold as a tier. Offline mode keeps orders and card payments running through an internet outage, which on a Friday service is worth more than a tenth of a point on the rate. Everything changes if you might want to leave. Section 4.7 of the merchant agreement says the services \"may only be used on approved Toast Hardware\", so a $749 Flex terminal has no resale life on another platform. Section 8.4 sets the early termination fee at the remaining software subscription fees for the term, or $150 multiplied by the months left on a pay-as-you-go plan. Section 6.2 lets Toast change card processing rates at any point in the term on 30 days' written notice, and trading past the effective date counts as accepting the new rate. Volume decides which plan is cheaper: the 0.6 point gap between 3.09% and 2.49% is worth $120 a month on $20,000 of card volume against a $69 subscription, so on rate alone the free plan stops being the cheaper option somewhere around $11,500 a month, before you price the hardware you have to buy outright to get there. Toast does not underwrite high risk categories, and its US merchant agreement limits payment processing to the United States.</p>",
+  "foundedYear": 2012,
+  "headquarters": "Boston, MA, United States",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "UK",
+    "EU"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "subscription",
+    "custom-quote"
+  ],
+  "pricingSummary": "The $0 Starter Kit charges 3.09% + $0.15 a card transaction, rising to 3.39% once online ordering is switched on and 3.69% with loyalty and marketing added. Paying $69 a month per location and buying the hardware upfront drops the card rate to 2.49%, and the Build Your Own tier is a custom quote.",
+  "fees": {
+    "inPersonCardRate": "3.09% + $0.15 pay-as-you-go, 2.49% with upfront hardware",
+    "monthlyFee": "$0 Starter Kit, $69 Point of Sale",
+    "setupFee": "$0 self install, $250 guided install",
+    "chargebackFee": "$15 per chargeback, charged win or lose",
+    "earlyTerminationFee": "Remaining software fees, or $150 a month on pay-as-you-go"
+  },
+  "contractType": "long-term",
+  "freeTrial": false,
+  "payoutTime": "2-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay"
+  ],
+  "integrations": [
+    "pos-hardware",
+    "hosted-checkout",
+    "api"
+  ],
+  "currencies": "USD in the United States. Toast also runs locations in Canada, Ireland, the United Kingdom and Australia, and its US merchant agreement limits payment processing to the United States.",
+  "features": [
+    "tap-to-pay",
+    "fraud-protection",
+    "reporting-dashboard",
+    "24-7-support"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "restaurants",
+    "retail-pos",
+    "small-business"
+  ],
+  "bestFor": [
+    "Full service restaurants",
+    "Quick service and cafes",
+    "Multi location restaurant groups",
+    "Bars and food trucks"
+  ],
+  "industries": [
+    "Restaurants",
+    "Bars and nightlife",
+    "Cafes and bakeries",
+    "Food trucks",
+    "Bottle shops"
+  ],
+  "pros": [
+    "The $0 Starter Kit ships a Flex terminal, a Toast Tap reader and a router with nothing upfront and the hardware is yours to keep, with Toast taking 3.09% + $0.15 a sale instead of a monthly fee",
+    "24/7/365 phone and web support is included in every software subscription rather than sold as an upgrade, and offline mode keeps orders and card payments running through an internet outage",
+    "Toast Capital lends $1,000 to $300,000 through WebBank on a single fixed fee with no credit score requirement, repaid as a percentage of daily card sales rather than a fixed monthly instalment",
+    "One vendor covers POS, payroll, kitchen displays, kiosks, online ordering and xtraCHEF invoice automation, and a new restaurant can take POS and payroll together for $69 a month plus $9 per employee, down from a $90 list price, so a restaurant group is not stitching five contracts together"
+  ],
+  "cons": [
+    "The Starter Kit checkout states a 2 year agreement, and section 8.4 of the merchant agreement sets the early termination fee at the remaining software subscription fees for the term, or $150 times the months left on a pay-as-you-go plan",
+    "Section 6.2 lets Toast change card processing rates at any time during the term on 30 days' written notice, and continuing to trade past the effective date counts as accepting the increase",
+    "Hardware is locked to the platform. Section 4.7 says the services may only be used on approved Toast Hardware, so a $749 Flex terminal or a $599 Toast Go 3 is a write-off the day you switch",
+    "Modules stack on both plans. On the free plan online ordering moves the card rate from 3.09% to 3.39% and loyalty plus marketing takes it to 3.69%, while Merchant Maverick lists the same modules at $50 to $100 a month each on the paid plan"
+  ],
+  "editorScore": 3.8,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "toast-hardware-costs",
+      "data": {
+        "html": "<h2>What Toast hardware actually costs</h2><p>The $0 headline covers one Countertop Starter Kit: a Toast Flex terminal, a Toast Tap payment device, a data security router and self service installation support. Everything after that is priced, and Toast publishes the numbers in its own kit configurator.</p><ul><li>14 inch Toast Flex with counter stand: $749 plus $50 a month</li><li>Toast Go 3 handheld, wifi only: $599 plus $50 a month</li><li>14 inch Toast Flex for kitchen with wall mount: $749 plus $35 a month</li><li>8 inch Toast Flex guest wedge: $299</li><li>Toast receipt printer: $329, kitchen printer: $339</li><li>Toast Tap on counter: $149, Flex 3 cash drawer with insert: $99</li><li>Wired plus cellular router plan: $40 a month</li></ul><p>Note the pattern: most terminals carry a purchase price <strong>and</strong> a per device monthly software fee. Section 4.10 of the merchant agreement is the reason. It requires an active software subscription licence for every hardware device, and lets Toast deactivate a device without one or backdate the software fees that would have been due.</p><p>Onboarding is priced the same way. A self built menu, self install and a post launch check in are included. A menu built for you costs $250, a guided install costs $250, and first day phone support from a technician costs $225.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "toast-feature-packs",
+      "data": {
+        "html": "<h2>How the free plan bills for add-ons</h2><p>Toast does not sell modules on the Starter Kit. It sells feature packs, and each one is priced in basis points rather than dollars. All three cost $0 a month.</p><ul><li><strong>Basic</strong>, 3.09% + $0.15: payment processing, 24/7/365 support, reporting</li><li><strong>Core</strong>, 3.39% + $0.15: everything in Basic, plus online ordering, delivery, and the DoorDash, Uber Eats and Grubhub integrations</li><li><strong>Growth</strong>, 3.69% + $0.15: everything in Core, plus gift cards, loyalty, SMS and email marketing, websites, catering and events</li></ul><p>That is a 30 basis point step for online ordering and another 30 for the marketing tools, applied to every card sale you take, not just the ones the module touches. A restaurant on Growth doing $40,000 a month in card volume pays $240 a month more than the same restaurant on Basic.</p><p>On the $69 Point of Sale plan the same capabilities are billed monthly instead. Merchant Maverick puts digital ordering and third party ordering at $75 a month each, loyalty and gift cards at $50 each, email marketing and Toast Websites at $75 each, and catering and events at $100. Toast does not publish those figures itself, which is why the venue is named here.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "toast-contract-terms",
+      "data": {
+        "html": "<h2>What the merchant agreement actually says</h2><p>Toast publishes its merchant agreement, and the four clauses that decide what leaving costs are worth reading before a demo rather than after.</p><p><strong>Section 8.1, term and renewal.</strong> The initial term is set in the order form, not in the agreement, and the Starter Kit checkout states a 2 year agreement. After that the term renews automatically for successive one year periods unless either side gives at least 30 days written notice before the current term ends. The clause also says that once a renewal term starts, \"any special terms or promotions previously offered by Toast to Merchant shall no longer be valid.\"</p><p><strong>Section 8.4, early termination.</strong> The fee is the remaining software subscription fees for the rest of the current term, or on a pay-as-you-go subscription $150 multiplied by the months remaining, plus any processing fee tied to software financing.</p><p><strong>Section 6.2, rate changes.</strong> Software fees hold during the initial term, but Toast can change card processing rates and other non-software fees at any point on 30 days written notice. If you reject a card rate change and terminate, the early termination fee is waived. If you keep trading past the effective date, you are deemed to have accepted it.</p><p><strong>Section 4.7, hardware.</strong> The services \"do not function with every device and may only be used on approved Toast Hardware.\" There is no bring-your-own-tablet path and no second life for the terminals on another platform.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "toast-2023-order-fee",
+      "data": {
+        "html": "<h2>The 2023 order processing fee</h2><p>In late June 2023 Toast announced a 99 cent fee charged to the diner on any online order of $10 or more placed through Toast's own ordering channels. The money went to Toast, not to the restaurant, and operators could not waive it or opt out.</p><p>It went live on 10 July 2023. Nine days later, on 19 July, Toast reversed it. Then chief executive Chris Comparato said the company \"made the wrong decision\" and that the fee would come off the digital ordering channels by the end of that week.</p><p>It still comes up in reviews three years on, and the reason is not the 99 cents. It is that a pricing change reaching a restaurant's own customers shipped without the restaurant's consent. Section 6.2 of the merchant agreement is the mechanism that made it possible, and it is still in force.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "toast-capital",
+      "data": {
+        "html": "<h2>Toast Capital</h2><p>Toast lends against the card volume it already processes. Loans run from $1,000 to $300,000, are issued by WebBank, and carry one fixed fee stated in dollars rather than an interest rate, with no application, prepayment or late fees and no personal guarantee.</p><p>Repayment is automatic and taken as a fixed percentage of daily card transactions running through Toast, so a slow Tuesday repays less than a busy Saturday. Target terms are 90, 270 or 360 days depending on eligibility, and the maximum repayment window runs 60 days past the end of the target term, after which any balance is collected by ACH. On the 270 and 360 day terms a repayment milestone schedule can apply, with a shortfall every 30 days collected by ACH.</p><p>There is no credit score requirement and applying does not touch your credit. Eligibility is judged on card processing volume, time on Toast and bankruptcy status. Funding can arrive the next business day after the credit agreement is signed.</p><p>The trade is straightforward and worth naming: the repayment percentage comes off the top of daily settlement, so the loan tightens working capital in exactly the weeks trade is slow.</p>"
+      }
+    }
+  ],
+  "seo": {
+    "metaTitle": "Toast POS Review | Pricing, Fees and Contract",
+    "metaDescription": "Toast charges 3.09 percent plus 15 cents on its free Starter Kit, or 2.49 percent at 69 dollars a month. The Starter Kit checkout states a 2 year agreement.",
+    "keywords": [
+      "toast review",
+      "toast pos pricing",
+      "toast pos fees",
+      "toast pos contract",
+      "toast credit card processing"
+    ],
+    "focusKeyword": "toast review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Toast cost?",
+      "answer": "Two routes. The Starter Kit is $0 a month with no upfront hardware cost and a card rate of 3.09% + $0.15, rising to 3.39% once online ordering is on and 3.69% with loyalty and marketing added. The Point of Sale plan is $69 a month per location, you buy the hardware outright, and the card rate falls to 2.49%. Build Your Own is a custom quote. Extra terminals run $299 for the 8 inch Flex guest wedge up to $749 for a 14 inch Flex, and the 14 inch Flex and Toast Go 3 add $35 to $50 a month each, chargebacks cost $15 apiece, and a guided install or a menu built for you is $250."
+    },
+    {
+      "question": "Does Toast require a contract?",
+      "answer": "Yes. The Starter Kit checkout page states a subscription with a 2 year agreement, and NerdWallet reports terms of two to three years depending on the deal. Section 8.1 of the merchant agreement then renews it automatically for successive one year periods unless either side gives at least 30 days written notice before the term ends. Leaving early triggers section 8.4: the remaining software subscription fees for the term, or $150 times the months left on a pay-as-you-go plan. The one exception is section 6.2, which waives the termination fee if you are leaving because Toast raised your card processing rate."
+    },
+    {
+      "question": "How long do Toast deposits take?",
+      "answer": "Toast publishes a two speed schedule. If the batch closes before 9:30pm Eastern the deposit arrives the next business day. If it closes after 9:30pm Eastern, or falls to the automatic 4am batch, the deposit arrives two business days later. A federal banking holiday on your deposit day pushes it back one more day. That cutoff is in Eastern time regardless of where you trade, so a West Coast kitchen closing at 10pm local is past it and settles on the two day schedule by default."
+    },
+    {
+      "question": "Can you keep Toast hardware if you switch POS?",
+      "answer": "You own it, but it will not run anything else. Toast confirms the Starter Kit is not leased and the hardware is yours to keep. Section 4.7 of the merchant agreement then says the services do not function with every device and may only be used on approved Toast Hardware, and the terminals run a Toast build of Android that no other POS or processor supports. In practice a $749 Flex terminal, a $599 Toast Go 3 handheld and the kitchen displays are written off on the day you leave, which is the real switching cost rather than the termination fee."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "toasttab.com",
+  "logoSource": "https://www.google.com/s2/favicons?sz=128&domain=toasttab.com",
+  "sources": [
+    "https://pos.toasttab.com/pricing",
+    "https://pos.toasttab.com/shop/starter-kits",
+    "https://pos.toasttab.com/shop/starter-kits/countertop-starter-kit",
+    "https://pos.toasttab.com/merchant-agreement",
+    "https://pos.toasttab.com/hardware",
+    "https://pos.toasttab.com/products/payments",
+    "https://pos.toasttab.com/products/capital",
+    "https://support.toasttab.com/en/article/When-are-deposits-made-to-my-bank-account",
+    "https://support.toasttab.com/en/article/Chargeback-FAQ",
+    "https://www.sec.gov/Archives/edgar/data/1650164/000165016426000162/tost-20260630xexhibit991.htm",
+    "https://en.wikipedia.org/wiki/Toast,_Inc.",
+    "https://www.merchantmaverick.com/toast-pricing-guide/",
+    "https://www.nerdwallet.com/business/software/reviews/toast-pos",
+    "https://www.restaurantdive.com/news/toast-software-processor-customer-online-order-fee-payment/688381/",
+    "https://www.restaurantbusinessonline.com/technology/toast-remove-99-cent-fee-after-widespread-backlash"
+  ]
+}

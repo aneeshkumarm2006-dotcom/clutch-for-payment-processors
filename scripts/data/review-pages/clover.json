@@ -1,0 +1,109 @@
+{
+  "slug": "clover",
+  "name": "Clover",
+  "heading": "Clover reviews",
+  "intro": "Clover's score depends almost entirely on which venue you read. GetApp has it at 3.8 out of 5 from 580 verified reviews, with ease of use at 4.0. Trustpilot rates it 2 out of 5 across 2,182 reviews, and PaymentPop, formerly CardPaymentOptions, sits at 1.0 across 108 merchant reports, 107 of them one star. The software is not what people are angry about. Almost every low review is about a contract, a hardware lease, a cancellation or a held deposit, and Clover is sold by Fiserv and by a long list of banks and ISOs who each write their own paper.",
+  "seo": {
+    "metaTitle": "Clover Reviews: 3.8 on GetApp, 2 Stars on Trustpilot",
+    "metaDescription": "Clover rates 3.8 from 580 verified GetApp reviews but 2 out of 5 on Trustpilot. Almost every angry review names a contract, a cancellation or the reseller.",
+    "keywords": [
+      "clover reviews",
+      "clover pos complaints",
+      "clover contract cancellation",
+      "clover trustpilot",
+      "clover reseller problems"
+    ],
+    "focusKeyword": "clover reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Clover reviews verified?",
+      "answer": "The figures on this page come from GetApp, Trustpilot and PaymentPop, formerly CardPaymentOptions, and were current in August 2026. GetApp verifies reviewers before publishing, which is why its 580-review sample runs so much higher than the open venues. Trustpilot lets anyone post, and PaymentPop collects merchant reports about processors, so both skew toward people with a grievance. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than borrowing a rating from somewhere else."
+    },
+    {
+      "question": "Why do Clover reviews split so sharply between platforms?",
+      "answer": "Because the two sets of reviewers are answering different questions. Software directories collect from people describing a working POS: how fast staff learned it, whether the reports are useful, whether the app they needed exists. GetApp's sample gives ease of use 4.0 and features 3.8 on that basis. Complaint venues collect from people mid-argument about money, and the argument is almost never about the software. It is about a 36 or 48 month term, an equipment lease held by a different entity, a monthly charge nobody recognizes, or a deposit that did not arrive. Both pictures are accurate about what they measure."
+    },
+    {
+      "question": "What do Clover reviewers complain about most?",
+      "answer": "Cancellation, first and loudest. Trustpilot reviewers describe hours on hold trying to close an account, billing that continued after equipment was returned, and cancellation fees quoted in the hundreds or thousands. Second, support: it is Clover's weakest verified score at 3.2 on GetApp, and among GetApp reviewers who mention support, 66 percent are negative. Third, charges that were never explained, from cellular data lines on hard-wired devices to app subscriptions. Fourth, held or delayed deposits. Reviewers who never tried to leave and never had funds held rarely mention any of it."
+    },
+    {
+      "question": "Is the problem Clover or the company that sold it?",
+      "answer": "Usually the seller, which is exactly what makes the review record hard to read. Clover is distributed by Fiserv directly and by banks and independent sales organizations that set their own rates, equipment prices and contract lengths. One Trustpilot reviewer puts it plainly: rates and equipment prices differ depending on which agent you speak to. So a one-star review about a surprise lease is evidence about a reseller's paperwork, not about how a Station Duo handles a Saturday lunch. The part that is genuinely Clover's is the hardware lock, and that one applies to every buyer."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026, GetApp scores Clover at 3.8 out of 5 across 580 verified reviews, breaking down to 4.0 for ease of use, 3.8 for features, 3.4 for value for money and 3.2 for customer support. The star spread is wide rather than middling: 278 reviewers gave five stars and 127 gave one or two.</p><p>The complaint venues read nothing like that. Clover's Trustpilot page sits at 2 out of 5 across 2,182 reviews. PaymentPop, the merchant-complaint site formerly called CardPaymentOptions, shows 1.0 out of 5 across 108 reports, 107 of them one star, last updated April 2026. Merchant Maverick, which rates the software well, still tells readers to buy Clover through a vetted reseller rather than through Fiserv.</p><p>Part of the volume has a specific origin. A securities class action filed in July 2025 against Fiserv, reported by Payments Dive, alleges the company forcibly migrated as many as 200,000 merchants off its older Payeezy platform onto Clover between late 2023 and the first half of 2024, and did not disclose merchants leaving for rival point-of-sale systems. Merchants who were moved onto a product they did not shop for write different reviews from merchants who chose it.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Ease of use is the strongest verified score at 4.0 on GetApp, with reviewers describing setup as intuitive for both staff and customers",
+        "Customization through the App Market comes up repeatedly on GetApp, named as how merchants closed gaps the base plans left open",
+        "Reporting and the ability to check sales remotely come up often from owners running more than one location",
+        "The handheld form factor gets credit from reviewers who take payments away from a fixed counter rather than at a till",
+        "278 of the 580 verified GetApp reviewers gave five stars, so the one-star venues are not the whole record",
+        "Reviewers who kept the system and never tried to leave rate it well, and features is the second highest verified sub-score at 3.8 on GetApp"
+      ],
+      "cons": [
+        "Cancellation is the single most repeated complaint, with reviewers describing hours on hold and billing that continued after equipment was returned",
+        "The equipment lease and the merchant account are written by different entities, so reviewers describe ending one while the other kept charging",
+        "Charges nobody can account for recur across venues: cellular data on hard-wired devices, app subscriptions and compliance fees",
+        "Support is the lowest verified sub-score at 3.2 on GetApp, and 66 percent of GetApp reviewers who mention support are negative",
+        "Held funds and deposits that never arrived appear often enough on Trustpilot to be a pattern rather than an outlier",
+        "Rates, equipment prices and contract terms differ by whoever sold the account, which reviewers describe as zero consistency between agents"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>A large share of these complaints are not about Clover the product. They are about the contract, the lease and the company whose name is on the merchant agreement, and that company is often not Fiserv. Clover reaches merchants through banks and independent sales organizations that set their own rates, terms and equipment prices, so two reviewers describing opposite experiences can both be accurate about their own paper. A one-star review that turns on a $1,900 cancellation charge tells you about one reseller's contract, not about how the software runs a lunch rush.</p><p>Strip those out and a real finding remains, and it belongs to Clover rather than to any reseller. CardFellow reports that a Clover bought through one processor cannot be reprogrammed for another, so leaving means buying the hardware again. That single fact explains most of the anger in the cancellation reviews: a merchant who wants out is choosing between the termination fee and a stranded terminal, and knew about neither when the rep was in the shop.</p><p>Before you sign, ask who the merchant services provider is, what the term and the early termination fee are, and whether the hardware is a purchase or a rental. If those answers are unsatisfying, a system where one company sets both the price and the contract, such as <a href=\"/processor/square\">Square</a>, removes the question. If you want Clover hardware anyway, buy it from a reseller that publishes its prices, such as <a href=\"/processor/dharma-merchant-services\">Dharma Merchant Services</a>, and compare the all-in cost against <a href=\"/processor/helcim\">Helcim</a> before you commit to three years.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/clover.com",
+    "https://www.getapp.com/customer-management-software/a/clover/",
+    "https://paymentpop.com/merchant-accounts/clover-pos-customer-reviews/",
+    "https://www.merchantmaverick.com/reviews/clover-pos-system-review/",
+    "https://www.merchantmaverick.com/clover-pos-cost/",
+    "https://www.cardfellow.com/blog/buy-clover-pos-system/",
+    "https://www.paymentsdive.com/news/fiserv-sued-over-clover-migration/754200/"
+  ],
+  "quotesNote": "All five excerpts come from Clover's Trustpilot page, which sits at 2 out of 5 and collects overwhelmingly from merchants who went looking for somewhere to complain, so they show the unhappy tail rather than the average experience.",
+  "quotes": [
+    {
+      "text": "I have been trying to cancel my account with Clover for over a month, if you call you are honestly on hold for over an hour",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/reviews/6a88cb46ee4411f5fc863c4a",
+      "date": "August 22, 2026"
+    },
+    {
+      "text": "The leasing and merchant services are set up as different companies so if you cancel or they decide to punt you, you still owe them",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/reviews/6a7ba5daeed5d9091e63c4ff",
+      "date": "August 12, 2026"
+    },
+    {
+      "text": "I sent five official written cancellation emails before the effective date of the agreement. My merchant account was acknowledged as cancelled without penalty, yet the equipment lease was transferred without my knowledge or consent.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/reviews/6a67a44060e4565626b4a553",
+      "date": "July 28, 2026",
+      "attribution": "a small business owner"
+    },
+    {
+      "text": "Sales agents give completely different Transaction fee rates, equipment prices, it all depends who you get.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/reviews/6a750573c583429229376007",
+      "date": "August 7, 2026"
+    },
+    {
+      "text": "Clover would process payments, take money from my customers, but not deposit it into our account. I spent 3 hours on a Friday, and 6 hours on a Monday trying to figure out how to get my money.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/reviews/6a5e8929199ad456e81141c7",
+      "date": "July 21, 2026"
+    }
+  ]
+}

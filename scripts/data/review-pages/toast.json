@@ -1,0 +1,130 @@
+{
+  "slug": "toast",
+  "name": "Toast",
+  "heading": "Toast reviews",
+  "intro": "Toast sits at 2.6 out of 5 on Trustpilot across 1,471 reviews and 4.1 out of 5 on Capterra across 554. That spread has almost nothing to do with the software and almost everything to do with who is writing. Capterra collects from servers, managers and payroll staff who use the software daily and never see the invoice. Trustpilot collects from owners two years into a contract, and from diners who only ever met Toast as the name on a takeout receipt. Read the one-star reviews and count how many are about a cold pizza rather than a point of sale.",
+  "seo": {
+    "metaTitle": "Toast Reviews: 2.6 on Trustpilot, 4.1 on Capterra",
+    "metaDescription": "Toast rates 2.6 on Trustpilot from 1,471 reviews and 4.1 on Capterra from 554. The split is owners versus staff, and diners versus merchants.",
+    "keywords": [
+      "toast reviews",
+      "toast pos reviews",
+      "toast complaints",
+      "toast early termination fee",
+      "toast customer service"
+    ],
+    "focusKeyword": "toast reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are these Toast reviews verified?",
+      "answer": "The figures on this page come from Toast's Trustpilot page, Capterra's Toast POS listing, and the Merchant Maverick and NerdWallet reviews, and were current as of August 2026. Capterra verifies reviewers before publishing and shows their job title and company size, which is how you can tell how many of its reviewers are waitstaff rather than owners. Trustpilot is open, and Toast's page there mixes restaurant operators with diners who ordered food through a Toast-powered ordering page. None of these are reviews submitted to this site, and no merchant has published one here yet, which is why the list above is empty rather than showing a borrowed score."
+    },
+    {
+      "question": "Why is Toast rated 2.6 on Trustpilot but 4.1 on Capterra?",
+      "answer": "Three reasons, and none of them is that one platform is wrong. First, the audience: Capterra reviewers list their role, and a large share are servers, bartenders and managers rating software they were handed, not a contract they signed. Second, the subject: a meaningful slice of Toast's Trustpilot reviews are from diners complaining about a late delivery or a wrong address, because Toast's name is on the online ordering page. Third, the maths: Toast's Trustpilot star distribution is 54 percent five-star and 25 percent one-star, so the 2.6 reflects how Trustpilot computes its TrustScore rather than a simple average of the pile."
+    },
+    {
+      "question": "What do Toast reviewers complain about most?",
+      "answer": "The contract, first and loudest. Reviewers describe a two year term, an early termination fee they did not price in, and hardware that cannot be resold or reused, and they use the phrase locked in more than any other. Second is support after the sale, and specifically billing support: reviewers who praise the sales process describe waiting hours to get a menu change or a bank detail change resolved. Capterra's own sub-scores show the same shape, with customer service at 3.7 against ease of use at 4.2. Third is cost creep, as modules and per-device software fees add to the monthly bill."
+    },
+    {
+      "question": "Are the complaints about Toast or about restaurants?",
+      "answer": "Both, and they are worth separating. Toast is a payment facilitator sitting behind a restaurant's online ordering page, so when a delivery arrives late, cold or at the wrong address, the brand on the receipt is Toast and the one-star review lands on Toast's page. Those reviews say nothing about whether the POS is good. What they do reveal is the exposure: if you route takeout through Toast's ordering channels, your service failures collect on a Trustpilot page you do not control, and reviewers make no distinction between the software and the kitchen."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the third-party review record shows</h2><p>As of August 2026 Toast carries 2.6 out of 5 on Trustpilot from 1,471 reviews, and 4.1 out of 5 on Capterra from 554. Capterra breaks its score down further: ease of use 4.2, customer service 3.7. Analyst reviews sit closer to Capterra than to Trustpilot, with Merchant Maverick at 4.3 out of 5 and NerdWallet at 4.4.</p><p>The Trustpilot distribution is the detail worth pausing on. Fifty four percent of reviews are five-star and twenty five percent are one-star, with almost nothing in the middle. That shape is two separate populations rather than one lukewarm verdict. One is running a busy kitchen on hardware that works and support that answers at 2am. The other is either a diner whose order went wrong, or an operator who found out what the contract costs to leave.</p><p>The complaint that appears in every register, on every platform, is the term. Sales is praised; the two year agreement, the early termination fee and the unresellable hardware are not. Toast publishes the mechanism itself in section 8.4 of its merchant agreement, so this is one case where the reviews and the paperwork agree.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "Themes across public reviews",
+      "pros": [
+        "Front of house staff consistently rate the interface as quick to learn, and Capterra reviewers who are servers or bartenders give it some of its highest scores",
+        "Offline mode is named repeatedly by operators who kept taking card payments through an internet or power outage that would have closed the till",
+        "Handhelds get specific praise for table turns and patio service, with reviewers describing orders fired to the kitchen from the table rather than a terminal",
+        "Toast includes 24/7/365 phone and web support in every software subscription rather than selling it as a tier, which Toast states on its own pricing page",
+        "Consolidation shows up in Capterra's switched from field rather than in the star ratings, with one reviewer replacing Square Point of Sale, Square Online and Square Payroll with a single Toast account and another moving off Shift4",
+        "Reviewers who praise the system single out tap to pay and the automatic screen lock between users, and Capterra's ease of use sub-score of 4.2 sits above its 4.1 overall"
+      ],
+      "cons": [
+        "The two year term and the early termination fee dominate the negative reviews, and reviewers use the phrase locked in more than any other",
+        "Billing support is the specific failure point, not support generally: reviewers describe hours on the phone over a menu change or a bank detail change",
+        "Cost creep is a steady theme, with per-device monthly software fees and paid modules pushing the real bill well past the headline plan price",
+        "Reviewers report the sales relationship going quiet after signature, and name the disconnect between an attentive rep and slow post-sale service",
+        "Toast-powered online ordering failures land on Toast's review page rather than the restaurant's, which inflates the negative count with complaints about food",
+        "Ownership transfers and account changes come up repeatedly as slow, with reviewers describing multi-week waits to move a live account"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record will not tell you</h2><p>Strip out the diner reviews first. A substantial share of Toast's one-star Trustpilot entries are about a delivery arriving late, at the wrong address, or not at all, written by people who have never seen the back office. Those tell you something real about running takeout through Toast's ordering channels, but nothing about whether the POS is worth $69 a month. Take them out and the merchant score reads better than 2.6.</p><p>What survives that edit is the finding, and it is not a service complaint at all. It is structural. The Starter Kit checkout states a two year agreement and NerdWallet reports terms of two to three years, the early termination fee is the remaining software subscription fees for the term, and the Android hardware runs a Toast build that no other platform accepts. A reviewer who is furious about support is usually furious because they cannot leave over it. Before you sign, ask what the initial term is on your order form, what the per-device monthly software fee comes to across the whole install, and what a rate change would cost you if it landed in month fourteen.</p><p>If that trade does not suit you, the alternative is a shorter leash rather than a better POS. <a href=\"/processor/square\">Square</a> sells restaurant point of sale with no contract and no termination fee, at a rate you can walk away from. <a href=\"/processor/myr-pos\">MYR POS</a> is a narrower quick service specialist. And if the payments cost is what you are actually solving for, <a href=\"/processor/helcim\">Helcim</a> prices on interchange plus with no monthly minimum, though you supply the restaurant software yourself.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/toasttab.com",
+    "https://www.capterra.com/p/136301/Toast-POS/reviews/",
+    "https://www.merchantmaverick.com/reviews/toast-pos-review/",
+    "https://www.nerdwallet.com/business/software/reviews/toast-pos",
+    "https://pos.toasttab.com/merchant-agreement",
+    "https://pos.toasttab.com/shop/starter-kits/countertop-starter-kit",
+    "https://pos.toasttab.com/pricing"
+  ],
+  "quotesNote": "Five excerpts are from Toast's Trustpilot page, which sits at 2.6 out of 5 and draws heavily from owners near the end of a contract and from diners who ordered takeout, and two are from Capterra, which sits at 4.1 and verifies reviewers who are more often staff than the person paying the invoice.",
+  "quotes": [
+    {
+      "text": "Toast is the absolutely the worst POS system. They promise you the moon and lock you into a two-year contract. Then they do absolutely nothing for you.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/toasttab.com",
+      "date": "August 2026",
+      "rating": 1
+    },
+    {
+      "text": "Never onboard Toast. Very bad contract, expensive hardware and software, and worse customer service. All these will make you cry. Never, ever sign a big contract; you will end up paying an ETF (Early termination fee), and it is going to put you down.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/toasttab.com",
+      "date": "August 2026",
+      "rating": 1
+    },
+    {
+      "text": "Good system. Service and hardware lack and overall expensive. Not a good idea for small restaurants. Super hard to get billing help support. Feel like in an island once you sign contract.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/toasttab.com",
+      "date": "August 2026",
+      "rating": 2
+    },
+    {
+      "text": "I have been on toast customer service for over 12 hours today and around 8 the day before to solve a simple menu issue and raise our prices 10% across the board.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/toasttab.com",
+      "date": "July 2026",
+      "rating": 1
+    },
+    {
+      "text": "We have found Toast transformative regarding the speed & precision in which it allows us to operate.",
+      "source": "Trustpilot",
+      "sourceUrl": "https://www.trustpilot.com/review/toasttab.com",
+      "date": "July 2026",
+      "rating": 5,
+      "attribution": "a tapas bar in Ireland"
+    },
+    {
+      "text": "Worse working experience with this company I will advise all small businesses not to switch to toast I switched to toast a month ago I changed my banking account before starting with toast and provided all the required information to them",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.com/p/136301/Toast-POS/reviews/",
+      "date": "March 2025",
+      "rating": 1,
+      "attribution": "a restaurant co-owner"
+    },
+    {
+      "text": "We also use the mobile options for bartenders so they can input the order in real-time while taking the order. Plus, the management options for Toast are very easy to learn and the layout is nicely organized.",
+      "source": "Capterra",
+      "sourceUrl": "https://www.capterra.com/p/136301/Toast-POS/reviews/",
+      "date": "November 2025",
+      "rating": 5,
+      "attribution": "a hospitality night auditor"
+    }
+  ]
+}

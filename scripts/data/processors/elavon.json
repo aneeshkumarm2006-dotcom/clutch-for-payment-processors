@@ -1,0 +1,185 @@
+{
+  "name": "Elavon",
+  "slug": "elavon",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1787852969/logos/elavon-logo-bf840c8a.webp",
+  "website": "https://www.elavon.com",
+  "tagline": "U.S. Bank's merchant acquirer, with more than 2 million customers in the US, Europe and Canada and merchant processing in over 30 countries, on quoted pricing.",
+  "shortDescription": "Elavon is the merchant acquiring arm of U.S. Bank, serving more than 2 million customers across the US, Europe and Canada. Its pricing page starts at 2.60% + $0.10 in person and 2.90% + $0.30 online, but both are qualified rates and the real number is quoted.",
+  "longDescription": "<p>Elavon is the merchant acquiring business of U.S. Bank, wholly owned and run out of Atlanta. It began in 1991 as NOVA Information Systems, was bought by U.S. Bancorp in 2001 for $2.1 billion in stock and cash, and took the Elavon name in April 2008. Its own press boilerplate puts it at more than 2 million customers across the United States, Europe and Canada, with merchant processing available in more than 30 countries including Mexico, Brazil, Ireland, Germany, Norway, Poland, Spain and the UK. Elavon calls itself the leading provider for airlines and a top five provider in hospitality, healthcare, retail, public sector and education. Three products carry most of the work: <strong>Converge</strong>, the gateway and virtual terminal covering in store, online, mobile and phone orders; <strong>Fusebox</strong>, the enterprise gateway that lets a hotel or restaurant group certify once and reach up to 17 third party processors; and <strong>talech</strong>, the point of sale software U.S. Bank owns and sells as talech Mobile, talech Terminal and talech POS. It also bought Sage Pay in the UK and Ireland for £232 million in 2019 and the healthcare billing platform Salucro in 2024.</p><h3>Pricing and how it works</h3><p>The pricing page publishes two numbers, 2.60% + 10 cents per qualified swipe or chip transaction and 2.90% + 30 cents per qualified online transaction, next to $0 annual fee, $0 batch fees, $0 additional authorization fees and $0 cancellation or early termination fees. The word carrying the weight is <strong>qualified</strong>. That is tiered pricing vocabulary, and it means a rewards card, a corporate card or a downgraded transaction prices at a tier the page never shows you. Interchange plus exists and Elavon will quote it, but CardFellow's review says Elavon favors bundled pricing and produces interchange plus mainly when a merchant asks or when it has a competitor quote to beat. CardFellow lists small business figures of a $10 monthly fee, 2.65% + $0.19 swiped and 3.5% + $0.19 keyed, and says it has documented Elavon accounts whose effective rate ran past 8% on transactions costing the processor under 2%. Fees also move on notice. MerchantCostConsulting, which tracks Elavon's merchant fee bulletins, records a February 2026 increase taking the per transaction fee to 0.07% + $0.18, batch settlement to $0.50, international card handling to 0.80%, the non qualified volume fee to 0.55% and the monthly billing fee to 0.08% of processed volume, up from 0.02% in 2023. The same source logs a March 2023 bulletin that raised every existing chargeback fee by $35 and set the monthly minimum at $40, and puts the PCI program at $10 a month once you validate against $84.99 a month if you do not. Funding is fast: Elavon says 91% of merchants were funded within two business days as of May 2025.</p><h3>Who it is for</h3><p>Elavon fits businesses that want a bank as the counterparty instead of a fintech: hotel groups, restaurant chains, hospitals, dealerships, universities and airlines, particularly ones already banking with U.S. Bank, and multi location operators whose property management or POS vendor is already certified to Fusebox. Elavon's June 2026 All In One announcement names Agilysys, Oracle, Shiji and xnPOS among those integrations, so a hotel running one of them is close to a drop in. It is a poor fit for anyone who wants to see a price before speaking to a salesperson. There is no self serve signup, both published rates are qualified rates, and Merchant Maverick reports a three year standard contract with an automatic renewal clause, which is how a merchant who signs through an independent sales agent ends up on paper that looks nothing like the $0 cancellation fee advertised on elavon.com. High risk categories are not underwritten. A shop turning over a few thousand a month will carry a monthly service fee, a PCI fee and a percentage of volume in billing fees for something Square or SumUp sells at a published flat rate with nothing monthly attached.</p>",
+  "foundedYear": 1991,
+  "headquarters": "Atlanta, GA, United States",
+  "companySize": "1000+",
+  "supportedRegions": [
+    "US",
+    "CA",
+    "EU",
+    "UK",
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "interchange-plus",
+    "tiered",
+    "custom-quote"
+  ],
+  "pricingSummary": "Elavon's pricing page starts at 2.60% + $0.10 per qualified swipe or chip transaction and 2.90% + $0.30 per qualified online transaction, with $0 annual fee and $0 cancellation fee. Everything past that starting point is quoted, and interchange plus is offered on request rather than by default.",
+  "fees": {
+    "onlineCardRate": "From 2.90% + $0.30 per qualified transaction",
+    "inPersonCardRate": "From 2.60% + $0.10 per qualified swipe or chip",
+    "monthlyFee": "$10 small business fee, per CardFellow",
+    "monthlyMinimum": "$40, per MerchantCostConsulting",
+    "pciFee": "$10 validated, $84.99 if not",
+    "earlyTerminationFee": "$0 advertised on elavon.com",
+    "refundPolicy": "Interchange not returned on refunds, per CardFellow"
+  },
+  "contractType": "long-term",
+  "freeTrial": false,
+  "payoutTime": "2-day",
+  "paymentMethods": [
+    "visa",
+    "mastercard",
+    "amex",
+    "discover",
+    "apple-pay",
+    "google-pay",
+    "paypal",
+    "ach",
+    "wallets"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "virtual-terminal",
+    "payment-links",
+    "invoicing",
+    "pos-hardware"
+  ],
+  "currencies": "Merchant processing in more than 30 countries, including the US, Canada, Mexico, Brazil, the UK, Ireland, Germany, Norway, Poland and Spain",
+  "features": [
+    "recurring-billing",
+    "multi-currency",
+    "fraud-protection",
+    "tokenization",
+    "reporting-dashboard",
+    "tap-to-pay",
+    "24-7-support"
+  ],
+  "pciLevel": "Level 1",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "retail-pos",
+    "ecommerce",
+    "small-business",
+    "international"
+  ],
+  "bestFor": [
+    "Hotels and restaurant groups",
+    "Multi-location retail",
+    "Airlines and travel",
+    "U.S. Bank business customers"
+  ],
+  "industries": [
+    "Hospitality",
+    "Retail",
+    "Healthcare",
+    "Airlines and travel",
+    "Government and education"
+  ],
+  "pros": [
+    "Elavon publishes a starting rate at all, 2.60% + $0.10 in person and 2.90% + $0.30 online, next to $0 annual fee, $0 batch fees and $0 cancellation fee on elavon.com, which is more than most bank owned acquirers put on a public page, though both figures are qualified tier rates rather than an all in price",
+    "Wholly owned by U.S. Bank, with more than 2 million customers across the US, Europe and Canada and merchant processing available in more than 30 countries, so a chain can keep one acquirer across the US, Canada, Mexico, Brazil and most of western Europe",
+    "Fusebox lets a hotel or restaurant group certify once and reach up to 17 third party processors, so switching processor does not mean recertifying the POS or property management system",
+    "Elavon says 91% of merchants were funded within two business days as of May 2025, and MerchantCostConsulting reports the percentage of volume monthly billing fee can be removed by switching the account to daily billing, though the same page warns that daily billing creates reconciliation problems for most businesses"
+  ],
+  "cons": [
+    "Both headline rates are quoted per qualified transaction, which is tiered pricing language: rewards, corporate and downgraded cards land in a tier the page does not show, and MerchantCostConsulting records the non qualified volume fee rising to 0.55% in February 2026",
+    "Fees stack on top of the rate and move on notice. MerchantCostConsulting logs a monthly billing fee of 0.08% of processed volume from February 2026, up from 0.02% in 2023, plus a $40 monthly minimum, a March 2023 bulletin that raised every existing chargeback fee by $35, and $84.99 a month if you never validate PCI",
+    "Merchant Maverick reports a three year standard contract with an automatic renewal clause, so an account sold through an independent sales agent can carry terms that bear no resemblance to the $0 cancellation fee on elavon.com",
+    "The service record is the weak point. Merchant Maverick rates Elavon 3.0 out of 5 and counts 131 Better Business Bureau complaints filed in three years, 62 of them within the last twelve months, and CardFellow's review names billing transparency, unexpected charges, abrupt cancellations and unauthorized account debits as the recurring themes"
+  ],
+  "editorScore": 3.3,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "elavon-vs-square",
+      "data": {
+        "html": "<h2>Elavon vs Square</h2><p>These two sell the same thing in opposite ways. Square publishes every rate on one page, signs you up online, charges nothing monthly on its free plan and lets you leave whenever: 2.6% + 15 cents tapped, dipped or swiped, 3.3% + 30 cents online, 3.5% + 15 cents keyed. Elavon publishes two starting rates, 2.60% + 10 cents in person and 2.90% + 30 cents online, and then puts you in front of a salesperson.</p><p>On the qualified rate alone Elavon wins both comparisons. That is not the whole bill. Square's number is the whole bill. Elavon's is a starting tier, and on top of it sit a monthly service fee, a percentage of volume billing fee that MerchantCostConsulting logs at 0.08% from February 2026, a PCI program fee, a $40 monthly minimum and a non qualified tier for any card that downgrades.</p><p>The trade is real in the other direction too. Square underwrites you in minutes and can hold or close your account on its own risk model. Elavon underwrites you properly first, is owned by a bank, and will process in more than 30 countries with a named account team. If you run one till and take $8,000 a month, Square is cheaper and simpler. If you run forty hotel properties across three currencies, Square is not in the running.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "elavon-product-stack",
+      "data": {
+        "html": "<h2>Converge, Fusebox and talech</h2><p>Elavon sells three things under its own brand and it is worth knowing which one a quote refers to.</p><ul><li><strong>Converge</strong> is the gateway and virtual terminal. It takes cards, PayPal, electronic checks and digital wallets in store, online, by mobile and by mail or telephone order, and adds invoicing, a buy button, card on file, account updater and a product catalog.</li><li><strong>Fusebox</strong> is the enterprise gateway, aimed at hotels, restaurants and property management systems. Its selling point is certify once, reach up to 17 third party transaction processors, so a chain can change acquirer without touching the POS integration.</li><li><strong>talech</strong> is the point of sale software, owned by U.S. Bank and sold as talech Mobile, talech Terminal and talech POS. Merchant Maverick puts those at $0, $15 and $69 to $99 a month respectively.</li></ul><p>Elavon's June 2026 All In One announcement pulled these together with certified integrations to Agilysys, Oracle, Shiji and xnPOS, plus Android mobile devices built with Castles Technology.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "elavon-fee-stack",
+      "data": {
+        "html": "<h2>The fees that are not on the pricing page</h2><p>Elavon's pricing page advertises $0 batch fees and $0 additional authorization fees. MerchantCostConsulting, which collects the fee change bulletins Elavon mails to merchants, records a February 2026 increase that includes a $0.50 batch settlement fee and $0.18 per authorization. Both can be true at once, because which schedule applies to you depends on the agreement you signed and who sold it to you.</p><p>That is the single most useful thing to understand about Elavon pricing. The published numbers describe one offer. Your statement describes yours. The fees worth asking about by name before you sign are the monthly service fee, the monthly billing fee charged as a percentage of volume, the non qualified volume fee, the PCI program fee and the monthly minimum.</p><p>One of those has a fix with a catch. MerchantCostConsulting reports that the monthly billing fee disappears if you move to daily billing, where the percentage based fees come out of each batch instead of being invoiced at month end, and that daily billing creates reconciliation problems for most businesses.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "elavon-sales-channel",
+      "data": {
+        "html": "<h2>Who is actually selling you the account</h2><p>Elavon reaches merchants four ways: its own sales team, U.S. Bank branches, retail partners, and a large network of independent sales organizations that resell its processing under their own brand. CardFellow describes that ISO network as significant.</p><p>It matters because the contract is theirs, not Elavon's. Rate, term, termination fee, equipment lease and monthly extras are all set on the reseller's paper, and Merchant Maverick's review flags terminal leases sold through partners as a recurring problem. The $0 cancellation fee on elavon.com applies to the offer elavon.com is describing.</p><p>Two questions settle it. Ask who the merchant agreement is with, including the initial term, the renewal term and the notice period for cancelling, and ask whether any terminal lease sits on a third contract with Ladco Global Leasing Solutions, the leasing partner Merchant Maverick names behind four year leases that cannot be cancelled without buying out the remaining months.</p>"
+      }
+    }
+  ],
+  "seo": {
+    "metaTitle": "Elavon Review | Pricing, Fees and Contract Terms",
+    "metaDescription": "Elavon publishes rates from 2.60 percent plus 10 cents in person and 2.90 percent plus 30 cents online, but both are qualified rates quoted per merchant.",
+    "keywords": [
+      "elavon review",
+      "elavon pricing",
+      "elavon fees",
+      "elavon vs square",
+      "elavon credit card processing",
+      "elavon contract"
+    ],
+    "focusKeyword": "elavon review"
+  },
+  "faqs": [
+    {
+      "question": "How much does Elavon cost?",
+      "answer": "Elavon's pricing page starts at 2.60% + $0.10 per qualified swipe or chip transaction and 2.90% + $0.30 per qualified online transaction, with $0 annual fee and $0 cancellation fee. Everything else is quoted. CardFellow lists small business figures of a $10 monthly fee, 2.65% + $0.19 swiped and 3.5% + $0.19 keyed. MerchantCostConsulting records a February 2026 fee increase taking the monthly billing fee to 0.08% of processed volume, batch settlement to $0.50 and the non qualified volume fee to 0.55%, alongside a $40 monthly minimum, chargeback fees raised by $35 in March 2023, and a PCI program at $10 a month validated or $84.99 if not."
+    },
+    {
+      "question": "Does Elavon require a contract?",
+      "answer": "Elavon's own pricing page advertises $0 cancellation or early termination fees, and CardFellow reads that as effectively month to month. Merchant Maverick reports something different for the standard agreement: a three year term with an automatic renewal clause. Both can be right, because most Elavon accounts are sold through U.S. Bank branches, retail partners or independent sales organizations, and the merchant agreement is written by whoever sold it. Before signing, ask who the agreement is with, what the initial and renewal terms are, and what notice you have to give to stop it renewing."
+    },
+    {
+      "question": "Is Elavon good for high-risk merchants?",
+      "answer": "No. Elavon is a bank owned acquirer underwriting mainstream categories: hospitality, retail, healthcare, airlines, dealerships, government and education. There is no self serve signup and no high risk program, so restricted verticals such as adult, CBD, firearms or unlicensed gambling need a specialist provider instead. Worth knowing before you apply: a bank owned acquirer can also revisit a decision after onboarding, and CardFellow's review lists abrupt service cancellations among the recurring complaints against Elavon. If your category sits near a line, get the underwriting answer in writing rather than discovering it once you are live."
+    },
+    {
+      "question": "How long do Elavon payouts take?",
+      "answer": "Elavon states on its homepage that as of May 2025, 91% of merchants were funded within two business days. That is the only funding figure it publishes, and the remaining 9% is the part worth asking about, because actual timing depends on your settlement cutoff, your bank and any reserve conditions attached at underwriting. Merchants on daily billing also have percentage based fees taken out of each batch before deposit rather than invoiced at month end, which MerchantCostConsulting says removes the monthly billing fee, though the same page warns daily billing creates reconciliation problems for most businesses."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "elavon.com",
+  "logoSource": "https://elavon.com/apple-touch-icon.png",
+  "sources": [
+    "https://www.elavon.com/",
+    "https://www.elavon.com/pricing.html",
+    "https://www.elavon.com/solutions/payment-gateways/converge.html",
+    "https://www.elavon.com/solutions/payment-gateways/fusebox.html",
+    "https://www.elavon.com/company-news/2026/elavon-expands-all-in-one-payments-platform.html",
+    "https://en.wikipedia.org/wiki/Elavon",
+    "https://www.cardfellow.com/credit-card-processors/elavon",
+    "https://www.cardfellow.com/blog/elavon-review",
+    "https://www.merchantmaverick.com/reviews/elavon-nova-review/",
+    "https://merchantcostconsulting.com/lower-credit-card-processing-fees/elavon-rate-increases-fees-and-updates/",
+    "https://merchantcostconsulting.com/lower-credit-card-processing-fees/elavon-monthly-billing-fee/",
+    "https://squareup.com/us/en/payments/our-fees"
+  ]
+}
