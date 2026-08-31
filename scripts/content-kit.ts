@@ -182,6 +182,8 @@ export interface SeoSpec {
   metaDescription?: string;
   keywords?: string[];
   focusKeyword?: string;
+  /** Visible H1 override. A processor profile renders `seo.h1 || "{name} review"`. */
+  h1?: string;
   /** Site-relative path. Retires this URL with a 308. */
   redirectTo?: string;
   /** hreflang: shared key naming the variant set, plus this variant's BCP 47 tag. */

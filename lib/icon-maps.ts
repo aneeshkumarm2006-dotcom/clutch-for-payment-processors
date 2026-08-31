@@ -46,6 +46,7 @@ const PAYMENT_METHOD_ICONS: Record<PaymentMethod, LucideIcon> = {
   "apple-pay": Smartphone,
   "google-pay": Smartphone,
   paypal: Wallet,
+  venmo: Wallet,
   ach: Landmark,
   sepa: Landmark,
   bnpl: CalendarClock,

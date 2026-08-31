@@ -19,6 +19,7 @@
     "seed:lowkd-content": "tsx scripts/seed-lowkd-content.ts",
     "seed:lowkd-additional": "tsx scripts/seed-lowkd-additional.ts",
     "seed:review-pages": "tsx scripts/seed-review-pages.ts",
+    "seed:braintree-profile": "tsx scripts/seed-braintree-profile.ts",
     "apply:homepage-copy": "tsx scripts/apply-homepage-seo-copy.ts",
     "migrate:blocks": "tsx scripts/migrate-blocks.ts"
   },

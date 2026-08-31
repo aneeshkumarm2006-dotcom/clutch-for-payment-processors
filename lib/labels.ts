@@ -23,6 +23,7 @@ const FULL_LABELS: Record<string, string> = {
   "apple-pay": "Apple Pay",
   "google-pay": "Google Pay",
   paypal: "PayPal",
+  venmo: "Venmo",
   ach: "ACH",
   sepa: "SEPA",
   bnpl: "BNPL",

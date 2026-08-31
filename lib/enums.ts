@@ -51,6 +51,9 @@ export const PAYMENT_METHODS = [
   "apple-pay",
   "google-pay",
   "paypal",
+  // PayPal-owned Braintree resells Venmo at its own published rate, so it is a
+  // payment method a merchant chooses (and filters on), not a wallet detail.
+  "venmo",
   "ach",
   "sepa",
   "bnpl",
