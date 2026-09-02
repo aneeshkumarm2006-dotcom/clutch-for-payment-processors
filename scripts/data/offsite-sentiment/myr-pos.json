@@ -1,0 +1,57 @@
+{
+  "slug": "myr-pos",
+  "name": "MYR POS",
+  "google": {
+    "heading": "MYR POS on Google",
+    "summary": "88 reviews on the Montreal listing, 4.5 average, 74 of them five star. The listing carries the Koomi name alongside MYR, which is the product MYR acquired. The praise is narrow and consistent, which is a good sign rather than a bad one: quick-service restaurant operators saying staff picked it up without training, queues moved faster, and the integrations they needed were there. Nobody is claiming it does everything. The 11 one-star reviews are older and are about reaching someone, the sharpest being a restaurant that spent close to 100 days trying to get hold of its assigned technician. For a POS aimed at fast food and counter service this is a stronger record than most, and the thing to check before signing is what support looks like once the account is live rather than what the software does.",
+    "rating": 4.5,
+    "reviewCount": 88,
+    "breakdown": [
+      { "stars": 5, "count": 74 },
+      { "stars": 4, "count": 2 },
+      { "stars": 3, "count": 1 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 11 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=17751185036570737570",
+    "profileName": "MYR POS (Koomi), 460 Rue Sainte-Catherine Ouest #408, Montreal",
+    "themes": [
+      {
+        "label": "Staff learn it quickly",
+        "detail": "The most repeated praise from quick-service operators, usually paired with faster queues at the counter.",
+        "tone": "positive"
+      },
+      {
+        "label": "Built for counter service",
+        "detail": "The positive reviews are specific about the format: fast food, cafes, small counter operations. Nobody is using it for a complex full-service restaurant.",
+        "tone": "positive"
+      },
+      {
+        "label": "Reaching your technician",
+        "detail": "The one-star reviews are about support availability rather than the product, including one restaurant that describes nearly 100 days of attempts.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Good POS for quick service restaurant. It is easy to use for my staff and also offer lots of different features and integration.",
+        "context": "Google review",
+        "date": "About March 2026",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=17751185036570737570"
+      },
+      {
+        "text": "Extremely difficult to get ahold of our technician from MYR, we have been attempting to reach out for nearly 100 days and have received minimal communication in response.",
+        "context": "Google review",
+        "date": "About 2025",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=17751185036570737570"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "MYR POS has no Reddit footprint. Searches for the product and for its Koomi predecessor return nothing from operators, which is unsurprising for a Quebec-focused quick-service POS: the restaurant subreddits are dominated by Toast, Square and Clover.",
+  "sources": [
+    "https://maps.google.com/?cid=17751185036570737570"
+  ]
+}

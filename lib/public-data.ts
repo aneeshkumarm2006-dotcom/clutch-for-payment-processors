@@ -731,6 +731,7 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
           Number(p.ratingCount ?? 0),
           p.reviewsPage?.blocks,
           p.reviewsPage?.faqs,
+          p.reviewsPage,
         ),
       )
       .map((p) => ({

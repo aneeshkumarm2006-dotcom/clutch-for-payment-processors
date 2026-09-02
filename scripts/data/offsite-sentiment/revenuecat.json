@@ -1,0 +1,80 @@
+{
+  "slug": "revenuecat",
+  "name": "RevenueCat",
+  "noGoogleReason": "RevenueCat has no Google Business Profile. Searching its San Francisco address returns nothing under its name, which is normal for a company with no premises a customer would visit.",
+  "reddit": {
+    "heading": "What Reddit says about RevenueCat",
+    "summary": "RevenueCat gets treated as infrastructure rather than as a vendor, and the shape of the discussion shows it. In app developer subreddits nobody argues about whether to use it. They ask how to get it working: RevenueCat in an Expo staging build, sandbox purchases silently failing in FlutterFlow, and the one that comes up most, why RevenueCat's revenue figure does not match App Store Connect's. That last one is worth understanding before it happens to you, because the two systems count differently and refunds explain only part of the gap. The other place it appears is in indie developers' launch write-ups, where it is listed alongside Supabase and Expo as part of the stack and passed over without comment. For a payments product that absence of argument is the finding: no threads about held funds, no threads about accounts closed, and nothing that reads like a warning.",
+    "tone": "positive",
+    "subreddits": ["expo", "FlutterFlow", "appledevelopers", "AppBusiness"],
+    "volumeNote": "Regular but low-key. Integration questions rather than opinions.",
+    "searchUrl": "https://www.reddit.com/search/?q=revenuecat&type=posts",
+    "threads": [
+      {
+        "title": "RevenueCat in a Staging app",
+        "url": "https://www.reddit.com/r/expo/comments/1qhvsgk/revenuecat_in_a_staging_app/",
+        "subreddit": "expo",
+        "date": "20 January 2026",
+        "takeaway": "The most common practical snag: getting RevenueCat working in a standalone staging build under Expo and EAS.",
+        "upvotes": 5,
+        "comments": 16
+      },
+      {
+        "title": "Hey , why in apple connect dashboard my in app purchases is 1.29k and in revenuecat 1.44k , the only refunds I received is 5 , what could be issue?",
+        "url": "https://www.reddit.com/r/appledevelopers/comments/1s9k8lj/hey_why_in_apple_connect_dashboard_my_in_app/",
+        "subreddit": "appledevelopers",
+        "date": "1 April 2026",
+        "takeaway": "The reconciliation question every RevenueCat user eventually asks, and worth reading before the numbers diverge on you.",
+        "upvotes": 2,
+        "comments": 11
+      },
+      {
+        "title": "Trying to test in app purchase with RevenueCat",
+        "url": "https://www.reddit.com/r/FlutterFlow/comments/1nb8c6p/trying_to_test_in_app_purchase_with_revenuecat/",
+        "subreddit": "FlutterFlow",
+        "date": "7 September 2025",
+        "takeaway": "Sandbox purchases doing nothing at all, which is a setup problem rather than a product one but costs people a day.",
+        "upvotes": 4,
+        "comments": 3
+      },
+      {
+        "title": "Just crossed $100 revenue on my iOS app.",
+        "url": "https://www.reddit.com/r/AppBusiness/comments/1rfbn8u/just_crossed_100_revenue_on_my_ios_app/",
+        "subreddit": "AppBusiness",
+        "date": "26 February 2026",
+        "takeaway": "Representative of how RevenueCat usually appears: named as part of a shipped stack, with no opinion attached.",
+        "upvotes": 110,
+        "comments": 42
+      }
+    ],
+    "themes": [
+      {
+        "label": "Nobody argues about whether to use it",
+        "detail": "In app developer subreddits it is assumed. The questions are all about configuration, which is what people ask about tools they have already chosen.",
+        "tone": "positive"
+      },
+      {
+        "label": "Its numbers will not match App Store Connect",
+        "detail": "The most repeated question. The two count differently and refunds explain only part of it, so plan for the reconciliation rather than being surprised by it.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Sandbox and staging setup",
+        "detail": "The recurring integration pain across Expo, EAS and FlutterFlow, where test purchases fail silently.",
+        "tone": "negative"
+      },
+      {
+        "label": "No horror stories",
+        "detail": "No held funds, no closed accounts, no warnings. Unusual for anything in this directory, and RevenueCat does not hold your money, which is part of why.",
+        "tone": "positive"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/expo/comments/1qhvsgk/revenuecat_in_a_staging_app/",
+    "https://www.reddit.com/r/appledevelopers/comments/1s9k8lj/hey_why_in_apple_connect_dashboard_my_in_app/",
+    "https://www.reddit.com/r/FlutterFlow/comments/1nb8c6p/trying_to_test_in_app_purchase_with_revenuecat/",
+    "https://www.reddit.com/r/AppBusiness/comments/1rfbn8u/just_crossed_100_revenue_on_my_ios_app/"
+  ]
+}

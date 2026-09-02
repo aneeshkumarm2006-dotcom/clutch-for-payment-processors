@@ -1,0 +1,56 @@
+{
+  "slug": "recurly",
+  "name": "Recurly",
+  "noGoogleReason": "The Recurly listing carries 8 reviews, one of which is written, and that one is six years old. Eight reviews is not a rating and publishing a figure from it would give it weight it has not earned.",
+  "reddit": {
+    "heading": "What Reddit says about Recurly",
+    "summary": "Recurly is named in the subscription billing threads and almost never discussed in them, which is a specific kind of position to occupy. In the January 2026 r/devops thread from a company outgrowing its billing spreadsheets, and in the July 2026 micro-SaaS thread, it appears on the shortlist and the conversation moves on to Chargebee, Stripe Billing or building in-house. The one time Recurly is the subject rather than an option is when a self-hosted competitor launched explicitly to undercut it and Chargebee, which tells you how founders price that layer rather than how Recurly performs. Nobody reports it failing, nobody reports losing revenue to it, and nobody argues for it either. If you are evaluating Recurly, Reddit will not help; the useful reading is the r/devops thread, for how companies at that stage of growth actually choose.",
+    "tone": "mixed",
+    "subreddits": ["devops", "microsaas", "SaaS"],
+    "volumeNote": "Named in billing shortlists, never the subject of a thread.",
+    "searchUrl": "https://www.reddit.com/search/?q=recurly%20subscription%20billing&type=posts",
+    "threads": [
+      {
+        "title": "researching the best subscription management software 2026, outgrowing our billing spreadsheets.",
+        "url": "https://www.reddit.com/r/devops/comments/1q4thrg/researching_the_best_subscription_management/",
+        "subreddit": "devops",
+        "date": "5 January 2026",
+        "takeaway": "54 replies from companies at exactly the growth stage Recurly targets. Read it for how they choose, not for a verdict on Recurly.",
+        "upvotes": 15,
+        "comments": 54
+      },
+      {
+        "title": "Subscription and billing management for MicroSaaS",
+        "url": "https://www.reddit.com/r/microsaas/comments/1uprnuq/subscription_and_billing_management_for_microsaas/",
+        "subreddit": "microsaas",
+        "date": "7 July 2026",
+        "takeaway": "The small end of the market, where Recurly appears on the list and is passed over.",
+        "upvotes": 16,
+        "comments": 17
+      }
+    ],
+    "themes": [
+      {
+        "label": "On the list, not in the conversation",
+        "detail": "Recurly is named in billing threads and then not discussed. Nobody advocates for it and nobody warns against it.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Priced as a layer worth undercutting",
+        "detail": "The one time it is the subject, it is a self-hosted competitor launching to be cheaper than Recurly and Chargebee.",
+        "tone": "negative"
+      },
+      {
+        "label": "No failure reports",
+        "detail": "Across the billing threads there is no account of Recurly breaking, losing revenue or failing at support. That is worth something.",
+        "tone": "positive"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/devops/comments/1q4thrg/researching_the_best_subscription_management/",
+    "https://www.reddit.com/r/microsaas/comments/1uprnuq/subscription_and_billing_management_for_microsaas/",
+    "https://maps.google.com/?cid=9987321618398190474"
+  ]
+}

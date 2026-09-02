@@ -1,0 +1,62 @@
+{
+  "slug": "merchant-one",
+  "name": "Merchant One",
+  "google": {
+    "heading": "Merchant One on Google",
+    "summary": "77 reviews on the Miami Beach listing and a 1.5 average, with 66 one-star against 9 five-star. It is the most one-sided record here and the complaints are specific enough to be checkable. The recurring one is pricing: merchants say they were quoted 1.7 percent on credit and 0.29 percent on debit, then found statements bearing no relationship to that, in one case over 1,200 dollars in fees on 15,000 dollars of volume. The second is support consistency, with several reviewers saying they spoke to four or five agents and got four or five different answers about the same issue. The third is equipment, including a terminal that turned out to be five years old sold as part of a new account. The nine positive reviews are all about one helpful person on one call, which is a different thing from a good account.",
+    "rating": 1.5,
+    "reviewCount": 77,
+    "breakdown": [
+      { "stars": 5, "count": 9 },
+      { "stars": 4, "count": 1 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 1 },
+      { "stars": 1, "count": 66 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=12385318108432640550",
+    "profileName": "Merchant One, 524 Arthur Godfrey Road, Miami Beach",
+    "themes": [
+      {
+        "label": "The quoted rate is not the rate",
+        "detail": "The dominant complaint, stated with numbers: 1.7 percent on credit and 0.29 on debit promised, statements arriving far higher.",
+        "tone": "negative"
+      },
+      {
+        "label": "Every agent says something different",
+        "detail": "Reviewers describe speaking to four or five people about one issue and receiving contradictory answers each time.",
+        "tone": "negative"
+      },
+      {
+        "label": "Old equipment on a new account",
+        "detail": "One merchant found the terminal supplied was already five years old when it failed, and describes eight calls to get it replaced.",
+        "tone": "negative"
+      },
+      {
+        "label": "The positives are individual calls",
+        "detail": "The nine five-star reviews name one agent who helped once, which is not the same as an account that went well.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "We were told repeatedly that our fee structure would be 1.7% for credit cards and .29% for debit cards.",
+        "context": "Google review",
+        "date": "About June 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=12385318108432640550"
+      },
+      {
+        "text": "Have spoken with 5 customer service agents and each says different things pertaining to my issue. Only been with them for two months and the original salesman lied about their fees.",
+        "context": "Google review",
+        "date": "About June 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=12385318108432640550"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "There is no Merchant One discussion on Reddit. Searches across the small business and payment processing subreddits return nothing written by anyone who has used it, which for a company with 77 Google reviews and no developer product is what you would expect.",
+  "sources": [
+    "https://maps.google.com/?cid=12385318108432640550"
+  ]
+}

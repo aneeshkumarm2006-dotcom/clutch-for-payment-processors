@@ -1,0 +1,61 @@
+{
+  "slug": "invoiced",
+  "name": "Invoiced",
+  "noGoogleReason": "The Invoiced listing carries 8 reviews. Eight is not a rating, so no figure is published here. Their content is consistent with the Reddit record below and is summarised there instead.",
+  "reddit": {
+    "heading": "What Reddit says about Invoiced",
+    "summary": "Two threads, and one of them corroborates the complaint on Invoiced's Google listing closely enough to be worth taking seriously. A customer since 2014, paying 19 dollars a month across several business entities, describes the price being raised without notice, disputing it, and having the account cancelled and their billing offline for five days. The Google reviews say the same thing in different words, including a rise from 19 dollars to 110 and a forced migration to Flywire with a few days' notice. Two independent venues describing the same sequence is a stronger signal than either on its own. The other thread is ordinary product friction: invoice chasing reminders going only to the primary contact with no way to include the rest of an accounts payable team. Nobody has posted a positive account, which given the volume is an absence of evidence rather than evidence.",
+    "tone": "negative",
+    "subreddits": ["SaaS", "Accounting"],
+    "volumeNote": "Two threads in two years, neither with replies.",
+    "searchUrl": "https://www.reddit.com/search/?q=invoiced.com&type=posts",
+    "threads": [
+      {
+        "title": "Invoiced.com Cancelled My Account Without Notice",
+        "url": "https://www.reddit.com/r/SaaS/comments/1lj6brv/invoicedcom_cancelled_my_account_without_notice/",
+        "subreddit": "SaaS",
+        "date": "24 June 2025",
+        "takeaway": "An eleven-year customer on 19 dollars a month, describing a price rise, a dispute, and billing offline for five days afterwards.",
+        "upvotes": 2,
+        "comments": 0
+      },
+      {
+        "title": "Invoice Chasing only sending to primary contact? Any workaround?",
+        "url": "https://www.reddit.com/r/Accounting/comments/1shof4d/invoicedcom_invoice_chasing_only_sending_to/",
+        "subreddit": "Accounting",
+        "date": "10 April 2026",
+        "takeaway": "Ordinary product friction: reminders going only to the primary contact, which is a real problem when you are chasing an AP team.",
+        "upvotes": 1,
+        "comments": 0
+      }
+    ],
+    "themes": [
+      {
+        "label": "Price rises without notice",
+        "detail": "Reported on Reddit and again on the Google listing, in one case from 19 dollars a month to 110 with no email.",
+        "tone": "negative"
+      },
+      {
+        "label": "Disputing it can cost you the account",
+        "detail": "The Reddit account describes cancellation following a pricing dispute, and five days of no billing while it was sorted out.",
+        "tone": "negative"
+      },
+      {
+        "label": "Chasing goes to one contact",
+        "detail": "A concrete limitation for anyone whose customers pay through an accounts payable team rather than one person.",
+        "tone": "negative"
+      },
+      {
+        "label": "Nothing here has replies",
+        "detail": "Both threads sit at one or two points with no discussion. This is a small record, and it should not be weighed as a consensus.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/SaaS/comments/1lj6brv/invoicedcom_cancelled_my_account_without_notice/",
+    "https://www.reddit.com/r/Accounting/comments/1shof4d/invoicedcom_invoice_chasing_only_sending_to/",
+    "https://maps.google.com/?cid=15786029150886717329"
+  ]
+}

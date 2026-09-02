@@ -1,0 +1,69 @@
+{
+  "slug": "stax",
+  "name": "Stax",
+  "google": {
+    "heading": "Stax on Google",
+    "summary": "1,346 reviews and a 4.4 average, which is the highest volume of any listing in this directory. Before that number does any work, look at what the 1,120 five-star reviews are about. Almost all of them name an individual support agent and thank them for solving one problem: a device reprovisioned, a statement explained, a terminal customised. Those are the reviews you get by asking at the end of a support call, and they are a different population from merchants describing a year of billing. The 163 one-star reviews are that second population, and they are consistent. A 20 dollar maintenance fee appearing on accounts from September 2025 that merchants say was never announced. Accounts terminated after years with no notice, in one case immediately after a 67,000 dollar batch. And the structural complaint, that Stax is a broker rather than the processor, so when something goes wrong it points at whoever is actually holding the money.",
+    "rating": 4.4,
+    "reviewCount": 1346,
+    "breakdown": [
+      { "stars": 5, "count": 1120 },
+      { "stars": 4, "count": 33 },
+      { "stars": 3, "count": 13 },
+      { "stars": 2, "count": 17 },
+      { "stars": 1, "count": 163 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=15617305593466881957",
+    "profileName": "Stax Payments, 618 E South Street Suite 510, Orlando",
+    "themes": [
+      {
+        "label": "Support agents get named and praised",
+        "detail": "The overwhelming majority of the five-star reviews credit one person for one interaction, which is what a review request at the end of a support call produces.",
+        "tone": "positive"
+      },
+      {
+        "label": "A maintenance fee nobody expected",
+        "detail": "Several merchants describe a 20 dollar monthly charge appearing from September 2025, and being unable to cancel before scheduled payments cleared.",
+        "tone": "negative"
+      },
+      {
+        "label": "Termination without notice",
+        "detail": "One merchant of six years describes payments being held longer, then the account terminated, after a 67,000 dollar run of payments had gone through.",
+        "tone": "negative"
+      },
+      {
+        "label": "Stax is not the one holding your money",
+        "detail": "The recurring structural complaint: support directs merchants to the underlying processor or to the software vendor, and the case falls between them.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Stax customer service has always been phenomenal! Our company has an insane amount of Clover devices, probably over 100, spread across 4 different accounts.",
+        "context": "Google review",
+        "date": "About June 2026",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=15617305593466881957"
+      },
+      {
+        "text": "Sheer utter incompetence, they love to point fingers and tell you to call the actual Merchant because that's all they are is a broker.",
+        "context": "Google review",
+        "date": "About May 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=15617305593466881957"
+      },
+      {
+        "text": "6 years with this company. No problems whatsoever. 5 weeks ago they started holding my payments longer. Out of nowhere they terminated my business.",
+        "context": "Google review",
+        "date": "About March 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=15617305593466881957"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Searches across the merchant subreddits return nothing about Stax or its former name Fattmerchant that is written by someone using it. The name collides with unrelated uses of the word, and once those are filtered out there is no thread left to summarise.",
+  "sources": [
+    "https://maps.google.com/?cid=15617305593466881957"
+  ]
+}

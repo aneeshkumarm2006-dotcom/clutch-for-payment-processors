@@ -17,6 +17,7 @@ import {
 import { buildStructuredData } from "../../lib/engine";
 import { absoluteUrl } from "../../lib/seo";
 import { hasReviewContent, REVIEW_CONTENT_SELECT } from "../../lib/reviews-indexability";
+import { formatSubreddit, groupThemes, hasSentimentContent } from "../../lib/sentiment";
 
 /**
  * The per-processor reviews page (`/processor/<slug>/reviews`).
@@ -292,4 +293,169 @@ test("the sitemap projection covers every field the rule reads", () => {
   assert.ok(selected.has("ratingCount"));
   assert.ok(selected.has("reviewsPage.blocks"));
   assert.ok(selected.has("reviewsPage.faqs"));
+  assert.ok(selected.has("reviewsPage.googleReviews"));
+  assert.ok(selected.has("reviewsPage.reddit"));
+});
+
+// ---------------------------------------------------------------------------
+// Off-site sentiment (the Google + Reddit overviews)
+//
+// These sections are optional on every processor and used by very few, so their
+// failure mode is not a crash. It is a section that quietly renders an empty
+// card, or one an editor cleared that will not go away. Both live in the gap
+// between "the form always submits this object" and "the object means nothing".
+// ---------------------------------------------------------------------------
+
+test("a section is only present once it says something", () => {
+  assert.equal(hasSentimentContent(undefined), false);
+  assert.equal(hasSentimentContent({}), false);
+  // Chrome around nothing. A heading and a date are not content.
+  assert.equal(
+    hasSentimentContent({ heading: "What Google says", checkedOn: "August 2026" }),
+    false,
+  );
+
+  assert.equal(hasSentimentContent({ summary: "Reviews arrived in a burst." }), true);
+  assert.equal(hasSentimentContent({ rating: 4.8 }), true);
+  // A zero is a real transcribed figure, not an absence.
+  assert.equal(hasSentimentContent({ reviewCount: 0 }), true);
+  assert.equal(hasSentimentContent({ themes: [{ label: "Support", tone: "negative" }] }), true);
+  assert.equal(hasSentimentContent({ threads: [{ title: "t", url: "u" }] }), true);
+  assert.equal(hasSentimentContent({ themes: [] }), false);
+});
+
+test("an off-site overview alone makes the page indexable", () => {
+  // The state most of these processors are actually in: the discussion is on
+  // Google and Reddit, nobody has reviewed them here, and there is no block.
+  assert.equal(
+    hasReviewContent(0, [], [], { googleReviews: { summary: "Scores cluster in January." } }),
+    true,
+  );
+  assert.equal(
+    hasReviewContent(0, [], [], { reddit: { threads: [{ title: "t", url: "u" }] } }),
+    true,
+  );
+  // ...but an empty shell of a section does not, or every processor whose tab an
+  // editor merely opened would land in the sitemap.
+  assert.equal(hasReviewContent(0, [], [], { googleReviews: {}, reddit: {} }), false);
+  assert.equal(hasReviewContent(0, [], [], { googleReviews: { heading: "x" } }), false);
+});
+
+test("an all-blank section is dropped, not saved as an empty object", () => {
+  // The form renders both sections, so it submits both on every save. Without
+  // the collapse in `validators/sentiment.ts` this would store a shell that reads
+  // as "present" forever and could never be cleared.
+  const parsed = reviewsPageSchema.parse(
+    toReviewsPagePayload({
+      ...blankProcessorValues().reviewsPage,
+      heading: "Corepay reviews",
+    }),
+  );
+  assert.equal(parsed?.googleReviews, undefined);
+  assert.equal(parsed?.reddit, undefined);
+  assert.equal(parsed?.heading, "Corepay reviews");
+});
+
+test("a filled section survives form to zod to serialize", () => {
+  const values = blankProcessorValues().reviewsPage;
+  values.googleReviews.rating = "4.8";
+  values.googleReviews.reviewCount = "27";
+  values.googleReviews.profileUrl = "https://maps.google.com/?cid=1";
+  values.googleReviews.summary = "Eleven of the thirteen arrived in the same fortnight.";
+  values.googleReviews.themes = [
+    { label: "Underwriting speed", detail: "Live in three days", tone: "positive" },
+    { label: "Rate transparency", detail: "", tone: "negative" },
+  ];
+  values.googleReviews.quotes = [
+    {
+      text: "Approved when nobody else would.",
+      author: "Marcus T.",
+      context: "Google review",
+      date: "Jan 2026",
+      rating: "5",
+      url: "",
+    },
+  ];
+  // Only two of the five histogram rows filled in. The other three carry a
+  // non-blank `stars`, so the blank-row filter cannot see them as empty and the
+  // required `count` would reject the save if the form sent them.
+  values.googleReviews.breakdown[0]!.count = "24";
+  values.googleReviews.breakdown[4]!.count = "1";
+  values.reddit.tone = "mixed";
+  values.reddit.subreddits = ["smallbusiness", "r/stripe"];
+  values.reddit.threads = [
+    {
+      title: "Anyone using Corepay?",
+      url: "https://reddit.com/r/x/1",
+      subreddit: "r/x",
+      date: "",
+      takeaway: "",
+      upvotes: "42",
+      comments: "",
+    },
+  ];
+
+  const parsed = reviewsPageSchema.parse(toReviewsPagePayload(values));
+  assert.equal(parsed?.googleReviews?.rating, 4.8);
+  assert.equal(parsed?.googleReviews?.reviewCount, 27);
+  assert.equal(parsed?.googleReviews?.breakdown?.length, 2);
+  assert.deepEqual(parsed?.googleReviews?.breakdown?.[0], { stars: 5, count: 24 });
+  assert.equal(parsed?.googleReviews?.themes?.length, 2);
+  // A quote with no link is still a quote: a blank URL must not fail the row.
+  assert.equal(parsed?.googleReviews?.quotes?.[0]?.url, undefined);
+  assert.equal(parsed?.reddit?.tone, "mixed");
+  assert.equal(parsed?.reddit?.threads?.[0]?.upvotes, 42);
+  assert.equal(parsed?.reddit?.threads?.[0]?.comments, undefined);
+
+  // ...and back out through the public serializer the page actually reads.
+  const data = toReviewsPageData(parsed);
+  assert.equal(data?.googleReviews?.rating, 4.8);
+  assert.equal(data?.reddit?.subreddits?.length, 2);
+});
+
+test("hydrating the edit form restores every stored section", () => {
+  const stored = {
+    googleReviews: {
+      rating: 4.8,
+      breakdown: [{ stars: 3, count: 2 }],
+      themes: [{ label: "Support", detail: "Slow", tone: "negative" }],
+    },
+    reddit: { tone: "negative", subreddits: ["smallbusiness"] },
+  };
+  const values = toReviewsPageFormValues(stored);
+  assert.equal(values.googleReviews.rating, "4.8");
+  assert.equal(values.reddit.tone, "negative");
+  // The histogram is always five rows in 5..1 order, whatever the document held.
+  assert.deepEqual(
+    values.googleReviews.breakdown.map((b) => b.stars),
+    ["5", "4", "3", "2", "1"],
+  );
+  assert.equal(values.googleReviews.breakdown[2]?.count, "2");
+  assert.equal(values.googleReviews.breakdown[0]?.count, "");
+  assert.equal(values.googleReviews.themes[0]?.tone, "negative");
+});
+
+test("a mixed theme is a caveat, not praise", () => {
+  // The public card has two columns. Filing an unresolved theme under "what they
+  // praise" is how a review page loses a reader.
+  const { positive, negative } = groupThemes([
+    { label: "a", tone: "positive" },
+    { label: "b", tone: "mixed" },
+    { label: "c", tone: "negative" },
+  ]);
+  assert.deepEqual(
+    positive.map((t) => t.label),
+    ["a"],
+  );
+  assert.deepEqual(
+    negative.map((t) => t.label),
+    ["b", "c"],
+  );
+});
+
+test("subreddits render the same however they were typed", () => {
+  assert.equal(formatSubreddit("smallbusiness"), "r/smallbusiness");
+  assert.equal(formatSubreddit("r/smallbusiness"), "r/smallbusiness");
+  assert.equal(formatSubreddit("/r/smallbusiness"), "r/smallbusiness");
+  assert.equal(formatSubreddit("  "), "");
 });

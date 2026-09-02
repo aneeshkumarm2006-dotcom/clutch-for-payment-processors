@@ -1,0 +1,66 @@
+{
+  "slug": "nmi",
+  "name": "NMI",
+  "noGoogleReason": "The Schaumburg listing is a corporate campus with three reviews and a 1.0 average. Three reviews is not a rating, and one of them is about email authentication records rather than about payments, so publishing it would give three opinions the weight of a score.",
+  "reddit": {
+    "heading": "What Reddit says about NMI",
+    "summary": "NMI is discussed by the people who resell it rather than by the merchants who use it, which is exactly what you would expect from a white-label gateway. In r/PaymentProcessing the question comes from an ISO weighing NMI's buy rates against other gateways it could put its own name on. In r/Odoo and r/ecommerce the question is compatibility: which platforms still support NMI, and whether to pick it or Authorize.net for a US business that does not want Stripe. That second question is the useful one, because it is the choice a lot of small US merchants actually face, and the 32 replies to it are worth more than anything written about NMI as a brand. What nobody discusses is service, pricing or holds, because those come from whichever ISO sold you the account. NMI supplies the gateway; the relationship is with someone else, and that is the thing to understand before reading any review of it anywhere.",
+    "tone": "mixed",
+    "subreddits": ["PaymentProcessing", "Odoo", "ecommerce", "WooCommerce_Plugins"],
+    "volumeNote": "Sparse, and mostly from resellers and integrators rather than merchants.",
+    "searchUrl": "https://www.reddit.com/search/?q=nmi%20gateway%20payments&type=posts",
+    "threads": [
+      {
+        "title": "USA Payment Processors other than Stripe? NMI or Authorize.net?",
+        "url": "https://www.reddit.com/r/Odoo/comments/1stj6kf/usa_payment_processors_other_than_stripe_nmi_or/",
+        "subreddit": "Odoo",
+        "date": "23 April 2026",
+        "takeaway": "32 replies on the choice a lot of small US merchants actually face once they have decided against Stripe. The most useful NMI thread on Reddit.",
+        "upvotes": 4,
+        "comments": 32
+      },
+      {
+        "title": "NMI Gateway",
+        "url": "https://www.reddit.com/r/PaymentProcessing/comments/18pfngl/nmi_gateway/",
+        "subreddit": "PaymentProcessing",
+        "date": "23 December 2023",
+        "takeaway": "Asked by a reseller weighing NMI's buy rates, which is who NMI's customer really is.",
+        "upvotes": 4,
+        "comments": 10
+      },
+      {
+        "title": "Looking For E-Commerce Platform that would be able to handle 40+ stores, ease of use and support NMI Payment Gateway.",
+        "url": "https://www.reddit.com/r/ecommerce/comments/8g0ex8/looking_for_ecommerce_platform_that_would_be_able/",
+        "subreddit": "ecommerce",
+        "date": "30 April 2018",
+        "takeaway": "A multi-store merchant leaving Shopify because Shopify dropped NMI support. Platform compatibility is the recurring NMI risk.",
+        "upvotes": 6,
+        "comments": 15
+      }
+    ],
+    "themes": [
+      {
+        "label": "Resellers discuss it, merchants do not",
+        "detail": "The questions come from ISOs weighing buy rates. NMI is the thing under someone else's brand, so merchants rarely know they are on it.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Platform support is the real risk",
+        "detail": "The oldest thread is a merchant forced off Shopify when it dropped NMI. Check your cart supports it before you commit.",
+        "tone": "negative"
+      },
+      {
+        "label": "Service and pricing come from your ISO",
+        "detail": "Nothing on Reddit describes NMI's own support or rates, because for most merchants those belong to whoever resold it.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/Odoo/comments/1stj6kf/usa_payment_processors_other_than_stripe_nmi_or/",
+    "https://www.reddit.com/r/PaymentProcessing/comments/18pfngl/nmi_gateway/",
+    "https://www.reddit.com/r/ecommerce/comments/8g0ex8/looking_for_ecommerce_platform_that_would_be_able/",
+    "https://maps.google.com/?cid=3664602952894178157"
+  ]
+}

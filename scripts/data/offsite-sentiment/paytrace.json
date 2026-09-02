@@ -1,0 +1,32 @@
+{
+  "slug": "paytrace",
+  "name": "PayTrace",
+  "google": {
+    "heading": "PayTrace on Google",
+    "summary": "No rating is published here, deliberately. PayTrace has a Spokane Valley listing carrying 13 reviews, and two things make that number unusable. The listing shows a different company's website in its details, which suggests it has been merged or mislabelled at some point. And the written reviews on it are not from merchants. They are from cardholders who paid a business that used PayTrace, saw the name on a statement or a receipt, and reviewed it: one reporting a charge they did not recognise, one complaining that their information was shared with several companies. That is a common fate for a gateway sitting behind other people's checkouts, and it says nothing about what PayTrace is like to process on. If you are evaluating it for Level 3 or B2B card processing, this listing is not evidence in either direction, and the review platforms aimed at software buyers are a better place to look.",
+    "profileUrl": "https://maps.google.com/?cid=8364972235744809500",
+    "profileName": "PayTrace, Inc., 12709 E Mirabeau Parkway, Spokane Valley",
+    "themes": [
+      {
+        "label": "The reviewers are cardholders, not merchants",
+        "detail": "People who paid a business running PayTrace and reviewed the name they saw. Not feedback on the gateway as a product.",
+        "tone": "mixed"
+      },
+      {
+        "label": "The listing itself looks wrong",
+        "detail": "It carries another company's website in its details, which is reason enough not to publish a figure from it.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Thirteen reviews",
+        "detail": "Even if every one were from a merchant, thirteen is not a rating.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "PayTrace does not appear on Reddit. Searches across the small business, ecommerce, payment processing and B2B sales subreddits return nothing, which is what you would expect from a gateway sold through resellers into B2B and Level 3 processing rather than to the self-serve market.",
+  "sources": [
+    "https://maps.google.com/?cid=8364972235744809500"
+  ]
+}

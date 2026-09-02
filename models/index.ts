@@ -63,3 +63,12 @@ export {
   type IBlock,
   type IStructuredData,
 } from "./shared";
+export {
+  hasSentimentContent,
+  type IGoogleReviewsOverview,
+  type IRedditOverview,
+  type IRedditThread,
+  type ISentimentQuote,
+  type ISentimentTheme,
+  type IStarBreakdown,
+} from "./sentiment";

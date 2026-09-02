@@ -1,0 +1,63 @@
+{
+  "slug": "elavon",
+  "name": "Elavon",
+  "google": {
+    "heading": "Elavon on Google",
+    "summary": "249 reviews on the Atlanta office, 4.0 average, 176 of them five star. That is a healthier distribution than most processors here, and the reason is visible in the reviews themselves: almost all the praise is about one phone call. Reviewers describe ringing support about a terminal update, a cancellation or a transaction they did not understand, getting a patient person, and getting it resolved. For a legacy acquirer that is a real finding, because reachable support is exactly what merchants complain is missing at Stripe, Braintree and Airwallex. The 56 one-star reviews are about a different part of the relationship, and they are consistent: pricing that rises quietly over years until someone looks at a statement, inadequate initial training, and difficulty getting a straight answer when something goes wrong rather than when something needs doing. Read the two halves as service versus contract, not as disagreement.",
+    "rating": 4.0,
+    "reviewCount": 249,
+    "breakdown": [
+      { "stars": 5, "count": 176 },
+      { "stars": 4, "count": 11 },
+      { "stars": 3, "count": 3 },
+      { "stars": 2, "count": 3 },
+      { "stars": 1, "count": 56 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=1526664533282937104",
+    "profileName": "Elavon, 2 Concourse Parkway, Atlanta",
+    "themes": [
+      {
+        "label": "You get a person on the phone",
+        "detail": "The overwhelming reason for the five-star reviews. Terminal updates, cancellations and billing questions handled in one call by someone patient.",
+        "tone": "positive"
+      },
+      {
+        "label": "Pricing drifts upward",
+        "detail": "The clearest long-term complaint, from a merchant of many years: if you are too busy to check, the rate creeps, and the sales team is trained to talk you out of leaving.",
+        "tone": "negative"
+      },
+      {
+        "label": "Training at the start is thin",
+        "detail": "Several reviewers say the initial setup training was inadequate and that they were left working things out afterwards.",
+        "tone": "negative"
+      },
+      {
+        "label": "Reporting limits",
+        "detail": "A specific gripe about how far back declined transactions can be reviewed, which mattered when a return failed to process.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Had to cancel my service due to a slow down in business, the lady that helped me was so kind, understanding. Just so pleasant, refreshing to call in and get good help.",
+        "context": "Google review",
+        "date": "About August 2026",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=1526664533282937104"
+      },
+      {
+        "text": "we have been with them for many years. when you are too busy to look into it , their pricing get higher and higher.",
+        "context": "Google review",
+        "date": "About July 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=1526664533282937104"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Elavon barely exists on Reddit as a merchant subject. The searches return recruitment posts for its sales roles, an ISO agent recruiting sub-agents, and a couple of confused setup threads in r/Odoo where the question is which company supplies the terminal hardware. None of it amounts to merchant sentiment.",
+  "sources": [
+    "https://maps.google.com/?cid=1526664533282937104",
+    "https://www.reddit.com/r/Odoo/comments/1g917je/credit_card_processing_merchant_services_payment/"
+  ]
+}

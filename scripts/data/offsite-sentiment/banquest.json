@@ -1,0 +1,62 @@
+{
+  "slug": "banquest",
+  "name": "Banquest Payment Systems",
+  "google": {
+    "heading": "Banquest on Google",
+    "summary": "99 reviews, 98 of them five star, one four star, and nothing below. That is not a distribution that occurs naturally, and it should be read as what it is: a company that asks satisfied customers to review it and gets a clean sweep, rather than 99 people who independently decided to write about their payment gateway. What the reviews are about is more useful than the score. Almost all of them come from B2B and nonprofit finance staff, and they name the same two things: invoicing that is quick to send and easy for a customer to pay, and pricing described as competitive by people comparing it against a previous processor. Several reviewers are five and six years in, which is worth more than the rating. What you will not find here is anything about what happens when a payment is disputed, a deposit is delayed or a contract ends, and Banquest's contracts run three years.",
+    "rating": 5.0,
+    "reviewCount": 99,
+    "breakdown": [
+      { "stars": 5, "count": 98 },
+      { "stars": 4, "count": 1 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 0 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=10248499676379251102",
+    "profileName": "Banquest Payment Systems, 1875 Swarthmore Avenue #4, Lakewood",
+    "themes": [
+      {
+        "label": "Invoicing is the thing people name",
+        "detail": "B2B and nonprofit finance staff repeatedly single out how quickly an invoice goes out and how easily a customer pays it.",
+        "tone": "positive"
+      },
+      {
+        "label": "Long-standing customers",
+        "detail": "Several reviewers are five or six years in, which is a stronger signal than any of the ratings.",
+        "tone": "positive"
+      },
+      {
+        "label": "A perfect record is a flag, not a result",
+        "detail": "Ninety-eight five-star reviews and nothing below four does not happen by itself. Treat this as solicited feedback from happy customers.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Nothing about the difficult parts",
+        "detail": "No review here covers a dispute, a delayed deposit or leaving. The contract runs three years, so that gap matters.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Please try them...they are extremely easy to work with, set up is speedy. I have found Banquest to be an excellent CC processor. The ability to invoice a customer is extremely easy.",
+        "context": "Google review",
+        "date": "About 2024",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=10248499676379251102"
+      },
+      {
+        "text": "I have been a Banquest customer for five years now & I give the highest score to Kevin & his team for their unparalleled customer service.",
+        "context": "Google review",
+        "date": "About 2021",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=10248499676379251102"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Banquest does not appear on Reddit. Searches across the small business and payment processing subreddits return nothing from a merchant using it, which is what you would expect from a New Jersey ISO selling a proprietary gateway to B2B accounts rather than to the self-serve market Reddit talks about.",
+  "sources": [
+    "https://maps.google.com/?cid=10248499676379251102"
+  ]
+}

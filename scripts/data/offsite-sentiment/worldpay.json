@@ -1,0 +1,53 @@
+{
+  "slug": "worldpay",
+  "name": "Worldpay",
+  "google": {
+    "heading": "Worldpay on Google",
+    "summary": "Only 13 reviews on the Cincinnati listing, which is far too few to be a rating, and the listing is unclaimed. It is included because of what the 9 one-star reviews are about, which is the same thing in three different industries. A nonprofit that held its annual event and had received nothing a week later. A small business with over 45,000 dollars held after a single transaction was queried. A medical practice owed more than 15,000 dollars in insurance payments after completing and notarising everything asked of it. Three accounts, one complaint: money taken in and not passed on, with the merchant chasing. Read this as three data points rather than as a score, and weigh it against the fact that Worldpay processes for a very large number of businesses who have never written anything anywhere.",
+    "rating": 2.2,
+    "reviewCount": 13,
+    "breakdown": [
+      { "stars": 5, "count": 4 },
+      { "stars": 4, "count": 0 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 9 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=15545930367084348487",
+    "profileName": "Worldpay, 8305 Governors Hill Drive, Cincinnati",
+    "themes": [
+      {
+        "label": "Settlement, not service",
+        "detail": "All three detailed complaints are about funds taken in and not passed on, rather than about fees, hardware or support manner.",
+        "tone": "negative"
+      },
+      {
+        "label": "Thirteen reviews",
+        "detail": "Too small to average. The value here is the consistency of the three long accounts, not the 2.2.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "The WORST merchant account EVER! We have to fight to get paid. We had our annual event a week ago and have not received ONE DIME from WorldPay since our event.",
+        "context": "Google review",
+        "date": "About November 2025",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=15545930367084348487"
+      },
+      {
+        "text": "Worldpay is holding $45,000 of my business funds and this has been the worst processor experience I've ever had.",
+        "context": "Google review",
+        "date": "About 2025",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=15545930367084348487"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Worldpay barely registers on Reddit. The searches return an SEC filing summary about Global Payments acquiring it and one NetSuite thread where it is a name on a shortlist. Nothing from a merchant using it.",
+  "sources": [
+    "https://maps.google.com/?cid=15545930367084348487",
+    "https://www.reddit.com/r/Netsuite/comments/1h523mq/recommendations_for_merchant_account_provider/"
+  ]
+}

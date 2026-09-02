@@ -1,0 +1,144 @@
+{
+  "slug": "clover",
+  "name": "Clover",
+  "google": {
+    "heading": "Clover on Google",
+    "summary": "109 reviews on the Sunnyvale listing, 2.8 average, 58 of them one star against 44 five star. The complaints are not about the terminal, which most reviewers seem to like. They are about the shape of the company behind it. Clover is sold through banks and ISOs and supported by Fiserv, and the reviews read like it: an online chat that tells you to call, a phone line that tells you to use the chat, and a return that Fiserv's system did not register followed by emails threatening a 500 dollar charge. A four-unit merchant of several years describes calling repeatedly about a broken wire and getting nowhere. The five-star reviews are mostly old and several are from app developers on the Clover marketplace rather than from merchants. Treat this listing as feedback on Fiserv's service model rather than on the hardware.",
+    "rating": 2.8,
+    "reviewCount": 109,
+    "breakdown": [
+      { "stars": 5, "count": 44 },
+      { "stars": 4, "count": 4 },
+      { "stars": 3, "count": 1 },
+      { "stars": 2, "count": 2 },
+      { "stars": 1, "count": 58 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=7902131739205834792",
+    "profileName": "Clover Network, Inc., 415 N Mathilda Avenue, Sunnyvale",
+    "themes": [
+      {
+        "label": "Support loops between channels",
+        "detail": "The single most repeated complaint: chat refers you to the phone line, the phone line refers you back to chat, and nothing is owned.",
+        "tone": "negative"
+      },
+      {
+        "label": "Returns and equipment billing",
+        "detail": "One merchant returned a device as instructed and kept receiving threats of a 500 dollar charge because Fiserv's system said it was not returned.",
+        "tone": "negative"
+      },
+      {
+        "label": "You are not really a Clover customer",
+        "detail": "Reviewers describe being passed between Clover, Fiserv and the bank or ISO that sold them the account, none of which claims the problem.",
+        "tone": "negative"
+      },
+      {
+        "label": "The hardware is not the issue",
+        "detail": "Even the angriest reviews say they wanted to keep using the product, which puts the complaint squarely on service rather than on the terminal.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "There is honestly not enough space here to fully outline my experience with Clover, but it is consistently disappointing and frustrating. The support structure is particularly problematic.",
+        "context": "Google review",
+        "date": "About May 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=7902131739205834792"
+      },
+      {
+        "text": "Very disappointing experience with Clover/Fiserv. I returned my device as instructed, yet I kept receiving threatening emails saying I would be charged $500 because their system claimed it wasn't returned.",
+        "context": "Google review",
+        "date": "About August 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=7902131739205834792"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Clover",
+    "summary": "Two separate conversations run under Clover's name and it is worth not confusing them. The first is merchants, and it splits cleanly along how they bought it. People who chose Clover directly for a restaurant or shop generally rate the hardware and the app marketplace, and the Square versus Clover and Toast versus Clover threads in r/restaurateur are genuinely balanced. People who got Clover bundled with a bank merchant account tell a different story, the oldest and most detailed being a 2017 account of Bank of America merchant services fees appearing on a statement for five months. The second conversation is not about Clover at all. Scammers use Clover's name to push fake payments on service businesses, and r/mobileDJ has years of near-identical reports of a booking enquiry that insists on paying by Clover because it is secure. That is a brand problem, not a product one, but it is what a merchant searching for Clover scam will find.",
+    "tone": "mixed",
+    "subreddits": ["restaurateur", "smallbusiness", "POS", "mobileDJ"],
+    "volumeNote": "Steady in restaurant and small business subs, plus a long-running scam thread that is not about the product.",
+    "searchUrl": "https://www.reddit.com/search/?q=clover%20pos&type=posts",
+    "threads": [
+      {
+        "title": "Horrible experience with Bank of America and Clover... hidden fees, fleeced over surcharges and catastrophically poor customer service. Never again.",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/6r9h8w/horrible_experience_with_bank_of_america_and/",
+        "subreddit": "smallbusiness",
+        "date": "3 August 2017",
+        "takeaway": "The clearest write-up of what buying Clover through a bank's merchant services arm costs, statement by statement.",
+        "upvotes": 36,
+        "comments": 16
+      },
+      {
+        "title": "Clover pos is a nightmare",
+        "url": "https://www.reddit.com/r/POS/comments/15pchk0/clover_pos_is_a_nightmare/",
+        "subreddit": "POS",
+        "date": "12 August 2023",
+        "takeaway": "30 comments on the Fiserv service model from operators, and the closest thing to a considered negative review on Reddit.",
+        "upvotes": 19,
+        "comments": 30
+      },
+      {
+        "title": "Square vs Clover - anyone have experience with both?",
+        "url": "https://www.reddit.com/r/restaurateur/comments/laybvv/square_vs_clover_anyone_have_experience_with_both/",
+        "subreddit": "restaurateur",
+        "date": "2 February 2021",
+        "takeaway": "67 comments from restaurant operators who have run both. The most balanced Clover thread on Reddit.",
+        "upvotes": 15,
+        "comments": 67
+      },
+      {
+        "title": "Toast vs Clover?",
+        "url": "https://www.reddit.com/r/restaurateur/comments/1c6f04q/toast_vs_clover/",
+        "subreddit": "restaurateur",
+        "date": "17 April 2024",
+        "takeaway": "The other comparison operators actually make, with 42 replies from people running one or the other.",
+        "upvotes": 13,
+        "comments": 42
+      },
+      {
+        "title": "Clover Merchant Scam",
+        "url": "https://www.reddit.com/r/mobileDJ/comments/a73jce/clover_merchant_scam/",
+        "subreddit": "mobileDJ",
+        "date": "17 December 2018",
+        "takeaway": "Years of service businesses reporting the same fake booking that insists on paying through Clover. Not about the product, but it is what the search returns.",
+        "upvotes": 11,
+        "comments": 50
+      }
+    ],
+    "themes": [
+      {
+        "label": "How you bought it decides your experience",
+        "detail": "Direct customers rate the hardware. Merchants who got Clover bundled with a bank account write about fees appearing on statements.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Fiserv is who you are actually dealing with",
+        "detail": "The negative threads are about the service chain behind the terminal rather than the terminal, and about nobody in it owning a problem.",
+        "tone": "negative"
+      },
+      {
+        "label": "Scammers use the name",
+        "detail": "Service businesses report a recurring fake booking that insists on paying by Clover because it is secure. Worth recognising rather than reading as feedback.",
+        "tone": "mixed"
+      },
+      {
+        "label": "It survives direct comparison",
+        "detail": "In the Square and Toast comparison threads Clover is a real contender, which the Google listing on its own would not suggest.",
+        "tone": "positive"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=7902131739205834792",
+    "https://www.reddit.com/r/smallbusiness/comments/6r9h8w/horrible_experience_with_bank_of_america_and/",
+    "https://www.reddit.com/r/POS/comments/15pchk0/clover_pos_is_a_nightmare/",
+    "https://www.reddit.com/r/restaurateur/comments/laybvv/square_vs_clover_anyone_have_experience_with_both/",
+    "https://www.reddit.com/r/restaurateur/comments/1c6f04q/toast_vs_clover/",
+    "https://www.reddit.com/r/mobileDJ/comments/a73jce/clover_merchant_scam/"
+  ]
+}

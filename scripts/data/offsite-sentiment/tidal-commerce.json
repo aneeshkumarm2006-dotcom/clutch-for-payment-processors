@@ -1,0 +1,32 @@
+{
+  "slug": "tidal-commerce",
+  "name": "Tidal Commerce",
+  "google": {
+    "heading": "Tidal Commerce on Google",
+    "summary": "No rating is published here because there is not enough behind it to publish. The Oak Brook listing carries five reviews and the newest is two years old. Four are positive and describe what a good ISO relationship looks like: a savings estimate before signing, an account set up by a named person, and processing that then ran without anyone thinking about it. The one negative review, from eight years ago, describes the opposite and the specific complaint is calls not being returned. Five accounts spread over eight years cannot establish a pattern in either direction, and averaging them into a 4.4 would give five opinions the weight of a score. What the reviews do confirm is the shape of the business: merchants dealing with individuals at a small Chicago-area ISO rather than with a support queue.",
+    "profileUrl": "https://maps.google.com/?cid=16150239519671474007",
+    "profileName": "Tidal Commerce, 2100 Clearwater Drive Suite 140, Oak Brook",
+    "themes": [
+      {
+        "label": "Five reviews across eight years",
+        "detail": "Too few and too old to average. Read them individually or not at all.",
+        "tone": "mixed"
+      },
+      {
+        "label": "A savings estimate before signing",
+        "detail": "The one concrete positive: a merchant given a projected annual saving up front, then set up by the same person.",
+        "tone": "positive"
+      },
+      {
+        "label": "Calls not returned",
+        "detail": "The single negative, from 2018, and the complaint that matters most with a small ISO because there is no queue to fall back on.",
+        "tone": "negative"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Tidal Commerce has no Reddit presence at all. Searches of the small business and payment processing subreddits return nothing under the name.",
+  "sources": [
+    "https://maps.google.com/?cid=16150239519671474007"
+  ]
+}

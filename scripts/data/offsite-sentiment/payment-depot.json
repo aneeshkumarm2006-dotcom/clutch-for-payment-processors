@@ -1,0 +1,65 @@
+{
+  "slug": "payment-depot",
+  "name": "Payment Depot",
+  "noGoogleReason": "There is no Payment Depot Business Profile to read. The brand was absorbed into Stax and the searches return unrelated companies, so any figure published here would belong to someone else.",
+  "reddit": {
+    "heading": "What Reddit says about Payment Depot",
+    "summary": "Everything Reddit has on Payment Depot was written between 2013 and 2016, when membership pricing was new and genuinely surprising. The threads are people working out whether a flat monthly subscription plus interchange could really beat the percentage they were paying, mostly comparing it against Braintree, Stripe and Authorize.net resellers, and the tone is interested rather than sceptical. Two things make this history rather than research. Payment Depot has since been absorbed into Stax, so the company answering the phone is not the one those threads describe, and the membership pricing that made it worth discussing has changed. Read these threads to understand why subscription pricing appealed to merchants with steady volume and low margins, then check the current terms against that, because nobody on Reddit has posted about Payment Depot in nearly a decade.",
+    "tone": "mixed",
+    "subreddits": ["ecommerce", "business"],
+    "volumeNote": "Three threads, all between 2013 and 2016. Nothing since.",
+    "searchUrl": "https://www.reddit.com/search/?q=payment%20depot&type=posts",
+    "threads": [
+      {
+        "title": "Anyone use Payment Depot for CC Payment Processing?",
+        "url": "https://www.reddit.com/r/ecommerce/comments/3sc1c4/anyone_use_payment_depot_for_cc_payment_processing/",
+        "subreddit": "ecommerce",
+        "date": "10 November 2015",
+        "takeaway": "A merchant comparing membership pricing against Braintree, Stripe and Authorize.net resellers. The clearest statement of what the model was for.",
+        "upvotes": 3,
+        "comments": 13
+      },
+      {
+        "title": "Payment Depot, what is your experience?",
+        "url": "https://www.reddit.com/r/business/comments/4oe6s5/payment_depot_what_is_your_experience/",
+        "subreddit": "business",
+        "date": "16 June 2016",
+        "takeaway": "The last time anyone asked. Worth reading for the arithmetic rather than for the answers.",
+        "upvotes": 2,
+        "comments": 1
+      },
+      {
+        "title": "Revolutionizing the Credit Card Processing Industry: Interview with Payment Depot's Co-Founders",
+        "url": "https://www.reddit.com/r/business/comments/1sn3tk/revolutionizing_the_credit_card_processing/",
+        "subreddit": "business",
+        "date": "11 December 2013",
+        "takeaway": "The founders' pitch and 21 replies from merchants reacting to it, several of whom said they would try it.",
+        "upvotes": 21,
+        "comments": 21
+      }
+    ],
+    "themes": [
+      {
+        "label": "The record stops in 2016",
+        "detail": "Nothing has been posted about Payment Depot in nearly a decade, and the company has been absorbed into Stax since.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Membership pricing was the whole appeal",
+        "detail": "Merchants with steady volume and thin margins worked out that a monthly fee plus interchange beat a percentage, which is still the test to apply.",
+        "tone": "positive"
+      },
+      {
+        "label": "No account of what it was like to use",
+        "detail": "The threads are people deciding, not people reporting back. Even in 2016 nobody had posted a year with it.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/ecommerce/comments/3sc1c4/anyone_use_payment_depot_for_cc_payment_processing/",
+    "https://www.reddit.com/r/business/comments/4oe6s5/payment_depot_what_is_your_experience/",
+    "https://www.reddit.com/r/business/comments/1sn3tk/revolutionizing_the_credit_card_processing/"
+  ]
+}

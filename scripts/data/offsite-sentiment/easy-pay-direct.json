@@ -1,0 +1,69 @@
+{
+  "slug": "easy-pay-direct",
+  "name": "Easy Pay Direct",
+  "google": {
+    "heading": "Easy Pay Direct on Google",
+    "summary": "87 reviews on the Austin listing and a 4.7 average, with 78 five-star against 6 one-star. That is a strong record for a company placing hard-to-approve merchants, and the praise is specific: named account managers walking merchants through complicated ACH setups, and support that reviewers say stayed reachable after the sale, which is the exact thing merchants complain is missing everywhere else in this category. The six negative reviews divide into two kinds and only one of them is about the product. Two describe weeks of silence, locked-out accounts and unreturned calls, and one describes monthly and early termination fees the reviewer says were never mentioned outside the contract. The rest are about an executive's conduct and about the look of the website, which tells you nothing about processing. Read the fee complaint carefully before signing and ask what the termination terms are in writing.",
+    "rating": 4.7,
+    "reviewCount": 87,
+    "breakdown": [
+      { "stars": 5, "count": 78 },
+      { "stars": 4, "count": 3 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 6 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=15379220206733082739",
+    "profileName": "Easy Pay Direct, 2028 E Ben White Blvd #240-2006, Austin",
+    "themes": [
+      {
+        "label": "Named account managers who stay reachable",
+        "detail": "The consistent praise, and the thing merchants say is missing at competitors: a person who answers after the account goes live.",
+        "tone": "positive"
+      },
+      {
+        "label": "Complicated setups handled",
+        "detail": "Several reviews describe multi-part ACH configurations where the merchant expected trouble and did not get it.",
+        "tone": "positive"
+      },
+      {
+        "label": "Fees that were not discussed",
+        "detail": "One reviewer names monthly charges and an early termination fee they say appeared only in the contract, which is worth asking about up front.",
+        "tone": "negative"
+      },
+      {
+        "label": "Support goes quiet for some",
+        "detail": "Two accounts describe being locked out for weeks with emails and calls unreturned, from people who had one good interaction and then none.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "We had a complicated ACH setup process with multiple moving parts, and I honestly can't thank the Easy Pay Direct team enough.",
+        "context": "Google review",
+        "date": "About July 2026",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=15379220206733082739"
+      },
+      {
+        "text": "Terrible payment platform. Hidden monthly fees and “early termination fees” that were never mentioned but hidden in contracts.",
+        "context": "Google review",
+        "date": "About 2025",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=15379220206733082739"
+      },
+      {
+        "text": "The customer support is just terrible. I've been locked out for weeks now. They do not respond to emails and they do not return phone calls.",
+        "context": "Google review",
+        "date": "About July 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=15379220206733082739"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Easy Pay Direct has essentially no Reddit record. It appears as a name in one or two high-risk shortlist threads and nowhere as a first-hand account, so anything written here would be padding rather than sentiment.",
+  "sources": [
+    "https://maps.google.com/?cid=15379220206733082739"
+  ]
+}

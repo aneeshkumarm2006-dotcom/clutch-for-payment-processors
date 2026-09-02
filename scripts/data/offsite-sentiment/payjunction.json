@@ -1,0 +1,63 @@
+{
+  "slug": "payjunction",
+  "name": "PayJunction",
+  "google": {
+    "heading": "PayJunction on Google",
+    "summary": "29 reviews on the Santa Barbara listing, 4.6 average, 26 of them five star. A small record, and most of it is four to six years old, so read it as a set of accounts from the late 2010s rather than as a current rating. What those accounts have in common is worth something: they are from finance and operations people rather than founders, and they credit two specific things. Recurring payments handled well enough that a veterinary practice brought its wellness plan billing in house, and support that a controller running eight car dealerships and two body shops describes as reliable across account changes and limit increases. The three one-star reviews are about the card terminals, which reviewers found badly designed, and one about funds being held. Nobody has reviewed it recently either way.",
+    "rating": 4.6,
+    "reviewCount": 29,
+    "breakdown": [
+      { "stars": 5, "count": 26 },
+      { "stars": 4, "count": 0 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 3 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=15716318819943867421",
+    "profileName": "PayJunction, 1903 State Street, Santa Barbara",
+    "themes": [
+      {
+        "label": "Recurring billing that let firms bring plans in house",
+        "detail": "A veterinary practice describes moving wellness plan payments off a third party because PayJunction's recurring feature handled it.",
+        "tone": "positive"
+      },
+      {
+        "label": "Support that holds up across many accounts",
+        "detail": "A controller running ten businesses describes consistent help with account changes, limit increases and navigation.",
+        "tone": "positive"
+      },
+      {
+        "label": "The terminals",
+        "detail": "The sharpest negative is about the card readers being poorly designed, from someone who says every business they visit dislikes them.",
+        "tone": "negative"
+      },
+      {
+        "label": "The record is old",
+        "detail": "Most of these reviews are four to six years old. A 4.6 from 29 reviews of that vintage is a historical impression, not a current one.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Excellent customer service. PayJunction has always exceeded our expectations when we need help. The recurring payments feature they offer allowed us to bring our wellness plan payment processing in house.",
+        "context": "Google review",
+        "date": "About 2021",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=15716318819943867421"
+      },
+      {
+        "text": "Worst designed credit card machines known to man. Every business I have been to with there readers hates them.",
+        "context": "Google review",
+        "date": "About 2020",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=15716318819943867421"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "PayJunction has essentially no Reddit presence. The only thread that asks about it is from January 2018, posted by someone considering a sales job there rather than by a merchant, and it drew three replies. There is nothing to summarise without inventing it.",
+  "sources": [
+    "https://maps.google.com/?cid=15716318819943867421",
+    "https://www.reddit.com/r/smallbusiness/comments/7t11ul/anyone_have_experience_with_payjunction/"
+  ]
+}

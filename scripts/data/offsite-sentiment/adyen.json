@@ -1,0 +1,66 @@
+{
+  "slug": "adyen",
+  "name": "Adyen",
+  "noGoogleReason": "The only Adyen listing with reviews on it is the Rokin office in Amsterdam, rated 3.3 from 42. Its reviews are about the building, the cafe in the lobby and an argument with a security guard, plus a handful from Ryanair passengers whose refunds passed through Adyen. None of it is merchant feedback, and presenting it as Adyen's rating would be false.",
+  "reddit": {
+    "heading": "What Reddit says about Adyen",
+    "summary": "Adyen is almost absent from Reddit and the reason is structural rather than reputational. Adyen sells to enterprises and platforms with real volume, and the people who post about payment processors are small merchants and solo founders, who are not Adyen's customers and cannot become them. What discussion exists comes from the right place: product teams at platforms choosing between Stripe Connect and Adyen for Platforms, and developers checking country coverage, which is where Adyen most often falls down for anyone outside its supported markets. Nobody on Reddit describes an account being frozen, a payout held or support failing them, and it would be a mistake to read that as a clean record. It means the merchants who would write those posts never got in the door. Note also that one of the comparison posts sits in a subreddit that reads like content marketing, so weigh it accordingly.",
+    "tone": "mixed",
+    "subreddits": ["PaymentProcessing", "PinoyProgrammer", "WeroWallet"],
+    "volumeNote": "Very thin, and almost all of it from platform product teams rather than merchants.",
+    "searchUrl": "https://www.reddit.com/search/?q=adyen&type=posts",
+    "threads": [
+      {
+        "title": "Strip Connect vs. Adyen",
+        "url": "https://www.reddit.com/r/PaymentProcessing/comments/1d2vqvt/strip_connect_vs_adyen/",
+        "subreddit": "PaymentProcessing",
+        "date": "28 May 2024",
+        "takeaway": "A platform serving about 50,000 small businesses weighing Stripe Connect against Adyen for Platforms, having come off Braintree. The most relevant Adyen thread on Reddit.",
+        "upvotes": 8,
+        "comments": 12
+      },
+      {
+        "title": "Adyen PLATFORM alternative?",
+        "url": "https://www.reddit.com/r/PinoyProgrammer/comments/nm90nk/adyen_platform_alternative/",
+        "subreddit": "PinoyProgrammer",
+        "date": "27 May 2021",
+        "takeaway": "The other reason Adyen leaves the conversation: a team looking for an alternative because Adyen Platform does not support their country.",
+        "upvotes": 4,
+        "comments": 4
+      },
+      {
+        "title": "Successful first phase marks major next steps in iDEAL",
+        "url": "https://www.reddit.com/r/WeroWallet/comments/1uxvr68/successful_first_phase_marks_major_next_steps_in/",
+        "subreddit": "WeroWallet",
+        "date": "16 July 2026",
+        "takeaway": "Adyen as infrastructure rather than as a vendor: the iDEAL to Wero migration, which matters if you sell into the Netherlands.",
+        "upvotes": 33,
+        "comments": 2
+      }
+    ],
+    "themes": [
+      {
+        "label": "Discussed by platforms, not by merchants",
+        "detail": "The threads that exist are product teams choosing between Adyen for Platforms and Stripe Connect, at companies with tens of thousands of sub-merchants.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Country coverage is the usual blocker",
+        "detail": "Developers looking for alternatives are usually doing so because Adyen does not support their market, not because it disappointed them.",
+        "tone": "negative"
+      },
+      {
+        "label": "No complaints, and that is not the same as no problems",
+        "detail": "The absence of frozen-funds threads reflects who Adyen sells to. Small merchants who would post them are not eligible customers.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/PaymentProcessing/comments/1d2vqvt/strip_connect_vs_adyen/",
+    "https://www.reddit.com/r/PinoyProgrammer/comments/nm90nk/adyen_platform_alternative/",
+    "https://www.reddit.com/r/WeroWallet/comments/1uxvr68/successful_first_phase_marks_major_next_steps_in/",
+    "https://maps.google.com/?cid=2145254603533333950"
+  ]
+}

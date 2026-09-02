@@ -1,6 +1,7 @@
 /** Validator barrel — `import { processorInput } from "@/lib/validators"`. */
 export * from "./common";
 export * from "./blocks";
+export * from "./sentiment";
 export * from "./auth";
 export * from "./processor";
 export * from "./category";

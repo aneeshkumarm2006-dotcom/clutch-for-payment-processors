@@ -1,0 +1,85 @@
+{
+  "slug": "dodo-payments",
+  "name": "Dodo Payments",
+  "noGoogleReason": "The Bengaluru listing carries 11 reviews, which is not a rating, and two of the six negative ones are from cardholders who found the name on a statement rather than from merchants. There is not enough there to summarise without giving eleven opinions the weight of a score.",
+  "reddit": {
+    "heading": "What Reddit says about Dodo Payments",
+    "summary": "Dodo is young and its Reddit record is short, sharply divided and worth reading in full before signing. On one side it is a genuine option for developers who cannot get Stripe: Kenyan freelancers, Indian founders and mobile developers locked out of app store payouts all name it, and one indie developer's integration write-up is friendly enough that it reads like an advertisement without being one. On the other side is a November 2025 post in r/SaaS from a seller who says Dodo refunded about 3,000 dollars of completed sales, closed the account, banned them for asking why, and never paid out. That is one account and it has not been corroborated by a second, so weigh it as one account. What can be said generally is that every current Dodo thread is either someone integrating it or someone comparing it against Polar and Paddle, and nobody has posted a settled year on it either way.",
+    "tone": "mixed",
+    "subreddits": ["SaaS", "Nuxt", "SideProject", "nairobitechies"],
+    "volumeNote": "Small and recent. A handful of threads since 2025, no long-term accounts.",
+    "searchUrl": "https://www.reddit.com/search/?q=dodo%20payments%20merchant%20of%20record&type=posts",
+    "threads": [
+      {
+        "title": "They Refunded $3,000 of Legit Sales, Closed My Account, Banned Me for Asking Why, and Never Paid Out a Single Cent",
+        "url": "https://www.reddit.com/r/SaaS/comments/1ozbyik/psa_avoid_dodopayments_they_refunded_3000_of/",
+        "subreddit": "SaaS",
+        "date": "17 November 2025",
+        "takeaway": "The one serious allegation against Dodo on Reddit, from a single seller. Read the 19 replies as well as the post.",
+        "upvotes": 20,
+        "comments": 19
+      },
+      {
+        "title": "Merchant of Record: Polar.sh vs Dodopayments. What should I use for my SaaS",
+        "url": "https://www.reddit.com/r/SaaS/comments/1nrt3xz/merchant_of_record_polarsh_vs_dodopayments_what/",
+        "subreddit": "SaaS",
+        "date": "27 September 2025",
+        "takeaway": "The comparison founders actually run, between the two youngest options rather than against Paddle.",
+        "upvotes": 7,
+        "comments": 22
+      },
+      {
+        "title": "Which is the best billing platform for Nuxt projects?",
+        "url": "https://www.reddit.com/r/Nuxt/comments/1ptyw24/which_is_the_best_billing_platform_for_nuxt/",
+        "subreddit": "Nuxt",
+        "date": "23 December 2025",
+        "takeaway": "Useful for the reasoning rather than the verdict: the replies explain what a merchant of record buys you and when EU VAT makes one necessary.",
+        "upvotes": 17,
+        "comments": 26
+      },
+      {
+        "title": "Freelancer receiving payments from foreign clients.",
+        "url": "https://www.reddit.com/r/nairobitechies/comments/1pixt2t/freelancer_receiving_payments_from_foreign_clients/",
+        "subreddit": "nairobitechies",
+        "date": "10 December 2025",
+        "takeaway": "Where Dodo fits for people outside the countries the big processors serve, which is most of why it exists.",
+        "upvotes": 26,
+        "comments": 10
+      }
+    ],
+    "themes": [
+      {
+        "label": "Reaches developers Stripe will not",
+        "detail": "Kenyan, Indian and mobile developers name it for the same reason: it onboards them when the incumbents do not.",
+        "tone": "positive"
+      },
+      {
+        "label": "One serious unresolved allegation",
+        "detail": "A November 2025 seller says Dodo refunded about 3,000 dollars of legitimate sales and closed the account. One account, uncorroborated, and it should be read as such.",
+        "tone": "negative"
+      },
+      {
+        "label": "No track record either way",
+        "detail": "Every thread is someone integrating or someone comparing. Nobody has written up a year of trading, which is the thing you would most want to read.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "MoR is a business front that correctly charges and pays required VAT so that you can just invoice the MoR itself instead of invoicing customers individually. A real necessity in, say EU, unless you are prepared to deal with the complexities yourself.",
+        "author": "r/Nuxt commenter",
+        "context": "explaining what a merchant of record is for, in a Dodo comparison thread",
+        "date": "23 December 2025",
+        "url": "https://www.reddit.com/r/Nuxt/comments/1ptyw24/which_is_the_best_billing_platform_for_nuxt/comment/nvl0sb2/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/SaaS/comments/1ozbyik/psa_avoid_dodopayments_they_refunded_3000_of/",
+    "https://www.reddit.com/r/SaaS/comments/1nrt3xz/merchant_of_record_polarsh_vs_dodopayments_what/",
+    "https://www.reddit.com/r/Nuxt/comments/1ptyw24/which_is_the_best_billing_platform_for_nuxt/",
+    "https://www.reddit.com/r/nairobitechies/comments/1pixt2t/freelancer_receiving_payments_from_foreign_clients/",
+    "https://maps.google.com/?cid=4000338707523311909"
+  ]
+}

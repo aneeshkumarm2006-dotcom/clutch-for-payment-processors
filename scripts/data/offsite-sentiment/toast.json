@@ -1,0 +1,157 @@
+{
+  "slug": "toast",
+  "name": "Toast",
+  "google": {
+    "heading": "Toast on Google",
+    "summary": "139 reviews on the Boston head office, 2.7 average, and the striking thing is when they were written. Nearly all the five-star reviews are eight to ten years old, from restaurants that had just switched and were delighted. Nearly all the one-star reviews are from the last year, and 75 of the 139 are one star. That is not a company whose reviews are split; it is a company whose review record changed. The recent complaints are operational rather than financial: a point of sale that loses its network connection and three support teams that each blame another, a simple promotion nobody at Toast could configure, a salesperson still chasing a restaurant a year after it chose a competitor. There are also consumer complaints about Toast gift cards for restaurants that have since closed, which are not merchant feedback and should be discounted.",
+    "rating": 2.7,
+    "reviewCount": 139,
+    "breakdown": [
+      { "stars": 5, "count": 54 },
+      { "stars": 4, "count": 4 },
+      { "stars": 3, "count": 4 },
+      { "stars": 2, "count": 2 },
+      { "stars": 1, "count": 75 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=14412504120825073062",
+    "profileName": "Toast, 333 Summer Street, Boston",
+    "themes": [
+      {
+        "label": "The praise is old",
+        "detail": "The five-star reviews cluster nine and ten years back, from restaurants describing the efficiency gain of moving off an older system.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Support that hands you between teams",
+        "detail": "The recurring recent complaint: technical, AI and hardware support giving different answers while the terminal stays offline and the restaurant loses a day of service.",
+        "tone": "negative"
+      },
+      {
+        "label": "Simple changes are not simple",
+        "detail": "One reviewer spent over three hours with technicians trying to set up a buy-one-get-one and left without it working.",
+        "tone": "negative"
+      },
+      {
+        "label": "Sales persistence",
+        "detail": "A restaurant that chose a competitor describes a local rep still following up a full year later.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "I have never had a more negative interaction with a business as a customer as I have with toast. I have lost full days of revenue.",
+        "context": "Google review",
+        "date": "About July 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=14412504120825073062"
+      },
+      {
+        "text": "We've had Toast for over a year and could not be happier. We never planned on switching from our old POS but after seeing a presentation of Toast we were blown away by the possibilities.",
+        "context": "Google review",
+        "date": "About 2017",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=14412504120825073062"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Toast",
+    "summary": "Toast has one of the most useful review records on Reddit of anything in this directory, because r/ToastPOS and r/restaurantowners are full of operators comparing actual invoices. The single most valuable thread is a January 2026 pricing thread where an owner quoted about 900 dollars a month for two stations posts the number and gets corrected: one restaurant with six front-of-house terminals, three handhelds, five kitchen displays, two registers and four printers is paying 500 dollars a month at 2.1 percent in California. The consensus in that thread is not that Toast is cheap. It is that Toast is expensive, worth it for complex operations, and that every line of the quote is negotiable before you sign, a point made by a former employee. The other recurring subject is fees pushed onto guests, particularly the 99 cent order processing fee added to online orders over 10 dollars in 2023, which operators objected to because it lands on their customer with the restaurant's name on it.",
+    "tone": "mixed",
+    "subreddits": ["ToastPOS", "restaurantowners", "restaurateur", "TheBrewery"],
+    "volumeNote": "A dedicated subreddit plus regular pricing threads in restaurant subs. More operator detail than any other POS here.",
+    "searchUrl": "https://www.reddit.com/search/?q=toast%20pos&type=posts",
+    "threads": [
+      {
+        "title": "How much are you guys paying for Toast? (POS not bread)",
+        "url": "https://www.reddit.com/r/restaurantowners/comments/1q5wlcr/how_much_are_you_guys_paying_for_toast_pos_not/",
+        "subreddit": "restaurantowners",
+        "date": "6 January 2026",
+        "takeaway": "140 comments of operators posting real monthly costs and hardware counts. The best single page for working out whether your quote is fair.",
+        "upvotes": 59,
+        "comments": 140
+      },
+      {
+        "title": "Toast .99 Order Processing Fee",
+        "url": "https://www.reddit.com/r/ToastPOS/comments/14dlis8/toast_99_order_processing_fee/",
+        "subreddit": "ToastPOS",
+        "date": "19 June 2023",
+        "takeaway": "The rollout of a 99 cent fee on online orders over 10 dollars, charged to the guest. Operators objected because it appears under the restaurant's name.",
+        "upvotes": 43,
+        "comments": 63
+      },
+      {
+        "title": "Good Luck (9 Years of Toast, and the fall from grace)",
+        "url": "https://www.reddit.com/r/ToastPOS/comments/1cho2zk/good_luck_9_years_of_toast_and_the_fall_from_grace/",
+        "subreddit": "ToastPOS",
+        "date": "1 May 2024",
+        "takeaway": "A nine-year customer's write-up of leaving, and the clearest account of what changed after the company went public.",
+        "upvotes": 39,
+        "comments": 34
+      },
+      {
+        "title": "Toast 101 - How to make sure your onboarding with Toast POS goes well",
+        "url": "https://www.reddit.com/r/ToastPOS/comments/1tz64vd/toast_101_how_to_make_sure_your_onboarding_with/",
+        "subreddit": "ToastPOS",
+        "date": "7 June 2026",
+        "takeaway": "Written by someone who has been through onboarding as an operator, a vendor technician and an administrator. Practical rather than promotional.",
+        "upvotes": 19,
+        "comments": 2
+      }
+    ],
+    "themes": [
+      {
+        "label": "Everything is negotiable before you sign",
+        "detail": "Said by a former Toast employee in the pricing thread and echoed by operators: get competing quotes and ask Toast to match.",
+        "tone": "positive"
+      },
+      {
+        "label": "Quotes vary enormously for similar setups",
+        "detail": "About 900 dollars a month for two stations against 500 for a sixteen-device restaurant. The variance is the reason to read the thread.",
+        "tone": "negative"
+      },
+      {
+        "label": "Fees that land on your guest",
+        "detail": "The 99 cent online order processing fee is the recurring example, and operators dislike it because the customer sees the restaurant, not Toast.",
+        "tone": "negative"
+      },
+      {
+        "label": "Right system, wrong size of restaurant",
+        "detail": "The most common considered verdict: the integrations are unmatched and worth the money for a complex operation, and overkill for a simple one.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "I use to work there. Everything is negotiable before you sign. Just get quotes from other companies and say “I'll sign right now if you can match it”",
+        "author": "r/restaurantowners commenter, former Toast employee",
+        "context": "10 points",
+        "date": "7 January 2026",
+        "url": "https://www.reddit.com/r/restaurantowners/comments/1q5wlcr/how_much_are_you_guys_paying_for_toast_pos_not/comment/ny4rppx/"
+      },
+      {
+        "text": "6 FOH terminals, 3 Handhelds, 5 BOH KDS, 2 registers, and 4 printers, only cost us $500 with fresh hardware and 2.1% CC fees in CA.",
+        "author": "r/restaurantowners commenter",
+        "context": "11 points, replying to a 900 dollar quote for two stations",
+        "date": "7 January 2026",
+        "url": "https://www.reddit.com/r/restaurantowners/comments/1q5wlcr/how_much_are_you_guys_paying_for_toast_pos_not/comment/ny3zkwv/"
+      },
+      {
+        "text": "I do feel like it's the Apple of POS systems. A la carte everything. Equipment becomes obsolete. Virtually forced upgrades, etc. A lot of people do love it. But if you run a simple operation, I'd look elsewhere.",
+        "author": "r/restaurantowners commenter",
+        "context": "10 points",
+        "date": "6 January 2026",
+        "url": "https://www.reddit.com/r/restaurantowners/comments/1q5wlcr/how_much_are_you_guys_paying_for_toast_pos_not/comment/ny3c2wd/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=14412504120825073062",
+    "https://www.reddit.com/r/restaurantowners/comments/1q5wlcr/how_much_are_you_guys_paying_for_toast_pos_not/",
+    "https://www.reddit.com/r/ToastPOS/comments/14dlis8/toast_99_order_processing_fee/",
+    "https://www.reddit.com/r/ToastPOS/comments/1cho2zk/good_luck_9_years_of_toast_and_the_fall_from_grace/",
+    "https://www.reddit.com/r/ToastPOS/comments/1tz64vd/toast_101_how_to_make_sure_your_onboarding_with/"
+  ]
+}

@@ -274,3 +274,38 @@ export function prettyComparePath(slugs: string[]): string | null {
 export function compareHref(slugs: string[]): string {
   return prettyComparePath(slugs) ?? `/compare?ids=${slugs.join(",")}`;
 }
+
+/**
+ * Other curated pairs that share a processor with this one — the "related
+ * comparisons" rail on `/compare/[pair]`.
+ *
+ * Every curated pair used to be a leaf: reachable from the `?ids=` builder, the
+ * processor profiles and the sitemap, but never from another compare page. That
+ * is the same shape `/alternatives/[slug]` was in before it got its siblings
+ * section, and it produced the same Search Console result. Linking the pairs that
+ * share a side turns the set into a crawlable cluster, and it is also the link a
+ * reader on "Stripe vs Square" actually wants ("…and how does Square do against
+ * PayPal?").
+ *
+ * Ordered so pairs sharing the LEFT slug come first (the page's primary subject),
+ * then capped: this is a rail, not a directory dump of all 110 pairs.
+ */
+export function relatedComparePairs(
+  slugs: string[],
+  limit = 8,
+): { slugs: readonly [string, string]; path: string }[] {
+  const [a, b] = slugs.map((s) => s.trim().toLowerCase());
+  if (!a || !b) return [];
+  const self = [a, b].sort().join("|");
+
+  return POPULAR_COMPARE_PAIRS.filter((pair) => {
+    if ([...pair].sort().join("|") === self) return false;
+    return pair.includes(a) || pair.includes(b);
+  })
+    .sort((x, y) => Number(y.includes(a)) - Number(x.includes(a)))
+    .slice(0, limit)
+    .map((pair) => ({
+      slugs: pair as readonly [string, string],
+      path: `/compare/${comparePairToParam(pair)}`,
+    }));
+}

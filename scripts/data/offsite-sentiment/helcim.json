@@ -1,0 +1,157 @@
+{
+  "slug": "helcim",
+  "name": "Helcim",
+  "google": {
+    "heading": "Helcim on Google",
+    "summary": "702 reviews on the Calgary office and a 4.2 average, with 545 five-star against 122 one-star. That is a better record than almost anything else in this directory, and the praise is specific rather than vague: the lowest processing fees the reviewer has had, a Smart Terminal that is legible in sunlight, and support that answers. Two things pull the other way and both are worth knowing before you sign. The first is underwriting. Several reviewers describe applying, processing a payment or two, and then being told they are not a good fit, sometimes days later, sometimes with money already in flight. The second is holds: one merchant describes 10,000 dollars of invoice payments held for weeks with no explanation they found satisfactory. Both are the same underlying thing, which is that Helcim underwrites after you start rather than before.",
+    "rating": 4.2,
+    "reviewCount": 702,
+    "breakdown": [
+      { "stars": 5, "count": 545 },
+      { "stars": 4, "count": 21 },
+      { "stars": 3, "count": 5 },
+      { "stars": 2, "count": 9 },
+      { "stars": 1, "count": 122 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=7778092107335684757",
+    "profileName": "Helcim, 440 2 Avenue SW #400, Calgary",
+    "themes": [
+      {
+        "label": "Genuinely cheaper for small merchants",
+        "detail": "The most common five-star reason, usually stated as a comparison against Square by a Canadian brick-and-mortar business.",
+        "tone": "positive"
+      },
+      {
+        "label": "Support you can reach",
+        "detail": "Named individuals turn up repeatedly in the positive reviews, walking merchants through terminal setup and card-on-file work.",
+        "tone": "positive"
+      },
+      {
+        "label": "Declined after starting",
+        "detail": "Several reviewers describe being approved, processing, and then being told Helcim was not a good fit. The objection is the sequence, not the decision.",
+        "tone": "negative"
+      },
+      {
+        "label": "Payment holds",
+        "detail": "One merchant describes 10,000 dollars of invoice payments held for weeks. Another, a two-year customer, describes hardware and communication problems on the way out.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Helcim has been the best decision I made for my small brick and mortar. Not only are they Canadian and their customer service is top notch, they also have THE LOWEST processing fees.",
+        "context": "Google review",
+        "date": "About June 2026",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=7778092107335684757"
+      },
+      {
+        "text": "Do not trust Helcim with your business's cash flow. I had an absolutely terrible experience where they held $10000. in invoice payments for weeks without any valid justification.",
+        "context": "Google review",
+        "date": "About June 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=7778092107335684757"
+      },
+      {
+        "text": "My issue is not that Helcim has underwriting. My issue is the way the process was handled.",
+        "context": "Google review",
+        "date": "About July 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=7778092107335684757"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Helcim",
+    "summary": "Helcim has its own subreddit and it is a working one: merchants asking about real rates, developers asking about the API, and the occasional complaint that Helcim staff answer in the open. The most useful posts are the ones about the gap between the advertised interchange plus pricing and the rate a small merchant actually sees. One WooCommerce seller ran three small transactions and worked out an implied rate of 3.76 percent before the 25 cent fee, about a point above what they expected. That is the recurring lesson, and it is not really a complaint about Helcim: on very small tickets interchange plus loses to a flat rate, and Helcim's own community keeps telling people to run the numbers on their real average ticket rather than on the headline percentage. The negative threads are about funds timing and about onboarding. One of them is worth reading to the end, because the poster came back to edit it after Helcim contacted them and said the conversation changed their view.",
+    "tone": "mixed",
+    "subreddits": ["helcim", "smallbusiness", "msp", "sweatystartup"],
+    "volumeNote": "A small, active company subreddit where merchants and developers get real answers.",
+    "searchUrl": "https://www.reddit.com/r/helcim/",
+    "threads": [
+      {
+        "title": "Do not buy Helcim POS!",
+        "url": "https://www.reddit.com/r/helcim/comments/1uqup6b/do_not_buy_helcim_pos/",
+        "subreddit": "helcim",
+        "date": "8 July 2026",
+        "takeaway": "A business that moved from Square to save on fees and went back, on the strength of the interface and how long funds took to arrive.",
+        "upvotes": 8,
+        "comments": 6
+      },
+      {
+        "title": "Rate higher than expected.",
+        "url": "https://www.reddit.com/r/helcim/comments/1r2yaup/rate_higher_than_expected/",
+        "subreddit": "helcim",
+        "date": "12 February 2026",
+        "takeaway": "An implied 3.76 percent on three small WooCommerce transactions against an interchange plus expectation. The clearest illustration of small-ticket maths.",
+        "upvotes": 3,
+        "comments": 3
+      },
+      {
+        "title": "True Rates/Experiences for SMALL Retailers",
+        "url": "https://www.reddit.com/r/helcim/comments/1s1sorw/true_ratesexperiences_for_small_retailers/",
+        "subreddit": "helcim",
+        "date": "23 March 2026",
+        "takeaway": "A Canadian retailer with very small average sales asking whether the lower per-transaction fees actually land. Worth reading before switching from a flat rate.",
+        "upvotes": 3,
+        "comments": 6
+      },
+      {
+        "title": "I wanted Helcim to succeed, but I got ghosted",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1t5k7m0/i_wanted_helcim_to_succeed_but_i_got_ghosted/",
+        "subreddit": "smallbusiness",
+        "date": "6 May 2026",
+        "takeaway": "An onboarding complaint that the poster later edited: Helcim reached out, they talked, and the poster came away thinking the company does care. The replies are not on the poster's side either.",
+        "upvotes": 0,
+        "comments": 7
+      }
+    ],
+    "themes": [
+      {
+        "label": "Interchange plus is not automatically cheaper",
+        "detail": "On very small tickets the per-transaction cents dominate. Helcim's own subreddit tells people to calculate on their real average sale.",
+        "tone": "mixed"
+      },
+      {
+        "label": "The company shows up in its own subreddit",
+        "detail": "Feature requests and API questions get answered in the open, which is unusual for a processor this size.",
+        "tone": "positive"
+      },
+      {
+        "label": "Funds timing against Square",
+        "detail": "The specific reason at least one merchant went back to Square, which had been the thing they were trying to leave.",
+        "tone": "negative"
+      },
+      {
+        "label": "Reddit does not always take the merchant's side",
+        "detail": "The most upvoted reply to the ghosting post questions the poster's own onboarding rather than Helcim's handling of it.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Run the comparison using your real average ticket and weekly transaction count, not the advertised percentage. Add monthly hardware/software fees, per-transaction cents, chargebacks, payout delays, and cancellation terms, then divide by total sales.",
+        "author": "r/smallbusiness commenter",
+        "context": "advice in a POS shopping thread where Helcim was one of the options",
+        "date": "30 August 2026",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1w1wzak/best_coffee_cart_pos_system/comment/p6tk1vt/"
+      },
+      {
+        "text": "So you failed to onboard correctly, and now you want to give advice to a giant multinational credit card processor?",
+        "author": "r/smallbusiness commenter",
+        "context": "the top reply to the ghosting post",
+        "date": "6 May 2026",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1t5k7m0/i_wanted_helcim_to_succeed_but_i_got_ghosted/comment/okb0ncc/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=7778092107335684757",
+    "https://www.reddit.com/r/helcim/comments/1uqup6b/do_not_buy_helcim_pos/",
+    "https://www.reddit.com/r/helcim/comments/1r2yaup/rate_higher_than_expected/",
+    "https://www.reddit.com/r/helcim/comments/1s1sorw/true_ratesexperiences_for_small_retailers/",
+    "https://www.reddit.com/r/smallbusiness/comments/1t5k7m0/i_wanted_helcim_to_succeed_but_i_got_ghosted/"
+  ]
+}

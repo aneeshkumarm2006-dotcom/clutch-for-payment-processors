@@ -1,0 +1,135 @@
+{
+  "slug": "payu",
+  "name": "PayU",
+  "google": {
+    "heading": "PayU on Google",
+    "summary": "915 reviews on the Gurugram office, averaging 2.8, and this is one of the few listings here where the one-star count beats the five-star count: 460 against 366. The complaints are dense and repetitive. Payouts placed on hold under risk management and still unresolved months later, in one case from mid-2025 into 2026. Onboarding that runs for weeks and ends in a rejection with no reason. Support tickets that sit in progress for months with nobody attached. Several merchants say they are pursuing it legally. The five-star reviews are mostly short and general, praising success rates and reliability, with the occasional detailed one crediting a named person in the Bengaluru office with unblocking a settlement. Weigh the specificity: the negative reviews name amounts and dates, the positive ones mostly do not.",
+    "rating": 2.8,
+    "reviewCount": 915,
+    "breakdown": [
+      { "stars": 5, "count": 366 },
+      { "stars": 4, "count": 53 },
+      { "stars": 3, "count": 29 },
+      { "stars": 2, "count": 7 },
+      { "stars": 1, "count": 460 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=5587636035322448952",
+    "profileName": "PayU Payments Private Limited, Bestech Business Centre, Gurugram",
+    "themes": [
+      {
+        "label": "Long holds under risk review",
+        "detail": "The dominant complaint. Merchants describe funds held for six months or more with suspicious activity given as the only reason.",
+        "tone": "negative"
+      },
+      {
+        "label": "Onboarding that ends in a no",
+        "detail": "Weeks of documents and follow-up, then a rejection with no explanation and nothing to appeal to.",
+        "tone": "negative"
+      },
+      {
+        "label": "Tickets with nobody on them",
+        "detail": "Several reviewers say a ticket has sat in progress for months, including one waiting on international payments that were advertised at signup.",
+        "tone": "negative"
+      },
+      {
+        "label": "Success rates when it works",
+        "detail": "The credible praise is about uptime and authorisation rates rather than about service, which fits the profile of an established gateway.",
+        "tone": "positive"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Fraud company. Holding our funds for over 6 months now. No clear reason, only mentioned suspicious activity despite providing all the information.",
+        "context": "Google review",
+        "date": "About April 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=5587636035322448952"
+      },
+      {
+        "text": "No support staffs in this company , ticket remains on hold for months .",
+        "context": "Google review",
+        "date": "About August 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=5587636035322448952"
+      },
+      {
+        "text": "Good experience - best Success rates and reliability. My friend started his business and used PayU PG. He has never faced downtime and told they give the best rates.",
+        "context": "Google review",
+        "date": "About October 2025",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=5587636035322448952"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about PayU",
+    "summary": "Most of the PayU discussion on Reddit is written by people paying, not by people getting paid. The recurring thread is a UPI payment that debited through a PayU QR code and never showed as received, including one for 22,340 rupees on the Income Tax portal, with the resolution being escalation to the bank's nodal officer rather than to PayU. That matters to a merchant for one reason: it is a reconciliation problem, and the people in those threads could not get PayU to fix it. On the merchant side the record is thinner. PayU shows up on Indian founders' shortlists alongside Razorpay and Cashfree, usually with the same note attached, which is that domestic collection is fine and international card transactions fail often enough to be a problem. In an August 2026 comparison thread a merchant who chose Razorpay instead says PayU tiers support by GMV, and that below the threshold you get a slow queue and generic replies.",
+    "tone": "negative",
+    "subreddits": ["UPI", "Indian_Business", "startup", "CreditCardsIndia_"],
+    "volumeNote": "Thin on merchant accounts, steadier on stuck consumer payments.",
+    "searchUrl": "https://www.reddit.com/search/?q=payu%20payment%20gateway&type=posts",
+    "threads": [
+      {
+        "title": "Has anyone faced a situation where a UPI payment was successful, but the merchant never received it?",
+        "url": "https://www.reddit.com/r/UPI/comments/1ukar5z/has_anyone_faced_a_situation_where_a_upi_payment/",
+        "subreddit": "UPI",
+        "date": "1 July 2026",
+        "takeaway": "22,340 rupees debited through a PayU QR on the Income Tax portal and never credited. Several others in the thread report the same, and all of them fixed it through their bank.",
+        "upvotes": 6,
+        "comments": 14
+      },
+      {
+        "title": "Which payment gateways in India offer reliable technical support for merchants?",
+        "url": "https://www.reddit.com/r/Indian_Business/comments/1vcfel5/which_payment_gateways_in_india_offer_reliable/",
+        "subreddit": "Indian_Business",
+        "date": "1 August 2026",
+        "takeaway": "An 80 to 90 lakh a month brand choosing between PayU, Razorpay and Easebuzz on support quality alone. The replies say PayU tiers support by volume.",
+        "upvotes": 2,
+        "comments": 9
+      },
+      {
+        "title": "Struggling with accept INR payments from Indian customer?",
+        "url": "https://www.reddit.com/r/startup/comments/1n26039/struggling_with_accept_inr_payments_from_indian/",
+        "subreddit": "startup",
+        "date": "28 August 2025",
+        "takeaway": "PayU grouped with Razorpay and Cashfree as fine domestically and unreliable on international cards.",
+        "upvotes": 1,
+        "comments": 1
+      }
+    ],
+    "themes": [
+      {
+        "label": "Payments that debit and never arrive",
+        "detail": "Multiple first-hand accounts of a successful UPI debit through a PayU QR that the merchant never received, resolved through the payer's bank.",
+        "tone": "negative"
+      },
+      {
+        "label": "Support is tiered by volume",
+        "detail": "A merchant who compared all three says PayU routes smaller merchants to a slow queue with generic responses.",
+        "tone": "negative"
+      },
+      {
+        "label": "Domestic collection is not the complaint",
+        "detail": "Founders who mention PayU say it works for INR and falls down on international cards, which narrows what the criticism actually covers.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "PayU has decent brand recognition but their support is tiered by GMV, below a certain threshold you get a slow queue and generic responses.",
+        "author": "r/Indian_Business commenter",
+        "context": "a merchant who compared PayU, Razorpay and Easebuzz",
+        "date": "2 August 2026",
+        "url": "https://www.reddit.com/r/Indian_Business/comments/1vcfel5/which_payment_gateways_in_india_offer_reliable/comment/p19038v/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=5587636035322448952",
+    "https://www.reddit.com/r/UPI/comments/1ukar5z/has_anyone_faced_a_situation_where_a_upi_payment/",
+    "https://www.reddit.com/r/Indian_Business/comments/1vcfel5/which_payment_gateways_in_india_offer_reliable/",
+    "https://www.reddit.com/r/startup/comments/1n26039/struggling_with_accept_inr_payments_from_indian/"
+  ]
+}

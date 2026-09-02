@@ -1,0 +1,102 @@
+{
+  "slug": "maxio",
+  "name": "Maxio",
+  "google": {
+    "heading": "Maxio on Google",
+    "summary": "Only 13 reviews on the Peachtree Corners listing, 8 of them one star, so this is a handful of accounts rather than a rating. They are worth reading because they say the same thing from different angles, and it is not the thing you would expect from a billing platform. It is that the product has not moved. Reviewers describe a platform that feels old and unchanged, acquisitions that were never really merged into it, reporting that misled them about their own revenue, and billing flows that blocked collection on outstanding invoices. One describes a business in liquidation being held to a full year's subscription while trying to invoice creditors. The five-star reviews are older and shorter, and mostly about compliance and audit readiness, which was Chargify and SaaSOptics' original pitch.",
+    "rating": 2.5,
+    "reviewCount": 13,
+    "breakdown": [
+      { "stars": 5, "count": 5 },
+      { "stars": 4, "count": 0 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 8 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=4775271919069291157",
+    "profileName": "Maxio, 6525 The Corners Parkway #500, Peachtree Corners",
+    "themes": [
+      {
+        "label": "Thirteen reviews",
+        "detail": "Too few to average. Read them as five accounts that agree with each other, not as a score.",
+        "tone": "mixed"
+      },
+      {
+        "label": "The acquisitions were never merged",
+        "detail": "A reviewer says the platform is old, has not been updated in years, and that none of the acquired products have been rolled in.",
+        "tone": "negative"
+      },
+      {
+        "label": "Reporting that misled",
+        "detail": "One finance team says the reports were bad enough that they believed they were making substantially more than they were.",
+        "tone": "negative"
+      },
+      {
+        "label": "Contract terms during wind-down",
+        "detail": "A business in liquidation describes being held to a full year while paying quarterly for access to invoice its own creditors.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Terrible platform, don't recommend for any industry or any payment cycle. From very basic billing flows to to complex the platform is janky and old and hasn't been updated in years.",
+        "context": "Google review",
+        "date": "About April 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=4775271919069291157"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Maxio",
+    "summary": "Nothing current, and what exists is mostly about Chargify, the product Maxio was built out of. The r/startups billing threads that mention it are from 2015, when founders were choosing between Chargify and Chargebee on top of Stripe or Braintree, and the advice in them has not aged into anything useful. The only 2026 mention is a competitor's marketing post arguing that Maxio, Zuora and Salesforce Revenue Cloud all take six months to implement, which tells you what Maxio's rivals think its weakness is rather than what its customers think. Current micro-SaaS billing threads discuss Stripe Billing, Paddle and Lemon Squeezy and do not raise Maxio at all. For a platform aimed at finance teams rather than developers that absence is not damning, but it does mean Reddit cannot answer anything about it.",
+    "tone": "mixed",
+    "subreddits": ["startups", "microsaas", "Quote_to_Cash"],
+    "volumeNote": "Almost nothing. Old Chargify comparison threads and one competitor's promotional post.",
+    "searchUrl": "https://www.reddit.com/search/?q=maxio%20chargify%20billing&type=posts",
+    "threads": [
+      {
+        "title": "Stripe or Braintree? (Also Chargify or Chargebee)",
+        "url": "https://www.reddit.com/r/startups/comments/2yxlc8/stripe_or_braintree_also_chargify_or_chargebee/",
+        "subreddit": "startups",
+        "date": "13 March 2015",
+        "takeaway": "The era when Chargify was a default choice. Useful as history, not as a current comparison.",
+        "upvotes": 49,
+        "comments": 55
+      },
+      {
+        "title": "Subscription and billing management for MicroSaaS",
+        "url": "https://www.reddit.com/r/microsaas/comments/1uprnuq/subscription_and_billing_management_for_microsaas/",
+        "subreddit": "microsaas",
+        "date": "7 July 2026",
+        "takeaway": "A current billing shopping thread. Maxio does not come up in it, which is the finding.",
+        "upvotes": 17,
+        "comments": 17
+      }
+    ],
+    "themes": [
+      {
+        "label": "The conversation is about Chargify",
+        "detail": "What Reddit remembers is the predecessor product, from comparison threads a decade old.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Absent from current billing threads",
+        "detail": "Founders choosing billing in 2026 discuss Stripe Billing, Paddle and Lemon Squeezy. Maxio is aimed elsewhere, and it shows.",
+        "tone": "mixed"
+      },
+      {
+        "label": "The only recent mention is a competitor's",
+        "detail": "A vendor post claiming Maxio takes six months to implement. Worth naming as marketing rather than quoting as feedback.",
+        "tone": "negative"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=4775271919069291157",
+    "https://www.reddit.com/r/startups/comments/2yxlc8/stripe_or_braintree_also_chargify_or_chargebee/",
+    "https://www.reddit.com/r/microsaas/comments/1uprnuq/subscription_and_billing_management_for_microsaas/"
+  ]
+}

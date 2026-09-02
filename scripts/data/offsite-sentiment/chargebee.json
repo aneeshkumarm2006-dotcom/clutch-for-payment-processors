@@ -1,0 +1,80 @@
+{
+  "slug": "chargebee",
+  "name": "Chargebee",
+  "noGoogleReason": "Chargebee has no Google Business Profile that a merchant would find. Searching its offices returns nothing carrying its name and reviews, so there is no listing to summarise.",
+  "reddit": {
+    "heading": "What Reddit says about Chargebee",
+    "summary": "Chargebee is the name that gets mentioned first and chosen second. It appears in almost every subscription billing thread from 2015 onward as the obvious option, and then the thread turns into a discussion of why the poster is looking past it. Three reasons recur. Price and contract shape for companies that are not yet enterprises, which is what sends micro-SaaS founders to Stripe Billing or an MoR instead. Data residency, with a 2021 thread from an EU company specifically hunting a European alternative. And the general suspicion of a platform layer, which produced at least one self-hostable competitor built to undercut Chargebee and Recurly. The most useful current thread is a January 2026 post from a SaaS moving off spreadsheets into product-led growth, because that is exactly the transition Chargebee is sold for and the 54 replies are people who have made it.",
+    "tone": "mixed",
+    "subreddits": ["SaaS", "devops", "microsaas", "startups"],
+    "volumeNote": "Present in billing threads for a decade, usually as the benchmark others are compared against.",
+    "searchUrl": "https://www.reddit.com/search/?q=chargebee%20subscription%20billing&type=posts",
+    "threads": [
+      {
+        "title": "researching the best subscription management software 2026, outgrowing our billing spreadsheets.",
+        "url": "https://www.reddit.com/r/devops/comments/1q4thrg/researching_the_best_subscription_management/",
+        "subreddit": "devops",
+        "date": "5 January 2026",
+        "takeaway": "The current version of the question, from a company moving from a few enterprise contracts to hundreds of self-serve subscribers. 54 replies.",
+        "upvotes": 17,
+        "comments": 54
+      },
+      {
+        "title": "Subscription Management, Accounting, Finance: looking for an EU alternative to Chargebee",
+        "url": "https://www.reddit.com/r/SaaS/comments/pt5dq0/subscription_management_accounting_finance/",
+        "subreddit": "SaaS",
+        "date": "22 September 2021",
+        "takeaway": "Data residency as the deciding factor rather than features or price, which is a reason Chargebee loses deals that rarely shows up in comparisons.",
+        "upvotes": 11,
+        "comments": 29
+      },
+      {
+        "title": "Subscription and billing management for MicroSaaS",
+        "url": "https://www.reddit.com/r/microsaas/comments/1uprnuq/subscription_and_billing_management_for_microsaas/",
+        "subreddit": "microsaas",
+        "date": "7 July 2026",
+        "takeaway": "The small end of the market, where the answer is usually Stripe Billing or a merchant of record rather than a billing platform.",
+        "upvotes": 17,
+        "comments": 17
+      },
+      {
+        "title": "Announcing BillaBear - Self-hostable Subscription Management and Billing",
+        "url": "https://www.reddit.com/r/SaaS/comments/14l6u2t/announcing_billabear_selfhostable_subscription/",
+        "subreddit": "SaaS",
+        "date": "28 June 2023",
+        "takeaway": "A self-hosted competitor built explicitly to undercut Chargebee and Recurly, and the reception tells you how founders feel about the price of that layer.",
+        "upvotes": 30,
+        "comments": 6
+      }
+    ],
+    "themes": [
+      {
+        "label": "The default name in every billing thread",
+        "detail": "Ten years of subscription billing threads open with Chargebee as the assumed option, which is worth something on its own.",
+        "tone": "positive"
+      },
+      {
+        "label": "Too much platform for small companies",
+        "detail": "Micro-SaaS threads route around it to Stripe Billing or a merchant of record, on price and on the size of the thing being adopted.",
+        "tone": "negative"
+      },
+      {
+        "label": "Data residency loses it EU deals",
+        "detail": "A specific and recurring reason European companies look for an alternative, unrelated to how the product works.",
+        "tone": "negative"
+      },
+      {
+        "label": "Nobody reports it breaking",
+        "detail": "Across a decade of threads there is no account of billing failing, revenue being lost or support collapsing, which is not true of everything in this directory.",
+        "tone": "positive"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/devops/comments/1q4thrg/researching_the_best_subscription_management/",
+    "https://www.reddit.com/r/SaaS/comments/pt5dq0/subscription_management_accounting_finance/",
+    "https://www.reddit.com/r/microsaas/comments/1uprnuq/subscription_and_billing_management_for_microsaas/",
+    "https://www.reddit.com/r/SaaS/comments/14l6u2t/announcing_billabear_selfhostable_subscription/"
+  ]
+}

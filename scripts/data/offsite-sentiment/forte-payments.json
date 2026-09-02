@@ -1,0 +1,64 @@
+{
+  "slug": "forte-payments",
+  "name": "CSG Forte",
+  "noGoogleReason": "No Business Profile exists for CSG Forte. Searching its Allen, Texas base returns nothing under the name, so there is no listing to read.",
+  "reddit": {
+    "heading": "What Reddit says about CSG Forte",
+    "summary": "Two useful threads, both a decade old, and one of them is a specific warning worth reading before signing an ACH agreement with anyone. In July 2016 an IT services provider in r/msp described Forte, via the ReRun product, holding 10 percent of their funds for 90 days as a rolling reserve, and the thread turned into practical advice about protecting a business bank account from a processor with debit rights. The best reply is still good: ask your bank about a UPIC account, which accepts incoming transfers, sweeps them to your operating account and cannot be debited. The other thread is a 2015 comparison of ACH and card providers where Forte sits alongside PaySimple and PayPal. After that the record is press bots reporting CSG's 2018 acquisition of Forte Payment Systems and nothing else. Nobody has written about using it since it became part of CSG, so treat the reserve story as an old data point and ask directly about reserve terms.",
+    "tone": "mixed",
+    "subreddits": ["msp", "Entrepreneur"],
+    "volumeNote": "Two merchant threads, both from 2015 and 2016. Nothing since the CSG acquisition.",
+    "searchUrl": "https://www.reddit.com/search/?q=forte%20payments%20ach&type=posts",
+    "threads": [
+      {
+        "title": "ReRun ACH Payments - Warning",
+        "url": "https://www.reddit.com/r/msp/comments/4thw0o/rerun_ach_payments_warning/",
+        "subreddit": "msp",
+        "date": "18 July 2016",
+        "takeaway": "10 percent of funds held for 90 days, and 19 replies of practical advice on protecting a bank account from a processor that can debit it.",
+        "upvotes": 19,
+        "comments": 19
+      },
+      {
+        "title": "Choosing an ACH and Credit Card Processing Company -- Paysimple? Forte? PayPal?",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/3a84jl/choosing_an_ach_and_credit_card_processing/",
+        "subreddit": "Entrepreneur",
+        "date": "17 June 2015",
+        "takeaway": "A check-only business setting up recurring ACH for the first time, weighing Forte against PaySimple and PayPal.",
+        "upvotes": 2,
+        "comments": 8
+      }
+    ],
+    "themes": [
+      {
+        "label": "A rolling reserve nobody expected",
+        "detail": "The one substantive complaint: 10 percent held for 90 days, described by a business that had not priced that into its cash flow.",
+        "tone": "negative"
+      },
+      {
+        "label": "Protect the account you get paid into",
+        "detail": "The best advice in the thread, and it generalises: a UPIC account takes incoming transfers, sweeps them out, and cannot be debited.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Nothing since the CSG acquisition",
+        "detail": "CSG bought Forte Payment Systems in 2018 and nobody has written about using it since. The 2016 account describes a different company.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Talk to your bank about setting up a UPIC account . It only accepts incoming transfers, and automatically moves funds to your operational accounts. Withdrawals against that account would fail.",
+        "author": "r/msp commenter",
+        "context": "7 points, the top reply to the reserve warning",
+        "date": "19 July 2016",
+        "url": "https://www.reddit.com/r/msp/comments/4thw0o/rerun_ach_payments_warning/comment/d5hjjy8/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/msp/comments/4thw0o/rerun_ach_payments_warning/",
+    "https://www.reddit.com/r/Entrepreneur/comments/3a84jl/choosing_an_ach_and_credit_card_processing/"
+  ]
+}

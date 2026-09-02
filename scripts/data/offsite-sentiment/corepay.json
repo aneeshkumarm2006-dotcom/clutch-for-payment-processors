@@ -1,0 +1,62 @@
+{
+  "slug": "corepay",
+  "name": "Corepay",
+  "google": {
+    "heading": "Corepay on Google",
+    "summary": "27 reviews on the Winter Park listing, 4.8 average, 25 of them five star. Small, so read it as a set of accounts rather than a rating, and read the timing as well as the content. Most of these reviews landed within one twelve-month window, which usually means a company started asking for them rather than that something changed. What they say is consistent with what a high-risk ISO does well: fast approvals for businesses in categories banks avoid, named people who stayed reachable, and merchants moving from a larger European provider on better fees. Two reviewers mention hemp and social platforms explicitly, which tells you what Corepay places. The single one-star review has no detail worth summarising. Twenty-seven reviews from a company placing high-risk accounts is thin evidence, and the sensible reading is that Corepay's own service gets rated well by the people it approved, which is not the same as the terms holding up two years in.",
+    "rating": 4.8,
+    "reviewCount": 27,
+    "breakdown": [
+      { "stars": 5, "count": 25 },
+      { "stars": 4, "count": 1 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 1 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=11303494143533628739",
+    "profileName": "Corepay, 1133 Louisiana Avenue #212, Winter Park",
+    "themes": [
+      {
+        "label": "Fast approvals in hard categories",
+        "detail": "Hemp, high-risk ecommerce and social platforms all appear by name, with merchants describing setup measured in days.",
+        "tone": "positive"
+      },
+      {
+        "label": "Named people who answer",
+        "detail": "The same handful of names recur across the five-star reviews, and reviewers stress getting a human within hours.",
+        "tone": "positive"
+      },
+      {
+        "label": "The reviews cluster in one year",
+        "detail": "Most of these arrived inside a single twelve-month window, which is the signature of a review request campaign rather than of steady feedback.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Nothing about year two",
+        "detail": "Every account here is about onboarding or early support. Nobody describes reserves, chargeback handling or what happened at renewal.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Jonathan and his team are truly exceptional. Not only do they offer the best rates for high-risk transactions, but they also guide you step-by-step through the entire process.",
+        "context": "Google review",
+        "date": "About 2025",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=11303494143533628739"
+      },
+      {
+        "text": "We changed to Corepay from one of the other big merchants in Europe. Services and fees are better. We had some tech troubles to face, like any big change present.",
+        "context": "Google review",
+        "date": "About 2024",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=11303494143533628739"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Corepay has no Reddit footprint. Searches across the small business, payment processing and high-risk subreddits return nothing from anyone who has used it. That is normal for an ISO of its size, and it means the Google listing is the only public record of merchant experience.",
+  "sources": [
+    "https://maps.google.com/?cid=11303494143533628739"
+  ]
+}

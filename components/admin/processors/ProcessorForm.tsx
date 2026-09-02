@@ -53,6 +53,7 @@ import {
   type CategoryOption,
 } from "@/components/admin/fields/CategoryMultiSelect";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
+import { OffsiteSentimentPanel } from "@/components/admin/processors/OffsiteSentimentPanel";
 import { BlockEditor } from "@/components/content/BlockEditor";
 import { SeoPanel } from "@/components/content/SeoPanel";
 import { StructuredDataPanel } from "@/components/content/StructuredDataPanel";
@@ -609,6 +610,10 @@ export function ProcessorForm({
               rows={3}
               placeholder="One or two sentences under the headline."
             />
+
+            <div className="border-t border-border pt-6">
+              <OffsiteSentimentPanel name="reviewsPage" processorName={form.watch("name")} />
+            </div>
 
             <div className="border-t border-border pt-6">
               <h3 className="text-h4">Sections</h3>

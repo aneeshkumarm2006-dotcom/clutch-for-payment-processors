@@ -1,0 +1,152 @@
+{
+  "slug": "paddle",
+  "name": "Paddle",
+  "google": {
+    "heading": "Paddle on Google",
+    "summary": "66 reviews on the London listing, 2.4 average, 42 of them one star. Sort them before reading them, because most of the angry ones are not from sellers. They are consumers who bought a subscription from some software company, saw PADDLE.NET on their card statement, and could not work out how to cancel. That is the merchant-of-record model doing exactly what it does: Paddle is the seller of record, so its name is the one the buyer chases. Useful to know if you are considering Paddle, because those cancellation complaints attach to your customers' experience of you. The genuinely merchant-side reviews are fewer and sharper: one describes trialling Paddle, taking a large order, then having verification declined and the funds held for 60 days with no portal access afterwards. The 23 five-star reviews are mostly short and several are about the office rather than the product.",
+    "rating": 2.4,
+    "reviewCount": 66,
+    "breakdown": [
+      { "stars": 5, "count": 23 },
+      { "stars": 4, "count": 0 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 1 },
+      { "stars": 1, "count": 42 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=14784546525482292454",
+    "profileName": "Paddle, 50 York Way, London",
+    "themes": [
+      {
+        "label": "Most reviewers are your customers, not you",
+        "detail": "The bulk of the one-star reviews are buyers trying to cancel a subscription sold by somebody else, because Paddle is the name on the statement.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Verification after the sale",
+        "detail": "A seller describes taking a large order on trial, then having verification refused and the money held for 60 days with no portal access.",
+        "tone": "negative"
+      },
+      {
+        "label": "Cancellation friction lands on your brand",
+        "detail": "If buyers cannot cancel easily through Paddle, the complaint arrives attached to your product. Worth pricing into the merchant-of-record trade.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Trialed their service as a seller, they let me take a large order and then decided against verification and withheld the funds for 60 days. After that time, no response, no funds, no access to their portal.",
+        "context": "Google review",
+        "date": "About July 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=14784546525482292454"
+      },
+      {
+        "text": "This company offers various software products for which after you subscribe for one month they continue to charge you for the following months and you cannot cancel the subscription.",
+        "context": "Google review, from a buyer rather than a seller",
+        "date": "About August 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=14784546525482292454"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Paddle",
+    "summary": "r/SaaS has two years of near-identical Paddle threads and they are the most useful thing written about it anywhere. The shape is always the same: a small SaaS picks Paddle to avoid handling global sales tax, trades for weeks or months, and then the account is suspended with the payout still inside. One developer had made 200 dollars in two months. Another had 83 subscribers and 2,500 dollars of monthly revenue when the closure notice arrived, with the payout seized and, in their account, no clear explanation. The second recurring subject is the refund policy, and it is more actionable. Paddle requires an unconditional full refund window, which several AI and token-metered products found they could not offer without giving away consumption, and rewritten policies were rejected. The replies in these threads are not uniformly sympathetic: the first question is usually what exactly you sell and whether you are incorporated, because the suspensions cluster around individual sellers in categories Paddle underwrites more tightly.",
+    "tone": "negative",
+    "subreddits": ["SaaS", "Entrepreneur", "microsaas", "indiehackers"],
+    "volumeNote": "A recurring pattern in r/SaaS, with a new suspension thread every few months.",
+    "searchUrl": "https://www.reddit.com/search/?q=paddle%20merchant%20of%20record&type=posts",
+    "threads": [
+      {
+        "title": "Avoid Paddle as payment processor. Blocked my account for no reason. Full story.",
+        "url": "https://www.reddit.com/r/SaaS/comments/1fezg09/avoid_paddle_as_payment_processor_blocked_my/",
+        "subreddit": "SaaS",
+        "date": "12 September 2024",
+        "takeaway": "A founder who supplied full business detail and prior Stripe records during onboarding, then had the account blocked anyway. The fullest write-up of the pattern.",
+        "upvotes": 64,
+        "comments": 31
+      },
+      {
+        "title": "If you're planning to use paddle, STOP",
+        "url": "https://www.reddit.com/r/SaaS/comments/1twvpjm/if_youre_planning_to_use_paddle_stop/",
+        "subreddit": "SaaS",
+        "date": "4 June 2026",
+        "takeaway": "74 replies, and the one to read is the AI SaaS founder whose refund policy was rejected for not offering unconditional refunds on consumed tokens.",
+        "upvotes": 41,
+        "comments": 74
+      },
+      {
+        "title": "Do I really need a Merchant of Record for a micro-SaaS?",
+        "url": "https://www.reddit.com/r/SaaS/comments/1vsdni5/do_i_really_need_a_merchant_of_record_for_a/",
+        "subreddit": "SaaS",
+        "date": "19 August 2026",
+        "takeaway": "The question that matters before the Paddle question: whether a small seller needs a merchant of record at all.",
+        "upvotes": 10,
+        "comments": 16
+      },
+      {
+        "title": "Moroccan SaaS devs: what are you using to get paid internationally?",
+        "url": "https://www.reddit.com/r/MoroccoTechAi/comments/1w1nosc/moroccan_saas_devs_what_are_you_using_to_get_paid/",
+        "subreddit": "MoroccoTechAi",
+        "date": "29 August 2026",
+        "takeaway": "Where Paddle sits for developers in countries Stripe does not serve, which is the case where it is hardest to avoid.",
+        "upvotes": 14,
+        "comments": 15
+      }
+    ],
+    "themes": [
+      {
+        "label": "Suspension with the payout inside",
+        "detail": "The recurring account: weeks or months of trading, then closure, with the pending payout held and support going quiet.",
+        "tone": "negative"
+      },
+      {
+        "label": "Unconditional refunds are a hard requirement",
+        "detail": "Paddle requires a full refund window with no usage restriction, which token-metered and AI products cannot offer without giving the product away.",
+        "tone": "negative"
+      },
+      {
+        "label": "Individual sellers get the roughest ride",
+        "detail": "The first question in these threads is whether you are incorporated and what you sell, because the suspensions cluster on solo sellers in tightly underwritten categories.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Hard to avoid where Stripe is not available",
+        "detail": "Developers in countries Stripe does not serve keep coming back to Paddle and Lemon Squeezy, which is why these threads recur rather than resolve.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Rejected, reason: You must offer unconditional full refunds within 14 days without any restrictions on usage.",
+        "author": "r/SaaS commenter",
+        "context": "9 points, an AI SaaS founder after a year on Paddle",
+        "date": "5 June 2026",
+        "url": "https://www.reddit.com/r/SaaS/comments/1twvpjm/if_youre_planning_to_use_paddle_stop/comment/optqig1/"
+      },
+      {
+        "text": "83 subscriber and 2.5K MRR, 2 days ago got an email saying my account is going to be closed.",
+        "author": "r/SaaS commenter",
+        "context": "4 points",
+        "date": "5 June 2026",
+        "url": "https://www.reddit.com/r/SaaS/comments/1twvpjm/if_youre_planning_to_use_paddle_stop/comment/opv0gm7/"
+      },
+      {
+        "text": "As usual, you're missing the critical info, what are you selling? What does your SaaS do? Are you an individual or incorporated?",
+        "author": "r/SaaS commenter",
+        "context": "11 points, the top reply",
+        "date": "4 June 2026",
+        "url": "https://www.reddit.com/r/SaaS/comments/1twvpjm/if_youre_planning_to_use_paddle_stop/comment/opsv1bv/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=14784546525482292454",
+    "https://www.reddit.com/r/SaaS/comments/1fezg09/avoid_paddle_as_payment_processor_blocked_my/",
+    "https://www.reddit.com/r/SaaS/comments/1twvpjm/if_youre_planning_to_use_paddle_stop/",
+    "https://www.reddit.com/r/SaaS/comments/1vsdni5/do_i_really_need_a_merchant_of_record_for_a/",
+    "https://www.reddit.com/r/MoroccoTechAi/comments/1w1nosc/moroccan_saas_devs_what_are_you_using_to_get_paid/"
+  ]
+}

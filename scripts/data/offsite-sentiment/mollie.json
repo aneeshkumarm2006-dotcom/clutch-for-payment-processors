@@ -1,0 +1,121 @@
+{
+  "slug": "mollie",
+  "name": "Mollie",
+  "google": {
+    "heading": "Mollie on Google",
+    "summary": "900 reviews on the Amsterdam listing and a 3.6 average, which is the largest European review record here. 527 five-star against 274 one-star, and the two sets are about different phases of the relationship. The praise is from merchants who integrated it, found the dashboard clear and the checkout easy for Dutch and Belgian customers, and never had a problem. The complaints are almost entirely about one thing: money held. Reviewers describe payouts stretched well past the five business days quoted at onboarding, accounts closed after being verified and accepted with no explanation, and in one case 12,000 euros held for six months with no chargebacks and no disputes on the account. Several say the only thing that got a response was leaving a negative review. If you are considering Mollie, the integration is not what to check. The payout terms and the account review policy are.",
+    "rating": 3.6,
+    "reviewCount": 900,
+    "breakdown": [
+      { "stars": 5, "count": 527 },
+      { "stars": 4, "count": 53 },
+      { "stars": 3, "count": 24 },
+      { "stars": 2, "count": 22 },
+      { "stars": 1, "count": 274 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=8263293648114902983",
+    "profileName": "Mollie, Keizersgracht 126, Amsterdam",
+    "themes": [
+      {
+        "label": "Easy to integrate, easy for customers",
+        "detail": "The five-star reviews are consistent: a clear dashboard and a checkout that Dutch and Belgian buyers already recognise.",
+        "tone": "positive"
+      },
+      {
+        "label": "Payouts slower than quoted",
+        "detail": "Merchants describe being told about five business days at onboarding and then waiting substantially longer, with cash flow consequences they spell out.",
+        "tone": "negative"
+      },
+      {
+        "label": "Accounts closed after acceptance",
+        "detail": "Several reviewers were verified, onboarded and trading before the account was shut with no reason given. One describes 12,000 euros held for six months with no disputes against it.",
+        "tone": "negative"
+      },
+      {
+        "label": "A negative review gets a reply",
+        "detail": "More than one reviewer says emails went unanswered until they posted publicly, which is a pattern worth noticing rather than a coincidence.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "The only time Mollie responded to my emails was after I posted a negative review. Until then, my messages were ignored and there was little to no communication.",
+        "context": "Google review",
+        "date": "About June 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=8263293648114902983"
+      },
+      {
+        "text": "Mollie onboarded my business, verified everything, and accepted my account without issue. Then, out of nowhere, they shut it down. No warning, no explanation.",
+        "context": "Google review",
+        "date": "About May 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=8263293648114902983"
+      },
+      {
+        "text": "Great experience with Mollie so far. The payment system is easy to use, the dashboard is convenient, and helps our customers with easy purchases online.",
+        "context": "Google review",
+        "date": "About 2021",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=8263293648114902983"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Mollie",
+    "summary": "Mollie's Reddit record is thin and oddly shaped. Its high point was 2014, when it turned bitcoin on by default for new merchants and r/Bitcoin noticed, and 2019, when it turned bitcoin off again. Between then and now there is very little from merchants. The one genuinely current thread is a Dutch founder building an erotic AI storytelling site in May 2026, who assumed he would plug in Stripe or Mollie and found that both prohibit adult digital content, Mollie's policy covering any digital sexual or pornographic material rather than only explicit video. That is the single most useful Mollie fact on Reddit, and it is about what Mollie will not take rather than how it performs. For anything about payouts and account reviews, which is what the Google reviews are full of, Reddit has nothing.",
+    "tone": "mixed",
+    "subreddits": ["SideProject", "Bitcoin", "WeroWallet"],
+    "volumeNote": "Almost nothing from merchants. Two bitcoin news cycles a decade ago and one 2026 policy thread.",
+    "searchUrl": "https://www.reddit.com/search/?q=mollie%20payments&type=posts",
+    "threads": [
+      {
+        "title": "Turns out the adult content industry is a minefield for solo founders.",
+        "url": "https://www.reddit.com/r/SideProject/comments/1tb3g2r/turns_out_the_adult_content_industry_is_a/",
+        "subreddit": "SideProject",
+        "date": "12 May 2026",
+        "takeaway": "A Dutch founder walking through which processors refuse adult-adjacent content. Mollie's policy covers any digital sexual material, not only explicit video.",
+        "upvotes": 174,
+        "comments": 93
+      },
+      {
+        "title": "Mollie stops accepting Bitcoin payments",
+        "url": "https://www.reddit.com/r/Bitcoin/comments/b8z1d5/mollie_stops_accepting_bitcoin_payments/",
+        "subreddit": "Bitcoin",
+        "date": "3 April 2019",
+        "takeaway": "The end of the thing Reddit knew Mollie for. Useful only as a reminder that its method mix changes without much notice.",
+        "upvotes": 8,
+        "comments": 5
+      },
+      {
+        "title": "Dutch Payment Provider Mollie enables Bitcoin payments by default for new customers. Opt-out instead of opt-in! 800+ new shops signing up per month.",
+        "url": "https://www.reddit.com/r/Bitcoin/comments/274p7z/dutch_payment_provider_mollie_enables_bitcoin/",
+        "subreddit": "Bitcoin",
+        "date": "2 June 2014",
+        "takeaway": "The high point of Mollie's attention on Reddit, twelve years ago.",
+        "upvotes": 237,
+        "comments": 16
+      }
+    ],
+    "themes": [
+      {
+        "label": "Adult and adult-adjacent content is out",
+        "detail": "Mollie's terms prohibit digital sexual content generally, which caught a founder who expected a threshold rather than a blanket rule.",
+        "tone": "negative"
+      },
+      {
+        "label": "Nothing from merchants in years",
+        "detail": "No payout, support or account-review threads worth reading, which means the Google listing is the only public record of those.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=8263293648114902983",
+    "https://www.reddit.com/r/SideProject/comments/1tb3g2r/turns_out_the_adult_content_industry_is_a/",
+    "https://www.reddit.com/r/Bitcoin/comments/b8z1d5/mollie_stops_accepting_bitcoin_payments/",
+    "https://www.reddit.com/r/Bitcoin/comments/274p7z/dutch_payment_provider_mollie_enables_bitcoin/"
+  ]
+}

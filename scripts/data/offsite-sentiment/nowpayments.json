@@ -1,0 +1,65 @@
+{
+  "slug": "nowpayments",
+  "name": "NOWPayments",
+  "noGoogleReason": "NOWPayments has no Google Business Profile. Google Maps cannot find the company at all, which is unsurprising for a non-custodial crypto gateway with no premises.",
+  "reddit": {
+    "heading": "What Reddit says about NOWPayments",
+    "summary": "Every NOWPayments post on Reddit is an announcement, and almost all of them were written by the coin communities it just added support for. Cartesi announcing CTSI integration, Shiba Inu holders noting that SHIB can now be converted to fiat, Nano's monthly news, Litecoin partnership round-ups. They are enthusiastic and they are not reviews. What they do establish, reliably, is the one thing NOWPayments sells: coverage. If your customers hold something outside the top five coins, this is the gateway that has probably added it, and the coin subreddits are where you can confirm that quickly. What no thread anywhere addresses is the merchant experience: settlement, conversion timing, support, or what happens when a payment arrives underpaid or late. Anyone evaluating NOWPayments should treat Reddit as a coverage checker and look elsewhere for the operational answers.",
+    "tone": "mixed",
+    "subreddits": ["cartesi", "SHIBArmy", "nanocurrency", "litecoin"],
+    "volumeNote": "Regular, and almost entirely integration announcements posted by coin communities.",
+    "searchUrl": "https://www.reddit.com/search/?q=nowpayments&type=posts",
+    "threads": [
+      {
+        "title": "We are pleased to announce that CTSI has now been integrated with NOWPayments.io!",
+        "url": "https://www.reddit.com/r/cartesi/comments/npqfyv/we_are_pleased_to_announce_that_ctsi_has_now_been/",
+        "subreddit": "cartesi",
+        "date": "1 June 2021",
+        "takeaway": "Representative of the genre: a coin community announcing that NOWPayments now supports it. Useful for coverage, not for judgement.",
+        "upvotes": 59,
+        "comments": 3
+      },
+      {
+        "title": "NowPayments lets Shib token be convered to cash fiat which opens the doors to Shiba Inu being used like cash",
+        "url": "https://www.reddit.com/r/SHIBArmy/comments/vyc5d2/nowpayments_lets_shib_token_be_convered_to_cash/",
+        "subreddit": "SHIBArmy",
+        "date": "13 July 2022",
+        "takeaway": "Fiat conversion is the feature merchants care about most, and this is the closest Reddit gets to discussing it.",
+        "upvotes": 56,
+        "comments": 7
+      },
+      {
+        "title": "Didn't realize how far Litecoin had come with partnerships",
+        "url": "https://www.reddit.com/r/litecoin/comments/1n1m635/didnt_realize_how_far_litecoin_had_come_with/",
+        "subreddit": "litecoin",
+        "date": "27 August 2025",
+        "takeaway": "NOWPayments appearing in a partnership round-up, which is how most merchants first hear of it.",
+        "upvotes": 63,
+        "comments": 2
+      }
+    ],
+    "themes": [
+      {
+        "label": "Coin coverage is the selling point",
+        "detail": "The announcements are the evidence: if a token exists and can be accepted, NOWPayments has usually added it.",
+        "tone": "positive"
+      },
+      {
+        "label": "Announcements, not reviews",
+        "detail": "Every thread is a community celebrating an integration. None is a merchant describing what using it was like.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Nothing on the operational questions",
+        "detail": "Settlement timing, conversion, underpayments and support are the things you would want to know, and Reddit does not answer any of them.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/cartesi/comments/npqfyv/we_are_pleased_to_announce_that_ctsi_has_now_been/",
+    "https://www.reddit.com/r/SHIBArmy/comments/vyc5d2/nowpayments_lets_shib_token_be_convered_to_cash/",
+    "https://www.reddit.com/r/litecoin/comments/1n1m635/didnt_realize_how_far_litecoin_had_come_with/"
+  ]
+}

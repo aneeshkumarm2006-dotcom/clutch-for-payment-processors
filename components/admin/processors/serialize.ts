@@ -25,7 +25,9 @@ import type {
   PciLevel,
   PricingModel,
   Region,
+  SentimentTone,
 } from "@/lib/enums";
+import { STAR_LEVELS } from "@/lib/sentiment";
 
 /**
  * Form ↔ model serialization for the ProcessorForm (TODO §2.2).
@@ -66,6 +68,139 @@ export interface FaqFormValue {
   answer: string;
 }
 
+// ---------------------------------------------------------------------------
+// Off-site sentiment (the Google + Reddit overviews on the reviews page)
+//
+// Same controlled-string convention as everything else in this file: numbers and
+// optional enums are held as strings so no input ever goes uncontrolled, and
+// `toGoogleOverviewPayload` / `toRedditOverviewPayload` convert on submit. The
+// zod side (`lib/validators/sentiment.ts`) drops blank rows and collapses a
+// section with nothing in it to `undefined`, so the form can keep its trailing
+// empties and still save cleanly.
+// ---------------------------------------------------------------------------
+
+export interface SentimentThemeFormValue {
+  label: string;
+  detail: string;
+  /** Never blank: an untoned theme has no column to render in. */
+  tone: SentimentTone;
+}
+
+export interface SentimentQuoteFormValue {
+  text: string;
+  author: string;
+  context: string;
+  date: string;
+  rating: string;
+  url: string;
+}
+
+export interface RedditThreadFormValue {
+  title: string;
+  url: string;
+  subreddit: string;
+  date: string;
+  takeaway: string;
+  upvotes: string;
+  comments: string;
+}
+
+/**
+ * The star histogram is a FIXED five rows (5 down to 1), not a repeatable list.
+ * The rows are the same five every time and an editor transcribing a Google
+ * listing is reading them off in that order — "add a row, choose which star it
+ * is" would be a worse version of a form that already knows the answer. Blank
+ * rows are dropped on submit, so filling in two of the five is valid.
+ */
+export interface StarBreakdownFormValue {
+  stars: string;
+  count: string;
+}
+
+export interface GoogleOverviewFormValues {
+  heading: string;
+  profileName: string;
+  profileUrl: string;
+  rating: string;
+  reviewCount: string;
+  breakdown: StarBreakdownFormValue[];
+  summary: string;
+  themes: SentimentThemeFormValue[];
+  quotes: SentimentQuoteFormValue[];
+  checkedOn: string;
+}
+
+export interface RedditOverviewFormValues {
+  heading: string;
+  tone: SentimentTone | "";
+  subreddits: string[];
+  volumeNote: string;
+  searchUrl: string;
+  summary: string;
+  threads: RedditThreadFormValue[];
+  themes: SentimentThemeFormValue[];
+  quotes: SentimentQuoteFormValue[];
+  checkedOn: string;
+}
+
+export const blankTheme = (): SentimentThemeFormValue => ({
+  label: "",
+  detail: "",
+  tone: "positive",
+});
+
+export const blankQuote = (): SentimentQuoteFormValue => ({
+  text: "",
+  author: "",
+  context: "",
+  date: "",
+  rating: "",
+  url: "",
+});
+
+export const blankThread = (): RedditThreadFormValue => ({
+  title: "",
+  url: "",
+  subreddit: "",
+  date: "",
+  takeaway: "",
+  upvotes: "",
+  comments: "",
+});
+
+const blankBreakdown = (): StarBreakdownFormValue[] =>
+  STAR_LEVELS.map((stars) => ({ stars: String(stars), count: "" }));
+
+export function blankGoogleOverviewValues(): GoogleOverviewFormValues {
+  return {
+    heading: "",
+    profileName: "",
+    profileUrl: "",
+    rating: "",
+    reviewCount: "",
+    breakdown: blankBreakdown(),
+    summary: "",
+    themes: [],
+    quotes: [],
+    checkedOn: "",
+  };
+}
+
+export function blankRedditOverviewValues(): RedditOverviewFormValues {
+  return {
+    heading: "",
+    tone: "",
+    subreddits: [],
+    volumeNote: "",
+    searchUrl: "",
+    summary: "",
+    threads: [],
+    themes: [],
+    quotes: [],
+    checkedOn: "",
+  };
+}
+
 /**
  * The "Reviews page" tab (`/processor/<slug>/reviews`).
  *
@@ -82,6 +217,8 @@ export interface ReviewsPageFormValues {
   faqs: FaqFormValue[];
   blocks: BlockFormValue[];
   structuredData: StructuredDataFormValues;
+  googleReviews: GoogleOverviewFormValues;
+  reddit: RedditOverviewFormValues;
 }
 
 export function blankReviewsPageValues(): ReviewsPageFormValues {
@@ -92,6 +229,8 @@ export function blankReviewsPageValues(): ReviewsPageFormValues {
     faqs: [],
     blocks: [],
     structuredData: blankStructuredDataValues(),
+    googleReviews: blankGoogleOverviewValues(),
+    reddit: blankRedditOverviewValues(),
   };
 }
 
@@ -278,6 +417,129 @@ export function toReviewsPageFormValues(raw: unknown): ReviewsPageFormValues {
     faqs: faqs.map((f) => ({ question: str(f.question), answer: str(f.answer) })),
     blocks: toBlockFormValues(rp.blocks as never),
     structuredData: toStructuredDataFormValues(rp.structuredData as never),
+    googleReviews: toGoogleOverviewFormValues(rp.googleReviews),
+    reddit: toRedditOverviewFormValues(rp.reddit),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Off-site sentiment: document <-> form
+// ---------------------------------------------------------------------------
+
+const rowArr = (v: unknown): Record<string, unknown>[] =>
+  Array.isArray(v) ? (v as Record<string, unknown>[]) : [];
+
+const toThemeValues = (v: unknown): SentimentThemeFormValue[] =>
+  rowArr(v).map((t) => ({
+    label: str(t.label),
+    detail: str(t.detail),
+    // A stored theme always has a tone (the schema defaults it), but a document
+    // written before this field existed would not.
+    tone: (t.tone as SentimentTone) || "mixed",
+  }));
+
+const toQuoteValues = (v: unknown): SentimentQuoteFormValue[] =>
+  rowArr(v).map((q) => ({
+    text: str(q.text),
+    author: str(q.author),
+    context: str(q.context),
+    date: str(q.date),
+    rating: str(q.rating),
+    url: str(q.url),
+  }));
+
+/**
+ * Hydrate the fixed five histogram rows from however many the document stored.
+ *
+ * Driven by `STAR_LEVELS` rather than by the stored array, so a listing that only
+ * published three of its five bars still renders all five inputs in the right
+ * order with the missing two blank.
+ */
+function toBreakdownValues(v: unknown): StarBreakdownFormValue[] {
+  const byStar = new Map(rowArr(v).map((b) => [Number(b.stars), b.count]));
+  return STAR_LEVELS.map((stars) => ({
+    stars: String(stars),
+    count: str(byStar.get(stars)),
+  }));
+}
+
+export function toGoogleOverviewFormValues(raw: unknown): GoogleOverviewFormValues {
+  const g = (raw ?? {}) as Record<string, unknown>;
+  return {
+    heading: str(g.heading),
+    profileName: str(g.profileName),
+    profileUrl: str(g.profileUrl),
+    rating: str(g.rating),
+    reviewCount: str(g.reviewCount),
+    breakdown: toBreakdownValues(g.breakdown),
+    summary: str(g.summary),
+    themes: toThemeValues(g.themes),
+    quotes: toQuoteValues(g.quotes),
+    checkedOn: str(g.checkedOn),
+  };
+}
+
+export function toRedditOverviewFormValues(raw: unknown): RedditOverviewFormValues {
+  const r = (raw ?? {}) as Record<string, unknown>;
+  return {
+    heading: str(r.heading),
+    tone: (r.tone as SentimentTone) || "",
+    subreddits: Array.isArray(r.subreddits) ? r.subreddits.map((x) => String(x)) : [],
+    volumeNote: str(r.volumeNote),
+    searchUrl: str(r.searchUrl),
+    summary: str(r.summary),
+    threads: rowArr(r.threads).map((t) => ({
+      title: str(t.title),
+      url: str(t.url),
+      subreddit: str(t.subreddit),
+      date: str(t.date),
+      takeaway: str(t.takeaway),
+      upvotes: str(t.upvotes),
+      comments: str(t.comments),
+    })),
+    themes: toThemeValues(r.themes),
+    quotes: toQuoteValues(r.quotes),
+    checkedOn: str(r.checkedOn),
+  };
+}
+
+/**
+ * Form values to payload.
+ *
+ * Blank strings go through as-is: `sentimentSchema`'s preprocessors turn `""`
+ * into `undefined` per field, drop rows where every field is blank, and collapse
+ * a section with nothing left in it. The one thing the form must do itself is
+ * drop histogram rows with no count — those rows carry a non-blank `stars`, so
+ * the blank-row filter cannot see them as empty and the required `count` would
+ * fail validation on a listing that only published three bars.
+ */
+export function toGoogleOverviewPayload(v: GoogleOverviewFormValues): Record<string, unknown> {
+  return {
+    heading: v.heading,
+    profileName: v.profileName,
+    profileUrl: v.profileUrl,
+    rating: v.rating,
+    reviewCount: v.reviewCount,
+    breakdown: v.breakdown.filter((b) => b.count.trim() !== ""),
+    summary: v.summary,
+    themes: v.themes,
+    quotes: v.quotes,
+    checkedOn: v.checkedOn,
+  };
+}
+
+export function toRedditOverviewPayload(v: RedditOverviewFormValues): Record<string, unknown> {
+  return {
+    heading: v.heading,
+    tone: v.tone,
+    subreddits: v.subreddits,
+    volumeNote: v.volumeNote,
+    searchUrl: v.searchUrl,
+    summary: v.summary,
+    threads: v.threads,
+    themes: v.themes,
+    quotes: v.quotes,
+    checkedOn: v.checkedOn,
   };
 }
 
@@ -297,6 +559,8 @@ export function toReviewsPagePayload(values: ReviewsPageFormValues): Record<stri
     faqs: values.faqs,
     blocks: toBlocksPayload(values.blocks),
     structuredData: toStructuredDataPayload(values.structuredData),
+    googleReviews: toGoogleOverviewPayload(values.googleReviews),
+    reddit: toRedditOverviewPayload(values.reddit),
   };
 }
 

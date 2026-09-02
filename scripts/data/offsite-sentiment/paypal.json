@@ -1,0 +1,167 @@
+{
+  "slug": "paypal",
+  "name": "PayPal",
+  "google": {
+    "heading": "PayPal on Google",
+    "summary": "1,391 reviews on the San Jose corporate listing, averaging 2.4, with 849 of them one star. It is the largest and the angriest review record of anything in this directory, and most of it is not merchants. It is buyers: disputes decided against them, transfers reversed, identity verification that failed, an eBay purchase that never arrived. Read as consumer feedback it says PayPal's dispute process is unpredictable and its support is hard to escalate. Read as merchant feedback it says almost nothing, because the merchants who lost an account do not usually review a head office. The five-star reviews, and there are 399, mostly come from long-standing users who treat PayPal as the safest way to pay a stranger, which is the same conclusion the complaints are arguing with. Nothing here should be weighed as heavily as PayPal's own merchant terms and the Reddit record on account limits.",
+    "rating": 2.4,
+    "reviewCount": 1391,
+    "breakdown": [
+      { "stars": 5, "count": 399 },
+      { "stars": 4, "count": 60 },
+      { "stars": 3, "count": 39 },
+      { "stars": 2, "count": 44 },
+      { "stars": 1, "count": 849 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=15422096509057237889",
+    "profileName": "PayPal Corporate Headquarters, 2211 N First Street, San Jose",
+    "themes": [
+      {
+        "label": "Mostly buyers, not sellers",
+        "detail": "The bulk of the one-star reviews are consumers describing a dispute or a reversed payment. Useful, but not a merchant sample.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Disputes decided without a hearing",
+        "detail": "The most repeated complaint on both sides: conflicting answers from different agents, and a decision arriving with no reasoning attached.",
+        "tone": "negative"
+      },
+      {
+        "label": "Length of relationship counts for nothing",
+        "detail": "Reviewers of fifteen and twenty years' standing describe being treated identically to a new account when something is flagged.",
+        "tone": "negative"
+      },
+      {
+        "label": "Still the default for paying strangers",
+        "detail": "The five-star reviews are almost all about trust in the buyer protection rather than about any feature.",
+        "tone": "positive"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "I've been a PayPal customer for over 20 years, and apparently that means absolutely nothing to them.",
+        "context": "Google review",
+        "date": "About August 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=15422096509057237889"
+      },
+      {
+        "text": "PayPal has been the most trustworthy payment system that was available for the last 15 plus years.",
+        "context": "Google review",
+        "date": "About May 2026",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=15422096509057237889"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about PayPal",
+    "summary": "One thread from 2013 still defines this. A seller of ten years, doing 50 to 100 thousand dollars a year, launched a pre-order, and PayPal froze over 70,000 dollars for 180 days. It drew 881 points and 357 comments, and the reply that stuck is that this sits entirely within PayPal's terms and there is nothing you can do about it. Everything written since repeats the shape: 200,000 dollars held for four months on crypto mining hardware, an eBay seller permanently limited two months in, a Bricklink seller deactivated with no path back. The practical advice Reddit has converged on is not to leave PayPal, because for many sellers that is not an option. It is to treat PayPal as a payment rail rather than a bank: sweep the balance to your bank daily, keep a second processor live, and never let a launch or a pre-order concentrate months of revenue in one account. Dropshipping threads add the 21-day hold on new or irregular sellers as a thing to plan for rather than argue with.",
+    "tone": "negative",
+    "subreddits": ["Entrepreneur", "smallbusiness", "dropship", "Bricklink"],
+    "volumeNote": "Twelve years of frozen-funds threads, still being added to.",
+    "searchUrl": "https://www.reddit.com/search/?q=paypal%20account%20limited%20seller&type=posts",
+    "threads": [
+      {
+        "title": "Paypal just froze over $70,000 in my account - Say they won't return it for 180 days.",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1rkkd7/paypal_just_froze_over_70000_in_my_account_say/",
+        "subreddit": "Entrepreneur",
+        "date": "27 November 2013",
+        "takeaway": "The canonical thread. Ten-year account, six figures a year, frozen after a pre-order launch. 357 comments, and the advice in them is still what people give today.",
+        "upvotes": 881,
+        "comments": 357
+      },
+      {
+        "title": "Stripe, has now got a new customer. Bravo PayPal.",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/3texut/stripe_has_now_got_a_new_customer_bravo_paypal/",
+        "subreddit": "Entrepreneur",
+        "date": "19 November 2015",
+        "takeaway": "A seller walking through the moment a growing account got flagged, and 251 comments of people describing the same month.",
+        "upvotes": 308,
+        "comments": 251
+      },
+      {
+        "title": "200k+ USD Frozen by PayPal. We sell crypto mining hardware.",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/7zdtpq/200k_usd_frozen_by_paypal_we_sell_crypto_mining/",
+        "subreddit": "Entrepreneur",
+        "date": "22 February 2018",
+        "takeaway": "Four months on 200,000 dollars with the goods already delivered and the paperwork supplied. A higher-risk category, and the pattern is identical.",
+        "upvotes": 17,
+        "comments": 69
+      },
+      {
+        "title": "PayPal Deactivated",
+        "url": "https://www.reddit.com/r/Bricklink/comments/1itaisu/paypal_deactivated/",
+        "subreddit": "Bricklink",
+        "date": "19 February 2025",
+        "takeaway": "A permanent limitation on a marketplace seller, with the account and app both confirming it and support unable to say why. Recent and ordinary.",
+        "upvotes": 19,
+        "comments": 59
+      },
+      {
+        "title": "PayPal Problems Dropshippers Face (and How to Actually Fix Them)",
+        "url": "https://www.reddit.com/r/dropship/comments/1p4dhny/paypal_problems_dropshippers_face_and_how_to/",
+        "subreddit": "dropship",
+        "date": "23 November 2025",
+        "takeaway": "The 21-day hold on new or irregular sellers, written as something to plan around rather than complain about.",
+        "upvotes": 6,
+        "comments": 20
+      }
+    ],
+    "themes": [
+      {
+        "label": "The holds are within the terms",
+        "detail": "The most upvoted reply in the canonical thread, and the reason legal threats in these threads go nowhere.",
+        "tone": "negative"
+      },
+      {
+        "label": "Growth is the trigger",
+        "detail": "The accounts that get frozen are the ones that just did something unusual: a pre-order, a launch, a good month. Long history does not protect you.",
+        "tone": "negative"
+      },
+      {
+        "label": "Sweep the balance daily",
+        "detail": "The most repeated practical advice on Reddit: PayPal is not a bank account, so do not leave money in it.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Keep a second processor live",
+        "detail": "Threads consistently end with people setting up Stripe, Authorize.net or Shopify Payments alongside rather than instead.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "This is why I don't use PayPal. This sort of thing is completely within their T&C and there is fuck all you can do about it.",
+        "author": "r/Entrepreneur commenter",
+        "context": "187 points, top reply",
+        "date": "27 November 2013",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1rkkd7/paypal_just_froze_over_70000_in_my_account_say/comment/cdo70jd/"
+      },
+      {
+        "text": "I could understand it if I was a new business, but... I've been a member for over 10 years, selling anywhere from $50k-$100k a year. Very, very few complaints.",
+        "author": "the seller who opened the thread",
+        "context": "124 points",
+        "date": "27 November 2013",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1rkkd7/paypal_just_froze_over_70000_in_my_account_say/comment/cdo6viv/"
+      },
+      {
+        "text": "Paypal is not a bank account, therefor I never keep more than 10 dollars on the account, I transfer it to my bank account right away. I just use it to receive money.",
+        "author": "r/Entrepreneur commenter",
+        "context": "65 points",
+        "date": "27 November 2013",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1rkkd7/paypal_just_froze_over_70000_in_my_account_say/comment/cdo6co8/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=15422096509057237889",
+    "https://www.reddit.com/r/Entrepreneur/comments/1rkkd7/paypal_just_froze_over_70000_in_my_account_say/",
+    "https://www.reddit.com/r/Entrepreneur/comments/3texut/stripe_has_now_got_a_new_customer_bravo_paypal/",
+    "https://www.reddit.com/r/Entrepreneur/comments/7zdtpq/200k_usd_frozen_by_paypal_we_sell_crypto_mining/",
+    "https://www.reddit.com/r/Bricklink/comments/1itaisu/paypal_deactivated/",
+    "https://www.reddit.com/r/dropship/comments/1p4dhny/paypal_problems_dropshippers_face_and_how_to/"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "slug": "orb-billing",
+  "name": "Orb",
+  "noGoogleReason": "Orb has no Google Business Profile. Searching the name in San Francisco returns Orb Xyz, Inc., a biotechnology company at UCSF Medical Center, so there is nothing here belonging to Orb.",
+  "reddit": {
+    "heading": "What Reddit says about Orb",
+    "summary": "Almost nothing, and that is the honest headline. Orb appears once by name in a market-trends post about AI-native SaaS and usage-based pricing, and otherwise only as part of the category it sits in. That category is discussed constantly, and the discussion is useful even though it is not about Orb. The recurring finding is where Stripe stops: metered billing is fine while pricing is a rate per unit, and the moment credits, rollovers, prepaid balances, custom enterprise contracts or invoicing arrive, teams describe building a billing engine on top of Stripe rather than using one. That is the problem Orb sells against, and the threads confirm the problem is real. What they do not contain is anyone saying they used Orb, what it cost, how long it took to implement, or how it behaved. Anyone evaluating it should read these threads for the category and get the product answers elsewhere.",
+    "tone": "mixed",
+    "subreddits": [
+      "SaaS",
+      "microsaas"
+    ],
+    "volumeNote": "One mention by name. The rest is the category rather than the product.",
+    "searchUrl": "https://www.reddit.com/search/?q=withorb%20usage%20based%20billing&type=posts",
+    "threads": [
+      {
+        "title": "should you rely on Stripe for usage based billing?",
+        "url": "https://www.reddit.com/r/SaaS/comments/1tk079z/should_you_rely_on_stripe_for_usage_based_billing/",
+        "subreddit": "SaaS",
+        "date": "21 May 2026",
+        "takeaway": "The clearest account of where Stripe's metered billing stops being enough, which is the case Orb is built for.",
+        "upvotes": 2,
+        "comments": 10
+      },
+      {
+        "title": "Are You Losing Revenue with Pay-As-You-Go Pricing?",
+        "url": "https://www.reddit.com/r/SaaS/comments/1gqakft/are_you_losing_revenue_with_payasyougo_pricing/",
+        "subreddit": "SaaS",
+        "date": "13 November 2024",
+        "takeaway": "Fifteen replies on prepaid versus postpaid usage and what happens when customers cannot pay the invoice they ran up.",
+        "upvotes": 1,
+        "comments": 15
+      }
+    ],
+    "themes": [
+      {
+        "label": "Not discussed by name",
+        "detail": "One passing mention across every usage-billing thread. No first-hand account of using Orb exists on Reddit.",
+        "tone": "mixed"
+      },
+      {
+        "label": "The problem it sells against is real",
+        "detail": "Teams repeatedly describe rebuilding billing logic on Stripe once credits, rollovers and enterprise contracts arrive.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "stripe's great until pricing logic stops being “x usage = y dollars” lol.",
+        "author": "r/SaaS commenter",
+        "context": "on where Stripe's metered billing runs out",
+        "date": "21 May 2026",
+        "url": "https://www.reddit.com/r/SaaS/comments/1tk079z/should_you_rely_on_stripe_for_usage_based_billing/comment/oo148um/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/SaaS/comments/1tk079z/should_you_rely_on_stripe_for_usage_based_billing/",
+    "https://www.reddit.com/r/SaaS/comments/1gqakft/are_you_losing_revenue_with_payasyougo_pricing/"
+  ]
+}

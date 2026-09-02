@@ -1,0 +1,80 @@
+{
+  "slug": "authorize-net",
+  "name": "Authorize.net",
+  "noGoogleReason": "Authorize.net has no Google Business Profile a merchant would find. It is a Visa subsidiary operating as a gateway rather than a business with a front door, and searching its Foster City base returns unrelated companies.",
+  "reddit": {
+    "heading": "What Reddit says about Authorize.net",
+    "summary": "Two things run through fifteen years of Authorize.net threads and both are about the same misunderstanding. Authorize.net is a gateway, not your processor, and its own fees are small: a developer running a nonprofit's donations describes roughly 100 dollars a month plus about ten cents a transaction. The 6 percent that client was actually paying came from TSYS, the merchant account sitting behind it, and that thread is the clearest illustration on Reddit of why a bad Authorize.net experience is usually a bad reseller experience. The second theme is that it is the safe, boring choice: it turns up in every gateway comparison as the option that integrates with everything, and in threads about card-present setups as the constraint the rest of the stack has to fit around. The genuine complaints are operational rather than commercial, the sharpest being a day of mass declines on cards that had previously worked, with merchants comparing notes to work out whether the problem was theirs.",
+    "tone": "mixed",
+    "subreddits": ["ecommerce", "smallbusiness", "web_design", "Odoo"],
+    "volumeNote": "Fifteen years of steady threads, most of them integration and comparison questions rather than complaints.",
+    "searchUrl": "https://www.reddit.com/search/?q=authorize.net&type=posts",
+    "threads": [
+      {
+        "title": "Ugh. TSYS (via Authorize.net) is charging my client 6% of all their credit card purchases & donations. Alternatives?",
+        "url": "https://www.reddit.com/r/ecommerce/comments/n1ewq4/ugh_tsys_via_authorizenet_is_charging_my_client_6/",
+        "subreddit": "ecommerce",
+        "date": "29 April 2021",
+        "takeaway": "The single most useful Authorize.net thread: 70,000 dollars of nonprofit donations at 6 percent, and the gateway fee was about 100 dollars a month. The cost was the merchant account, not the gateway.",
+        "upvotes": 13,
+        "comments": 7
+      },
+      {
+        "title": "Authorize.net credit declines sky rocket yesterday?",
+        "url": "https://www.reddit.com/r/ecommerce/comments/napxpt/authorizenet_credit_declines_sky_rocket_yesterday/",
+        "subreddit": "ecommerce",
+        "date": "12 May 2021",
+        "takeaway": "Dozens of declines on cards that had worked before, with merchants comparing notes. The kind of incident thread worth checking before blaming your own integration.",
+        "upvotes": 12,
+        "comments": 11
+      },
+      {
+        "title": "Stripe vs PayPal vs WooCommerce Payments vs Authorize.net vs Brain Tree?",
+        "url": "https://www.reddit.com/r/ecommerce/comments/m31xfu/stripe_vs_paypal_vs_woocommerce_payments_vs/",
+        "subreddit": "ecommerce",
+        "date": "11 March 2021",
+        "takeaway": "23 replies weighing all five against each other, which is where Authorize.net's reputation as the compatible option gets made.",
+        "upvotes": 7,
+        "comments": 23
+      },
+      {
+        "title": "Moving from PayPal to Authorize.net or Stripe? Has anyone else done this?",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/2sqiqn/moving_from_paypal_to_authorizenet_or_stripe_has/",
+        "subreddit": "smallbusiness",
+        "date": "17 January 2015",
+        "takeaway": "The migration people were making a decade ago, and the reasons are still the ones cited: receipts, records and payment management PayPal did not give them.",
+        "upvotes": 11,
+        "comments": 10
+      }
+    ],
+    "themes": [
+      {
+        "label": "The gateway fee is not your cost",
+        "detail": "About 100 dollars a month plus roughly ten cents a transaction. If you are paying 6 percent, that is the merchant account behind it, and that is who to renegotiate with.",
+        "tone": "mixed"
+      },
+      {
+        "label": "It integrates with everything",
+        "detail": "The reason it survives in comparison threads. Carts, POS setups and accounting tools support it, and that is often what decides it.",
+        "tone": "positive"
+      },
+      {
+        "label": "Who resold it decides your experience",
+        "detail": "The complaints attach to the ISO or acquirer that sold the account, which is why the same gateway gets praised and cursed in the same thread.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Occasional decline incidents",
+        "detail": "At least one day of mass declines on previously good cards, visible on Reddit before it was visible anywhere official.",
+        "tone": "negative"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/ecommerce/comments/n1ewq4/ugh_tsys_via_authorizenet_is_charging_my_client_6/",
+    "https://www.reddit.com/r/ecommerce/comments/napxpt/authorizenet_credit_declines_sky_rocket_yesterday/",
+    "https://www.reddit.com/r/ecommerce/comments/m31xfu/stripe_vs_paypal_vs_woocommerce_payments_vs/",
+    "https://www.reddit.com/r/smallbusiness/comments/2sqiqn/moving_from_paypal_to_authorizenet_or_stripe_has/"
+  ]
+}

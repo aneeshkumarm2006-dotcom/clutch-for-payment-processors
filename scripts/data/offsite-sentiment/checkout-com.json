@@ -1,0 +1,56 @@
+{
+  "slug": "checkout-com",
+  "name": "Checkout.com",
+  "noGoogleReason": "The only Checkout.com listing is its Shepherdess Walk office in London, rated 4.5 from 31. Almost none of those are written reviews and the ones that are describe the building or come from cardholders trying to identify a charge. There is no merchant feedback behind the number, so publishing it would be misleading.",
+  "reddit": {
+    "heading": "What Reddit says about Checkout.com",
+    "summary": "Very little from merchants, and the little there is has a consistent complaint that is worth knowing about before you start an integration. Both of the substantive threads are about not being able to find out basic things. One is a developer building subscriptions and marketplace payouts who came to Checkout.com after Stripe's pricing and could not establish what he needed from the public material. The other is more pointed: someone spent half an hour trying to find the list of supported countries and currencies and gave up, asking Reddit whether any client or partner knew. For a processor whose pitch is global coverage, that is the wrong thing to be hard to find. Note also that one post that looks like a Checkout.com review is a scraped snippet from a review aggregator rather than something a Reddit user wrote, and the rest of the results are funding news and job adverts.",
+    "tone": "mixed",
+    "subreddits": ["ecommerce", "fintech"],
+    "volumeNote": "A handful of threads, thin on replies. No first-hand account of processing with it.",
+    "searchUrl": "https://www.reddit.com/search/?q=checkout.com%20payments&type=posts",
+    "threads": [
+      {
+        "title": "checkout.com supported countries and currencies",
+        "url": "https://www.reddit.com/r/ecommerce/comments/18m4efc/checkoutcom_supported_countries_and_currencies/",
+        "subreddit": "ecommerce",
+        "date": "19 December 2023",
+        "takeaway": "Half an hour spent trying to find the supported country and currency list, then asking Reddit. For a global processor that is a telling complaint.",
+        "upvotes": 3,
+        "comments": 1
+      },
+      {
+        "title": "Any experience integrating Checkout.com",
+        "url": "https://www.reddit.com/r/ecommerce/comments/n23mjt/any_experience_integrating_checkoutcom/",
+        "subreddit": "ecommerce",
+        "date": "30 April 2021",
+        "takeaway": "A developer building subscriptions and seller payouts, looking at Checkout.com because of Stripe's pricing, and getting one reply.",
+        "upvotes": 5,
+        "comments": 1
+      }
+    ],
+    "themes": [
+      {
+        "label": "Basic details are hard to find",
+        "detail": "Supported countries and currencies, and what an integration involves. Both threads are people who could not answer those from the public material.",
+        "tone": "negative"
+      },
+      {
+        "label": "Almost nobody answers",
+        "detail": "The merchant threads have one reply each. Whatever Checkout.com's customers are, they are not on Reddit.",
+        "tone": "mixed"
+      },
+      {
+        "label": "One apparent review is scraped",
+        "detail": "A post that reads like a merchant review is a snippet lifted from a review aggregator, not a Reddit user. Worth naming rather than counting.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/ecommerce/comments/18m4efc/checkoutcom_supported_countries_and_currencies/",
+    "https://www.reddit.com/r/ecommerce/comments/n23mjt/any_experience_integrating_checkoutcom/",
+    "https://maps.google.com/?cid=5180519633887167955"
+  ]
+}

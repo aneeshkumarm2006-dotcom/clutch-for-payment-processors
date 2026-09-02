@@ -19,6 +19,7 @@ import {
   faqsSchema,
 } from "./common";
 import { blocksSchema, structuredDataSchema } from "./blocks";
+import { googleReviewsOverviewSchema, redditOverviewSchema } from "./sentiment";
 
 /** Structured fee table (PRD §8.1) — every field optional ("Varies"/"N/A" when blank). */
 export const feesSchema = z
@@ -49,6 +50,11 @@ export const feesSchema = z
  * `blocks` keeps the same tri-state as the top-level one (absent = preserve,
  * `[]` = the editor deleted them all, `[…]` = set), which is why `blocksSchema` is
  * reused verbatim rather than re-declared with a default.
+ *
+ * `googleReviews` / `reddit` behave differently on purpose: they normalize an
+ * all-blank section to `undefined` so it `$unset`s cleanly. They have no
+ * "editor deleted them all" state to distinguish from "editor never filled this
+ * in" — an empty section and an absent one mean the same thing on the page.
  */
 export const reviewsPageSchema = z
   .object({
@@ -58,6 +64,8 @@ export const reviewsPageSchema = z
     faqs: faqsSchema,
     blocks: blocksSchema,
     structuredData: structuredDataSchema,
+    googleReviews: googleReviewsOverviewSchema,
+    reddit: redditOverviewSchema,
   })
   .optional();
 

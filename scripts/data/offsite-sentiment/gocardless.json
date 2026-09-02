@@ -1,0 +1,152 @@
+{
+  "slug": "gocardless",
+  "name": "GoCardless",
+  "google": {
+    "heading": "GoCardless on Google",
+    "summary": "416 reviews on the London office listing, averaging 3.2, and split the way these listings usually split: 213 five-star against 166 one-star, with 37 in the middle. The praise is from long-running users who treat it as the default way to collect Direct Debit in the UK and rate the dashboard and the mandate flow. The complaints cluster into three specific things rather than general dissatisfaction. New accounts suspended within days of setup with no reason given. Failed-payment fees that reviewers consider high, in one case with the customer double-charged and the merchant refunding out of pocket to keep them. And bulk migrations of existing mandates from another provider going wrong after weeks of planning. Several of the one-star reviews are recent and describe the same suspension pattern, which is worth weighing against the age of some of the five-star ones.",
+    "rating": 3.2,
+    "reviewCount": 416,
+    "breakdown": [
+      { "stars": 5, "count": 213 },
+      { "stars": 4, "count": 17 },
+      { "stars": 3, "count": 8 },
+      { "stars": 2, "count": 12 },
+      { "stars": 1, "count": 166 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=364218159140602861",
+    "profileName": "GoCardless, Sutton Yard, Goswell Road, London",
+    "themes": [
+      {
+        "label": "The standard tool for UK Direct Debit",
+        "detail": "Long-term users call it unrivalled for what it does and say new staff pick the dashboard up without training.",
+        "tone": "positive"
+      },
+      {
+        "label": "New accounts suspended without a reason",
+        "detail": "Several recent reviews describe setting up, supplying everything asked for, and having the account suspended days later with no explanation.",
+        "tone": "negative"
+      },
+      {
+        "label": "Failed-payment fees and double charges",
+        "detail": "One reviewer says errors caused customers to be charged twice, the extra never reached them, and they refunded it themselves to keep the customer.",
+        "tone": "negative"
+      },
+      {
+        "label": "Migrations from another provider",
+        "detail": "Bulk transfers of existing mandates come up more than once, and both accounts describe weeks of coordination followed by failures at cutover.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "We have used GoCardless for years as a business, and it is unrivalled as a direct debit provider.",
+        "context": "Google review",
+        "date": "About September 2021",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=364218159140602861"
+      },
+      {
+        "text": "We had a similar experience to a number of other reviews on here. Setup a new business and chose Gocardless as the payment processor.",
+        "context": "Google review",
+        "date": "About August 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=364218159140602861"
+      },
+      {
+        "text": "Overall, it's okay, but the fees for failed payments are quite high. What's frustrating is that errors sometimes occur, causing customers to be double-charged, and we don't receive the extra payment.",
+        "context": "Google review",
+        "date": "About June 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=364218159140602861"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about GoCardless",
+    "summary": "The busiest GoCardless threads on Reddit are not written by merchants at all. They are British bank customers annoyed that the debit on their statement says GOCARDLESS instead of the name of their vet or their gym. Two threads on that alone drew 233 and 203 points. It is worth reading because the top reply explains the mechanism, and the mechanism is a pricing decision merchants make: a merchant can appear under its own Bacs Service User Number or share the GoCardless one for the cheaper tier, and having your own SUN requires a three million pound reserve against disputed debits. So the generic descriptor is what the cheaper tier looks like from the customer's side. The merchant-side threads are smaller and mostly in UK MSP and small business subreddits, where GoCardless is the default recommendation and the caveats are per-mandate collection limits and slow settlement rather than anything about trust.",
+    "tone": "mixed",
+    "subreddits": ["britishproblems", "msp", "smallbusinessuk", "quickbooksonline"],
+    "volumeNote": "Two large consumer threads about statement descriptors, plus a steady trickle of UK merchant threads.",
+    "searchUrl": "https://www.reddit.com/search/?q=gocardless&type=posts",
+    "threads": [
+      {
+        "title": "Merchants using the default direct debit payment titles",
+        "url": "https://www.reddit.com/r/britishproblems/comments/1fssuyo/merchants_using_the_default_direct_debit_payment/",
+        "subreddit": "britishproblems",
+        "date": "30 September 2024",
+        "takeaway": "The thread where a former GoCardless employee explains why so many statements just say GOCARDLESS.",
+        "upvotes": 233,
+        "comments": 22
+      },
+      {
+        "title": "Arranging a direct debit and they use a generic name for your purchase",
+        "url": "https://www.reddit.com/r/britishproblems/comments/1h9qsz3/arranging_a_direct_debit_and_they_use_a_generic/",
+        "subreddit": "britishproblems",
+        "date": "8 December 2024",
+        "takeaway": "The same complaint again three months later, which is a fair signal of how often it lands on customers.",
+        "upvotes": 203,
+        "comments": 18
+      },
+      {
+        "title": "Direct Debit Service Required.",
+        "url": "https://www.reddit.com/r/msp/comments/ni4cox/direct_debit_service_required/",
+        "subreddit": "msp",
+        "date": "21 May 2021",
+        "takeaway": "A UK MSP using GoCardless happily but hitting a per-mandate collection limit, and asking what else exists.",
+        "upvotes": 5,
+        "comments": 18
+      },
+      {
+        "title": "UK MSPs - how has your Direct Debit experience been?",
+        "url": "https://www.reddit.com/r/msp/comments/1dr80gp/uk_msps_how_has_your_direct_debit_experience_been/",
+        "subreddit": "msp",
+        "date": "29 June 2024",
+        "takeaway": "General Direct Debit shopping thread, useful for where GoCardless sits against the alternatives.",
+        "upvotes": 4,
+        "comments": 14
+      }
+    ],
+    "themes": [
+      {
+        "label": "The default UK recommendation",
+        "detail": "In UK MSP and small business threads GoCardless is what people already use, and the question is usually what else exists rather than whether to leave.",
+        "tone": "positive"
+      },
+      {
+        "label": "Your customers see GOCARDLESS, not you",
+        "detail": "Two large threads of bank customers unable to identify their own payments. The fix is your own Service User Number, which costs more.",
+        "tone": "negative"
+      },
+      {
+        "label": "Per-mandate collection limits",
+        "detail": "The specific merchant complaint that recurs: a cap on how much can be collected per mandate, which pushes larger invoices elsewhere.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Worked for GoCardless. It costs extra to register a merchant with Bacs for their own Service User Number. Merchants can pay for their SUN or share the GoCardless one for the cheaper tier.",
+        "author": "r/britishproblems commenter, former employee",
+        "context": "57 points, top reply",
+        "date": "30 September 2024",
+        "url": "https://www.reddit.com/r/britishproblems/comments/1fssuyo/merchants_using_the_default_direct_debit_payment/comment/lpmwqvv/"
+      },
+      {
+        "text": "To have your own SUN requires you to have 3 million pounds reserve to pay disputed direct debits, even if you don't draw anywhere near to that many payments.",
+        "author": "r/britishproblems commenter",
+        "context": "19 points",
+        "date": "30 September 2024",
+        "url": "https://www.reddit.com/r/britishproblems/comments/1fssuyo/merchants_using_the_default_direct_debit_payment/comment/lpn886d/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=364218159140602861",
+    "https://www.reddit.com/r/britishproblems/comments/1fssuyo/merchants_using_the_default_direct_debit_payment/",
+    "https://www.reddit.com/r/britishproblems/comments/1h9qsz3/arranging_a_direct_debit_and_they_use_a_generic/",
+    "https://www.reddit.com/r/msp/comments/ni4cox/direct_debit_service_required/",
+    "https://www.reddit.com/r/msp/comments/1dr80gp/uk_msps_how_has_your_direct_debit_experience_been/"
+  ]
+}

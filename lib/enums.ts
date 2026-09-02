@@ -119,6 +119,18 @@ export const SUB_RATING_KEYS = [
 ] as const;
 export type SubRatingKey = (typeof SUB_RATING_KEYS)[number];
 
+/**
+ * Which way an off-site opinion cuts, used by the Google and Reddit overviews on
+ * a processor's reviews page (`models/sentiment.ts`).
+ *
+ * Three values, not a 1-to-5 scale, because these describe DISCUSSION rather than
+ * a rating. Reddit has no stars to average, and a Google listing already publishes
+ * its own number: what an editor adds on top is a direction, and "mixed" has to be
+ * expressible as itself rather than as a middling score nobody wrote.
+ */
+export const SENTIMENT_TONES = ["positive", "mixed", "negative"] as const;
+export type SentimentTone = (typeof SENTIMENT_TONES)[number];
+
 // ---------------------------------------------------------------------------
 // Category (PRD §8.2)
 // ---------------------------------------------------------------------------

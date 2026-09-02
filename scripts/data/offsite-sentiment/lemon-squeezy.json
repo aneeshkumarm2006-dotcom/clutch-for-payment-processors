@@ -1,0 +1,80 @@
+{
+  "slug": "lemon-squeezy",
+  "name": "Lemon Squeezy",
+  "noGoogleReason": "Lemon Squeezy has no Google Business Profile. The only listing that matches the name is Lemon Squeezy Brand Studio, an unrelated branding agency with one review. There is nothing here to summarise and quoting the agency's rating would be false.",
+  "reddit": {
+    "heading": "What Reddit says about Lemon Squeezy",
+    "summary": "Two complaints run through every Lemon Squeezy thread and they pull in opposite directions, so it is worth separating them. The first is cost. On low-priced digital goods the merchant-of-record fee plus payment processing plus currency conversion takes a share that surprises first-time sellers, and the r/SideProject thread on it exists specifically as a warning to people earning their first money online. That is arithmetic rather than a scandal: an MoR is more expensive than a gateway because it is doing your tax compliance. The second is support, and it is sharper. The most upvoted Lemon Squeezy thread in r/SaaS is a seller whose tickets went unanswered while a problem blocked part of their business. Set against that, the reason people keep choosing it is unchanged: for Indian and other founders Stripe will not onboard, an MoR that accepts you is the difference between selling and not selling. Note when reading older threads that Stripe acquired Lemon Squeezy in 2024, so advice written before that is about a different company's incentives.",
+    "tone": "mixed",
+    "subreddits": ["SaaS", "SideProject", "microsaas"],
+    "volumeNote": "A steady presence in SaaS and indie subreddits since 2023, usually in merchant-of-record comparison threads.",
+    "searchUrl": "https://www.reddit.com/search/?q=lemon%20squeezy%20merchant%20of%20record&type=posts",
+    "threads": [
+      {
+        "title": "LemonSqueezy is the biggest piece of dog shit I've ever dealt with",
+        "url": "https://www.reddit.com/r/SaaS/comments/1jlxcev/lemonsqueezy_is_the_biggest_piece_of_dog_shit_ive/",
+        "subreddit": "SaaS",
+        "date": "28 March 2025",
+        "takeaway": "The most upvoted Lemon Squeezy thread, and it is about unanswered support tickets blocking part of a business rather than about fees.",
+        "upvotes": 51,
+        "comments": 16
+      },
+      {
+        "title": "LemonSqueezy fees will kill your profits on low-priced items",
+        "url": "https://www.reddit.com/r/SideProject/comments/1fwzd4k/lemonsqueezy_fees_will_kill_your_profits_on/",
+        "subreddit": "SideProject",
+        "date": "5 October 2024",
+        "takeaway": "Written as a warning to first-time sellers about what the combined fees take out of a cheap digital product. Read it before pricing anything under ten dollars.",
+        "upvotes": 13,
+        "comments": 13
+      },
+      {
+        "title": "How do Indian startups accept payments? Stripe stopped onboarding IN startups. It sucks.",
+        "url": "https://www.reddit.com/r/SaaS/comments/1cmxcjg/how_do_indian_startups_accept_payments_stripe/",
+        "subreddit": "SaaS",
+        "date": "8 May 2024",
+        "takeaway": "67 comments explaining why founders in countries Stripe will not serve end up on Lemon Squeezy or Paddle regardless of the fee.",
+        "upvotes": 15,
+        "comments": 67
+      },
+      {
+        "title": "Suggestions/Recommendations for a merchant of record?",
+        "url": "https://www.reddit.com/r/SaaS/comments/11jyql0/suggestionsrecommendations_for_a_merchant_of/",
+        "subreddit": "SaaS",
+        "date": "6 March 2023",
+        "takeaway": "The general MoR shopping thread, useful for how the options are weighed against each other rather than in isolation.",
+        "upvotes": 17,
+        "comments": 62
+      }
+    ],
+    "themes": [
+      {
+        "label": "Fees hurt most on cheap products",
+        "detail": "MoR fee plus processing plus conversion. On a low-priced digital item the total is high enough that sellers write posts about it.",
+        "tone": "negative"
+      },
+      {
+        "label": "Support response times",
+        "detail": "The single loudest complaint, and the subject of the most upvoted thread: tickets going unanswered while something is broken.",
+        "tone": "negative"
+      },
+      {
+        "label": "Sometimes the only option",
+        "detail": "For founders in countries Stripe does not onboard, an MoR that accepts them is not a preference, and that keeps Lemon Squeezy in the conversation.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Stripe owns it now",
+        "detail": "The 2024 acquisition means threads written before it describe a different company's priorities. Check the date before taking the advice.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/SaaS/comments/1jlxcev/lemonsqueezy_is_the_biggest_piece_of_dog_shit_ive/",
+    "https://www.reddit.com/r/SideProject/comments/1fwzd4k/lemonsqueezy_fees_will_kill_your_profits_on/",
+    "https://www.reddit.com/r/SaaS/comments/1cmxcjg/how_do_indian_startups_accept_payments_stripe/",
+    "https://www.reddit.com/r/SaaS/comments/11jyql0/suggestionsrecommendations_for_a_merchant_of/"
+  ]
+}

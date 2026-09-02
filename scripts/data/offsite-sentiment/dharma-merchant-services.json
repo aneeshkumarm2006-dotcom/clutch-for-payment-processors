@@ -1,0 +1,62 @@
+{
+  "slug": "dharma-merchant-services",
+  "name": "Dharma Merchant Services",
+  "google": {
+    "heading": "Dharma Merchant Services on Google",
+    "summary": "Fourteen reviews and a 4.4 average, and almost all of them are around nine years old. Read this as a snapshot of Dharma in the mid-2010s rather than as a current rating, and note that the listing now shows a Montclair, New Jersey address rather than the San Francisco one the company was known for. What the old reviews say is coherent and unusual for merchant services: customers who found Dharma while researching B Corporations, stayed for years, and credited it with saving them thousands after leaving First Data. Interchange plus pricing and a company whose values they could name are the two things they mention. The two one-star reviews are a decade apart and one is a billing dispute the reviewer reported as fraud. Fourteen reviews is not a rating, and nine-year-old reviews are not current, so use this as context and check the pricing yourself.",
+    "rating": 4.4,
+    "reviewCount": 14,
+    "breakdown": [
+      { "stars": 5, "count": 12 },
+      { "stars": 4, "count": 0 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 2 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=14016905087012671890",
+    "profileName": "Dharma Merchant Services, 41 Watchung Plaza #389, Montclair",
+    "themes": [
+      {
+        "label": "Chosen for what the company is",
+        "detail": "More than one reviewer says they found Dharma while researching B Corporations, which is not how anyone picks a processor by accident.",
+        "tone": "positive"
+      },
+      {
+        "label": "Real savings against a legacy processor",
+        "detail": "The specific claim that recurs: thousands of dollars saved after moving off First Data, from merchants who stayed years.",
+        "tone": "positive"
+      },
+      {
+        "label": "The record has not been updated in years",
+        "detail": "Most of these reviews are around nine years old. Nothing here describes Dharma as it operates now.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Fourteen reviews",
+        "detail": "Far too few to average. Read the individual accounts and treat the 4.4 as decoration.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "I have been a Dharma Merchant Services customer since 2014. I think found them while doing research on B Corporations, which are for profit but have social accountability baked in.",
+        "context": "Google review",
+        "date": "About 2017",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=14016905087012671890"
+      },
+      {
+        "text": "I started with First Data and had nothing but trouble with them. I did an search and found Dharma Merchant Services and I've never, ever made a better choice.",
+        "context": "Google review",
+        "date": "About 2017",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=14016905087012671890"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Dharma has almost no Reddit presence. It appears occasionally as a name in interchange-plus recommendation threads, but nobody has written up using it, so there is no discussion to summarise without padding it out with mentions.",
+  "sources": [
+    "https://maps.google.com/?cid=14016905087012671890"
+  ]
+}

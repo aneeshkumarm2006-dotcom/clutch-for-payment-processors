@@ -24,8 +24,15 @@ import type {
   ReviewStatus,
   UserRole,
 } from "@/lib/enums";
+import { hasSentimentContent, isSentimentTone } from "@/lib/sentiment";
 import type { AuditAction, AuditEntity } from "@/models/AuditLog";
 import type { IBlock, IFaqItem, ISeo, IStructuredData } from "@/models/shared";
+import type {
+  IGoogleReviewsOverview,
+  IRedditOverview,
+  ISentimentQuote,
+  ISentimentTheme,
+} from "@/models/sentiment";
 import type { EngineEntity } from "@/lib/engine/types";
 import type { ProcessorJsonLdReview } from "@/lib/seo";
 import type {
@@ -161,6 +168,10 @@ export interface ReviewsPageData {
   faqs?: IFaqItem[];
   blocks?: IBlock[];
   structuredData?: IStructuredData;
+  /** What the processor's Google listing says. Absent on most processors. */
+  googleReviews?: IGoogleReviewsOverview;
+  /** What Reddit says. Absent on most processors. */
+  reddit?: IRedditOverview;
 }
 
 export function toReviewsPageData(raw: unknown): ReviewsPageData | undefined {
@@ -173,13 +184,115 @@ export function toReviewsPageData(raw: unknown): ReviewsPageData | undefined {
     faqs: toFaqs(r.faqs),
     blocks: toBlocks(r.blocks),
     structuredData: toStructuredData(r.structuredData),
+    googleReviews: toGoogleReviewsData(r.googleReviews),
+    reddit: toRedditData(r.reddit),
   };
   // `toSeoData` always returns an object, so testing `out.seo` for truthiness
   // would make every processor look like it had an editorial layer.
   const hasSeo = Object.values(out.seo).some((v) => v !== undefined);
   const meaningful =
-    out.heading || out.intro || out.faqs || out.blocks || out.structuredData || hasSeo;
+    out.heading ||
+    out.intro ||
+    out.faqs ||
+    out.blocks ||
+    out.structuredData ||
+    out.googleReviews ||
+    out.reddit ||
+    hasSeo;
   return meaningful ? out : undefined;
+}
+
+// ---------------------------------------------------------------------------
+// Off-site sentiment (models/sentiment.ts)
+//
+// Same whitelist rule as everything above: a field added to the model and not
+// added here never reaches the page. Both mappers return `undefined` for a
+// section with nothing in it, so `hasSentimentContent` and the renderer agree on
+// what "present" means.
+// ---------------------------------------------------------------------------
+
+const toThemes = (raw: unknown): ISentimentTheme[] | undefined => {
+  if (!Array.isArray(raw)) return undefined;
+  const items = (raw as Record<string, unknown>[])
+    .map((t) => ({
+      label: str(t.label) ?? "",
+      detail: str(t.detail),
+      tone: isSentimentTone(t.tone) ? t.tone : ("mixed" as const),
+    }))
+    .filter((t) => t.label !== "");
+  return items.length ? items : undefined;
+};
+
+const toQuotes = (raw: unknown): ISentimentQuote[] | undefined => {
+  if (!Array.isArray(raw)) return undefined;
+  const items = (raw as Record<string, unknown>[])
+    .map((q) => ({
+      text: str(q.text) ?? "",
+      author: str(q.author),
+      context: str(q.context),
+      date: str(q.date),
+      rating: num(q.rating),
+      url: str(q.url),
+    }))
+    .filter((q) => q.text !== "");
+  return items.length ? items : undefined;
+};
+
+export function toGoogleReviewsData(raw: unknown): IGoogleReviewsOverview | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const g = raw as Record<string, unknown>;
+  const breakdown = Array.isArray(g.breakdown)
+    ? (g.breakdown as Record<string, unknown>[])
+        .map((b) => ({ stars: Number(b.stars), count: Number(b.count) }))
+        .filter((b) => Number.isFinite(b.stars) && Number.isFinite(b.count))
+    : [];
+  const out: IGoogleReviewsOverview = {
+    heading: str(g.heading),
+    summary: str(g.summary),
+    themes: toThemes(g.themes),
+    quotes: toQuotes(g.quotes),
+    checkedOn: str(g.checkedOn),
+    rating: num(g.rating),
+    reviewCount: num(g.reviewCount),
+    breakdown: breakdown.length ? breakdown : undefined,
+    profileUrl: str(g.profileUrl),
+    profileName: str(g.profileName),
+  };
+  return hasSentimentContent(out) ? out : undefined;
+}
+
+export function toRedditData(raw: unknown): IRedditOverview | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const r = raw as Record<string, unknown>;
+  const threads = Array.isArray(r.threads)
+    ? (r.threads as Record<string, unknown>[])
+        .map((t) => ({
+          title: str(t.title) ?? "",
+          url: str(t.url) ?? "",
+          subreddit: str(t.subreddit),
+          date: str(t.date),
+          takeaway: str(t.takeaway),
+          upvotes: num(t.upvotes),
+          comments: num(t.comments),
+        }))
+        // A thread with no link is a claim the reader cannot check, which is the
+        // one thing this section exists to avoid.
+        .filter((t) => t.title !== "" && t.url !== "")
+    : [];
+  const subreddits = strArr(r.subreddits).filter(Boolean);
+  const out: IRedditOverview = {
+    heading: str(r.heading),
+    summary: str(r.summary),
+    themes: toThemes(r.themes),
+    quotes: toQuotes(r.quotes),
+    checkedOn: str(r.checkedOn),
+    tone: isSentimentTone(r.tone) ? r.tone : undefined,
+    subreddits: subreddits.length ? subreddits : undefined,
+    volumeNote: str(r.volumeNote),
+    searchUrl: str(r.searchUrl),
+    threads: threads.length ? threads : undefined,
+  };
+  return hasSentimentContent(out) ? out : undefined;
 }
 
 /** Flatten a lean Processor document into serializable card props. */

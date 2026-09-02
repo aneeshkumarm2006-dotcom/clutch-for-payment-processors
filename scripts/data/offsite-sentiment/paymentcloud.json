@@ -1,0 +1,151 @@
+{
+  "slug": "paymentcloud",
+  "name": "PaymentCloud",
+  "google": {
+    "heading": "PaymentCloud on Google",
+    "summary": "223 reviews, 4.1 average, and the two halves are about different things. The 168 five-star reviews almost all name a person at PaymentCloud and thank them for getting a business approved that nobody else would touch: startups, CBD, high-ticket resale, firms already turned down three or four times. The 51 one-star reviews are almost all written after the account went live, and most of them are not about PaymentCloud at all. They name the acquirer PaymentCloud placed the merchant with, usually EMS or KurvPay, and describe reserve holds, chargeback and VAMP fees, and payouts stopped. Several say PaymentCloud told them it could not help once the account belonged to the processor. That gap is the thing to understand before reading the average: PaymentCloud is an ISO, it does not underwrite or hold your money, and its reviews are largely a rating of the introduction rather than of the terms you end up on.",
+    "rating": 4.1,
+    "reviewCount": 223,
+    "breakdown": [
+      { "stars": 5, "count": 168 },
+      { "stars": 4, "count": 3 },
+      { "stars": 3, "count": 1 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 51 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=9296753440114285262",
+    "profileName": "PaymentCloud, 16501 Ventura Blvd #300, Encino",
+    "themes": [
+      {
+        "label": "Gets hard-to-place businesses approved",
+        "detail": "The praise is consistent and specific: a named rep stayed on it for weeks or months, and the merchant got a live account after being declined elsewhere.",
+        "tone": "positive"
+      },
+      {
+        "label": "The complaints are about the acquirer, not the ISO",
+        "detail": "One-star reviews name EMS and KurvPay and describe reserves, VAMP and chargeback fees, and held payouts. One says over 37,000 dollars was held, another over 64,000 for four months.",
+        "tone": "negative"
+      },
+      {
+        "label": "Support ends at the sale",
+        "detail": "The recurring line in the one-star reviews is that PaymentCloud was attentive during onboarding and told them afterwards it could not help with the processor holding their money.",
+        "tone": "negative"
+      },
+      {
+        "label": "A declined application still costs weeks",
+        "detail": "Several reviewers went through forms and signatures before being told no, and object to the way the refusal was delivered rather than to the refusal.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "These guys are miracle workers. They stuck with me through many providers until we found the right fit! Startups have a tough time getting approved and Hovak stuck with me by my side for months, the whole time!",
+        "context": "Google review",
+        "date": "About October 2025",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=9296753440114285262"
+      },
+      {
+        "text": "My experience with PaymentCloud has been very frustrating, mainly because of the processor they placed us with, Kurv Pay (formerly EMS).",
+        "context": "Google review",
+        "date": "About July 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=9296753440114285262"
+      },
+      {
+        "text": "They are kind and supportive during the onboarding process, but once you are set up, any problems you have suddenly become “not something they can help with.”",
+        "context": "Google review",
+        "date": "About October 2025",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=9296753440114285262"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about PaymentCloud",
+    "summary": "There is not much, and what there is comes from people shopping rather than people six months in. PaymentCloud turns up in high-risk threads as one of three or four names that get suggested to merchants Stripe, Square or PayPal have already dropped, usually alongside Soar Payments and Durango. The tone in those threads is cautiously positive: commenters treat it as a legitimate placement service for CBD, adult and high-ticket categories rather than as a processor. The advice that keeps coming with the recommendation is worth more than the recommendation, which is to compare reserve policy and payout timing before signing, because that is set by whoever PaymentCloud puts you with. Nobody on Reddit has posted a long-term account of what happened after year one, which is exactly the gap the Google one-star reviews fill.",
+    "tone": "mixed",
+    "subreddits": ["smallbusiness", "cbdinfo", "bigcommerce", "dropship", "PaymentProcessing"],
+    "volumeNote": "A handful of threads, mostly people choosing rather than reviewing.",
+    "searchUrl": "https://www.reddit.com/search/?q=paymentcloud&type=posts",
+    "threads": [
+      {
+        "title": "PaymentCloud vs Soar vs alternatives? Real experiences appreciated.",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1t3uteq/highrisk_merchant_payment_processor_paymentcloud/",
+        "subreddit": "smallbusiness",
+        "date": "4 May 2026",
+        "takeaway": "A developer placing a high-ticket fashion resale client after PayPal froze them. The replies weigh PaymentCloud against Soar and warn against MCC games.",
+        "upvotes": 3,
+        "comments": 13
+      },
+      {
+        "title": "Comparing High-Risk Payment Processors for BC",
+        "url": "https://www.reddit.com/r/bigcommerce/comments/1vg37i5/comparing_highrisk_payment_processors_for_bc/",
+        "subreddit": "bigcommerce",
+        "date": "5 August 2026",
+        "takeaway": "An adult store weighing the high-risk shortlist for BigCommerce.",
+        "upvotes": 4,
+        "comments": 11
+      },
+      {
+        "title": "Opinion on paymentcloud?",
+        "url": "https://www.reddit.com/r/dropship/comments/ufj32i/opinion_on_paymentcloud/",
+        "subreddit": "dropship",
+        "date": "30 April 2022",
+        "takeaway": "Asked by a merchant Stripe declined and then referred to PaymentCloud, which is how a lot of people arrive.",
+        "upvotes": 3,
+        "comments": 7
+      },
+      {
+        "title": "PaymentCloud feedback.",
+        "url": "https://www.reddit.com/r/PaymentProcessing/comments/1fwp9oz/paymentcloud_feedback/",
+        "subreddit": "PaymentProcessing",
+        "date": "5 October 2024",
+        "takeaway": "Short, and mainly useful as evidence of how thin the first-hand record is.",
+        "upvotes": 2,
+        "comments": 3
+      }
+    ],
+    "themes": [
+      {
+        "label": "Named as a real option for declined merchants",
+        "detail": "Commenters in CBD and adult threads treat PaymentCloud as a legitimate route rather than a lead broker, which is not true of every name in those threads.",
+        "tone": "positive"
+      },
+      {
+        "label": "Check the reserve before you sign",
+        "detail": "The standard caveat attached to the recommendation, because the reserve and payout terms come from the acquirer behind the placement.",
+        "tone": "mixed"
+      },
+      {
+        "label": "No long-term accounts",
+        "detail": "Every thread is someone deciding. Nobody has written up two years of processing, so Reddit cannot tell you how the placements hold up.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "If you've already had issues with another processor, I'd stick with providers that actually support CBD instead of trying to make a mainstream one fit. PaymentCloud is a legit option and they already work with CBD merchants, Shopify, WooCommerce, ACH, and virtual terminals.",
+        "author": "r/cbdinfo commenter",
+        "context": "3 points",
+        "date": "13 August 2026",
+        "url": "https://www.reddit.com/r/cbdinfo/comments/1vd70sl/payment_processor_for_cbd_business/comment/p3jsahd/"
+      },
+      {
+        "text": "Thanks. I really am leaning toward PaymentCloud because I've really liked what I've seen of their team so far, but I'll keep Davinci in my back pocket.",
+        "author": "r/cbdinfo commenter",
+        "context": "the merchant who opened the thread",
+        "date": "18 August 2026",
+        "url": "https://www.reddit.com/r/cbdinfo/comments/1vd70sl/payment_processor_for_cbd_business/comment/p4g8y2t/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=9296753440114285262",
+    "https://www.reddit.com/r/smallbusiness/comments/1t3uteq/highrisk_merchant_payment_processor_paymentcloud/",
+    "https://www.reddit.com/r/bigcommerce/comments/1vg37i5/comparing_highrisk_payment_processors_for_bc/",
+    "https://www.reddit.com/r/cbdinfo/comments/1vd70sl/payment_processor_for_cbd_business/"
+  ]
+}

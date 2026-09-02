@@ -1,0 +1,65 @@
+{
+  "slug": "windcave",
+  "name": "Windcave",
+  "noGoogleReason": "Windcave has no Google Business Profile under either its current name or its former one, Payment Express. There is no listing to transcribe.",
+  "reddit": {
+    "heading": "What Reddit says about Windcave",
+    "summary": "The most-read Windcave thread on Reddit is a warning from a New Zealander about the account-to-account bank transfer option, which is the fee-free way to pay a council bill and is facilitated by Windcave behind the scenes. It drew 45 comments in r/PersonalFinanceNZ and is about the payer's side, but it matters to a merchant for one reason: the payment method your customers reach for to avoid a surcharge is the one they are being warned off. Beyond that, Windcave appears where you would expect a long-established Australasian gateway to appear, on integration shortlists for NetSuite and for site builders, and in its own WooCommerce plugin announcement. There is no merchant complaining about settlement, support or account closure, and no merchant praising them either. The record is thin enough that it should inform a shortlist rather than a decision.",
+    "tone": "mixed",
+    "subreddits": ["PersonalFinanceNZ", "Netsuite", "Base44"],
+    "volumeNote": "A handful of threads, and the busiest is about the payer experience rather than the merchant one.",
+    "searchUrl": "https://www.reddit.com/search/?q=windcave%20payment%20express&type=posts",
+    "threads": [
+      {
+        "title": "PSA - Windcave (Payment Express) - account to account transfer not recommended",
+        "url": "https://www.reddit.com/r/PersonalFinanceNZ/comments/1pq9q05/psa_windcave_payment_express_account_to_account/",
+        "subreddit": "PersonalFinanceNZ",
+        "date": "19 December 2025",
+        "takeaway": "45 comments warning New Zealanders off the fee-free bank transfer option Windcave facilitates. Worth reading if your customers use it.",
+        "upvotes": 33,
+        "comments": 45
+      },
+      {
+        "title": "Recommendations for Merchant Account Provider (Credit Cards & ACH) for NetSuite Integration",
+        "url": "https://www.reddit.com/r/Netsuite/comments/1h523mq/recommendations_for_merchant_account_provider/",
+        "subreddit": "Netsuite",
+        "date": "2 December 2024",
+        "takeaway": "Windcave as a name on an integration shortlist, which is most of how it appears on Reddit.",
+        "upvotes": 2,
+        "comments": 28
+      },
+      {
+        "title": "Has anyone integrated a payment gateway on a Base44",
+        "url": "https://www.reddit.com/r/Base44/comments/1mcpsq6/has_anyone_integrated_a_payment_gateway_on_a/",
+        "subreddit": "Base44",
+        "date": "29 July 2025",
+        "takeaway": "A marketplace builder weighing gateways, and an indication of where Windcave still gets considered.",
+        "upvotes": 1,
+        "comments": 4
+      }
+    ],
+    "themes": [
+      {
+        "label": "The busiest thread is about your customers",
+        "detail": "New Zealanders warning each other off the account-to-account transfer Windcave facilitates, which is the option they choose to dodge a surcharge.",
+        "tone": "negative"
+      },
+      {
+        "label": "A shortlist name for integrations",
+        "detail": "Turns up where NetSuite and site builders need a gateway, without anyone arguing for or against it.",
+        "tone": "mixed"
+      },
+      {
+        "label": "No merchant account of it either way",
+        "detail": "Nothing about settlement, support or account closure. Thin enough that it should not settle a decision.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/PersonalFinanceNZ/comments/1pq9q05/psa_windcave_payment_express_account_to_account/",
+    "https://www.reddit.com/r/Netsuite/comments/1h523mq/recommendations_for_merchant_account_provider/",
+    "https://www.reddit.com/r/Base44/comments/1mcpsq6/has_anyone_integrated_a_payment_gateway_on_a/"
+  ]
+}

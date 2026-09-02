@@ -1,0 +1,141 @@
+{
+  "slug": "razorpay",
+  "name": "Razorpay",
+  "google": {
+    "heading": "Razorpay on Google",
+    "summary": "The largest listing of any processor here: 2,077 reviews on the Bengaluru office, averaging 3.3, with 1,046 five-star and 779 one-star. Two things are worth knowing before you read it. First, a large share of the one-star reviews are not merchants at all. They are shoppers who paid through Razorpay on someone else's site, did not get a refund, and left the review with the name they saw at checkout. Read past those and the merchant complaints are specific: accounts suspended for unspecified malicious activity with no way to reach anyone, and callback requests for custom pricing or instant settlement going unanswered. Second, several of the most detailed five-star reviews were posted within the same short window in early 2026 and make the same argument in the same register, that a rival's lower TDR is cancelled out by an annual maintenance charge. They may be genuine. They do not read as independent.",
+    "rating": 3.3,
+    "reviewCount": 2077,
+    "breakdown": [
+      { "stars": 5, "count": 1046 },
+      { "stars": 4, "count": 158 },
+      { "stars": 3, "count": 56 },
+      { "stars": 2, "count": 38 },
+      { "stars": 1, "count": 779 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=9925989998005663135",
+    "profileName": "Razorpay, SJR Cyber Laskar, Hosur Road, Bengaluru",
+    "themes": [
+      {
+        "label": "Documentation and integration",
+        "detail": "The most credible praise: developers describe integrating subscriptions in about an hour and rate the sandbox as behaving like production, which they say is rare among Indian gateways.",
+        "tone": "positive"
+      },
+      {
+        "label": "Cardholders reviewing a gateway they never chose",
+        "detail": "A large share of the one-star reviews are consumers chasing a refund from a merchant, who leave the review against Razorpay because that is the name they saw.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Suspension with no route back",
+        "detail": "The merchant complaint that recurs: an account suspended for malicious activity with no reason given and the dashboard link looping back to a login page.",
+        "tone": "negative"
+      },
+      {
+        "label": "Sales response times",
+        "detail": "More than one reviewer says a callback request about custom pricing or instant settlement went unanswered for days.",
+        "tone": "negative"
+      },
+      {
+        "label": "A cluster of similar five-star reviews",
+        "detail": "Several long five-star reviews landed in the same window in early 2026, all making the TDR versus annual maintenance charge argument in near identical terms.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Integrated razorpay for our subsciption product. Took less than one hour itself. Their documantation is genuinly the best i have seen among indian payment gateways, clear, updated, sandbox is also working like production which is rare.",
+        "context": "Google review, one of the early 2026 cluster",
+        "date": "About April 2026",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=9925989998005663135"
+      },
+      {
+        "text": "My horrifying experience with Razorpay! Account suspended for “malicious activity” without reason. Created ticket on their own. I am clueless. There is no way that you can reach to them.",
+        "context": "Google review",
+        "date": "About November 2025",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=9925989998005663135"
+      },
+      {
+        "text": "Worst customer service I've experienced from a payment gateway provider. I submitted a callback request to Razorpay three days ago to discuss custom pricing and instant settlement, but I still haven't received any response.",
+        "context": "Google review",
+        "date": "About August 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=9925989998005663135"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Razorpay",
+    "summary": "Indian developer and SaaS subreddits treat Razorpay as the default and argue about one thing: international payments. Founders collecting USD keep asking what to use instead, and the answers point at Stripe Atlas, Paddle, Lemon Squeezy and PayGlocal rather than at Razorpay International. The domestic verdict is much quieter, which is usually a good sign. The most useful thread for anyone worried about a suspension is a merchant who documented one and got the settlement anyway, which is a more grounded account than either the panic or the marketing. Nobody in these threads disputes that the integration is easy. The disputes are about pricing tiers, settlement timing, and whether the international product is worth using at all.",
+    "tone": "mixed",
+    "subreddits": ["indiandevs", "SaaS", "ShopifyeCommerce", "payoneer"],
+    "volumeNote": "A regular flow of Indian founder threads, most about collecting money from outside India.",
+    "searchUrl": "https://www.reddit.com/search/?q=razorpay&type=posts",
+    "threads": [
+      {
+        "title": "Razorpay as an payment gateway",
+        "url": "https://www.reddit.com/r/indiandevs/comments/1stfprr/razorpay_as_an_payment_gateway/",
+        "subreddit": "indiandevs",
+        "date": "23 April 2026",
+        "takeaway": "A developer picking a gateway for Indian and international users, opening on the rumour that Razorpay's international side is weak.",
+        "upvotes": 12,
+        "comments": 34
+      },
+      {
+        "title": "Needed a balanced Razorpay Review, latest or up-to-date ones. Here's my actual 2-year experience.",
+        "url": "https://www.reddit.com/r/SaaS/comments/1md1vge/needed_a_balanced_razorpay_review_latest_or/",
+        "subreddit": "SaaS",
+        "date": "30 July 2025",
+        "takeaway": "A tech lead finalising a payment stack, asking for two-year accounts rather than first impressions.",
+        "upvotes": 7,
+        "comments": 11
+      },
+      {
+        "title": "Razorpay suspended my account but I still got my settlement, here's exactly how it played out",
+        "url": "https://www.reddit.com/r/payoneer/comments/1uo5ykh/razorpay_suspended_my_account_but_i_still_got_my/",
+        "subreddit": "payoneer",
+        "date": "5 July 2026",
+        "takeaway": "The rare thread that follows a suspension through to the money arriving, written because the poster could not find one.",
+        "upvotes": 3,
+        "comments": 0
+      },
+      {
+        "title": "Which is the Best Payment Gateway for International Payments?",
+        "url": "https://www.reddit.com/r/ShopifyeCommerce/comments/1vm9s3v/which_is_the_best_payment_gateway_for/",
+        "subreddit": "ShopifyeCommerce",
+        "date": "12 August 2026",
+        "takeaway": "An Indian Shopify brand expanding into the GCC, weighing Razorpay International against Xpay, PayGlocal and PayU International.",
+        "upvotes": 4,
+        "comments": 16
+      }
+    ],
+    "themes": [
+      {
+        "label": "The domestic default",
+        "detail": "Indian founders start from Razorpay and ask what else exists, which is a different question from whether to leave.",
+        "tone": "positive"
+      },
+      {
+        "label": "International collection is the sore point",
+        "detail": "Threads about collecting USD steer toward Stripe Atlas, Paddle, Lemon Squeezy and PayGlocal rather than Razorpay International.",
+        "tone": "negative"
+      },
+      {
+        "label": "Suspensions get resolved more often than the reviews suggest",
+        "detail": "At least one documented case where the account was suspended and the settlement still arrived, which the Google one-star reviews would not lead you to expect.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=9925989998005663135",
+    "https://www.reddit.com/r/indiandevs/comments/1stfprr/razorpay_as_an_payment_gateway/",
+    "https://www.reddit.com/r/SaaS/comments/1md1vge/needed_a_balanced_razorpay_review_latest_or/",
+    "https://www.reddit.com/r/payoneer/comments/1uo5ykh/razorpay_suspended_my_account_but_i_still_got_my/",
+    "https://www.reddit.com/r/ShopifyeCommerce/comments/1vm9s3v/which_is_the_best_payment_gateway_for/"
+  ]
+}

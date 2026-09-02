@@ -1,0 +1,80 @@
+{
+  "slug": "bitpay",
+  "name": "BitPay",
+  "noGoogleReason": "BitPay has no Google Business Profile. The Atlanta search returns Bitpay360, an unrelated finance broker, so there is no listing to transcribe.",
+  "reddit": {
+    "heading": "What Reddit says about BitPay",
+    "summary": "BitPay has one of the longest Reddit histories of anything here and almost none of it is written by merchants. It is written by the people who would pay you. r/Bitcoin has covered BitPay since Zynga's 2014 trial, and the two biggest threads are both from December 2017, when the network was congested and the fees were absurd: one about Copay and BitPay wallet transactions getting stuck, and one about a customer trying and failing to pay for a drink at a bitcoin meetup, which drew nearly a thousand comments. The complaints in them are about the checkout, which is to say about the thing your customer experiences: invoices that expire before a transaction confirms, an amount that has to be exact, and a miner fee estimate that was not enough. Read alongside the successful merchant stories that also exist, the honest summary is that BitPay works and that the bitcoin community has strong opinions about it, and if you accept crypto through BitPay some share of your customers will arrive already holding one.",
+    "tone": "mixed",
+    "subreddits": ["Bitcoin", "CryptoCurrency", "btc"],
+    "volumeNote": "Twelve years of r/Bitcoin coverage, most of it from payers rather than merchants.",
+    "searchUrl": "https://www.reddit.com/search/?q=bitpay%20merchant&type=posts",
+    "threads": [
+      {
+        "title": "Community. We need to upvote this post so no one else loses money!",
+        "url": "https://www.reddit.com/r/Bitcoin/comments/7keqmn/community_we_need_to_upvote_this_post_so_no_one/",
+        "subreddit": "Bitcoin",
+        "date": "17 December 2017",
+        "takeaway": "The Copay and BitPay wallet problems during the 2017 congestion, and the single most-read BitPay thread on Reddit.",
+        "upvotes": 1359,
+        "comments": 206
+      },
+      {
+        "title": "Tried to use Bitcoin at a bar tonight at a Bitcoin meetup. Here is how it went.",
+        "url": "https://www.reddit.com/r/Bitcoin/comments/7l7x5u/tried_to_use_bitcoin_at_a_bar_tonight_at_a/",
+        "subreddit": "Bitcoin",
+        "date": "21 December 2017",
+        "takeaway": "956 comments on what paying a merchant in bitcoin actually felt like at the worst possible moment. The customer's side of accepting crypto.",
+        "upvotes": 1247,
+        "comments": 956
+      },
+      {
+        "title": "Zynga Launches Bitcoin Test With BitPay",
+        "url": "https://www.reddit.com/r/Bitcoin/comments/1udclz/zynga_launches_bitcoin_test_with_bitpay/",
+        "subreddit": "Bitcoin",
+        "date": "4 January 2014",
+        "takeaway": "The high point of BitPay's mainstream attention, and useful context for how long it has been doing this.",
+        "upvotes": 961,
+        "comments": 256
+      },
+      {
+        "title": "Yesterday I was the first person to spend Bitcoin at Birks Jewelery!",
+        "url": "https://www.reddit.com/r/CryptoCurrency/comments/c45gau/yesterday_i_was_the_first_person_to_spend_bitcoin/",
+        "subreddit": "CryptoCurrency",
+        "date": "23 June 2019",
+        "takeaway": "A high-value in-store payment that went through, which is the other half of the picture and rarely gets posted.",
+        "upvotes": 165,
+        "comments": 96
+      }
+    ],
+    "themes": [
+      {
+        "label": "The complaints come from payers",
+        "detail": "Expiring invoices, exact-amount requirements and underestimated miner fees. These land on your customer at checkout, not on you.",
+        "tone": "negative"
+      },
+      {
+        "label": "The community has history with it",
+        "detail": "BitPay has been argued about in r/Bitcoin since 2014. Some of your crypto-paying customers will arrive with an opinion already formed.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Merchant-side silence",
+        "detail": "Almost nobody has written about being a BitPay merchant. The settlement and support questions you would want answered are not answered here.",
+        "tone": "mixed"
+      },
+      {
+        "label": "It does work",
+        "detail": "Alongside the complaints there are first-hand accounts of large in-store payments going through without incident.",
+        "tone": "positive"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/Bitcoin/comments/7keqmn/community_we_need_to_upvote_this_post_so_no_one/",
+    "https://www.reddit.com/r/Bitcoin/comments/7l7x5u/tried_to_use_bitcoin_at_a_bar_tonight_at_a/",
+    "https://www.reddit.com/r/Bitcoin/comments/1udclz/zynga_launches_bitcoin_test_with_bitpay/",
+    "https://www.reddit.com/r/CryptoCurrency/comments/c45gau/yesterday_i_was_the_first_person_to_spend_bitcoin/"
+  ]
+}

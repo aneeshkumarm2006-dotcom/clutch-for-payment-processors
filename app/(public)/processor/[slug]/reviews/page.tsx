@@ -13,6 +13,7 @@ import {
 } from "@/lib/public-data";
 import { buildMetadata } from "@/lib/seo";
 import { hasReviewContent } from "@/lib/reviews-indexability";
+import { hasSentimentContent } from "@/lib/sentiment";
 import { applySeoRedirect } from "@/lib/seo-redirect";
 import { buildStructuredData } from "@/lib/engine";
 import { toEngineContext } from "@/lib/engine/context";
@@ -25,6 +26,8 @@ import { JsonLd } from "@/components/public/JsonLd";
 import { RatingBreakdown } from "@/components/public/RatingBreakdown";
 import { RatingStars } from "@/components/public/RatingStars";
 import { VisitWebsiteButton } from "@/components/public/VisitWebsiteButton";
+import { OffsiteSentiment } from "@/components/public/reviews/OffsiteSentiment";
+import { RatingSources } from "@/components/public/reviews/RatingSources";
 import { ReviewCard } from "@/components/public/reviews/ReviewCard";
 import { ReviewFilters } from "@/components/public/reviews/ReviewFilters";
 import {
@@ -55,6 +58,13 @@ import {
  *    from the profile and it is where the "write a review" CTA lands), but until
  *    a merchant has actually written something there is nothing here worth
  *    indexing. `getSitemapEntries` applies the same rule from the other side.
+ * 4. **Off-site sentiment counts as content, and never as rating.** A written
+ *    Google or Reddit overview makes the page indexable on its own (it is unique
+ *    text about one processor), which is the state most of these processors are
+ *    actually in: the discussion is elsewhere and the on-site review count is
+ *    thin. What those sections must never do is reach the Product node's
+ *    `aggregateRating`, which stays computed from approved on-site reviews only.
+ *    See the header of `models/sentiment.ts`.
  *
  * The profile keeps a summary and links here. See `ReviewsSummary` for why the
  * depth lives on one URL rather than both.
@@ -69,23 +79,53 @@ export const revalidate = 1800;
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
-/** Copy the page falls back to when an editor hasn't written its own. */
-function defaultCopy(name: string, count: number) {
+/**
+ * Copy the page falls back to when an editor hasn't written its own.
+ *
+ * `offsite` names the third-party sources that have a written overview on this
+ * page, and it exists to stop the zero-review copy from lying. A processor with
+ * no on-site review but a full Google and Reddit writeup used to open with "No
+ * merchant has reviewed this yet", directly above two screens of merchant
+ * opinion, and the meta description it generated promised a page of on-site
+ * reviews that was not there. Those are the two states this branches on.
+ */
+function defaultCopy(name: string, count: number, offsite: string[] = []) {
+  const sources = offsite.length === 2 ? `${offsite[0]} and ${offsite[1]}` : offsite[0];
   return {
     heading: `${name} reviews`,
     title:
       count > 0
         ? `${name} reviews: ${count} verified merchant rating${count === 1 ? "" : "s"}`
-        : `${name} reviews from real merchants`,
+        : sources
+          ? `${name} reviews: what merchants say on ${sources}`
+          : `${name} reviews from real merchants`,
     description:
       count > 0
         ? `Read all ${count} ${name} review${count === 1 ? "" : "s"} from verified merchants, with ratings for pricing, support, ease of use, features, and reliability.`
-        : `Merchant reviews of ${name}, rated on pricing, support, ease of use, features, and reliability. Share your own experience.`,
+        : sources
+          ? `What ${sources} reviewers actually say about ${name}: the scores, the recurring complaints, and the quotes behind them, checked and summarized by our editors.`
+          : `Merchant reviews of ${name}, rated on pricing, support, ease of use, features, and reliability. Share your own experience.`,
     intro:
       count > 0
         ? `What merchants say about ${name} after running payments through it, rated on pricing, support, ease of use, features, and reliability.`
-        : `No merchant has reviewed ${name} yet. If you process payments with them, yours would be the first.`,
+        : sources
+          ? `No merchant has reviewed ${name} on this site yet, so what follows is a summary of the public reviews and discussion on ${sources}, with links back to every source.`
+          : `No merchant has reviewed ${name} yet. If you process payments with them, yours would be the first.`,
   };
+}
+
+/**
+ * Which off-site sources this processor actually has a written overview for.
+ *
+ * Used for copy only. Both the metadata and the page derive it from the same
+ * `hasSentimentContent` test the renderer gates on, so the title can never
+ * promise a Reddit section the page does not draw.
+ */
+function offsiteSources(rp?: { googleReviews?: unknown; reddit?: unknown }): string[] {
+  return [
+    hasSentimentContent(rp?.googleReviews) ? "Google" : "",
+    hasSentimentContent(rp?.reddit) ? "Reddit" : "",
+  ].filter(Boolean);
 }
 
 export async function generateMetadata({
@@ -101,9 +141,9 @@ export async function generateMetadata({
   const rp = p.reviewsPage;
   const query = parseReviewQuery(searchParams);
   const basePath = `/processor/${p.slug}/reviews`;
-  const copy = defaultCopy(p.name, p.ratingCount);
+  const copy = defaultCopy(p.name, p.ratingCount, offsiteSources(rp));
   const filtered = isFilteredQuery(query);
-  const indexable = hasReviewContent(p.ratingCount, rp?.blocks, rp?.faqs);
+  const indexable = hasReviewContent(p.ratingCount, rp?.blocks, rp?.faqs, rp);
 
   /**
    * Canonical is SELF-referencing in every state, including filtered ones.
@@ -171,11 +211,13 @@ export default async function ProcessorReviewsPage({
   // chrome around nothing is the one outcome worth avoiding.
   if (query.page > 1 && result.items.length === 0) notFound();
 
-  const copy = defaultCopy(p.name, p.ratingCount);
+  const sources = offsiteSources(rp);
+  const copy = defaultCopy(p.name, p.ratingCount, sources);
   const heading = rp?.heading?.trim() || copy.heading;
   const intro = rp?.intro?.trim() || copy.intro;
   const primaryCategory = p.categories[0];
   const hasReviews = p.ratingCount > 0;
+  const hasOffsite = sources.length > 0;
   const filtered = isFilteredQuery(query);
 
   // An FAQ block renders its own section inside <Blocks>; showing `faqs` as well
@@ -270,10 +312,28 @@ export default async function ProcessorReviewsPage({
         </div>
       </header>
 
-      {/* Aggregate + top mentions */}
+      {/* Where this processor is rated, at a glance. Renders only when there is
+          more than one source to compare, which is the confusion it exists to
+          prevent. */}
+      <RatingSources
+        name={p.name}
+        ratingAverage={p.ratingAverage}
+        ratingCount={p.ratingCount}
+        google={rp?.googleReviews}
+        reddit={rp?.reddit}
+        className="mt-10"
+      />
+
+      {/* Aggregate + top mentions. This is the ON-SITE score and says so once
+          there is another one on the page to confuse it with. */}
       {hasReviews && (
-        <section className="mt-10 rounded-lg border border-border bg-card p-6">
+        <section className="mt-6 rounded-lg border border-border bg-card p-6">
           <h2 className="sr-only">{p.name} rating summary</h2>
+          {hasOffsite && (
+            <p className="mb-5 text-label uppercase text-ink-500">
+              Merchant reviews written on this site
+            </p>
+          )}
           <RatingBreakdown
             average={p.ratingAverage}
             count={p.ratingCount}
@@ -316,13 +376,35 @@ export default async function ProcessorReviewsPage({
         </section>
       )}
 
+      {/* What the rest of the web says. Above the review list on purpose: on a
+          processor with four on-site reviews and a busy Google listing, this is
+          the answer the reader came for, and burying it under the list they have
+          already discounted answers a question they stopped asking. */}
+      <OffsiteSentiment
+        name={p.name}
+        google={rp?.googleReviews}
+        reddit={rp?.reddit}
+        className="mt-14"
+      />
+
       {/* The reviews */}
-      <section id="all-reviews" className="mt-10 scroll-mt-24">
+      <section id="all-reviews" className="mt-14 scroll-mt-24">
         <h2 className="text-h2 tracking-tighter2 text-foreground">
           {hasReviews
             ? `All ${formatCount(p.ratingCount)} ${p.name} review${p.ratingCount === 1 ? "" : "s"}`
             : `${p.name} reviews`}
         </h2>
+
+        {/* The heading keeps the keyword; this line carries the distinction. Two
+            rating populations on one page need saying apart in words, not by
+            expecting the reader to infer it from the layout. */}
+        {hasOffsite && (
+          <p className="mt-2 max-w-prose text-body text-muted-foreground">
+            Reviews submitted directly to this site by merchants who use {p.name}, moderated before
+            they appear. Separate from the {sources.join(" and ")} summar
+            {sources.length === 1 ? "y" : "ies"} above.
+          </p>
+        )}
 
         {hasReviews && (
           <ReviewFilters basePath={basePath} query={query} industries={industries} />
@@ -332,7 +414,11 @@ export default async function ProcessorReviewsPage({
           <div className="mt-6 flex flex-col items-center rounded-lg border border-dashed border-border py-16 text-center">
             <MessageSquareText className="size-8 text-muted-foreground" aria-hidden />
             <h3 className="mt-4 text-h4 text-ink-700 dark:text-ink-300">
-              {filtered ? "No reviews match these filters" : `No reviews of ${p.name} yet`}
+              {filtered
+                ? "No reviews match these filters"
+                : hasOffsite
+                  ? `No merchant has reviewed ${p.name} here yet`
+                  : `No reviews of ${p.name} yet`}
             </h3>
             <p className="mt-1 max-w-prose text-body text-muted-foreground">
               {filtered
@@ -418,7 +504,8 @@ export default async function ProcessorReviewsPage({
       {hasReviews && (
         <p className="mt-8 text-small text-muted-foreground">
           Average of {formatRating(p.ratingAverage)} out of 5 across {formatCount(p.ratingCount)}{" "}
-          approved review{p.ratingCount === 1 ? "" : "s"}. See how we score processors in our{" "}
+          approved review{p.ratingCount === 1 ? "" : "s"} submitted to this site
+          {hasOffsite ? ", and nothing else" : ""}. See how we score processors in our{" "}
           <Link href="/methodology" className="font-medium text-accent hover:underline">
             methodology
           </Link>

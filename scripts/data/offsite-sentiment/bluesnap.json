@@ -1,0 +1,63 @@
+{
+  "slug": "bluesnap",
+  "name": "BlueSnap",
+  "google": {
+    "heading": "BlueSnap on Google",
+    "summary": "38 reviews on the Waltham listing, 3.2 average, and you have to sort them before the number means anything. A large share of the 17 one-star reviews are not from merchants. They are cardholders who found BLUESNAP on a statement, did not recognise it, and left a review, in one case from a US customer whose bank flagged a UK charge as fraud. That is what a merchant of record looks like from the buyer's side, and it is not a verdict on BlueSnap as a processor. Filter those out and the merchant complaints are two: an integration and dashboard that reviewers describe as dated, and a flat rate that arrived with additional fees attached. The five-star reviews are from cross-border sellers who settle in local currencies and say it cost them substantially less than Stripe for the same volume, which is BlueSnap's actual pitch.",
+    "rating": 3.2,
+    "reviewCount": 38,
+    "breakdown": [
+      { "stars": 5, "count": 21 },
+      { "stars": 4, "count": 0 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 17 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=17129517380376598156",
+    "profileName": "BlueSnap Inc, 800 South Street #640, Waltham",
+    "themes": [
+      {
+        "label": "Local settlement and cross-border cost",
+        "detail": "The credible praise: sellers who settle in local currencies and put the saving against what they were paying Stripe.",
+        "tone": "positive"
+      },
+      {
+        "label": "Cardholders reviewing the descriptor",
+        "detail": "Several one-star reviews are from people who have never done business with BlueSnap and found it on a statement. Discount them.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Fees beyond the flat rate",
+        "detail": "One merchant says they were quoted a flat rate with no additional fees and were then charged several.",
+        "tone": "negative"
+      },
+      {
+        "label": "Dated software",
+        "detail": "A recurring complaint that the platform and its integrations feel unmaintained.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "This company saved us a ton of fees and allowed us to settle in local currencies at a fraction of the cost we were paying for Stripe with way more features/tech.",
+        "context": "Google review",
+        "date": "About 2021",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=17129517380376598156"
+      },
+      {
+        "text": "never heard of this company, never done business with this company. my credit card company put a fraud alert on my card due to transactions from the UK from blue snap and i live in the US.",
+        "context": "Google review, from a cardholder rather than a merchant",
+        "date": "About 2017",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=17129517380376598156"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "There is no BlueSnap discussion on Reddit worth summarising. The only substantive mention is an April 2025 announcement in r/jOOQ that the jOOQ project moved its payment integration from BlueSnap to PayPro Global, with no discussion under it. Everything else is a passing name in gateway shopping threads or a buyer trying to identify a charge.",
+  "sources": [
+    "https://maps.google.com/?cid=17129517380376598156",
+    "https://www.reddit.com/r/jOOQ/comments/1jorkur/switching_jooqs_payment_integration_from_bluesnap/"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "slug": "midtrans",
+  "name": "Midtrans",
+  "google": {
+    "heading": "Midtrans on Google",
+    "summary": "329 reviews on the Jakarta listing and a 3.0 average that means almost nothing on its own, because the distribution is 159 five-star against 155 one-star with only 15 reviews in between. Two populations, no middle. Note also that a large share of the reviews on this listing are in Indonesian and machine-translated by Google, and a translation is not the reviewer's words, so the summary here rests on the English ones. Those split cleanly. The praise is from small Jakarta merchants describing an easy integration, a wide set of local payment methods and a dashboard that made reconciliation simple. The complaints are about the two ends of the relationship: approval taking well over a month with vague or absent replies, and funds held after a declined transaction, including one merchant told 180 days.",
+    "rating": 3.0,
+    "reviewCount": 329,
+    "breakdown": [
+      { "stars": 5, "count": 159 },
+      { "stars": 4, "count": 10 },
+      { "stars": 3, "count": 2 },
+      { "stars": 2, "count": 3 },
+      { "stars": 1, "count": 155 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=10463953938011559209",
+    "profileName": "Midtrans, Jl. Iskandarsyah II No.2, Jakarta Selatan",
+    "themes": [
+      {
+        "label": "Local payment methods and easy integration",
+        "detail": "The consistent praise from Indonesian merchants: the methods their customers actually use, wired up without much work.",
+        "tone": "positive"
+      },
+      {
+        "label": "Approval times",
+        "detail": "Described as among the longest of any gateway these merchants have used, with more than one account stuck over a month and a half in review.",
+        "tone": "negative"
+      },
+      {
+        "label": "Holds after a declined transaction",
+        "detail": "One merchant describes unrelated funds held over a single declined payment, and being told the hold could run 180 days.",
+        "tone": "negative"
+      },
+      {
+        "label": "Read the English reviews",
+        "detail": "Much of this listing is machine-translated from Indonesian. A translation is not what the reviewer wrote, so it is excluded here.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "The Customer Service is possibly the worst i have seen in the world. Significant delays, no gaurntee of reply, no acountability, vague and incomplete instructions for onbaording and etc.",
+        "context": "Google review",
+        "date": "About July 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=10463953938011559209"
+      },
+      {
+        "text": "As a small business owner in Jakarta, I've been using Midtrans for our online payment processing, and I couldn't be happier! Their platform is incredibly user-friendly, making it easy to integrate payments into our e-commerce site.",
+        "context": "Google review",
+        "date": "About 2025",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=10463953938011559209"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Midtrans has no Reddit footprint in English. The only hits are a Payhip release note listing it among eleven newly supported gateways and a developer's job posting. The Indonesian merchant conversation, if it exists, is not happening on Reddit.",
+  "sources": [
+    "https://maps.google.com/?cid=10463953938011559209",
+    "https://www.reddit.com/r/Payhip/comments/1pl1axs/new_feature_payhip_integrates_with_11_new_payment/"
+  ]
+}

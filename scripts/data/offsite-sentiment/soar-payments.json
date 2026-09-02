@@ -1,0 +1,123 @@
+{
+  "slug": "soar-payments",
+  "name": "Soar Payments",
+  "google": {
+    "heading": "Soar Payments on Google",
+    "summary": "23 reviews on The Woodlands listing, 4.5 average, 20 of them five star. Too few to be a rating, and the shape is the one you see on every high-risk ISO: the praise is about getting approved, the criticism is about what happened afterwards. The positive reviews are from merchants who had been turned down elsewhere and describe a named rep staying with them until a bank said yes, plus, notably, several who single out being able to reach a person by phone without waiting. The three one-star reviews are the ones to weigh. One describes funds held from the first transaction. One describes a 395 dollar termination fee charged three and a half years after signing, on an account placed with Clearent. Both are complaints about the acquirer's terms rather than about Soar's service, which is the structural thing to understand about buying through an ISO.",
+    "rating": 4.5,
+    "reviewCount": 23,
+    "breakdown": [
+      { "stars": 5, "count": 20 },
+      { "stars": 4, "count": 0 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 3 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=6211296043075185854",
+    "profileName": "SoarPay, 21 Waterway Avenue Suite 300, The Woodlands",
+    "themes": [
+      {
+        "label": "Approvals for businesses others declined",
+        "detail": "The consistent five-star story: a named rep who kept working the placement after other providers had said no.",
+        "tone": "positive"
+      },
+      {
+        "label": "You can get someone on the phone",
+        "detail": "Reviewers single this out specifically, which is unusual enough in payments to be worth noting.",
+        "tone": "positive"
+      },
+      {
+        "label": "Terms come from the acquirer",
+        "detail": "A 395 dollar termination fee charged three and a half years in, on an account placed with Clearent. The paperwork is not Soar's, and that is the point.",
+        "tone": "negative"
+      },
+      {
+        "label": "Twenty-three reviews",
+        "detail": "Not enough to average. Read the three negative ones in full rather than the 4.5.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "The Soarpay team is fantastic! I've really enjoyed working with Kyle and the rest of the team. What stands out the most is how easy it is to reach them.",
+        "context": "Google review",
+        "date": "About 2025",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=6211296043075185854"
+      },
+      {
+        "text": "Started with Clearant thru Soar in 2020. Was informed that a termination fee would be charged if canceled within a year. 3 1/2 years later they charged me $395.00 termination fee.",
+        "context": "Google review",
+        "date": "About 2024",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=6211296043075185854"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Soar Payments",
+    "summary": "Soar appears on Reddit the way most high-risk ISOs do: as one of three or four names suggested to a merchant who has just been dropped by Stripe, PayPal or Square, usually next to PaymentCloud and Durango. There is no first-hand account of running an account with them for a year. What the threads are good for is the advice that comes attached, and the most useful of it is a warning against the workaround people reach for first, which is onboarding with a mainstream processor under a mismatched merchant category code. The reply spelling that out points out that Stripe catches it through transaction patterns or a chargeback, and that the result is a termination rather than a freeze. That is the argument for using a placement service like Soar in the first place, made by someone who is not selling one.",
+    "tone": "mixed",
+    "subreddits": ["smallbusiness", "bigcommerce", "smallbusinessowner"],
+    "volumeNote": "A few shortlist threads. No long-term merchant accounts.",
+    "searchUrl": "https://www.reddit.com/search/?q=soar%20payments%20high%20risk&type=posts",
+    "threads": [
+      {
+        "title": "PaymentCloud vs Soar vs alternatives? Real experiences appreciated.",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1t3uteq/highrisk_merchant_payment_processor_paymentcloud/",
+        "subreddit": "smallbusiness",
+        "date": "4 May 2026",
+        "takeaway": "The main thread naming Soar, opened by a developer placing a high-ticket resale client after PayPal froze them.",
+        "upvotes": 6,
+        "comments": 13
+      },
+      {
+        "title": "Comparing High-Risk Payment Processors for BC",
+        "url": "https://www.reddit.com/r/bigcommerce/comments/1vg37i5/comparing_highrisk_payment_processors_for_bc/",
+        "subreddit": "bigcommerce",
+        "date": "5 August 2026",
+        "takeaway": "An adult-oriented store working through the same shortlist for BigCommerce.",
+        "upvotes": 4,
+        "comments": 11
+      },
+      {
+        "title": "Do I need a payment processor that specializes in high risk for my online store or will a standard merchant account work?",
+        "url": "https://www.reddit.com/r/smallbusinessowner/comments/1vfb76d/do_i_need_a_payment_processor_that_specializes_in/",
+        "subreddit": "smallbusinessowner",
+        "date": "4 August 2026",
+        "takeaway": "The prior question, and the better one to read first: whether the business is actually high risk before paying high-risk pricing.",
+        "upvotes": 1,
+        "comments": 4
+      }
+    ],
+    "themes": [
+      {
+        "label": "A shortlist name, not a reviewed product",
+        "detail": "Soar gets suggested alongside PaymentCloud and Durango. Nobody on Reddit has written up living with the account afterwards.",
+        "tone": "mixed"
+      },
+      {
+        "label": "The MCC workaround is worse",
+        "detail": "The most useful advice in these threads: signing up with a mainstream processor under a mismatched category ends in termination, not a freeze.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "If you onboard under an MCC that doesn't match what you're actually selling, Stripe will eventually catch it through transaction patterns or a chargeback.",
+        "author": "r/smallbusiness commenter",
+        "context": "in the PaymentCloud versus Soar thread",
+        "date": "5 May 2026",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1t3uteq/highrisk_merchant_payment_processor_paymentcloud/comment/ok0h75m/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=6211296043075185854",
+    "https://www.reddit.com/r/smallbusiness/comments/1t3uteq/highrisk_merchant_payment_processor_paymentcloud/",
+    "https://www.reddit.com/r/bigcommerce/comments/1vg37i5/comparing_highrisk_payment_processors_for_bc/",
+    "https://www.reddit.com/r/smallbusinessowner/comments/1vfb76d/do_i_need_a_payment_processor_that_specializes_in/"
+  ]
+}

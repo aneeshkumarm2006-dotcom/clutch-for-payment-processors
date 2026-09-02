@@ -1,0 +1,40 @@
+{
+  "slug": "solidgate",
+  "name": "Solidgate",
+  "noGoogleReason": "Solidgate has no Google Business Profile. Searching for it in Kyiv or anywhere else returns nothing under the name, so there is no listing to read.",
+  "reddit": {
+    "heading": "What Reddit says about Solidgate",
+    "summary": "One post, and it is worth the section on its own. In February 2026 a developer released a Ruby SDK for Solidgate, explaining that he wrote it after finding no existing one while migrating a project off Braintree. That is a small fact with a practical edge: if you are on Rails, the client library you integrate against is a stranger's side project rather than something Solidgate ships and maintains. Everything else the searches return is Solidgate recruiting, from a batch of job adverts posted to a jobs aggregator in late 2022. There is no merchant on Reddit describing onboarding, settlement, chargeback handling or support, in either direction. For a processor aimed at subscription and digital businesses that is a genuine gap rather than a good sign, and it means Reddit cannot tell you anything about the parts that matter most.",
+    "tone": "mixed",
+    "subreddits": ["ruby"],
+    "volumeNote": "One substantive post. The rest is the company's own recruitment.",
+    "searchUrl": "https://www.reddit.com/search/?q=solidgate&type=posts",
+    "threads": [
+      {
+        "title": "A Ruby Gem to work with Solidgate Payments",
+        "url": "https://www.reddit.com/r/ruby/comments/1qv4pw5/a_ruby_gem_to_work_with_solidgate_payments/",
+        "subreddit": "ruby",
+        "date": "3 February 2026",
+        "takeaway": "A developer migrating off Braintree found no Ruby SDK for Solidgate and wrote one. Check what official client libraries exist for your stack before committing.",
+        "upvotes": 7,
+        "comments": 0
+      }
+    ],
+    "themes": [
+      {
+        "label": "Check the SDK for your language",
+        "detail": "The one useful finding: no Ruby SDK existed as of February 2026, and the one that does now is a third party's.",
+        "tone": "negative"
+      },
+      {
+        "label": "No merchant has written about it",
+        "detail": "Nothing on onboarding, settlement, chargebacks or support. Reddit is not a source on Solidgate in either direction.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/ruby/comments/1qv4pw5/a_ruby_gem_to_work_with_solidgate_payments/"
+  ]
+}

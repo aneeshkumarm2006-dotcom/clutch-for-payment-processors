@@ -1,0 +1,89 @@
+{
+  "slug": "polar-payments",
+  "name": "Polar",
+  "noGoogleReason": "Polar has no Google Business Profile. Searching the name returns Polar Technologies in New Delhi, an unrelated company, so there is no listing to transcribe.",
+  "reddit": {
+    "heading": "What Reddit says about Polar",
+    "summary": "Polar's Reddit record is unusually good for a product this young, and it is concentrated in framework subreddits rather than in payments ones. The most-read pieces are two hands-on write-ups from a developer who built with Better Auth and Polar on SvelteKit and then posted the same assessment to r/SaaS, and they are the reason people find it: the integration story is the pitch, and it holds up in the threads. Where the discussion gets sharper is cost, and one comment states the structural point better than anything on Polar's own site, which is that Polar's fees sit on top of Stripe's because Polar runs on Stripe. The other recurring context is people who cannot use Stripe directly, either because their country is unsupported or because they are shipping a mobile app and need a merchant of record outside the app stores. Polar and Dodo Payments get compared head to head repeatedly in that situation, and neither has enough of a track record for anyone to settle it.",
+    "tone": "positive",
+    "subreddits": ["SaaS", "sveltejs", "nextjs", "indiehackers"],
+    "volumeNote": "Active since early 2025, mostly among developers rather than merchants.",
+    "searchUrl": "https://www.reddit.com/search/?q=polar.sh%20merchant%20of%20record&type=posts",
+    "threads": [
+      {
+        "title": "I spent some time using Better-Auth and Polar with SvelteKit and this is what I think.",
+        "url": "https://www.reddit.com/r/sveltejs/comments/1kaiwkk/i_spent_some_time_using_betterauth_and_polar_with/",
+        "subreddit": "sveltejs",
+        "date": "29 April 2025",
+        "takeaway": "The most-read Polar write-up, from someone who actually shipped with it. The comments are where the fee stacking gets explained.",
+        "upvotes": 54,
+        "comments": 31
+      },
+      {
+        "title": "I tried Polar as payments system and this is what I think.",
+        "url": "https://www.reddit.com/r/SaaS/comments/1kc2fq5/i_tried_polar_as_payments_system_and_this_is_what/",
+        "subreddit": "SaaS",
+        "date": "1 May 2025",
+        "takeaway": "The same assessment aimed at founders rather than developers, with 29 replies from people weighing it against Stripe.",
+        "upvotes": 20,
+        "comments": 29
+      },
+      {
+        "title": "Merchant of Record: Polar.sh vs Dodopayments. What should I use for my SaaS",
+        "url": "https://www.reddit.com/r/SaaS/comments/1nrt3xz/merchant_of_record_polarsh_vs_dodopayments_what/",
+        "subreddit": "SaaS",
+        "date": "27 September 2025",
+        "takeaway": "The head-to-head people actually run, from a founder who wants to stop thinking about payments rather than optimise them.",
+        "upvotes": 7,
+        "comments": 22
+      },
+      {
+        "title": "How to add a payment gateway for app subscriptions without violating Play Store/App Store rules?",
+        "url": "https://www.reddit.com/r/SaaS/comments/1vf51o0/how_to_add_a_payment_gateway_for_app/",
+        "subreddit": "SaaS",
+        "date": "4 August 2026",
+        "takeaway": "The other case where Polar keeps coming up: a developer whose country is not supported for app store payouts.",
+        "upvotes": 4,
+        "comments": 4
+      }
+    ],
+    "themes": [
+      {
+        "label": "The integration is the selling point",
+        "detail": "Developers who shipped with it describe the Better Auth plugin and the SDK work as the reason they stayed, and say so unprompted.",
+        "tone": "positive"
+      },
+      {
+        "label": "The fees sit on top of Stripe's",
+        "detail": "Polar runs on Stripe, so its cut is additional. Worth pricing deliberately rather than discovering.",
+        "tone": "negative"
+      },
+      {
+        "label": "Chosen when Stripe is not available",
+        "detail": "Unsupported countries and app store payout restrictions bring people to Polar as much as the developer experience does.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Too young to have a failure record",
+        "detail": "Unlike Paddle and Dodo there are no account-closure threads yet. That is an absence of evidence rather than evidence of safety.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "The issue with Polar is their taxes are on top of Stripe's. But then again, LemonSqueezy, which was aquired by Stripe last year, is also built on top of them.",
+        "author": "r/sveltejs commenter",
+        "context": "5 points, in the Better Auth and Polar write-up",
+        "date": "29 April 2025",
+        "url": "https://www.reddit.com/r/sveltejs/comments/1kaiwkk/i_spent_some_time_using_betterauth_and_polar_with/comment/mpmlb89/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/sveltejs/comments/1kaiwkk/i_spent_some_time_using_betterauth_and_polar_with/",
+    "https://www.reddit.com/r/SaaS/comments/1kc2fq5/i_tried_polar_as_payments_system_and_this_is_what/",
+    "https://www.reddit.com/r/SaaS/comments/1nrt3xz/merchant_of_record_polarsh_vs_dodopayments_what/",
+    "https://www.reddit.com/r/SaaS/comments/1vf51o0/how_to_add_a_payment_gateway_for_app/"
+  ]
+}

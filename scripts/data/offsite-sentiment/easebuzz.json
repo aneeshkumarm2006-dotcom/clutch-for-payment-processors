@@ -1,0 +1,120 @@
+{
+  "slug": "easebuzz",
+  "name": "Easebuzz",
+  "google": {
+    "heading": "Easebuzz on Google",
+    "summary": "175 reviews on the Pune listing, averaging 3.9, with 120 five-star and 41 one-star. The one-star reviews are unusually specific for a listing this size and they cluster on money not moving. One describes funds blocked in an RBL virtual account setup used to pay about 50 employees' salaries, unresolved for months. Others describe approval in a day followed by settlements stopping once real volume arrives, and physical verification visits that led nowhere. The five-star reviews are mostly about the dashboard and about switching away from a gateway with delayed settlements, which is the same subject from the other side. For a merchant the useful reading is that the complaints are about settlement reliability rather than about pricing or integration.",
+    "rating": 3.9,
+    "reviewCount": 175,
+    "breakdown": [
+      { "stars": 5, "count": 120 },
+      { "stars": 4, "count": 9 },
+      { "stars": 3, "count": 2 },
+      { "stars": 2, "count": 3 },
+      { "stars": 1, "count": 41 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=11583162238612170308",
+    "profileName": "Easebuzz Private Limited, Pune",
+    "themes": [
+      {
+        "label": "Settlements and blocked funds",
+        "detail": "The specific one-star complaint, including a virtual account setup that held salary funds for about 50 staff for months.",
+        "tone": "negative"
+      },
+      {
+        "label": "Approved fast, reviewed later",
+        "detail": "More than one reviewer describes same-day approval followed by problems once payments started flowing.",
+        "tone": "negative"
+      },
+      {
+        "label": "Real-time tracking and reporting",
+        "detail": "The consistent praise is the dashboard: transaction tracking and analytics that merchants say they did not have before.",
+        "tone": "positive"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "We have merchant accounts with EaseBuzz for processing our employee salary transactions.",
+        "context": "Google review",
+        "date": "About June 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=11583162238612170308"
+      },
+      {
+        "text": "We recently integrated the Easebuzz payment gateway, and the results have been really good.",
+        "context": "Google review",
+        "date": "About September 2025",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=11583162238612170308"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Easebuzz",
+    "summary": "Almost everything tagged Easebuzz on Reddit is posted by Easebuzz. The r/Easebuzz subreddit is a company feed of merchant success stories and executive interviews, with no comments under any of it. The one genuinely independent thread is worth more than the rest combined: an Indian e-commerce brand doing 80 to 90 lakh a month asking which of PayU, Razorpay and Easebuzz has usable support, having found the pricing close enough that support was the deciding factor. Two merchants who went through that comparison answer, and both land in the same place on Easebuzz. The documentation is thin and the sandbox is poorly maintained, integration took roughly twice as long as budgeted because fields were undocumented, and the support team is small enough that you feel it. Both of them chose Razorpay.",
+    "tone": "negative",
+    "subreddits": ["Indian_Business", "Easebuzz", "paymentgatewayindia"],
+    "volumeNote": "One independent comparison thread, and a company-run subreddit with no discussion in it.",
+    "searchUrl": "https://www.reddit.com/search/?q=easebuzz&type=posts",
+    "threads": [
+      {
+        "title": "Which payment gateways in India offer reliable technical support for merchants?",
+        "url": "https://www.reddit.com/r/Indian_Business/comments/1vcfel5/which_payment_gateways_in_india_offer_reliable/",
+        "subreddit": "Indian_Business",
+        "date": "1 August 2026",
+        "takeaway": "The only substantial independent thread. Two merchants who evaluated Easebuzz describe thin docs, a poorly maintained sandbox and a small support team.",
+        "upvotes": 2,
+        "comments": 9
+      },
+      {
+        "title": "Payment Gateway for Startups. Built for Scale. Powered by Easebuzz",
+        "url": "https://www.reddit.com/r/Easebuzz/comments/1tkl5k1/payment_gateway_for_startups_built_for_scale/",
+        "subreddit": "Easebuzz",
+        "date": "22 May 2026",
+        "takeaway": "Representative of the company subreddit: marketing copy, zero comments.",
+        "upvotes": 2,
+        "comments": 0
+      }
+    ],
+    "themes": [
+      {
+        "label": "Documentation and sandbox",
+        "detail": "A developer says the API reference has gaps, integration guides are outdated, and integration took about twice as long as planned because fields were undocumented.",
+        "tone": "negative"
+      },
+      {
+        "label": "A small support team",
+        "detail": "Described as a niche product with a support team you notice the size of, by a merchant who compared it against PayU and Razorpay.",
+        "tone": "negative"
+      },
+      {
+        "label": "Company-run subreddit, no discussion",
+        "detail": "r/Easebuzz is posted to by Easebuzz. Success stories and executive interviews, none of them with a reply.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Their API reference has gaps, the sandbox is not well maintained, and half the integration guides are outdated. Integration took our dev almost twice as long as expected because he was guessing at fields that weren't documented.",
+        "author": "r/Indian_Business commenter",
+        "context": "in the PayU, Razorpay and Easebuzz comparison thread",
+        "date": "1 August 2026",
+        "url": "https://www.reddit.com/r/Indian_Business/comments/1vcfel5/which_payment_gateways_in_india_offer_reliable/comment/p12r4vt/"
+      },
+      {
+        "text": "Easebuzz is genuinely a niche product, the documentation is sparse, and their support team is small.",
+        "author": "r/Indian_Business commenter",
+        "context": "a merchant who evaluated all three and chose Razorpay",
+        "date": "2 August 2026",
+        "url": "https://www.reddit.com/r/Indian_Business/comments/1vcfel5/which_payment_gateways_in_india_offer_reliable/comment/p19038v/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=11583162238612170308",
+    "https://www.reddit.com/r/Indian_Business/comments/1vcfel5/which_payment_gateways_in_india_offer_reliable/",
+    "https://www.reddit.com/r/Easebuzz/comments/1tkl5k1/payment_gateway_for_startups_built_for_scale/"
+  ]
+}

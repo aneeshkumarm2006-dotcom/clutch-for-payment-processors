@@ -1,0 +1,74 @@
+{
+  "slug": "metronome-billing",
+  "name": "Metronome",
+  "noGoogleReason": "Metronome has no Google Business Profile. A Maps search for the name returns a San Francisco dance school, so there is no listing to transcribe.",
+  "reddit": {
+    "heading": "What Reddit says about Metronome",
+    "summary": "Metronome comes up in one situation and one only: a company has outgrown Stripe's metered billing and is looking for what comes next. The r/SaaS threads on usage-based billing are where it lives, and the case people make against Stripe in them is specific rather than general. Stripe is fine while pricing is a straight rate per unit, and starts to hurt once credits, rollovers, prepaid balances, custom enterprise contracts and invoicing enter, at which point teams describe rebuilding a billing engine on top of it. Both of the first-hand comments naming Metronome are from teams that made exactly that move, and both are positive, one of them explicitly on enterprise readiness. Two comments is not a body of evidence and neither has been challenged or corroborated. What is not there is any account of Metronome failing, being expensive, or being hard to implement, which for a platform sold to companies with complicated pricing is an absence worth noticing either way.",
+    "tone": "positive",
+    "subreddits": ["SaaS", "LangChain"],
+    "volumeNote": "Named in usage-based billing threads. Two first-hand comments, both positive, and no thread about it on its own.",
+    "searchUrl": "https://www.reddit.com/search/?q=metronome%20usage%20based%20billing&type=posts",
+    "threads": [
+      {
+        "title": "Simple usage-based billing provider?",
+        "url": "https://www.reddit.com/r/SaaS/comments/18h6un9/simple_usagebased_billing_provider/",
+        "subreddit": "SaaS",
+        "date": "13 December 2023",
+        "takeaway": "39 replies from teams monetising an API and finding Stripe's metered billing more work than expected. The thread Metronome exists for.",
+        "upvotes": 14,
+        "comments": 39
+      },
+      {
+        "title": "should you rely on Stripe for usage based billing?",
+        "url": "https://www.reddit.com/r/SaaS/comments/1tk079z/should_you_rely_on_stripe_for_usage_based_billing/",
+        "subreddit": "SaaS",
+        "date": "21 May 2026",
+        "takeaway": "The clearest statement of where Stripe stops being enough: credits, rollovers, prepaid balances and enterprise invoicing.",
+        "upvotes": 2,
+        "comments": 10
+      },
+      {
+        "title": "Usage Based Billing - is it really that big of a pain?",
+        "url": "https://www.reddit.com/r/SaaS/comments/1kih4i9/usage_based_billing_is_it_really_that_big_of_a/",
+        "subreddit": "SaaS",
+        "date": "9 May 2025",
+        "takeaway": "Someone trying to quantify how painful usage billing actually is, and where the enterprise comparison against Stripe gets made.",
+        "upvotes": 2,
+        "comments": 18
+      }
+    ],
+    "themes": [
+      {
+        "label": "Reached for after Stripe stops fitting",
+        "detail": "Every mention comes from a team whose pricing grew past a rate per unit into credits, rollovers and custom contracts.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Both first-hand accounts are positive",
+        "detail": "Two teams that switched from Stripe say so without hedging, one specifically on enterprise readiness.",
+        "tone": "positive"
+      },
+      {
+        "label": "Two comments is not a record",
+        "detail": "Nobody has written a thread about Metronome, so there is nothing on price, implementation time or support.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Personally have had a terrible experience with Stripe. The product isn't where it needs to be for enterprise. We recently switched over to Metronome and love it, besides a couple of tweaks it's been helpful.",
+        "author": "r/SaaS commenter",
+        "context": "the fullest first-hand account of Metronome on Reddit",
+        "date": "17 July 2025",
+        "url": "https://www.reddit.com/r/SaaS/comments/1kih4i9/usage_based_billing_is_it_really_that_big_of_a/comment/n3nwy95/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://www.reddit.com/r/SaaS/comments/18h6un9/simple_usagebased_billing_provider/",
+    "https://www.reddit.com/r/SaaS/comments/1tk079z/should_you_rely_on_stripe_for_usage_based_billing/",
+    "https://www.reddit.com/r/SaaS/comments/1kih4i9/usage_based_billing_is_it_really_that_big_of_a/"
+  ]
+}

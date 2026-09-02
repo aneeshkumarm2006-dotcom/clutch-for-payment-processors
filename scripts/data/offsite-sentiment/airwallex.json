@@ -1,0 +1,71 @@
+{
+  "slug": "airwallex",
+  "name": "Airwallex",
+  "google": {
+    "heading": "Airwallex on Google",
+    "summary": "308 reviews on the Melbourne office listing, 3.2 average, and again two populations: 162 five-star against 131 one-star with 15 in between. The five-star reviews come from multi-entity businesses that hold several currencies and describe the multi-currency accounts and FX doing exactly what they wanted, several of them naming an account manager. The one-star reviews describe two problems. The first is settlement timing, with one merchant of nearly two years saying transactions regularly took around ten days to arrive. The second, and the more common one, is funds frozen during a review with no reachable human: reviewers describe AI-handled support tickets, several months to get money back, and onboarding rejections after supplying ASIC registration, shareholding structure and company constitution. If you are weighing Airwallex, the split maps fairly cleanly onto whether you are using it as a treasury account or as a payments processor.",
+    "rating": 3.2,
+    "reviewCount": 308,
+    "breakdown": [
+      { "stars": 5, "count": 162 },
+      { "stars": 4, "count": 10 },
+      { "stars": 3, "count": 2 },
+      { "stars": 2, "count": 3 },
+      { "stars": 1, "count": 131 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=16317162712012212280",
+    "profileName": "Airwallex, 7/15 William Street, Melbourne",
+    "themes": [
+      {
+        "label": "Multi-currency accounts do the job",
+        "detail": "The praise is specific and consistent: invoice in USD, hold USD, move between entities in different countries without a bank in the middle.",
+        "tone": "positive"
+      },
+      {
+        "label": "Funds frozen mid-review",
+        "detail": "The dominant one-star complaint. One reviewer says it took over four months to retrieve their money and describes support as AI bots.",
+        "tone": "negative"
+      },
+      {
+        "label": "Settlement can run to about ten days",
+        "detail": "Raised by a merchant of nearly two years as the first thing that went wrong, and echoed by others weighing cash flow.",
+        "tone": "negative"
+      },
+      {
+        "label": "Onboarding refusals after full disclosure",
+        "detail": "Several reviewers list the documents they supplied, including ASIC registration and company constitution, before being declined.",
+        "tone": "negative"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Airwallex has been greatly useful to our global SME company, based in Australia. It saves so much time being able to transact in multiple currencies instantly.",
+        "context": "Google review",
+        "date": "About December 2025",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=16317162712012212280"
+      },
+      {
+        "text": "I used Airwallex for my website for nearly two years, and I feel obligated to warn others about my experience.",
+        "context": "Google review",
+        "date": "About March 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=16317162712012212280"
+      },
+      {
+        "text": "Airwallex will find any reason to freeze money YOU own, probably to invest it themselves.",
+        "context": "Google review",
+        "date": "About November 2025",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=16317162712012212280"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Reddit talks about Airwallex as an Australian employer and an AFL jumper sponsor, not as a way to take payments. The busiest threads are about the chief executive's management style and about company culture, and no merchant has written up using it. Summarising that as sentiment about the product would be misleading.",
+  "sources": [
+    "https://maps.google.com/?cid=16317162712012212280",
+    "https://www.reddit.com/r/cscareerquestionsOCE/comments/16xo8o7/airwallex_chief_executive_jack_zhang_called/",
+    "https://www.reddit.com/r/cscareerquestionsOCE/comments/1umc7v3/why_is_airwallex_lesser_known_than_canva_and/"
+  ]
+}

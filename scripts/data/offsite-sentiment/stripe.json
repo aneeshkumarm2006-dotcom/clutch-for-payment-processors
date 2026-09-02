@@ -1,0 +1,164 @@
+{
+  "slug": "stripe",
+  "name": "Stripe",
+  "google": {
+    "heading": "Stripe on Google",
+    "summary": "The listing is Stripe's South San Francisco head office, and it holds 744 reviews averaging 3.6. The shape matters more than the average. Four hundred and fifty five people left five stars, 256 left one, and only 33 reviews sit anywhere in between. Almost nobody has a middling experience worth writing up. The five-star reviews are nearly all about support: replies in minutes, follow-up calls, an issue closed the same day. The one-star reviews are nearly all the same event told at different lengths, which is an account closed or a payout paused, a sum named to the cent, and a wait measured in months. Read it as two populations rather than one average. It is also not a survey of Stripe merchants: it is a sample of the people angry or grateful enough to review a corporate office on Google.",
+    "rating": 3.6,
+    "reviewCount": 744,
+    "breakdown": [
+      { "stars": 5, "count": 455 },
+      { "stars": 4, "count": 21 },
+      { "stars": 3, "count": 7 },
+      { "stars": 2, "count": 5 },
+      { "stars": 1, "count": 256 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=13748003194712396607",
+    "profileName": "Stripe, 354 Oyster Point Blvd, South San Francisco",
+    "themes": [
+      {
+        "label": "Support answers fast",
+        "detail": "The recurring praise is response time. Reviewers describe getting a human within minutes and being called back, which is not what most payment companies are credited with.",
+        "tone": "positive"
+      },
+      {
+        "label": "Funds held after an account closes",
+        "detail": "The one-star reviews name figures and durations. One says 8,010.45 dollars held for about five months, with the account closed on a generic high-risk basis.",
+        "tone": "negative"
+      },
+      {
+        "label": "The decision arrives without a reason",
+        "detail": "What reviewers object to is less the closure than the absence of anything to answer: a policy reference instead of a cause, and no date for the money.",
+        "tone": "negative"
+      },
+      {
+        "label": "Nothing in the middle",
+        "detail": "Only 33 of 744 reviews are two, three or four stars. An average of 3.6 describes almost none of the people who wrote one.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Stripe is currently holding $8,010.45 from our account for about 5 months, and so far there has been NO clear explanation or defined timeline for when this money will be released.",
+        "context": "Google review",
+        "date": "About May 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=13748003194712396607"
+      },
+      {
+        "text": "I've been using Stripe for many years for my photography business, and my experience with chargebacks has been very disappointing.",
+        "context": "Google review",
+        "date": "About May 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=13748003194712396607"
+      },
+      {
+        "text": "Stripe has honestly been great for my business. Everything is easy to use, payments run smoothly, and their support team is always fast and helpful. You get a response within minutes, and they fix your issue quickly every time.",
+        "context": "Google review",
+        "date": "About January 2026",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=13748003194712396607"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Stripe",
+    "summary": "Reddit's Stripe discussion is mostly written by merchants whose accounts have just been closed, because that is what people go to Reddit for. Read it for the mechanism rather than the odds. The mechanism the threads keep describing is post-underwriting: Stripe onboards almost anyone in minutes and only reviews the business properly once volume arrives, so the review lands after the merchant has built something around it. Two of the loudest threads are peptide sellers who scaled to five and six figures a month before being cut off, and the replies are not sympathetic. The highest-scoring comment in one of them tells the poster the process is working as designed. Threads from ordinary low-risk merchants exist too, and they turn on the same complaint: the money is held, and there is nothing to appeal to.",
+    "tone": "mixed",
+    "subreddits": ["stripe", "smallbusiness", "ecommerce", "SaaS"],
+    "volumeNote": "A steady stream of threads, most opened the week an account was closed.",
+    "searchUrl": "https://www.reddit.com/search/?q=stripe%20account%20frozen&type=posts",
+    "threads": [
+      {
+        "title": "Stripe froze me at $50/month selling peptides anyone else in high-risk niches dealing with this?",
+        "url": "https://www.reddit.com/r/PeptidesMerchantHelp/comments/1n2txhm/stripe_froze_me_at_50month_selling_peptides/",
+        "subreddit": "PeptidesMerchantHelp",
+        "date": "29 August 2025",
+        "takeaway": "Account shut down with 20k held for 90 days. PayPal limited the same seller within a month of the switch.",
+        "upvotes": 31,
+        "comments": 55
+      },
+      {
+        "title": "Stripe Froze My Peptide Payments & Chase Made It Worse. Here's What No One Tells You About High-Risk Processing.",
+        "url": "https://www.reddit.com/r/ecommerce/comments/1mj9zru/stripe_froze_my_peptide_payments_chase_made_it/",
+        "subreddit": "ecommerce",
+        "date": "6 August 2025",
+        "takeaway": "The thread where the post-underwriting explanation is spelled out, and where the replies push back hard on the poster.",
+        "upvotes": 15,
+        "comments": 48
+      },
+      {
+        "title": "Stripe closed my 6 week old lodging business citing risky payments. The \"risky payments\" were declines its own risk system generated on my verified guests. Full dated timeline + what I'd do differently.",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1vqjb38/stripe_closed_my_6_week_old_lodging_business/",
+        "subreddit": "smallbusiness",
+        "date": "17 August 2026",
+        "takeaway": "A low-risk merchant with a dated timeline: one 750 dollar chargeback, then closure and guest money held past Stripe's own written deadline.",
+        "upvotes": 6,
+        "comments": 15
+      },
+      {
+        "title": "Payment processors for a scraping SaaS (high-risk niche)",
+        "url": "https://www.reddit.com/r/webscraping/comments/1r4phlg/payment_processors_for_a_scraping_saas_highrisk/",
+        "subreddit": "webscraping",
+        "date": "14 February 2026",
+        "takeaway": "Useful for what it shows about the alternatives: Stripe, Paddle and Lemon Squeezy all declined the same business.",
+        "upvotes": 8,
+        "comments": 34
+      }
+    ],
+    "themes": [
+      {
+        "label": "Onboarding is instant, underwriting is later",
+        "detail": "The most upvoted explanation in these threads: Stripe lets anyone process up to a volume threshold, then underwrites, which is why the closure arrives after the business has grown.",
+        "tone": "negative"
+      },
+      {
+        "label": "Held funds are the complaint, not the closure",
+        "detail": "Merchants accept being declined. What they post about is the 90 or 180 day hold and the absence of a date.",
+        "tone": "negative"
+      },
+      {
+        "label": "The replies are not automatically on the merchant's side",
+        "detail": "In the peptide threads the top comments tell the poster the industry's chargeback data explains the decision. Reddit is not a one-sided venue here.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Self-selected sample",
+        "detail": "Nobody opens a thread to say their payouts arrived on time for three years, so the volume of complaints is not a rate.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Stripe etc do a “post underwriting” model where they will let anyone process up to a certain volume, and only once you reach that volume will it actually go to underwriting. This lets them onboard millions of clients without spending money underwriting people who won't have any volume.",
+        "author": "r/ecommerce commenter",
+        "context": "9 points",
+        "date": "6 August 2025",
+        "url": "https://www.reddit.com/r/ecommerce/comments/1mj9zru/stripe_froze_my_peptide_payments_chase_made_it/comment/n79lxbs/"
+      },
+      {
+        "text": "Went through the same thing but in the supplement niche. Stripe let me grow to about $40k/month and then froze everything overnight. Absolute nightmare.",
+        "author": "r/PeptidesMerchantHelp commenter",
+        "context": "10 points",
+        "date": "29 August 2025",
+        "url": "https://www.reddit.com/r/PeptidesMerchantHelp/comments/1n2txhm/stripe_froze_me_at_50month_selling_peptides/comment/nb8swyp/"
+      },
+      {
+        "text": "the process is working as designed, and no wants to touch your toxic industry because there is literal volumes of data proving a direct connection between your industry and chargebacks and fraud.",
+        "author": "r/ecommerce commenter",
+        "context": "10 points, the top reply on that thread",
+        "date": "6 August 2025",
+        "url": "https://www.reddit.com/r/ecommerce/comments/1mj9zru/stripe_froze_my_peptide_payments_chase_made_it/comment/n79pqqy/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=13748003194712396607",
+    "https://www.reddit.com/r/PeptidesMerchantHelp/comments/1n2txhm/stripe_froze_me_at_50month_selling_peptides/",
+    "https://www.reddit.com/r/ecommerce/comments/1mj9zru/stripe_froze_my_peptide_payments_chase_made_it/",
+    "https://www.reddit.com/r/smallbusiness/comments/1vqjb38/stripe_closed_my_6_week_old_lodging_business/",
+    "https://www.reddit.com/r/webscraping/comments/1r4phlg/payment_processors_for_a_scraping_saas_highrisk/"
+  ]
+}

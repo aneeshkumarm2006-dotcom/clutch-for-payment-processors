@@ -1,0 +1,63 @@
+{
+  "slug": "durango-merchant-services",
+  "name": "Durango Merchant Services",
+  "google": {
+    "heading": "Durango on Google",
+    "summary": "26 reviews, 4.7 average, 24 of them five star. Small, and split by era in a way that matters. The two one-star reviews are the oldest things on the listing, from nine and eleven years ago, and both are about the same thing: a high-risk account closed with the merchant's customer payments still inside, and a deposit not returned after a five-year relationship ended. Everything positive is from the last seven years and names the same person repeatedly, describing a placement process the merchant could follow and questions answered before they were asked. If the old complaints reflect how Durango worked a decade ago and the recent praise reflects how it works now, that is a real improvement. But 26 reviews cannot establish that, and the negative accounts describe exactly the failure mode that matters most in high-risk placement, so they are worth reading in full rather than discounting for age.",
+    "rating": 4.7,
+    "reviewCount": 26,
+    "breakdown": [
+      { "stars": 5, "count": 24 },
+      { "stars": 4, "count": 0 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 1, "count": 2 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=58164377155286906",
+    "profileName": "Durango Merchant Services, LLC, 10 Town Plaza #162, Durango",
+    "themes": [
+      {
+        "label": "Transparent placement process",
+        "detail": "The recurring praise is that merchants knew what was happening at each stage, which is unusual in high-risk placement.",
+        "tone": "positive"
+      },
+      {
+        "label": "Better rates than the incumbent",
+        "detail": "A business of over thirty years, on its fifth merchant services provider, says the rates and the service both improved.",
+        "tone": "positive"
+      },
+      {
+        "label": "The old complaints are the serious ones",
+        "detail": "Nine and eleven years back, two merchants describe an account shut with customer payments inside and a deposit never returned.",
+        "tone": "negative"
+      },
+      {
+        "label": "Twenty-six reviews across eleven years",
+        "detail": "Not enough to establish that the early problems were fixed rather than simply not repeated in public.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "We are paying lower rates and have better service as a result of working with Durango. They are professional, honest, responsive and easy to work with.",
+        "context": "Google review",
+        "date": "About 2021",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=58164377155286906"
+      },
+      {
+        "text": "A company's integrity is always shown when there is the first issue to deal with. We were closing down our account after 5 years and Durango is holding a big deposit of our money.",
+        "context": "Google review",
+        "date": "About 2015",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=58164377155286906"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "Durango turns up on Reddit only as a name in high-risk shortlist threads, alongside PaymentCloud and Soar Payments. Nobody has written about actually running an account with it, so there is nothing to summarise that is not already covered by those threads on the other two.",
+  "sources": [
+    "https://maps.google.com/?cid=58164377155286906",
+    "https://www.reddit.com/r/smallbusiness/comments/1t3uteq/highrisk_merchant_payment_processor_paymentcloud/"
+  ]
+}

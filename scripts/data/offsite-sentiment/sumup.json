@@ -1,0 +1,70 @@
+{
+  "slug": "sumup",
+  "name": "SumUp",
+  "google": {
+    "heading": "SumUp on Google",
+    "summary": "199 reviews on the London listing and a 1.7 average, with 154 of them one star. That is the worst distribution of anything in this directory and the reviews are unusually uniform. The pattern merchants describe is the same one over and over: an account opened without difficulty and left idle, then the first substantial payment arrives, the account is blocked, and the money is held. One reviewer names 970 euros held after the first payment, another two months on funds after a permanent termination with no appeal offered. Phone support going unanswered is the second complaint, and it is what turns the first one into a review. The five-star reviews mostly come from sole traders using the reader for small in-person payments, where none of this ever comes up. That is the honest split: the hardware and the small-ticket experience are fine, and the risk process is what this record is about.",
+    "rating": 1.7,
+    "reviewCount": 199,
+    "breakdown": [
+      { "stars": 5, "count": 30 },
+      { "stars": 4, "count": 5 },
+      { "stars": 3, "count": 4 },
+      { "stars": 2, "count": 6 },
+      { "stars": 1, "count": 154 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=11400520443492155085",
+    "profileName": "SumUp Payments Limited, 16-20 Short's Gardens, London",
+    "themes": [
+      {
+        "label": "Blocked on the first real payment",
+        "detail": "The dominant pattern. Accounts open easily, sit unused, and are frozen when a meaningful amount finally arrives.",
+        "tone": "negative"
+      },
+      {
+        "label": "Termination with no appeal",
+        "detail": "Reviewers describe being told the decision is final and cannot be reviewed, with funds held or offered back to customers as refunds.",
+        "tone": "negative"
+      },
+      {
+        "label": "Phone support does not answer",
+        "detail": "Named repeatedly as the reason a resolvable problem became a public complaint.",
+        "tone": "negative"
+      },
+      {
+        "label": "Fine for small in-person payments",
+        "detail": "The positive reviews are from sole traders taking modest card payments, who describe the reader working and the rate being acceptable.",
+        "tone": "positive"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "My SumUp account was permanently terminated without a clear explanation, and I was told the decision cannot be appealed.",
+        "context": "Google review",
+        "date": "About June 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=11400520443492155085"
+      },
+      {
+        "text": "SumUp illegally closed my account and is withholding all my funds, even though I provided full proof of my business and every transaction.",
+        "context": "Google review",
+        "date": "About March 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=11400520443492155085"
+      },
+      {
+        "text": "SumUp has to date proved excellent on payments. Only real issue I have found is the time it takes for card unit to activate to take card if in sleep mode.",
+        "context": "Google review",
+        "date": "About 2019",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=11400520443492155085"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "noRedditReason": "The SumUp results on Reddit are dominated by discount-code spam posted to coupon subreddits. Filtering those out leaves one short thread asking whether to buy a SumUp or a Square reader, whose only substantive reply is about Square, and a developer question about the sandbox API. There is no merchant discussion to summarise.",
+  "sources": [
+    "https://maps.google.com/?cid=11400520443492155085",
+    "https://www.reddit.com/r/smallbusiness/comments/1svc52j/should_i_get_a_sumup_or_square_card_reader/"
+  ]
+}

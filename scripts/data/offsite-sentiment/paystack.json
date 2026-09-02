@@ -1,0 +1,104 @@
+{
+  "slug": "paystack",
+  "name": "Paystack",
+  "google": {
+    "heading": "Paystack on Google",
+    "summary": "450 reviews on the Lagos office and a 3.8 average, and the distribution is unusual for this directory: 216 five-star and 85 one-star, but also 97 four-star and 45 three-star. Nearly a third of reviewers picked a middle rating, which almost nobody does on the other listings here. That is the signature of a company people have mixed but non-catastrophic experiences with rather than one that splits its users into grateful and furious. The older five-star reviews are largely about the office and the culture, from the period when Paystack was Lagos's best-known startup. The recent one-star reviews are merchant complaints and they are consistent: accounts under review for weeks with payouts suspended, in one case 42 days with documentation supplied and no timeline offered, and onboarding requirements described as heavier than competitors'.",
+    "rating": 3.8,
+    "reviewCount": 450,
+    "breakdown": [
+      { "stars": 5, "count": 216 },
+      { "stars": 4, "count": 97 },
+      { "stars": 3, "count": 45 },
+      { "stars": 2, "count": 7 },
+      { "stars": 1, "count": 85 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=16662305603592469932",
+    "profileName": "Paystack Payments Limited, 126 Joel Ogunnaike Street, Ikeja GRA, Lagos",
+    "themes": [
+      {
+        "label": "Long account reviews with payouts held",
+        "detail": "The dominant recent complaint. One merchant describes 42 days under review with everything requested supplied and no resolution date given.",
+        "tone": "negative"
+      },
+      {
+        "label": "Onboarding requirements",
+        "detail": "Several merchants describe the checks as heavier than other Nigerian providers and say the process is not business friendly.",
+        "tone": "negative"
+      },
+      {
+        "label": "A real middle",
+        "detail": "142 of the 450 reviews are three or four stars. On most listings in this directory that band is nearly empty.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Much of the praise is about the office",
+        "detail": "The older five-star reviews describe visiting the Lagos workspace and the team rather than using the product.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Our business has been under review for 42 days, and despite providing all requested documentation and cooperating fully throughout the process, we have received very little communication and no clear timeline for resolution.",
+        "context": "Google review",
+        "date": "About July 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=16662305603592469932"
+      },
+      {
+        "text": "very unrealistic redtape and unneccesary on- boarding requirements, other merchants give normal business friendly service.",
+        "context": "Google review",
+        "date": "About August 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=16662305603592469932"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Paystack",
+    "summary": "Very little, and the little there is answers a narrow question well. Paystack turns up when someone outside Nigeria wants to sell into it, and the answer is always the same constraint: Paystack requires a Nigerian business address, so a foreign seller cannot simply sign up. Founders who are inside Nigeria use it without writing about it, which is the usual pattern for an incumbent. The one substantial current thread is a founder building conditional payment release and dispute handling on top of Paystack and looking for a lawyer who understands African payment infrastructure, which tells you the sort of thing people are actually building with it. Nothing on Reddit addresses the account reviews and held payouts that fill the Google listing.",
+    "tone": "mixed",
+    "subreddits": ["Wordpress", "StartupSoloFounder", "Payhip"],
+    "volumeNote": "A handful of threads, mostly from people outside Nigeria asking whether they can use it.",
+    "searchUrl": "https://www.reddit.com/search/?q=paystack&type=posts",
+    "threads": [
+      {
+        "title": "Payment gateways for Africa/Nigeria?",
+        "url": "https://www.reddit.com/r/Wordpress/comments/1lztiew/payment_gateways_for_africanigeria/",
+        "subreddit": "Wordpress",
+        "date": "14 July 2025",
+        "takeaway": "The recurring blocker stated plainly: Paystack requires a Nigerian business address, which rules it out for a lot of the people asking.",
+        "upvotes": 2,
+        "comments": 6
+      },
+      {
+        "title": "Looking for a fintech/startup lawyer familiar with African payment infrastructure",
+        "url": "https://www.reddit.com/r/StartupSoloFounder/comments/1tfa1qy/looking_for_a_fintechstartup_lawyer_familiar_with/",
+        "subreddit": "StartupSoloFounder",
+        "date": "17 May 2026",
+        "takeaway": "A founder building escrow-style conditional release on Paystack, and a useful sense of what it is being used for beyond simple checkout.",
+        "upvotes": 3,
+        "comments": 4
+      }
+    ],
+    "themes": [
+      {
+        "label": "You need a Nigerian entity",
+        "detail": "The single most repeated Paystack fact on Reddit, and the reason most threads that mention it end there.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Silence from the people using it",
+        "detail": "Nigerian merchants do not post about Paystack, which usually means it works well enough not to write about.",
+        "tone": "mixed"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=16662305603592469932",
+    "https://www.reddit.com/r/Wordpress/comments/1lztiew/payment_gateways_for_africanigeria/",
+    "https://www.reddit.com/r/StartupSoloFounder/comments/1tfa1qy/looking_for_a_fintechstartup_lawyer_familiar_with/"
+  ]
+}

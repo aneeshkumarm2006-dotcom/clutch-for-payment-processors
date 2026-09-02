@@ -29,6 +29,12 @@ import {
   type IBlock,
   type IStructuredData,
 } from "./shared";
+import {
+  GoogleReviewsOverviewSchema,
+  RedditOverviewSchema,
+  type IGoogleReviewsOverview,
+  type IRedditOverview,
+} from "./sentiment";
 import { autoSlugFrom } from "./slug";
 
 /**
@@ -95,6 +101,19 @@ export interface IProcessorReviewsPage {
   /** Ordered blocks rendered BELOW the review list (admin-composed sections). */
   blocks?: IBlock[];
   structuredData?: IStructuredData;
+
+  /**
+   * What is being said about this processor OFF this site.
+   *
+   * Both are optional and most listings will carry neither: they exist for the
+   * handful where a Google listing or a Reddit thread is the real evidence, and
+   * where the on-site review count is too thin to answer the question a reader
+   * arrived with. Written by an editor who read the source, never fetched. Shapes,
+   * and the rule that none of it may reach `AggregateRating`, are in
+   * `models/sentiment.ts`.
+   */
+  googleReviews?: IGoogleReviewsOverview;
+  reddit?: IRedditOverview;
 }
 
 export interface IProcessor {
@@ -219,6 +238,8 @@ const ReviewsPageSchema = new Schema<IProcessorReviewsPage>(
     faqs: { type: [FaqSchema], default: undefined },
     blocks: { type: [BlockSchema], default: undefined },
     structuredData: { type: StructuredDataSchema, default: undefined },
+    googleReviews: { type: GoogleReviewsOverviewSchema, default: undefined },
+    reddit: { type: RedditOverviewSchema, default: undefined },
   },
   { _id: false, minimize: false },
 );

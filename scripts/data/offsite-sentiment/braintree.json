@@ -1,0 +1,130 @@
+{
+  "slug": "braintree",
+  "name": "Braintree",
+  "google": {
+    "heading": "Braintree on Google",
+    "summary": "A small listing at the Chicago office: 29 reviews, 2.6 average, 17 of them one star. Small enough that it is a set of anecdotes rather than a rating, and worth reading only for what the anecdotes have in common. The five-star reviews are old, from 2017 to 2020, and praise the SDKs, the support team and the risk handling. The one-star reviews are about not being able to reach anyone: a migration to another provider that took the best part of a year for lack of a reply, a 1099-K issued to an individual instead of the company, a merchant told during a sales conversation that a category was fine and then declined. The absence of a phone number is the thread running through them, which is the same complaint people made about Stripe on Reddit a decade ago and chose Braintree to escape.",
+    "rating": 2.6,
+    "reviewCount": 29,
+    "breakdown": [
+      { "stars": 5, "count": 11 },
+      { "stars": 4, "count": 0 },
+      { "stars": 3, "count": 0 },
+      { "stars": 2, "count": 1 },
+      { "stars": 1, "count": 17 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=5851399610440926504",
+    "profileName": "Braintree Payments, 222 W Merchandise Mart Plaza, Chicago",
+    "themes": [
+      {
+        "label": "The SDKs and the risk team",
+        "detail": "What the older five-star reviews credit: developer tooling and risk management, from merchants describing fast growth.",
+        "tone": "positive"
+      },
+      {
+        "label": "No route to a human",
+        "detail": "The dominant recent complaint. One merchant describes nearly a year trying to complete a migration off Braintree for want of a reply, with PayPal declining to help.",
+        "tone": "negative"
+      },
+      {
+        "label": "Twenty-nine reviews is not a rating",
+        "detail": "Half of these are years old. Read them as individual accounts and weigh the Reddit record and the review platforms alongside.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Great support team. Awesome risk management. Good for a fast growing business.",
+        "context": "Google review",
+        "date": "About 2018",
+        "rating": 5,
+        "url": "https://maps.google.com/?cid=5851399610440926504"
+      },
+      {
+        "text": "No phone contacts and PayPal will not assist in anyways.",
+        "context": "Google review",
+        "date": "About September 2025",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=5851399610440926504"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Braintree",
+    "summary": "The Braintree discussion on Reddit essentially stopped. Its peak was 2014 and 2015, when Braintree was the eBay payments unit adding bitcoin support and the r/Bitcoin posts pulled hundreds of points, and 2015 to 2016, when founders genuinely agonised over Braintree against Stripe. Those old comparison threads are still the most useful thing there, and they are useful for one reason: the deciding factor for people who chose Braintree was that it answered a telephone and Stripe did not. That is worth knowing because the Google reviews now say the opposite. Nothing substantial has been posted about using Braintree in years, which for a product this old is itself an answer: developers building new integrations are discussing Stripe, Adyen and Checkout.com instead.",
+    "tone": "mixed",
+    "subreddits": ["smallbusiness", "startups", "Bitcoin"],
+    "volumeNote": "Busy in 2014 to 2016, quiet since. Nothing current from merchants.",
+    "searchUrl": "https://www.reddit.com/search/?q=braintree%20payments&type=posts",
+    "threads": [
+      {
+        "title": "Braintree vs Stripe vs Paymill vs Amazon payments",
+        "url": "https://www.reddit.com/r/startups/comments/3k3rrr/braintree_vs_stripe_vs_paymill_vs_amazon_payments/",
+        "subreddit": "startups",
+        "date": "8 September 2015",
+        "takeaway": "The comparison thread of its era, and a snapshot of when Braintree was a genuine alternative rather than a PayPal product.",
+        "upvotes": 51,
+        "comments": 39
+      },
+      {
+        "title": "Braintree vs. Stripe",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/4em7xt/braintree_vs_stripe/",
+        "subreddit": "smallbusiness",
+        "date": "13 April 2016",
+        "takeaway": "Where the phone-support argument is made most plainly, alongside a useful explanation of why a blended 2.9 percent is hard to beat below serious volume.",
+        "upvotes": 39,
+        "comments": 56
+      },
+      {
+        "title": "eBay Payments Unit Braintree to Let Merchants Accept Bitcoin",
+        "url": "https://www.reddit.com/r/Bitcoin/comments/2ftk3f/ebay_payments_unit_braintree_to_let_merchants/",
+        "subreddit": "Bitcoin",
+        "date": "8 September 2014",
+        "takeaway": "The high-water mark of Braintree's attention on Reddit, and a reminder of how long ago that was.",
+        "upvotes": 467,
+        "comments": 44
+      }
+    ],
+    "themes": [
+      {
+        "label": "Chosen because it answered the phone",
+        "detail": "The specific reason people gave for picking Braintree over Stripe in 2016, which the current Google reviews contradict.",
+        "tone": "mixed"
+      },
+      {
+        "label": "The conversation moved on",
+        "detail": "No substantial merchant thread in years. New integrations get discussed in terms of Stripe, Adyen and Checkout.com.",
+        "tone": "negative"
+      },
+      {
+        "label": "Rates are rates",
+        "detail": "The most durable advice in those threads: below serious volume nobody beats a blended 2.9 percent, so pick on support and tooling.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Fuck stripe for not having a phone. For that reason alone, I'd never ever use it. Switched to braintree and couldn't be happier.",
+        "author": "r/smallbusiness commenter",
+        "context": "5 points, in the 2016 Braintree versus Stripe thread",
+        "date": "13 April 2016",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/4em7xt/braintree_vs_stripe/comment/d21t2nh/"
+      },
+      {
+        "text": "Unless you have tremendous volume, you are simply not going to get better than a blended 2.9%.",
+        "author": "r/smallbusiness commenter",
+        "context": "8 points",
+        "date": "14 April 2016",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/4em7xt/braintree_vs_stripe/comment/d221cpn/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=5851399610440926504",
+    "https://www.reddit.com/r/startups/comments/3k3rrr/braintree_vs_stripe_vs_paymill_vs_amazon_payments/",
+    "https://www.reddit.com/r/smallbusiness/comments/4em7xt/braintree_vs_stripe/",
+    "https://www.reddit.com/r/Bitcoin/comments/2ftk3f/ebay_payments_unit_braintree_to_let_merchants/"
+  ]
+}

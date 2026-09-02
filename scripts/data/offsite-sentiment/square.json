@@ -1,0 +1,157 @@
+{
+  "slug": "square",
+  "name": "Square",
+  "google": {
+    "heading": "Square on Google",
+    "summary": "531 reviews on the San Francisco listing and a 2.1 average, which is the lowest of any major processor here. 360 of the 531 are one star against 126 five star. The complaints are not about the reader or the app, which is what Square is usually praised for. They are about what happens when something goes wrong: a fifteen percent reserve applied across all sales after the merchant won a fraudulent chargeback with evidence from the customer and the bank, an account deactivated on a legitimate business with no explanation, a website that would not load for customers and a support answer that it was the customer's problem. One reviewer counted four hours, two calls and thirteen transfers to get a non-answer after Square's own resubscribe flow downgraded their legacy plan. Weigh this against Square's ubiquity: millions of merchants use it without incident, and none of them write a Google review about it.",
+    "rating": 2.1,
+    "reviewCount": 531,
+    "breakdown": [
+      { "stars": 5, "count": 126 },
+      { "stars": 4, "count": 15 },
+      { "stars": 3, "count": 7 },
+      { "stars": 2, "count": 23 },
+      { "stars": 1, "count": 360 }
+    ],
+    "profileUrl": "https://maps.google.com/?cid=16944856828288272899",
+    "profileName": "Square, One Post Plaza, Market Street, San Francisco",
+    "themes": [
+      {
+        "label": "Reserves after a dispute you won",
+        "detail": "A ten-year customer describes winning a chargeback reversal with evidence from the client and the bank, then having a fifteen percent reserve placed on all sales.",
+        "tone": "negative"
+      },
+      {
+        "label": "Deactivation without a reason",
+        "detail": "Recurring across the one-star reviews, including from merchants in ordinary low-risk categories who describe no dispute history.",
+        "tone": "negative"
+      },
+      {
+        "label": "Support that transfers rather than resolves",
+        "detail": "Four hours, two calls, thirteen transfers in one account. The complaint is not rudeness, it is that nobody owns the problem.",
+        "tone": "negative"
+      },
+      {
+        "label": "Almost nobody reviews the thing that works",
+        "detail": "Square's hardware and app are its strength and are barely mentioned here. A Google listing collects the tail, not the median.",
+        "tone": "mixed"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "I've used Square for almost 10 years. I had a client's bank fraudulently process a chargeback. I won the reversal and had evidence from the client and bank and they implemented a 15% reserve on all of my sales.",
+        "context": "Google review",
+        "date": "About December 2025",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=16944856828288272899"
+      },
+      {
+        "text": "Four hours. Two calls. Thirteen transfers. That's what it took to get a non-answer from Square after their own resubscribe flow caused me to accidentally downgrade my legacy plan.",
+        "context": "Google review",
+        "date": "About August 2026",
+        "rating": 1,
+        "url": "https://maps.google.com/?cid=16944856828288272899"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "reddit": {
+    "heading": "What Reddit says about Square",
+    "summary": "The best Square thread on Reddit is six years old and still the most useful thing written about it. In September 2019 Square moved from a flat 2.75 percent to 2.6 percent plus 10 cents, and r/smallbusiness worked out in public who that helps and who it hurts. A baker put it in one line: on a 100 dollar ticket the extra dime is invisible, on a 3 dollar sale it is not. A cafe owner calculated 1,200 dollars a year more, about a 26 percent increase, while an appointment-based business in the same thread stood to save 20 dollars a year. That is the whole Square pricing question, and it is still the right way to test a quote today. The rest of the record is what you would expect: threads comparing Square against Clover for restaurants, complaints that the website builder cannot be customised, and a steady flow of accounts deactivated or funds held, including a 2026 thread about fraudulent charges on Square Banking. The standing advice above a certain volume is blunt, which is that Square's convenience stops paying for itself and you should get quotes from processors who will negotiate.",
+    "tone": "mixed",
+    "subreddits": ["smallbusiness", "restaurateur", "ecommerce", "SquarePOS_Users"],
+    "volumeNote": "Constant. Square is the default small business processor, so it is discussed everywhere merchants gather.",
+    "searchUrl": "https://www.reddit.com/search/?q=square%20payment%20processing&type=posts",
+    "threads": [
+      {
+        "title": "Square is changing their pricing model",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/d8p5uv/square_is_changing_their_pricing_model/",
+        "subreddit": "smallbusiness",
+        "date": "24 September 2019",
+        "takeaway": "179 comments of merchants doing the arithmetic on 2.6 percent plus 10 cents against a flat 2.75. The clearest treatment of average ticket size anywhere.",
+        "upvotes": 134,
+        "comments": 179
+      },
+      {
+        "title": "Square is no longer return processing fees when buyers are issued a refund",
+        "url": "https://www.reddit.com/r/ecommerce/comments/11qoxpz/square_is_no_longer_return_processing_fees_when/",
+        "subreddit": "ecommerce",
+        "date": "13 March 2023",
+        "takeaway": "Square keeping its fee on refunded orders, in line with PayPal and Stripe. Sellers looking for anyone who still returns the fee did not find one.",
+        "upvotes": 25,
+        "comments": 36
+      },
+      {
+        "title": "Square vs Clover - anyone have experience with both?",
+        "url": "https://www.reddit.com/r/restaurateur/comments/laybvv/square_vs_clover_anyone_have_experience_with_both/",
+        "subreddit": "restaurateur",
+        "date": "2 February 2021",
+        "takeaway": "67 comments from restaurant operators who have run both, which is more useful than either company's comparison page.",
+        "upvotes": 13,
+        "comments": 67
+      },
+      {
+        "title": "Do NOT use Square Banking",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1vz4y4y/do_not_use_square_banking/",
+        "subreddit": "smallbusiness",
+        "date": "26 August 2026",
+        "takeaway": "Fraudulent charges reported while still pending, and what happened next. Recent, and about the banking product rather than the processing.",
+        "upvotes": 17,
+        "comments": 19
+      }
+    ],
+    "themes": [
+      {
+        "label": "Your average ticket decides everything",
+        "detail": "Flat percentage plus a fixed 10 cents punishes small tickets. A cafe worked out 1,200 dollars a year more where an appointment business saved 20.",
+        "tone": "mixed"
+      },
+      {
+        "label": "Outgrow it and it costs you",
+        "detail": "The standing advice above a few hundred thousand a year: get quotes from processors who will negotiate, because Square will not.",
+        "tone": "negative"
+      },
+      {
+        "label": "Deactivations and holds",
+        "detail": "A steady flow of threads about accounts closed or funds held, including recent ones about Square Banking rather than card processing.",
+        "tone": "negative"
+      },
+      {
+        "label": "Nobody argues about the hardware",
+        "detail": "Even critical threads treat the reader, the app and the ease of starting as settled. The disputes are about price at scale and about what support does in a crisis.",
+        "tone": "positive"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "I'm a direct to consumer Baker. 100 dollar ticket and I wouldn't blink at a dime. 3.00 sale? I blink a lot.",
+        "author": "r/smallbusiness commenter",
+        "context": "62 points, top reply on the pricing change",
+        "date": "24 September 2019",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/d8p5uv/square_is_changing_their_pricing_model/comment/f1brpuy/"
+      },
+      {
+        "text": "One appointment based business stands to save about $20 per year. My cafe stands to cost $1200 per year more, There is no way I can justify that, for the services offered.",
+        "author": "r/smallbusiness commenter",
+        "context": "39 points",
+        "date": "24 September 2019",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/d8p5uv/square_is_changing_their_pricing_model/comment/f1btc2k/"
+      },
+      {
+        "text": "You're processing way too much revenue to still be on square. Find a couple local credit card processing reps and let them fight out rates.",
+        "author": "r/smallbusiness commenter",
+        "context": "26 points",
+        "date": "24 September 2019",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/d8p5uv/square_is_changing_their_pricing_model/comment/f1cntg4/"
+      }
+    ],
+    "checkedOn": "1 September 2026"
+  },
+  "sources": [
+    "https://maps.google.com/?cid=16944856828288272899",
+    "https://www.reddit.com/r/smallbusiness/comments/d8p5uv/square_is_changing_their_pricing_model/",
+    "https://www.reddit.com/r/ecommerce/comments/11qoxpz/square_is_no_longer_return_processing_fees_when/",
+    "https://www.reddit.com/r/restaurateur/comments/laybvv/square_vs_clover_anyone_have_experience_with_both/",
+    "https://www.reddit.com/r/smallbusiness/comments/1vz4y4y/do_not_use_square_banking/"
+  ]
+}

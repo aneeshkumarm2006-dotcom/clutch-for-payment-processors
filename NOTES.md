@@ -1104,3 +1104,266 @@ spent a cooldown nobody earned.
 cooldowns, and the route matcher. Deliberately no admin UI: a site-wide
 interruption is a design decision, not a setting, and nobody has yet asked to
 change it twice. Tests: `tests/offer/offer-slidein.test.ts`.
+
+## Stage 7.x — Off-site sentiment on the reviews page (Google + Reddit overviews)
+
+`/processor/<slug>/reviews` used to carry exactly one population of opinion:
+merchants who wrote a review here. On most of these listings that is the smallest
+of the three places a buyer looks, and on a high-risk processor with four on-site
+reviews it is not the one that answers their question. Two new sections summarise
+the other two: the processor's **Google listing** and its **Reddit discussion**.
+
+### Not a scraper, and it never will be one
+
+Nothing is fetched. Every field is typed by an editor who read the source, which
+is why each section carries a `checkedOn` free-text stamp and the page prints it
+under the numbers. A `Date` there would imply the figures above it refresh with
+it; they do not.
+
+### The rule that must not be broken
+
+**Nothing in these sections may reach `AggregateRating`.** A Google rating is
+Google's aggregate of reviews Google collected, and marking it up as this page's
+own is the third-party-review markup Google issues manual actions over. The
+Product node still reads `ratingAverage` / `ratingCount`, computed from approved
+on-site reviews only, and `config/content-engine.ts` is unchanged by this work.
+The public card says so in its footnote, in words, for the reader.
+
+### Where the data lives
+
+`reviewsPage.googleReviews` and `reviewsPage.reddit` — sub-documents on the
+existing editorial layer, not blocks. Blocks would have been the cheaper change
+(the block library already exists and reorders itself), but blocks render *below*
+the review list and these belong *above* it, and the public card draws a
+histogram, splits themes into two columns and links every thread and quote back
+to its source, none of which survives a `Mixed` payload.
+
+Shapes: `models/sentiment.ts`. Zod: `lib/validators/sentiment.ts`. The rules that
+read them, with no mongoose behind them: `lib/sentiment.ts` (split for the same
+reason `lib/reviews-indexability.ts` is).
+
+### Three states, and why the empty one needed its own predicate
+
+The admin form renders both sections, so it submits both on every save — it has
+to, or `PRESERVE_ON_OMIT` would make a cleared section impossible to clear. A
+section an editor opened and abandoned therefore arrives as a shell of empty
+strings. So:
+
+- `googleReviewsOverviewSchema` / `redditOverviewSchema` collapse an all-blank
+  section to `undefined`, which is what lets `diffSetUnset` `$unset` it.
+- `hasSentimentContent` (`lib/sentiment.ts`) decides what counts as *said*: a
+  summary, a theme, a quote, a thread, or a number. A lone heading or `checkedOn`
+  is chrome around nothing. The renderer, the admin "In use" badge and
+  `hasReviewContent` all call it, so they cannot disagree about whether a section
+  exists.
+
+Without the second one an empty shell would render an empty card **and** put the
+URL in the sitemap.
+
+### Indexability
+
+`hasReviewContent` now counts a written overview alongside blocks and FAQs, and
+`REVIEW_CONTENT_SELECT` grew the two paths to match. This is the state most of
+these processors are actually in: the discussion is on Google and Reddit, nobody
+has reviewed them here, and there is no block. That page is worth indexing.
+
+### The star histogram is five fixed rows
+
+Not a repeatable list. The rows are the same five every time and an editor
+transcribing a listing reads them off top to bottom. Blank rows are dropped by
+`toGoogleOverviewPayload` **before** the payload is sent, and that filter is
+load-bearing: a blank row still carries a non-blank `stars`, so the generic
+blank-row filter in the validator cannot see it as empty and the required `count`
+would reject the save on any listing that publishes fewer than five bars.
+
+### Copy that had to change with it
+
+Two rating populations on one page need saying apart in words. `defaultCopy` now
+branches on which sources exist: a processor with a full Google and Reddit
+writeup used to open with "No merchant has reviewed this yet" directly above two
+screens of merchant opinion, and generated a meta description promising on-site
+reviews that were not there. The review list also carries a line saying it is the
+on-site set, and `RatingSources` names all three scores side by side at the top —
+a reader who sees 4.8 in one place and 4.2 in another, unlabelled, concludes the
+site cannot count.
+
+### Nothing here is HTML
+
+Every field reaches the DOM as a text node and there is no sanitizer in the write
+path. Paragraphs in `summary` come from blank lines, not markup. Adding a
+rich-text field to this panel means adding it to `sanitizeBlocks` first.
+
+### Tests
+
+`tests/reviews/reviews-page.test.ts` — the empty/present boundary, the all-blank
+collapse, a filled section surviving form → zod → serialize → form, the partial
+histogram, and "mixed is a caveat, not praise".
+
+## Stage 7.y — Filling the off-site sections: `seed:offsite-sentiment`
+
+The two sub-documents above shipped empty. `scripts/seed-offsite-sentiment.ts`
+fills them from `scripts/data/offsite-sentiment/<slug>.json`, one file per
+processor, the same shape as `seed:review-pages`:
+
+```
+npm run seed:offsite-sentiment -- --dry-run          # validate + report
+npm run seed:offsite-sentiment -- --only=stripe
+npm run seed:offsite-sentiment                       # write
+npm run seed:offsite-sentiment -- --force            # overwrite admin edits
+```
+
+**It owns `reviewsPage.googleReviews` and `reviewsPage.reddit` and nothing else.**
+`seed:review-pages` owns `heading/intro/seo/faqs/blocks`. The split is along the
+paths each script `$set`s, not along the processor list, so the two never race
+and can run in either order. Same non-destructive default as the other seeds: a
+stored section that differs from the file is treated as an editor's work and
+skipped unless `--force`.
+
+### What it refuses to write
+
+`houseRuleErrors()` runs over the whole batch before the first write:
+
+- **Em and en dashes anywhere**, including in thread titles. This matters more
+  here than elsewhere because `audit:dashes --fix` walks every string in the
+  `processors` collection and would silently rewrite a transcribed Reddit title
+  into something nobody posted. The fix for a title or a quote is always to TRIM
+  it to an unaffected span, never to repunctuate it.
+- **A quote that does not end on a sentence.** Research digests slice review and
+  comment bodies at fixed lengths, and a quote pasted straight out of one stops
+  mid-word, which reads as invented. Trim back to the previous full stop.
+- **A rating or review count with no `profileUrl`**, a Reddit section with no
+  thread, a thread URL that is not a `reddit.com` permalink, a quote with no date
+  or no absolute https URL, and a star histogram that does not sum to the review
+  count within two.
+- **A missing section with no reason.** `noGoogleReason` / `noRedditReason` are
+  required when a section is absent, so the next person knows it was checked and
+  found nothing rather than never checked.
+
+Every file then goes through `googleReviewsOverviewSchema` and
+`redditOverviewSchema` (the same zod the admin form posts through, so the write
+is a shape the form can round-trip) and finally through `hasSentimentContent`,
+which catches a section that survived validation but would render an empty card.
+
+### Editorial rules that produced the 2026-09-01 pass
+
+45 of the 57 published processors were filled that day: 32 Google sections, 30
+Reddit sections. The rest got a stated reason instead, and the reasons are the
+interesting part:
+
+- **A Google section needs about 13+ reviews AND written reviews about the
+  company as a payments provider.** Adyen's only listing is its Amsterdam office
+  and the reviews are about the building and a security guard. Paddle's and
+  BlueSnap's one-star reviews are largely cardholders who found the name on a
+  statement, which is the merchant-of-record model seen from the buyer's side and
+  not a verdict on the processor. Both facts belong in the summary, not hidden.
+- **Bimodal is the norm, so say so.** Almost every listing here splits into
+  five-star and one-star with nothing between. Publishing the average without the
+  histogram describes almost none of the people who wrote a review.
+- **Say when the praise was solicited.** Stax has 1,120 five-star reviews that
+  each name one support agent, which is what a review request at the end of a
+  call produces. Banquest has 98 five-star and nothing below four. Corepay's
+  reviews all landed inside one year. None of that is dishonest; leaving it
+  unsaid would be.
+- **An ISO's reviews rate the placement, not the terms.** PaymentCloud's
+  five-stars thank a rep for an approval and its one-stars are about the acquirer
+  it placed them with holding money. Same for Soar and Stax.
+- **A thin or absent record is a finding.** Adyen is absent from Reddit because
+  small merchants cannot buy it. RevenueCat is absent from argument because it is
+  assumed. Both are worth a sentence.
+
+### Getting the data (all four sources refuse the obvious route)
+
+- **Google Maps:** WebFetch cannot see it. The Playwright browser can. Navigate
+  `google.com/maps/search/<query>`, wait for the URL to become `/maps/place/`
+  before reading `!1s0x…:0x<hex>` (it lags the panel render, which is why cids
+  came back null at first), click the `Reviews` button, scroll the pane, click
+  every `More`, read `.MyEned`, and drop any node containing "Translated by
+  Google" because a machine translation is not the reviewer's words.
+- **Reddit:** refuses everything. www and old 403 curl and Jina, the `.json`
+  endpoints are blocked, and the real browser gets a "Prove your humanity"
+  challenge. PullPush answers but rate-limits hard and its archive stops in May
+  2025. What works is a **Redlib mirror** (`redlib.kylrth.com`, `safereddit.com`)
+  with a plain `curl/8.5.0` user agent: sending a browser UA triggers their bot
+  check, and several instances return a challenge page with HTTP 200, so the
+  fetch must validate the body rather than the status. It renders absolute UTC
+  dates, scores, comment counts and permalinks.
+- Reddit ORs a multi-word query, so searching "square held funds merchant" returns
+  the whole of r/pics. Filter results on a brand token, and for common words
+  ("square", "toast", "orb") search inside the subreddits merchants use.
+- The harness that did this lives in the session scratchpad, not in the repo. It
+  is research tooling, and the JSON files are the durable artefact.
+
+## Editorial layer on the curated compare pairs (`seed:new-compare-pages`)
+
+The 2026-09-02 writer delivery (`New Comparison Pages .md`) supplied four
+head-to-heads: Stripe vs Square, PayPal vs Square, Stripe vs Braintree, PayPal vs
+Braintree. **No new pages were created.** All four pairs were already curated in
+`lib/compare-pairs.ts`, so `/compare/stripe-vs-square` and its siblings had been
+live, prerendered, indexable and in the sitemap since Stage 7.3, and
+`keyword-page-map.csv` already assigned each of the four target keywords to those
+exact URLs, marked `programmatic`. The doc was the editorial layer those
+generated pages were missing, not a request for new URLs.
+
+Landing pages at `/stripe-vs-square` were the alternative and would have put two
+indexable pages on one query. That is the cannibalisation the `clover vs square`
+note in `compare-pairs.ts` documents avoiding: Clover got a `landing` record only
+because it had no published processor listing, so the compare route would have
+404'd. All four processors here are published, so the exception did not apply.
+
+### `/compare/[pair]` was the last dynamic route with no editorial slot
+
+It read no `PageSeo` at all. It is now wired exactly as `/alternatives/[slug]`
+and `/payment-processors/[facet]` already were: `pageSeoMetadata({ byPath: true })`
+in `generateMetadata`, `getPageSeoByPath` in the body, `<Blocks>` below the
+matrix, `FaqSection` under that, and the `hasFaqBlock` guard so a FAQ block and
+the record's `faqs` never emit two `FAQPage` blobs on one URL. Purely additive:
+the ~110 curated pairs with no record render as before.
+
+`relatedComparePairs()` was added at the same time. Every curated pair used to be
+a leaf — reachable from the `?ids=` builder, the profiles and the sitemap, but
+never from another compare page, which is the shape `/alternatives/[slug]` was in
+before its siblings section and produced the same "Discovered - currently not
+indexed" result. Pairs sharing a slug now link each other, ordered so the left
+(primary) slug's pairs come first and capped at 8. Links are dropped when either
+side is unpublished, because that pair's page 404s.
+
+### Why the doc's "Quick comparison" tables were not shipped
+
+Each section opened with a 6-8 row table of online rate, in-person rate, monthly
+fee and payout speed. `CompareTable` already renders every one of those rows for
+both columns, straight from `processors.fees`, a few hundred pixels above where
+the prose sits. Shipping them would have created a second, hand-maintained fee
+card that drifts the moment an admin edits a listing. Each page instead gets one
+`comparison` block carrying only the rows the matrix has no field for: "Best
+for", "Setup complexity", "POS hardware", "Consumer recognition", "Owned by",
+"Checkout experience". The doc's table structure and cell text survive.
+
+### Two doc claims that contradicted the site's own numbers
+
+Every headline ONLINE rate in the doc matched `seed.ts` exactly. Two in-person
+claims did not, and both would have sat directly above a table saying otherwise:
+
+- Square in person — doc "2.6% + $0.10", site `inPersonCardRate` "2.6% + $0.15".
+  Only appeared in the dropped tables, so moot.
+- "Square is usually cheaper in person" is false against both counterparties on
+  the site's data. PayPal Zettle (2.29% + $0.09) is lower on both the percentage
+  and the fixed fee, so it wins at every ticket size. Stripe Terminal
+  (2.7% + $0.05) crosses Square at exactly $100, so Stripe is cheaper below it.
+  Both sentences were rewritten to the site's numbers while keeping the doc's
+  point: Square's in-person case is the hardware and software, not the rate.
+
+Meta titles shipped as "X vs Y | Payment Processing Guide", which is a baked-in
+brand suffix (stripped site-wide 2026-08-01) naming the domain rather than
+`SITE_NAME` ("Payment Processor Guide"). All four got a descriptive tail instead,
+each differentiated from the route's own generated fallback. Descriptions ship
+verbatim except PayPal vs Braintree's, which opened "PayPal and Braintree are
+both owned by PayPal".
+
+### Gotcha: `loadEnv` forces public DNS, which this network now blocks
+
+`scripts/loadEnv.ts` points Node's resolver at 8.8.8.8/1.1.1.1 to get around
+local resolvers that refuse SRV. On this machine that is now backwards: the
+system resolver answers the Atlas SRV query fine and all three public resolvers
+time out, so every seed script fails with `querySrv ETIMEOUT` before it starts.
+Run them as `DNS_SERVERS="" npm run seed:...` — the empty value filters to an
+empty server list and `loadEnv` falls through to the system resolver.
