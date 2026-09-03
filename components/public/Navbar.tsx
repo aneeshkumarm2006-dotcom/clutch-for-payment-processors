@@ -28,6 +28,9 @@ import type { CategoryData } from "@/lib/serialize";
 const NAV_LINKS = [
   { label: "Processors", href: "/processors" },
   { label: "Compare", href: "/compare" },
+  // `/tools` is a brand-new section with no external links, so nav placement is
+  // its only real source of internal PageRank. It ships linked, not orphaned.
+  { label: "Tools", href: "/tools" },
   { label: "Methodology", href: "/methodology" },
   { label: "Blog", href: "/blog" },
 ];

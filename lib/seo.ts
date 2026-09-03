@@ -530,6 +530,38 @@ export function faqJsonLd(items: { question: string; answer: string }[]): Jsonld
 }
 
 /**
+ * WebApplication for a `/tools/<slug>` calculator.
+ *
+ * Deliberately NOT rich-result bait. Google's software-app rich result requires
+ * `offers.price` AND an `aggregateRating` or `review`, and a site cannot
+ * legitimately star-rate its own free tool, so the SERP feature is unreachable
+ * here by design. This node exists for machine identification: it names the tool
+ * as a product, which is how answer engines refer to third-party calculators,
+ * and it states the price is zero. `browserRequirements` is honest rather than
+ * decorative: the widget is a client island and does need JavaScript.
+ */
+export function webApplicationJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+}): Jsonld {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${absoluteUrl(opts.path)}#tool`,
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    provider: { "@id": ORG_ID },
+  };
+}
+
+/**
  * Service (+ listing-tier Offers) for the "List your processor" page (PRD §13).
  * Describes the directory-listing service the site sells to processors, with each
  * pricing tier as an Offer in a hasOfferCatalog.

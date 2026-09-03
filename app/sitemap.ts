@@ -5,6 +5,7 @@ import { getPageSeoLastModified, getPublishedLandingPages } from "@/lib/page-seo
 import { FACET_SLUGS } from "@/lib/facet-pages";
 import { getFacetIndexability } from "@/lib/processors-query";
 import { GLOSSARY_SLUGS } from "@/lib/glossary";
+import { TOOL_SLUGS } from "@/lib/tools";
 
 /**
  * Dynamic sitemap (PRD §13). Lists every indexable public page: the static
@@ -24,6 +25,7 @@ const STATIC_PATHS: { path: string; priority: number }[] = [
   { path: "/processors", priority: 0.9 },
   { path: "/blog", priority: 0.7 },
   { path: "/compare", priority: 0.7 },
+  { path: "/tools", priority: 0.7 },
   { path: "/for-processors", priority: 0.6 },
   { path: "/glossary", priority: 0.5 },
   { path: "/methodology", priority: 0.5 },
@@ -98,6 +100,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.4,
   }));
 
+  // Free calculators. Copy lives in `lib/tools.ts`, so most carry no date; a tool
+  // an editor has deepened with a PageSeo record gets that record's date. Every
+  // slug here is indexable by construction: the route is `dynamicParams = false`
+  // over the same curated list, and calculator state never touches the URL, so
+  // there is no thin or duplicate variant to filter out.
+  const toolEntries: MetadataRoute.Sitemap = TOOL_SLUGS.map((slug) => ({
+    url: absoluteUrl(`/tools/${slug}`),
+    ...withDate(`/tools/${slug}`),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   // Admin-created landing pages. Only published ones are returned, which is the
   // same condition the route renders on — a draft must not be advertised.
   const landingEntries: MetadataRoute.Sitemap = landings.map((p) => ({
@@ -112,6 +126,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...dynamicEntries,
     ...facetEntries,
     ...glossaryEntries,
+    ...toolEntries,
     ...landingEntries,
   ];
 }

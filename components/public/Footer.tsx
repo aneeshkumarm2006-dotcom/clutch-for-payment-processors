@@ -18,6 +18,8 @@ const COMPANY_LINKS = [
 
 /** High-value capability landing pages + glossary — site-wide internal links. */
 const POPULAR_LINKS = [
+  { label: "Free calculators", href: "/tools" },
+  { label: "Processing fee calculator", href: "/tools/credit-card-processing-fee-calculator" },
   { label: "Best for Shopify", href: "/payment-processors/for-shopify" },
   { label: "ACH processors", href: "/payment-processors/ach" },
   { label: "Interchange-plus", href: "/payment-processors/interchange-plus" },

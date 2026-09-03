@@ -78,6 +78,7 @@ export const RESERVED_LANDING_PATHS: readonly string[] = [
   "/search",
   "/seoteam",
   "/terms",
+  "/tools",
   "/write-review",
 ];
 

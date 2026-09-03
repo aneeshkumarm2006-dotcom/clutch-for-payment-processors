@@ -1367,3 +1367,330 @@ system resolver answers the Atlas SRV query fine and all three public resolvers
 time out, so every seed script fails with `querySrv ETIMEOUT` before it starts.
 Run them as `DNS_SERVERS="" npm run seed:...` — the empty value filters to an
 empty server list and `loadEnv` falls through to the system resolver.
+
+## Free tools section (`/tools`) — 7 calculators
+
+Shipped 2026-09-03. Research and keyword data behind it: `Tools Pages - research.md`
+and `tools-keywords-full.csv` in the repo root, plus the two Semrush exports there.
+
+`/tools` (hub) plus seven prerendered calculators:
+
+| URL | Widget | Primary keyword | Vol | KD |
+|---|---|---|---|---|
+| `/tools/stripe-fee-calculator` | brand-fee | stripe fee calculator | 1,300 | 11 |
+| `/tools/paypal-fee-calculator` | brand-fee | paypal fee calculator | 12,100 | 46 |
+| `/tools/square-fee-calculator` | brand-fee | square fee calculator | 1,000 | 18 |
+| `/tools/credit-card-processing-fee-calculator` | processing-fee | credit card processing fee calculator | 590 | 24 |
+| `/tools/effective-rate-calculator` | effective-rate | effective rate calculator | 140 | 38 |
+| `/tools/interchange-plus-vs-flat-rate-calculator` | pricing-model | what is interchange plus pricing | 170 | 12 |
+| `/tools/ach-vs-credit-card-fee-calculator` | ach-vs-card | ach calculator | 170 | 8 |
+
+Five widget components serve seven tools: the three brand calculators are one
+component driven by a rate card in `lib/tools.ts`.
+
+### Why the copy lives in a registry, not in Mongo
+
+`lib/tools.ts` follows `lib/glossary.ts` and `lib/facet-pages.ts`: client-safe
+static TS, no `@/models` import, so the sitemap reads `TOOL_SLUGS` and a
+`"use client"` calculator reads a rate card without pulling Mongoose into the
+browser bundle. The explainer copy is bound tightly to the arithmetic beside it,
+so version control is the right place for it.
+
+The PageSeo editorial slot is still wired exactly as on `/payment-processors/[facet]`
+(`pageSeoMetadata({ byPath: true })` + `getPageSeoByPath` -> `<Blocks>` + FAQs), so
+a tool that earns real editorial investment gets a record without a deploy. No
+`seed:tools` script exists yet; nothing needs one until an editor wants to deepen
+a page.
+
+### The anti-cannibalisation rule, written into the registry
+
+A tool owns the CALCULATION modifier and nothing else: calculator, how much,
+estimator, lookup, checker. Brand fee terms stay on `/processor/<slug>`,
+"best x processors" stays on the facet, definitions stay in the glossary, and
+"x vs y" stays on `/compare/<pair>`. Every tool ends by linking INTO those pages.
+Same shape as the rule `lib/facet-pages.ts:13-17` states for facets.
+
+`keyword-page-map.csv` had exactly one row matching /calculat/ across all 575
+rows before this change: line 349, "stripe fee calculator", pointed at
+`/processor/stripe`, a page with no input field on it. That is a 1,300 a month
+term at KD 11, so it was the most valuable mis-assignment in the file. It is now
+re-pointed, and 32 tool-intent rows were added.
+
+### Rate cards are the maintenance liability, not the arithmetic
+
+The maths never goes stale. The published rate cards do, and a wrong number
+renders identically to a right one. Every `RateCard` in `lib/tools.ts` carries
+`checked` and `sources`, both rendered on the page in the assumptions block.
+
+Verified for this ship:
+
+- Stripe, from `stripe.com/pricing`, 1 September 2026. Online 2.9% + $0.30,
+  Terminal 2.7% + $0.05, keyed +0.5%, international +1.5%, FX +1%,
+  ACH 0.8% capped $5.00, dispute received $15.00, instant payouts 1.5% min $0.50.
+- PayPal, from the US business fees page (which states last updated 15 July 2026),
+  read 27 August 2026. Checkout 3.49% + $0.49, standard cards 2.99% + $0.49,
+  advanced 2.89% + $0.49, QR 2.29% + $0.09, Virtual Terminal 3.39% + $0.49,
+  micropayments 4.99% + $0.09, international +1.50%, chargeback $20.00,
+  standard dispute $15.00.
+- Square, from `squareup.com/us/en/pricing`, 12 August 2026. In person
+  2.6/2.5/2.4% + $0.15 across Free/Plus/Premium, online and invoices
+  3.3/2.9/2.9% + $0.30, Online API 2.9% + $0.30 on all plans, keyed 3.5% + $0.15,
+  Afterpay 6% + $0.30, international +1.5%, plan fees $0/$49/$149 per location.
+
+NOTE ON FETCHING THESE: `stripe.com` and `paypal.com` geo-redirect this machine
+to India pricing, so a direct fetch returns rupee rates. All three cards were
+read off Wayback captures of the US pages instead, which is why `checked` is the
+capture date rather than today. Re-verify the same way, and do not move `checked`
+without re-reading a source.
+
+### What the calculators do that the ranking competitors do not
+
+Each tool exists because of a specific, checkable gap in the current SERP:
+
+- **Processing fee** models fixed monthly fees and the card-present/online/keyed
+  split. Every page-one competitor excludes monthly fees, and Novo says so on its
+  own page. The monthly minimum is applied as a floor on the processing charge,
+  not an extra line, which is how an agreement applies it.
+- **Effective rate** splits pass-through (interchange + assessments, not
+  negotiable) from processor markup (the only negotiable part). Not one ranking
+  calculator does this. It also runs entirely in the browser: every incumbent
+  statement-analysis service requires a PDF upload and a phone number, to a
+  company that sells payment processing. Do not add a network call here.
+- **Interchange-plus vs flat-rate** returns a break-even volume, so it can answer
+  "stay where you are". Every ranking page on that query is published by someone
+  who sells interchange-plus, and none of them computes the crossover.
+- **ACH vs card** models percentage, fixed fee, minimum and cap in the right
+  order. Modelling ACH as a flat percentage is fine at $50 and badly wrong at
+  $10,000, which is the size where the decision matters.
+- **Brand calculators** are current. Square raised US rates in 2026 and the
+  pages ranking first, third and fifth for "square fee calculator" all still
+  compute the old schedule; one page dated July 2026 carries a PayPal rate inside
+  a Square calculator.
+
+### Page shape, and why
+
+Widget above the fold, 1,250 to 1,480 words of explainer beneath it. Both halves
+are load-bearing: KoronaPOS has a working effective-rate calculator with thin copy
+that never cracks the top ten, and uschamber.com ranks top five for an explicit
+"calculator" query with a 3,500 word article and no calculator at all.
+
+Everything except the widget is server rendered, including a worked numeric
+example, so the crawler gets a concrete answer and an answer engine gets an
+extractable passage. The widget is a client island that also renders its default
+state on the server, so the raw HTML already contains computed dollar figures.
+
+Calculator state lives in React state and never in the query string. No
+parameterised calculator URL ranked in any SERP sampled, and keeping state in
+memory means the route cannot mint near-duplicate URLs, so it needs no
+`NOINDEX_ROUTES` entry.
+
+Schema: `BreadcrumbList` + `WebApplication` + `FAQPage`. `webApplicationJsonLd`
+is new in `lib/seo.ts` and is deliberately NOT rich-result bait: the software-app
+rich result needs `offers.price` AND an `aggregateRating`, and a site cannot
+legitimately star-rate its own free tool. It is there for machine identification,
+because answer engines refer to third-party calculators by product name. Never
+ship `HowTo` (no surface since 2023). `FAQPage` rich results were deprecated in
+May 2026 and produce no SERP lift, but the markup is harmless and the visible
+text still earns the ranking.
+
+### Wiring that had to ship in the same commit
+
+- `"/tools"` added to `RESERVED_LANDING_PATHS` (`lib/validators/pageSeo.ts`).
+  Without it an admin can create a `landing` PageSeo at `/tools`, which saves
+  fine and then never renders because Next resolves the static segment first.
+- `app/sitemap.ts`: `/tools` in `STATIC_PATHS`, plus `TOOL_SLUGS` mapped through
+  `withDate` so a tool with a PageSeo record gets an honest edit date and one
+  without gets none.
+- Navbar `NAV_LINKS` and Footer `POPULAR_LINKS`. A brand-new section has no
+  external links, so nav placement is its only source of internal PageRank. This
+  site has a documented orphan-cluster problem; the fix ships up front.
+
+### Two arithmetic bugs caught before shipping, both worth remembering
+
+1. The ACH crossover was first solved in closed form on the capped branch only.
+   On the default inputs (card 2.9% + $0.30 against ACH 0.8% with no fixed fee)
+   it reported a crossover of $162 when ACH is in fact cheaper from the first
+   cent. The ACH fee is piecewise (percentage, then minimum floor, then cap), so
+   it is now solved by bisection, and "ACH is cheaper at every amount" is a
+   rendered answer rather than a failure case. Verified against Square-style
+   pricing (1%, $1 minimum, $10 cap), where the crossover is a real $24.14.
+2. The interchange-plus worked example claimed a break-even near $6,400 while the
+   widget on the same page computed $2,769. The widget was right. Any hand-written
+   number in `lib/tools.ts` that the widget also computes has to be checked
+   against the widget, not against intuition.
+
+Also: the verdict band was dropped from the brand calculators' single-payment
+mode. The bands score a merchant's blended monthly rate, and judging one payment
+against them labelled a perfectly standard Square rate on a $100 sale "High",
+which is a property of the fixed fee rather than of the deal.
+
+### The dash audit does not cover this code
+
+`npm run audit:dashes` walks Mongo documents, not source string literals, so an
+em dash typed into a calculator label, tooltip, result string or assumption note
+passes both audits and still ships. `components/public/tools/*` and `lib/tools.ts`
+are all rendered copy in source. Grep them directly when you touch the wording.
+
+### What was deliberately NOT built
+
+From the research, and the reasons are in `Tools Pages - research.md`:
+
+- **EMI calculator.** No US analogue. The payments-native equivalents are an MCA
+  factor-rate-to-APR converter and a terminal lease-vs-buy calculator.
+- **Tax calculators.** A 1099-K threshold checker is built on a false premise:
+  the de minimis threshold applies only to third-party settlement organizations,
+  so a merchant with a merchant account gets a 1099-K from the first dollar. A
+  general sales tax calculator belongs to Avalara and TaxJar.
+- **Cash discount / dual pricing calculators.** Google Trends US shows
+  "dual pricing calculator" at literally zero every week for twelve months. The
+  topic is real, the calculator is not: it belongs in the glossary and in
+  `/blog/how-to-lower-payment-processing-fees`, which currently does not mention
+  surcharging at all.
+- **Surcharge calculator.** The calculator term is 20 a month. The editorial terms
+  ("credit card surcharge laws by state", "is it legal to charge a credit card
+  fee") are 590 each. That is a cited, dated state-law page with a calculator
+  attached, not the reverse, and it carries a standing legal-review cost.
+- **Chargeback ratio calculator.** Everything in the cluster is 40 a month or
+  below and the proposed primary keyword returns zero.
+- **MCC code lookup.** Real (480 at KD 24) and still wanted, but it needs a
+  maintained MCC dataset, which is a separate piece of work.
+- **Restaurant and involuntary churn calculators.** Their keyword clusters were
+  in the Semrush request and did not come back, so they are unscored. 64 keywords
+  are still outstanding; the list is in section 13 of the research doc.
+
+## Free tools, batch two: 10 more calculators (17 total)
+
+Shipped 2026-09-04. `/tools` now carries 17 calculators plus the hub, 18 URLs.
+
+New: `/tools/merchant-cash-advance-calculator`, `/tools/mcc-code-lookup`,
+`/tools/restaurant-credit-card-fee-calculator`, `/tools/credit-card-surcharge-calculator`,
+`/tools/reverse-fee-calculator`, `/tools/chargeback-ratio-calculator`,
+`/tools/rolling-reserve-calculator`, `/tools/payout-date-calculator`,
+`/tools/involuntary-churn-calculator`, `/tools/pos-terminal-lease-vs-buy-calculator`.
+
+That covers the whole shortlist in `Tools Pages - research.md` except the PCI SAQ
+selector, which the research rated the worst intent-to-money match in the set and
+the highest liability per unit of traffic. Two of the ten came from section 7
+rather than the shortlist: the MCA factor-rate-to-APR converter and the terminal
+lease-vs-buy calculator are the genuine US answers to the "EMI calculator" idea,
+and both are about instalment contracts merchants actually get trapped by.
+
+### Where the code lives now
+
+- `lib/tools.ts` keeps the shared types, the hub copy and the first seven tools.
+- `lib/tools-more.ts` holds the ten new `ToolDef` entries. Split for file size
+  only. It imports `ToolDef` as a TYPE, so there is no runtime cycle.
+- `lib/tools-rates.ts` holds the rate cards and the effective-rate bands. See
+  the bundling note below: this split is load-bearing, not cosmetic.
+- `lib/tools-data/*.ts`, one module per tool, holds the reference datasets.
+- `lib/tools-math.ts` holds every non-trivial formula.
+- `tests/tools/tools-math.test.ts` asserts the reference values.
+
+### Why the maths is a separate, tested module
+
+Every failure mode in these calculators is SILENT. Three that were caught by
+writing the reference cases down first:
+
+1. **The MCA APR solver.** NPV is decreasing in the rate, so when NPV(mid) is
+   positive the root lies above mid. Invert that branch and the bisection
+   converges on r = 1.0 and reports about 25,200 percent APR. It does not throw
+   and it does not look obviously wrong on a page whose subject is high rates.
+   The Federal Reserve's own illustration is asserted: $50,000 at a 1.30 factor
+   with a 10 percent holdback on $100,000 of monthly volume is 111.19 percent
+   APR, 221.07 percent at a 20 percent holdback, 55.76 percent at 5 percent.
+2. **Annualising churn.** At a 4 percent decline rate and 53 percent recovery the
+   monthly involuntary churn rate is 1.88 percent. Compounded that is 20.37
+   percent a year. Multiplied by twelve it is 22.56 percent, which is what most
+   competing calculators print. Both numbers look plausible.
+3. **Gross-up rounding.** Rounding the gross half up can still land a cent short,
+   because the processor rounds its fee independently of your rounding. The
+   implementation computes in integer cents, then recomputes the fee on the
+   rounded gross and bumps a cent at a time until the net clears. A sweep over
+   252 combinations asserts it never lands short and never overshoots by more
+   than a cent.
+
+Also asserted: the Federal Reserve closure set. Saturday-dated holidays are
+DROPPED rather than shifted, because the Reserve Banks are open the preceding
+Friday, and the one Sunday holiday is pre-resolved to its observed Monday in the
+data so shifting it again would move it twice. 22 entries, 19 actual closures.
+
+### Bundle size, measured rather than assumed
+
+`/tools/[tool]` is ONE route serving all seventeen calculators, so it has ONE
+client reference manifest and every tool page downloads the same chunk set. That
+was verified directly: the prerendered HTML for the Stripe page and the MCC page
+reference an identical list of 22 chunks.
+
+**`next/dynamic` does not change this in the App Router.** It was tried first and
+moved the reported numbers by nothing. It is still in `ToolWidget.tsx` because it
+costs nothing, but do not expect it to split anything.
+
+What actually took the first load from 295 kB to 208 kB, in order of impact:
+
+1. `ToolKit` and `BrandFeeCalculator` imported `lib/tools.ts` for the rate bands
+   and rate cards, which pulled the ENTIRE registry, `lib/tools-more.ts`
+   included, into the chunk every tool page loads. Moving those to
+   `lib/tools-rates.ts` was the single biggest win, 295 kB to 220 kB.
+2. `lib/tools-data.ts` became `lib/tools-data/*.ts`, one module per tool, so a
+   widget imports only its own constants instead of a 112 kB module.
+3. The 290 row MCC table and the 52 row state surcharge table are passed as
+   PROPS from `ToolWidget` rather than imported by the client modules, so they
+   ride only their own page's payload. 220 kB to 208 kB.
+
+**The rule this leaves:** a `"use client"` module under `components/public/tools/`
+must never import `@/lib/tools` or the `@/lib/tools-data` barrel. Import the
+narrow module, or take the data as a prop from `ToolWidget`. The barrel's own doc
+comment says so, and `lib/tools.ts` re-exports `lib/tools-rates.ts` so server
+code is unaffected.
+
+The remaining 208 kB against 182 to 185 kB on the other heavy routes is the
+seventeen widgets themselves, and removing it would mean seventeen separate route
+folders. Not worth it at this size.
+
+### Datasets that expire or drift
+
+`lib/tools-data/index.ts` states the contract. The ones with a clock on them:
+
+- **`FED_HOLIDAYS`** covers 2026 and 2027 only. A test fails once the last entry
+  falls into the past, so this cannot rot silently, but extend it before January
+  2027.
+- **`CHARGEBACK_PROGRAMS`** tracks card network monitoring rules, which the
+  networks have revised recently: VDMP no longer exists separately, it was folded
+  into VAMP and Visa changed its own formula. Each row carries its own
+  denominator and its own source because the ranking pages contradict each other
+  on exactly that point.
+- **`SURCHARGE_STATES`** is 52 rows with a per-row source and checked date, and a
+  deliberate "Unclear" status so an unverified state is shown as unverified
+  rather than guessed. State law here moves, and several 2026 competitor pages
+  wrongly describe California SB 478 as a surcharge ban.
+- **`RESERVE_CARRY_RATE`** is a published reference rate with its release date
+  beside it.
+- **`LEASE_DEVICE_PRICES`** and the rate cards are vendor pricing.
+
+### Two scoping decisions worth keeping
+
+**The surcharge tool does not output a maximum legal surcharge.** It computes
+dollar math on numbers the merchant supplies, and the state table sits beside it
+as cited reference. Whether you may surcharge and at what ceiling turns on the
+state, the network rules, your cost of acceptance and your acquirer agreement.
+A computed answer would read as legal advice. It does surface the break-even
+surcharge, which is arithmetic, and flags anything above the 3 percent network
+cap.
+
+**The restaurant tool excludes third party delivery volume from the input** and
+says so on the field label. On marketplace orders the platform is usually the
+merchant of record, so that volume is not the restaurant's processing cost and
+including it would overstate the answer. The tool also does not answer whether
+processing fees may be deducted from tipped employees, which is a wage and hour
+question rather than a payments one.
+
+### Smaller things
+
+- The MCC page's meta title carries the code count ("290 Verified US MCCs"). If
+  the dataset changes, change the title. It is in `lib/tools-more.ts`.
+- `keyword-page-map.csv` was extended with the batch one tool rows already. The
+  batch two keywords are not mapped yet, and 64 of the requested Semrush pulls
+  are still outstanding: the restaurant and involuntary churn clusters have no
+  volume data at all, so those two tiers are unscored placeholders.
+- The dash audit still does not read source string literals, and all the new
+  calculator copy is source. 33 files were grepped clean at ship time.
