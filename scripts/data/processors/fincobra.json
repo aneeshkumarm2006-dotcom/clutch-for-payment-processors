@@ -1,0 +1,178 @@
+{
+  "name": "FinCobra",
+  "slug": "fincobra",
+  "logo": "https://res.cloudinary.com/de26l2h0a/image/upload/v1788560914/logos/fincobra-logo-cd55521b.webp",
+  "website": "https://fincobra.com",
+  "tagline": "Non-custodial crypto checkout that settles BTC, USDT and USDC straight to wallets you control, free to $1,000 then a flat 0.5%.",
+  "shortDescription": "Hosted checkout, REST API and signed webhooks for BTC plus USDT and USDC on Ethereum, Solana, Arbitrum One and Base, all settling to wallets the merchant controls. The first $1,000 of paid invoice volume is free, then usage is a flat 0.5%. No cards and no fiat settlement.",
+  "longDescription": "<p><strong>FinCobra</strong> is a non-custodial crypto checkout launched in 2026. Merchants create a USD-denominated invoice through a REST API or the dashboard, send the customer to a hosted payment page at fincobra.com/pay/:id, and receive the funds directly at a wallet address they already control. FinCobra runs the invoice, the payment page, the chain watching and the webhooks, but never takes custody: Bitcoin invoices use unique addresses derived from the merchant's own xpub, EVM and Solana payments go to the payout wallets configured per network, and there is no platform balance to withdraw from.</p><h3>Pricing and how it works</h3><p>Free Start covers the first $1,000 of paid invoice volume, once per account. After that the account moves to Pay as You Go automatically, a flat 0.5% of paid invoice volume billed monthly in arrears with no subscription. Only paid volume counts: unpaid invoices add nothing, and overpayment above the invoice total is not billed. Billing invoices are due seven days after issue, and an account that stays past due can be blocked until payment clears. The WooCommerce plugin is priced separately, either $99 a year with no commission or no subscription at 0.5% of confirmed order volume.</p><p>Assets are deliberately narrow: BTC, USDT and USDC on Ethereum, USDT and USDC on Solana, and USDC on Arbitrum One and Base. Invoices run on immediate timing with an expiry between 1 and 1,440 minutes, or on due-date timing up to 60 days plus a grace period. Due-date invoices need a stablecoin method enabled, since Bitcoin is only offered on immediate invoices.</p><h3>Who it is for</h3><p>The target is small technical teams selling SaaS, digital products and services who want crypto revenue kept in their own wallets rather than in a processor balance, and who would otherwise be self-hosting BTCPay Server. Integration is the strong suit: a documented REST API, a TypeScript SDK, signed webhooks with idempotent delivery, an MCP server so coding agents can create invoices, a WooCommerce plugin, donation pages at fincobra.com/donate/:slug with an embeddable button, and a merchant app for iOS and Android. The invoice status model is unusually explicit for a young product, separating detected from confirmed payments and opening reviewable exceptions for late and partial payments.</p><h3>What it is not</h3><p>There are no cards, no ACH and no SEPA, no fiat settlement and no bank payouts, so FinCobra sits next to a real processor rather than replacing one. Because payments are on-chain pushes there are no chargebacks, and equally no automatic refunds: a refund is a manual send from the merchant wallet, and the WooCommerce plugin does not support Subscriptions, pre-orders or automatic refunds. The company itself is thinly documented. Terms and privacy took effect in April 2026, no legal entity, headquarters or team is published, and support runs through email and chat with replies quoted within one business day on Pay as You Go.</p>",
+  "foundedYear": 2026,
+  "companySize": "1-50",
+  "supportedRegions": [
+    "Global"
+  ],
+  "pricingModel": [
+    "flat-rate",
+    "subscription"
+  ],
+  "pricingSummary": "Free Start covers the first $1,000 of paid invoice volume, then Pay as You Go is a flat 0.5% of paid invoice volume, billed monthly in arrears with no subscription. Unpaid invoices and any overpayment above the invoice total are not billed. The WooCommerce plugin is either $99 a year with no commission or 0.5% of confirmed order volume.",
+  "fees": {
+    "onlineCardRate": "No card payments",
+    "internationalRate": "0.5% worldwide, no cross-border surcharge",
+    "monthlyFee": "$0, WooCommerce plugin is $99 a year",
+    "setupFee": "$0",
+    "monthlyMinimum": "None",
+    "chargebackFee": "None, on-chain payments cannot be reversed",
+    "refundPolicy": "Manual on-chain sends from your wallet, no automatic refunds"
+  },
+  "contractType": "no-contract",
+  "freeTrial": true,
+  "payoutTime": "instant",
+  "paymentMethods": [
+    "crypto"
+  ],
+  "integrations": [
+    "api",
+    "hosted-checkout",
+    "payment-links",
+    "invoicing",
+    "woocommerce"
+  ],
+  "currencies": "BTC, plus USDT and USDC on Ethereum and Solana and USDC on Arbitrum One and Base. Invoices are priced and billed in USD",
+  "features": [
+    "multi-currency",
+    "reporting-dashboard",
+    "no-rolling-reserve",
+    "developer-friendly"
+  ],
+  "pciLevel": "N/A",
+  "highRiskFriendly": false,
+  "categorySlugs": [
+    "ecommerce",
+    "developers",
+    "international",
+    "nonprofits"
+  ],
+  "bestFor": [
+    "Crypto-native SaaS",
+    "Direct-to-wallet settlement",
+    "Stablecoin invoicing",
+    "Developer-led integrations"
+  ],
+  "industries": [
+    "SaaS",
+    "Digital products",
+    "Agencies",
+    "Ecommerce",
+    "Nonprofits"
+  ],
+  "pros": [
+    "Non-custodial by design: Bitcoin invoices derive from your own xpub and stablecoin payments land at your configured wallets, so there is no platform balance to freeze, withdraw or lose",
+    "A free first $1,000 then a flat 0.5% with no subscription, and a WooCommerce option at $99 a year that removes the commission entirely for stores doing real volume",
+    "Genuinely developer-first for a young product: documented REST API, TypeScript SDK, signed idempotent webhooks, an MCP server for coding agents, and an explicit status model covering partial, late and overpaid invoices"
+  ],
+  "cons": [
+    "Three assets across five chains and nothing else, with no cards, ACH or SEPA, so it can only ever be a secondary checkout running next to a real processor",
+    "Very new and thin on company disclosure: the terms took effect in April 2026, no legal entity, headquarters or team is published, and there is no independent review history to check",
+    "No fiat settlement and no automatic refunds, so you hold the crypto and refund by hand, and the WooCommerce plugin needs a USD store and supports neither Subscriptions nor pre-orders"
+  ],
+  "editorScore": 3.3,
+  "listingTier": "free",
+  "isVerified": false,
+  "isSponsored": false,
+  "isFeatured": false,
+  "blocks": [
+    {
+      "type": "richtext",
+      "id": "fincobra-intro",
+      "data": {
+        "html": "<p>Most crypto payment gateways solve the merchant's problem by taking custody first. Payments land in a processor balance, the processor converts or holds them, and the merchant withdraws later, which reintroduces exactly the counterparty risk that accepting crypto was supposed to avoid.</p><p>FinCobra takes the other route. It builds the invoice, hosts the payment page and watches the chain, but the money moves straight from the payer to a wallet the merchant already controls.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "fincobra-how-it-works",
+      "data": {
+        "html": "<h2>How FinCobra Checkout Works</h2><p>A FinCobra integration is three moving parts.</p><ul><li>Your server posts an invoice to the API with a USD amount, a product name and your own order reference. FinCobra returns an invoice id and a paymentUrl.</li><li>You send the customer to that hosted page, which handles wallet connection, Bitcoin QR codes, address instructions and live status.</li><li>A signed webhook tells your server when the invoice state changes. You verify the signature, fetch the authoritative invoice, and fulfil the order once it reads confirmed.</li></ul><p>The status model is worth reading before you build against it. A payment that has been seen but not yet confirmed sits at payment_detected rather than being treated as paid, and partial or late payments open an exception that a merchant resolves deliberately, either by accepting the late payment, marking it paid out of band with a note, or closing it unpaid.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "fincobra-pricing",
+      "data": {
+        "html": "<h2>FinCobra Pricing and Fees</h2><p>Billing is automatic and there are no plans to choose between. Every account starts on Free Start, which covers the first $1,000 of paid invoice volume once. After that the account moves to Pay as You Go, a flat 0.5% of paid invoice volume with no monthly subscription, billed monthly in arrears. On $12,000 of paid volume in a cycle that is $60 in fees.</p><p>What counts is narrower than the headline suggests, in the merchant's favour. Billing uses the USD amount locked at invoice creation, volume only counts once a payment confirms or is recorded out of band, invoices that are never paid add nothing, and overpayment above the invoice total is not billed. Billing invoices are due seven days after issue and an account left past due can be blocked.</p><p>The WooCommerce plugin is priced on its own terms: $99 a year with 0% FinCobra commission, or no subscription at 0.5% of confirmed order volume. Both plans get the same gateway, networks and order automation.</p><p>Network fees are a separate matter entirely. The payer covers the on-chain cost of sending, which on Ethereum can dwarf a 0.5% platform fee on small invoices and is close to nothing on Solana, Base or Arbitrum. Choosing which chains you enable is a pricing decision as much as a technical one.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "fincobra-chains",
+      "data": {
+        "html": "<h2>Supported Coins and Chains</h2><p>The asset list is short and specific.</p><ul><li><strong>Bitcoin:</strong> BTC, with a unique invoice address derived from the xpub you configure. FinCobra never asks for a seed phrase or private key.</li><li><strong>Ethereum mainnet:</strong> USDT and USDC, through wallet-contract payments and deterministic address transfers.</li><li><strong>Solana:</strong> USDT and USDC, where the payer connects Phantom, Solflare, Backpack or another injected wallet and approves a direct transfer to your recipient wallet.</li><li><strong>Arbitrum One and Base:</strong> USDC.</li></ul><p>One constraint catches people out: due-date invoices require an enabled USDT or USDC method, because Bitcoin is only offered on immediate invoices. If you bill on net terms rather than at checkout, Bitcoin is not available for those invoices.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "fincobra-best-for",
+      "data": {
+        "html": "<h2>Who Is FinCobra Best For?</h2><p>The fit is narrow and the company is candid about it. FinCobra suits:</p><ul><li>SaaS companies, agencies and digital product sellers billing in USD</li><li>Teams that want crypto revenue to stay in their own wallets rather than a processor balance</li><li>Merchants who would otherwise self-host BTCPay Server and would rather not run a payment node</li><li>Developer-led shops that will integrate an API and verify webhooks properly</li><li>Projects and nonprofits that need a public donation page settling to their own wallets</li></ul><p>It is a poor fit for anyone who needs a broad coin catalogue, fiat settlement to a bank, card acceptance or chargeback machinery, and for teams that want deeply customised self-hosted payment infrastructure.</p>"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "fincobra-what-it-is-not",
+      "data": {
+        "html": "<h2>What FinCobra Does Not Do</h2><p>FinCobra is not a merchant account and not a card processor. There is no Visa or Mastercard acceptance, no ACH or SEPA, no interchange, no acquiring bank and no fiat payout. Merchants who need ordinary card payments still need a separate processor running alongside it.</p><p>Because on-chain payments are pushes rather than pulls, there are no chargebacks at all. The flip side is that there is no automatic refund either: a refund is a manual send from your own wallet, and the WooCommerce plugin explicitly does not advertise automatic refunds, WooCommerce Subscriptions or pre-orders. That plugin also is not listed on WordPress.org and has no auto-updater, so updates mean downloading a new zip from GitHub Releases and uploading it again.</p><p>Finally, treat the company itself as an open question. The terms and privacy policy took effect in April 2026, no legal entity, headquarters or team size is published anywhere on the site, and there is no track record or third-party review history to lean on yet. Non-custodial settlement limits the damage that fact can do, since FinCobra never holds the money, but availability, support and the roadmap all still depend on a company nobody can size.</p>"
+      }
+    }
+  ],
+  "seo": {
+    "metaTitle": "FinCobra Review | Non-Custodial Crypto Checkout Fees",
+    "metaDescription": "FinCobra review: non-custodial crypto checkout at 0.5 percent after a free first 1,000 dollars. Fees, supported chains, WooCommerce pricing and the limits.",
+    "h1": "FinCobra Review",
+    "keywords": [
+      "fincobra review",
+      "fincobra fees",
+      "fincobra pricing",
+      "non-custodial crypto checkout",
+      "crypto payment gateway"
+    ],
+    "focusKeyword": "fincobra review"
+  },
+  "faqs": [
+    {
+      "question": "How much does FinCobra cost?",
+      "answer": "The first $1,000 of paid invoice volume is free, once per account. After that Pay as You Go starts automatically at a flat 0.5% of paid invoice volume, billed monthly in arrears with no subscription and no setup fee. Only confirmed or out-of-band paid volume counts, and overpayment above the invoice total is not billed. The WooCommerce plugin is priced separately at $99 a year with no commission, or no subscription at 0.5% of confirmed order volume. Blockchain network fees are paid by the customer and sit outside FinCobra's pricing."
+    },
+    {
+      "question": "Does FinCobra hold my funds?",
+      "answer": "No. FinCobra is non-custodial: Bitcoin invoices use unique addresses derived from the extended public key you provide, and stablecoin payments settle to the Ethereum, Solana, Arbitrum or Base wallets you configure. There is no platform balance, no withdrawal step and no rolling reserve, and FinCobra never asks for a seed phrase or private key. It records invoice volume internally for billing, then invoices you for the 0.5% separately."
+    },
+    {
+      "question": "Which coins and chains does FinCobra support?",
+      "answer": "BTC on Bitcoin, USDT and USDC on Ethereum mainnet, USDT and USDC on Solana, and USDC on Arbitrum One and Base. That is the whole list, which is far narrower than gateways advertising hundreds of coins. One catch: due-date invoices require an enabled USDT or USDC method because Bitcoin is only offered on immediate invoices with a countdown."
+    },
+    {
+      "question": "Can I accept cards or settle in dollars with FinCobra?",
+      "answer": "No. There are no cards, no ACH and no SEPA, and no fiat settlement or bank payout, so you receive and hold crypto. Invoices are priced in USD for convenience but paid and settled on-chain. FinCobra is a second checkout option next to a card processor, not a replacement for one, and merchants who need fiat in a bank account should look at a custodial gateway such as BitPay or CoinGate instead."
+    }
+  ],
+  "structuredData": {
+    "customMode": "append"
+  },
+  "logoDomain": "fincobra.com",
+  "logoSource": "https://fincobra.com/logo-min.svg",
+  "sources": [
+    "https://fincobra.com/",
+    "https://fincobra.com/pricing",
+    "https://fincobra.com/docs/",
+    "https://fincobra.com/docs/checkout/",
+    "https://fincobra.com/docs/checkout/billing.html",
+    "https://fincobra.com/docs/checkout/configuration.html",
+    "https://fincobra.com/docs/checkout/invoices.html",
+    "https://fincobra.com/docs/checkout/woocommerce.html",
+    "https://fincobra.com/docs/checkout/donate-button.html",
+    "https://fincobra.com/terms",
+    "https://fincobra.com/privacy",
+    "https://fincobra.com/blog/"
+  ]
+}

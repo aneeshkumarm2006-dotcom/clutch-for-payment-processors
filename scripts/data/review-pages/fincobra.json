@@ -1,0 +1,88 @@
+{
+  "slug": "fincobra",
+  "name": "FinCobra",
+  "heading": "FinCobra reviews",
+  "intro": "FinCobra has no review record. Not a thin one, none at all: no Trustpilot profile, no G2 or Capterra listing, no Reddit thread, and no ratings on the one directory that lists it. That is roughly what you would expect from a product whose terms took effect in April 2026 and whose first public SDK release landed that June. So this page is not a summary of reviews that do not exist. It is the set of things a merchant can verify independently, and the questions worth answering before routing revenue through a company nobody has written about yet.",
+  "seo": {
+    "metaTitle": "FinCobra Reviews: No Public Record Yet",
+    "metaDescription": "FinCobra has no Trustpilot profile, no G2 or Capterra listing and no reviews anywhere. What a merchant can verify instead, and what stays unproven.",
+    "keywords": [
+      "fincobra reviews",
+      "fincobra review",
+      "is fincobra legit",
+      "fincobra crypto checkout",
+      "non-custodial crypto gateway reviews"
+    ],
+    "focusKeyword": "fincobra reviews"
+  },
+  "faqs": [
+    {
+      "question": "Are there any FinCobra reviews?",
+      "answer": "None that could be found, and the absence is unusually complete. Trustpilot has no profile for fincobra.com at all, checked on 5 September 2026, so there is not even an empty page. There is no G2 or Capterra listing. AlternativeTo carries a FinCobra entry, last updated in August 2026, but it holds no rating and no user reviews, only likes on the alternatives listed beside it. A site search of Reddit returned nothing. No merchant has submitted a review here either. The honest summary is that the product is too new and too small to have generated a public record, rather than that the record is negative."
+    },
+    {
+      "question": "Does having no reviews make FinCobra unsafe to use?",
+      "answer": "Not by itself, and the non-custodial design blunts the usual risk. The money never sits in a FinCobra balance: Bitcoin invoices use addresses derived from an extended public key you supply, and stablecoin payments land in Ethereum, Solana, Arbitrum or Base wallets you configure. A gateway that never holds your funds cannot freeze them, which is the failure mode most negative reviews of custodial crypto processors describe. What an empty review record does hide is everything else, and that list is not short: uptime, how reliably the chain watcher spots payments, whether webhooks arrive, whether support answers, and whether the company is still operating in a year. Those are real risks, they are just not the risk of losing settled funds."
+    },
+    {
+      "question": "What can I actually verify about FinCobra before trusting it?",
+      "answer": "More than you might expect. The docs are specific rather than promotional: the billing model, the invoice status machine, confirmation handling and the exception flow for late and partial payments are all written down. The integration code is public, so you can read it before installing anything, though it is worth knowing that all three repositories sit under a personal GitHub account rather than a company organisation, none has any stars, and the oldest was created in June 2026. Pricing is testable at no cost because the first 1,000 dollars of paid invoice volume is free with no card on file. What you cannot verify is the company: no legal entity, registered address, jurisdiction or team is published anywhere on the site, and contact runs through one email address."
+    },
+    {
+      "question": "How should I test FinCobra before putting real volume through it?",
+      "answer": "Use the free tier as an actual trial rather than a formality. Run a small live invoice on a cheap chain, Base or Solana rather than Ethereum mainnet, and confirm on a block explorer that the funds arrived at an address you control rather than anywhere else. Then break things deliberately: let an invoice expire, underpay one, overpay another, and watch how the status moves and what the exception flow offers you. Verify webhook signatures properly and confirm your handler is idempotent, because a duplicate event that fulfils an order twice is your bug, not theirs. Keep a card processor running alongside it, since crypto will be a minority of your revenue in any case."
+    },
+    {
+      "question": "How does FinCobra compare with crypto gateways that do have a review record?",
+      "answer": "It competes on a narrower promise. <a href=\"/processor/nowpayments\">NOWPayments</a> settles more than 350 coins non-custodially at a comparable rate and has years of published merchant feedback, good and bad. <a href=\"/processor/bitpay\">BitPay</a> has been operating since 2011, holds a New York BitLicense, and will convert to fiat and pay a bank account, which FinCobra will not do at all. FinCobra offers three assets across five chains and a checkout stack aimed at developers who want hosted invoices, signed webhooks and settlement into their own wallets. If that specific shape is what you want, the trade you are making is a smaller, cleaner product against an unknown company. If you need fiat in a bank account or broad coin coverage, the older options answer the question better."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "html": "<h2>What the review record shows</h2><p>Nothing, and it is worth being precise about how complete that nothing is. Trustpilot returns a 404 for fincobra.com, checked on 5 September 2026, meaning no profile has ever been claimed or auto-created. There is no G2 or Capterra listing. AlternativeTo has a FinCobra page, last updated in August 2026, but it carries no rating and no user reviews. A site search of Reddit returned no discussion. No merchant has published a review of it on this site.</p><p>That is consistent with the product's age rather than with anything sinister. The terms of use and privacy policy both took effect on 20 April 2026. The earliest checkout posts on the company blog date from March and April 2026. The TypeScript SDK repository was created in June 2026, and the WooCommerce plugin and MCP server repositories in late August 2026. The domain's current registration dates from September 2025; earlier archived captures of fincobra.com belong to an unrelated site under a previous owner.</p><p>One consequence deserves flagging because it cuts both ways. A young product with no reviews is not disproven, it is unexamined. Everything below is drawn from FinCobra's own documentation and from public records that can be checked independently, not from merchant experience, because no merchant experience has been published.</p>"
+    },
+    {
+      "type": "prosCons",
+      "title": "What can be verified, and what cannot",
+      "pros": [
+        "Settlement is checkable on chain: you supply the Bitcoin xpub and the payout wallets, so a test invoice can be watched arriving at an address you already control",
+        "The documentation is specific rather than promotional, covering the billing cycle, the full invoice status machine, confirmation thresholds and the exception flow for late and partial payments",
+        "The TypeScript SDK, WooCommerce plugin and MCP server are public on GitHub, so the integration code can be read before it is installed",
+        "Pricing can be tested at zero cost, because the first 1,000 dollars of paid invoice volume is free and requires no card on file",
+        "Terms and privacy are published with an effective date, and the terms state plainly that FinCobra does not take possession of private keys or control merchant funds",
+        "The company is candid about its own limits, publishing a who it does not fit section that names fiat settlement, cards and chargebacks as things it will not do"
+      ],
+      "cons": [
+        "No third-party review exists on any platform, so nothing independent corroborates the company's description of itself",
+        "No legal entity, registered address, jurisdiction or team size is published anywhere on the site, and contact runs through a single email address",
+        "The open-source repositories sit under a personal GitHub account rather than a company organisation, all three carry no stars, and the oldest dates from June 2026",
+        "Support is unproven: replies within one business day are quoted for Pay as You Go, and no merchant has publicly reported whether that holds",
+        "Uptime, chain-watching accuracy and webhook delivery have no public track record, and those are precisely the parts a merchant cannot audit from outside",
+        "Billing is the one place the relationship is not self-custodial: FinCobra meters your invoice volume internally and invoices you for it, and an unpaid billing invoice can block the account",
+        "The WooCommerce plugin is not on WordPress.org and has no auto-updater, so security updates depend on someone noticing a new GitHub release and uploading it by hand"
+      ]
+    },
+    {
+      "type": "richtext",
+      "html": "<h2>How to evaluate FinCobra without a review record</h2><p>When there is nothing to read, run the test yourself. The free tier is generous enough to be a real trial rather than a demo, and the things worth testing are the ones a review would have told you about.</p><ul><li>Put a small live invoice through on a cheap chain, Base or Solana rather than Ethereum mainnet, and confirm on a block explorer that the funds landed at your own address.</li><li>Let one invoice expire, underpay a second and overpay a third, then watch how the status moves and what the exception flow actually offers you. Partial and late payments are where crypto checkout gets messy.</li><li>Verify webhook signatures properly and make your handler idempotent. A duplicate event that fulfils an order twice is your bug to prevent.</li><li>Decide in advance what happens when a customer wants a refund, because there is no automatic one. Somebody on your team sends crypto by hand from your wallet, and that process needs an owner before it is needed in anger.</li><li>Price the network fees, not just the platform fee. On Ethereum mainnet the sending cost can dwarf the 0.5 percent on a small invoice, while on Base, Arbitrum or Solana it is close to nothing.</li></ul><p>Then size the decision honestly. Crypto is a minority of revenue for almost every merchant, this product cannot process cards or settle to a bank, and the sensible position is a card processor as the primary rail with FinCobra as a second option for customers who want it. Run that comparison against <a href=\"/processor/nowpayments\">NOWPayments</a>, which is also non-custodial and covers far more coins, and against <a href=\"/processor/bitpay\">BitPay</a>, which will convert to fiat and pay a bank account. The gap FinCobra fills is narrow: hosted invoices, documented webhooks and settlement into your own wallet, from a company that has not yet been reviewed by anyone.</p>"
+    }
+  ],
+  "sources": [
+    "https://www.trustpilot.com/review/fincobra.com",
+    "https://alternativeto.net/software/fincobra/",
+    "https://github.com/dexstandard/fincobra-sdk",
+    "https://github.com/dexstandard/fincobra-woocommerce",
+    "https://github.com/dexstandard/fincobra-mcp",
+    "https://api.github.com/users/dexstandard",
+    "https://rdap.verisign.com/com/v1/domain/FINCOBRA.COM",
+    "https://fincobra.com/terms",
+    "https://fincobra.com/privacy",
+    "https://fincobra.com/pricing",
+    "https://fincobra.com/docs/checkout/",
+    "https://fincobra.com/docs/checkout/billing.html",
+    "https://fincobra.com/docs/checkout/invoices.html",
+    "https://fincobra.com/docs/checkout/woocommerce.html",
+    "https://fincobra.com/blog/"
+  ]
+}
