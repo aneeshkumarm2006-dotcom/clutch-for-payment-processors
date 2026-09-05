@@ -10,3 +10,4 @@ import "./offer/offer-slidein.test";
 import "./reviews/reviews-page.test";
 import "./spam/classify.test";
 import "./tools/tools-math.test";
+import "./tools/batch-four.test";

@@ -1694,3 +1694,294 @@ question rather than a payments one.
   volume data at all, so those two tiers are unscored placeholders.
 - The dash audit still does not read source string literals, and all the new
   calculator copy is source. 33 files were grepped clean at ship time.
+
+## Free tools, batch three: compound and simple interest (19 total)
+
+Requested directly, with J.P. Morgan Personal Investing's compound interest
+calculator as the reference. Two pages:
+
+- `/tools/compound-interest-calculator`
+- `/tools/simple-interest-calculator`
+
+### These are the only two tools that are not about payments
+
+Every other calculator in the registry answers a question a merchant has about
+their processor. These answer a question about interest, which is adjacent
+rather than native, so they live in their own module, `lib/tools-money.ts`,
+rather than being buried in the middle of `tools-more.ts`. **If the section is
+ever pruned back to payments-only, that file is the thing to delete.** `TOOLS` is
+now `[...CORE_TOOLS, ...MORE_TOOLS, ...MONEY_TOOLS]`: the second split is by file
+size, the third is by subject.
+
+They still obey the anti-cannibalisation rule. Neither page reaches for a
+definition, a comparison or a processor's pricing, and both link into the pages
+that own those. Where they touch this site's actual subject they touch it
+honestly, and one of the two things they say about it is a warning:
+
+- A **rolling reserve** genuinely is a lump sum sitting still for a fixed term,
+  so the arithmetic applies. Both pages publish the forgone-interest figure
+  ($155.34 on $50,000 held 180 days at the FDIC money market average) precisely
+  to show it is NOT the cost of a reserve. The cost is that the cash is not
+  available; the reserve tool already models that properly with a borrowing rate
+  from the Fed H.15 release. Treating forgone deposit interest as the damage
+  understates it by an order of magnitude, and saying so on the page stops the
+  number being used as a rhetorical stand-in.
+- A **merchant cash advance** is the trap. It is priced with a factor rate, which
+  contains no time, so there is no rate to enter and no term to divide by.
+  Feeding a factor rate to either calculator produces a confident and meaningless
+  number. Both pages say so and point at `merchant-cash-advance-calculator`.
+  `related` on the MCA page now points back at the simple interest page, and the
+  rolling reserve page back at the compound one, so neither new page is a
+  sitemap-only orphan.
+
+### What was taken from the reference, and what was added
+
+The J.P. Morgan page has four inputs (initial investment, timeframe, annualised
+return rate, contribution plus a period select) and four outputs (initial
+investment, total additional contributions, total returns, final value). Those
+four outputs are the right four and are reproduced exactly. What it does not have
+was added, because it is the part that decides whether the answer is right:
+
+- **A compounding frequency selector**, including continuous. Without one, "5%"
+  is not yet a number.
+- **Contribution timing.** Start of period versus end. Worth $161.75 on the
+  defaults, which will not change a decision but decides whether this agrees with
+  a bank statement, and that is usually why someone is checking.
+- **The APY**, which is what makes two differently-compounded rates comparable.
+- **Exact doubling time next to the Rule of 72**, rather than quoting the
+  shortcut as fact.
+- **A year-by-year table.**
+- **The comparison against simple interest**, which is the output the whole
+  category omits and the reason both pages exist as a pair.
+
+### The output that matters most, and the claim it kills
+
+A total interest figure tells you nothing about compounding, because most of it
+would have been earned anyway. On the defaults ($10,000 opening, $250 a month, 5%
+compounded monthly, ten years) the account earns **$15,290.66** of interest, and
+compounding accounts for **$2,853.16** of that. Every page that presents the
+first number as the compounding effect overstates it roughly fivefold.
+
+The simple-interest twin is computed in the SAME loop as the compound figure, not
+as a separate closed form, so it is guaranteed to describe the same deposits over
+the same timeline. Its value is independently derivable and is asserted in the
+tests from a hand-computed arithmetic series, not from what the code returned.
+
+### The day count is why the simple interest page is a page
+
+`I = P x R x T` is one multiplication. The reason it needs a tool is `T`: a term
+in days has to be divided by an assumed year length, and US commercial lending
+routinely assumes 360. That turns a 9.00% note into a 9.125% one without touching
+the rate on the paper (365/360 = 1.0139). On $100,000 at 8% for a year it is
+$8,111.11 rather than $8,000.00.
+
+**The basis selector only appears when the term is counted in days.** That is not
+a UI shortcut. A term stated in months or years is the same fraction of a year
+under either convention, so offering the choice there would imply a difference
+that does not exist.
+
+**The Reg DD APY exponent always divides by actual days, never 360, even when the
+accrual used 360.** The accrual convention decides how many dollars were earned;
+the APY formula then annualises those dollars over real elapsed time. Putting 360
+in the exponent counts the convention twice. There is a test pinning this.
+
+### The strongest test in the file
+
+`simpleInterest` reproduces Regulation DD's own published example. Appendix A to
+12 CFR Part 1030 states that $30.37 of interest on a $1,000 six-month certificate
+over a 182 day period is an annual percentage yield of **6.18%**. The test feeds
+those numbers in and asserts `apy.toFixed(2) === "6.18"`. That reference sits
+outside both this module and the closed form it implements, which is worth more
+than any number of self-consistent assertions.
+
+The rest of `tests/tools/tools-math.test.ts` follows the same discipline: the
+annuity checks are against the closed form worked separately, the annuity-due
+premium against the algebraic identity `annuity x i`, and the doubling checks
+against the property that the Rule of 72 crosses over at 8% (overstating below,
+understating above, exact to within a week at 8% itself). 154 tests pass.
+
+### Findings from the arithmetic that shaped the copy
+
+All computed by this code and re-derivable with the widgets:
+
+- **Compounding frequency barely matters.** $10,000 at 4.50% for one year: annual
+  $450.00, quarterly $457.65, monthly $459.40, daily $460.25, continuous $460.28.
+  The whole annual-to-daily range is $10.25, and daily is within three cents of
+  the theoretical ceiling. Moving the rate to 5.00% is worth $50.00, nearly five
+  times as much. The pages say to take the extra tenth of a point over the better
+  compounding schedule.
+- **The effect is heavily back-loaded.** On the defaults, interest is 16.2% of
+  the balance at five years and 60.4% at thirty.
+- **Simple versus compound is a rounding error under a year.** $25,000 at 9%:
+  identical to the cent over 30 days (simple is $0.01 ahead, because 30 days does
+  not contain a full monthly compounding period), $4.09 apart at 90 days, $95.17
+  at a year, $966.13 at three.
+- **APY equals the stated rate at exactly 365 days and nowhere else.** Above it
+  under a year, below it over.
+
+### Dataset with a clock on it
+
+`FDIC_NATIONAL_RATES` in `lib/tools-data/interest.ts` is the only perishable
+thing in that module. National deposit averages effective **17 August 2026**,
+read 5 September 2026. The FDIC republishes monthly. The rest of the module,
+the compounding options and the Regulation DD formula, does not expire.
+
+The derived columns beside the FDIC rates in the compound page's rate table
+(APY, $10,000 after ten years, years to double) are computed by this site, not
+published by the FDIC, and the caption says so. If you refresh the rates, those
+columns have to be recomputed, and they were checked to the cent before shipping.
+
+### Smaller things
+
+- The dash audit still does not read source string literals, so the new copy was
+  scanned directly for em dashes, en dashes and curly quotes. Clean.
+- `npm run audit:meta` reports three pre-existing source violations
+  (`tools-more.ts:389`, `tools-more.ts:735`, `seed-braintree-profile.ts:133`).
+  The two new pages add none.
+- No keyword data was pulled for either page. The titles and descriptions are
+  written against the head terms and are unscored, so treat both as placeholders
+  in `keyword-page-map.csv` until volume is available.
+- Both pages carry a rate table, five explainer sections, six or seven
+  assumptions and six FAQs, matching the batch two shape. Wiring into the hub,
+  the sitemap and `generateStaticParams` is automatic off `TOOLS`, so nothing
+  else had to change.
+
+## Free tools, batch four: 25 more calculators (44 total)
+
+Shipped 2026-09-05. `/tools` now carries 44 calculators plus the hub, 45 URLs.
+Requested as a list of 25, built one agent per tool, then a second pass per page
+against the `human` skill checklist.
+
+Eight brand fee pages: `shopify-payments-fee-calculator`, `clover-fee-calculator`,
+`toast-fee-calculator`, `helcim-fee-calculator`, `adyen-fee-calculator`,
+`braintree-fee-calculator`, `authorize-net-fee-calculator` and
+`venmo-cash-app-zelle-business-fee-calculator`.
+
+Eleven cost-of-acceptance pages: `interchange-fee-lookup`,
+`interchange-downgrade-calculator`, `chargeback-cost-calculator`,
+`refund-cost-calculator`, `cross-border-fee-calculator`,
+`credit-card-processing-savings-calculator`,
+`merchant-account-junk-fee-calculator`, `pci-saq-level-finder`,
+`bnpl-fee-calculator`, `false-decline-cost-calculator`,
+`high-risk-merchant-account-cost-calculator`.
+
+Six business finance pages: `apr-vs-apy-calculator`,
+`business-loan-amortization-calculator`, `invoice-factoring-calculator`,
+`early-payment-discount-calculator`, `cash-conversion-cycle-calculator`,
+`break-even-and-margin-calculator`.
+
+That includes the PCI SAQ selector batch two deliberately skipped. It is built as
+an INDICATOR, never a determination: the assumptions block says your acquirer
+sets your obligations and a QSA validates them. It also separates the two things
+every competing page conflates, merchant level (1 to 4, set by annual transaction
+count, decides how you validate) from SAQ type (A, A-EP, B, B-IP, C, C-VT, P2PE,
+D, set by how you accept, decides which questionnaire).
+
+### The registry is now a directory, and the rate cards moved
+
+- `lib/tools-defs/*.ts`, ONE FILE PER TOOL, barrelled by `lib/tools-defs/index.ts`
+  into `BATCH_FOUR_TOOLS`. Twenty five entries in a fourth flat module would have
+  been roughly 5,000 lines nobody can review, and every edit would conflict.
+  `TOOLS` is now `[...CORE_TOOLS, ...MORE_TOOLS, ...MONEY_TOOLS, ...BATCH_FOUR_TOOLS]`.
+- `lib/rate-cards/*.ts`, one module per processor, plus a barrel. **This split is
+  load-bearing, not cosmetic**, and it is the same lesson `lib/tools-data/` learned.
+  Ten cards inline in `lib/tools-rates.ts` would ship all ten to every calculator
+  page, because `BrandFeeCalculator` imports that module. `lib/tools-rates.ts` now
+  holds only types, the effective-rate bands and the pure lookups.
+- **`BrandFeeCalculator` takes `card: RateCard` as a PROP, not `cardKey`.**
+  `ToolWidget` is a Server Component and resolves the card. Same technique as the
+  MCC and surcharge tables. `RateCardKey` is a union in `lib/tools-rates.ts` and
+  the barrel is a `Record<RateCardKey, RateCard>`, so adding a key without adding
+  the module fails to compile. The two cannot drift apart silently.
+- `lib/calc/<slug>.ts` holds each new tool's maths. `lib/tools-math.ts` was left
+  alone: it is already 739 lines, and twenty five agents editing one module is a
+  guaranteed conflict.
+- Batch four's data modules are **not** re-exported from `lib/tools-data/index.ts`.
+  Several hundred more names through one `export *` makes a single duplicated
+  export a build break unrelated to the tool that caused it. They are imported
+  narrowly by the widget, the server component or the test that needs them.
+- `tests/tools/batch-four/<slug>.test.ts`, aggregated by
+  `tests/tools/batch-four.test.ts`, registered in `tests/index.test.ts`.
+  **632 tests pass**, up from 154.
+
+### Helcim and Adyen do not use the shared brand widget
+
+Both are interchange-plus, and Adyen is interchange plus plus: interchange, then
+card scheme fees, then Adyen's own fixed processing fee and payment method fee.
+A flat-rate widget cannot express either without inventing an interchange number
+and hiding it. Both got their own widget with the interchange assumption as a
+VISIBLE, editable input, defaulted from the published network rate sheets and
+labelled an estimate. Interchange is published as rate tables rather than a feed,
+so a point value stated as fact would be the exact dishonesty these pages exist
+to correct.
+
+### The chargeback boundary, written down because it will come up again
+
+`/tools/chargeback-ratio-calculator` (batch two) owns the RATIO and THRESHOLD
+intent and keeps the network programme table. `/tools/chargeback-cost-calculator`
+(batch four) owns the FINANCIAL intent: representment economics, the annual P&L
+line, the escalation ladder once a programme picks you up, and the break-even
+expressed in extra sales AT MARGIN rather than at revenue, which is the
+denominator almost every competing page gets wrong. The cost page does not
+restate the threshold table and links to the ratio page for it. If either page
+starts answering the other's question, that is the thing to fix.
+
+### noUncheckedIndexedAccess caught 111 real defects
+
+Every one was an indexed read typed `T | undefined`. Worth recording because the
+fixes differ by context and the wrong fix hides a real case:
+
+- In `lib/calc/junk-fees.ts`, two parallel arrays were read back by index. Fixed
+  by carrying the line and its cents together as pairs, so the value is never
+  absent rather than being asserted present.
+- `FACTORING_FEE_STRUCTURES[0]`, `REPRESENTMENT_WIN_RATES[0]` and
+  `CHARGEBACK_MONITORING_ESCALATION[0]` were used as `??` fallbacks, which does
+  not narrow: `array[0]` is itself possibly undefined. Fixed with the `WORST_BAND`
+  pattern already in `lib/tools-rates.ts`: hoist the row into a named const and
+  export it as the default, so the fallback is total.
+- `JunkFeeCalculator` read both ends of a computed ladder. The honest reading of
+  an empty ladder is that there is no sentence to write, so the callout renders
+  off a narrowed pair instead of asserting rows exist.
+- In tests, `!` is the house convention (`tools-math.test.ts:564`) and was applied
+  mechanically.
+
+### Bundle size regressed, and it is now the open question
+
+`/tools/[tool]` first load JS went from the 208 kB batch two got it down to
+**327 kB**. Measured the same way as before: every prerendered tool page
+references an identical 24 chunks totalling 787 kB uncompressed, because ONE
+route serves all 44 calculators and therefore has ONE client reference manifest.
+`next/dynamic` still does not split it, exactly as batch two found.
+
+Everything cheap has already been done: the data is passed as props, the rate
+cards are per module, the registry is server side. The remaining weight is 37
+widget components, and the only real fix left is separate route folders. Batch
+two judged that not worth it at seventeen widgets. At thirty seven it probably
+is, and it should be decided before batch five rather than after.
+
+### What still needs doing
+
+- **`INTERCHANGE_RATES` has no Discover rows.** 196 rows, Visa 119 and Mastercard
+  77, every one carrying its own source. Discover publishes a US rate sheet and
+  the page promises three networks in places. Either add the rows or narrow the
+  claim.
+- **No keyword volume data.** 52 rows were added to `keyword-page-map.csv` against
+  head terms, all unscored. The titles and descriptions are written against
+  observed query shapes, not against Semrush numbers, so treat the tiering
+  (10 tier one, 22 tier two, 12 tier three) as a placeholder.
+- **The hub is now 44 cards in three tier groups.** It works, but topical grouping
+  would serve both the reader and the internal linking better.
+- **Every rate card and dataset in this batch is a standing maintenance
+  commitment**, same as batches one to three. Each carries its own `checked` date
+  and sources, rendered on the page. Do not move a `checked` date without
+  re-reading the source.
+
+### The dash audit still does not read source, and this batch is all source
+
+`npm run audit:dashes` walks Mongo, not string literals. All 90-odd new files were
+grepped directly for em dash, en dash, horizontal bar and curly quotes: clean, and
+clean of non-ASCII generally outside the HTML entities the widgets already use.
+`npm run audit:meta` reports the same 3 pre-existing source violations
+(`tools-more.ts:389`, `tools-more.ts:735`, `seed-braintree-profile.ts:133`) and 5
+pre-existing database ones. **The 25 new pages add none**, after seven titles and
+descriptions were rewritten to drop the banned `%`, `$` and `+` symbols.

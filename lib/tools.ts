@@ -39,6 +39,8 @@
  */
 
 import { MORE_TOOLS } from "@/lib/tools-more";
+import { MONEY_TOOLS } from "@/lib/tools-money";
+import { BATCH_FOUR_TOOLS } from "@/lib/tools-defs";
 // `export * from` re-exports at runtime but does not bring names into local
 // scope, and `ToolDef.rateCard` needs the type here.
 import type { RateCardKey } from "@/lib/tools-rates";
@@ -86,7 +88,32 @@ export type ToolWidgetKind =
   | "surcharge"
   | "restaurant"
   | "churn"
-  | "lease-vs-buy";
+  | "lease-vs-buy"
+  | "compound-interest"
+  | "simple-interest"
+  // Batch four. `brand-fee` serves seven of the eight brand pages off a rate
+  // card; Helcim and Adyen are interchange-plus and interchange++ respectively,
+  // which the flat-rate widget cannot express, so they get their own.
+  | "helcim-fee"
+  | "adyen-fee"
+  | "p2p-business"
+  | "interchange-lookup"
+  | "downgrade"
+  | "chargeback-cost"
+  | "refund-cost"
+  | "fx-markup"
+  | "savings"
+  | "junk-fees"
+  | "pci-saq"
+  | "bnpl"
+  | "false-decline"
+  | "high-risk"
+  | "apr-apy"
+  | "loan-amortization"
+  | "factoring"
+  | "early-payment-discount"
+  | "cash-cycle"
+  | "margin-markup";
 
 export interface ToolDef {
   slug: string;
@@ -136,6 +163,12 @@ export interface ToolDef {
  * directly.
  */
 export * from "@/lib/tools-rates";
+/**
+ * And the card DATA, from `lib/rate-cards`. Server-side only in practice: a
+ * `"use client"` module must never import this module at all (see above), and
+ * `ToolWidget` passes the one card a page needs into the widget as a prop.
+ */
+export * from "@/lib/rate-cards";
 
 // ---------------------------------------------------------------------------
 // Shared copy
@@ -872,12 +905,16 @@ const CORE_TOOLS: ToolDef[] = [
 // ---------------------------------------------------------------------------
 
 /**
- * Every tool, in hub order. Split across two modules only for file size; the
- * second batch is identical in shape. `MORE_TOOLS` imports `ToolDef` from here
- * as a TYPE, so the import is erased at compile time and there is no runtime
- * cycle between the two files.
+ * Every tool, in hub order. Split across four modules; the later batches are
+ * identical in shape. `MORE_TOOLS` is a size split only. `MONEY_TOOLS` is a
+ * SUBJECT split: general interest arithmetic rather than a question about a
+ * processor, kept separable on purpose. `BATCH_FOUR_TOOLS` is a directory,
+ * `lib/tools-defs/`, one file per tool: twenty five entries in one module would
+ * be an unreviewable file, and one file per page means a page's copy has its own
+ * diff. All of them import `ToolDef` from here as a TYPE, so the import is
+ * erased at compile time and there is no runtime cycle.
  */
-export const TOOLS: ToolDef[] = [...CORE_TOOLS, ...MORE_TOOLS];
+export const TOOLS: ToolDef[] = [...CORE_TOOLS, ...MORE_TOOLS, ...MONEY_TOOLS, ...BATCH_FOUR_TOOLS];
 
 /** Sitemap and `generateStaticParams` read this. Keep it client-safe. */
 export const TOOL_SLUGS: string[] = TOOLS.map((t) => t.slug);
@@ -890,7 +927,7 @@ export const TOOLS_HUB = {
   h1: "Free payment tools and calculators",
   title: "Free payment processing calculators for US merchants",
   description:
-    "Free calculators for US merchants: processing fees, your real effective rate, Stripe, PayPal and Square costs, ACH savings, and where interchange-plus wins.",
+    "44 free calculators for US merchants: processing fees, your effective rate, ten processors' published rates, interchange, chargebacks, refunds and cash flow.",
   intro:
-    "Every tool here runs in your browser, needs no email address, and shows the rates it used and the date they were checked. They are built for US merchants, in dollars, against the fee schedules processors actually publish.",
+    "Every tool here runs in your browser, needs no email address, and shows the rates it used and the date they were checked. They are built for US merchants, in dollars, against the fee schedules processors actually publish. Ten of them price a named processor off its own published card; the rest price the things that do not appear on a rate card at all, from interchange downgrades and chargebacks to what a refund really costs you.",
 } as const;

@@ -499,3 +499,241 @@ export function involuntaryChurn(opts: {
     targetBelowCurrent: t < r,
   };
 }
+
+// ---------------------------------------------------------------------------
+// Compound and simple interest
+// ---------------------------------------------------------------------------
+
+export interface CompoundInput {
+  principal: number;
+  /** Nominal annual rate, as a percentage. Not the APY. */
+  annualRatePct: number;
+  years: number;
+  /** Compounding periods per year. 0 means continuous. */
+  compoundsPerYear: number;
+  contribution: number;
+  /** Contribution periods per year. 0 means no contributions at all. */
+  contributionsPerYear: number;
+  /** True for an annuity due: money in at the START of each period. */
+  contributeAtStart: boolean;
+}
+
+export interface CompoundYear {
+  year: number;
+  startBalance: number;
+  contributions: number;
+  interest: number;
+  endBalance: number;
+}
+
+export interface CompoundResult {
+  finalValue: number;
+  principal: number;
+  totalContributions: number;
+  /** finalValue less every dollar you put in. */
+  totalReturns: number;
+  /** Effective annual yield as a percentage: what Regulation DD calls the APY. */
+  apy: number;
+  /** The same deposits at the same nominal rate, with interest that never compounds. */
+  simpleFinalValue: number;
+  /** What compounding is worth over that, in dollars. */
+  compoundingPremium: number;
+  /** Years for the OPENING PRINCIPAL alone to double. Contributions are excluded on purpose. */
+  doublingYears: number;
+  /** The 72 shortcut, so the page can show how far off it is rather than assert it. */
+  ruleOf72Years: number;
+  schedule: CompoundYear[];
+}
+
+/**
+ * Effective annual rate from a nominal rate compounded n times a year.
+ *
+ * (1 + r/n)^n - 1, and e^r - 1 when n is 0 (continuous). This is the single
+ * quantity that makes two differently-compounded rates comparable, which is why
+ * Regulation DD makes US institutions disclose it, and why every output on the
+ * compound page is derived from it rather than from the nominal rate.
+ *
+ * `Math.expm1` rather than `Math.exp(r) - 1`: at the rates a savings account
+ * actually pays, subtracting 1 from a number very close to 1 throws away
+ * significant digits.
+ */
+export function effectiveAnnualRate(annualRatePct: number, compoundsPerYear: number): number {
+  const r = Math.max(-0.99, annualRatePct / 100);
+  if (compoundsPerYear <= 0) return Math.expm1(r);
+  const n = Math.max(1, Math.round(compoundsPerYear));
+  return Math.pow(1 + r / n, n) - 1;
+}
+
+/**
+ * Growth of a lump sum plus a stream of deposits.
+ *
+ * WHY IT STEPS INSTEAD OF USING THE ANNUITY FORMULA. The compounding frequency
+ * and the contribution frequency are independent inputs: daily compounding with
+ * monthly deposits is the normal case, not an edge case. Rather than force them
+ * to match, the effective ANNUAL rate is computed once and then converted to a
+ * rate per contribution step, (1 + EAR)^(1/c) - 1. That is exact for any pair of
+ * frequencies, and it keeps the year-by-year table arithmetically identical to
+ * the headline instead of merely close to it.
+ *
+ * The simple-interest comparison runs in the SAME loop rather than as a separate
+ * closed form, so it is guaranteed to describe the same deposits over the same
+ * timeline. Simple interest accrues on money deposited, never on interest
+ * already earned, which is the whole distinction the two pages exist to draw.
+ */
+export function compoundInterest(input: CompoundInput): CompoundResult {
+  const principal = Math.max(0, input.principal);
+  const years = Math.min(100, Math.max(0, Math.round(input.years)));
+  const ratePct = input.annualRatePct;
+
+  // With no contributions the loop still needs a step count, so it steps once a
+  // year and deposits nothing.
+  const hasContributions = input.contributionsPerYear > 0 && input.contribution > 0;
+  const c = hasContributions ? Math.max(1, Math.round(input.contributionsPerYear)) : 1;
+  const pmt = hasContributions ? Math.max(0, input.contribution) : 0;
+
+  const ear = effectiveAnnualRate(ratePct, input.compoundsPerYear);
+  const stepRate = Math.pow(1 + ear, 1 / c) - 1;
+  // The simple-interest twin uses the NOMINAL rate split evenly across the year,
+  // because simple interest has no compounding frequency to convert.
+  const simpleStepRate = Math.max(-0.99, ratePct / 100) / c;
+
+  let balance = principal;
+  let depositedBase = principal;
+  let simpleInterest = 0;
+  let totalContributions = 0;
+  const schedule: CompoundYear[] = [];
+
+  for (let y = 1; y <= years; y += 1) {
+    const startBalance = balance;
+    let yearContributions = 0;
+
+    for (let step = 0; step < c; step += 1) {
+      if (pmt > 0 && input.contributeAtStart) {
+        balance += pmt;
+        depositedBase += pmt;
+        yearContributions += pmt;
+        totalContributions += pmt;
+      }
+      balance *= 1 + stepRate;
+      simpleInterest += depositedBase * simpleStepRate;
+      if (pmt > 0 && !input.contributeAtStart) {
+        balance += pmt;
+        depositedBase += pmt;
+        yearContributions += pmt;
+        totalContributions += pmt;
+      }
+    }
+
+    schedule.push({
+      year: y,
+      startBalance,
+      contributions: yearContributions,
+      interest: balance - startBalance - yearContributions,
+      endBalance: balance,
+    });
+  }
+
+  const simpleFinalValue = principal + totalContributions + simpleInterest;
+
+  return {
+    finalValue: balance,
+    principal,
+    totalContributions,
+    totalReturns: balance - principal - totalContributions,
+    apy: ear * 100,
+    simpleFinalValue,
+    compoundingPremium: balance - simpleFinalValue,
+    doublingYears: ear > 0 ? Math.log(2) / Math.log(1 + ear) : Number.POSITIVE_INFINITY,
+    ruleOf72Years: ratePct > 0 ? 72 / ratePct : Number.POSITIVE_INFINITY,
+    schedule,
+  };
+}
+
+export type DayBasis = 360 | 365;
+
+export interface SimpleInput {
+  principal: number;
+  annualRatePct: number;
+  termValue: number;
+  termUnit: "years" | "months" | "days";
+  /**
+   * Days assumed in a year. Only bites when the term is counted in days: a term
+   * stated in months or years is the same fraction of a year either way.
+   */
+  dayBasis: DayBasis;
+}
+
+export interface SimpleResult {
+  interest: number;
+  total: number;
+  /** The fraction of a year the formula multiplied by. */
+  yearFraction: number;
+  /** Actual calendar days in the term, on a 365-day year. */
+  days: number;
+  perDay: number;
+  perMonth: number;
+  /** The rate a 360-day basis actually charges. Equals the entered rate on a 365-day basis. */
+  effectiveRatePct: number;
+  /** Regulation DD APY on these exact dollars. */
+  apy: number;
+  /** The same principal and term with monthly compounding, for contrast. */
+  compoundedMonthly: number;
+  compoundingGap: number;
+}
+
+/**
+ * Simple interest: I = P x r x t, and nothing else.
+ *
+ * Two things this gets right that most simple-interest pages do not.
+ *
+ * DAY COUNT. A term entered in days is divided by `dayBasis`, so the 360-day
+ * commercial convention makes a 365-day loan cost 365/360 of a year of interest.
+ * That is not a rounding artefact, it is the convention working as designed, and
+ * it is why a note quoted at 9.00% on an Actual/360 basis accrues at 9.125%. A
+ * term entered in months or years is unaffected, because no days were counted.
+ *
+ * APY. The result is fed straight through the Regulation DD formula,
+ * 100[(1 + I/P)^(365/days) - 1], so a short-dated simple-interest deal can be
+ * compared against a compounding one on the one measure US law defines. Reg DD
+ * is defined on ACTUAL days in the term, so that exponent never uses 360 even
+ * when the accrual did.
+ */
+export function simpleInterest(input: SimpleInput): SimpleResult {
+  const principal = Math.max(0, input.principal);
+  const ratePct = input.annualRatePct;
+  const r = ratePct / 100;
+  const termValue = Math.max(0, input.termValue);
+  const basis = input.dayBasis === 360 ? 360 : 365;
+
+  const yearFraction =
+    input.termUnit === "years"
+      ? termValue
+      : input.termUnit === "months"
+        ? termValue / 12
+        : termValue / basis;
+
+  const days =
+    input.termUnit === "years"
+      ? termValue * 365
+      : input.termUnit === "months"
+        ? termValue * (365 / 12)
+        : termValue;
+
+  const interest = principal * r * yearFraction;
+  const total = principal + interest;
+  const actualYears = days / 365;
+  const compoundedMonthly = principal * Math.pow(1 + r / 12, 12 * actualYears);
+
+  return {
+    interest,
+    total,
+    yearFraction,
+    days,
+    perDay: days > 0 ? interest / days : 0,
+    perMonth: days > 0 ? interest / (days / (365 / 12)) : 0,
+    effectiveRatePct: input.termUnit === "days" ? ratePct * (365 / basis) : ratePct,
+    apy: principal > 0 && days > 0 ? (Math.pow(1 + interest / principal, 365 / days) - 1) * 100 : 0,
+    compoundedMonthly,
+    compoundingGap: compoundedMonthly - total,
+  };
+}

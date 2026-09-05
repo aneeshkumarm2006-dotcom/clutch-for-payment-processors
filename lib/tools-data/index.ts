@@ -33,3 +33,16 @@ export * from "@/lib/tools-data/surcharge";
 export * from "@/lib/tools-data/restaurant";
 export * from "@/lib/tools-data/churn";
 export * from "@/lib/tools-data/lease";
+export * from "@/lib/tools-data/interest";
+
+/**
+ * BATCH FOUR'S DATA MODULES ARE DELIBERATELY NOT RE-EXPORTED HERE.
+ *
+ * Twenty five more tools would put several hundred more names through one
+ * `export *` surface, where a single duplicated export name is a build break
+ * that has nothing to do with the tool that caused it. They live under the same
+ * `lib/tools-data/` directory, obey the same maintenance contract, and are
+ * imported NARROWLY by the widget, the server component or the test that needs
+ * them (`@/lib/tools-data/interchange`, not this index). New modules should
+ * follow that pattern rather than being added above.
+ */

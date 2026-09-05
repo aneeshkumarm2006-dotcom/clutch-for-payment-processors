@@ -155,6 +155,7 @@ export const MORE_TOOLS: ToolDef[] = [
       "effective-rate-calculator",
       "credit-card-processing-fee-calculator",
       "interchange-plus-vs-flat-rate-calculator",
+      "simple-interest-calculator",
     ],
     links: [
       {
@@ -1293,6 +1294,7 @@ export const MORE_TOOLS: ToolDef[] = [
       "effective-rate-calculator",
       "credit-card-processing-fee-calculator",
       "interchange-plus-vs-flat-rate-calculator",
+      "compound-interest-calculator",
     ],
     links: [
       {

@@ -6,8 +6,7 @@ import {
   defaultChannelId,
   defaultPlanId,
   findChannel,
-  getRateCard,
-  type RateCardKey,
+  type RateCard,
 } from "@/lib/tools-rates";
 import {
   CalcShell,
@@ -36,14 +35,17 @@ import {
  * copy of the same arithmetic. Here there is one implementation and one place
  * where a rate can be wrong.
  *
+ * The card arrives as a PROP from `ToolWidget`, a Server Component, rather than
+ * being looked up here. `/tools/[tool]` is one route with one client manifest, so
+ * importing the barrel would ship all ten processors' cards to every calculator
+ * page. As a prop, only this page's card is serialized.
+ *
  * Add-ons are additive percentages on top of the channel rate, which is how all
  * three processors describe them: Stripe's keyed, international and currency
  * conversion surcharges stack, and PayPal's international fee stacks on whichever
  * domestic rate applied.
  */
-export function BrandFeeCalculator({ cardKey }: { cardKey: RateCardKey }) {
-  const card = getRateCard(cardKey);
-
+export function BrandFeeCalculator({ card }: { card: RateCard }) {
   const [mode, setMode] = React.useState<"single" | "monthly">("single");
   const [plan, setPlan] = React.useState(() => defaultPlanId(card));
   const [channel, setChannel] = React.useState(() => defaultChannelId(card));

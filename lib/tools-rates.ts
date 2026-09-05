@@ -1,5 +1,6 @@
 /**
- * Rate cards and the shared rate bands, for the `/tools/*` calculators.
+ * Rate card TYPES, the shared effective-rate bands, and the lookups a brand
+ * widget needs. For the `/tools/*` calculators.
  *
  * Split out of `lib/tools.ts` for ONE reason, and it is a bundling reason rather
  * than an organisational one. `BrandFeeCalculator` and `ToolKit` are both
@@ -8,10 +9,16 @@
  * chunk that every `/tools/*` page loads. `/tools/[tool]` is a single route, so
  * anything a widget imports ships everywhere.
  *
+ * THE RATE CARD DATA ITSELF IS NOT HERE. It lives in `lib/rate-cards/*.ts`, one
+ * module per processor, and is read on the SERVER in `ToolWidget` then handed to
+ * `BrandFeeCalculator` as a prop. Ten cards inline in this module would ship all
+ * ten to every calculator page, which is the same mistake `lib/tools-data/` was
+ * split to undo. Keep this module to types, bands and pure functions.
+ *
  * Keep this module free of page copy and free of registry imports.
  *
- * `lib/tools.ts` re-exports everything here, so server code and the existing
- * import sites are unaffected.
+ * `lib/tools.ts` re-exports everything here and everything in `lib/rate-cards`,
+ * so server code and the existing import sites are unaffected.
  */
 
 export interface RateCardChannel {
@@ -38,247 +45,23 @@ export interface RateCard {
   extras: { label: string; value: string }[];
 }
 
-export type RateCardKey = "stripe" | "paypal" | "square";
-
-// ---------------------------------------------------------------------------
-// Rate cards
-// ---------------------------------------------------------------------------
-
 /**
- * US published rate cards for the three brand calculators.
- *
- * Every figure here was read off the processor's own US schedule on the `checked`
- * date. The competing calculators that rank for these terms are measurably
- * stale (one page dated July 2026 still computes Square's pre-increase in-person
- * rate, and another carries a PayPal rate inside a Square calculator), so being
- * right is the whole differentiator. Treat an unverified edit to this object as
- * a content bug, not a tweak.
+ * Every brand with a published US card in `lib/rate-cards/`. Adding a key here
+ * without adding the module breaks the barrel's `Record` at compile time, which
+ * is the point: the two cannot drift apart silently.
  */
-export const RATE_CARDS: Record<RateCardKey, RateCard> = {
-  stripe: {
-    key: "stripe",
-    processorName: "Stripe",
-    processorSlug: "stripe",
-    checked: "1 September 2026",
-    sources: [{ label: "stripe.com/pricing", url: "https://stripe.com/pricing" }],
-    plans: [{ id: "standard", label: "Standard pricing", monthly: 0 }],
-    channels: [
-      {
-        id: "online",
-        label: "Online cards and wallets",
-        note: "Domestic cards, the standard rate most accounts pay.",
-        rates: { standard: { rate: 2.9, fixed: 0.3 } },
-      },
-      {
-        id: "terminal",
-        label: "In person (Terminal)",
-        note: "Card present. Tap to Pay adds $0.10 per authorization.",
-        rates: { standard: { rate: 2.7, fixed: 0.05 } },
-      },
-      {
-        id: "link",
-        label: "Instant bank payments",
-        note: "Bank payments confirmed at card speed.",
-        rates: { standard: { rate: 2.6, fixed: 0.3 } },
-      },
-      {
-        id: "ach",
-        label: "ACH Direct Debit",
-        note: "Capped at $5.00 per transaction, which is why it wins on large tickets.",
-        rates: { standard: { rate: 0.8, fixed: 0 } },
-      },
-    ],
-    addOns: [
-      {
-        id: "keyed",
-        label: "Card details typed in manually",
-        rate: 0.5,
-        note: "Applies on top of the online rate.",
-      },
-      { id: "intl", label: "Card issued outside the US", rate: 1.5 },
-      { id: "fx", label: "Currency conversion required", rate: 1 },
-    ],
-    extras: [
-      { label: "Dispute received fee", value: "$15.00 per dispute" },
-      { label: "Instant payouts", value: "1.5% of volume, minimum $0.50" },
-      { label: "Standard payouts", value: "Free" },
-      { label: "Monthly account fee", value: "None on standard pricing" },
-    ],
-  },
+export type RateCardKey =
+  | "stripe"
+  | "paypal"
+  | "square"
+  | "shopify"
+  | "clover"
+  | "toast"
+  | "helcim"
+  | "adyen"
+  | "braintree"
+  | "authorize-net";
 
-  paypal: {
-    key: "paypal",
-    processorName: "PayPal",
-    processorSlug: "paypal",
-    checked: "27 August 2026",
-    sources: [
-      {
-        label: "paypal.com US business fees (page states last updated 15 July 2026)",
-        url: "https://www.paypal.com/us/business/paypal-business-fees",
-      },
-    ],
-    plans: [{ id: "standard", label: "Standard US seller rates", monthly: 0 }],
-    channels: [
-      {
-        id: "checkout",
-        label: "PayPal Checkout",
-        note: "Also Guest Checkout and Pay with Venmo. The default rate for a PayPal button.",
-        rates: { standard: { rate: 3.49, fixed: 0.49 } },
-      },
-      {
-        id: "cards",
-        label: "Standard card payments",
-        note: "A card entered on your own site rather than through the PayPal wallet.",
-        rates: { standard: { rate: 2.99, fixed: 0.49 } },
-      },
-      {
-        id: "advanced",
-        label: "Advanced card payments",
-        note: "The upgraded card processing product, subject to approval.",
-        rates: { standard: { rate: 2.89, fixed: 0.49 } },
-      },
-      {
-        id: "invoice",
-        label: "Invoicing",
-        note: "An invoice paid through PayPal Checkout or Venmo.",
-        rates: { standard: { rate: 3.49, fixed: 0.49 } },
-      },
-      {
-        id: "qr",
-        label: "QR code in person",
-        note: "The cheapest PayPal channel, and the one most sellers never switch on.",
-        rates: { standard: { rate: 2.29, fixed: 0.09 } },
-      },
-      {
-        id: "pos",
-        label: "PayPal Point of Sale, card present",
-        rates: { standard: { rate: 2.29, fixed: 0.09 } },
-      },
-      {
-        id: "vt",
-        label: "Virtual Terminal",
-        note: "Phone and mail orders keyed in by you.",
-        rates: { standard: { rate: 3.39, fixed: 0.49 } },
-      },
-      {
-        id: "paylater",
-        label: "PayPal Pay Later",
-        rates: { standard: { rate: 4.99, fixed: 0.49 } },
-      },
-      {
-        id: "micro",
-        label: "Micropayments",
-        note: "Opt-in pricing. Cheaper only on very small tickets, roughly under $12.",
-        rates: { standard: { rate: 4.99, fixed: 0.09 } },
-      },
-      {
-        id: "ach",
-        label: "ACH services",
-        note: "Capped at $5.00 per transaction.",
-        rates: { standard: { rate: 0.8, fixed: 0 } },
-      },
-    ],
-    addOns: [
-      {
-        id: "intl",
-        label: "Buyer outside the US",
-        rate: 1.5,
-        note: "Added to whichever domestic rate applies.",
-      },
-    ],
-    extras: [
-      { label: "Chargeback fee", value: "$20.00" },
-      { label: "Standard dispute fee", value: "$15.00" },
-      { label: "Currency conversion spread", value: "3.00% to 4.00% depending on transaction type" },
-      { label: "Monthly account fee", value: "None on standard rates" },
-    ],
-  },
-
-  square: {
-    key: "square",
-    processorName: "Square",
-    processorSlug: "square",
-    checked: "12 August 2026",
-    sources: [
-      { label: "squareup.com US pricing", url: "https://squareup.com/us/en/pricing" },
-      { label: "squareup.com payments fees", url: "https://squareup.com/us/en/payments/our-fees" },
-    ],
-    plans: [
-      { id: "free", label: "Square Free", monthly: 0 },
-      { id: "plus", label: "Square Plus", monthly: 49, note: "Per location." },
-      { id: "premium", label: "Square Premium", monthly: 149, note: "Per location." },
-    ],
-    channels: [
-      {
-        id: "inperson",
-        label: "Tap, dip or swipe",
-        note: "Card present. The rate Square raised in 2026, and the one most ranking calculators still get wrong.",
-        rates: {
-          free: { rate: 2.6, fixed: 0.15 },
-          plus: { rate: 2.5, fixed: 0.15 },
-          premium: { rate: 2.4, fixed: 0.15 },
-        },
-      },
-      {
-        id: "online",
-        label: "Online and invoices",
-        note: "Square groups invoice payments WITH online, which is where the plan difference bites hardest.",
-        rates: {
-          free: { rate: 3.3, fixed: 0.3 },
-          plus: { rate: 2.9, fixed: 0.3 },
-          premium: { rate: 2.9, fixed: 0.3 },
-        },
-      },
-      {
-        id: "api",
-        label: "Online API",
-        note: "Payments taken inside your own app or site through Square's APIs.",
-        rates: {
-          free: { rate: 2.9, fixed: 0.3 },
-          plus: { rate: 2.9, fixed: 0.3 },
-          premium: { rate: 2.9, fixed: 0.3 },
-        },
-      },
-      {
-        id: "keyed",
-        label: "Manual entry or card on file",
-        rates: {
-          free: { rate: 3.5, fixed: 0.15 },
-          plus: { rate: 3.5, fixed: 0.15 },
-          premium: { rate: 3.5, fixed: 0.15 },
-        },
-      },
-      {
-        id: "afterpay",
-        label: "Afterpay",
-        rates: {
-          free: { rate: 6, fixed: 0.3 },
-          plus: { rate: 6, fixed: 0.3 },
-          premium: { rate: 6, fixed: 0.3 },
-        },
-      },
-      {
-        id: "ebt",
-        label: "EBT",
-        note: "Fees waived while the feature is in beta.",
-        rates: {
-          free: { rate: 1.8, fixed: 0.05 },
-          plus: { rate: 1.8, fixed: 0.05 },
-          premium: { rate: 1.8, fixed: 0.05 },
-        },
-      },
-    ],
-    addOns: [{ id: "intl", label: "Card issued outside the US", rate: 1.5 }],
-    extras: [
-      { label: "ACH by invoice", value: "1%, $1 minimum, $10 fee cap on Plus and Premium" },
-      { label: "Gift card load", value: "2.5% on Free and Plus, 0% on Premium" },
-      { label: "Monthly plan fee", value: "$0, $49 or $149 per location" },
-      { label: "Standard payouts", value: "Next business day" },
-    ],
-  },
-};
-
-export const getRateCard = (key: RateCardKey): RateCard => RATE_CARDS[key];
 
 /**
  * The effective-rate verdict ladder, shown as the output of every fee tool.
