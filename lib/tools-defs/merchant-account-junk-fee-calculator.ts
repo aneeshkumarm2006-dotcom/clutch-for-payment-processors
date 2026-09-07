@@ -45,9 +45,9 @@ export const JUNK_FEE_TOOL: ToolDef = {
   slug: "merchant-account-junk-fee-calculator",
   name: "Junk Fee Annualizer",
   h1: "Merchant account fees calculator",
-  title: "Merchant account fees calculator: hidden fees annualized",
+  title: "Merchant Account Fees Calculator | Estimate Hidden Fees",
   description:
-    "Tick the small fixed merchant account fees on your statement to get the annual total, what they add to your rate in basis points, and which ones come off.",
+    "Use our merchant account fees calculator to estimate annual fixed fees, PCI charges, gateway costs, terminal rentals, and their impact on your processing rate.",
   intro:
     "A service fee, a PCI fee, a gateway fee and a terminal rental each look like nothing at around $10 to $35 a month. On a store running $15,000 a month they come to $1,323 a year, which is 0.735 percent, or 74 basis points, sitting on top of whatever rate you were quoted. The Junk Fee Annualizer adds up the fixed lines on a US merchant statement, converts the total into basis points on your own volume, and ranks them by how easily each one comes off. Two of them usually come off for the asking.",
   tier: 2,

@@ -49,9 +49,9 @@ export const ADYEN_FEE_TOOL: ToolDef = {
   slug: "adyen-fee-calculator",
   name: "Adyen Fee Calculator",
   h1: "Adyen fee calculator: what interchange++ actually costs",
-  title: "Adyen fee calculator: the real cost of a payment",
+  title: "Adyen Fee Calculator | Calculate Adyen Processing Fees",
   description:
-    "Adyen fee calculator for US merchants. Splits a payment into interchange, card scheme fees and Adyen's own 0.60 percent plus 13 cents, then prices a month.",
+    "Use our Adyen fee calculator to estimate interchange++, scheme fees, Adyen processing fees, transaction costs, and your effective payment rate.",
   intro:
     "The Adyen Fee Calculator prices a payment the way Adyen bills it, in three parts rather than one. An $85 online sale on a Visa rewards card costs $2.61: $1.83 of interchange to the card issuer, $0.14 of scheme fees to Visa, and $0.64 to Adyen, which is its 0.60 percent acquirer fee plus its $0.13 fixed processing fee. Only that last 24.5 percent is Adyen's money, and only that last 24.5 percent is negotiable. Enter a payment or a month of volume and this tool splits all three and compares the total against a 2.9 percent plus 30 cents flat rate.",
   tier: 3,

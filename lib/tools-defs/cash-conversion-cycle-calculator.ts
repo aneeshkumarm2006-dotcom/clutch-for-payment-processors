@@ -65,9 +65,9 @@ export const CASH_CONVERSION_CYCLE_TOOL: ToolDef = {
   slug: "cash-conversion-cycle-calculator",
   name: "Cash Conversion Cycle and DSO Calculator",
   h1: "Cash conversion cycle calculator: DSO, DIO and DPO in days and dollars",
-  title: "Cash conversion cycle calculator with DSO in dollars",
+  title: "Cash Conversion Cycle Calculator: DSO, DIO & DPO",
   description:
-    "Calculate your cash conversion cycle and DSO on both balance conventions, run a countback DSO for seasonal sales, and see what one day is worth in dollars.",
+    "Calculate cash conversion cycle, DSO, DIO and DPO in days and dollars. Compare average and ending balances, model seasonal DSO and value working capital.",
   intro:
     "Your cash conversion cycle is DSO plus DIO minus DPO, and on the figures loaded below it is 55.3 days. That is where every other page stops. One day of that cycle is a specific amount of money: at $2.4 million of credit sales a day of DSO is $6,575, so collecting five days sooner releases $32,877 of cash you have already earned. This Cash Conversion Cycle and DSO Calculator computes both balance conventions, runs a countback DSO for seasonal sales, and prices the days in dollars at your own borrowing rate.",
   tier: 2,

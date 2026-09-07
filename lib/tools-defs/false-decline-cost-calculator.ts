@@ -54,9 +54,9 @@ export const FALSE_DECLINE_TOOL: ToolDef = {
   slug: "false-decline-cost-calculator",
   name: "False Decline Cost Calculator",
   h1: "False decline cost calculator: what refusing good customers costs",
-  title: "False decline cost calculator: approval rate to dollars",
+  title: "False Decline Cost Calculator | Calculate Lost Profit",
   description:
-    "Price what false declines cost in lost revenue, gross profit and lifetime value, net of the fraud your rules stopped, plus what one approval point is worth.",
+    "Use the False Decline Cost Calculator to estimate lost profit from good customers refused at checkout and see what each approval-rate point is worth.",
   intro:
     "A false decline is a real customer your rules refused by mistake, and unlike fraud it arrives with no chargeback notice, no fee and no record, so it never appears in a report you already run. That is why most merchants have never priced it. On 12,000 order attempts a month at an 87 percent approval rate, a $96 average order and a 42 percent margin, the False Decline Cost Calculator puts the loss at $266,603 a year against $158,776 of fraud prevented, a net loss of $107,827. It also prices one percentage point of approval rate, which on that volume is $58,061 a year in gross profit.",
   tier: 3,

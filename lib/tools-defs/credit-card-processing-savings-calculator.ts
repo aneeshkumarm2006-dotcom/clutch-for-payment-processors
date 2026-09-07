@@ -64,9 +64,9 @@ export const PROCESSING_SAVINGS_TOOL: ToolDef = {
   slug: "credit-card-processing-savings-calculator",
   name: "Processing Savings Calculator",
   h1: "Credit card processing savings calculator",
-  title: "Credit card processing savings calculator: am I overpaying?",
+  title: "Credit Card Processing Savings Calculator | Estimate Savings",
   description:
-    "Credit card processing savings calculator that splits your statement into pass through and negotiable markup, then prices six real fixes in annual dollars.",
+    "Use our credit card processing savings calculator to estimate annual savings, processor markup, effective rates, ACH savings, and fee reductions.",
   intro:
     "This credit card processing savings calculator starts from your last statement rather than from a sales quote. On $120,000 a month at a 3.15 percent effective rate, the Processing Savings Calculator finds $18,056.64 a year and shows exactly where each dollar of it sits. The mechanism is one subtraction: total fees minus interchange and assessments leaves the processor markup, and the markup is the only part of your bill anybody can change. It then prices six concrete fixes against your own volume, in the order they have to happen, because most of them touch the same dollars.",
   tier: 1,

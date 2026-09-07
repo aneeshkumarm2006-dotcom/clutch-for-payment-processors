@@ -60,9 +60,9 @@ export const BNPL_FEE_TOOL: ToolDef = {
   slug: "bnpl-fee-calculator",
   name: "BNPL Merchant Cost Calculator",
   h1: "BNPL merchant fees and break-even calculator",
-  title: "BNPL merchant fees: Klarna, Afterpay and Affirm cost",
+  title: "BNPL Merchant Fees Calculator | Estimate Break-Even Costs",
   description:
-    "Klarna, Afterpay, Affirm, Zip, Sezzle and PayPal Pay Later US merchant fees, plus the break-even: how many extra orders BNPL must create to pay for itself.",
+    "Use our BNPL merchant fees calculator to estimate buy now pay later costs, extra processing fees, break-even sales, margin impact, and required incremental orders.",
   intro:
     "BNPL merchant fees run from 4.5 to 8 percent plus a 30 to 49 cent fixed fee in the United States, against 2.9 percent plus 30 cents on a card, so a $120 sale costs $7.49 through Klarna and $3.78 on a card. That makes the fee the wrong question. The right one is the break-even: on 1,200 orders a month at a 12 percent BNPL mix, nine genuinely new orders, a lift of 0.74 percent, pays for the 108 sales that merely switched. This BNPL Merchant Cost Calculator computes that break-even on incremental sales rather than on total BNPL volume, which is where every vendor case study goes wrong.",
   tier: 2,

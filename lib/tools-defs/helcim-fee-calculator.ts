@@ -64,9 +64,9 @@ export const HELCIM_FEE_TOOL: ToolDef = {
   slug: "helcim-fee-calculator",
   name: "Helcim Fee Calculator",
   h1: "Helcim fee calculator",
-  title: "Helcim fee calculator: interchange plus your volume band",
+  title: "Helcim Fee Calculator | Calculate Helcim Processing Fees",
   description:
-    "Helcim fee calculator for US merchants: price a month on Helcim's interchange-plus schedule with your own card mix, volume band markup and tier crossover.",
+    "Use our Helcim fee calculator to estimate processing fees, interchange, assessments, Helcim markup, and effective rates for your business.",
   intro:
     "Helcim does not publish a rate, it publishes a margin. What you pay is interchange, plus card network assessments, plus a Helcim markup that starts at 0.40% and 8 cents in person and steps down automatically as your monthly volume rises. On $30,000 a month across 500 card-present sales at a typical US card mix, this Helcim Fee Calculator returns $655.37, an effective rate of 2.18%, and only $160 of that is Helcim. The rest is network cost that follows you to whichever processor you use.",
   tier: 2,

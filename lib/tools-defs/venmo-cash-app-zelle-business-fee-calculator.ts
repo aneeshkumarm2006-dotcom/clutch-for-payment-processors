@@ -39,9 +39,9 @@ export const P2P_BUSINESS_FEE_TOOL: ToolDef = {
   slug: "venmo-cash-app-zelle-business-fee-calculator",
   name: "Venmo, Cash App and Zelle Business Fee Calculator",
   h1: "Venmo, Cash App and Zelle business fee calculator",
-  title: "Venmo, Cash App and Zelle business fee calculator",
+  title: "Venmo Cash App Zelle Business Fee Calculator",
   description:
-    "Compare Venmo, Cash App and Zelle business fees on a month of sales: seller fee per payment, instant transfer cost, and which ones let a buyer dispute.",
+    "Compare Venmo, Cash App, and Zelle business fees with our calculator. Estimate transaction fees, instant transfer costs, and effective rates.",
   intro:
     "Venmo, Cash App and Zelle are three different products and only two of them charge you anything. A Venmo business profile takes 1.9% plus $0.10 of each payment. A Cash App Business account takes 2.6% plus $0.15. Zelle takes nothing, because it is a bank to bank message rather than a payment service, and it arrives with no purchase protection, no way to dispute, and no Form 1099-K. This Venmo, Cash App and Zelle Business Fee Calculator prices a month of sales on all three, adds the instant transfer fee if you take one, and shows which of them lets your customer reverse the payment.",
   tier: 1,

@@ -81,9 +81,9 @@ export const TOAST_FEE_TOOL: ToolDef = {
   slug: "toast-fee-calculator",
   name: "Toast Fee Calculator",
   h1: "Toast fee calculator for US restaurants",
-  title: "Toast fee calculator: what Toast POS really costs",
+  title: "Toast Fee Calculator | Calculate Toast Processing Fees",
   description:
-    "Toast fee calculator for US restaurants: price both published Starter Kit rates, 3.09 and 2.49 percent, and see the card fee you pay on every tip you take.",
+    "Use our Toast fee calculator to estimate processing fees, transaction costs, tips, and monthly Toast plan costs for your restaurant.",
   intro:
     "The Toast Fee Calculator prices Toast's two published US card rates, 3.09 percent on the Pay-as-you-Go Starter Kit and 2.49 percent on the Traditional Starter Kit, against the number that actually reaches your statement: gross card volume with the tips inside it. Every other Toast plan carries a quoted rate, and Toast's own fees page says so. At Toast's published 19.3 percent full service tip average, 16.2 percent of everything you process is money handed straight to staff that still attracts a card fee. On $70,400 of card food and drink sales that is $419.84 a month.",
   tier: 2,

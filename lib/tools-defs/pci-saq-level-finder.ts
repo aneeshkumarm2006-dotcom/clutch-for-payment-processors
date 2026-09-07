@@ -42,9 +42,9 @@ export const PCI_SAQ_TOOL: ToolDef = {
   slug: "pci-saq-level-finder",
   name: "PCI SAQ Level Finder",
   h1: "PCI SAQ Level Finder: which SAQ do I need?",
-  title: "Which SAQ do I need? PCI SAQ and merchant level finder",
+  title: "PCI SAQ Level Finder | Find Your Required SAQ",
   description:
-    "Which SAQ do I need? Answer four questions to see the likely PCI SAQ for your payment channel, SAQ A or A-EP or B-IP or D, and your merchant level.",
+    "Use our PCI SAQ Level Finder to identify the right PCI DSS self-assessment questionnaire and merchant level based on how you accept payments.",
   intro:
     "Which SAQ you need is decided by how you accept payments. How you validate is decided by how much you process. Those are two different classifications, and mixing them up is why this question is hard to answer online. Merchant level, 1 to 4, comes from annual transaction count per card brand. SAQ type, A through D, comes from your checkout, your terminal or your virtual terminal. Nearly every small US merchant is Level 4 and still has to pick the right SAQ. The PCI SAQ Level Finder answers both, separately, against PCI DSS v4.0.1.",
   tier: 2,

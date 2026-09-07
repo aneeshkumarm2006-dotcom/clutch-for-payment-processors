@@ -38,9 +38,9 @@ export const REFUND_COST_TOOL: ToolDef = {
   slug: "refund-cost-calculator",
   name: "Refund Cost Calculator",
   h1: "Refund cost calculator: what a refunded order really costs",
-  title: "Refund cost calculator: do you get processing fees back?",
+  title: "Refund Cost Calculator | Estimate Refund Processing Costs",
   description:
-    "Refund cost calculator for US merchants: what refunded orders cost in processing fees you never get back, and the real effective rate your returns create.",
+    "Use our refund cost calculator to estimate retained processing fees, refund costs, effective rates, restocking expenses, and return shipping costs.",
   intro:
     "This Refund Cost Calculator prices the thing most merchants only find out from a statement: when you refund a customer, US processors keep the processing fee. Stripe, PayPal, Square, Braintree, Helcim and Shopify Payments all say so in writing, and Authorize.net charges another 10 cents to run the refund transaction. A $90 order refunded in full costs you $2.91 outright at 2.9 percent plus 30 cents. At a 19.3 percent return rate that is $13,479.12 a year, and it turns a 3.23 percent effective rate into 4.01 percent on the revenue you actually keep.",
   tier: 2,

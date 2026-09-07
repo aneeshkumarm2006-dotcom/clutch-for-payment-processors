@@ -40,9 +40,9 @@ export const AUTHORIZE_NET_FEE_TOOL: ToolDef = {
   slug: "authorize-net-fee-calculator",
   name: "Authorize.Net Fee Calculator",
   h1: "Authorize.Net Fee Calculator: All-in-One vs Gateway Only",
-  title: "Authorize.Net fee calculator: both plans priced",
+  title: "Authorize.Net Fee Calculator | Calculate Processing Fees",
   description:
-    "Price Authorize.Net All-in-One against Payment Gateway Only, including the 10 cent daily batch fee that costs 25 dollars a year and nobody else counts.",
+    "Use our Authorize.Net fee calculator to estimate All-in-One and Gateway Only fees, transaction costs, batch fees, merchant account rates, and effective processing rates.",
   intro:
     "An accurate Authorize.Net fee calculator has to start by asking which of the two pricing shapes you are actually on, because mixing the two up is the mistake almost every merchant pricing Authorize.Net makes at least once. All-in-One is $25.00 a month plus 2.9% and 30 cents, with a merchant account bundled. Payment Gateway Only is $25.00 a month plus 10 cents a transaction plus a 10 cent daily batch fee, and the card percentage belongs to your own acquirer, not to Authorize.Net. This Authorize.Net Fee Calculator prices both, and annualizes the fee nobody counts: 10 cents across 250 US business days is $25.00 a year, an extra month of gateway bill.",
   tier: 2,

@@ -82,9 +82,9 @@ export const INVOICE_FACTORING_TOOL: ToolDef = {
   slug: "invoice-factoring-calculator",
   name: "Invoice Factoring Rate to APR Calculator",
   h1: "Invoice factoring calculator: discount rate to real APR",
-  title: "Invoice factoring calculator: rate to real APR",
+  title: "Invoice Factoring Calculator: Calculate Real APR & Costs",
   description:
-    "Turn an invoice factoring rate into a real annualized cost. Prices the fee on the invoice face value but annualizes it on the cash actually advanced to you.",
+    "Calculate invoice factoring fees, effective APR, advance costs and annualized rates. Compare discount rates with the true cost of factoring your invoices.",
   intro:
     "Every invoice factoring calculator gives you the fee, and almost none gives you the rate. A 3 percent factoring fee on a 30 day invoice is not 3 percent: at an 85 percent advance rate it is 42.94 percent a year, because the fee is charged on the invoice face value while the only cash you received was the advance. This Invoice Factoring Rate to APR Calculator computes both figures and labels them, using the annualization method California's commercial financing rules require by name, so you can see which one your factor quoted and what the deal costs against a term loan.",
   tier: 2,

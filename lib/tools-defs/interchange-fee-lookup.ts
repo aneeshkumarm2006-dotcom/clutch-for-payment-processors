@@ -42,9 +42,9 @@ export const INTERCHANGE_LOOKUP_TOOL: ToolDef = {
   slug: "interchange-fee-lookup",
   name: "Interchange Fee Lookup",
   h1: "Interchange fee lookup: current US Visa and Mastercard rates",
-  title: "Interchange fee lookup: 196 US Visa and Mastercard rates",
+  title: "Interchange Fee Lookup | US Visa & Mastercard Rates",
   description:
-    "Search 196 current US interchange rates from the April 2026 Visa and Mastercard sheets, filter by category and channel, and price any amount instantly.",
+    "Use our interchange fee lookup to compare current US Visa and Mastercard interchange rates by card type, merchant category, channel, and transaction amount.",
   intro:
     "Interchange is the fee your acquirer pays the card issuer on every card sale, and on interchange plus pricing it passes straight through to you at cost. This Interchange Fee Lookup carries 196 published US programs, 119 from the Visa sheet effective 18 April 2026 and 77 from the Mastercard sheet effective 17 April 2026, searchable by program, card product, merchant category and acceptance channel, and priced on whatever amount you type in. The spread is the point. The same $50 card present sale costs 24 cents on regulated debit and $1.68 if it downgrades to Non-Qualified.",
   tier: 1,

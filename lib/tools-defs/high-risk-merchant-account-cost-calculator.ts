@@ -62,9 +62,9 @@ export const HIGH_RISK_COST_TOOL: ToolDef = {
   slug: "high-risk-merchant-account-cost-calculator",
   name: "High-Risk Account True Cost Calculator",
   h1: "High risk merchant account fees: the total cost of acceptance",
-  title: "High risk merchant account fees: true cost calculator",
+  title: "High Risk Merchant Account Fees: Calculate Total Cost",
   description:
-    "Total every high risk merchant account fee: the elevated rate, monthly and card brand registration fees, chargeback fees and what a rolling reserve costs.",
+    "Calculate the true cost of a high risk merchant account, including processing rates, transaction fees, reserves, card brand fees and other costs.",
   intro:
     "A high risk merchant account is not just a higher percentage. On $150,000 a month at a $75 ticket, a 3.95% rate plus $0.25 a transaction, $80 of monthly fixed fees, $1,950 of annual card brand registrations, Mastercard's new specialty fees, a second merchant account for redundancy and a 10% rolling reserve held six months comes to $103,775 a year, which is 5.77% of volume. The same business on a standard 2.9% plus $0.30 account pays $63,000. The High-Risk Account True Cost Calculator totals every line and prices the classification itself at $40,775 a year.",
   tier: 2,

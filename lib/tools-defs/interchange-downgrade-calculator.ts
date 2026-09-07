@@ -45,9 +45,9 @@ export const INTERCHANGE_DOWNGRADE_TOOL: ToolDef = {
   slug: "interchange-downgrade-calculator",
   name: "Interchange Downgrade Cost Calculator",
   h1: "Interchange Downgrade Cost Calculator",
-  title: "Interchange downgrade calculator: what a downgrade costs",
+  title: "Interchange Downgrade Cost Calculator | Calculate Fees",
   description:
-    "Price every interchange downgrade against the published Visa and Mastercard US rate sheets: late batches, missing AVS, and Level 2 and Level 3 data.",
+    "Use our interchange downgrade cost calculator to estimate downgrade fees, Level 2 and Level 3 data savings, and the cost of payment processing rate downgrades.",
   intro:
     "An interchange downgrade is what happens when a transaction fails to qualify for the interchange program it was eligible for and clears in a more expensive one instead. It has no price of its own. The cost is the gap between two rows on a network rate sheet, so it depends entirely on the card. On Visa's April 2026 schedule a corporate card sent without enhanced data falls from Commercial Product 3 at 1.75% plus 10 cents to Commercial Card Not Present at 2.70% plus 10 cents, which is 95 basis points on that sale. The Interchange Downgrade Cost Calculator prices each cause against your own volume and ranks them.",
   tier: 2,

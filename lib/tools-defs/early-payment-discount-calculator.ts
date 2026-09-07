@@ -66,9 +66,9 @@ export const EARLY_PAYMENT_DISCOUNT_TOOL: ToolDef = {
   slug: "early-payment-discount-calculator",
   name: "Early Payment Discount to APR Calculator",
   h1: "Early payment discount and 2/10 net 30 calculator",
-  title: "2/10 net 30 calculator: early payment discount to APR",
+  title: "2/10 Net 30 Calculator: Early Payment Discount APR",
   description:
-    "Turn 2/10 net 30 into an annual rate. Get both the nominal 37.24 percent and the compounded 44.59 percent effective rate, and what a discount costs a seller.",
+    "Calculate the annual cost of skipping early payment discounts, including 2/10 net 30 APR, effective rate, break-even borrowing cost and savings.",
   intro:
     "On 2/10 net 30, skipping the discount costs 37.24 percent a year nominal, or 44.59 percent as a compounded effective annual rate. The arithmetic is 0.02 divided by 0.98, which is 2.0408 percent for the 20 days between day 10 and day 30, multiplied by the 18.25 such periods in a 365 day year. The Early Payment Discount to APR Calculator publishes both figures because almost every competing 2/10 net 30 calculator prints only the first and labels it an APR. It also runs the trade backwards, for the supplier deciding whether to offer the discount at all.",
   tier: 3,

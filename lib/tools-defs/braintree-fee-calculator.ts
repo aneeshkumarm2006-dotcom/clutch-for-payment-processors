@@ -49,9 +49,9 @@ export const BRAINTREE_FEE_TOOL: ToolDef = {
   slug: "braintree-fee-calculator",
   name: "Braintree Fee Calculator",
   h1: "Braintree fee calculator",
-  title: "Braintree fee calculator: card, PayPal, Venmo and ACH rates",
+  title: "Braintree Fee Calculator | Calculate Braintree Processing Fees",
   description:
-    "Braintree fee calculator for US merchants: price cards at 2.89 percent plus 29 cents, the PayPal wallet and Venmo rates, and ACH with its 5 dollar cap.",
+    "Use our Braintree fee calculator to estimate processing fees, transaction costs, PayPal and Venmo fees, ACH charges, and effective rates.",
   intro:
     "Braintree fees start at 2.89% plus 29 cents on a US card, but the customer decides which price you actually pay. Braintree is owned by PayPal, and a PayPal wallet payment taken inside Braintree bills under your PayPal account terms instead, which is 3.49% plus 49 cents. Venmo is the same. On a $60 order that is $2.02 against $2.58, a 56 cent gap on every wallet checkout. This Braintree Fee Calculator prices each method separately, including ACH at 0.75% capped at $5.00 and the two 1% cross-border add-ons.",
   tier: 2,

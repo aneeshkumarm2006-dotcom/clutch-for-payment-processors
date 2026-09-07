@@ -66,9 +66,9 @@ export const LOAN_AMORTIZATION_TOOL: ToolDef = {
   slug: "business-loan-amortization-calculator",
   name: "Business Loan Amortization Calculator",
   h1: "Business loan amortization calculator",
-  title: "Business loan amortization calculator with fees and APR",
+  title: "Business Loan Amortization Calculator: Payment & APR",
   description:
-    "Business loan amortization calculator that nets origination and SBA guaranty fees out of the disbursement, solves the real APR, and ends the schedule on zero.",
+    "Calculate business loan payments, amortization, total interest and fee-adjusted APR. Compare loan costs, extra payments and balloon balances with precision.",
   intro:
     "A business loan amortization calculator is only useful if it prices the fees. Borrow $250,000 at 9.25 percent over ten years and the payment is $3,200.82, but a 2 percent origination fee and $1,500 of closing costs come out of the disbursement, so $243,500 lands in the account while you repay all $250,000. The real APR is 9.87 percent, not 9.25. This Business Loan Amortization Calculator solves that rate the way Regulation Z does, builds the full schedule, and lands the final payment exactly on zero.",
   tier: 1,

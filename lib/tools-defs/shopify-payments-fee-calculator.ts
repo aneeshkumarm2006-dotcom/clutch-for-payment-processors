@@ -39,9 +39,9 @@ export const SHOPIFY_PAYMENTS_FEE_TOOL: ToolDef = {
   slug: "shopify-payments-fee-calculator",
   name: "Shopify Payments Fee Calculator",
   h1: "Shopify fee calculator",
-  title: "Shopify fee calculator: rates by plan and gateway",
+  title: "Shopify Fee Calculator | Calculate Shopify Payment Fees",
   description:
-    "Shopify fee calculator that stacks all three costs: the plan fee, the Shopify Payments card rate for your plan and channel, and the third-party gateway fee.",
+    "Use our Shopify fee calculator to estimate Shopify Payments fees, transaction fees, plan costs, and third-party gateway charges for your store.",
   intro:
     "The Shopify Payments Fee Calculator prices an order twice, because Shopify can bill you twice. An $80 order on Basic costs $2.62 through Shopify Payments. The same $80 order taken through Stripe costs $4.22, because Stripe charges 2.9% plus 30 cents and Shopify then adds a 2% third-party transaction fee on top of it. That second fee buys no processing at all. Most Shopify fee calculator results show one of those two numbers and quietly drop the other.",
   tier: 1,

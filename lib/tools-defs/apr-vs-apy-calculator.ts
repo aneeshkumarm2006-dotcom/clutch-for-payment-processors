@@ -49,9 +49,9 @@ export const APR_VS_APY_TOOL: ToolDef = {
   slug: "apr-vs-apy-calculator",
   name: "APR vs APY Converter",
   h1: "APR vs APY converter",
-  title: "APR vs APY calculator: convert APR to APY and back",
+  title: "APR vs APY Converter: Convert Rates & Compare Interest",
   description:
-    "Convert APR to APY or APY to APR across nine compounding frequencies including continuous, and see the dollar gap on your own balance, not just the points.",
+    "Convert APR to APY or APY to APR with different compounding schedules. Compare effective rates and see the dollar impact of compounding on your balance.",
   intro:
     "APR vs APY is a compounding question. APR is a nominal annual rate that ignores compounding inside the year, and APY is the effective annual yield with the compounding counted, which is why Regulation DD makes US banks advertise it. The gap is real money: 24.99 percent APR compounded daily is an APY of 28.379 percent, so a $10,000 balance costs $2,837.87 of interest in a year rather than $2,499.00. The APR vs APY Converter runs the conversion in both directions, across nine compounding schedules from annual to continuous, and prints the dollar difference beside the percentage one.",
   tier: 3,

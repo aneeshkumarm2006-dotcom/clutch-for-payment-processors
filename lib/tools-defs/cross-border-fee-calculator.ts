@@ -49,9 +49,9 @@ export const CROSS_BORDER_FEE_TOOL: ToolDef = {
   slug: "cross-border-fee-calculator",
   name: "Cross-Border and FX Markup Calculator",
   h1: "Cross border fee and FX markup calculator",
-  title: "Cross border fee calculator: FX markup on foreign cards",
+  title: "Cross Border Fee & FX Markup Calculator | Estimate Costs",
   description:
-    "Split the three charges on a foreign card: the network cross border fee, your processor international add-on, and the FX markup hidden in the rate.",
+    "Use our cross border fee and FX markup calculator to estimate international card fees, currency conversion markups, network charges, and blended payment costs.",
   intro:
     "A cross border fee is not one charge, it is three, and only two of them appear on your statement. The card networks bill a US acquirer 1.45% when the card was issued abroad and the sale still settled in dollars, and 1.85% when it did not. Your processor adds its own international fee on top, typically 1% to 1.5%. Then, if the money had to be converted, a currency conversion markup is taken inside the exchange rate, where it is never a line item. This Cross-Border and FX Markup Calculator separates all three and derives the markup hidden in a rate you were actually given.",
   tier: 2,

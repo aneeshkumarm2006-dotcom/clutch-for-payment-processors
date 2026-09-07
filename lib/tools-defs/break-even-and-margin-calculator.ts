@@ -67,9 +67,9 @@ export const BREAK_EVEN_MARGIN_TOOL: ToolDef = {
   slug: "break-even-and-margin-calculator",
   name: "Break-Even and Margin Markup Calculator",
   h1: "Break-Even and Margin Markup Calculator",
-  title: "Margin vs markup calculator with break-even and card fees",
+  title: "Break-Even & Margin Markup Calculator: Fees Included",
   description:
-    "Margin vs markup calculator and break-even solver that counts the card processing fee as a per unit variable cost, the one cost other margin calculators omit.",
+    "Calculate break-even units, margin, markup and contribution after card fees. Convert margin to markup and price products for a target margin.",
   intro:
     "Margin and markup are not the same number. A 50 percent markup is a 33.33 percent margin, because margin divides the profit by the price and markup divides it by the cost. The Break-Even and Margin Markup Calculator converts between them, and then does the one thing no other margin vs markup calculator does: it treats the card processing fee as a per unit variable cost. On a $24.00 item at 2.9 percent plus 30 cents that fee is exactly $1.00, which is 4.17 percent of the price, and it moves a $7,200 a month break-even from 500 units to 538.",
   tier: 2,

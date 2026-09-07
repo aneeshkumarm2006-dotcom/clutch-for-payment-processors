@@ -67,9 +67,9 @@ export const CHARGEBACK_COST_TOOL: ToolDef = {
   slug: "chargeback-cost-calculator",
   name: "True Cost of a Chargeback Calculator",
   h1: "True Cost of a Chargeback Calculator",
-  title: "Chargeback cost calculator: the true cost per dispute",
+  title: "True Cost of a Chargeback Calculator | Estimate Dispute Costs",
   description:
-    "The true cost of a chargeback: goods, fees, staff time, the representment you lose, and how many extra sales at your own margin it takes to break even.",
+    "Use our true cost of a chargeback calculator to estimate lost revenue, chargeback fees, processing costs, staff time, and total dispute exposure.",
   intro:
     "The true cost of a chargeback on a $120 order is neither $120 nor $15. On the defaults below it removes $110.73 of cash from the bank account, which is $230.73 of total exposure once the reversed sale is counted, or 1.92 times the order value. The True Cost of a Chargeback Calculator adds up all six lines, then prices the part nobody models: representment wins 44.6 percent of the time at the first cycle and 19 percent of those wins are reversed later, so fighting a $120 dispute loses money in expectation.",
   tier: 1,

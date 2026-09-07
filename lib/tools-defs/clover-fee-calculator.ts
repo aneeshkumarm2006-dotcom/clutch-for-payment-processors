@@ -38,9 +38,9 @@ export const CLOVER_FEE_TOOL: ToolDef = {
   slug: "clover-fee-calculator",
   name: "Clover Fee Calculator",
   h1: "Clover fee calculator",
-  title: "Clover fee calculator: Clover processing fees by plan",
+  title: "Clover Fee Calculator | Calculate Clover Processing Fees",
   description:
-    "Work out Clover processing fees on every published US plan, from the free Starter plan at 2.6 percent plus 10 cents to the Growth plans at 2.3 percent.",
+    "Use our Clover fee calculator to estimate processing fees, transaction costs, monthly plan fees, and Clover payment costs for your business.",
   intro:
     "Clover processing fees are set by your software plan, not by the device on your counter. Card present is 2.6% plus 10 cents on the free Starter plan, 2.5% plus 10 cents on Essentials at $29.95 a month, and 2.3% plus 10 cents on the Growth plans at $84.95 or $89.95. Typed in, online and phone payments are 3.5% plus 10 cents on every plan. This Clover Fee Calculator prices all five plans and shows the volume where a paid plan starts paying for itself, which on the $84.95 plans is $28,316.67 a month.",
   tier: 2,
