@@ -1985,3 +1985,119 @@ clean of non-ASCII generally outside the HTML entities the widgets already use.
 (`tools-more.ts:389`, `tools-more.ts:735`, `seed-braintree-profile.ts:133`) and 5
 pre-existing database ones. **The 25 new pages add none**, after seven titles and
 descriptions were rewritten to drop the banned `%`, `$` and `+` symbols.
+
+---
+
+## Trust: retiring the fabricated reviews, and a real freshness stamp (2026-09-09)
+
+Two changes made together because they are the same problem seen from both ends:
+the site was showing a rating nobody earned, and no date on numbers that go stale.
+
+### 1. The uniform 4.5 stars were fabricated, and they are now down
+
+The reported symptom was that every rated processor showed exactly 4.5 stars from
+exactly 4 reviews, which reads as fake. It read that way because it was.
+
+Live state before the change: **40 reviews, all of them seed data**, across ten
+processors (stripe, paypal, square, adyen, braintree, authorize-net, helcim, stax,
+razorpay, payu). Six reviewer names, two body templates with the processor's name
+substituted in, 27 flagged `isVerified`. A query on the whole collection returned
+**zero reviews not tagged `source: "import"`** — there was never a genuine merchant
+review on this site. The uniform 4.5 was arithmetic: `scripts/seed.ts` rotated the
+same six templates four at a time, so every processor got the same mean.
+
+It was not a cosmetic problem. `lib/engine` marked them up as `Review` +
+`AggregateRating`, which is what put star ratings in the search result. Fabricated
+review markup breaks Google's review-snippet policy, and the FTC's consumer-review
+rule (16 CFR Part 465, in force since October 2024) covers reviews misrepresented
+as a real customer's experience.
+
+**What was done.** `scripts/retire-seeded-reviews.ts` was run in its default,
+reversible mode: all 40 moved to `status: "rejected"`, and `lib/ratings.ts`
+recomputed the ten processors to `0 reviews @ 0 stars`. The rows are still in Mongo,
+so `--restore` reverses it exactly.
+
+**And the durable half:** the review block is GONE from `scripts/seed.ts`, along
+with `REVIEW_TEMPLATES`, the `ReviewCompanySize` import, and the now-unused `Review`
+and `recomputeProcessorRatings` imports. Without that, the next `npm run seed` would
+reinsert and reapprove all 40. A long comment sits where the block used to run.
+
+**Do not "fix" this by varying the numbers.** Spread-out fabricated ratings are the
+same violation, only harder to spot.
+
+**Consequences, all checked:**
+- Ten profiles now render the existing `No reviews yet` empty state and drop
+  `aggregateRating` + `review` from their `Product` node. Verified in the rendered
+  HTML, not just in theory.
+- Their `/reviews` pages keep the editor-written third-party analysis, so
+  `hasReviewContent` still returns true and the URLs stay indexable and in the
+  sitemap. The zero-review copy branch already existed and reads correctly.
+- Directory ranking: `_rankScore` is 60% `ratingAverage` + 25% `ratingCount` + 15%
+  `editorScore`. With all 58 published processors now level at zero reviews, the
+  "Recommended" sort falls back to `listingTier` then `editorScore` — which is
+  populated on **all 58** (3.8 to 4.8), so the order degrades to an editorial one
+  rather than to noise.
+- `editorScore` is worth a second look: it drives 15% of the default sort and is
+  invisible to readers. Ranking on a number nobody can see is its own trust
+  problem. Not addressed here.
+
+### 2. `lastVerifiedAt` — two dates, and the distinction is the feature
+
+New optional `Date` on Processor, set only by an editor, surfaced on the profile in
+the header meta row and as a caption under the fee table.
+
+**The rule: `lastVerifiedAt` is NOT `updatedAt`.**
+
+| stamp set | renders | schema |
+|---|---|---|
+| yes | "Fees verified {date}" | `WebPage.lastReviewed` + `dateModified` |
+| no  | "Listing updated {date}" | `dateModified` only |
+
+Deriving the badge from `updatedAt` would have been one line and would have made
+every listing claim a verification pass the moment someone fixed a typo in its
+tagline — the same unearned trust signal as the seeded reviews, one field over. The
+fallback is deliberately a weaker, true claim, so all 58 listings say something
+honest on day one and upgrade when an editor actually does the pass.
+
+**Nothing was backfilled.** All 58 sit at `lastVerifiedAt: null` and show "Listing
+updated". Filling them in without doing the checks would recreate the exact problem
+the first half of this note is about. The admin path is Processor form → Pricing
+tab → Fee verification, with a "Mark verified today" button and a Clear.
+
+**Why the schema went on a new `WebPage` node.** `dateModified` and `lastReviewed`
+are `CreativeWork` properties; `Product` is not a `CreativeWork`, so hanging them
+there would be an out-of-domain property — the same class of markup error as the
+priceless `Offer` this codebase already had to remove. `webPageJsonLd` (lib/seo.ts)
+emits `@id`, `url`, the dates, `mainEntity` → the Product's stable `#product` id,
+plus `isPartOf`/`publisher` references into the graph the public layout already
+declares. `lastReviewed` is schema.org's "date the content was last reviewed for
+accuracy", which is precisely what the stamp asserts, so it is emitted **only** when
+the stamp exists. On the reviews page `mainEntity` is omitted below one review,
+because that page's `Product` node is itself conditional and the reference would
+otherwise point at nothing.
+
+Both dates are emitted as days, not timestamps, because schema.org types them as
+`Date`.
+
+**One bug found and fixed during verification.** The visible date and the
+`<time datetime>` attribute disagreed by a day: `formatDate` renders in the render
+machine's local timezone while an ISO slice is UTC, so a listing edited at
+`2026-09-08T19:00Z` shipped `<time datetime="2026-09-08">Sep 9, 2026</time>` from a
+UTC+5:30 machine. Both halves now come from one UTC day via `resolveFreshness`,
+which also makes the stamp deterministic across build machines.
+
+`resolveFreshness` is exported and pure precisely so the claim rule is testable
+without rendering. `tests/freshness/last-verified.test.ts` (16 tests) pins: the two
+dates never merge, the stamp beats the edit date, days not timestamps, freshness
+never lands on `Product`, the reviews-page `mainEntity` guard, `""` clearing the
+field instead of coercing to 1970, a future date rejected, and "today" still
+accepted however long the server has been up (the bound is evaluated per-validation,
+not frozen at module load).
+
+### Verification
+
+`npx tsc --noEmit` clean. `next lint` clean. `npm test` 646/648 — the 2 failures are
+the pre-existing `braintree-fee-calculator` title-length assertions, confirmed
+failing on a clean stash of HEAD. `npm run audit:dashes` reports the same 12
+pre-existing stored strings and nothing new. Profile, reviews page and directory
+fetched from a dev server and inspected in the rendered HTML.

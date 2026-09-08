@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { useForm, type Path } from "react-hook-form";
+import { useForm, useFormContext, type Path } from "react-hook-form";
 import { toast } from "sonner";
 import type { ZodError } from "zod";
 import { Loader2, Star } from "lucide-react";
@@ -340,6 +340,7 @@ export function ProcessorForm({
               />
               <EnumSelectField name="payoutTime" label="Payout time" options={PAYOUT_TIMES} />
             </div>
+            <VerifiedDateField />
           </TabsContent>
 
           {/* 4. Capabilities */}
@@ -689,3 +690,61 @@ export function ProcessorForm({
 }
 
 export default ProcessorForm;
+
+// ---------------------------------------------------------------------------
+// Fee verification stamp
+// ---------------------------------------------------------------------------
+
+/**
+ * The one field on this form that is a claim rather than a fact.
+ *
+ * Setting it publishes "Fees verified {date}" on the profile and a `lastReviewed`
+ * date in the page's WebPage schema, so it must only ever be set by someone who
+ * has just compared the fee table above against the provider's own pricing page.
+ * It is deliberately NOT auto-filled on save: a stamp that moves whenever the
+ * document is written is a stamp that means nothing, and the profile already
+ * falls back to an honest "Listing updated" line from `updatedAt` when this is
+ * blank. Clearing it is a supported action, not a mistake.
+ */
+function VerifiedDateField() {
+  const form = useFormContext<ProcessorFormValues>();
+  const value = form.watch("lastVerifiedAt");
+  const today = new Date().toISOString().slice(0, 10);
+
+  return (
+    <Section
+      title="Fee verification"
+      description="Set this only after checking the fee table above against the provider's published pricing. It drives the “Fees verified” line on the public profile."
+    >
+      <div className="flex flex-wrap items-end gap-3">
+        <div className="w-52">
+          <TextField name="lastVerifiedAt" label="Fees last verified" type="date" />
+        </div>
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={() =>
+            form.setValue("lastVerifiedAt", today, { shouldDirty: true })
+          }
+          disabled={value === today}
+        >
+          {value === today ? "Verified today" : "Mark verified today"}
+        </Button>
+        {value ? (
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={() => form.setValue("lastVerifiedAt", "", { shouldDirty: true })}
+          >
+            Clear
+          </Button>
+        ) : null}
+      </div>
+      {!value && (
+        <p className="mt-2 text-small text-muted-foreground">
+          Not verified yet. The profile will show “Listing updated” with the last edit date instead.
+        </p>
+      )}
+    </Section>
+  );
+}

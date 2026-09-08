@@ -391,6 +391,14 @@ export interface ProcessorDetailData extends ProcessorCardData {
   structuredData?: IStructuredData;
   /** Editorial layer for `/processor/<slug>/reviews`. Absent = generated copy only. */
   reviewsPage?: ReviewsPageData;
+  /**
+   * ISO date an editor last checked the fees against the provider. Absent on a
+   * listing nobody has verified yet — the profile then falls back to `updatedAt`
+   * and says "updated" rather than "verified".
+   */
+  lastVerifiedAt?: string;
+  /** ISO timestamp of the last edit of any kind. Always present. */
+  updatedAt?: string;
 }
 
 const FEE_KEYS: (keyof FeesData)[] = [
@@ -412,6 +420,13 @@ const num = (v: unknown): number | undefined => {
   if (v == null || v === "") return undefined;
   const n = Number(v);
   return Number.isFinite(n) ? n : undefined;
+};
+
+/** ISO string, or undefined when the date is missing (optional `publishedAt`). */
+const isoOrUndef = (v: unknown): string | undefined => {
+  if (v == null || v === "") return undefined;
+  const d = v instanceof Date ? v : new Date(String(v));
+  return Number.isNaN(d.getTime()) ? undefined : d.toISOString();
 };
 
 /** Flatten a lean Processor (categories populated) into the full profile shape. */
@@ -479,6 +494,8 @@ export function toProcessorDetailData(doc: Lean): ProcessorDetailData {
     blocks: toBlocks(doc.blocks),
     structuredData: toStructuredData(doc.structuredData),
     reviewsPage: toReviewsPageData(doc.reviewsPage),
+    lastVerifiedAt: isoOrUndef(doc.lastVerifiedAt),
+    updatedAt: isoOrUndef(doc.updatedAt),
   };
 }
 
@@ -722,13 +739,6 @@ export function toCategoryData(doc: Lean): CategoryData {
 // `toBlogPostData` adds the rendered HTML `content` + `seo` for the post page.
 // `toAdminBlogData` is the admin list row (status + updatedAt, no body).
 // ---------------------------------------------------------------------------
-
-/** ISO string, or undefined when the date is missing (optional `publishedAt`). */
-const isoOrUndef = (v: unknown): string | undefined => {
-  if (v == null || v === "") return undefined;
-  const d = v instanceof Date ? v : new Date(String(v));
-  return Number.isNaN(d.getTime()) ? undefined : d.toISOString();
-};
 
 export interface BlogCardData {
   id: string;
@@ -1012,6 +1022,8 @@ export function toProcessorEngineEntity(
       pricingSummary: p.pricingSummary ?? p.fees.onlineCardRate,
       primaryCategory: primary ? { name: primary.name, slug: primary.slug } : undefined,
       reviews: reviews.map(toEngineReview),
+      dateModified: p.updatedAt,
+      lastReviewed: p.lastVerifiedAt,
     },
   };
 }
@@ -1044,6 +1056,8 @@ export function toProcessorReviewsEngineEntity(
       ratingCount: p.ratingCount,
       primaryCategory: primary ? { name: primary.name, slug: primary.slug } : undefined,
       reviews: reviews.map(toEngineReview),
+      dateModified: p.updatedAt,
+      lastReviewed: p.lastVerifiedAt,
     },
   };
 }

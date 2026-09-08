@@ -122,6 +122,29 @@ export const processorInput = z.object({
   demoVideoUrl: optionalUrl,
   editorScore: z.preprocess(emptyToUndefined, z.coerce.number().min(0).max(5).optional()),
 
+  /**
+   * Freshness. An editor's claim that the fee table was checked against the
+   * provider on this day — not a derived timestamp (see `models/Processor.ts`).
+   * `emptyToUndefined` first so clearing the date input clears the field rather
+   * than coercing "" into the epoch, which is what `z.coerce.date()` does with an
+   * empty string.
+   */
+  lastVerifiedAt: z.preprocess(
+    emptyToUndefined,
+    z.coerce
+      .date()
+      /*
+        Checked at validation time, not module load: a `.max(new Date())` bound is
+        frozen when the module is first imported, so a long-running server would
+        start rejecting "today" the day after it booted. The 24-hour slack absorbs
+        the timezone gap — `<input type="date">` submits "2026-09-09", which parses
+        as UTC midnight and can legitimately sit ahead of `now` for an editor west
+        of UTC.
+      */
+      .refine((d) => d.getTime() <= Date.now() + 86_400_000, "Cannot be in the future")
+      .optional(),
+  ),
+
   // Merchandising
   listingTier: z.enum(LISTING_TIERS).default("free"),
   isVerified: z.boolean().default(false),

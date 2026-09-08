@@ -24,6 +24,7 @@ import { Blocks } from "@/components/public/Blocks";
 import { Breadcrumb } from "@/components/public/Breadcrumb";
 import { RichText } from "@/components/public/RichText";
 import { RatingStars } from "@/components/public/RatingStars";
+import { LastVerified } from "@/components/public/LastVerified";
 import { ReviewsSummary } from "@/components/public/reviews/ReviewsSummary";
 import { StatStrip } from "@/components/public/StatStrip";
 import { FeeTable } from "@/components/public/FeeTable";
@@ -221,6 +222,14 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
                       {p.headquarters}
                     </span>
                   )}
+                  {/*
+                    Freshness, above the fold and next to the rating. Card rates
+                    move, and a reader comparing "2.7% + 5¢" against "2.9% + 30¢"
+                    is entitled to know how old both numbers are before they act
+                    on the difference. `LastVerified` decides between the strong
+                    claim and the weak one; it renders nothing with no date at all.
+                  */}
+                  <LastVerified verifiedAt={p.lastVerifiedAt} updatedAt={p.updatedAt} />
                 </div>
               </div>
             </div>
@@ -374,6 +383,12 @@ export default async function ProcessorProfilePage({ params }: { params: { slug:
             <div>
               <h3 className="text-label uppercase text-ink-500">Fee breakdown</h3>
               <FeeTable fees={p.fees} className="mt-3" />
+              <LastVerified
+                verifiedAt={p.lastVerifiedAt}
+                updatedAt={p.updatedAt}
+                variant="note"
+                className="mt-3"
+              />
             </div>
           </div>
         </section>

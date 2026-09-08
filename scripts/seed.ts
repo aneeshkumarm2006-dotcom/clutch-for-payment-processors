@@ -6,15 +6,13 @@ loadEnv();
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import { connectToDatabase } from "@/lib/db";
-import { BlogPost, Category, Lead, Processor, Review, SiteSettings, Submission, User } from "@/models";
+import { BlogPost, Category, Lead, Processor, SiteSettings, Submission, User } from "@/models";
 import { ensureUniqueSlug } from "@/models/slug";
-import { recomputeProcessorRatings } from "@/lib/ratings";
 import type {
   Feature,
   Integration,
   PaymentMethod,
   PricingModel,
-  ReviewCompanySize,
 } from "@/lib/enums";
 
 /**
@@ -24,15 +22,18 @@ import type {
  *
  * Idempotent: categories, processors, and blog posts are UPSERTED by slug, so
  * re-running refreshes them without creating duplicates and without touching
- * admin-created content. Seeded reviews are tagged `source: "import"` and
- * replaced wholesale each run, then ratings are recomputed via lib/ratings.ts.
+ * admin-created content.
+ *
+ * This script NO LONGER SEEDS REVIEWS. It used to, and those fabricated reviews
+ * reached production and fed real AggregateRating markup. See the long note where
+ * the block used to run, in `main()` below, before adding anything back.
  *
  * ⚠️  Rates/fees below were researched against each provider's official pricing
  *     and reputable third-party sources as of June 2026 (US standard pricing;
  *     Razorpay/PayU use India/INR pricing). Pricing changes frequently and some
  *     fields (enterprise/negotiated rates, card-present rates for online-first
  *     gateways) are not officially published — re-verify before going live.
- *     Reviews, leads, and submissions are fictional demo data.
+ *     Leads and submissions are fictional demo data.
  */
 
 // ---------------------------------------------------------------------------
@@ -703,131 +704,6 @@ const PROCESSORS: SeedProcessor[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// Review templates (rotated across processors → 4 per processor, SAMPLE DATA)
-// ---------------------------------------------------------------------------
-interface ReviewTemplate {
-  reviewerName: string;
-  reviewerTitle: string;
-  companyName: string;
-  companySize: ReviewCompanySize;
-  industry: string;
-  overallRating: number;
-  subRatings: { easeOfUse: number; pricing: number; support: number; features: number; reliability: number };
-  title: string;
-  body: (name: string) => string;
-  pros: string;
-  cons: string;
-  useCase: string;
-  monthlyVolume: "<$10k" | "$10k-$50k" | "$50k-$250k" | "$250k-$1M" | "$1M+";
-  isVerified: boolean;
-}
-
-const REVIEW_TEMPLATES: ReviewTemplate[] = [
-  {
-    reviewerName: "Jordan Reyes",
-    reviewerTitle: "Founder",
-    companyName: "Northwind Goods",
-    companySize: "11-50",
-    industry: "Retail",
-    overallRating: 5,
-    subRatings: { easeOfUse: 5, pricing: 4, support: 4, features: 5, reliability: 5 },
-    title: "Scaled with us from day one",
-    body: (name) =>
-      `We started taking payments with ${name} as a tiny shop and it has scaled with us without a hitch. Integration was straightforward and the dashboard gives us everything we need.`,
-    pros: "Reliable, great dashboard, easy to integrate",
-    cons: "Wished support was faster early on",
-    useCase: "Online store checkout and refunds",
-    monthlyVolume: "$50k-$250k",
-    isVerified: true,
-  },
-  {
-    reviewerName: "Priya Nair",
-    reviewerTitle: "Head of Finance",
-    companyName: "Lumen SaaS",
-    companySize: "51-200",
-    industry: "SaaS",
-    overallRating: 4,
-    subRatings: { easeOfUse: 4, pricing: 4, support: 3, features: 5, reliability: 4 },
-    title: "Strong feature set, watch the fees",
-    body: (name) =>
-      `${name} handles our recurring billing reliably and the reporting is solid. Fees add up at our volume, so we negotiated custom pricing once we grew.`,
-    pros: "Recurring billing, reporting, uptime",
-    cons: "Standard pricing is steep at scale",
-    useCase: "Subscription billing for a SaaS product",
-    monthlyVolume: "$250k-$1M",
-    isVerified: true,
-  },
-  {
-    reviewerName: "Marcus Bell",
-    reviewerTitle: "Owner",
-    companyName: "Bell & Co Cafe",
-    companySize: "1-10",
-    industry: "Restaurants",
-    overallRating: 5,
-    subRatings: { easeOfUse: 5, pricing: 4, support: 4, features: 4, reliability: 5 },
-    title: "Perfect for our counter",
-    body: (name) =>
-      `Setup took an afternoon and ${name} just works at the counter during the morning rush. Payouts are quick which really helps cash flow.`,
-    pros: "Fast setup, quick payouts, reliable hardware",
-    cons: "Would like more advanced reporting",
-    useCase: "In-person card payments at a cafe",
-    monthlyVolume: "$10k-$50k",
-    isVerified: false,
-  },
-  {
-    reviewerName: "Sofia Marchetti",
-    reviewerTitle: "E-commerce Manager",
-    companyName: "Atlas Apparel",
-    companySize: "51-200",
-    industry: "Retail",
-    overallRating: 4,
-    subRatings: { easeOfUse: 4, pricing: 3, support: 4, features: 4, reliability: 5 },
-    title: "Dependable for cross-border sales",
-    body: (name) =>
-      `We sell internationally and ${name} handles multiple currencies and methods without surprises. Reconciliation is much easier than our old provider.`,
-    pros: "Multi-currency, stable, good docs",
-    cons: "FX and international fees could be clearer",
-    useCase: "Cross-border online apparel sales",
-    monthlyVolume: "$250k-$1M",
-    isVerified: true,
-  },
-  {
-    reviewerName: "David Okafor",
-    reviewerTitle: "CTO",
-    companyName: "Tradeline",
-    companySize: "11-50",
-    industry: "Marketplaces",
-    overallRating: 5,
-    subRatings: { easeOfUse: 4, pricing: 4, support: 4, features: 5, reliability: 5 },
-    title: "The API made this easy",
-    body: (name) =>
-      `Building split payments for our marketplace would have taken months elsewhere. With ${name} the API and docs got us live in weeks. Webhooks are reliable.`,
-    pros: "Great API, split payments, webhooks",
-    cons: "Some advanced features need a sales call",
-    useCase: "Split payments and payouts for a marketplace",
-    monthlyVolume: "$1M+",
-    isVerified: true,
-  },
-  {
-    reviewerName: "Hannah Schmidt",
-    reviewerTitle: "Operations Lead",
-    companyName: "Greenfield Nonprofit",
-    companySize: "1-10",
-    industry: "Nonprofits",
-    overallRating: 4,
-    subRatings: { easeOfUse: 5, pricing: 5, support: 3, features: 3, reliability: 4 },
-    title: "Affordable and simple for donations",
-    body: (name) =>
-      `${name} let us set up recurring donations quickly and the cost is reasonable for a small nonprofit. Support replies could be faster but we rarely need them.`,
-    pros: "Affordable, easy recurring donations",
-    cons: "Support response times vary",
-    useCase: "Recurring donations for a nonprofit",
-    monthlyVolume: "<$10k",
-    isVerified: false,
-  },
-];
-
-// ---------------------------------------------------------------------------
 // Blog posts (3 — published; SAMPLE content)
 // ---------------------------------------------------------------------------
 interface SeedBlogPost {
@@ -1236,47 +1112,28 @@ async function main(): Promise<void> {
   // eslint-disable-next-line no-console
   console.log(`✓ ${PROCESSORS.length} processors ready`);
 
-  // --- Reviews: replace seeded (source: "import") set, then recompute ratings ---
-  const processorIds = Array.from(processorIdBySlug.values());
-  await Review.deleteMany({ processor: { $in: processorIds }, source: "import" });
+  /*
+    --- Reviews: DELIBERATELY NOT SEEDED ---
 
-  let reviewCount = 0;
-  for (let pi = 0; pi < PROCESSORS.length; pi += 1) {
-    const p = PROCESSORS[pi]!;
-    const processorId = processorIdBySlug.get(p.slug)!;
+    This block used to attach four reviews per processor from a pool of six
+    templates, tagged `source: "import"` and pre-approved. It shipped to production
+    and stayed there: 40 documents, six reviewer names, two body templates with the
+    processor's name substituted in, and all ten processors landing on exactly 4.5
+    stars because the same rotation produced the same arithmetic every time.
 
-    // 4 reviews per processor, rotating the template pool so sets differ.
-    const docs = Array.from({ length: 4 }).map((_, k) => {
-      const t = REVIEW_TEMPLATES[(pi + k) % REVIEW_TEMPLATES.length]!;
-      return {
-        processor: processorId,
-        reviewerName: t.reviewerName,
-        reviewerTitle: t.reviewerTitle,
-        companyName: t.companyName,
-        companySize: t.companySize,
-        industry: t.industry,
-        reviewerEmail: `${t.reviewerName.toLowerCase().replace(/[^a-z]+/g, ".")}@example.com`,
-        overallRating: t.overallRating,
-        subRatings: t.subRatings,
-        title: t.title,
-        body: t.body(p.name),
-        pros: t.pros,
-        cons: t.cons,
-        useCase: t.useCase,
-        monthlyVolume: t.monthlyVolume,
-        status: "approved" as const,
-        isVerified: t.isVerified,
-        source: "import" as const,
-      };
-    });
-    await Review.insertMany(docs);
-    reviewCount += docs.length;
+    That uniformity is what readers noticed, but it is the symptom. The reviews
+    were fabricated, `lib/engine` marked them up as `Review` + `AggregateRating`,
+    and that put invented star ratings into search results. Google's review-snippet
+    policy prohibits it, and the FTC's consumer-review rule (16 CFR Part 465,
+    effective October 2024) covers reviews misrepresented as a real customer's
+    experience.
 
-    // Aggregates are written ONLY by lib/ratings.ts (PRD §15).
-    await recomputeProcessorRatings(processorId);
-  }
-  // eslint-disable-next-line no-console
-  console.log(`✓ ${reviewCount} approved reviews ready (ratings recomputed)`);
+    `scripts/retire-seeded-reviews.ts` took the live ones down. Do not reinstate
+    this block, and do not "fix" the uniformity by varying the numbers — spread-out
+    fabricated ratings are the same violation, harder to spot. A processor with no
+    merchant reviews renders an honest empty state, and its reviews page already
+    carries an editor's writeup of the real third-party review record.
+  */
 
   // --- Blog posts (upsert by slug) ---
   const nowMs = Date.now();

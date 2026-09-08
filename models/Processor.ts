@@ -182,6 +182,21 @@ export interface IProcessor {
   /** Editorial layer for `/processor/<slug>/reviews`. Absent = generated copy only. */
   reviewsPage?: IProcessorReviewsPage;
 
+  /**
+   * The day an editor last checked this listing's facts — fees above all — against
+   * the provider's own published pricing.
+   *
+   * DELIBERATELY SEPARATE FROM `updatedAt`, which Mongoose bumps on every write.
+   * Fixing a typo in the tagline is not verifying a rate card, and a "fees verified"
+   * badge driven by `updatedAt` would claim a check nobody performed — the same
+   * class of unearned trust signal the seeded reviews were. Only an editor sets
+   * this, and only when they have actually done the pass.
+   *
+   * Absent is a valid, honest state: the profile falls back to "Listing updated
+   * {updatedAt}", which is a weaker claim and a true one. Never backfill it.
+   */
+  lastVerifiedAt?: Date;
+
   createdAt: Date;
   updatedAt: Date;
 }
@@ -301,6 +316,10 @@ const ProcessorSchema = new Schema<IProcessor>(
     structuredData: { type: StructuredDataSchema, default: undefined },
 
     reviewsPage: { type: ReviewsPageSchema, default: undefined },
+
+    // Editor-set freshness stamp. See the field's note on the interface for why
+    // this is not derived from `updatedAt`.
+    lastVerifiedAt: { type: Date },
   },
   { timestamps: true },
 );

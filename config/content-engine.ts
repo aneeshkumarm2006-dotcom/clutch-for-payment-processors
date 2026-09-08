@@ -7,6 +7,7 @@ import {
   itemListJsonLd,
   organizationJsonLd,
   processorJsonLd,
+  webPageJsonLd,
   webSiteJsonLd,
   type ProcessorJsonLdReview,
 } from "@/lib/seo";
@@ -107,6 +108,13 @@ export interface ProcessorEngineData {
   pricingSummary?: string;
   /** Sits between "Processors" and the profile in the breadcrumb trail, when set. */
   primaryCategory?: { name: string; slug: string };
+  /**
+   * Freshness, for the WebPage node. `dateModified` is any edit; `lastReviewed` is
+   * an editor's claim that the fees were checked, and is absent on most listings.
+   * See `webPageJsonLd` for why these do not hang off the Product.
+   */
+  dateModified?: string;
+  lastReviewed?: string;
 }
 
 /**
@@ -127,6 +135,8 @@ export interface ProcessorReviewsEngineData {
   /** The reviews actually rendered on this page (capped by the caller). */
   reviews?: ProcessorJsonLdReview[];
   primaryCategory?: { name: string; slug: string };
+  dateModified?: string;
+  lastReviewed?: string;
 }
 
 export interface CategoryEngineData {
@@ -244,6 +254,24 @@ export const contentTypes = {
           ]),
       },
       {
+        type: "WebPage",
+        label: "Page freshness (last verified)",
+        /*
+          `url` only. A WebPage with neither date is still a valid, useful node —
+          it is what carries `mainEntity` and ties the URL to the Product — and
+          `prune` drops the date keys that are absent rather than emitting nulls.
+        */
+        required: ["url"],
+        overridable: ["name", "dateModified", "lastReviewed"],
+        build: (e) =>
+          webPageJsonLd({
+            path: e.path,
+            dateModified: e.data.dateModified,
+            lastReviewed: e.data.lastReviewed,
+            mainEntityId: `${absoluteUrl(`/processor/${e.data.slug}`)}#product`,
+          }),
+      },
+      {
         type: "FAQPage",
         label: "FAQ",
         required: ["mainEntity"],
@@ -299,6 +327,32 @@ export const contentTypes = {
             { name: e.data.name, path: `/processor/${e.data.slug}` },
             { name: "Reviews", path: e.path },
           ]),
+      },
+      {
+        type: "WebPage",
+        label: "Page freshness (last verified)",
+        /*
+          `url` only. A WebPage with neither date is still a valid, useful node —
+          it is what carries `mainEntity` and ties the URL to the Product — and
+          `prune` drops the date keys that are absent rather than emitting nulls.
+        */
+        required: ["url"],
+        overridable: ["name", "dateModified", "lastReviewed"],
+        build: (e) =>
+          webPageJsonLd({
+            path: e.path,
+            dateModified: e.data.dateModified,
+            lastReviewed: e.data.lastReviewed,
+            /*
+              Only when the Product node is actually emitted. Its build() returns
+              null below a rating count of 1, and a `mainEntity` pointing at an
+              @id no node on the page declares is a reference to nothing.
+            */
+            mainEntityId:
+              (e.data.ratingCount ?? 0) > 0
+                ? `${absoluteUrl(`/processor/${e.data.slug}`)}#product`
+                : undefined,
+          }),
       },
       {
         type: "FAQPage",

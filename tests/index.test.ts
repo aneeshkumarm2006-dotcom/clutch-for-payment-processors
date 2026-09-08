@@ -5,6 +5,7 @@
  */
 import "./analyticshub/index.test";
 import "./compare/compare-pairs.test";
+import "./freshness/last-verified.test";
 import "./homepage/homepage.test";
 import "./offer/offer-slidein.test";
 import "./reviews/reviews-page.test";

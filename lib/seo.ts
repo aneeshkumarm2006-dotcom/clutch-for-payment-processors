@@ -513,6 +513,57 @@ export function guideArticleJsonLd(opts: {
 }
 
 /**
+ * `WebPage` carrying the page's freshness dates.
+ *
+ * WHY A SEPARATE NODE RATHER THAN A FIELD ON `Product`.
+ * `dateModified` and `lastReviewed` are properties of `CreativeWork` / `WebPage`.
+ * `Product` is neither, so hanging them off the Product node would be an
+ * out-of-domain property — exactly the "structured data that contains markup
+ * errors" class of problem the priceless `Offer` was just removed for. A `WebPage`
+ * node is the schema-correct home for "when was this page last checked", and it
+ * coexists with `Product` because the engine keys nodes by @type.
+ *
+ * `lastReviewed` is the interesting one and it is not a synonym for
+ * `dateModified`: schema.org defines it as the date the CONTENT was last reviewed
+ * for accuracy, which is precisely what an editor asserts by stamping
+ * `lastVerifiedAt`. It is therefore emitted ONLY when that stamp exists.
+ * `dateModified` is the honest, always-available fallback — it says the page
+ * changed, and claims nothing about anyone having checked it.
+ *
+ * `mainEntity` points the node at the Product it describes, so a crawler reads one
+ * entity with a review date rather than two unrelated things on the same URL.
+ */
+export function webPageJsonLd(opts: {
+  path: string;
+  name?: string;
+  /** ISO date/timestamp of the last edit of any kind. */
+  dateModified?: string;
+  /** ISO date an editor last checked the facts. Omit unless that actually happened. */
+  lastReviewed?: string;
+  /** `@id` of the entity this page is about, e.g. a Product node. */
+  mainEntityId?: string;
+}): Jsonld {
+  const url = absoluteUrl(opts.path);
+  // Date, not timestamp: schema.org types both of these as Date, and a full ISO
+  // instant on `lastReviewed` implies a precision an editorial pass does not have.
+  const day = (v?: string) => (v ? v.slice(0, 10) : undefined);
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    ...(opts.name ? { name: opts.name } : {}),
+    ...(day(opts.dateModified) ? { dateModified: day(opts.dateModified) } : {}),
+    ...(day(opts.lastReviewed) ? { lastReviewed: day(opts.lastReviewed) } : {}),
+    ...(opts.mainEntityId ? { mainEntity: ref(opts.mainEntityId) } : {}),
+    // Both ids are declared once per page by `baseGraph` in the public layout, so
+    // these are references into the same graph, not dangling pointers.
+    isPartOf: ref(WEBSITE_ID),
+    publisher: ref(ORG_ID),
+  };
+}
+
+/**
  * FAQPage from Q&A pairs (PRD §13). Wired into the facet, alternatives, glossary,
  * and "for-processors" pages so their answer blocks are eligible for the FAQ rich
  * result. Skip rendering when the list is empty (Google rejects an empty FAQPage).

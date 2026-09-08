@@ -256,6 +256,8 @@ export interface ProcessorFormValues {
   contractType: ContractType | "";
   freeTrial: "" | "true" | "false";
   payoutTime: PayoutTime | "";
+  /** `YYYY-MM-DD` for `<input type="date">`; "" = never verified. */
+  lastVerifiedAt: string;
 
   paymentMethods: PaymentMethod[];
   integrations: Integration[];
@@ -287,6 +289,13 @@ export interface ProcessorFormValues {
   reviewsPage: ReviewsPageFormValues;
 }
 
+/** A stored Date → the `YYYY-MM-DD` value an `<input type="date">` expects. */
+function toDateInput(v: unknown): string {
+  if (v == null || v === "") return "";
+  const d = v instanceof Date ? v : new Date(String(v));
+  return Number.isNaN(d.getTime()) ? "" : d.toISOString().slice(0, 10);
+}
+
 function blankFees(): FeesFormValues {
   return FEE_FIELDS.reduce((acc, f) => {
     acc[f.key] = "";
@@ -314,6 +323,7 @@ export function blankProcessorValues(): ProcessorFormValues {
     contractType: "",
     freeTrial: "",
     payoutTime: "",
+    lastVerifiedAt: "",
     paymentMethods: [],
     integrations: [],
     currencies: "",
@@ -378,6 +388,7 @@ export function toProcessorFormValues(doc: LeanProcessor): ProcessorFormValues {
     contractType: (doc.contractType as ProcessorFormValues["contractType"]) || "",
     freeTrial: doc.freeTrial === true ? "true" : doc.freeTrial === false ? "false" : "",
     payoutTime: (doc.payoutTime as ProcessorFormValues["payoutTime"]) || "",
+    lastVerifiedAt: toDateInput(doc.lastVerifiedAt),
     paymentMethods: (doc.paymentMethods as PaymentMethod[]) ?? [],
     integrations: (doc.integrations as Integration[]) ?? [],
     currencies: str(doc.currencies),
@@ -596,6 +607,9 @@ export function toProcessorPayload(
     contractType: blankToUndef(values.contractType),
     freeTrial: values.freeTrial === "" ? undefined : values.freeTrial === "true",
     payoutTime: blankToUndef(values.payoutTime),
+    // "" clears the stamp: `emptyToUndefined` runs before `z.coerce.date()`, which
+    // would otherwise turn an empty string into 1970.
+    lastVerifiedAt: values.lastVerifiedAt,
     paymentMethods: values.paymentMethods,
     integrations: values.integrations,
     currencies: blankToUndef(values.currencies),
@@ -728,6 +742,7 @@ export const FIELD_TAB: Record<string, string> = {
   contractType: "pricing",
   freeTrial: "pricing",
   payoutTime: "pricing",
+  lastVerifiedAt: "pricing",
   paymentMethods: "capabilities",
   integrations: "capabilities",
   currencies: "capabilities",
