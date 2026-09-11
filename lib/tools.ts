@@ -295,9 +295,9 @@ const CORE_TOOLS: ToolDef[] = [
     slug: "paypal-fee-calculator",
     name: "PayPal Fee Calculator",
     h1: "PayPal fee calculator for US sellers",
-    title: "PayPal fee calculator: US seller fees per transaction",
+    title: "PayPal Fee Calculator: Calculate PayPal Fees",
     description:
-      "Calculate what PayPal takes from a US sale across Checkout, card payments, invoices, QR code and micropayments, including the international add-on.",
+      "Calculate PayPal fees for US sellers across Checkout, Zettle, QR code and other payment methods. See your fee, net payout and effective rate for each transaction.",
     intro:
       "PayPal does not have one US rate, it has about ten, and the one you pay depends on how the money arrived. PayPal Checkout is 3.49% plus 49 cents. A card entered on your own site is 2.99% plus 49 cents. A QR code in person is 2.29% plus 9 cents. This PayPal Fee Calculator prices the channel you actually used, for US sellers.",
     tier: 1,
@@ -405,9 +405,9 @@ const CORE_TOOLS: ToolDef[] = [
     slug: "square-fee-calculator",
     name: "Square Fee Calculator",
     h1: "Square fee calculator",
-    title: "Square fee calculator: 2026 rates by plan and channel",
+    title: "Square Fee Calculator: 2026 Rates by Plan & Channel",
     description:
-      "Work out what Square takes on your sales at 2026 rates, across Free, Plus and Premium, for in-person, online, invoice, keyed and API payments.",
+      "Calculate Square's 2026 US processing fees by plan and payment method. Compare Free, Plus and Premium rates and see when upgrading actually saves money.",
     intro:
       "Square raised its US rates in 2026 and most calculators still have not updated. In-person is now 2.6% plus 15 cents on Square Free, not 2.6% plus 10 cents, and online is 3.3% plus 30 cents rather than 2.9%. This Square Fee Calculator uses the current published schedule across all three plans, so the number it gives you is the number Square charges.",
     tier: 1,
@@ -512,9 +512,9 @@ const CORE_TOOLS: ToolDef[] = [
     slug: "credit-card-processing-fee-calculator",
     name: "Processing Fee Calculator",
     h1: "Credit card processing fee calculator",
-    title: "Credit card processing fee calculator for US merchants",
+    title: "Credit Card Processing Fee Calculator: True Cost",
     description:
-      "Model what a quoted rate really costs per month, including the monthly account fees and channel mix that most processing fee calculators leave out.",
+      "Calculate your real monthly credit card processing cost using volume, transaction fees, channel mix and fixed fees. See your effective rate instead of just the quoted rate.",
     intro:
       "Most credit card processing fee calculators multiply your volume by a rate and stop there. That misses the two things that actually decide your bill: the monthly fixed fees a quote never leads with, and the split between card-present, online and keyed payments, which are priced differently. This Processing Fee Calculator models both, and tells you what your effective rate will be rather than what you were quoted.",
     tier: 1,
@@ -612,9 +612,9 @@ const CORE_TOOLS: ToolDef[] = [
     slug: "effective-rate-calculator",
     name: "Effective Rate Calculator",
     h1: "Effective rate calculator",
-    title: "Effective rate calculator: read your merchant statement",
+    title: "Effective Rate Calculator: Calculate Your True Rate",
     description:
-      "Turn your merchant statement into an effective rate, then split it into the interchange you cannot negotiate and the processor markup you can.",
+      "Calculate your true payment processing rate from your merchant statement. Separate interchange and network costs from processor markup to see what you may be able to negotiate.",
     intro:
       "Your effective rate is total fees divided by total card volume. Every calculator that ranks for this stops there, which is a dead end, because it tells you what you pay without telling you what you can change. This Effective Rate Calculator does the split that matters: pass-through cost, meaning interchange and card brand assessments, against processor markup. You cannot negotiate interchange. Markup is the only part anyone can move.",
     tier: 2,
@@ -712,9 +712,9 @@ const CORE_TOOLS: ToolDef[] = [
     slug: "interchange-plus-vs-flat-rate-calculator",
     name: "Interchange-Plus vs Flat-Rate Calculator",
     h1: "Interchange-plus vs flat-rate calculator",
-    title: "Interchange-plus vs flat-rate calculator with break-even",
+    title: "Interchange-Plus vs Flat-Rate Calculator: Break-Even",
     description:
-      "Find the monthly volume where interchange-plus pricing overtakes flat-rate, on your own average ticket and card mix, including the answer to stay put.",
+      "Compare interchange-plus and flat-rate processing costs to find your monthly break-even point. See which pricing model costs less at your actual processing volume.",
     intro:
       "Every page that ranks for this question is published by a company that sells interchange-plus processing, so every one of them concludes switch. None of them computes the point where that stops being true. This calculator returns a break-even monthly volume and a break-even average ticket, which means it can also tell you to stay exactly where you are.",
     tier: 2,
@@ -812,9 +812,9 @@ const CORE_TOOLS: ToolDef[] = [
     slug: "ach-vs-credit-card-fee-calculator",
     name: "ACH vs Card Fee Calculator",
     h1: "ACH vs credit card fee calculator",
-    title: "ACH vs credit card fee calculator for US businesses",
+    title: "ACH vs Credit Card Fee Calculator: Compare Costs",
     description:
-      "Compare what an invoice costs by ACH bank transfer against a card payment, including the fee caps that make ACH dramatically cheaper on large tickets.",
+      "Compare the cost of accepting an invoice by ACH or credit card. Account for percentage fees, transaction fees and ACH caps to see which payment method costs less.",
     intro:
       "On a $50 sale the difference between ACH and a card is small change. On a $10,000 invoice it is not close: the card takes roughly $290 and ACH takes $5.00, because almost every US ACH product caps its fee. This calculator prices both on your real invoice size, models the cap and the minimum properly, and finds the payment size where ACH starts winning.",
     tier: 2,

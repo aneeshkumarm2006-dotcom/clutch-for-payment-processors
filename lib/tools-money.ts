@@ -34,9 +34,9 @@ export const MONEY_TOOLS: ToolDef[] = [
     slug: "compound-interest-calculator",
     name: "Compound Interest Calculator",
     h1: "Compound Interest Calculator",
-    title: "Compound Interest Calculator: See What Compounding Adds",
+    title: "Compound Interest Calculator: Growth With Contributions",
     description:
-      "Project a balance with contributions at any compounding frequency, plus the figure most calculators hide: what compounding earned over simple interest.",
+      "Calculate compound interest with regular contributions at your chosen rate and compounding frequency. See how your balance and interest grow over time.",
     intro:
       "Enter an opening balance, a rate, a term, how often interest is added and what you pay in along the way. You get back your opening deposit, your contributions, the interest and the closing balance. Most calculators stop there. This one also runs the same deposits through simple interest at the same rate, because compounding only means something next to the alternative. On the defaults it comes to $2,853.16 of a $55,290.66 balance. The other $12,437.50 of interest would have turned up either way.",
     tier: 3,
@@ -200,9 +200,9 @@ export const MONEY_TOOLS: ToolDef[] = [
     slug: "simple-interest-calculator",
     name: "Simple Interest Calculator",
     h1: "Simple Interest Calculator",
-    title: "Simple Interest Calculator: Exact Interest by Day Count",
+    title: "Simple Interest Calculator: Actual/360 & Actual/365",
     description:
-      "Work out simple interest on any term in days, months or years, with the Actual/360 day count that quietly raises a commercial rate, plus the Regulation DD APY.",
+      "Calculate simple interest using Actual/360, Actual/365 or other day-count conventions. See total interest, repayment amount and the effective annual rate for the term.",
     intro:
       "Simple interest is I = P x R x T and takes four seconds to work out, so the fair question is why it needs a page. The answer is the T. A term counted in days has to be divided by an assumed year length, and US commercial lending routinely assumes 360 days instead of 365. That turns a 9.00% note into a 9.125% one without touching the rate on the paper. This calculator makes the day count an input, shows the rate the convention actually charges, and runs the result through Regulation DD's APY formula so you can hold a short-dated deal up against anything else.",
     tier: 3,
