@@ -4,7 +4,7 @@ import { ensureUniqueSlug } from "@/models/slug";
 import { seoBlogPostInput } from "@/lib/validators";
 import { handleApiError, json } from "@/lib/api";
 import { requireSeoTeam } from "@/lib/seoteam-guard";
-import { computeReadingTime, revalidateBlogPaths } from "@/lib/seoteam-posts";
+import { computeReadingTime, pingBlogPaths, revalidateBlogPaths } from "@/lib/seoteam-posts";
 import { sanitizeBlogHtml, sanitizeBlocks } from "@/lib/sanitize-html";
 import { toSeoPostRow } from "@/lib/serialize";
 
@@ -48,7 +48,11 @@ export async function POST(req: Request) {
       readingTimeMinutes: computeReadingTime(content),
     });
 
-    if (created.status === "published") revalidateBlogPaths(created.slug);
+    if (created.status === "published") {
+      revalidateBlogPaths(created.slug);
+      // A new post is an addition to the list, so the index goes up with it.
+      pingBlogPaths(created.slug, undefined, { index: true });
+    }
     return json(created.toObject(), 201);
   } catch (err) {
     return handleApiError(err);

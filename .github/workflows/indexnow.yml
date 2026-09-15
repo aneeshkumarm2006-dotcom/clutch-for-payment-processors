@@ -1,0 +1,105 @@
+name: IndexNow
+
+# Submits pages that shipped as CODE rather than through the admin panel.
+#
+# The API routes already ping IndexNow the moment an editor publishes (see
+# lib/indexnow.ts). Nothing pings when a page arrives as a commit — a new tool, a
+# new facet, a copy change in a static registry — because no write path runs. This
+# closes that half: after a deploy, fetch the live sitemap, diff it against the
+# previous run, and submit only what is new or whose <lastmod> moved.
+#
+# Setup (one time):
+#   - repo secret  INDEXNOW_KEY  — the same key as Vercel's env var, and the same
+#                                  key as the committed public/<key>.txt
+#   - repo variable SITE_URL     — optional; defaults below. Must match
+#                                  NEXT_PUBLIC_SITE_URL in Vercel exactly,
+#                                  including the www, or every submission 422s.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      submit_all:
+        description: "Submit every sitemap URL instead of only the diff"
+        type: boolean
+        default: false
+
+# One run at a time. Two concurrent runs would read the same cached snapshot and
+# each submit the same diff, and the later save would lose the earlier one.
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    env:
+      INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+      NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL || 'https://www.paymentprocessingguide.com' }}
+      SNAPSHOT: .indexnow/sitemap.json
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # tsx and the repo's own lib/ are all the script needs; there is no build.
+      - run: npm ci
+
+      # Cache keys are immutable, so the snapshot rides a rolling key: write a
+      # fresh one per run, restore the newest previous one by prefix.
+      - name: Restore sitemap snapshot
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow
+          key: indexnow-sitemap-${{ github.run_id }}
+          restore-keys: |
+            indexnow-sitemap-
+
+      # Vercel builds from the same push. Submitting before it goes live would
+      # diff the OLD sitemap and miss the release entirely, so wait it out and
+      # then confirm the site is answering.
+      #
+      # This is a timer, not a signal: it cannot tell the new deployment from the
+      # old one, only that SOMETHING is serving. For an exact trigger, swap the
+      # `push` event above for `deployment_status` and gate the job on
+      # `github.event.deployment_status.state == 'success'` — Vercel's GitHub
+      # integration fires that when the production deployment is actually live.
+      - name: Wait for the deploy to go live
+        run: |
+          sleep "${{ vars.INDEXNOW_DEPLOY_WAIT_SECONDS || 120 }}"
+          for attempt in 1 2 3 4 5 6; do
+            if curl -sSf -o /dev/null "$NEXT_PUBLIC_SITE_URL/sitemap.xml"; then
+              echo "Sitemap is serving."
+              exit 0
+            fi
+            echo "Attempt $attempt: sitemap not answering yet, retrying in 30s."
+            sleep 30
+          done
+          echo "::error::$NEXT_PUBLIC_SITE_URL/sitemap.xml never answered."
+          exit 1
+
+      # First run (or an evicted cache) seeds the snapshot and submits nothing —
+      # re-submitting the whole site every time a cache expires is how a
+      # publisher gets throttled. The next push submits a real diff.
+      - name: Submit changed URLs
+        run: |
+          if [ "${{ github.event.inputs.submit_all }}" = "true" ]; then
+            npm run indexnow:ping -- --all
+          else
+            npm run indexnow:ping -- --sitemap-diff "$SNAPSHOT"
+          fi
+
+      - name: Save sitemap snapshot
+        # Runs even when the submission failed: the script only advances the
+        # snapshot file after a clean submission, so saving a failed run's cache
+        # preserves the OLD baseline and the next push retries those URLs.
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow
+          key: indexnow-sitemap-${{ github.run_id }}

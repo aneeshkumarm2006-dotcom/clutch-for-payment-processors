@@ -2101,3 +2101,160 @@ the pre-existing `braintree-fee-calculator` title-length assertions, confirmed
 failing on a clean stash of HEAD. `npm run audit:dashes` reports the same 12
 pre-existing stored strings and nothing new. Profile, reviews page and directory
 fetched from a dev server and inspected in the rendered HTML.
+
+## IndexNow auto-indexing (2026-09-14)
+
+Publishing a page and waiting for a crawl is the slowest part of the SEO loop.
+IndexNow removes it for everyone except Google: one unauthenticated POST tells
+Bing, Yandex, Naver, Seznam and Yep that a URL is new, changed or gone.
+
+Bing is the reason to bother. It is the retrieval layer behind ChatGPT Search, so
+time-to-index in Bing is time-to-citation in an LLM answer. Google does not
+participate and never has; its discovery still comes from `app/sitemap.ts`, which
+this change does not touch.
+
+### The one manual step
+
+Nothing in this section works until somebody does this once:
+
+1. Generate a key at [bing.com/webmasters](https://www.bing.com/webmasters) →
+   IndexNow. It is 8 to 128 characters of `a-z A-Z 0-9` and dashes.
+2. Commit `public/<key>.txt` containing **exactly that key** and nothing else, so
+   it serves at `https://www.paymentprocessingguide.com/<key>.txt`.
+3. Set `INDEXNOW_KEY` to the same value in **Vercel** (production env) and as a
+   **GitHub repo secret** of the same name.
+
+The key is public by design: the file on our own domain IS the proof of
+ownership, which is why it is committed rather than hidden. The two halves must
+match or every submission 403s, and a 403 is the one response the helper logs at
+error level for exactly that reason.
+
+Optional: a repo **variable** `SITE_URL` overrides the domain the workflow pings.
+It defaults to `https://www.paymentprocessingguide.com` and must match
+`NEXT_PUBLIC_SITE_URL` in Vercel down to the `www`, or the endpoint 422s every
+URL as not belonging to the host.
+
+### Part A: `lib/indexnow.ts`
+
+`pingIndexNow(urls)` is the request-path entry point. It returns `void`, never
+throws, never blocks, and is safe to call from anywhere a write succeeds.
+`submitIndexNow(urls, opts)` is the awaitable version behind it, for the script
+and CI, which want a result.
+
+Three guards, each of which exists because the failure it prevents is silent:
+
+| guard | why |
+|---|---|
+| `VERCEL_ENV !== "production"` → no-op | A preview deployment shares the production key but serves a build nobody shipped. Submitting from one asks five crawlers to recrawl real URLs on the strength of a branch. |
+| key validated against `/^[a-zA-Z0-9-]{8,128}$/` | A malformed key and a missing key file both come back 403. Catching the malformed one locally turns a run of mystery 403s into one warning naming the cause. |
+| every URL through `toSubmittableUrl` | Dedupes, and drops anything cross-origin, query-stringed, fragmented, `NOINDEX_ROUTES`, or under `/admin`, `/seoteam`, `/analyticshub`, `/api/`. Submitting a noindexed URL asks an engine to index a page that tells it not to, the same contradiction the sitemap's indexable filters exist to avoid. |
+
+URLs resolve through `absoluteUrl` from `lib/seo.ts` — the same helper
+`app/sitemap.ts` uses — so the domain appears nowhere in this file. Batches cap at
+10,000 URLs per request, which is the protocol's limit. 200 and 202 both count as
+accepted; 403 and 422 log at error level, everything else at warn.
+
+**On fire-and-forget in a serverless function.** A floating promise lives only as
+long as the invocation that started it: once the response returns, the runtime may
+freeze the instance and the in-flight ping dies. `runInBackground` reads Vercel's
+`waitUntil` off `Symbol.for("@vercel/request-context")` rather than importing
+`@vercel/functions`, so the invocation stays open for the ping without the
+response waiting on it, and no runtime dependency was added. Where the symbol is
+absent (local dev, `next start`, any other host) the promise simply floats, which
+is what it would have done anyway. A dropped ping is not a correctness problem
+either way: the workflow below re-submits from the sitemap diff on the next
+deploy.
+
+### Part B: the publish paths
+
+| route | pings |
+|---|---|
+| `POST /api/seoteam/posts` | the post URL + `/blog`, only when created as published |
+| `PUT`/`PATCH /api/seoteam/posts/[id]` | the post URL, the old URL if the slug moved, `/blog` if the published list changed |
+| `DELETE /api/seoteam/posts/[id]` | the dead URL + `/blog`, only if it had been published |
+| `POST /api/page-seo` | the new landing page, if published and not noindexed or redirected |
+| `PUT /api/page-seo/[id]` | the page, plus the old path if a landing page moved |
+| `DELETE /api/page-seo/[id]` | the dead URL, if it had been published |
+
+`pingBlogPaths` sits next to `revalidateBlogPaths` in `lib/seoteam-posts.ts` and
+takes the same `(slug, prevSlug)` shape on purpose: one makes a change visible on
+this site, the other makes it visible to the engines, and they are called from the
+same lines so they cannot drift apart.
+
+Three decisions worth keeping:
+
+- **A removal is submitted like any other change.** IndexNow has no delete verb.
+  The engines learn a page is gone by recrawling it and finding the 404, so an
+  unpublish or a delete must still ping, and a slug change must ping both URLs.
+- **A draft that was never published is never submitted.** It has no URL an engine
+  could know about; pinging one asks five crawlers to fetch a 404 for a page that
+  never existed. This is why PUT and PATCH now select the previous `status` — an
+  unpublish is only recognisable by comparing before with after.
+- **`/blog` goes up only when the post list actually changed.** A body edit to a
+  live post pings the post alone. Submitting every URL that merely links to a
+  changed page is how a publisher gets throttled.
+
+Not wired: `/api/blog/*`, the older admin blog route. It does not call
+`revalidatePath` either, so an edit made there has never appeared on the public
+blog until the next ISR window. Fixing that is a separate change; the SEO team
+publishes through `/seoteam`, and the workflow below catches anything that slips.
+
+### Part C: `scripts/indexnow-ping.ts` + `.github/workflows/indexnow.yml`
+
+```
+npm run indexnow:ping -- /blog/my-post /processor/stripe   # named URLs
+npm run indexnow:ping -- --all --site https://www.…        # the whole sitemap
+npm run indexnow:ping -- --all --dry-run --site https://…  # print, submit nothing
+npm run indexnow:ping -- --sitemap-diff .indexnow/sitemap.json
+```
+
+The last mode is what CI runs: fetch the live sitemap, compare `<loc>` and
+`<lastmod>` against a snapshot restored from `actions/cache`, submit only what
+moved, then rewrite the snapshot. It exists because the API pings only cover pages
+published through the panel — a new tool, a new facet, a copy change in a static
+registry all arrive as commits, and no write path runs.
+
+Details that are load-bearing:
+
+- **First run seeds, it does not submit.** No snapshot means a first run or an
+  evicted cache. Submitting all 450 URLs every time a cache expires looks exactly
+  like a publisher abusing the protocol. The baseline is written silently and the
+  next push submits a real diff. `--first-run-submit` overrides.
+- **The snapshot only advances after a clean submission.** Recording URLs that
+  were rejected would mean the next run sees them as unchanged and never retries
+  them.
+- **`--site` is required for a local run,** because `.env.local` points
+  `NEXT_PUBLIC_SITE_URL` at localhost. The script refuses a local host outright
+  rather than sending a request that cannot work.
+- **`--site` has to be applied before `lib/seo` is evaluated,** which is why
+  `main()` uses `await import()` for it. `lib/seo.ts` reads
+  `NEXT_PUBLIC_SITE_URL` at module scope, and static imports hoist above the
+  assignment — the first version of this script ignored `--site` completely and
+  printed 450 localhost URLs. The other scripts survive the same `loadEnv()`
+  shape only because `lib/db` reads `MONGODB_URI` inside a function.
+- **The workflow waits, it does not listen.** `push: main` plus a sleep and a
+  sitemap poll is a timer: it knows something is serving, not that the new
+  deployment is. For an exact trigger, swap `push` for `deployment_status` and
+  gate on `state == 'success'` — Vercel's GitHub integration fires it when the
+  production deployment is genuinely live. Noted in the YAML.
+- The snapshot cache rides a rolling key (`indexnow-sitemap-<run_id>` with a
+  `restore-keys` prefix) because cache keys are immutable, and the save step runs
+  `if: always()` so a failed submission preserves the old baseline for a retry.
+
+### Verification
+
+`npx tsc --noEmit` clean. `next lint` clean. `npm test` 659/661 — the 2 failures
+are the pre-existing tool-title assertions (`toast-fee-calculator`,
+`braintree-fee-calculator`) in files this change does not touch.
+
+`tests/indexnow/indexnow.test.ts` adds 13 tests over the filter and the three
+guards. Every test that could reach the endpoint stubs `fetch` — written that way
+after the first version of the malformed-key test used `"too-short"`, which is
+nine characters, passed the 8-to-128 rule it meant to trip, and submitted this
+repo's URLs to the live endpoint under a fake key.
+
+The script was exercised against the production sitemap: 450 URLs parsed, all 450
+passing the filter with the right origin; a seeded snapshot, a no-change run
+reporting nothing to submit, and a hand-edited snapshot correctly reporting
+`2 new, 1 with a changed lastmod`. No live submission has been made — there is no
+key yet.

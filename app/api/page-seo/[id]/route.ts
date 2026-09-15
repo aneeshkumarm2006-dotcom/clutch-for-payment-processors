@@ -12,6 +12,7 @@ import {
   PRESERVE_ON_OMIT,
 } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
+import { pingIndexNow } from "@/lib/indexnow";
 import { sanitizeBlocks } from "@/lib/sanitize-html";
 
 /**
@@ -55,7 +56,12 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     await connectToDatabase();
     if (!OBJECT_ID.test(params.id)) throw new ApiError(404, "Page not found.");
 
-    const existing = await PageSeo.findById(params.id).select("kind path").lean();
+    // The publish/robots/redirect fields are selected for the IndexNow ping
+    // below: a page going dark is only visible by comparing the state before the
+    // write with the state after.
+    const existing = await PageSeo.findById(params.id)
+      .select("kind path isPublished seo.robotsIndex seo.redirectTo")
+      .lean();
     if (!existing) throw new ApiError(404, "Page not found.");
     const isLanding = existing.kind === "landing";
 
@@ -111,6 +117,35 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     }).lean();
     if (!updated) throw new ApiError(404, "Page not found.");
 
+    /**
+     * Submit the page whose meta just changed, and the URL it moved off when an
+     * editor repointed a landing page (the old one now 404s, which is exactly
+     * what the engines need to be told).
+     *
+     * The test is "indexable before OR indexable after", which is deliberately
+     * both directions:
+     *
+     *   - a draft edited into another draft, or a page that has been noindexed
+     *     all along, has nothing an engine should be asked to look at
+     *   - unpublishing, noindexing or redirecting a page that WAS live is the
+     *     most valuable ping of all: it is how the engines learn to drop it,
+     *     instead of serving a stale title for the next few weeks
+     *
+     * `isPublished` is meaningless on a `route` record (its page is in code and
+     * always live), and it defaults to `true` on those documents, so the same
+     * expression reads correctly for both kinds.
+     */
+    const indexable = (p: {
+      isPublished?: boolean;
+      seo?: { robotsIndex?: boolean; redirectTo?: string };
+    }) => p.isPublished !== false && p.seo?.robotsIndex !== false && !p.seo?.redirectTo;
+
+    if (indexable(existing) || indexable(updated)) {
+      const pingPaths = [updated.path];
+      if (existing.path !== updated.path) pingPaths.push(existing.path);
+      pingIndexNow(pingPaths);
+    }
+
     void logAudit({
       actor: session.user.id,
       action: "update",
@@ -145,6 +180,14 @@ export async function DELETE(_req: Request, { params }: { params: { id: string }
     }
 
     await PageSeo.findByIdAndDelete(params.id);
+
+    // Deleting a landing page deletes the page. Submitting the dead URL is how
+    // the engines find the 404 and drop it, instead of serving a stale title
+    // from their index for the next few weeks. Only a page that was actually
+    // indexable had a URL worth retiring — same test as the PUT above.
+    if (doc.isPublished && doc.seo?.robotsIndex !== false && !doc.seo?.redirectTo) {
+      pingIndexNow(doc.path);
+    }
 
     void logAudit({
       actor: session.user.id,

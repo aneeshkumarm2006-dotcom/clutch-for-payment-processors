@@ -3,6 +3,7 @@ import { PageSeo } from "@/models";
 import { pageSeoCreate } from "@/lib/validators";
 import { ApiError, handleApiError, json, requireAdmin, requireAdminRole } from "@/lib/api";
 import { logAudit } from "@/lib/audit";
+import { pingIndexNow } from "@/lib/indexnow";
 
 /**
  * /api/page-seo (PRD §13).
@@ -46,6 +47,14 @@ export async function POST(req: Request) {
     }
 
     const doc = await PageSeo.create(input);
+
+    // A landing page IS its record, so creating one publishes a URL that did not
+    // exist a moment ago — the single best case for IndexNow. Drafts and pages
+    // the editor noindexed or redirected on creation are skipped: the route 404s
+    // or redirects, so there is nothing to offer a crawler yet. See lib/indexnow.
+    if (doc.isPublished && doc.seo?.robotsIndex !== false && !doc.seo?.redirectTo) {
+      pingIndexNow(doc.path);
+    }
 
     void logAudit({
       actor: session.user.id,

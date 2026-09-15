@@ -32,6 +32,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# indexnow sitemap snapshot (written by `indexnow:ping --sitemap-diff`; the
+# real one lives in the GitHub Actions cache, never in the repo)
+/.indexnow
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts.bak
